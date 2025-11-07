@@ -13,6 +13,16 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   overflow: visible;
 
+  @media (max-width: 768px) {
+    height: 56px;
+    padding: 0 12px;
+  }
+
+  @media (max-width: 480px) {
+    height: 52px;
+    padding: 0 10px;
+  }
+
   .profile {
     position: relative;
     display: flex;
@@ -27,6 +37,17 @@
       object-fit: cover;
       border: 2px solid #4A90E2;
       cursor: pointer;
+
+      @media (max-width: 768px) {
+        width: 32px;
+        height: 32px;
+        border-width: 1.5px;
+      }
+
+      @media (max-width: 480px) {
+        width: 30px;
+        height: 30px;
+      }
     }
 
     .dropdown-toggle {
@@ -42,6 +63,14 @@
         font-size: 18px;
         color: #333333;
         transition: transform 0.2s ease;
+
+        @media (max-width: 768px) {
+          font-size: 16px;
+        }
+
+        @media (max-width: 480px) {
+          font-size: 14px;
+        }
 
         &:hover {
           color: #4A90E2;
@@ -69,6 +98,18 @@
         z-index: 10000;
         overflow: visible;
 
+        @media (max-width: 768px) {
+          top: 48px;
+          min-width: 140px;
+          right: -10px;
+        }
+
+        @media (max-width: 480px) {
+          top: 46px;
+          min-width: 120px;
+          right: -15px;
+        }
+
         ul {
           list-style: none;
           margin: 0;
@@ -83,6 +124,18 @@
             color: #333333;
             cursor: pointer;
 
+            @media (max-width: 768px) {
+              padding: 8px 16px;
+              font-size: 13px;
+              gap: 6px;
+            }
+
+            @media (max-width: 480px) {
+              padding: 8px 12px;
+              font-size: 12px;
+              gap: 6px;
+            }
+
             &:hover {
               background: #F4F6F9;
             }
@@ -90,6 +143,14 @@
             .menu-icon {
               font-size: 14px;
               color: #333333;
+
+              @media (max-width: 768px) {
+                font-size: 13px;
+              }
+
+              @media (max-width: 480px) {
+                font-size: 12px;
+              }
             }
           }
         }

@@ -204,66 +204,25 @@ const Notif = () => {
   return (
     <>
       <Headerz />
-      <div style={{ 
-        marginTop: '80px', 
-        padding: '2rem',
-        minHeight: 'calc(100vh - 80px)',
-        backgroundColor: '#f5f5f5'
-      }}>
-        <div style={{ 
-          display: 'flex',
-          backgroundColor: 'white',
-          borderRadius: '10px',
-          padding: '2rem',
-          boxShadow: '0 2px 10px rgba(0,0,0,0.1)'
-        }}>
-          <div style={{ 
-            width: '280px',
-            backgroundColor: 'white',
-            borderRight: '1px solid #e0e0e0',
-            padding: '2rem 0'
-          }}>
-            <h3 style={{ margin: '0 0 1.5rem 0', padding: '0 2rem' }}>Notifications</h3>
-            <div style={{ padding: '0 2rem' }}>
-              <div 
-                style={{ 
-                  padding: '1rem',
-                  cursor: 'pointer',
-                  backgroundColor: activeTab === 'all' ? '#e3f2fd' : 'transparent',
-                  borderRight: activeTab === 'all' ? '3px solid #00C4CC' : 'none'
-                }}
+      <div className="notifications-layout">
+        <div className="notifications-sidebar">
+          <div className="sidebar-header">
+            <h3>Notifications</h3>
+          </div>
+          <div className="sidebar-nav">
+            <div 
+              className={`nav-item ${activeTab === 'all' ? 'active' : ''}`}
                 onClick={() => setActiveTab('all')}
               >
-                All Notifications
+              <span>All Notifications</span>
               </div>
               <div 
-                style={{ 
-                  padding: '1rem',
-                  cursor: 'pointer',
-                  backgroundColor: activeTab === 'unread' ? '#e3f2fd' : 'transparent',
-                  borderRight: activeTab === 'unread' ? '3px solid #00C4CC' : 'none',
-                  position: 'relative'
-                }}
+              className={`nav-item ${activeTab === 'unread' ? 'active' : ''}`}
                 onClick={() => setActiveTab('unread')}
               >
-                Unread Notifications
+              <span>Unread Notifications</span>
                 {unreadCount > 0 && (
-                  <span style={{
-                    position: 'absolute',
-                    top: '50%',
-                    right: '1rem',
-                    transform: 'translateY(-50%)',
-                    backgroundColor: '#ff0000',
-                    color: 'white',
-                    borderRadius: '50%',
-                    width: '20px',
-                    height: '20px',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    fontSize: '0.8rem',
-                    fontWeight: 'bold'
-                  }}>
+                <span className="unread-count-badge">
                     {unreadCount}
                   </span>
                 )}
@@ -271,85 +230,45 @@ const Notif = () => {
             </div>
           </div>
           
-          <div style={{ flex: 1, padding: '0 2rem' }}>
-            <div style={{ 
-              backgroundColor: '#1A2A44',
-              color: 'white',
-              padding: '2rem',
-              marginBottom: '1rem',
-              borderRadius: '10px 10px 0 0',
-              display: 'flex',
-              justifyContent: 'space-between',
-              alignItems: 'center'
-            }}>
-              <h2 style={{ margin: 0 }}>
+        <div className="notifications-main">
+          <div className="main-header">
+            <h2>
                 {activeTab === 'all' ? 'All Notifications' : 'Unread Notifications'}
               </h2>
               {displayedNotifications.some(notif => notif.isUnread) && (
-                <button
-                  onClick={handleMarkAllAsRead}
-                  style={{
-                    backgroundColor: '#00C4CC',
-                    color: 'white',
-                    border: 'none',
-                    padding: '0.5rem 1rem',
-                    borderRadius: '5px',
-                    cursor: 'pointer',
-                    fontSize: '0.9rem'
-                  }}
-                >
+              <div className="header-actions">
+                <button onClick={handleMarkAllAsRead}>
                   Mark All as Read
                 </button>
+              </div>
               )}
             </div>
             
+          <div className="main-content">
             {loading ? (
-              <div style={{ 
-                textAlign: 'center',
-                padding: '4rem 2rem',
-                backgroundColor: 'white',
-                borderRadius: '0 0 10px 10px'
-              }}>
+              <div className="no-notifications">
                 <p>Loading notifications...</p>
               </div>
             ) : displayedNotifications.length > 0 ? (
-              displayedNotifications.map((notif) => (
-                <div key={notif.id} style={{ 
-                  backgroundColor: notif.isUnread ? '#f0faff' : 'white',
-                  padding: '1.5rem',
-                  marginBottom: '1rem',
-                  borderRadius: '8px',
-                  display: 'flex',
-                  alignItems: 'center',
-                  border: notif.isUnread ? '1px solid #00C4CC' : '1px solid #e0e0e0'
-                }}>
-                  <input
-                    type="checkbox"
-                    checked={selectedNotifications.includes(notif.id)}
-                    onChange={() => handleCheckboxChange(notif.id)}
-                    style={{ marginRight: '1rem' }}
-                    disabled={notif.isSystem} // Disable checkbox for system notifications
-                  />
-                  <img 
-                    src={notif.profile_img && notif.profile_img.startsWith('images/') ? notif.profile_img : (notif.profile_img ? `http://127.0.0.1:8000/storage/${notif.profile_img}` : 'images/defpfp.svg')} 
-                    alt={notif.user} 
-                    style={{ 
-                      width: '40px', 
-                      height: '40px', 
-                      borderRadius: '50%', 
-                      marginRight: '1rem',
-                      objectFit: 'cover'
-                    }} 
-                    onError={(e) => { e.target.src = 'images/defpfp.svg'; }}
-                  />
-                  <div style={{ flex: 1, cursor: 'pointer' }} onClick={() => openModal(notif)}>
-                    <p style={{ margin: '0', fontWeight: notif.isUnread ? 'bold' : 'normal' }}>
+              <div className="notifications-list">
+                {displayedNotifications.map((notif) => (
+                  <div 
+                    key={notif.id} 
+                    className={`notification-item ${notif.isUnread ? 'unread' : 'read'}`}
+                  >
+                    <div className="notification-icon">
+                      {notif.isUnread ? '' : '✓'}
+                    </div>
+                    <div className="notification-content" onClick={() => openModal(notif)}>
+                      <div className="notification-header">
+                        <h3 className="notification-title">
                       {notif.user} - {notif.action}
-                    </p>
-                    <p style={{ margin: '0.5rem 0 0', color: '#666', fontSize: '0.9rem' }}>
+                        </h3>
+                        <span className="notification-time">
                       {notif.time}
-                    </p>
-                    <p style={{ margin: '0.25rem 0 0', fontSize: '0.9rem' }}>
+                        </span>
+                      </div>
+                      <p className="notification-message">
                       {notif.message}
                     </p>
                     {notif.target_role_id && (
@@ -360,9 +279,6 @@ const Notif = () => {
                           onClick={async (e) => {
                             e.preventDefault();
                             e.stopPropagation();
-                            
-                            // For booking requests, navigate directly without role switching
-                            // This ensures workers see their booking requests page, not employer's bookings
                             navigate('/profile-settings/bookings');
                           }}
                           style={{ color: '#1a73e8', textDecoration: 'underline' }}
@@ -379,7 +295,6 @@ const Notif = () => {
                           onClick={(e) => {
                             e.preventDefault();
                             e.stopPropagation();
-                            // Navigate to address settings
                             navigate('/profile-settings/addresses');
                           }}
                           style={{ color: '#1a73e8', textDecoration: 'underline' }}
@@ -389,15 +304,40 @@ const Notif = () => {
                       </p>
                     )}
                   </div>
+                    <div className="notification-actions">
+                      {!notif.isSystem && (
+                        <>
+                          {notif.isUnread ? (
+                            <button 
+                              className="mark-read-btn"
+                              onClick={() => handleMarkAsRead(notif.id)}
+                              title="Mark as Read"
+                            >
+                              ✓
+                            </button>
+                          ) : (
+                            <button 
+                              className="mark-unread-btn"
+                              onClick={() => handleMarkAsUnread(notif.id)}
+                              title="Mark as Unread"
+                            >
+                              ↻
+                            </button>
+                          )}
+                        </>
+                      )}
+                    </div>
+                  </div>
+                ))}
                 </div>
-              ))
             ) : (
-              <div style={{ 
-                textAlign: 'center',
-                padding: '4rem 2rem',
-                backgroundColor: 'white',
-                borderRadius: '0 0 10px 10px'
-              }}>
+                <div className="no-notifications">
+                <div className="no-notifications-illustration">
+                  <div className="illustration-container">
+                    <div className="envelope"></div>
+                    <div className="paper-plane"></div>
+                  </div>
+                </div>
                 <h3>No {activeTab === 'unread' ? 'Unread' : ''} Notifications Yet.</h3>
                 <p>You're all caught up! No {activeTab === 'unread' ? 'unread' : 'new'} notifications to show.</p>
               </div>

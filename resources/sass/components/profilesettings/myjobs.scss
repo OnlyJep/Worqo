@@ -636,21 +636,25 @@
 @media (max-width: 768px) {
   .myjobs-container {
     padding: 20px;
+    border-radius: 6px;
 
     .myjobs-header {
       flex-direction: column;
       align-items: stretch;
       gap: 16px;
+      margin-bottom: 16px;
 
       .myjobs-title {
-        font-size: 24px;
+        font-size: 22px;
         text-align: center;
+        width: 100%;
       }
     }
 
     .myjobs-navigation {
       gap: 0;
       margin-bottom: 20px;
+      padding-bottom: 0;
 
       .myjobs-tab-container {
         flex: 1;
@@ -658,9 +662,9 @@
       }
 
       .myjobs-tab {
-        padding: 10px 16px;
-        font-size: 13px;
-        min-width: 100px;
+        padding: 10px 12px;
+        font-size: 12px;
+        min-width: 90px;
         width: 100%;
         text-align: center;
       }
@@ -694,6 +698,107 @@
         .myjobs-metadata {
           flex-direction: column;
           gap: 8px;
+          align-items: flex-start;
+
+          .myjobs-salary {
+            font-size: 15px;
+          }
+
+          .myjobs-status {
+            font-size: 13px;
+          }
+        }
+
+        .myjobs-info-grid {
+          .myjobs-info-item {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 8px;
+            padding: 10px 0;
+
+            .myjobs-info-label {
+              min-width: auto;
+              font-size: 13px;
+            }
+
+            .myjobs-info-value {
+              font-size: 13px;
+              width: 100%;
+            }
+          }
+        }
+
+        .myjobs-cancel-section {
+          .myjobs-cancel-btn {
+            width: 100%;
+            padding: 10px 16px;
+            font-size: 13px;
+          }
+        }
+      }
+    }
+
+    .myjobs-empty-state {
+      padding: 30px 15px;
+
+      .myjobs-empty-icon {
+        margin-bottom: 15px;
+
+        img {
+          width: 100px;
+          height: 100px;
+        }
+      }
+
+      .myjobs-empty-title {
+        font-size: 20px;
+      }
+
+      .myjobs-empty-description {
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .myjobs-container {
+    padding: 16px;
+
+    .myjobs-header {
+      .myjobs-title {
+        font-size: 20px;
+      }
+    }
+
+    .myjobs-navigation {
+      margin-bottom: 16px;
+
+      .myjobs-tab {
+        padding: 8px 10px;
+        font-size: 11px;
+        min-width: 80px;
+      }
+    }
+
+    .myjobs-card {
+      padding: 16px;
+
+      .myjobs-content {
+        .myjobs-title-row {
+          .myjobs-job-title {
+            font-size: 18px;
+          }
+
+          .myjobs-posted-date {
+            font-size: 12px;
+          }
+        }
+
+        .myjobs-metadata {
+          .myjobs-salary {
+            font-size: 14px;
+          }
         }
       }
     }

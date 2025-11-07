@@ -1645,6 +1645,10 @@
               font-size: 15px;
               font-weight: 600;
               color: #1f2937;
+              word-wrap: break-word;
+              overflow-wrap: break-word;
+              word-break: break-word;
+              max-width: 100%;
             }
 
             .document-info {
@@ -2122,6 +2126,10 @@ select {
             color: #1f2937;
             margin-bottom: 4px;
             display: block;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            word-break: break-word;
+            max-width: 100%;
           }
 
           .document-info {

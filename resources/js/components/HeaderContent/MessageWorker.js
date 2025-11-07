@@ -5,8 +5,10 @@ import { HiOutlineDotsVertical } from "react-icons/hi";
 import { MdOutlineKeyboardVoice } from "react-icons/md";
 import { GoPlus } from "react-icons/go";
 import { IoMdSend } from "react-icons/io";
+import { IoArrowBack } from "react-icons/io5";
 import './../../../sass/components/MessageWorker.scss';
 import { getProfileImageUrl } from '../../utils/profileImageUtils';
+import Loader from '../LoaderContent/loader';
 
 const MessageWorker = () => {
   const [selectedConversation, setSelectedConversation] = useState(null);
@@ -18,6 +20,7 @@ const MessageWorker = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [activeUsers, setActiveUsers] = useState([]);
   const [showChatMenu, setShowChatMenu] = useState(false);
+  const [showSidebar, setShowSidebar] = useState(true);
   const chatMenuRef = useRef(null);
   const fileInputRef = useRef(null);
   const messageInputRef = useRef(null);
@@ -157,6 +160,7 @@ const MessageWorker = () => {
 
   const handleConversationSelect = async (conversation) => {
     setSelectedConversation(conversation);
+    setShowSidebar(false); // Hide sidebar when conversation is selected
     const token = localStorage.getItem('auth_token');
     const stored = JSON.parse(localStorage.getItem('user') || '{}');
     const userId = stored?.id || stored?.user?.id;
@@ -190,6 +194,12 @@ const MessageWorker = () => {
     } catch (error) {
       console.error('Error fetching conversation:', error.response?.data || error.message);
     }
+  };
+
+  const handleBackToSidebar = () => {
+    setShowSidebar(true);
+    setSelectedConversation(null);
+    setOtherUserInfo(null);
   };
 
   const handleSendMessage = async (e) => {
@@ -327,7 +337,8 @@ const MessageWorker = () => {
         <Headerz />
         <div className="message-worker-content">
           <div className="loading-container">
-            <p>Loading messages...</p>
+            <Loader />
+            <p style={{ marginTop: '20px', fontSize: '16px', color: '#666' }}>Loading messages...</p>
           </div>
         </div>
       </div>
@@ -340,7 +351,7 @@ const MessageWorker = () => {
       
       <div className="message-worker-content">
         {/* Conversation Sidebar */}
-        <div className="conversation-sidebar">
+        <div className={`conversation-sidebar ${!showSidebar ? 'sidebar-hidden' : ''}`}>
           <div className="sidebar-header">
             <h3>Messages</h3>
             <span className="conversation-count">{conversations.length}</span>
@@ -431,6 +442,7 @@ const MessageWorker = () => {
                     name: user.full_name
                   };
                   setSelectedConversation(tempConv);
+                  setShowSidebar(false); // Hide sidebar when conversation is selected
                   localStorage.setItem('message_target_user_id', String(user.user_id));
                 }}
               >
@@ -465,13 +477,24 @@ const MessageWorker = () => {
         </div>
 
         {/* Chat Area */}
-        <div className="chat-area">
+        <div className={`chat-area ${!showSidebar ? 'chat-area-full' : ''}`}>
           {selectedConversation || localStorage.getItem('message_target_user_id') ? (
             <div className="chat-content">
               <div className="chat-header">
-                <h3>
-                  {selectedConversation ? selectedConversation.name : 'New Conversation'}
-                </h3>
+                <div className="chat-header-left">
+                  {!showSidebar && (
+                    <button 
+                      className="back-button" 
+                      onClick={handleBackToSidebar}
+                      aria-label="Back to conversations"
+                    >
+                      <IoArrowBack />
+                    </button>
+                  )}
+                  <h3>
+                    {selectedConversation ? selectedConversation.name : 'New Conversation'}
+                  </h3>
+                </div>
                 <div className="chat-header-actions">
                   <span className="online-status">Online</span>
                   <div className="chat-menu-wrapper" ref={chatMenuRef}>

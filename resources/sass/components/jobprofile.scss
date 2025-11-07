@@ -428,37 +428,60 @@
 
       .job-profile-left {
         .job-profile-info {
-          .job-apply-button {
+          h2 {
+            font-size: 18px;
+          }
+
+          .job-apply-button,
+          .message-button {
+            width: 100%;
             max-width: 100%;
             padding: 10px 16px;
+            font-size: 13px;
           }
         }
 
-        .job-stats,
-        .job-application-period {
-          padding: 12px;
+        .job-stats {
+          max-width: 100%;
+
+          .job-stat-item {
+            font-size: 13px;
+          }
         }
       }
 
       .job-profile-right {
-        .job-about-section,
-        .job-skills-section {
+        .job-tab-content {
           padding: 12px;
 
-          h4 {
+          .job-overview-title {
             font-size: 14px;
           }
 
-          p {
-            font-size: 14px;
+          .job-about-section,
+          .job-skills-section {
+            padding: 12px;
+
+            h4 {
+              font-size: 14px;
+            }
+
+            p {
+              font-size: 13px;
+            }
           }
         }
+      }
+    }
 
-        .job-skills-row {
-          .job-chip {
-            font-size: 12px;
-            padding: 4px 8px;
-          }
+    .job-profile-header {
+      .job-profile-photo-wrapper {
+        left: 15px;
+        bottom: -50px;
+
+        .job-profile-photo {
+          width: 100px;
+          height: 100px;
         }
       }
     }

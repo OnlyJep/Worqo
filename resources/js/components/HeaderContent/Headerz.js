@@ -536,6 +536,7 @@ const Headerz = () => {
 
         {/* Navigation Links */}
         <nav className={`nav-links ${isMenuOpen ? 'open' : ''}`}>
+          <div className="mobile-logo" onClick={goToHome}></div>
           <span onClick={goToHome}>Home</span>
           {/* Hide Services for Workers (role_id = 1) */}
           {(!isLoggedIn || user?.role_id !== 1) && (

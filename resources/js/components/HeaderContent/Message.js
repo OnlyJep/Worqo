@@ -3,6 +3,7 @@ import axios from 'axios';
 import Headerz from './Headerz';
 import { HiOutlineDotsVertical } from "react-icons/hi";
 import { IoMdSend } from "react-icons/io";
+import { IoArrowBack } from "react-icons/io5";
 // send icon imported above
 import './../../../sass/components/Message.scss';
 import { getProfileImageUrl } from '../../utils/profileImageUtils';
@@ -20,6 +21,7 @@ const MessageEmployer = () => {
   const [userRole, setUserRole] = useState(null);
   const [showChatMenu, setShowChatMenu] = useState(false);
   const [showProfileInfo, setShowProfileInfo] = useState(true);
+  const [showSidebar, setShowSidebar] = useState(true);
   const chatMenuRef = useRef(null);
   const messageInputRef = useRef(null);
 
@@ -231,6 +233,7 @@ const MessageEmployer = () => {
 
   const handleConversationSelect = async (conversation) => {
     setSelectedConversation(conversation);
+    setShowSidebar(false); // Hide sidebar when conversation is selected
     const token = localStorage.getItem('auth_token');
     const stored = JSON.parse(localStorage.getItem('user') || '{}');
     const userId = stored?.id || stored?.user?.id;
@@ -264,6 +267,12 @@ const MessageEmployer = () => {
     } catch (error) {
       console.error('Error fetching conversation:', error.response?.data || error.message);
     }
+  };
+
+  const handleBackToSidebar = () => {
+    setShowSidebar(true);
+    setSelectedConversation(null);
+    setOtherUserInfo(null);
   };
 
   const handleSendMessage = async (e) => {
@@ -430,6 +439,7 @@ const MessageEmployer = () => {
         <div className="message-content">
           <div className="loading-container">
             <Loader />
+            <p style={{ marginTop: '20px', fontSize: '16px', color: '#666' }}>Loading messages...</p>
           </div>
         </div>
       </div>
@@ -442,7 +452,7 @@ const MessageEmployer = () => {
       
       <div className="message-content">
         {/* Conversation Sidebar */}
-        <div className="conversation-sidebar">
+        <div className={`conversation-sidebar ${!showSidebar ? 'sidebar-hidden' : ''}`}>
           <div className="sidebar-header">
             <h3>Messages</h3>
             <span className="conversation-count">{conversations.length}</span>
@@ -534,11 +544,21 @@ const MessageEmployer = () => {
         </div>
 
         {/* Chat Area */}
-        <div className={`chat-area ${userRole ? `chat-area-${userRole}` : ''}`}>
+        <div className={`chat-area ${userRole ? `chat-area-${userRole}` : ''} ${!showSidebar ? 'chat-area-full' : ''}`}>
           {selectedConversation || localStorage.getItem('message_target_user_id') ? (
             <div className="chat-content">
               <div className="chat-header">
-                <h3>
+                <div className="chat-header-left">
+                  {!showSidebar && (
+                    <button 
+                      className="back-button" 
+                      onClick={handleBackToSidebar}
+                      aria-label="Back to conversations"
+                    >
+                      <IoArrowBack />
+                    </button>
+                  )}
+                  <h3>
                   {selectedConversation ? (
                     <span style={{display:'inline-flex',alignItems:'center',gap:8}}>
                       <span>{selectedConversation.name}</span>
@@ -560,7 +580,8 @@ const MessageEmployer = () => {
                       )}
                     </span>
                   ) : 'New Conversation'}
-                </h3>
+                  </h3>
+                </div>
                 <div className="chat-header-actions">
                   <span className={`online-status ${otherUserInfo?.is_online ? 'online' : 'offline'}`}>
                     {otherUserInfo?.is_online ? 'Online' : (otherUserInfo?.last_active_text || 'Offline')}

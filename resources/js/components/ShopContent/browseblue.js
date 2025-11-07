@@ -11,6 +11,7 @@ import { message } from 'antd';
 
 const Browse = () => {
   const [isSortDropdownOpen, setIsSortDropdownOpen] = useState(false);
+  const [isFiltersOpen, setIsFiltersOpen] = useState(false);
 
   // Function to format last active time
   const getLastActiveText = (lastActivity) => {
@@ -577,46 +578,53 @@ const Browse = () => {
           <h2 className="category-title">
             {serviceName.toUpperCase()}
           </h2>
-          <div className="search-and-sort-container">
-          <div className="search-bar">
-            <input
-              className="search-input"
-              type="text"
-              placeholder="Search a worker"
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-            />
-            <button className="search-btn" type="button" aria-label="Search">
-              <IconSearch size={16} stroke={2} color="#ffffff" />
-            </button>
-          </div>
-          <div className="sort-wrapper">
-            <div
-              className="sort-by"
-              onClick={() => setIsSortDropdownOpen(!isSortDropdownOpen)}
-            >
-              <span>{selectedSortOption}</span>
-              <IconChevronDown className="sort-icon" />
+          <div className="search-and-sort-row">
+            <div className="search-bar">
+              <input
+                className="search-input"
+                type="text"
+                placeholder="Search a worker"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+              />
+              <button className="search-btn" type="button" aria-label="Search">
+                <IconSearch size={16} stroke={2} color="#ffffff" />
+              </button>
             </div>
-            {isSortDropdownOpen && (
-              <div className="sort-dropdown">
-                {sortOptions.map((option) => (
-                  <div
-                    key={option}
-                    className="sort-option"
-                    onClick={() => handleSortOptionClick(option)}
-                  >
-                    {option}
-                  </div>
-                ))}
+            <div className="sort-wrapper">
+              <div
+                className="sort-by"
+                onClick={() => setIsSortDropdownOpen(!isSortDropdownOpen)}
+              >
+                <span>{selectedSortOption}</span>
+                <IconChevronDown className="sort-icon" />
               </div>
-            )}
+              {isSortDropdownOpen && (
+                <div className="sort-dropdown">
+                  {sortOptions.map((option) => (
+                    <div
+                      key={option}
+                      className="sort-option"
+                      onClick={() => handleSortOptionClick(option)}
+                    >
+                      {option}
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
           </div>
+          <button 
+            className="mobile-filter-toggle"
+            onClick={() => setIsFiltersOpen(!isFiltersOpen)}
+            aria-label="Toggle filters"
+          >
+            {isFiltersOpen ? '−' : '+'} ACTIVE SKILL FILTERS
+          </button>
         </div>
 
         <div className="content-layout">
-          <aside className="filters-sidebar">
+          <aside className={`filters-sidebar ${isFiltersOpen ? 'mobile-open' : ''}`}>
             <h4 className="filters-title">ACTIVE SKILL FILTERS</h4>
             <div className="filter-group">
               <label>AVAILABILITY (HOURS PER DAY)</label>

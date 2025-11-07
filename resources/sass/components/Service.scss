@@ -312,11 +312,96 @@
 }
 
 @media (max-width: 480px) {
+  .service-page {
+    margin-top: 40px;
+  }
+
+  .service-container {
+    padding: 0 0.75rem;
+  }
+
+  .service-intro {
+    padding: 60px 10px 20px;
+    min-height: 40vh;
+  }
+
+  .service-headline {
+    font-size: 1.75rem;
+    line-height: 1.4;
+  }
+
+  .service-subtitle {
+    font-size: 0.85rem;
+    padding: 0 10px;
+  }
+
+  .hero-search {
+    width: 100%;
+    margin: 1.5rem auto 0;
+  }
+
+  .search-container {
+    height: 44px;
+    border-radius: 22px;
+  }
+
+  .search-input {
+    font-size: 0.9rem;
+    padding: 0 1rem;
+  }
+
+  .search-button {
+    width: 44px;
+  }
+
+  .section-header {
+    padding: 0 0.75rem;
+    margin: 2rem 0 1rem;
+  }
+
+  .section-title {
+    font-size: 1.4rem;
+  }
+
+  .filter-control {
+    width: 100%;
+  }
+
+  .collar-select {
+    width: 100%;
+    max-width: 100%;
+    font-size: 0.9rem;
+    padding: 0.6rem 2.5rem 0.6rem 1rem;
+  }
+
   .services-grid {
     grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .service-card {
+    min-height: auto;
   }
 
   .service-card h3 {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
+    margin: 0.75rem 1rem 0.5rem;
+  }
+
+  .service-card p {
+    font-size: 0.9rem;
+    margin: 0 1rem 0.75rem;
+  }
+
+  .service-cta-btn {
+    margin: 0 1rem 1rem;
+    width: calc(100% - 2rem);
+    padding: 0.75rem;
+    font-size: 0.9rem;
+  }
+
+  .show-more-btn {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.9rem;
   }
 }

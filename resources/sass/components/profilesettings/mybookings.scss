@@ -20,10 +20,11 @@
 
   .bookings-navigation {
     display: flex;
-    gap: 30px;
+    gap: 20px;
     border-bottom: 1px solid #e5e7eb;
     margin-bottom: 30px;
     overflow-x: auto;
+    padding-bottom: 4px;
     
     /* Hide scrollbar for Chrome, Safari and Opera */
     &::-webkit-scrollbar {
@@ -115,12 +116,38 @@
           display: flex;
           justify-content: space-between;
           align-items: flex-start;
+          position: relative;
+
+          .booking-status-amount {
+            position: absolute;
+            top: 0;
+            right: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 8px;
+            z-index: 1;
+
+            .booking-status-badge {
+              .booking-status-text {
+                padding: 6px 12px;
+                border-radius: 16px;
+                font-size: 12px;
+                font-weight: 600;
+                display: flex;
+                align-items: center;
+                gap: 4px;
+                white-space: nowrap;
+              }
+            }
+          }
 
           .booking-worker-info {
             display: flex;
             align-items: flex-start;
             gap: 16px;
             flex: 1;
+            padding-right: 120px;
 
             .booking-worker-profile {
               .booking-worker-avatar {
@@ -188,26 +215,6 @@
                     font-size: 14px;
                   }
                 }
-              }
-            }
-          }
-
-          .booking-status-amount {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-            gap: 8px;
-
-            .booking-status-badge {
-              .booking-status-text {
-                padding: 6px 12px;
-                border-radius: 16px;
-                font-size: 12px;
-                font-weight: 600;
-                display: flex;
-                align-items: center;
-                gap: 4px;
-                white-space: nowrap;
               }
             }
           }
@@ -545,17 +552,21 @@
 @media (max-width: 768px) {
   .my-bookings-container {
     padding: 20px;
+    border-radius: 6px;
 
     .bookings-header {
+      margin-bottom: 16px;
+
       .bookings-title {
-        font-size: 24px;
+        font-size: 22px;
         text-align: center;
       }
     }
 
     .bookings-navigation {
-      gap: 0;
+      gap: 12px;
       margin-bottom: 20px;
+      padding-bottom: 4px;
 
       .booking-tab-container {
         flex: 1;
@@ -564,7 +575,7 @@
 
       .booking-tab {
         padding: 10px 16px;
-        font-size: 13px;
+        font-size: 12px;
         min-width: 100px;
         width: 100%;
         text-align: center;
@@ -581,40 +592,57 @@
       }
 
       .booking-card {
-        padding: 20px;
-        gap: 16px;
+        padding: 16px;
+        gap: 14px;
+        min-height: auto;
 
         .booking-top-section {
           flex-direction: column;
-          gap: 16px;
+          gap: 14px;
 
           .booking-worker-info {
             flex-direction: column;
             align-items: center;
             text-align: center;
             gap: 12px;
+            width: 100%;
+            padding-right: 0;
 
             .booking-worker-profile {
               .booking-worker-avatar {
-                width: 80px;
-                height: 80px;
+                width: 70px;
+                height: 70px;
               }
             }
 
             .booking-worker-details {
+              width: 100%;
+
+              .booking-worker-name {
+                font-size: 16px;
+              }
+
+              .booking-worker-profession {
+                font-size: 13px;
+              }
+
               .booking-worker-badges {
                 justify-content: center;
+                flex-wrap: wrap;
               }
             }
           }
 
           .booking-status-amount {
-            align-items: center;
+            position: absolute;
+            top: 0;
+            right: 0;
+            align-items: flex-end;
 
             .booking-status-badge {
               .booking-status-text {
-                font-size: 14px;
-                padding: 8px 16px;
+                font-size: 12px;
+                padding: 5px 10px;
               }
             }
           }
@@ -625,37 +653,40 @@
 
           .booking-dates {
             flex-direction: column;
-            gap: 12px;
+            gap: 10px;
+            padding: 10px;
 
             .booking-date-item {
               .booking-date-label {
-                font-size: 15px;
+                font-size: 13px;
               }
 
               .booking-date-value {
-                font-size: 15px;
+                font-size: 13px;
               }
             }
           }
 
           .booking-description {
-            text-align: center;
+            text-align: left;
 
             .booking-description-label {
-              font-size: 15px;
+              font-size: 13px;
+              margin-bottom: 6px;
             }
 
             .booking-description-text {
-              font-size: 15px;
+              font-size: 13px;
+              line-height: 1.4;
             }
           }
 
           .booking-salary {
-            font-size: 16px;
-            margin-top: 12px;
+            font-size: 15px;
+            margin-top: 10px;
             text-align: center;
             width: 100%;
-            height: 36px;
+            height: 34px;
             padding: 4px 6px;
             display: flex;
             align-items: center;
@@ -667,6 +698,7 @@
           justify-content: center;
           flex-wrap: wrap;
           gap: 6px;
+          width: 100%;
           
           // Mobile styles for 3 buttons
           &:has(.booking-view-transaction-btn:nth-child(3)) {
@@ -678,9 +710,9 @@
               padding: 6px 8px;
               font-size: 11px;
               height: 30px;
-              min-width: 80px;
+              min-width: 70px;
               flex: 1;
-              max-width: 120px;
+              max-width: 110px;
             }
           }
           
@@ -691,12 +723,12 @@
           .booking-accept-btn,
           .booking-decline-btn,
           .booking-complete-btn {
-            padding: 8px 12px;
-            font-size: 12px;
+            padding: 8px 10px;
+            font-size: 11px;
             height: 32px;
-            min-width: 90px;
+            min-width: 80px;
             flex: 1;
-            max-width: 150px;
+            max-width: 140px;
           }
         }
       }
@@ -714,7 +746,94 @@
         }
 
         .booking-empty-title {
-          font-size: 20px;
+          font-size: 18px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .my-bookings-container {
+    padding: 16px;
+
+    .bookings-header {
+      .bookings-title {
+        font-size: 20px;
+      }
+    }
+
+    .bookings-navigation {
+      gap: 8px;
+      margin-bottom: 16px;
+      padding-bottom: 4px;
+
+      .booking-tab {
+        padding: 8px 12px;
+        font-size: 11px;
+        min-width: 90px;
+      }
+    }
+
+    .bookings-content {
+      .bookings-list {
+        gap: 12px;
+      }
+
+      .booking-card {
+        padding: 14px;
+        gap: 12px;
+
+        .booking-top-section {
+          gap: 12px;
+
+          .booking-worker-info {
+            .booking-worker-profile {
+              .booking-worker-avatar {
+                width: 60px;
+                height: 60px;
+              }
+            }
+
+            .booking-worker-details {
+              .booking-worker-name {
+                font-size: 15px;
+              }
+
+              .booking-worker-profession {
+                font-size: 12px;
+              }
+            }
+          }
+        }
+
+        .booking-middle-section {
+          .booking-dates {
+            padding: 8px;
+          }
+
+          .booking-salary {
+            font-size: 14px;
+            height: 32px;
+          }
+        }
+
+        .booking-actions {
+          gap: 4px;
+
+          .booking-view-transaction-btn,
+          .booking-cancel-booking-btn,
+          .booking-rate-booking-btn,
+          .booking-give-feedback-btn,
+          .booking-accept-btn,
+          .booking-decline-btn,
+          .booking-complete-btn {
+            padding: 6px 8px;
+            font-size: 10px;
+            height: 30px;
+            min-width: 70px;
+            max-width: 120px;
+          }
         }
       }
     }

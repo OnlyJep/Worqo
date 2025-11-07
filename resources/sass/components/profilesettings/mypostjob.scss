@@ -362,44 +362,72 @@
 @media (max-width: 768px) {
   .my-post-job-container {
     padding: 20px;
+    border-radius: 6px;
 
     .post-job-header {
       flex-direction: column;
       align-items: stretch;
       gap: 16px;
+      margin-bottom: 16px;
 
       .post-job-title {
-        font-size: 24px;
+        font-size: 22px;
         text-align: center;
       }
 
       .add-post-job-btn {
         width: 100%;
         justify-content: center;
+        padding: 10px 16px;
+        font-size: 13px;
+      }
+    }
+
+    .credentials-requirement-message {
+      padding: 16px;
+      gap: 12px;
+      flex-direction: column;
+      text-align: center;
+
+      .requirement-icon {
+        font-size: 32px;
+      }
+
+      .requirement-content {
+        .requirement-title {
+          font-size: 18px;
+        }
+
+        .requirement-description {
+          font-size: 13px;
+        }
       }
     }
 
     .job-card {
-      padding: 20px;
+      padding: 16px;
 
       .job-card-header {
         position: static;
-        margin-bottom: 16px;
+        margin-bottom: 12px;
         display: flex;
         justify-content: flex-end;
       }
 
       .job-content {
         .job-title {
-          font-size: 20px;
+          font-size: 18px;
         }
 
         .job-metadata {
           flex-direction: column;
           gap: 8px;
+          align-items: flex-start;
         }
 
         .job-skills {
+          gap: 6px;
+
           .skill-tag {
             font-size: 11px;
             padding: 4px 8px;
@@ -408,10 +436,67 @@
       }
     }
   }
+}
+
+@media (max-width: 480px) {
+  .my-post-job-container {
+    padding: 16px;
+
+    .post-job-header {
+      .post-job-title {
+        font-size: 20px;
+      }
+
+      .add-post-job-btn {
+        padding: 8px 12px;
+        font-size: 12px;
+      }
+    }
+
+    .credentials-requirement-message {
+      padding: 12px;
+      gap: 10px;
+
+      .requirement-icon {
+        font-size: 28px;
+      }
+
+      .requirement-content {
+        .requirement-title {
+          font-size: 16px;
+        }
+
+        .requirement-description {
+          font-size: 12px;
+        }
+      }
+    }
+
+    .job-card {
+      padding: 14px;
+
+      .job-content {
+        .job-title {
+          font-size: 16px;
+        }
+
+        .job-metadata {
+          font-size: 13px;
+        }
+
+        .job-skills {
+          .skill-tag {
+            font-size: 10px;
+            padding: 3px 6px;
+          }
+        }
+      }
+    }
+  }
 
   .job-details {
-    margin-top: 16px;
-    font-size: 14px;
+    margin-top: 12px;
+    font-size: 13px;
     color: #666;
     line-height: 1.5;
 
