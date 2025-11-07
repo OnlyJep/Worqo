@@ -14,6 +14,7 @@ class DatabaseSeeder extends Seeder
             SuffixSeeder::class,
             SkillSeeder::class,
             RankSeeder::class,
+            UserSeeder::class,
         ]);
     }
 }

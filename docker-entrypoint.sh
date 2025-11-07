@@ -1,15 +1,10 @@
-#!/bin/sh
-set -e
+#!/bin/bash
+# Don't use set -e so we can continue on warnings
+# set -e
 
 echo "Starting application setup..."
 
-# Generate application key if not set
-if [ -z "$APP_KEY" ] || [ "$APP_KEY" = "" ]; then
-    echo "Generating application key..."
-    php artisan key:generate --force || true
-fi
-
-# Wait for database to be ready
+# Wait for database if DB_HOST is set
 if [ -n "$DB_HOST" ]; then
     echo "Waiting for database connection..."
     max_attempts=30
@@ -38,32 +33,45 @@ if [ -n "$DB_HOST" ]; then
     echo "Database is up!"
 fi
 
-# Run migrations
-echo "Running migrations..."
-php artisan migrate --force || true
-
-# Clear and cache config
-echo "Optimizing application..."
+# Run Laravel setup commands
+echo "Running Laravel setup commands..."
+php artisan key:generate --ansi || true
+php artisan storage:link || true
 php artisan config:clear || true
+php artisan cache:clear || true
 php artisan route:clear || true
 php artisan view:clear || true
+
+echo "Running migrations..."
+php artisan migrate --force || echo "Migration warning - continuing anyway..."
+
+echo "Installing Passport..."
+php artisan passport:install --force || echo "Passport install warning - continuing anyway..."
+
+echo "Running database seeders..."
+php artisan db:seed --class=GenderSeeder --force || echo "GenderSeeder warning..."
+php artisan db:seed --class=RoleSeeder --force || echo "RoleSeeder warning..."
+php artisan db:seed --class=SuffixSeeder --force || echo "SuffixSeeder warning..."
+php artisan db:seed --class=SkillSeeder --force || echo "SkillSeeder warning..."
+php artisan db:seed --class=RankSeeder --force || echo "RankSeeder warning..."
+php artisan db:seed --class=UserSeeder --force || echo "UserSeeder warning..."
+
+echo "Caching configuration..."
 php artisan config:cache || true
 php artisan route:cache || true
 php artisan view:cache || true
 
-# Create storage link if it doesn't exist
-if [ ! -L public/storage ]; then
-    echo "Creating storage symlink..."
-    php artisan storage:link || true
-fi
-
-# Set proper permissions
-echo "Setting permissions..."
-chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache || true
-chmod -R 755 /var/www/html/storage /var/www/html/bootstrap/cache || true
-
 echo "Application setup complete!"
+
+# Update nginx config with Render's PORT if set (Render uses PORT env variable)
+if [ -n "$PORT" ]; then
+    echo "Updating nginx to listen on port $PORT"
+    sed -i "s/listen [0-9]*;/listen ${PORT};/" /etc/nginx/sites-available/default
+    # Also update the symlinked file
+    sed -i "s/listen [0-9]*;/listen ${PORT};/" /etc/nginx/sites-enabled/default
+    # Test nginx configuration
+    nginx -t || echo "Nginx config test failed, but continuing..."
+fi
 
 # Start supervisor
 exec /usr/bin/supervisord -c /etc/supervisor/conf.d/supervisord.conf
-
