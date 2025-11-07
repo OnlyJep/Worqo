@@ -126,6 +126,8 @@
     .main-content {
       flex: 1;
       padding: 2rem;
+      margin-top: 10px;
+      margin-left: 10px;
       background-color: #f5f5f5;
 
       .notifications-list {
@@ -521,6 +523,8 @@
 
       .main-content {
         padding: 1rem 1.5rem;
+        margin-top: 10px;
+        margin-left: 0;
 
         .notifications-list {
           .notification-item {
@@ -690,6 +694,8 @@
 
       .main-content {
         padding: 0.875rem 1.25rem;
+        margin-top: 10px;
+        margin-left: 0;
 
         .notifications-list {
           .notification-item {
@@ -860,6 +866,8 @@
 
       .main-content {
         padding: 0.75rem 1rem;
+        margin-top: 10px;
+        margin-left: 0;
 
         .notifications-list {
           .notification-item {
@@ -1028,6 +1036,8 @@
 
       .main-content {
         padding: 0.625rem 0.875rem;
+        margin-top: 10px;
+        margin-left: 0;
 
         .notifications-list {
           .notification-item {
