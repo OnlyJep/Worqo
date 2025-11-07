@@ -6,7 +6,7 @@ import TopNavbar from "./../admintopnavbar/admintopnavbar";
 import { FaSquare, FaCheckSquare, FaEdit, FaCheckCircle, FaArchive, FaEye } from "react-icons/fa";
 import { IconSearch, IconPlus, IconArchive } from "@tabler/icons-react";
 import "./../../../../sass/components/_adminlist.scss";
-import AdminModal from "./AdminListModal";
+import AdminModal from "./adminlistmodal";
 import Loader from "./../../LoaderContent/loader";
 import { message } from "antd";
 import { dispatchProfileImageUpdate } from "../../../utils/profileImageUtils";

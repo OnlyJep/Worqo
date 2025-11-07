@@ -26,29 +26,34 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 # Set working directory
 WORKDIR /var/www/html
 
-# Copy composer files
+# Copy composer files first for better caching
 COPY composer.json composer.lock ./
 
 # Install PHP dependencies
 RUN composer install --no-dev --optimize-autoloader --no-interaction --no-scripts
 
-# Copy package files
+# Copy package files for better caching
 COPY package.json package-lock.json ./
 
-# Install Node dependencies
-RUN npm ci
+# Install Node dependencies with clean install for consistency
+RUN npm ci --prefer-offline --no-audit
 
 # Copy application files
 COPY . .
 
-# Create public directory if it doesn't exist and set permissions
-RUN mkdir -p /var/www/html/public && \
+# Create necessary directories and set permissions
+RUN mkdir -p /var/www/html/public /var/www/html/storage /var/www/html/bootstrap/cache && \
     chown -R root:root /var/www/html && \
-    chmod -R 777 /var/www/html/public && \
     chmod -R 755 /var/www/html/storage && \
-    chmod -R 755 /var/www/html/bootstrap/cache
+    chmod -R 755 /var/www/html/bootstrap/cache && \
+    chmod -R 755 /var/www/html/public
 
-# Build assets
+# Build assets with error handling
+# Set NODE_ENV to production and suppress Sass deprecation warnings
+ENV NODE_ENV=production
+ENV SASS_SILENCE_DEPRECATIONS=*
+
+# Build assets (warnings are suppressed via webpack config and env vars)
 RUN npm run production
 
 # Set final permissions

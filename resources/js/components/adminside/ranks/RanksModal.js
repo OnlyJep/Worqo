@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { FaTimes } from "react-icons/fa";
-import "./../../../../sass/components/_ranksModal.scss";
+import "./../../../../sass/components/_ranksmodal.scss";
 
 const RanksModal = ({ onClose, onSubmit, isEdit = false, initialData = {} }) => {
   const [formData, setFormData] = useState({
