@@ -2822,25 +2822,54 @@ const MyProfile = () => {
                     </div>
                     <div className="credential-info">
                       <span className="credential-name">{credential.credentials_name}</span>
-                      {credential.credentials_photo || credential.credentials_doc ? (
-                        typeof credential.credentials_photo === 'string' || typeof credential.credentials_doc === 'string' ? (
-                          <div className="document-info">
-                            <a 
-                              href={`http://127.0.0.1:8000/storage/${credential.credentials_photo || credential.credentials_doc}`} 
-                              target="_blank" 
-                              rel="noopener noreferrer"
-                              className="view-document-link"
-                            >
-                              View Document
-                            </a>
-                            <span className="file-path">{(credential.credentials_photo || credential.credentials_doc).split('/').pop()}</span>
+                      <div className="document-info">
+                        {/* Display Photo if available */}
+                        {credential.credentials_photo && (
+                          <div className="credential-file-item">
+                            {typeof credential.credentials_photo === 'string' ? (
+                              <>
+                                <a 
+                                  href={`http://127.0.0.1:8000/storage/${credential.credentials_photo}`} 
+                                  target="_blank" 
+                                  rel="noopener noreferrer"
+                                  className="view-document-link"
+                                >
+                                  View Photo
+                                </a>
+                                <span className="file-path">{credential.credentials_photo.split('/').pop()}</span>
+                              </>
+                            ) : credential.credentials_photo instanceof File ? (
+                              <span className="pending-upload">Pending upload: {credential.credentials_photo.name}</span>
+                            ) : null}
                           </div>
-                        ) : credential.credentials_photo instanceof File ? (
-                          <span className="pending-upload">Pending upload: {credential.credentials_photo.name}</span>
-                        ) : null
-                      ) : (
-                        <span className="no-file-uploaded">No file uploaded</span>
-                      )}
+                        )}
+                        
+                        {/* Display Document if available */}
+                        {credential.credentials_doc && (
+                          <div className="credential-file-item">
+                            {typeof credential.credentials_doc === 'string' ? (
+                              <>
+                                <a 
+                                  href={`http://127.0.0.1:8000/storage/${credential.credentials_doc}`} 
+                                  target="_blank" 
+                                  rel="noopener noreferrer"
+                                  className="view-document-link"
+                                >
+                                  View Document
+                                </a>
+                                <span className="file-path">{credential.credentials_doc.split('/').pop()}</span>
+                              </>
+                            ) : credential.credentials_doc instanceof File ? (
+                              <span className="pending-upload">Pending upload: {credential.credentials_doc.name}</span>
+                            ) : null}
+                          </div>
+                        )}
+                        
+                        {/* Show message if no files */}
+                        {!credential.credentials_photo && !credential.credentials_doc && (
+                          <span className="no-file-uploaded">No file uploaded</span>
+                        )}
+                      </div>
                     </div>
                     <button
                       type="button"

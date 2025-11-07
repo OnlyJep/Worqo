@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { MdVerified } from 'react-icons/md';
 import { CiClock2 } from 'react-icons/ci';
 import { IoMdCheckmarkCircleOutline } from 'react-icons/io';
@@ -78,7 +78,11 @@ const MyBookings = () => {
     }
   };
 
+  const isMountedRef = useRef(true);
+
   useEffect(() => {
+    isMountedRef.current = true;
+    
     // Get user role from localStorage
     const userData = JSON.parse(localStorage.getItem("user") || '{}');
     setUserRole(userData.role_id);
@@ -95,17 +99,16 @@ const MyBookings = () => {
     
     // Listen for booking refresh trigger
     const handleStorageChange = (e) => {
-      if (e.key === 'booking_refresh_trigger') {
-        console.log('Booking refresh trigger detected, refreshing bookings...');
+      if (e.key === 'booking_refresh_trigger' && isMountedRef.current) {
         fetchBookings();
       }
     };
     
     // Listen for custom booking submitted event
     const handleBookingSubmitted = () => {
-      console.log('Booking submitted event detected, refreshing bookings...');
-      console.log('Current bookings before refresh:', bookings);
-      fetchBookings();
+      if (isMountedRef.current) {
+        fetchBookings();
+      }
     };
     
     // Listen for storage changes and custom events
@@ -114,14 +117,14 @@ const MyBookings = () => {
     
     // Also check for refresh trigger on component mount
     const refreshTrigger = localStorage.getItem('booking_refresh_trigger');
-    if (refreshTrigger) {
-      console.log('Found booking refresh trigger on mount, refreshing bookings...');
+    if (refreshTrigger && isMountedRef.current) {
       fetchBookings();
       // Clear the trigger after use
       localStorage.removeItem('booking_refresh_trigger');
     }
     
     return () => {
+      isMountedRef.current = false;
       window.removeEventListener('storage', handleStorageChange);
       window.removeEventListener('bookingSubmitted', handleBookingSubmitted);
     };
@@ -132,25 +135,15 @@ const MyBookings = () => {
       const authToken = localStorage.getItem("auth_token");
       if (!authToken) return;
 
-      console.log('=== TESTING ADMIN ENDPOINT ===');
-      const response = await axios.get('http://127.0.0.1:8000/api/bookings', {
+      await axios.get('http://127.0.0.1:8000/api/bookings', {
         headers: {
           Authorization: `Bearer ${authToken}`,
           Accept: "application/json",
           "Content-Type": "application/json"
         }
       });
-      
-      console.log('Admin endpoint test response:', response.data);
-      console.log('Total bookings in database:', response.data.bookings?.length || 0);
-      
-      if (response.data.bookings && response.data.bookings.length > 0) {
-        console.log('Sample booking:', response.data.bookings[0]);
-        console.log('Sample booking employer_id:', response.data.bookings[0].employer_id);
-        console.log('Sample booking worker_id:', response.data.bookings[0].worker_id);
-      }
     } catch (error) {
-      console.error('Admin endpoint test error:', error.response?.data || error.message);
+      // Silently handle error - this is just a test endpoint
     }
   };
 
@@ -170,9 +163,6 @@ const MyBookings = () => {
         return;
       }
 
-      console.log('=== FETCHING BOOKING REQUESTS ===');
-      console.log('User ID:', userId);
-
       const response = await axios.get(`http://127.0.0.1:8000/api/bookings/worker/requests?user_id=${userId}`, {
         headers: {
           Authorization: `Bearer ${authToken}`,
@@ -181,18 +171,11 @@ const MyBookings = () => {
         }
       });
 
-      console.log('=== BOOKING REQUESTS RESPONSE ===');
-      console.log('Response status:', response.status);
-      console.log('Response data:', response.data);
-
-      if (response.data.success) {
+      if (response.data.success && isMountedRef.current) {
         setBookingRequests(response.data.booking_requests || []);
-        console.log('Booking requests count:', response.data.booking_requests?.length || 0);
-      } else {
-        console.error('Failed to fetch booking requests:', response.data.message);
       }
     } catch (error) {
-      console.error("Error fetching booking requests:", error.response?.data || error.message);
+      // Silently handle error - user will see empty list if fetch fails
     }
   };
 
@@ -208,15 +191,6 @@ const MyBookings = () => {
       const userData = JSON.parse(localStorage.getItem("user") || '{}');
       const endpoint = userData.role_id === 1 ? 'worker' : 'employer';
       
-      console.log('Raw localStorage user data:', localStorage.getItem("user"));
-      console.log('Parsed user data:', userData);
-      console.log('User ID from localStorage:', userData.id);
-      console.log('Role ID from localStorage:', userData.role_id);
-      
-      // Get the profile ID from user data
-      // Check if userData has a profile_id field, otherwise use the id
-      const profileId = userData.profile_id || userData.id;
-      
       // Validate that we have a valid user ID
       if (!userData.id) {
         message.error("Unable to fetch bookings - user data incomplete");
@@ -224,16 +198,7 @@ const MyBookings = () => {
       }
 
       // Make the API call to fetch bookings using the correct user_id
-      // For employers: use user_id from employers table
-      // For workers: use user_id from workers table
-      const userId = userData.id; // This should be the user_id from the database
-      
-      console.log('=== FETCHING BOOKINGS DEBUG ===');
-      console.log('User data:', userData);
-      console.log('User ID:', userId);
-      console.log('Role ID:', userData.role_id);
-      console.log('Endpoint:', endpoint);
-      console.log('API URL:', `http://127.0.0.1:8000/api/bookings/${endpoint}?user_id=${userId}`);
+      const userId = userData.id;
       
       // Try the specific endpoint first
       let response;
@@ -245,11 +210,7 @@ const MyBookings = () => {
             "Content-Type": "application/json"
           }
         });
-        console.log('Specific endpoint response:', response.data);
       } catch (endpointError) {
-        console.log('Specific endpoint failed, trying admin endpoint...');
-        console.log('Endpoint error:', endpointError.response?.data || endpointError.message);
-        
         // Fallback to admin endpoint
         response = await axios.get('http://127.0.0.1:8000/api/bookings', {
           headers: {
@@ -259,61 +220,52 @@ const MyBookings = () => {
           }
         });
         
-        console.log('Admin endpoint response:', response.data);
-        
         // Filter bookings for this user
         if (response.data.bookings && response.data.bookings.length > 0) {
           const userBookings = response.data.bookings.filter(booking => 
             booking.employer_id == userId || booking.worker_id == userId
           );
           
-          console.log('Found user bookings in admin endpoint:', userBookings.length);
-          
           if (userBookings.length > 0) {
             const sortedBookings = userBookings.sort((a, b) => {
               const statusOrder = { 'pending': 1, 'accepted': 2, 'completed': 3, 'declined': 4, 'cancelled': 5 };
               return statusOrder[a.status] - statusOrder[b.status];
             });
-            setBookings(sortedBookings);
-            setLoading(false);
+            if (isMountedRef.current) {
+              setBookings(sortedBookings);
+              setLoading(false);
+            }
             return;
           }
         }
         
         // If no bookings found, set empty array
-        setBookings([]);
-        setLoading(false);
+        if (isMountedRef.current) {
+          setBookings([]);
+          setLoading(false);
+        }
         return;
       }
-      
-      console.log('=== API RESPONSE DEBUG ===');
-      console.log('Response status:', response.status);
-      console.log('Response data:', response.data);
-      console.log('Response success:', response.data.success);
-      console.log('Bookings count:', response.data.bookings?.length || 0);
-      if (response.data.bookings && response.data.bookings.length > 0) {
-        console.log('First booking:', response.data.bookings[0]);
-        console.log('First booking employer_id:', response.data.bookings[0].employer_id);
-        console.log('First booking worker_id:', response.data.bookings[0].worker_id);
-      }
 
-      if (response.data.success) {
+      if (response.data.success && isMountedRef.current) {
         // Sort bookings: Pending first, then Accepted, Completed, Declined, Cancelled
         const sortedBookings = response.data.bookings.sort((a, b) => {
           const statusOrder = { 'pending': 1, 'accepted': 2, 'completed': 3, 'declined': 4, 'cancelled': 5 };
           return statusOrder[a.status] - statusOrder[b.status];
         });
-        console.log('Setting bookings:', sortedBookings.length, 'bookings');
         setBookings(sortedBookings);
-      } else {
-        console.log('API returned success: false');
+      } else if (isMountedRef.current) {
         setBookings([]);
       }
     } catch (error) {
       console.error("Error fetching bookings:", error.response?.data || error.message);
-      message.error("Failed to fetch bookings");
+      if (isMountedRef.current) {
+        message.error("Failed to fetch bookings");
+      }
     } finally {
-      setLoading(false);
+      if (isMountedRef.current) {
+        setLoading(false);
+      }
     }
   };
 
@@ -468,7 +420,6 @@ const MyBookings = () => {
   };
 
   const handleViewTransaction = (booking) => {
-    console.log('Opening transaction modal for booking:', booking);
     setSelectedBooking(booking);
     setIsTransactionModalOpen(true);
   };
@@ -574,6 +525,12 @@ const MyBookings = () => {
 
   const handleUpdateBooking = async (updatedDetails) => {
     try {
+      console.log('=== UPDATING BOOKING ===');
+      console.log('Booking ID:', selectedBooking.id);
+      console.log('Updated details:', updatedDetails);
+      console.log('hours_per_day in updatedDetails:', updatedDetails.hours_per_day);
+      console.log('hours_per_day type:', typeof updatedDetails.hours_per_day);
+      
       const authToken = localStorage.getItem("auth_token");
       const response = await axios.put(`http://127.0.0.1:8000/api/bookings/${selectedBooking.id}`, updatedDetails, {
         headers: {
@@ -582,6 +539,8 @@ const MyBookings = () => {
           "Content-Type": "application/json"
         }
       });
+      
+      console.log('Update response:', response.data);
 
       if (response.data.success) {
         message.success("Booking updated successfully");

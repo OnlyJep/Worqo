@@ -10,7 +10,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000;
+  z-index: 2000;
   overflow: auto;
   padding: 20px;
 }
@@ -194,7 +194,7 @@
 }
 
 .servicemodal-buttons .submit-button {
-  background: #3b82f6;
+  background: #1A2A44;
   color: #ffffff;
   border: none;
   padding: 10px 24px;
@@ -207,11 +207,11 @@
 }
 
 .servicemodal-buttons .submit-button:hover {
-  background: #2563eb;
+  background: #1A2A44;
 }
 
 .servicemodal-buttons .submit-button:disabled {
-  background: #93c5fd;
+  background: #1A2A44;
   cursor: not-allowed;
 }
 

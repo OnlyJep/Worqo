@@ -204,32 +204,56 @@ const BookingModal = ({ isOpen, onClose, onSubmit, isEdit, initialData, skills =
   useEffect(() => {
     if (isOpen) {
       if (isEdit && initialData) {
-        // If hours_per_day is not available (old bookings), calculate it from time_in/time_out or use default
-        let hoursPerDay = initialData.hours_per_day || '';
-        if (!hoursPerDay && initialData.time_in && initialData.time_out) {
-          // Calculate hours from time_in and time_out if available
-          const [startHour, startMinute] = initialData.time_in.split(':').map(Number);
-          const [endHour, endMinute] = initialData.time_out.split(':').map(Number);
-          const startTime = startHour + startMinute / 60;
-          const endTime = endHour + endMinute / 60;
-          hoursPerDay = endTime - startTime;
-          if (hoursPerDay < 0) hoursPerDay += 24; // Handle overnight shifts
-        }
+        console.log("Loading booking data for edit:", initialData);
         
-        setFormData({
-          employer_id: initialData.employer_id || "",
-          worker_id: initialData.worker_id || "",
+        // Format dates for datetime-local input (YYYY-MM-DDTHH:mm)
+        const formatDateTimeLocal = (dateString) => {
+          if (!dateString) return "";
+          try {
+            const date = new Date(dateString);
+            if (isNaN(date.getTime())) return "";
+            // Get local date/time in YYYY-MM-DDTHH:mm format
+            const year = date.getFullYear();
+            const month = String(date.getMonth() + 1).padStart(2, '0');
+            const day = String(date.getDate()).padStart(2, '0');
+            const hours = String(date.getHours()).padStart(2, '0');
+            const minutes = String(date.getMinutes()).padStart(2, '0');
+            return `${year}-${month}-${day}T${hours}:${minutes}`;
+          } catch (error) {
+            console.error("Error formatting date:", error);
+            return "";
+          }
+        };
+        
+        // Use hours_per_day from initialData, default to empty if not available
+        const hoursPerDay = initialData.hours_per_day !== null && initialData.hours_per_day !== undefined 
+          ? String(initialData.hours_per_day) 
+          : '';
+        
+        // Format daily_rate and total_amount to string with proper decimal handling
+        const formatDecimal = (value) => {
+          if (value === null || value === undefined) return "";
+          const num = parseFloat(value);
+          return isNaN(num) ? "" : String(num);
+        };
+        
+        const formDataToSet = {
+          employer_id: initialData.employer_id ? String(initialData.employer_id) : "",
+          worker_id: initialData.worker_id ? String(initialData.worker_id) : "",
           service_type: initialData.service_type || "",
           sub_skill: initialData.sub_skill || "",
           work_type: initialData.work_type || "",
           description: initialData.description || "",
-          book_in: initialData.book_in ? new Date(initialData.book_in).toISOString().slice(0, 16) : "",
-          book_end: initialData.book_end ? new Date(initialData.book_end).toISOString().slice(0, 16) : "",
+          book_in: formatDateTimeLocal(initialData.book_in),
+          book_end: formatDateTimeLocal(initialData.book_end),
           hours_per_day: hoursPerDay,
-          daily_rate: initialData.daily_rate || "",
-          total_amount: initialData.total_amount || "",
+          daily_rate: formatDecimal(initialData.daily_rate),
+          total_amount: formatDecimal(initialData.total_amount),
           status: initialData.status || "pending"
-        });
+        };
+        
+        console.log("Form data being set:", formDataToSet);
+        setFormData(formDataToSet);
       } else {
         setFormData({
           employer_id: "",

@@ -96,7 +96,7 @@ const TransactionModal = ({ isOpen, onClose, booking }) => {
   };
 
   const calculateSalaryInfo = () => {
-    const { book_in, book_end, daily_rate, hours_per_day, time_in, time_out, work_type } = booking;
+    const { book_in, book_end, daily_rate, hours_per_day, work_type } = booking;
     
     if (!book_in || !book_end || !daily_rate) {
       return {
@@ -113,18 +113,8 @@ const TransactionModal = ({ isOpen, onClose, booking }) => {
     const endDate = new Date(book_end);
     const workingDays = calculateWorkingDays(startDate, endDate);
     
-    // Calculate hours per day - use hours_per_day if available, otherwise calculate from time_in/time_out
-    let hoursPerDay = parseFloat(hours_per_day) || 0;
-    if (!hoursPerDay && time_in && time_out) {
-      // Calculate from time_in and time_out
-      const [startHour, startMinute] = time_in.split(':').map(Number);
-      const [endHour, endMinute] = time_out.split(':').map(Number);
-      const startTime = startHour + startMinute / 60;
-      const endTime = endHour + endMinute / 60;
-      hoursPerDay = endTime - startTime;
-      if (hoursPerDay < 0) hoursPerDay += 24; // Handle overnight shifts
-    }
-    if (!hoursPerDay) hoursPerDay = 8; // Default to 8 hours
+    // Use hours_per_day from booking, default to 8 hours if not provided
+    const hoursPerDay = parseFloat(hours_per_day) || 8;
     
     const totalHours = workingDays * hoursPerDay;
     const dailyRateValue = parseFloat(daily_rate);
@@ -219,12 +209,12 @@ const TransactionModal = ({ isOpen, onClose, booking }) => {
                 <span className="label">Book End:</span>
                 <span className="value">{formatDate(booking.book_end)}</span>
               </div>
-              {booking.hours_per_day && (
-                <div className="detail-row">
-                  <span className="label">Hours per Day:</span>
-                  <span className="value">{booking.hours_per_day} hours</span>
-                </div>
-              )}
+              <div className="detail-row">
+                <span className="label">Hours per Day:</span>
+                <span className="value">
+                  {booking.hours_per_day ? `${booking.hours_per_day} hours` : salaryInfo.hoursPerDay ? `${salaryInfo.hoursPerDay} hours` : 'Not specified'}
+                </span>
+              </div>
               <div className="detail-row">
                 <span className="label">Description:</span>
                 <span className="value">{booking.description}</span>
@@ -235,6 +225,10 @@ const TransactionModal = ({ isOpen, onClose, booking }) => {
           <div className="transaction-section">
             <h3>Salary Calculation</h3>
             <div className="salary-calculation-display">
+              <div className="salary-row">
+                <span className="salary-label">Hours per Day:</span>
+                <span className="salary-value">{salaryInfo.hoursPerDay} hours</span>
+              </div>
               <div className="salary-row">
                 <span className="salary-label">Hourly Rate:</span>
                 <span className="salary-value">₱{parseFloat(salaryInfo.hourlyRate).toLocaleString('en-PH', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}/hour</span>

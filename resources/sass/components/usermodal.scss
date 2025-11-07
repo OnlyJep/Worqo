@@ -8,7 +8,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000;
+  z-index: 2000;
   overflow: auto;
 }
 
@@ -150,7 +150,7 @@
     border-top: 1px solid #e5e7eb;
 
     .submit-button {
-      background: #3b82f6;
+      background: #1A2A44;
       color: #ffffff;
       border: none;
       padding: 8px 20px;
@@ -162,7 +162,7 @@
       transition: background 0.2s ease;
 
       &:hover {
-        background: #2563eb;
+        background: #1A2A44;
       }
     }
 

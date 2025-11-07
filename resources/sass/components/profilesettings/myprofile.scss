@@ -1650,7 +1650,13 @@
             .document-info {
               display: flex;
               flex-direction: column;
-              gap: 4px;
+              gap: 8px;
+
+              .credential-file-item {
+                display: flex;
+                flex-direction: column;
+                gap: 4px;
+              }
 
               .view-document-link {
                 font-size: 13px;

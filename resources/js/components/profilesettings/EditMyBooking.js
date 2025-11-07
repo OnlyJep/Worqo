@@ -51,17 +51,43 @@ const EditMyBooking = ({ isOpen, onClose, onSubmit, booking }) => {
       console.log('booking.worker.skills_id?.additional_skills:', booking.worker?.skills_id?.additional_skills);
       
       // Initialize form with booking data
-      // If hours_per_day is not available (old bookings), calculate it from time_in/time_out or use default
-      let hoursPerDay = booking.hours_per_day || '';
-      if (!hoursPerDay && booking.time_in && booking.time_out) {
-        // Calculate hours from time_in and time_out if available
-        const [startHour, startMinute] = booking.time_in.split(':').map(Number);
-        const [endHour, endMinute] = booking.time_out.split(':').map(Number);
-        const startTime = startHour + startMinute / 60;
-        const endTime = endHour + endMinute / 60;
-        hoursPerDay = endTime - startTime;
-        if (hoursPerDay < 0) hoursPerDay += 24; // Handle overnight shifts
+      // Get hours_per_day from booking, convert to string for input field
+      // Handle null, undefined, empty string, and valid numeric values
+      let hoursPerDay = '';
+      console.log('Raw booking.hours_per_day:', booking.hours_per_day, 'Type:', typeof booking.hours_per_day);
+      console.log('All booking keys:', Object.keys(booking));
+      console.log('Full booking object:', JSON.stringify(booking, null, 2));
+      
+      // Check if hours_per_day exists in the booking object
+      if (booking.hasOwnProperty('hours_per_day')) {
+        const rawValue = booking.hours_per_day;
+        console.log('Found hours_per_day property:', rawValue);
+        
+        // If it's null or undefined, leave as empty string
+        if (rawValue === null || rawValue === undefined) {
+          console.log('hours_per_day is null or undefined');
+          hoursPerDay = '';
+        } else if (rawValue === '') {
+          // If it's empty string, leave as empty
+          console.log('hours_per_day is empty string');
+          hoursPerDay = '';
+        } else {
+          // Convert to number first to handle string numbers, then to string for input
+          const numValue = parseFloat(rawValue);
+          if (!isNaN(numValue)) {
+            // Use the value even if it's 0 or invalid - validation will catch it
+            hoursPerDay = String(numValue);
+            console.log('Converted hours_per_day to:', hoursPerDay);
+          } else {
+            console.warn('hours_per_day is not a valid number:', rawValue);
+            hoursPerDay = '';
+          }
+        }
+      } else {
+        console.warn('hours_per_day property does not exist in booking object');
       }
+      
+      console.log('Final hours_per_day value for input:', hoursPerDay);
       
       // Helper function to preserve exact date and time as set by employer from database
       // datetime-local input expects format: YYYY-MM-DDTHH:mm (no timezone)
@@ -92,6 +118,13 @@ const EditMyBooking = ({ isOpen, onClose, onSubmit, booking }) => {
       const originalBookIn = booking.book_in ? new Date(booking.book_in) : null;
       const originalBookEnd = booking.book_end ? new Date(booking.book_end) : null;
       
+      // Format daily_rate to string for input field
+      const formatDecimal = (value) => {
+        if (value === null || value === undefined) return '';
+        const num = parseFloat(value);
+        return isNaN(num) ? '' : String(num);
+      };
+      
       const initialDetails = {
         service_type: booking.service_type || '',
         sub_skill: booking.sub_skill || '',
@@ -100,7 +133,7 @@ const EditMyBooking = ({ isOpen, onClose, onSubmit, booking }) => {
         book_end: formatDateTimeLocal(booking.book_end),
         hours_per_day: hoursPerDay,
         description: booking.description || '',
-        daily_rate: booking.daily_rate || '',
+        daily_rate: formatDecimal(booking.daily_rate),
         // Store original database values for calculations
         _originalBookIn: originalBookIn,
         _originalBookEnd: originalBookEnd,
@@ -111,8 +144,12 @@ const EditMyBooking = ({ isOpen, onClose, onSubmit, booking }) => {
       console.log('=== EDIT BOOKING DATE INITIALIZATION ===');
       console.log('Original database book_in:', booking.book_in);
       console.log('Original database book_end:', booking.book_end);
+      console.log('Original database hours_per_day:', booking.hours_per_day);
+      console.log('Original database daily_rate:', booking.daily_rate);
       console.log('Formatted book_in (for input):', initialDetails.book_in);
       console.log('Formatted book_end (for input):', initialDetails.book_end);
+      console.log('Formatted hours_per_day (for input):', initialDetails.hours_per_day);
+      console.log('Formatted daily_rate (for input):', initialDetails.daily_rate);
       console.log('Original total_amount from database:', booking.total_amount);
       console.log('Setting booking details:', initialDetails);
       setBookingDetails(initialDetails);
@@ -224,18 +261,8 @@ const EditMyBooking = ({ isOpen, onClose, onSubmit, booking }) => {
     // Calculate working days - use the same logic as BookModal.js (including Sunday)
     const workingDays = calculateWorkingDays(startDate, endDate, work_type);
     
-    // Calculate hours per day - use hours_per_day if available, otherwise calculate from time_in/time_out
-    let hoursPerDay = parseFloat(hours_per_day) || 0;
-    if (!hoursPerDay && booking?.time_in && booking?.time_out) {
-      // Calculate from time_in and time_out (for backward compatibility)
-      const [startHour, startMinute] = booking.time_in.split(':').map(Number);
-      const [endHour, endMinute] = booking.time_out.split(':').map(Number);
-      const startTime = startHour + startMinute / 60;
-      const endTime = endHour + endMinute / 60;
-      hoursPerDay = endTime - startTime;
-      if (hoursPerDay < 0) hoursPerDay += 24; // Handle overnight shifts
-    }
-    if (!hoursPerDay) hoursPerDay = 8; // Default to 8 hours (matching TransactionModal.js)
+    // Use hours_per_day from booking details, default to 8 hours if not provided
+    let hoursPerDay = parseFloat(hours_per_day) || 8;
     
     const totalHours = workingDays * hoursPerDay;
     const dailyRateValue = parseFloat(daily_rate);
@@ -522,13 +549,26 @@ const EditMyBooking = ({ isOpen, onClose, onSubmit, booking }) => {
       console.warn('Sub-skill is empty for service type:', bookingDetails.service_type);
     }
     
+    // Ensure hours_per_day is explicitly included and converted to number
+    // Handle empty string, null, undefined, and valid numbers
+    let hoursPerDayValue = null;
+    if (bookingDetails.hours_per_day !== null && bookingDetails.hours_per_day !== undefined && bookingDetails.hours_per_day !== '') {
+      const parsed = parseFloat(bookingDetails.hours_per_day);
+      if (!isNaN(parsed) && parsed > 0) {
+        hoursPerDayValue = parsed;
+      }
+    }
+    
     const validatedDetails = {
       ...bookingDetails,
+      hours_per_day: hoursPerDayValue,
       daily_rate: parseFloat(bookingDetails.daily_rate),
       total_amount: salaryCalculation.totalAmount, // Match database field name
     };
 
     console.log('Submitting updated booking details:', validatedDetails);
+    console.log('hours_per_day value being sent:', validatedDetails.hours_per_day);
+    console.log('hours_per_day type:', typeof validatedDetails.hours_per_day);
     onSubmit(validatedDetails);
   };
 

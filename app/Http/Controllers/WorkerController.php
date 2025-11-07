@@ -812,19 +812,48 @@ class WorkerController extends Controller
                 'password' => $request->password ? bcrypt($request->password) : $user->password,
             ]);
 
+            // Update required fields
             $profileData = [
                 'first_name' => $request->first_name,
-                'middlename' => $request->middlename,
                 'last_name' => $request->last_name,
-                'suffix_id' => $request->suffix_id,
-                'gender_id' => $request->gender_id,
-                'contact_number' => $request->contact_number,
-                'street' => $request->street,
-                'city' => $request->city ?? $user->profile->city,
-                'province' => $request->province ?? $user->profile->province,
-                'postal_code' => $request->postal_code ?? $user->profile->postal_code,
-                'country' => $request->country ?? $user->profile->country,
             ];
+
+            // Handle optional fields - preserve existing if not provided or empty
+            $profileData['middlename'] = $request->filled('middlename') 
+                ? $request->middlename 
+                : ($user->profile->middlename ?? null);
+            
+            $profileData['suffix_id'] = $request->filled('suffix_id') 
+                ? $request->suffix_id 
+                : ($user->profile->suffix_id ?? null);
+            
+            $profileData['gender_id'] = $request->filled('gender_id') 
+                ? $request->gender_id 
+                : ($user->profile->gender_id ?? null);
+            
+            $profileData['contact_number'] = $request->filled('contact_number') 
+                ? $request->contact_number 
+                : ($user->profile->contact_number ?? null);
+            
+            $profileData['street'] = $request->filled('street') 
+                ? $request->street 
+                : ($user->profile->street ?? null);
+            
+            $profileData['city'] = $request->filled('city') 
+                ? $request->city 
+                : ($user->profile->city ?? 'Butuan City');
+            
+            $profileData['province'] = $request->filled('province') 
+                ? $request->province 
+                : ($user->profile->province ?? 'Agusan Del Norte');
+            
+            $profileData['postal_code'] = $request->filled('postal_code') 
+                ? $request->postal_code 
+                : ($user->profile->postal_code ?? '8600');
+            
+            $profileData['country'] = $request->filled('country') 
+                ? $request->country 
+                : ($user->profile->country ?? 'Philippines');
 
             if ($request->hasFile('profile_img')) {
                 if ($user->profile->profile_img && Storage::disk('public')->exists($user->profile->profile_img)) {
@@ -883,18 +912,51 @@ class WorkerController extends Controller
                 }
             }
 
-            $user->worker->update([
-                'hours_per_day' => $request->hours_per_day,
-                'preferred_working_hours' => $preferredWorkingHours,
-                'preferred_working_days' => $preferredWorkingHours,
-                'bio' => $request->bio,
-                'skills_id' => $skillsId,
-                'credentials_name' => $credentials_name,
-                'credentials_photo' => $credentials_photo,
-                'credentials_doc' => $credentials_doc,
-                'is_reviewed' => $request->input('is_reviewed', $user->worker->is_reviewed),
+            // Update worker fields - preserve existing values if not provided
+            $workerData = [
                 'archived' => $user->archived,
-            ]);
+            ];
+
+            // Hours per day - preserve existing if not provided
+            $workerData['hours_per_day'] = $request->filled('hours_per_day') 
+                ? $request->hours_per_day 
+                : ($user->worker->hours_per_day ?? 4);
+
+            // Preferred working days/hours - preserve existing if not provided
+            if ($request->has('preferred_working_days') || $request->has('preferred_working_hours')) {
+                $workerData['preferred_working_hours'] = $preferredWorkingHours;
+                $workerData['preferred_working_days'] = $preferredWorkingHours;
+            } else {
+                $workerData['preferred_working_hours'] = $user->worker->preferred_working_hours ?? [];
+                $workerData['preferred_working_days'] = $user->worker->preferred_working_days ?? [];
+            }
+
+            // Bio - preserve existing if not provided
+            $workerData['bio'] = $request->filled('bio') 
+                ? $request->bio 
+                : ($user->worker->bio ?? '');
+
+            // Skills are required, so always update them
+            $workerData['skills_id'] = $skillsId;
+
+            // Credentials - only update if provided, otherwise preserve existing
+            if ($request->has('credentials') && is_array($request->credentials) && count($request->credentials) > 0) {
+                $workerData['credentials_name'] = $credentials_name;
+                $workerData['credentials_photo'] = $credentials_photo;
+                $workerData['credentials_doc'] = $credentials_doc;
+            } else {
+                // Preserve existing credentials if not provided
+                $workerData['credentials_name'] = $user->worker->credentials_name ?? [];
+                $workerData['credentials_photo'] = $user->worker->credentials_photo ?? [];
+                $workerData['credentials_doc'] = $user->worker->credentials_doc ?? [];
+            }
+
+            // Status - preserve existing if not provided
+            $workerData['is_reviewed'] = $request->filled('is_reviewed') 
+                ? $request->input('is_reviewed') 
+                : ($user->worker->is_reviewed ?? 'TO BE REVIEWED');
+
+            $user->worker->update($workerData);
 
             Log::info('Worker updated', [
                 'worker_id' => $user->worker->id,

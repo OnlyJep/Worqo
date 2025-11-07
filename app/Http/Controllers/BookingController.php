@@ -47,8 +47,7 @@ class BookingController extends Controller
             'description' => 'required|string',
             'book_in' => 'required|date',
             'book_end' => 'required|date|after:book_in',
-            'time_in' => 'nullable|string',
-            'time_out' => 'nullable|string',
+            'hours_per_day' => 'nullable|numeric|min:0|max:24',
             'daily_rate' => 'required|numeric|min:0',
             'total_amount' => 'required|numeric|min:0',
             'status' => 'required|in:pending,accepted,declined,cancelled,completed'
@@ -141,12 +140,58 @@ class BookingController extends Controller
         // Add archived field
         $bookingData['archived'] = false;
         
+        // Ensure hours_per_day is explicitly included if provided
+        if ($request->has('hours_per_day')) {
+            $bookingData['hours_per_day'] = $request->hours_per_day !== null && $request->hours_per_day !== '' 
+                ? (float) $request->hours_per_day 
+                : null;
+            \Log::info('Setting hours_per_day on create (store method 1):', ['value' => $bookingData['hours_per_day']]);
+        } else {
+            \Log::warning('hours_per_day not in request during booking creation (store method 1)');
+        }
+        
+        \Log::info('Final booking data before create (store method 1):', $bookingData);
+        \Log::info('hours_per_day in bookingData:', ['value' => $bookingData['hours_per_day'] ?? 'not set']);
         $booking = Booking::create($bookingData);
         
         \Log::info('Booking created successfully with ID: ' . $booking->id);
         \Log::info('Created booking data: ' . json_encode($booking->toArray()));
         \Log::info('Final booking employer_id: ' . $booking->employer_id);
         \Log::info('Final booking worker_id: ' . $booking->worker_id);
+        \Log::info('Final booking hours_per_day: ' . ($booking->hours_per_day ?? 'NULL'));
+
+        // Create a BookingRequest record in the booking_requests table
+        // This stores the booking request data from employer to worker
+        try {
+            $bookingRequestData = [
+                'booking_id' => $booking->id,
+                'user_id' => $booking->employer_id, // The employer (user creating the request)
+                'service_type' => $booking->service_type,
+                'sub_skill' => $booking->sub_skill,
+                'work_type' => $booking->work_type,
+                'book_in' => $booking->book_in,
+                'book_end' => $booking->book_end,
+                'hours_per_day' => $booking->hours_per_day,
+                'description' => $booking->description,
+                'daily_rate' => $booking->daily_rate,
+                'total_amount' => $booking->total_amount,
+                'status' => 'pending',
+            ];
+            
+            \Log::info('Creating BookingRequest with data:', $bookingRequestData);
+            $bookingRequest = BookingRequest::create($bookingRequestData);
+            \Log::info('BookingRequest created successfully in booking_requests table');
+            \Log::info('BookingRequest ID: ' . $bookingRequest->id);
+            \Log::info('BookingRequest booking_id: ' . $bookingRequest->booking_id);
+            \Log::info('BookingRequest user_id (employer): ' . $bookingRequest->user_id);
+            \Log::info('BookingRequest status: ' . $bookingRequest->status);
+        } catch (\Exception $e) {
+            \Log::error('CRITICAL: Failed to create BookingRequest in booking_requests table');
+            \Log::error('Error message: ' . $e->getMessage());
+            \Log::error('Error file: ' . $e->getFile() . ':' . $e->getLine());
+            \Log::error('Error trace: ' . $e->getTraceAsString());
+            // Don't fail the booking creation, but log the error prominently
+        }
 
         // Send notification to worker about new booking
         if ($booking->employer_id) {
@@ -171,7 +216,7 @@ class BookingController extends Controller
     }
 
     /**
-     * Get booking requests for a worker (pending bookings where worker is the target)
+     * Get booking requests for a worker (pending booking requests where worker is the target)
      */
     public function getWorkerBookingRequests(Request $request)
     {
@@ -188,9 +233,16 @@ class BookingController extends Controller
                 ], 400);
             }
 
-            // Get all pending bookings where this user is the worker
-            $bookingRequests = Booking::with(['employer.profile.suffix', 'worker.profile.suffix'])
-                ->where('worker_id', $userId)
+            // Get all pending booking requests where the booking's worker_id matches this user
+            // This means the booking requests are for this worker
+            $bookingRequests = BookingRequest::with([
+                'booking.employer.profile.suffix', 
+                'booking.worker.profile.suffix',
+                'user.profile.suffix'
+            ])
+                ->whereHas('booking', function ($query) use ($userId) {
+                    $query->where('worker_id', $userId);
+                })
                 ->where('status', 'pending')
                 ->orderBy('created_at', 'desc')
                 ->get();
@@ -198,29 +250,28 @@ class BookingController extends Controller
             \Log::info('Found ' . $bookingRequests->count() . ' booking requests for worker_id: ' . $userId);
 
             // Format the booking requests
-            $formattedRequests = $bookingRequests->map(function ($booking) {
-                $employer = $booking->employer;
+            $formattedRequests = $bookingRequests->map(function ($bookingRequest) {
+                $booking = $bookingRequest->booking;
+                $employer = $booking ? $booking->employer : null;
                 $employerProfile = $employer ? $employer->profile : null;
                 
                 return [
-                    'id' => $booking->id,
-                    'employer_id' => $booking->employer_id,
-                    'worker_id' => $booking->worker_id,
-                    'service_type' => $booking->service_type,
-                    'sub_skill' => $booking->sub_skill,
-                    'work_type' => $booking->work_type,
-                    'description' => $booking->description,
-                    'book_in' => $booking->book_in,
-                    'book_end' => $booking->book_end,
-                    'time_in' => $booking->time_in,
-                    'time_out' => $booking->time_out,
-                    'hours_per_day' => $booking->hours_per_day,
-                    'daily_rate' => $booking->daily_rate,
-                    'total_amount' => $booking->total_amount,
-                    'status' => $booking->status,
-                    'archived' => $booking->archived,
-                    'created_at' => $booking->created_at,
-                    'updated_at' => $booking->updated_at,
+                    'id' => $bookingRequest->id,
+                    'booking_id' => $bookingRequest->booking_id,
+                    'employer_id' => $booking ? $booking->employer_id : null,
+                    'worker_id' => $booking ? $booking->worker_id : null,
+                    'service_type' => $bookingRequest->service_type,
+                    'sub_skill' => $bookingRequest->sub_skill,
+                    'work_type' => $bookingRequest->work_type,
+                    'description' => $bookingRequest->description,
+                    'book_in' => $bookingRequest->book_in,
+                    'book_end' => $bookingRequest->book_end,
+                    'hours_per_day' => $bookingRequest->hours_per_day,
+                    'daily_rate' => $bookingRequest->daily_rate,
+                    'total_amount' => $bookingRequest->total_amount,
+                    'status' => $bookingRequest->status,
+                    'created_at' => $bookingRequest->created_at,
+                    'updated_at' => $bookingRequest->updated_at,
                     'employer' => [
                         'id' => $employer ? $employer->id : null,
                         'username' => $employer ? $employer->username : 'Unknown',
@@ -255,6 +306,7 @@ class BookingController extends Controller
 
         } catch (\Exception $e) {
             \Log::error('Error fetching worker booking requests: ' . $e->getMessage());
+            \Log::error('Error trace: ' . $e->getTraceAsString());
             return response()->json([
                 'success' => false,
                 'message' => 'Server error: ' . $e->getMessage()
@@ -397,86 +449,128 @@ class BookingController extends Controller
      */
     public function updateStatus(Request $request, $id)
     {
-        $validator = Validator::make($request->all(), [
-            'status' => 'required|in:pending,accepted,declined,cancelled,completed'
-        ]);
+        try {
+            $validator = Validator::make($request->all(), [
+                'status' => 'required|in:pending,accepted,declined,cancelled,completed'
+            ]);
 
-        if ($validator->fails()) {
+            if ($validator->fails()) {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Validation failed',
+                    'errors' => $validator->errors()
+                ], 422);
+            }
+
+            $authUser = Auth::guard('api')->user();
+            $booking = Booking::findOrFail($id);
+            // Authorization relaxed per request: allow status updates from either party (employer/worker)
+
+            $oldStatus = $booking->status;
+            $booking->update([
+                'status' => $request->status
+            ]);
+
+            // Update the corresponding BookingRequest status
+            try {
+                $bookingRequest = BookingRequest::where('booking_id', $booking->id)
+                    ->where('status', 'pending')
+                    ->first();
+                
+                if ($bookingRequest) {
+                    $bookingRequest->update([
+                        'status' => $request->status
+                    ]);
+                    \Log::info('Updated BookingRequest status to: ' . $request->status . ' for booking_id: ' . $booking->id);
+                } else {
+                    \Log::warning('No pending BookingRequest found for booking_id: ' . $booking->id);
+                }
+            } catch (\Exception $e) {
+                \Log::error('Failed to update BookingRequest status: ' . $e->getMessage());
+            }
+
+            // Log the status update only if authUser exists
+            if ($authUser) {
+                try {
+                    $booking->logAction($request->status, $authUser->id, "Booking status changed from {$oldStatus} to {$request->status}", [
+                        'old_status' => $oldStatus,
+                        'new_status' => $request->status,
+                        'service_type' => $booking->service_type
+                    ]);
+                } catch (\Exception $e) {
+                    \Log::warning('Failed to log booking action: ' . $e->getMessage());
+                }
+            }
+
+            // Send notification to employer about status change
+            if ($booking->employer_id && $oldStatus !== $request->status && $authUser) {
+                $workerName = ($authUser->profile && $authUser->profile->first_name) ? $authUser->profile->first_name : 'Worker';
+                
+                if ($request->status === 'accepted') {
+                    NotificationController::createNotification(
+                        $booking->employer_id,
+                        $authUser->id,
+                        'booking_accepted',
+                        'Booking Accepted',
+                        "$workerName has accepted your booking request for {$booking->service_type}.",
+                        $booking->id,
+                        'booking'
+                    );
+                } elseif ($request->status === 'declined') {
+                    NotificationController::createNotification(
+                        $booking->employer_id,
+                        $authUser->id,
+                        'booking_declined',
+                        'Booking Declined',
+                        "$workerName has declined your booking request for {$booking->service_type}.",
+                        $booking->id,
+                        'booking'
+                    );
+                } elseif ($request->status === 'cancelled') {
+                    NotificationController::createNotification(
+                        $booking->employer_id,
+                        $authUser->id,
+                        'booking_cancelled',
+                        'Booking Cancelled',
+                        "$workerName has cancelled the booking for {$booking->service_type}.",
+                        $booking->id,
+                        'booking'
+                    );
+                } elseif ($request->status === 'completed') {
+                    NotificationController::createNotification(
+                        $booking->employer_id,
+                        $authUser->id,
+                        'booking_completed',
+                        'Booking Completed',
+                        "$workerName has marked the booking for {$booking->service_type} as completed.",
+                        $booking->id,
+                        'booking'
+                    );
+                }
+            }
+
+            return response()->json([
+                'success' => true,
+                'message' => 'Booking status updated successfully',
+                'booking' => $booking
+            ]);
+        } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
             return response()->json([
                 'success' => false,
-                'message' => 'Validation failed',
-                'errors' => $validator->errors()
-            ], 422);
+                'message' => 'Booking not found'
+            ], 404);
+        } catch (\Exception $e) {
+            \Log::error('Error updating booking status: ' . $e->getMessage(), [
+                'booking_id' => $id,
+                'status' => $request->status ?? null,
+                'exception' => $e
+            ]);
+            return response()->json([
+                'success' => false,
+                'message' => 'Failed to update booking status. Please try again.',
+                'error' => config('app.debug') ? $e->getMessage() : 'Internal server error'
+            ], 500);
         }
-
-        $authUser = Auth::guard('api')->user();
-        $booking = Booking::findOrFail($id);
-        // Authorization relaxed per request: allow status updates from either party (employer/worker)
-
-        $oldStatus = $booking->status;
-        $booking->update([
-            'status' => $request->status
-        ]);
-
-        // Log the status update
-        $booking->logAction($request->status, $authUser->id, "Booking status changed from {$oldStatus} to {$request->status}", [
-            'old_status' => $oldStatus,
-            'new_status' => $request->status,
-            'service_type' => $booking->service_type
-        ]);
-
-        // Send notification to employer about status change
-        if ($booking->employer_id && $oldStatus !== $request->status) {
-            $workerName = $authUser->profile->first_name ?? 'Worker';
-            
-            if ($request->status === 'accepted') {
-                NotificationController::createNotification(
-                    $booking->employer_id,
-                    $authUser->id,
-                    'booking_accepted',
-                    'Booking Accepted',
-                    "$workerName has accepted your booking request for {$booking->service_type}.",
-                    $booking->id,
-                    'booking'
-                );
-            } elseif ($request->status === 'declined') {
-                NotificationController::createNotification(
-                    $booking->employer_id,
-                    $authUser->id,
-                    'booking_declined',
-                    'Booking Declined',
-                    "$workerName has declined your booking request for {$booking->service_type}.",
-                    $booking->id,
-                    'booking'
-                );
-            } elseif ($request->status === 'cancelled') {
-                NotificationController::createNotification(
-                    $booking->employer_id,
-                    $authUser->id,
-                    'booking_cancelled',
-                    'Booking Cancelled',
-                    "$workerName has cancelled the booking for {$booking->service_type}.",
-                    $booking->id,
-                    'booking'
-                );
-            } elseif ($request->status === 'completed') {
-                NotificationController::createNotification(
-                    $booking->employer_id,
-                    $authUser->id,
-                    'booking_completed',
-                    'Booking Completed',
-                    "$workerName has marked the booking for {$booking->service_type} as completed.",
-                    $booking->id,
-                    'booking'
-                );
-            }
-        }
-
-        return response()->json([
-            'success' => true,
-            'message' => 'Booking status updated successfully',
-            'booking' => $booking
-        ]);
     }
 
     /**
@@ -778,8 +872,6 @@ class BookingController extends Controller
                     'description' => $booking->description,
                     'book_in' => $booking->book_in,
                     'book_end' => $booking->book_end,
-                    'time_in' => $booking->time_in,
-                    'time_out' => $booking->time_out,
                     'hours_per_day' => $booking->hours_per_day,
                     'daily_rate' => $booking->daily_rate,
                     'total_amount' => $booking->total_amount,
@@ -842,8 +934,6 @@ class BookingController extends Controller
             'description' => 'required|string',
             'book_in' => 'required|date',
             'book_end' => 'required|date|after:book_in',
-            'time_in' => 'nullable|string',
-            'time_out' => 'nullable|string',
             'hours_per_day' => 'nullable|numeric|min:0|max:24',
             'daily_rate' => 'required|numeric|min:0',
             'total_amount' => 'required|numeric|min:0',
@@ -912,12 +1002,63 @@ class BookingController extends Controller
         // Add archived field
         $bookingData['archived'] = false;
         
+        // Ensure hours_per_day is explicitly included if provided
+        if ($request->has('hours_per_day')) {
+            $bookingData['hours_per_day'] = $request->hours_per_day !== null && $request->hours_per_day !== '' 
+                ? (float) $request->hours_per_day 
+                : null;
+            \Log::info('Setting hours_per_day on create (store method 2):', ['value' => $bookingData['hours_per_day']]);
+        } else {
+            \Log::warning('hours_per_day not in request during booking creation (store method 2)');
+        }
+        
+        \Log::info('Final booking data before create (store method 2):', $bookingData);
+        \Log::info('hours_per_day in bookingData:', ['value' => $bookingData['hours_per_day'] ?? 'not set']);
         $booking = Booking::create($bookingData);
         
         \Log::info('Booking created successfully with ID: ' . $booking->id);
         \Log::info('Created booking data: ' . json_encode($booking->toArray()));
         \Log::info('Final booking employer_id: ' . $booking->employer_id);
         \Log::info('Final booking worker_id: ' . $booking->worker_id);
+        \Log::info('Final booking hours_per_day: ' . ($booking->hours_per_day ?? 'NULL'));
+
+        // Create a BookingRequest record in the booking_requests table
+        // This stores the booking request data from employer to worker
+        if ($booking->employer_id && $booking->worker_id) {
+            try {
+                $bookingRequestData = [
+                    'booking_id' => $booking->id,
+                    'user_id' => $booking->employer_id, // The employer (user creating the request)
+                    'service_type' => $booking->service_type,
+                    'sub_skill' => $booking->sub_skill,
+                    'work_type' => $booking->work_type,
+                    'book_in' => $booking->book_in,
+                    'book_end' => $booking->book_end,
+                    'hours_per_day' => $booking->hours_per_day,
+                    'description' => $booking->description,
+                    'daily_rate' => $booking->daily_rate,
+                    'total_amount' => $booking->total_amount,
+                    'status' => $booking->status === 'pending' ? 'pending' : $booking->status,
+                ];
+                
+                \Log::info('Creating BookingRequest (admin) with data:', $bookingRequestData);
+                $bookingRequest = BookingRequest::create($bookingRequestData);
+                \Log::info('BookingRequest created successfully in booking_requests table');
+                \Log::info('BookingRequest ID: ' . $bookingRequest->id);
+                \Log::info('BookingRequest booking_id: ' . $bookingRequest->booking_id);
+                \Log::info('BookingRequest user_id (employer): ' . $bookingRequest->user_id);
+                \Log::info('BookingRequest status: ' . $bookingRequest->status);
+            } catch (\Exception $e) {
+                \Log::error('CRITICAL: Failed to create BookingRequest in booking_requests table');
+                \Log::error('Error message: ' . $e->getMessage());
+                \Log::error('Error file: ' . $e->getFile() . ':' . $e->getLine());
+                \Log::error('Error trace: ' . $e->getTraceAsString());
+            }
+        } else {
+            \Log::warning('Cannot create BookingRequest: Missing employer_id or worker_id');
+            \Log::warning('Employer ID: ' . ($booking->employer_id ?? 'NULL'));
+            \Log::warning('Worker ID: ' . ($booking->worker_id ?? 'NULL'));
+        }
 
         return response()->json([
             'success' => true,
@@ -940,8 +1081,6 @@ class BookingController extends Controller
             'description' => 'sometimes|required|string',
             'book_in' => 'sometimes|required|date',
             'book_end' => 'sometimes|required|date|after:book_in',
-            'time_in' => 'nullable|string',
-            'time_out' => 'nullable|string',
             'hours_per_day' => 'nullable|numeric|min:0|max:24',
             'daily_rate' => 'sometimes|required|numeric|min:0',
             'total_amount' => 'sometimes|required|numeric|min:0',
@@ -961,6 +1100,9 @@ class BookingController extends Controller
         // Convert profile_id to user_id for database storage
         $updateData = $request->all();
         
+        \Log::info('Booking update request data:', $updateData);
+        \Log::info('hours_per_day in request:', ['value' => $request->hours_per_day, 'type' => gettype($request->hours_per_day)]);
+        
         if ($request->has('employer_id') && $request->employer_id) {
             $employerProfile = \App\Models\Profile::find($request->employer_id);
             $updateData['employer_id'] = $employerProfile ? $employerProfile->user_id : null;
@@ -971,7 +1113,36 @@ class BookingController extends Controller
             $updateData['worker_id'] = $workerProfile ? $workerProfile->user_id : null;
         }
         
+        // Ensure hours_per_day is explicitly included if provided
+        // Always process hours_per_day if it's in the request (even if empty/null)
+        if ($request->has('hours_per_day') || array_key_exists('hours_per_day', $request->all())) {
+            $hoursPerDayValue = $request->input('hours_per_day');
+            \Log::info('hours_per_day from request:', ['raw_value' => $hoursPerDayValue, 'type' => gettype($hoursPerDayValue)]);
+            
+            if ($hoursPerDayValue !== null && $hoursPerDayValue !== '') {
+                $parsedValue = (float) $hoursPerDayValue;
+                if ($parsedValue > 0) {
+                    $updateData['hours_per_day'] = $parsedValue;
+                    \Log::info('Setting hours_per_day on update:', ['value' => $updateData['hours_per_day']]);
+                } else {
+                    \Log::warning('hours_per_day is 0 or invalid, setting to null');
+                    $updateData['hours_per_day'] = null;
+                }
+            } else {
+                \Log::info('hours_per_day is null or empty string, setting to null');
+                $updateData['hours_per_day'] = null;
+            }
+        } else {
+            \Log::warning('hours_per_day not in request at all');
+        }
+        
+        \Log::info('Final update data:', $updateData);
+        \Log::info('Update data keys:', array_keys($updateData));
         $booking->update($updateData);
+        
+        // Refresh the booking to get the latest data from database
+        $booking->refresh();
+        \Log::info('Booking updated successfully. hours_per_day in database:', ['value' => $booking->hours_per_day]);
 
         return response()->json([
             'success' => true,

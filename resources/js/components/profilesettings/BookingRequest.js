@@ -106,7 +106,6 @@ const BookingRequest = () => {
           const statusOrder = { 'pending': 1, 'accepted': 2, 'completed': 3, 'declined': 4, 'cancelled': 5 };
           return statusOrder[a.status] - statusOrder[b.status];
         });
-        console.log('Fetched bookings for role_id', userData.role_id, ':', sortedBookings);
         setBookings(sortedBookings);
       } else {
         message.error("Failed to fetch bookings");
@@ -205,7 +204,6 @@ const BookingRequest = () => {
   };
 
   const handleViewTransaction = (booking) => {
-    console.log('Opening transaction modal for booking:', booking);
     setSelectedBooking(booking);
     setIsTransactionModalOpen(true);
   };
@@ -298,13 +296,6 @@ const BookingRequest = () => {
               const personData = isEmployerView ? booking.worker : booking.employer;
               const personProfile = personData?.profile;
               
-              // For debugging - log both worker and employer data
-              console.log('=== BOOKING REQUEST PERSON DATA DEBUG ===');
-              console.log('Is Employer View:', isEmployerView);
-              console.log('Worker Data:', booking.worker);
-              console.log('Employer Data:', booking.employer);
-              console.log('Worker Profile:', booking.worker?.profile);
-              console.log('Employer Profile:', booking.employer?.profile);
 
               return (
                 <div key={booking.id} className="booking-request-card">
@@ -321,34 +312,23 @@ const BookingRequest = () => {
                       >
                         <img 
                           src={(() => {
-                            console.log('=== BOOKING REQUEST AVATAR DEBUG ===');
-                            console.log('personProfile:', personProfile);
-                            console.log('personProfile.profile_img:', personProfile?.profile_img);
-                            console.log('personData:', personData);
-                            console.log('personData.profile_img:', personData?.profile_img);
-                            
                             // Check if personProfile has profile_img (nested profile data)
                             if (personProfile?.profile_img && personProfile.profile_img !== null && personProfile.profile_img !== '' && personProfile.profile_img !== 'null') {
-                              console.log('Using personProfile.profile_img:', personProfile.profile_img);
                               return `http://127.0.0.1:8000/storage/${personProfile.profile_img}`;
                             }
                             // Check if personData has profile_img (direct profile data)
                             if (personData?.profile_img && personData.profile_img !== null && personData.profile_img !== '' && personData.profile_img !== 'null') {
-                              console.log('Using personData.profile_img:', personData.profile_img);
                               return `http://127.0.0.1:8000/storage/${personData.profile_img}`;
                             }
                             // Check if booking has direct profile_img (for cases where data structure is different)
                             if (booking.profile_img && booking.profile_img !== null && booking.profile_img !== '' && booking.profile_img !== 'null') {
-                              console.log('Using booking.profile_img:', booking.profile_img);
                               return `http://127.0.0.1:8000/storage/${booking.profile_img}`;
                             }
                             // Additional fallback: check if the person data has a profile_img at the root level
                             if (personData && typeof personData === 'object' && personData.profile_img && personData.profile_img !== null && personData.profile_img !== '' && personData.profile_img !== 'null') {
-                              console.log('Using personData root profile_img:', personData.profile_img);
                               return `http://127.0.0.1:8000/storage/${personData.profile_img}`;
                             }
                             // Default fallback
-                            console.log('Using default avatar: defpfp.svg');
                             return '/images/defpfp.svg';
                           })()} 
                           alt={personProfile ? `${personProfile.first_name} ${personProfile.last_name}` : 

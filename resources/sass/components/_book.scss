@@ -269,11 +269,22 @@ body {
           .employer-info,
           .worker-info {
             text-align: left;
+            display: flex;
+            align-items: center;
+            vertical-align: middle;
+            
+            img {
+              flex-shrink: 0;
+              vertical-align: middle;
+            }
             
             .name {
               font-weight: 600;
               color: #1A2A44;
-              margin-bottom: 4px;
+              margin-bottom: 0;
+              display: flex;
+              align-items: center;
+              line-height: 1.5;
             }
             
             .contact,

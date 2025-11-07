@@ -26,40 +26,48 @@ const EmployerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffix
   const [existingImagePath, setExistingImagePath] = useState(null);
   const fileInputRef = useRef(null);
   const abortControllerRef = useRef(null);
+  const isMountedRef = useRef(true);
 
   useEffect(() => {
+    isMountedRef.current = true;
+
     if (isEdit && initialData) {
       // Preserve existing profile image path
       const profileImgPath = initialData.profile_img || null;
-      setExistingImagePath(profileImgPath);
-      
-      setFormData({
-        username: initialData.username || "",
-        email: initialData.email || "",
-        password: "",
-        role_id: "2",
-        first_name: initialData.first_name || "",
-        middlename: initialData.middlename || "",
-        last_name: initialData.last_name || "",
-        suffix_id: initialData.suffix_id || "",
-        gender_id: initialData.gender_id || "",
-        contact_number: initialData.contact_number || "",
-        street: initialData.street || "",
-        city: initialData.city || "Butuan City",
-        province: initialData.province || "Agusan Del Norte",
-        postal_code: initialData.postal_code || "8600",
-        country: initialData.country || "Philippines",
-        profile_img: null, // Will be set if user selects a new file
-      });
-      setApiError("");
-      setErrors({});
+      if (isMountedRef.current) {
+        setExistingImagePath(profileImgPath);
+        
+        setFormData({
+          username: initialData.username || "",
+          email: initialData.email || "",
+          password: "",
+          role_id: "2",
+          first_name: initialData.first_name || "",
+          middlename: initialData.middlename || "",
+          last_name: initialData.last_name || "",
+          suffix_id: initialData.suffix_id || "",
+          gender_id: initialData.gender_id || "",
+          contact_number: initialData.contact_number || "",
+          street: initialData.street || "",
+          city: initialData.city || "Butuan City",
+          province: initialData.province || "Agusan Del Norte",
+          postal_code: initialData.postal_code || "8600",
+          country: initialData.country || "Philippines",
+          profile_img: null, // Will be set if user selects a new file
+        });
+        setApiError("");
+        setErrors({});
+      }
     } else {
       // Reset when adding new employer
-      setExistingImagePath(null);
+      if (isMountedRef.current) {
+        setExistingImagePath(null);
+      }
     }
 
     // Cleanup function to abort pending requests
     return () => {
+      isMountedRef.current = false;
       if (abortControllerRef.current) {
         abortControllerRef.current.abort();
       }
@@ -67,6 +75,8 @@ const EmployerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffix
   }, [isEdit, initialData]);
 
   const handleInputChange = (e, field) => {
+    if (!isMountedRef.current) return;
+    
     const value = e.target.type === "file" ? e.target.files[0] : e.target.value;
 
     if (field === "contact_number" && value) {
@@ -76,23 +86,30 @@ const EmployerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffix
     if (field === "first_name" || field === "last_name") {
       const newData = { ...formData, [field]: value };
       newData.username = `${newData.first_name}.${newData.last_name}`.toLowerCase();
-      setFormData(newData);
-      setErrors((prev) => ({ ...prev, [field]: "" }));
-      setApiError("");
+      if (isMountedRef.current) {
+        setFormData(newData);
+        setErrors((prev) => ({ ...prev, [field]: "" }));
+        setApiError("");
+      }
       return;
     }
 
     // When a new file is selected, clear the existing image path
     if (field === "profile_img" && value instanceof File) {
-      setExistingImagePath(null);
+      if (isMountedRef.current) {
+        setExistingImagePath(null);
+      }
     }
 
-    setFormData((prev) => ({ ...prev, [field]: value }));
-    setErrors((prev) => ({ ...prev, [field]: "" }));
-    setApiError("");
+    if (isMountedRef.current) {
+      setFormData((prev) => ({ ...prev, [field]: value }));
+      setErrors((prev) => ({ ...prev, [field]: "" }));
+      setApiError("");
+    }
   };
 
   const removeImage = () => {
+    if (!isMountedRef.current) return;
     setFormData((prev) => ({ ...prev, profile_img: null }));
     setExistingImagePath(null);
     if (fileInputRef.current) fileInputRef.current.value = "";
@@ -151,18 +168,22 @@ const EmployerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffix
 
     try {
       await onSubmit(submitData, abortControllerRef.current.signal);
-      setApiError("");
-      setErrors({});
+      if (isMountedRef.current) {
+        setApiError("");
+        setErrors({});
+      }
     } catch (error) {
       if (error.name === "AbortError") {
         console.log("Request was aborted");
         return;
       }
-      if (error.response?.data?.errors) {
-        setErrors(error.response.data.errors);
-        setApiError("Please correct the errors in the form: " + JSON.stringify(error.response.data.errors));
-      } else {
-        setApiError(error.response?.data?.message || "An error occurred. Please try again.");
+      if (isMountedRef.current) {
+        if (error.response?.data?.errors) {
+          setErrors(error.response.data.errors);
+          setApiError("Please correct the errors in the form: " + JSON.stringify(error.response.data.errors));
+        } else {
+          setApiError(error.response?.data?.message || "An error occurred. Please try again.");
+        }
       }
     }
   };
@@ -182,8 +203,10 @@ const EmployerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffix
         <form className="employermodal-content" onSubmit={handleSubmit}>
           <div className="form-row">
             <div className="form-group">
-              <label>First Name</label>
+              <label htmlFor="employer_first_name">First Name</label>
               <input
+                id="employer_first_name"
+                name="first_name"
                 type="text"
                 value={formData.first_name}
                 onChange={(e) => handleInputChange(e, "first_name")}
@@ -192,8 +215,10 @@ const EmployerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffix
               {errors.first_name && <span className="error">{errors.first_name}</span>}
             </div>
             <div className="form-group">
-              <label>Middle Name (optional)</label>
+              <label htmlFor="employer_middlename">Middle Name (optional)</label>
               <input
+                id="employer_middlename"
+                name="middlename"
                 type="text"
                 value={formData.middlename}
                 onChange={(e) => handleInputChange(e, "middlename")}
@@ -203,8 +228,10 @@ const EmployerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffix
           </div>
           <div className="form-row">
             <div className="form-group">
-              <label>Last Name</label>
+              <label htmlFor="employer_last_name">Last Name</label>
               <input
+                id="employer_last_name"
+                name="last_name"
                 type="text"
                 value={formData.last_name}
                 onChange={(e) => handleInputChange(e, "last_name")}
@@ -213,8 +240,10 @@ const EmployerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffix
               {errors.last_name && <span className="error">{errors.last_name}</span>}
             </div>
             <div className="form-group">
-              <label>Suffix (optional)</label>
+              <label htmlFor="employer_suffix_id">Suffix (optional)</label>
               <select
+                id="employer_suffix_id"
+                name="suffix_id"
                 value={formData.suffix_id}
                 onChange={(e) => handleInputChange(e, "suffix_id")}
               >
@@ -230,8 +259,10 @@ const EmployerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffix
           </div>
           <div className="form-row">
             <div className="form-group">
-              <label>Contact Number</label>
+              <label htmlFor="employer_contact_number">Contact Number</label>
               <input
+                id="employer_contact_number"
+                name="contact_number"
                 type="tel"
                 value={formData.contact_number}
                 onChange={(e) => handleInputChange(e, "contact_number")}
@@ -240,8 +271,10 @@ const EmployerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffix
               {errors.contact_number && <span className="error">{errors.contact_number}</span>}
             </div>
             <div className="form-group">
-              <label>Street</label>
+              <label htmlFor="employer_street">Street</label>
               <input
+                id="employer_street"
+                name="street"
                 type="text"
                 value={formData.street}
                 onChange={(e) => handleInputChange(e, "street")}
@@ -251,27 +284,29 @@ const EmployerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffix
           </div>
           <div className="form-row">
             <div className="form-group">
-              <label>City</label>
-              <input type="text" value={formData.city} disabled />
+              <label htmlFor="employer_city">City</label>
+              <input id="employer_city" name="city" type="text" value={formData.city} disabled />
             </div>
             <div className="form-group">
-              <label>Province</label>
-              <input type="text" value={formData.province} disabled />
+              <label htmlFor="employer_province">Province</label>
+              <input id="employer_province" name="province" type="text" value={formData.province} disabled />
             </div>
           </div>
           <div className="form-row">
             <div className="form-group">
-              <label>Postal Code</label>
-              <input type="text" value={formData.postal_code} disabled />
+              <label htmlFor="employer_postal_code">Postal Code</label>
+              <input id="employer_postal_code" name="postal_code" type="text" value={formData.postal_code} disabled />
             </div>
             <div className="form-group">
-              <label>Country</label>
-              <input type="text" value={formData.country} disabled />
+              <label htmlFor="employer_country">Country</label>
+              <input id="employer_country" name="country" type="text" value={formData.country} disabled />
             </div>
           </div>
           <div className="form-group">
-            <label>Email</label>
+            <label htmlFor="employer_email">Email</label>
             <input
+              id="employer_email"
+              name="email"
               type="email"
               value={formData.email}
               onChange={(e) => handleInputChange(e, "email")}
@@ -280,8 +315,10 @@ const EmployerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffix
             {errors.email && <span className="error">{errors.email}</span>}
           </div>
           <div className="form-group">
-            <label>{isEdit ? "New Password (optional)" : "Password"}</label>
+            <label htmlFor="employer_password">{isEdit ? "New Password (optional)" : "Password"}</label>
             <input
+              id="employer_password"
+              name="password"
               type="password"
               value={formData.password}
               onChange={(e) => handleInputChange(e, "password")}
@@ -290,8 +327,10 @@ const EmployerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffix
             {errors.password && <span className="error">{errors.password}</span>}
           </div>
           <div className="form-group">
-            <label>Gender</label>
+            <label htmlFor="employer_gender_id">Gender</label>
             <select
+              id="employer_gender_id"
+              name="gender_id"
               value={formData.gender_id}
               onChange={(e) => handleInputChange(e, "gender_id")}
             >
@@ -305,14 +344,16 @@ const EmployerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffix
             {errors.gender_id && <span className="error">{errors.gender_id}</span>}
           </div>
           <div className="form-group">
-            <label>Role</label>
-            <select value={formData.role_id} disabled>
+            <label htmlFor="employer_role_id">Role</label>
+            <select id="employer_role_id" name="role_id" value={formData.role_id} disabled>
               <option value="2">Employer</option>
             </select>
           </div>
           <div className="form-group">
-            <label>Profile Picture (optional)</label>
+            <label htmlFor="employer_profile_img">Profile Picture (optional)</label>
             <input
+              id="employer_profile_img"
+              name="profile_img"
               type="file"
               accept="image/*"
               onChange={(e) => handleInputChange(e, "profile_img")}

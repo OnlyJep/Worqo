@@ -263,6 +263,22 @@ const Book = () => {
   };
 
   const handleEditClick = (book) => {
+    console.log("Edit button clicked - Booking data:", book);
+    console.log("Booking fields:", {
+      id: book.id,
+      employer_id: book.employer_id,
+      worker_id: book.worker_id,
+      service_type: book.service_type,
+      sub_skill: book.sub_skill,
+      work_type: book.work_type,
+      description: book.description,
+      book_in: book.book_in,
+      book_end: book.book_end,
+      hours_per_day: book.hours_per_day,
+      daily_rate: book.daily_rate,
+      total_amount: book.total_amount,
+      status: book.status
+    });
     setBookToEdit(book);
     setIsEditMode(true);
     setIsModalOpen(true);
@@ -516,28 +532,6 @@ const Book = () => {
                       </td>
                       <td data-label="Worker Name">
                         <div className="worker-info">
-                          <img 
-                            src={(() => {
-                              const profileImg = book?.worker?.profile?.profile_img;
-                              if (profileImg && profileImg !== 'img/defaultpfp.jpg' && profileImg !== 'profiles/defaultpfp.jpg') {
-                                const cleanPath = profileImg.startsWith('/') ? profileImg.substring(1) : profileImg;
-                                return `http://127.0.0.1:8000/storage/${cleanPath}`;
-                              }
-                              return "http://127.0.0.1:8000/storage/profiles/defaultpfp.jpg";
-                            })()}
-                            alt="Worker Profile"
-                            style={{ 
-                              width: "40px", 
-                              height: "40px", 
-                              borderRadius: "50%", 
-                              objectFit: "cover",
-                              marginRight: "8px"
-                            }}
-                            onError={(e) => {
-                              e.target.src = "http://127.0.0.1:8000/storage/profiles/defaultpfp.jpg";
-                            }}
-                            loading="lazy"
-                          />
                           <div className="name">
                             {book.worker?.profile ? 
                               `${book.worker.profile.first_name || ''} ${book.worker.profile.last_name || ''}`.trim() || "N/A" 

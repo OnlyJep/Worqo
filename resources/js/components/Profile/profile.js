@@ -803,8 +803,7 @@ const Profile = ({ initialServiceType }) => {
         description: bookingDetails.description,
         book_in: formatDateTime(bookingDetails.book_in),
         book_end: formatDateTime(bookingDetails.book_end),
-        time_in: bookingDetails.time_in || null,
-        time_out: bookingDetails.time_out || null,
+        hours_per_day: parseFloat(bookingDetails.hours_per_day) || null,
         daily_rate: parseFloat(bookingDetails.daily_rate),
         total_amount: parseFloat(bookingDetails.total_amount) || null, // Match database field name
         status: 'pending' // Add status field
@@ -1394,28 +1393,13 @@ const Profile = ({ initialServiceType }) => {
     </div>
   );
 
-  // Calculate actual hours based on time in/out
+  // Calculate actual hours based on hours_per_day
   const calculateActualHours = (details) => {
-    const { time_in, time_out } = details;
-    
-    if (!time_in || !time_out) {
-      return 0;
+    // Use hours_per_day directly if available
+    if (details.hours_per_day) {
+      return parseFloat(details.hours_per_day) || 0;
     }
-    
-    const [startHour, startMinute] = time_in.split(':').map(Number);
-    const [endHour, endMinute] = time_out.split(':').map(Number);
-    
-    const startTime = startHour * 60 + startMinute; // Convert to minutes
-    const endTime = endHour * 60 + endMinute; // Convert to minutes
-    
-    let diffMinutes = endTime - startTime;
-    
-    // Handle overnight shifts (if end time is before start time)
-    if (diffMinutes < 0) {
-      diffMinutes += 24 * 60; // Add 24 hours
-    }
-    
-    return diffMinutes / 60; // Convert back to hours
+    return 0;
   };
 
   // Calculate working days based on work type and collar type

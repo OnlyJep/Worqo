@@ -20,9 +20,7 @@ class AddBookmodalFieldsToBookingRequestsTable extends Migration
             $table->enum('work_type', ['full-time', 'part-time', 'one-time'])->nullable()->after('sub_skill');
             $table->datetime('book_in')->nullable()->after('work_type');
             $table->datetime('book_end')->nullable()->after('book_in');
-            $table->time('time_in')->nullable()->after('book_end');
-            $table->time('time_out')->nullable()->after('time_in');
-            $table->text('description')->nullable()->after('time_out');
+            $table->text('description')->nullable()->after('book_end');
             $table->decimal('daily_rate', 10, 2)->nullable()->after('description');
             $table->decimal('total_amount', 10, 2)->nullable()->after('daily_rate');
             $table->integer('working_days')->nullable()->after('total_amount');
@@ -72,8 +70,6 @@ class AddBookmodalFieldsToBookingRequestsTable extends Migration
                 'work_type',
                 'book_in',
                 'book_end',
-                'time_in',
-                'time_out',
                 'description',
                 'daily_rate',
                 'total_amount',

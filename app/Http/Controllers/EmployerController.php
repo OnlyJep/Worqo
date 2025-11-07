@@ -9,6 +9,7 @@ use App\Models\Employer;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Rule;
 
 class EmployerController extends Controller
@@ -239,36 +240,99 @@ class EmployerController extends Controller
                 'password' => $request->password ? Hash::make($request->password) : $user->password,
             ]);
 
-            $user->profile->update([
-                'first_name'     => $request->first_name,
-                'middlename'     => $request->middlename,
-                'last_name'      => $request->last_name,
-                'suffix_id'      => $request->suffix_id,
-                'gender_id'      => $request->gender_id,
-                'contact_number' => $request->contact_number,
-                'street'         => $request->street,
-                'city'           => $request->city ?? $user->profile->city,
-                'province'       => $request->province ?? $user->profile->province,
-                'postal_code'    => $request->postal_code ?? $user->profile->postal_code,
-                'country'        => $request->country ?? $user->profile->country,
-                'profile_img'    => $request->hasFile('profile_img')
+            // Get or create profile
+            $profile = $user->profile;
+            if (!$profile) {
+                $profile = Profile::create([
+                    'user_id' => $user->id,
+                    'first_name' => $request->first_name,
+                    'middlename' => $request->middlename ?? null,
+                    'last_name' => $request->last_name,
+                    'suffix_id' => $request->suffix_id ?? null,
+                    'gender_id' => $request->gender_id ?? null,
+                    'contact_number' => $request->contact_number ?? null,
+                    'street' => $request->street ?? null,
+                    'city' => $request->city ?? 'Butuan City',
+                    'province' => $request->province ?? 'Agusan Del Norte',
+                    'postal_code' => $request->postal_code ?? '8600',
+                    'country' => $request->country ?? 'Philippines',
+                    'profile_img' => $request->hasFile('profile_img')
                                     ? $request->file('profile_img')->store('profiles', 'public')
-                                    : $user->profile->profile_img,
-            ]);
+                                    : null,
+                ]);
+            } else {
+                // Handle profile image update
+                $profileImg = $profile->profile_img;
+                if ($request->hasFile('profile_img')) {
+                    // Delete old image if exists
+                    if ($profileImg && Storage::disk('public')->exists($profileImg)) {
+                        Storage::disk('public')->delete($profileImg);
+                    }
+                    $profileImg = $request->file('profile_img')->store('profiles', 'public');
+                }
+
+                // Prepare profile update data - only update fields that are provided
+                $profileUpdateData = [
+                    'first_name'     => $request->first_name,
+                    'last_name'      => $request->last_name,
+                    'city'           => $request->city ?? $profile->city,
+                    'province'       => $request->province ?? $profile->province,
+                    'postal_code'    => $request->postal_code ?? $profile->postal_code,
+                    'country'        => $request->country ?? $profile->country,
+                    'profile_img'    => $profileImg,
+                ];
+
+                // Handle nullable/optional fields
+                if ($request->has('middlename')) {
+                    $profileUpdateData['middlename'] = $request->middlename;
+                }
+                if ($request->filled('suffix_id')) {
+                    $profileUpdateData['suffix_id'] = $request->suffix_id;
+                }
+                if ($request->filled('gender_id')) {
+                    $profileUpdateData['gender_id'] = $request->gender_id;
+                }
+                if ($request->has('contact_number')) {
+                    $profileUpdateData['contact_number'] = $request->contact_number;
+                }
+                if ($request->has('street')) {
+                    $profileUpdateData['street'] = $request->street;
+                }
+
+                $profile->update($profileUpdateData);
+            }
+
+            // Prepare employer data - handle empty strings for required fields
+            $employerData = [
+                'user_id'     => $user->id,
+                'full_name'   => $request->first_name . ' ' . $request->last_name,
+                'city'        => $request->city ?? $profile->city,
+                'province'    => $request->province ?? $profile->province,
+                'postal_code' => $request->postal_code ?? $profile->postal_code,
+                'country'     => $request->country ?? $profile->country,
+            ];
+
+            // Handle nullable fields - only set if provided
+            if ($request->filled('gender_id')) {
+                $employerData['gender_id'] = $request->gender_id;
+            } elseif ($profile->gender_id) {
+                $employerData['gender_id'] = $profile->gender_id;
+            }
+
+            if ($request->filled('suffix_id')) {
+                $employerData['suffix_id'] = $request->suffix_id;
+            } elseif ($profile->suffix_id) {
+                $employerData['suffix_id'] = $profile->suffix_id;
+            }
+
+            // Street is required - use 'N/A' if empty, otherwise use provided value or existing
+            $employerData['street'] = !empty($request->street) 
+                ? $request->street 
+                : ($profile->street ?? 'N/A');
 
             $employer = Employer::updateOrCreate(
-                ['profile_id' => $user->profile->id],
-                [
-                    'user_id'     => $user->id,
-                    'full_name'   => $request->first_name . ' ' . $request->last_name,
-                    'gender_id'   => $request->gender_id,
-                    'suffix_id'   => $request->suffix_id,
-                    'street'      => $request->street,
-                    'city'        => $request->city ?? $user->profile->city,
-                    'province'    => $request->province ?? $user->profile->province,
-                    'postal_code' => $request->postal_code ?? $user->profile->postal_code,
-                    'country'     => $request->country ?? $user->profile->country,
-                ]
+                ['profile_id' => $profile->id],
+                $employerData
             );
 
             return response()->json([
@@ -276,6 +340,10 @@ class EmployerController extends Controller
                 'employer' => $user->load(['profile', 'employer'])
             ]);
         } catch (\Exception $e) {
+            Log::error('Error updating employer: ' . $e->getMessage(), [
+                'id' => $id,
+                'trace' => $e->getTraceAsString()
+            ]);
             return response()->json(['error' => 'Failed to update employer: ' . $e->getMessage()], 500);
         }
     }

@@ -19,8 +19,6 @@ class BookingRequest extends Model
         'work_type',
         'book_in',
         'book_end',
-        'time_in',
-        'time_out',
         'hours_per_day',
         'description',
         'daily_rate',
@@ -28,11 +26,10 @@ class BookingRequest extends Model
         'status',
     ];
 
+
     protected $casts = [
         'book_in' => 'datetime',
         'book_end' => 'datetime',
-        'time_in' => 'datetime',
-        'time_out' => 'datetime',
         'hours_per_day' => 'decimal:2',
         'daily_rate' => 'decimal:2',
         'total_amount' => 'decimal:2',
@@ -110,8 +107,6 @@ class BookingRequest extends Model
             'work_type' => $bookModalData['work_type'] ?? null,
             'book_in' => $bookModalData['book_in'] ?? null,
             'book_end' => $bookModalData['book_end'] ?? null,
-            'time_in' => $bookModalData['time_in'] ?? null,
-            'time_out' => $bookModalData['time_out'] ?? null,
             'hours_per_day' => $bookModalData['hours_per_day'] ?? null,
             'description' => $bookModalData['description'] ?? null,
             'daily_rate' => $bookModalData['daily_rate'] ?? null,
