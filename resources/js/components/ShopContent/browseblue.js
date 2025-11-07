@@ -578,7 +578,7 @@ const Browse = () => {
           <h2 className="category-title">
             {serviceName.toUpperCase()}
           </h2>
-          <div className="search-and-sort-row">
+            <div className="search-and-sort-row">
             <div className="search-bar">
               <input
                 className="search-input"
