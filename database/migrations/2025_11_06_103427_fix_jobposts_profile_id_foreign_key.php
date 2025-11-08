@@ -3,10 +3,12 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use Illuminate\Support\Facades\DB;
+use App\Database\MigrationSafe;
 
 class FixJobpostsProfileIdForeignKey extends Migration
 {
+    use MigrationSafe;
+
     /**
      * Run the migrations.
      *
@@ -14,32 +16,12 @@ class FixJobpostsProfileIdForeignKey extends Migration
      */
     public function up()
     {
-        if (Schema::hasTable('jobposts') && Schema::hasColumn('jobposts', 'profile_id')) {
-            // Drop the incorrect foreign key constraint on profile_id (safely)
-            try {
-                Schema::table('jobposts', function (Blueprint $table) {
-                    $table->dropForeign(['profile_id']);
-                });
-            } catch (\Throwable $e) {
-                // Foreign key might not exist, try alternative method
-                try {
-                    DB::statement('ALTER TABLE jobposts DROP CONSTRAINT IF EXISTS jobposts_profile_id_foreign');
-                } catch (\Throwable $e2) {
-                    // Ignore if constraint doesn't exist
-                }
-            }
-            
-            // Re-add the foreign key constraint pointing to profiles table instead of users
-            if (Schema::hasTable('profiles')) {
-                try {
-                    Schema::table('jobposts', function (Blueprint $table) {
-                        $table->foreign('profile_id')->references('id')->on('profiles')->onDelete('cascade');
-                    });
-                } catch (\Throwable $e) {
-                    // Constraint might already exist, ignore
-                }
-            }
-        }
+        // Each operation in its own transaction
+        // Step 1: Drop existing foreign key
+        $this->safeDropForeign('jobposts', 'profile_id');
+        
+        // Step 2: Re-add foreign key pointing to profiles table
+        $this->safeAddForeign('jobposts', 'profile_id', 'profiles', 'id', 'cascade');
     }
 
     /**
@@ -49,31 +31,11 @@ class FixJobpostsProfileIdForeignKey extends Migration
      */
     public function down()
     {
-        if (Schema::hasTable('jobposts') && Schema::hasColumn('jobposts', 'profile_id')) {
-            // Drop the foreign key constraint (safely)
-            try {
-                Schema::table('jobposts', function (Blueprint $table) {
-                    $table->dropForeign(['profile_id']);
-                });
-            } catch (\Throwable $e) {
-                // Foreign key might not exist, try alternative method
-                try {
-                    DB::statement('ALTER TABLE jobposts DROP CONSTRAINT IF EXISTS jobposts_profile_id_foreign');
-                } catch (\Throwable $e2) {
-                    // Ignore if constraint doesn't exist
-                }
-            }
-            
-            // Revert back to users table (if needed)
-            if (Schema::hasTable('users')) {
-                try {
-                    Schema::table('jobposts', function (Blueprint $table) {
-                        $table->foreign('profile_id')->references('id')->on('users')->onDelete('cascade');
-                    });
-                } catch (\Throwable $e) {
-                    // Constraint might already exist, ignore
-                }
-            }
-        }
+        // Each operation in its own transaction
+        // Step 1: Drop existing foreign key
+        $this->safeDropForeign('jobposts', 'profile_id');
+        
+        // Step 2: Revert back to users table
+        $this->safeAddForeign('jobposts', 'profile_id', 'users', 'id', 'cascade');
     }
 }

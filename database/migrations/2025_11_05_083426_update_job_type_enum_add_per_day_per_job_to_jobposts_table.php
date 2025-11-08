@@ -4,9 +4,12 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\DB;
+use App\Database\MigrationSafe;
 
 class UpdateJobTypeEnumAddPerDayPerJobToJobpostsTable extends Migration
 {
+    use MigrationSafe;
+
     /**
      * Run the migrations.
      *
@@ -14,32 +17,24 @@ class UpdateJobTypeEnumAddPerDayPerJobToJobpostsTable extends Migration
      */
     public function up()
     {
-        // For PostgreSQL, we need to drop the existing constraint and add a new one
-        // Find and drop all existing check constraints on the job_type column
-        $constraints = DB::select("
-            SELECT tc.constraint_name 
-            FROM information_schema.table_constraints tc
-            JOIN information_schema.constraint_column_usage ccu 
-                ON tc.constraint_name = ccu.constraint_name
-            WHERE tc.table_name = 'jobposts' 
-            AND ccu.column_name = 'job_type' 
-            AND tc.constraint_type = 'CHECK'
-        ");
-        
-        foreach ($constraints as $constraint) {
-            // Escape identifier name properly for PostgreSQL (use double quotes for identifiers)
-            $constraintName = '"' . str_replace('"', '""', $constraint->constraint_name) . '"';
-            DB::statement("ALTER TABLE jobposts DROP CONSTRAINT IF EXISTS {$constraintName}");
+        if (!Schema::hasTable('jobposts') || !Schema::hasColumn('jobposts', 'job_type')) {
+            return;
         }
+
+        // Each operation in its own transaction
+        // Step 1: Drop existing CHECK constraints
+        $this->safeDropCheckConstraint('jobposts', 'job_type');
         
-        // Drop the specific constraint name if it exists (in case it wasn't caught by the query above)
-        DB::statement("ALTER TABLE jobposts DROP CONSTRAINT IF EXISTS jobposts_job_type_check");
+        // Step 2: Add new CHECK constraint with updated values
+        $this->safeAddCheckConstraint(
+            'jobposts',
+            'job_type',
+            ['per_day', 'per_job', 'full-time', 'part-time', 'contract', 'freelance'],
+            'jobposts_job_type_check'
+        );
         
-        // Add new check constraint with updated enum values
-        DB::statement("ALTER TABLE jobposts ADD CONSTRAINT jobposts_job_type_check CHECK (job_type IN ('per_day', 'per_job', 'full-time', 'part-time', 'contract', 'freelance'))");
-        
-        // Ensure NOT NULL constraint
-        DB::statement("ALTER TABLE jobposts ALTER COLUMN job_type SET NOT NULL");
+        // Step 3: Ensure NOT NULL
+        $this->safeSetNotNull('jobposts', 'job_type');
     }
 
     /**
@@ -49,30 +44,23 @@ class UpdateJobTypeEnumAddPerDayPerJobToJobpostsTable extends Migration
      */
     public function down()
     {
-        // Find and drop all existing check constraints on the job_type column
-        $constraints = DB::select("
-            SELECT tc.constraint_name 
-            FROM information_schema.table_constraints tc
-            JOIN information_schema.constraint_column_usage ccu 
-                ON tc.constraint_name = ccu.constraint_name
-            WHERE tc.table_name = 'jobposts' 
-            AND ccu.column_name = 'job_type' 
-            AND tc.constraint_type = 'CHECK'
-        ");
-        
-        foreach ($constraints as $constraint) {
-            // Escape identifier name properly for PostgreSQL (use double quotes for identifiers)
-            $constraintName = '"' . str_replace('"', '""', $constraint->constraint_name) . '"';
-            DB::statement("ALTER TABLE jobposts DROP CONSTRAINT IF EXISTS {$constraintName}");
+        if (!Schema::hasTable('jobposts') || !Schema::hasColumn('jobposts', 'job_type')) {
+            return;
         }
+
+        // Each operation in its own transaction
+        // Step 1: Drop existing CHECK constraints
+        $this->safeDropCheckConstraint('jobposts', 'job_type');
         
-        // Drop the specific constraint name if it exists
-        DB::statement("ALTER TABLE jobposts DROP CONSTRAINT IF EXISTS jobposts_job_type_check");
+        // Step 2: Revert without 'per_day' and 'per_job'
+        $this->safeAddCheckConstraint(
+            'jobposts',
+            'job_type',
+            ['full-time', 'part-time', 'contract', 'freelance'],
+            'jobposts_job_type_check'
+        );
         
-        // Add back the constraint without 'per_day' and 'per_job'
-        DB::statement("ALTER TABLE jobposts ADD CONSTRAINT jobposts_job_type_check CHECK (job_type IN ('full-time', 'part-time', 'contract', 'freelance'))");
-        
-        // Ensure NOT NULL constraint
-        DB::statement("ALTER TABLE jobposts ALTER COLUMN job_type SET NOT NULL");
+        // Step 3: Ensure NOT NULL
+        $this->safeSetNotNull('jobposts', 'job_type');
     }
 }

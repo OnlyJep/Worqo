@@ -4,40 +4,35 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\DB;
+use App\Database\MigrationSafe;
 
 return new class extends Migration
 {
+    use MigrationSafe;
+
     /**
      * Run the migrations.
      */
     public function up(): void
     {
-        // For PostgreSQL, we need to drop the existing constraint and add a new one
-        // Find and drop all existing check constraints on the is_reviewed column
-        $constraints = DB::select("
-            SELECT tc.constraint_name 
-            FROM information_schema.table_constraints tc
-            JOIN information_schema.constraint_column_usage ccu 
-                ON tc.constraint_name = ccu.constraint_name
-            WHERE tc.table_name = 'workers' 
-            AND ccu.column_name = 'is_reviewed' 
-            AND tc.constraint_type = 'CHECK'
-        ");
-        
-        foreach ($constraints as $constraint) {
-            // Escape identifier name properly for PostgreSQL (use double quotes for identifiers)
-            $constraintName = '"' . str_replace('"', '""', $constraint->constraint_name) . '"';
-            DB::statement("ALTER TABLE workers DROP CONSTRAINT IF EXISTS {$constraintName}");
+        if (!Schema::hasTable('workers') || !Schema::hasColumn('workers', 'is_reviewed')) {
+            return;
         }
+
+        // Each operation in its own transaction
+        // Step 1: Drop existing CHECK constraints
+        $this->safeDropCheckConstraint('workers', 'is_reviewed');
         
-        // Drop the specific constraint name if it exists (in case it wasn't caught by the query above)
-        DB::statement("ALTER TABLE workers DROP CONSTRAINT IF EXISTS workers_is_reviewed_check");
+        // Step 2: Add new CHECK constraint with updated values
+        $this->safeAddCheckConstraint(
+            'workers',
+            'is_reviewed',
+            ['TO BE REVIEWED', 'ACCEPTED', 'DECLINED'],
+            'workers_is_reviewed_check'
+        );
         
-        // Add new check constraint with updated enum values
-        DB::statement("ALTER TABLE workers ADD CONSTRAINT workers_is_reviewed_check CHECK (is_reviewed IN ('TO BE REVIEWED', 'ACCEPTED', 'DECLINED'))");
-        
-        // Ensure nullable is set (already nullable, but ensure it stays that way)
-        DB::statement("ALTER TABLE workers ALTER COLUMN is_reviewed DROP NOT NULL");
+        // Step 3: Ensure nullable
+        $this->safeDropNotNull('workers', 'is_reviewed');
     }
 
     /**
@@ -45,30 +40,23 @@ return new class extends Migration
      */
     public function down(): void
     {
-        // Find and drop all existing check constraints on the is_reviewed column
-        $constraints = DB::select("
-            SELECT tc.constraint_name 
-            FROM information_schema.table_constraints tc
-            JOIN information_schema.constraint_column_usage ccu 
-                ON tc.constraint_name = ccu.constraint_name
-            WHERE tc.table_name = 'workers' 
-            AND ccu.column_name = 'is_reviewed' 
-            AND tc.constraint_type = 'CHECK'
-        ");
-        
-        foreach ($constraints as $constraint) {
-            // Escape identifier name properly for PostgreSQL (use double quotes for identifiers)
-            $constraintName = '"' . str_replace('"', '""', $constraint->constraint_name) . '"';
-            DB::statement("ALTER TABLE workers DROP CONSTRAINT IF EXISTS {$constraintName}");
+        if (!Schema::hasTable('workers') || !Schema::hasColumn('workers', 'is_reviewed')) {
+            return;
         }
+
+        // Each operation in its own transaction
+        // Step 1: Drop existing CHECK constraints
+        $this->safeDropCheckConstraint('workers', 'is_reviewed');
         
-        // Drop the specific constraint name if it exists
-        DB::statement("ALTER TABLE workers DROP CONSTRAINT IF EXISTS workers_is_reviewed_check");
+        // Step 2: Revert to original values
+        $this->safeAddCheckConstraint(
+            'workers',
+            'is_reviewed',
+            ['ACCEPTED', 'DECLINED'],
+            'workers_is_reviewed_check'
+        );
         
-        // Revert to original enum values
-        DB::statement("ALTER TABLE workers ADD CONSTRAINT workers_is_reviewed_check CHECK (is_reviewed IN ('ACCEPTED', 'DECLINED'))");
-        
-        // Ensure nullable is set
-        DB::statement("ALTER TABLE workers ALTER COLUMN is_reviewed DROP NOT NULL");
+        // Step 3: Ensure nullable
+        $this->safeDropNotNull('workers', 'is_reviewed');
     }
 };

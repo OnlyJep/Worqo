@@ -3,9 +3,11 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use App\Database\MigrationSafe;
 
 class AddBookmodalFieldsToBookingRequestsTable extends Migration
 {
+    use MigrationSafe;
     /**
      * Run the migrations.
      *
@@ -53,74 +55,23 @@ class AddBookmodalFieldsToBookingRequestsTable extends Migration
      */
     public function down()
     {
-        if (Schema::hasTable('booking_requests')) {
-            // Drop foreign key constraints first (safely)
-            if (Schema::hasColumn('booking_requests', 'employer_id')) {
-                try {
-                    Schema::table('booking_requests', function (Blueprint $table) {
-                        $table->dropForeign(['employer_id']);
-                    });
-                } catch (\Throwable $e) {
-                    // Foreign key might not exist, ignore
-                }
-            }
-            
-            if (Schema::hasColumn('booking_requests', 'worker_id')) {
-                try {
-                    Schema::table('booking_requests', function (Blueprint $table) {
-                        $table->dropForeign(['worker_id']);
-                    });
-                } catch (\Throwable $e) {
-                    // Foreign key might not exist, ignore
-                }
-            }
-            
-            // Drop indexes (safely)
-            try {
-                Schema::table('booking_requests', function (Blueprint $table) {
-                    $table->dropIndex(['service_type', 'work_type']);
-                });
-            } catch (\Throwable $e) {
-                // Index might not exist, ignore
-            }
-            
-            try {
-                Schema::table('booking_requests', function (Blueprint $table) {
-                    $table->dropIndex(['book_in', 'book_end']);
-                });
-            } catch (\Throwable $e) {
-                // Index might not exist, ignore
-            }
-            
-            try {
-                Schema::table('booking_requests', function (Blueprint $table) {
-                    $table->dropIndex(['employer_id', 'worker_id']);
-                });
-            } catch (\Throwable $e) {
-                // Index might not exist, ignore
-            }
-            
-            // Drop columns (only if they exist)
-            $columnsToDrop = [];
-            $columns = [
-                'service_type', 'sub_skill', 'work_type', 'book_in', 'book_end',
-                'description', 'daily_rate', 'total_amount', 'working_days',
-                'total_hours', 'hourly_rate', 'salary_explanation',
-                'employer_id', 'worker_id', 'is_available',
-                'conflict_message', 'conflicting_jobs'
-            ];
-            
-            foreach ($columns as $column) {
-                if (Schema::hasColumn('booking_requests', $column)) {
-                    $columnsToDrop[] = $column;
-                }
-            }
-            
-            if (!empty($columnsToDrop)) {
-                Schema::table('booking_requests', function (Blueprint $table) use ($columnsToDrop) {
-                    $table->dropColumn($columnsToDrop);
-                });
-            }
-        }
+        // Each operation in its own transaction
+        // Step 1: Drop foreign key constraints
+        $this->safeDropForeign('booking_requests', 'employer_id');
+        $this->safeDropForeign('booking_requests', 'worker_id');
+        
+        // Step 2: Drop indexes
+        $this->safeDropIndex('booking_requests', ['service_type', 'work_type']);
+        $this->safeDropIndex('booking_requests', ['book_in', 'book_end']);
+        $this->safeDropIndex('booking_requests', ['employer_id', 'worker_id']);
+        
+        // Step 3: Drop columns
+        $this->safeDropColumn('booking_requests', [
+            'service_type', 'sub_skill', 'work_type', 'book_in', 'book_end',
+            'description', 'daily_rate', 'total_amount', 'working_days',
+            'total_hours', 'hourly_rate', 'salary_explanation',
+            'employer_id', 'worker_id', 'is_available',
+            'conflict_message', 'conflicting_jobs'
+        ]);
     }
 }
