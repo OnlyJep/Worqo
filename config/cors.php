@@ -8,6 +8,7 @@ return [
         'http://127.0.0.1:8000',   // Laravel server
         'http://localhost:3000',    // React frontend
         'http://127.0.0.1:3000',   // Alternative frontend
+        'https://worqo.onrender.com', // Render production
     ],
     'allowed_origins_patterns' => [],
     'allowed_headers' => ['*'], // Allow all headers

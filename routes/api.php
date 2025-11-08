@@ -414,7 +414,6 @@ Route::get('/messages/thread/{otherUserId}', [MessageController::class, 'thread'
 Route::post('/messages/send', [MessageController::class, 'send']);
 
 Route::get('/messages/unread-count', [MessageController::class, 'unreadCount']);
-
 // (Removed duplicate auth:api notifications block to avoid 401)
 
 
@@ -440,3 +439,4 @@ Route::middleware('auth:api')->group(function () {
     Route::post('/users/{id}/change-password', [PasswordController::class, 'changeUserPassword'])->name('password.change.user');
 
 });
+

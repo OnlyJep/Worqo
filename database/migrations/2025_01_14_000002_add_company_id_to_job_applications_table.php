@@ -36,16 +36,18 @@ return new class extends Migration
                 });
             }
 
-            // Add foreign keys, guard with try/catch to avoid duplicate errors
-            try {
-                DB::statement('ALTER TABLE job_applications ADD CONSTRAINT job_applications_job_post_id_foreign FOREIGN KEY (job_post_id) REFERENCES jobposts(id) ON DELETE CASCADE');
-            } catch (\Throwable $e) {}
-            try {
-                DB::statement('ALTER TABLE job_applications ADD CONSTRAINT job_applications_worker_id_foreign FOREIGN KEY (worker_id) REFERENCES profiles(id) ON DELETE CASCADE');
-            } catch (\Throwable $e) {}
-            try {
-                DB::statement('ALTER TABLE job_applications ADD CONSTRAINT job_applications_company_id_foreign FOREIGN KEY (company_id) REFERENCES companies(id) ON DELETE CASCADE');
-            } catch (\Throwable $e) {}
+            // Add company_id foreign key if companies table exists
+            // Foreign keys for job_post_id and worker_id are already defined in create migration
+            if (Schema::hasTable('companies') && Schema::hasColumn('job_applications', 'company_id')) {
+                try {
+                    Schema::table('job_applications', function (Blueprint $table) {
+                        $table->foreign('company_id')->references('id')->on('companies')->onDelete('cascade');
+                    });
+                } catch (\Throwable $e) {
+                    // Constraint might already exist or companies table doesn't exist yet
+                    // This is safe to ignore - migration can be run multiple times
+                }
+            }
         }
     }
 
@@ -55,9 +57,13 @@ return new class extends Migration
     public function down(): void
     {
         if (Schema::hasTable('job_applications')) {
-            // Drop foreign keys (guarded)
-            foreach (['job_applications_company_id_foreign','job_applications_worker_id_foreign','job_applications_job_post_id_foreign'] as $fk) {
-                try { DB::statement("ALTER TABLE job_applications DROP FOREIGN KEY $fk"); } catch (\Throwable $e) {}
+            // Drop company_id foreign key if it exists
+            try {
+                Schema::table('job_applications', function (Blueprint $table) {
+                    $table->dropForeign(['company_id']);
+                });
+            } catch (\Throwable $e) {
+                // Constraint might not exist, ignore error
             }
 
             if (Schema::hasColumn('job_applications', 'company_id')) {
