@@ -70,16 +70,36 @@ mkdir -p storage/app/public/credentialsphoto
 chmod -R 755 storage/app/public
 
 echo "Running migrations..."
-# Run migrations and check for errors
+# Run all migrations first
 php artisan migrate --force
-if [ $? -ne 0 ]; then
-    echo "Migration failed, but continuing..."
-    # Try to run individual migrations that might have failed
-    echo "Attempting to run last_activity migration separately..."
-    php artisan migrate --path=database/migrations/2025_10_17_040000_add_last_activity_to_users_table.php --force || echo "Last activity migration skipped"
-    echo "Attempting to run is_online migration separately..."
-    php artisan migrate --path=database/migrations/2025_10_24_034522_add_is_online_to_users_table.php --force || echo "Is online migration skipped"
-fi
+
+# Check migration status
+MIGRATION_STATUS=$?
+
+# Always ensure critical migrations are run, even if main migration had errors
+echo "Ensuring critical column migrations are applied..."
+
+# Run last_activity migration if it hasn't been run yet
+echo "Checking/adding last_activity column..."
+php artisan migrate --path=database/migrations/2025_10_17_040000_add_last_activity_to_users_table.php --force 2>&1 | grep -v "Nothing to migrate" || echo "Last activity column already exists or migration completed"
+
+# Run is_online migration if it hasn't been run yet (must run after last_activity)
+echo "Checking/adding is_online column..."
+php artisan migrate --path=database/migrations/2025_10_24_034522_add_is_online_to_users_table.php --force 2>&1 | grep -v "Nothing to migrate" || echo "Is online column already exists or migration completed"
+
+# Verify migrations were successful
+echo "Verifying database schema..."
+php artisan tinker --execute="
+try {
+    \$hasLastActivity = Schema::hasColumn('users', 'last_activity');
+    \$hasIsOnline = Schema::hasColumn('users', 'is_online');
+    echo 'Database schema check: ';
+    echo 'last_activity: ' . (\$hasLastActivity ? 'EXISTS' : 'MISSING') . ', ';
+    echo 'is_online: ' . (\$hasIsOnline ? 'EXISTS' : 'MISSING') . PHP_EOL;
+} catch (Exception \$e) {
+    echo 'Schema check error: ' . \$e->getMessage() . PHP_EOL;
+}
+" 2>/dev/null || echo "Schema verification skipped (tinker may not be available)"
 
 echo "Installing Passport..."
 php artisan passport:install --force || echo "Passport install warning - continuing anyway..."

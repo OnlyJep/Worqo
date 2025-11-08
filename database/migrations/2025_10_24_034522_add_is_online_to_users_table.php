@@ -4,14 +4,14 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddIsOnlineToUsersTable extends Migration
+return new class extends Migration
 {
     /**
      * Run the migrations.
      *
      * @return void
      */
-    public function up()
+    public function up(): void
     {
         // Check if column already exists before adding
         if (!Schema::hasColumn('users', 'is_online')) {
@@ -31,7 +31,7 @@ class AddIsOnlineToUsersTable extends Migration
      *
      * @return void
      */
-    public function down()
+    public function down(): void
     {
         if (Schema::hasColumn('users', 'is_online')) {
             Schema::table('users', function (Blueprint $table) {
@@ -39,4 +39,4 @@ class AddIsOnlineToUsersTable extends Migration
             });
         }
     }
-}
+};
