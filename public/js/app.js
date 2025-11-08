@@ -201266,7 +201266,7 @@ var Footer = function Footer() {
         className: "footer__info",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
           className: "footer__logo",
-          src: "/images/worqo_logo.svg",
+          src: "".concat(window.location.origin, "/images/worqo_logo.svg"),
           alt: "WORQO"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("ul", {
           className: "footer__contact",
@@ -201342,7 +201342,7 @@ var Footer = function Footer() {
             rel: "noopener noreferrer",
             "aria-label": "Facebook",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
-              src: "/images/facebook.svg",
+              src: "".concat(window.location.origin, "/images/facebook.svg"),
               alt: "Facebook"
             })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
@@ -201351,7 +201351,7 @@ var Footer = function Footer() {
             rel: "noopener noreferrer",
             "aria-label": "Twitter / X",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
-              src: "/images/twitter.svg",
+              src: "".concat(window.location.origin, "/images/twitter.svg"),
               alt: "Twitter"
             })
           })]
@@ -202978,8 +202978,9 @@ var Headerz = function Headerz() {
   var handleImageError = function handleImageError(e) {
     setImageError(true);
     // Fallback to default profile image if load fails
-    if (e.target.src !== 'images/defpfp.svg') {
-      e.target.src = 'images/defpfp.svg';
+    var defaultImage = "".concat(window.location.origin, "/images/defpfp.svg");
+    if (e.target.src !== defaultImage) {
+      e.target.src = defaultImage;
     }
   };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("header", {
@@ -204151,7 +204152,7 @@ var MessageEmployer = function MessageEmployer() {
           alt: collar.name,
           className: "collar-image",
           onError: function onError(e) {
-            e.target.src = '/images/defpfp.svg';
+            e.target.src = "".concat(window.location.origin, "/images/defpfp.svg");
           }
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("span", {
           className: "collar-name",
@@ -204175,7 +204176,7 @@ var MessageEmployer = function MessageEmployer() {
           alt: rank.name,
           className: "rank-image",
           onError: function onError(e) {
-            e.target.src = '/images/defpfp.svg';
+            e.target.src = "".concat(window.location.origin, "/images/defpfp.svg");
           }
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("span", {
           className: "rank-name",
@@ -204254,7 +204255,7 @@ var MessageEmployer = function MessageEmployer() {
                   alt: conv.name || 'User',
                   className: "avatar-image",
                   onError: function onError(e) {
-                    e.currentTarget.src = 'images/defpfp.svg';
+                    e.currentTarget.src = "".concat(window.location.origin, "/images/defpfp.svg");
                   }
                 }), conv.unread_count > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("span", {
                   className: "unread-indicator",
@@ -204285,7 +204286,7 @@ var MessageEmployer = function MessageEmployer() {
                         e.currentTarget.style.display = 'none';
                       }
                     }), ((conv === null || conv === void 0 || (_conv$detailed_info3 = conv.detailed_info) === null || _conv$detailed_info3 === void 0 || (_conv$detailed_info3 = _conv$detailed_info3.worker) === null || _conv$detailed_info3 === void 0 ? void 0 : _conv$detailed_info3.verified) === true || (conv === null || conv === void 0 || (_conv$detailed_info4 = conv.detailed_info) === null || _conv$detailed_info4 === void 0 || (_conv$detailed_info4 = _conv$detailed_info4.worker) === null || _conv$detailed_info4 === void 0 ? void 0 : _conv$detailed_info4.verified) === 1) && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("img", {
-                      src: '/images/verified.png',
+                      src: "".concat(window.location.origin, "/images/verified.png"),
                       alt: "verified",
                       style: {
                         width: 14,
@@ -204358,7 +204359,7 @@ var MessageEmployer = function MessageEmployer() {
                       e.currentTarget.style.display = 'none';
                     }
                   }), ((otherUserInfo === null || otherUserInfo === void 0 || (_otherUserInfo$worker2 = otherUserInfo.worker) === null || _otherUserInfo$worker2 === void 0 ? void 0 : _otherUserInfo$worker2.verified) === true || (otherUserInfo === null || otherUserInfo === void 0 || (_otherUserInfo$worker3 = otherUserInfo.worker) === null || _otherUserInfo$worker3 === void 0 ? void 0 : _otherUserInfo$worker3.verified) === 1) && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("img", {
-                    src: '/images/verified.png',
+                    src: "".concat(window.location.origin, "/images/verified.png"),
                     alt: "verified",
                     style: {
                       width: 18,
@@ -205034,7 +205035,7 @@ var MessageWorker = function MessageWorker() {
                   alt: conv.name || 'User',
                   className: "avatar-image",
                   onError: function onError(e) {
-                    e.currentTarget.src = 'images/defpfp.svg';
+                    e.currentTarget.src = "".concat(window.location.origin, "/images/defpfp.svg");
                   }
                 }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
                   className: "avatar-placeholder",
@@ -205102,7 +205103,7 @@ var MessageWorker = function MessageWorker() {
                   alt: user.full_name || 'User',
                   className: "avatar-image",
                   onError: function onError(e) {
-                    e.currentTarget.src = 'images/defpfp.svg';
+                    e.currentTarget.src = "".concat(window.location.origin, "/images/defpfp.svg");
                   }
                 }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
                   className: "avatar-placeholder",
@@ -205866,7 +205867,7 @@ var Notif = function Notif() {
               marginBottom: '1rem'
             },
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("img", {
-              src: selectedNotif.profile_img && selectedNotif.profile_img.startsWith('images/') ? selectedNotif.profile_img : selectedNotif.profile_img ? "".concat(window.location.origin, "/storage/").concat(selectedNotif.profile_img) : 'images/defpfp.svg',
+              src: selectedNotif.profile_img && selectedNotif.profile_img.startsWith('images/') ? "".concat(window.location.origin, "/").concat(selectedNotif.profile_img) : selectedNotif.profile_img ? "".concat(window.location.origin, "/storage/").concat(selectedNotif.profile_img) : "".concat(window.location.origin, "/images/defpfp.svg"),
               alt: selectedNotif.user,
               style: {
                 width: '50px',
@@ -205876,7 +205877,7 @@ var Notif = function Notif() {
                 objectFit: 'cover'
               },
               onError: function onError(e) {
-                e.target.src = 'images/defpfp.svg';
+                e.target.src = "".concat(window.location.origin, "/images/defpfp.svg");
               }
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
@@ -209741,32 +209742,32 @@ var Profile = function Profile(_ref) {
       case '0-11-months':
         return {
           name: 'Bronze',
-          image: '/images/bronze.png'
+          image: "".concat(window.location.origin, "/images/bronze.png")
         };
       case '1-2-years':
         return {
           name: 'Silver',
-          image: '/images/silver.svg'
+          image: "".concat(window.location.origin, "/images/silver.svg")
         };
       case '2-5-years':
         return {
           name: 'Gold',
-          image: '/images/gold.svg'
+          image: "".concat(window.location.origin, "/images/gold.svg")
         };
       case '5-10-years':
         return {
           name: 'Platinum',
-          image: '/images/platinum.svg'
+          image: "".concat(window.location.origin, "/images/platinum.svg")
         };
       case '10+ years':
         return {
           name: 'Diamond',
-          image: '/images/diamond.svg'
+          image: "".concat(window.location.origin, "/images/diamond.svg")
         };
       default:
         return {
           name: 'Bronze',
-          image: '/images/bronze.png'
+          image: "".concat(window.location.origin, "/images/bronze.png")
         };
     }
   };
@@ -210694,11 +210695,11 @@ var Profile = function Profile(_ref) {
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
         className: "profile-photo-wrapper",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("img", {
-          src: worker.profile_img ? "".concat(window.location.origin, "/storage/").concat(worker.profile_img) : "/images/defpfp.svg",
+          src: worker.profile_img ? "".concat(window.location.origin, "/storage/").concat(worker.profile_img) : "".concat(window.location.origin, "/images/defpfp.svg"),
           alt: "Profile",
           className: "profile-photo",
           onError: function onError(e) {
-            e.target.src = "/images/defpfp.svg";
+            e.target.src = "".concat(window.location.origin, "/images/defpfp.svg");
           }
         })
       })]
@@ -210739,7 +210740,7 @@ var Profile = function Profile(_ref) {
                 className: "profile-verified-badge",
                 title: "Verified Worker",
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("img", {
-                  src: "/images/verified.png",
+                  src: "".concat(window.location.origin, "/images/verified.png"),
                   alt: "Verified",
                   className: "verified-icon",
                   loading: "eager",
@@ -211835,32 +211836,32 @@ var Browse = function Browse() {
       case '0-11-months':
         return {
           name: 'Bronze',
-          image: '/images/bronze.png'
+          image: "".concat(window.location.origin, "/images/bronze.png")
         };
       case '1-2-years':
         return {
           name: 'Silver',
-          image: '/images/silver.svg'
+          image: "".concat(window.location.origin, "/images/silver.svg")
         };
       case '2-5-years':
         return {
           name: 'Gold',
-          image: '/images/gold.svg'
+          image: "".concat(window.location.origin, "/images/gold.svg")
         };
       case '5-10-years':
         return {
           name: 'Platinum',
-          image: '/images/platinum.svg'
+          image: "".concat(window.location.origin, "/images/platinum.svg")
         };
       case '10+ years':
         return {
           name: 'Diamond',
-          image: '/images/diamond.svg'
+          image: "".concat(window.location.origin, "/images/diamond.svg")
         };
       default:
         return {
           name: 'Bronze',
-          image: '/images/bronze.png'
+          image: "".concat(window.location.origin, "/images/bronze.png")
         };
     }
   };
@@ -221990,7 +221991,7 @@ var Admintopnavbar = function Admintopnavbar() {
   // Function to get image URL with cache busting
   var getImageUrl = function getImageUrl(profileImg) {
     if (!profileImg) {
-      return "/images/defpfp.svg";
+      return "".concat(window.location.origin, "/images/defpfp.svg");
     }
     var imageUrl = "".concat(window.location.origin, "/storage/").concat(profileImg, "?v=").concat(imageRefreshKey);
     return imageUrl;
@@ -222001,7 +222002,7 @@ var Admintopnavbar = function Admintopnavbar() {
       className: "profile",
       ref: dropdownRef,
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("img", {
-        src: imageError ? "/images/defpfp.svg" : getImageUrl(user === null || user === void 0 ? void 0 : user.profile_img),
+        src: imageError ? "".concat(window.location.origin, "/images/defpfp.svg") : getImageUrl(user === null || user === void 0 ? void 0 : user.profile_img),
         alt: "Profile",
         className: "profile-icon",
         onError: handleImageError,
@@ -226856,7 +226857,7 @@ var Option = antd__WEBPACK_IMPORTED_MODULE_4__["default"].Option;
 var getProfileImageSrc = function getProfileImageSrc(profileImg) {
   // Handle null, undefined, or empty string
   if (!profileImg || profileImg.trim() === '' || profileImg === 'null') {
-    return "/images/default-profile.svg";
+    return "".concat(window.location.origin, "/images/default-profile.svg");
   }
 
   // If it's already a full URL, return as is
@@ -228921,7 +228922,7 @@ var getProfileName = function getProfileName(profile) {
 var getProfileImageSrc = function getProfileImageSrc(profileImg) {
   // Handle null, undefined, or empty string
   if (!profileImg || profileImg.trim() === '') {
-    return "/images/default-profile.svg";
+    return "".concat(window.location.origin, "/images/default-profile.svg");
   }
 
   // If it's already a full URL, return as is
@@ -251704,7 +251705,7 @@ var MyBookings = function MyBookings() {
                   children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
                     className: "booking-worker-profile",
                     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("img", {
-                      src: "/images/defpfp.svg",
+                      src: "".concat(window.location.origin, "/images/defpfp.svg"),
                       alt: "User",
                       className: "booking-worker-avatar"
                     })
@@ -251824,7 +251825,7 @@ var MyBookings = function MyBookings() {
                       }
                       // Default fallback
                       console.log('Using default avatar: defpfp.svg');
-                      return '/images/defpfp.svg';
+                      return "".concat(window.location.origin, "/images/defpfp.svg");
                     }(),
                     alt: personProfile ? "".concat(personProfile.first_name, " ").concat(personProfile.last_name) : personData ? "".concat(personData.first_name || '', " ").concat(personData.last_name || '').trim() || 'User' : 'User',
                     className: "booking-worker-avatar",
@@ -252057,7 +252058,7 @@ var MyBookings = function MyBookings() {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
           className: "booking-empty-icon",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("img", {
-            src: "/images/mybooking.svg",
+            src: "".concat(window.location.origin, "/images/mybooking.svg"),
             alt: "No Bookings"
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("h3", {
@@ -252586,7 +252587,7 @@ var MyJobs = function MyJobs() {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
           className: "myjobs-empty-icon",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("img", {
-            src: "/images/mybooking.svg",
+            src: "".concat(window.location.origin, "/images/mybooking.svg"),
             alt: "No Applications"
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("h3", {
@@ -253355,7 +253356,7 @@ var MyPostJob = function MyPostJob() {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
           className: "empty-icon",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("img", {
-            src: "/images/mybooking.svg",
+            src: "".concat(window.location.origin, "/images/mybooking.svg"),
             alt: "No Job Posts"
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("h3", {
@@ -256210,10 +256211,10 @@ var MyProfile = function MyProfile() {
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
             className: "avatar-placeholder ".concat(!profileImagePreview && (!(user !== null && user !== void 0 && user.profile_img) || (user === null || user === void 0 ? void 0 : user.profile_img) === 'images/defpfp.svg') ? 'no-image' : ''),
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
-              src: profileImagePreview || (user !== null && user !== void 0 && user.profile_img ? user.profile_img.startsWith('images/') ? user.profile_img : "".concat(window.location.origin, "/storage/").concat(user.profile_img, "?v=").concat(Date.now()) : 'images/defpfp.svg'),
+              src: profileImagePreview || (user !== null && user !== void 0 && user.profile_img ? user.profile_img.startsWith('images/') ? "".concat(window.location.origin, "/").concat(user.profile_img) : "".concat(window.location.origin, "/storage/").concat(user.profile_img, "?v=").concat(Date.now()) : "".concat(window.location.origin, "/images/defpfp.svg")),
               alt: "Profile",
               onError: function onError(e) {
-                e.target.src = "images/defpfp.svg";
+                e.target.src = "".concat(window.location.origin, "/images/defpfp.svg");
                 e.target.parentElement.classList.add('no-image');
               }
             })
@@ -258331,6 +258332,85 @@ var Register = function Register() {
 
 /***/ }),
 
+/***/ "./resources/js/utils/assetUtils.js":
+/*!******************************************!*\
+  !*** ./resources/js/utils/assetUtils.js ***!
+  \******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   getAssetUrl: () => (/* binding */ getAssetUrl),
+/* harmony export */   getImageUrl: () => (/* binding */ getImageUrl),
+/* harmony export */   getImgUrl: () => (/* binding */ getImgUrl)
+/* harmony export */ });
+/* provided dependency */ var process = __webpack_require__(/*! process/browser.js */ "./node_modules/process/browser.js");
+/**
+ * Utility functions for handling static assets (images, SVGs, etc.)
+ * Ensures all assets are accessible from the production URL
+ */
+
+/**
+ * Get the full URL for a static asset in the public directory
+ * @param {string} assetPath - The asset path relative to public/ (e.g., 'images/defpfp.svg' or '/images/defpfp.svg')
+ * @returns {string} Full URL to the asset
+ */
+var getAssetUrl = function getAssetUrl(assetPath) {
+  if (!assetPath) {
+    return '';
+  }
+
+  // Remove leading slash if present (we'll add it back)
+  var cleanPath = assetPath.startsWith('/') ? assetPath.substring(1) : assetPath;
+
+  // Get the base URL (production or local)
+  var baseUrl = typeof window !== 'undefined' ? window.location.origin : process.env.REACT_APP_URL || 'http://127.0.0.1:8000';
+
+  // Return full URL with leading slash
+  return "".concat(baseUrl, "/").concat(cleanPath);
+};
+
+/**
+ * Get the full URL for an image in the public/images directory
+ * @param {string} imageName - The image filename (e.g., 'defpfp.svg')
+ * @returns {string} Full URL to the image
+ */
+var getImageUrl = function getImageUrl(imageName) {
+  if (!imageName) {
+    return getAssetUrl('images/defpfp.svg');
+  }
+
+  // If already a full path, return as-is
+  if (imageName.startsWith('http://') || imageName.startsWith('https://')) {
+    return imageName;
+  }
+
+  // If already includes 'images/', use as-is
+  if (imageName.includes('images/')) {
+    return getAssetUrl(imageName);
+  }
+
+  // Otherwise, assume it's in images/ directory
+  return getAssetUrl("images/".concat(imageName));
+};
+
+/**
+ * Get the full URL for an asset in the public/img directory
+ * @param {string} assetPath - The asset path (e.g., 'profiles/123.jpg')
+ * @returns {string} Full URL to the asset
+ */
+var getImgUrl = function getImgUrl(assetPath) {
+  if (!assetPath) {
+    return '';
+  }
+  var cleanPath = assetPath.startsWith('/') ? assetPath.substring(1) : assetPath;
+  var baseUrl = typeof window !== 'undefined' ? window.location.origin : process.env.REACT_APP_URL || 'http://127.0.0.1:8000';
+  return "".concat(baseUrl, "/img/").concat(cleanPath);
+};
+
+/***/ }),
+
 /***/ "./resources/js/utils/dateUtils.js":
 /*!*****************************************!*\
   !*** ./resources/js/utils/dateUtils.js ***!
@@ -258571,6 +258651,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   updateProfileImage: () => (/* binding */ updateProfileImage),
 /* harmony export */   validateUserData: () => (/* binding */ validateUserData)
 /* harmony export */ });
+/* harmony import */ var _assetUtils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./assetUtils */ "./resources/js/utils/assetUtils.js");
+/* provided dependency */ var process = __webpack_require__(/*! process/browser.js */ "./node_modules/process/browser.js");
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 function _regenerator() { /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/babel/babel/blob/main/packages/babel-helpers/LICENSE */ var e, t, r = "function" == typeof Symbol ? Symbol : {}, n = r.iterator || "@@iterator", o = r.toStringTag || "@@toStringTag"; function i(r, n, o, i) { var c = n && n.prototype instanceof Generator ? n : Generator, u = Object.create(c.prototype); return _regeneratorDefine2(u, "_invoke", function (r, n, o) { var i, c, u, f = 0, p = o || [], y = !1, G = { p: 0, n: 0, v: e, a: d, f: d.bind(e, 4), d: function d(t, r) { return i = t, c = 0, u = e, G.n = r, a; } }; function d(r, n) { for (c = r, u = n, t = 0; !y && f && !o && t < p.length; t++) { var o, i = p[t], d = G.p, l = i[2]; r > 3 ? (o = l === n) && (u = i[(c = i[4]) ? 5 : (c = 3, 3)], i[4] = i[5] = e) : i[0] <= d && ((o = r < 2 && d < i[1]) ? (c = 0, G.v = n, G.n = i[1]) : d < l && (o = r < 3 || i[0] > n || n > l) && (i[4] = r, i[5] = n, G.n = l, c = 0)); } if (o || r > 1) return a; throw y = !0, n; } return function (o, p, l) { if (f > 1) throw TypeError("Generator is already running"); for (y && 1 === p && d(p, l), c = p, u = l; (t = c < 2 ? e : u) || !y;) { i || (c ? c < 3 ? (c > 1 && (G.n = -1), d(c, u)) : G.n = u : G.v = u); try { if (f = 2, i) { if (c || (o = "next"), t = i[o]) { if (!(t = t.call(i, u))) throw TypeError("iterator result is not an object"); if (!t.done) return t; u = t.value, c < 2 && (c = 0); } else 1 === c && (t = i["return"]) && t.call(i), c < 2 && (u = TypeError("The iterator does not provide a '" + o + "' method"), c = 1); i = e; } else if ((t = (y = G.n < 0) ? u : r.call(n, G)) !== a) break; } catch (t) { i = e, c = 1, u = t; } finally { f = 1; } } return { value: t, done: y }; }; }(r, o, i), !0), u; } var a = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} t = Object.getPrototypeOf; var c = [][n] ? t(t([][n]())) : (_regeneratorDefine2(t = {}, n, function () { return this; }), t), u = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(c); function f(e) { return Object.setPrototypeOf ? Object.setPrototypeOf(e, GeneratorFunctionPrototype) : (e.__proto__ = GeneratorFunctionPrototype, _regeneratorDefine2(e, o, "GeneratorFunction")), e.prototype = Object.create(u), e; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, _regeneratorDefine2(u, "constructor", GeneratorFunctionPrototype), _regeneratorDefine2(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = "GeneratorFunction", _regeneratorDefine2(GeneratorFunctionPrototype, o, "GeneratorFunction"), _regeneratorDefine2(u), _regeneratorDefine2(u, o, "Generator"), _regeneratorDefine2(u, n, function () { return this; }), _regeneratorDefine2(u, "toString", function () { return "[object Generator]"; }), (_regenerator = function _regenerator() { return { w: i, m: f }; })(); }
 function _regeneratorDefine2(e, r, n, t) { var i = Object.defineProperty; try { i({}, "", {}); } catch (e) { i = 0; } _regeneratorDefine2 = function _regeneratorDefine(e, r, n, t) { function o(r, n) { _regeneratorDefine2(e, r, function (e) { return this._invoke(r, n, e); }); } r ? i ? i(e, r, { value: n, enumerable: !t, configurable: !t, writable: !t }) : e[r] = n : (o("next", 0), o("throw", 1), o("return", 2)); }, _regeneratorDefine2(e, r, n, t); }
@@ -258585,23 +258667,27 @@ function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e 
  * Utility functions for handling profile image updates across components
  */
 
+
+
 /**
  * Get the full URL for a profile image
  * @param {string} profileImgPath - The profile image path from database
- * @param {string} defaultPath - Default image path if no profile image
+ * @param {string} defaultPath - Default image path if no profile image (e.g., 'images/defpfp.svg')
  * @returns {string} Full URL to the profile image
  */
 var getProfileImageUrl = function getProfileImageUrl(profileImgPath) {
   var defaultPath = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'images/defpfp.svg';
   if (!profileImgPath) {
-    return defaultPath;
+    return (0,_assetUtils__WEBPACK_IMPORTED_MODULE_0__.getImageUrl)(defaultPath);
   }
-  // If already a public image path, return as-is
-  if (typeof profileImgPath === 'string' && profileImgPath.startsWith('images/')) {
-    return profileImgPath;
+
+  // If already a public image path (starts with 'images/' or '/images/')
+  if (typeof profileImgPath === 'string' && (profileImgPath.startsWith('images/') || profileImgPath.startsWith('/images/'))) {
+    return (0,_assetUtils__WEBPACK_IMPORTED_MODULE_0__.getImageUrl)(profileImgPath.replace(/^\/+/, ''));
   }
-  // Use current origin instead of hardcoded localhost
-  var baseUrl = typeof window !== 'undefined' ? window.location.origin : 'http://127.0.0.1:8000';
+
+  // If it's a storage path, use storage URL
+  var baseUrl = typeof window !== 'undefined' ? window.location.origin : process.env.REACT_APP_URL || 'http://127.0.0.1:8000';
   return "".concat(baseUrl, "/storage/").concat(profileImgPath);
 };
 

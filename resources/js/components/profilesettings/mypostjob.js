@@ -574,7 +574,7 @@ const MyPostJob = () => {
         ) : (
           <div className="empty-state">
             <div className="empty-icon">
-              <img src="/images/mybooking.svg" alt="No Job Posts" />
+              <img src={`${window.location.origin}/images/mybooking.svg`} alt="No Job Posts" />
             </div>
             <h3 className="empty-title">No Job Posts Yet</h3>
             <p className="empty-description">Create your first job post to start hiring workers.</p>

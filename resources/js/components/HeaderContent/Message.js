@@ -395,7 +395,7 @@ const MessageEmployer = () => {
               src={`${window.location.origin}/storage/${collar.image}`} 
               alt={collar.name} 
               className="collar-image"
-              onError={(e) => { e.target.src = '/images/defpfp.svg'; }}
+              onError={(e) => { e.target.src = `${window.location.origin}/images/defpfp.svg`; }}
             />
           )}
           <span className="collar-name">{collar.name}</span>
@@ -417,7 +417,7 @@ const MessageEmployer = () => {
               src={`${window.location.origin}/storage/${rank.image}`} 
               alt={rank.name} 
               className="rank-image"
-              onError={(e) => { e.target.src = '/images/defpfp.svg'; }}
+              onError={(e) => { e.target.src = `${window.location.origin}/images/defpfp.svg`; }}
             />
           )}
           <span className="rank-name">{rank.name}</span>
@@ -484,7 +484,7 @@ const MessageEmployer = () => {
                     src={getProfileImageUrl(conv?.detailed_info?.profile_img, 'images/defpfp.svg')} 
                     alt={conv.name || 'User'} 
                     className="avatar-image"
-                    onError={(e)=>{e.currentTarget.src='images/defpfp.svg';}}
+                    onError={(e)=>{e.currentTarget.src=`${window.location.origin}/images/defpfp.svg`;}}
                   />
                   {conv.unread_count > 0 && (
                     <span className="unread-indicator">{conv.unread_count}</span>
@@ -505,7 +505,7 @@ const MessageEmployer = () => {
                       )}
                       {(conv?.detailed_info?.worker?.verified === true || conv?.detailed_info?.worker?.verified === 1) && (
                         <img 
-                          src={'/images/verified.png'} 
+                          src={`${window.location.origin}/images/verified.png`} 
                           alt="verified" 
                           style={{width:14,height:14}}
                           onError={(e)=>{e.currentTarget.style.display='none';}}
@@ -572,7 +572,7 @@ const MessageEmployer = () => {
                       )}
                       {(otherUserInfo?.worker?.verified === true || otherUserInfo?.worker?.verified === 1) && (
                         <img 
-                          src={'/images/verified.png'} 
+                          src={`${window.location.origin}/images/verified.png`} 
                           alt="verified" 
                           style={{width:18,height:18}}
                           onError={(e)=>{e.currentTarget.style.display='none';}}

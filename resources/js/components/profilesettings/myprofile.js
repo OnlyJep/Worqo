@@ -1960,10 +1960,10 @@ const MyProfile = () => {
           <div className="avatar-container">
             <div className={`avatar-placeholder ${!profileImagePreview && (!user?.profile_img || user?.profile_img === 'images/defpfp.svg') ? 'no-image' : ''}`}>
               <img 
-                src={profileImagePreview || (user?.profile_img ? (user.profile_img.startsWith('images/') ? user.profile_img : `${window.location.origin}/storage/${user.profile_img}?v=${Date.now()}`) : 'images/defpfp.svg')} 
+                src={profileImagePreview || (user?.profile_img ? (user.profile_img.startsWith('images/') ? `${window.location.origin}/${user.profile_img}` : `${window.location.origin}/storage/${user.profile_img}?v=${Date.now()}`) : `${window.location.origin}/images/defpfp.svg`)} 
                 alt="Profile" 
                 onError={(e) => {
-                  e.target.src = "images/defpfp.svg";
+                  e.target.src = `${window.location.origin}/images/defpfp.svg`;
                   e.target.parentElement.classList.add('no-image');
                 }}
               />
@@ -3145,10 +3145,10 @@ const MyProfile = () => {
             </div>
             <div className="image-modal-content">
               <img 
-                src={profileImagePreview || (user?.profile_img ? (user.profile_img.startsWith('images/') ? user.profile_img : `${window.location.origin}/storage/${user.profile_img}?v=${Date.now()}`) : 'images/defpfp.svg')} 
+                src={profileImagePreview || (user?.profile_img ? (user.profile_img.startsWith('images/') ? `${window.location.origin}/${user.profile_img}` : `${window.location.origin}/storage/${user.profile_img}?v=${Date.now()}`) : `${window.location.origin}/images/defpfp.svg`)} 
                 alt="Profile" 
                 onError={(e) => {
-                  e.target.src = "images/defpfp.svg";
+                  e.target.src = `${window.location.origin}/images/defpfp.svg`;
                 }}
               />
             </div>

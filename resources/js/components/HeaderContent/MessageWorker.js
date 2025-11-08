@@ -385,7 +385,7 @@ const MessageWorker = () => {
                       alt={conv.name || 'User'} 
                       className="avatar-image"
                       onError={(e) => {
-                        e.currentTarget.src = 'images/defpfp.svg';
+                        e.currentTarget.src = `${window.location.origin}/images/defpfp.svg`;
                       }}
                     />
                   ) : (
@@ -453,7 +453,7 @@ const MessageWorker = () => {
                       alt={user.full_name || 'User'} 
                       className="avatar-image"
                       onError={(e) => {
-                        e.currentTarget.src = 'images/defpfp.svg';
+                        e.currentTarget.src = `${window.location.origin}/images/defpfp.svg`;
                       }}
                     />
                   ) : (

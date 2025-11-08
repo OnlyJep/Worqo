@@ -174,17 +174,17 @@ const Browse = () => {
   const getRankByExperience = (experience) => {
     switch (experience) {
       case '0-11-months':
-        return { name: 'Bronze', image: '/images/bronze.png' };
+        return { name: 'Bronze', image: `${window.location.origin}/images/bronze.png` };
       case '1-2-years':
-        return { name: 'Silver', image: '/images/silver.svg' };
+        return { name: 'Silver', image: `${window.location.origin}/images/silver.svg` };
       case '2-5-years':
-        return { name: 'Gold', image: '/images/gold.svg' };
+        return { name: 'Gold', image: `${window.location.origin}/images/gold.svg` };
       case '5-10-years':
-        return { name: 'Platinum', image: '/images/platinum.svg' };
+        return { name: 'Platinum', image: `${window.location.origin}/images/platinum.svg` };
       case '10+ years':
-        return { name: 'Diamond', image: '/images/diamond.svg' };
+        return { name: 'Diamond', image: `${window.location.origin}/images/diamond.svg` };
       default:
-        return { name: 'Bronze', image: '/images/bronze.png' };
+        return { name: 'Bronze', image: `${window.location.origin}/images/bronze.png` };
     }
   };
 

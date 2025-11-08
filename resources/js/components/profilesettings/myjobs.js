@@ -359,7 +359,7 @@ const MyJobs = () => {
         ) : (
           <div className="myjobs-empty-state">
             <div className="myjobs-empty-icon">
-              <img src="/images/mybooking.svg" alt="No Applications" />
+              <img src={`${window.location.origin}/images/mybooking.svg`} alt="No Applications" />
             </div>
             <h3 className="myjobs-empty-title">No Applications Yet</h3>
             <p className="myjobs-empty-description">You haven't applied for any jobs yet.</p>

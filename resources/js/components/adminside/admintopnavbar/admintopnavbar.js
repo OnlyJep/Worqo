@@ -219,7 +219,7 @@ const Admintopnavbar = () => {
   // Function to get image URL with cache busting
   const getImageUrl = (profileImg) => {
     if (!profileImg) {
-      return "/images/defpfp.svg";
+      return `${window.location.origin}/images/defpfp.svg`;
     }
     const imageUrl = `${window.location.origin}/storage/${profileImg}?v=${imageRefreshKey}`;
     return imageUrl;
@@ -230,7 +230,7 @@ const Admintopnavbar = () => {
       {isLoading && <Loader />}
       <div className="profile" ref={dropdownRef}>
         <img
-          src={imageError ? "/images/defpfp.svg" : getImageUrl(user?.profile_img)}
+          src={imageError ? `${window.location.origin}/images/defpfp.svg` : getImageUrl(user?.profile_img)}
           alt="Profile"
           className="profile-icon"
           onError={handleImageError}

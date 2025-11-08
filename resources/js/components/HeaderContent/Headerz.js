@@ -502,8 +502,9 @@ const Headerz = () => {
   const handleImageError = (e) => {
     setImageError(true);
     // Fallback to default profile image if load fails
-    if (e.target.src !== 'images/defpfp.svg') {
-      e.target.src = 'images/defpfp.svg';
+    const defaultImage = `${window.location.origin}/images/defpfp.svg`;
+    if (e.target.src !== defaultImage) {
+      e.target.src = defaultImage;
     }
   };
 

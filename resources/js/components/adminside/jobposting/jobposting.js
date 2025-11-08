@@ -57,7 +57,7 @@ const getProfileName = (profile) => {
 const getProfileImageSrc = (profileImg) => {
   // Handle null, undefined, or empty string
   if (!profileImg || profileImg.trim() === '') {
-    return "/images/default-profile.svg";
+    return `${window.location.origin}/images/default-profile.svg`;
   }
   
   // If it's already a full URL, return as is

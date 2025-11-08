@@ -6,7 +6,7 @@ const Footer = () => {
     <footer className="footer">
       <div className="footer__content">
         <div className="footer__info">
-          <img className="footer__logo" src="/images/worqo_logo.svg" alt="WORQO" />
+          <img className="footer__logo" src={`${window.location.origin}/images/worqo_logo.svg`} alt="WORQO" />
           <ul className="footer__contact">
             <li><span className="footer__bullet" aria-hidden>📍</span> 21 JC Aquino Avenue, Butuan City</li>
             <li><span className="footer__bullet" aria-hidden>📞</span> +639506149789</li>
@@ -43,10 +43,10 @@ const Footer = () => {
           <h3>Follow Us</h3>
           <div className="footer__social-icons">
             <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-              <img src="/images/facebook.svg" alt="Facebook" />
+              <img src={`${window.location.origin}/images/facebook.svg`} alt="Facebook" />
             </a>
             <a href="https://x.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter / X">
-              <img src="/images/twitter.svg" alt="Twitter" />
+              <img src={`${window.location.origin}/images/twitter.svg`} alt="Twitter" />
             </a>
           </div>
         </div>

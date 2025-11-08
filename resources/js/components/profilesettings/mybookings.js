@@ -632,7 +632,7 @@ const MyBookings = () => {
                       <div className="booking-worker-info">
                         <div className="booking-worker-profile">
                           <img 
-                            src="/images/defpfp.svg" 
+                            src={`${window.location.origin}/images/defpfp.svg`} 
                             alt="User" 
                             className="booking-worker-avatar" 
                           />
@@ -733,7 +733,7 @@ const MyBookings = () => {
                             }
                             // Default fallback
                             console.log('Using default avatar: defpfp.svg');
-                            return '/images/defpfp.svg';
+                            return `${window.location.origin}/images/defpfp.svg`;
                           })()} 
                           alt={personProfile ? `${personProfile.first_name} ${personProfile.last_name}` : 
                                personData ? `${personData.first_name || ''} ${personData.last_name || ''}`.trim() || 'User' :
@@ -1015,7 +1015,7 @@ const MyBookings = () => {
         ) : (
           <div className="booking-empty-state">
             <div className="booking-empty-icon">
-              <img src="/images/mybooking.svg" alt="No Bookings" />
+              <img src={`${window.location.origin}/images/mybooking.svg`} alt="No Bookings" />
             </div>
             <h3 className="booking-empty-title">
               {activeTab === 'requests' ? 'No Booking Requests' : 'No Bookings Yet'}

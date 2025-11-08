@@ -138,17 +138,17 @@ const Profile = ({ initialServiceType }) => {
   const getRankByExperience = (experience) => {
     switch (experience) {
       case '0-11-months':
-        return { name: 'Bronze', image: '/images/bronze.png' };
+        return { name: 'Bronze', image: `${window.location.origin}/images/bronze.png` };
       case '1-2-years':
-        return { name: 'Silver', image: '/images/silver.svg' };
+        return { name: 'Silver', image: `${window.location.origin}/images/silver.svg` };
       case '2-5-years':
-        return { name: 'Gold', image: '/images/gold.svg' };
+        return { name: 'Gold', image: `${window.location.origin}/images/gold.svg` };
       case '5-10-years':
-        return { name: 'Platinum', image: '/images/platinum.svg' };
+        return { name: 'Platinum', image: `${window.location.origin}/images/platinum.svg` };
       case '10+ years':
-        return { name: 'Diamond', image: '/images/diamond.svg' };
+        return { name: 'Diamond', image: `${window.location.origin}/images/diamond.svg` };
       default:
-        return { name: 'Bronze', image: '/images/bronze.png' };
+        return { name: 'Bronze', image: `${window.location.origin}/images/bronze.png` };
     }
   };
 
@@ -918,12 +918,12 @@ const Profile = ({ initialServiceType }) => {
           <img 
             src={worker.profile_img 
               ? `${window.location.origin}/storage/${worker.profile_img}` 
-              : "/images/defpfp.svg"
+              : `${window.location.origin}/images/defpfp.svg`
             } 
             alt="Profile" 
             className="profile-photo" 
             onError={(e) => {
-              e.target.src = "/images/defpfp.svg";
+              e.target.src = `${window.location.origin}/images/defpfp.svg`;
             }}
           />
         </div>
@@ -965,7 +965,7 @@ const Profile = ({ initialServiceType }) => {
                 {(worker.verified === true || worker.verified === 1) && (
                   <div className="profile-verified-badge" title="Verified Worker">
                     <img 
-                      src="/images/verified.png" 
+                      src={`${window.location.origin}/images/verified.png`} 
                       alt="Verified" 
                       className="verified-icon"
                       loading="eager"

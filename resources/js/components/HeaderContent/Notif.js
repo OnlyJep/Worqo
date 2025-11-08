@@ -390,7 +390,7 @@ const Notif = () => {
             <div style={{ padding: '1.5rem' }}>
               <div style={{ display: 'flex', alignItems: 'center', marginBottom: '1rem' }}>
                 <img 
-                  src={selectedNotif.profile_img && selectedNotif.profile_img.startsWith('images/') ? selectedNotif.profile_img : (selectedNotif.profile_img ? `${window.location.origin}/storage/${selectedNotif.profile_img}` : 'images/defpfp.svg')} 
+                  src={selectedNotif.profile_img && selectedNotif.profile_img.startsWith('images/') ? `${window.location.origin}/${selectedNotif.profile_img}` : (selectedNotif.profile_img ? `${window.location.origin}/storage/${selectedNotif.profile_img}` : `${window.location.origin}/images/defpfp.svg`)} 
                   alt={selectedNotif.user} 
                   style={{ 
                     width: '50px', 
@@ -399,7 +399,7 @@ const Notif = () => {
                     marginRight: '1rem',
                     objectFit: 'cover'
                   }}
-                  onError={(e) => { e.target.src = 'images/defpfp.svg'; }}
+                  onError={(e) => { e.target.src = `${window.location.origin}/images/defpfp.svg`; }}
                 />
                 <div>
                   <p style={{ margin: 0, fontWeight: 'bold' }}>{selectedNotif.user}</p>

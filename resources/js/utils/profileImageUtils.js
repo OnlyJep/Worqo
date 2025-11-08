@@ -2,22 +2,26 @@
  * Utility functions for handling profile image updates across components
  */
 
+import { getImageUrl } from './assetUtils';
+
 /**
  * Get the full URL for a profile image
  * @param {string} profileImgPath - The profile image path from database
- * @param {string} defaultPath - Default image path if no profile image
+ * @param {string} defaultPath - Default image path if no profile image (e.g., 'images/defpfp.svg')
  * @returns {string} Full URL to the profile image
  */
 export const getProfileImageUrl = (profileImgPath, defaultPath = 'images/defpfp.svg') => {
   if (!profileImgPath) {
-    return defaultPath;
+    return getImageUrl(defaultPath);
   }
-  // If already a public image path, return as-is
-  if (typeof profileImgPath === 'string' && profileImgPath.startsWith('images/')) {
-    return profileImgPath;
+  
+  // If already a public image path (starts with 'images/' or '/images/')
+  if (typeof profileImgPath === 'string' && (profileImgPath.startsWith('images/') || profileImgPath.startsWith('/images/'))) {
+    return getImageUrl(profileImgPath.replace(/^\/+/, ''));
   }
-  // Use current origin instead of hardcoded localhost
-  const baseUrl = typeof window !== 'undefined' ? window.location.origin : 'http://127.0.0.1:8000';
+  
+  // If it's a storage path, use storage URL
+  const baseUrl = typeof window !== 'undefined' ? window.location.origin : (process.env.REACT_APP_URL || 'http://127.0.0.1:8000');
   return `${baseUrl}/storage/${profileImgPath}`;
 };
 
