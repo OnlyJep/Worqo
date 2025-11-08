@@ -71,11 +71,14 @@ return [
             'database' => env('DB_DATABASE', 'forge'),
             'username' => env('DB_USERNAME', 'forge'),
             'password' => env('DB_PASSWORD', ''),
-            'charset' => 'utf8',
+            'charset' => env('DB_CHARSET', 'UTF8'),
             'prefix' => '',
             'prefix_indexes' => true,
             'schema' => 'public',
             'sslmode' => 'prefer',
+            'options' => [
+                PDO::ATTR_EMULATE_PREPARES => false,
+            ],
         ],
 
         'sqlsrv' => [

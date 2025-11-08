@@ -4,6 +4,8 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Doctrine\DBAL\Types\Type;
+use Illuminate\Database\Connection;
+use App\Database\PostgresConnector;
 
 class DatabaseServiceProvider extends ServiceProvider
 {
@@ -14,7 +16,10 @@ class DatabaseServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        // Override PostgreSQL connector to fix encoding issue
+        $this->app->bind('db.connector.pgsql', function () {
+            return new PostgresConnector();
+        });
     }
 
     /**
