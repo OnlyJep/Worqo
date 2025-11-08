@@ -74,30 +74,16 @@ $border-dark: #94a3b8;           // Dark border
   text-align: center;
   border-right: 1px solid $border-light;
   
-  // Hide progress-side on mobile layout
+  // Ensure it respects mobile layout
   @media (max-width: 767px) {
-    display: none !important;
-    visibility: hidden !important;
-    opacity: 0 !important;
-    height: 0 !important;
-    width: 0 !important;
-    padding: 0 !important;
-    margin: 0 !important;
-    overflow: hidden !important;
-    flex: 0 0 0 !important;
-  }
-  
-  // Also hide when mobile-layout class is present
-  .skill-rating-container.mobile-layout & {
-    display: none !important;
-    visibility: hidden !important;
-    opacity: 0 !important;
-    height: 0 !important;
-    width: 0 !important;
-    padding: 0 !important;
-    margin: 0 !important;
-    overflow: hidden !important;
-    flex: 0 0 0 !important;
+    flex: 0 0 auto !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    height: auto !important;
+    max-height: none !important;
   }
 
   .logo {
@@ -2387,21 +2373,22 @@ body.skill-rating-mobile {
     clear: both !important;
   }
 
-  // Hide progress-side completely on mobile layout
-  .progress-side {
-    display: none !important;
-    visibility: hidden !important;
-    opacity: 0 !important;
-    height: 0 !important;
-    width: 0 !important;
-    padding: 0 !important;
-    margin: 0 !important;
-    overflow: hidden !important;
-  }
-
   // Mobile progress container - removed from mobile layout
   .mobile-progress-container {
     display: none !important;
+  }
+  
+  // Ensure progress-side is visible in mobile layout
+  .progress-side {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    height: auto !important;
+    width: 100% !important;
+    padding: 16px !important;
+    margin: 0 !important;
+    overflow: visible !important;
+    flex: 0 0 auto !important;
   }
 
   .skill-side {
@@ -2506,17 +2493,30 @@ body.skill-rating-mobile {
     transition: all 0.4s ease !important;
 
     .progress-side {
-      display: none !important;
-      visibility: hidden !important;
-      opacity: 0 !important;
-      height: 0 !important;
-      width: 0 !important;
-      padding: 0 !important;
+      flex: 0 0 auto !important;
+      width: 100% !important;
+      padding: 16px 16px 16px 16px !important;
       margin: 0 !important;
-      overflow: hidden !important;
-      flex: 0 0 0 !important;
-      border: none !important;
-      background: transparent !important;
+      border-right: none !important;
+      border-bottom: 1px solid $border-light !important;
+      background: $bg-secondary !important;
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: flex-start !important;
+      align-items: stretch !important;
+      text-align: left !important;
+      overflow: visible !important;
+      box-sizing: border-box !important;
+      transition: none !important;
+      max-height: none !important;
+      min-height: auto !important;
+      height: auto !important;
+      opacity: 1 !important;
+      transform: none !important;
+      transform-origin: top !important;
+      visibility: visible !important;
+      position: relative !important;
+      z-index: 1 !important;
 
       .logo {
         font-size: 22px !important;
@@ -3614,31 +3614,27 @@ body.skill-rating-mobile {
       }
     }
 
-    // Hide progress-side on mobile S
-    .progress-side {
-      display: none !important;
-      visibility: hidden !important;
-      opacity: 0 !important;
-      height: 0 !important;
-      width: 0 !important;
-      padding: 0 !important;
-      margin: 0 !important;
-      overflow: hidden !important;
-    }
   }
 
   // Mobile M - Medium Devices (376px - 425px)
   @media (min-width: 376px) and (max-width: 425px) {
-    // Hide progress-side on mobile M
     .progress-side {
-      display: none !important;
-      visibility: hidden !important;
-      opacity: 0 !important;
-      height: 0 !important;
-      width: 0 !important;
-      padding: 0 !important;
-      margin: 0 !important;
-      overflow: hidden !important;
+      padding: 12px 14px;
+
+      .progress-steps {
+        gap: 10px;
+
+        .step {
+          min-width: 38px;
+          max-width: 38px;
+          width: 38px;
+          height: 38px;
+
+          .step-number {
+            font-size: 15px;
+          }
+        }
+      }
     }
 
     .skill-side {
@@ -3657,16 +3653,23 @@ body.skill-rating-mobile {
 
   // Mobile L - Large Devices (426px - 767px)
   @media (min-width: 426px) and (max-width: 767px) {
-    // Hide progress-side on mobile L
     .progress-side {
-      display: none !important;
-      visibility: hidden !important;
-      opacity: 0 !important;
-      height: 0 !important;
-      width: 0 !important;
-      padding: 0 !important;
-      margin: 0 !important;
-      overflow: hidden !important;
+      padding: 12px 16px;
+
+      .progress-steps {
+        gap: 12px;
+
+        .step {
+          min-width: 40px;
+          max-width: 40px;
+          width: 40px;
+          height: 40px;
+
+          .step-number {
+            font-size: 16px;
+          }
+        }
+      }
     }
 
     .skill-side {

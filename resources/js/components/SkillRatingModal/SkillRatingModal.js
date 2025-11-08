@@ -1881,21 +1881,8 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
                 </button>
               </div>
             ) : step === 4 ? (
-              <div className="navigation-buttons">
-                <button 
-                  className="skills-experience-back-btn" 
-                  onClick={() => setStep(3)}
-                >
-                  ← Back
-                </button>
-                <button
-                  className="skills-experience-next-btn"
-                  onClick={handleNextStep}
-                  disabled={(userSkills.primary_skills?.length || 0) === 0 || (userSkills.additional_skills?.length || 0) === 0}
-                >
-                  Next
-                </button>
-              </div>
+              // Navigation buttons are now handled inside SkillsExperience component
+              null
             ) : (
               <div className="navigation-buttons">
                 <button 
