@@ -95,7 +95,7 @@ const CompanyList = () => {
         throw new Error("Please log in to view skills.");
       }
       const endpoint = showArchived ? '/api/skills/archived' : '/api/skills';
-      const response = await axios.get(`http://127.0.0.1:8000${endpoint}`, {
+      const response = await axios.get(`${endpoint}`, {
         headers: { Authorization: `Bearer ${authToken}`, Accept: "application/json" },
         signal,
         timeout: 10000,

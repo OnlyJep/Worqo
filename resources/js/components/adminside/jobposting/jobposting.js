@@ -67,7 +67,7 @@ const getProfileImageSrc = (profileImg) => {
   
   // If it starts with /storage, it's already a complete path
   if (profileImg.startsWith("/storage")) {
-    return `http://127.0.0.1:8000${profileImg}`;
+    return `${window.location.origin}${profileImg}`;
   }
   
   // If it starts with "profiles/", it's the storage path format (e.g., "profiles/filename.jpg")
