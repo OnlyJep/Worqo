@@ -37,6 +37,9 @@ class AddSalaryTypeAndUpdateJobTypeInJobpostsTable extends Migration
             DB::statement("ALTER TABLE jobposts DROP CONSTRAINT IF EXISTS {$constraintName}");
         }
         
+        // Drop the specific constraint name if it exists (in case it wasn't caught by the query above)
+        DB::statement("ALTER TABLE jobposts DROP CONSTRAINT IF EXISTS jobposts_job_type_check");
+        
         // Add new check constraint with 'freelance' instead of 'temporary'
         DB::statement("ALTER TABLE jobposts ADD CONSTRAINT jobposts_job_type_check CHECK (job_type IN ('full-time', 'part-time', 'contract', 'freelance'))");
         
@@ -71,6 +74,9 @@ class AddSalaryTypeAndUpdateJobTypeInJobpostsTable extends Migration
             $constraintName = '"' . str_replace('"', '""', $constraint->constraint_name) . '"';
             DB::statement("ALTER TABLE jobposts DROP CONSTRAINT IF EXISTS {$constraintName}");
         }
+        
+        // Drop the specific constraint name if it exists
+        DB::statement("ALTER TABLE jobposts DROP CONSTRAINT IF EXISTS jobposts_job_type_check");
         
         // Revert job_type enum back to original with 'temporary'
         DB::statement("ALTER TABLE jobposts ADD CONSTRAINT jobposts_job_type_check CHECK (job_type IN ('full-time', 'part-time', 'contract', 'temporary'))");

@@ -30,6 +30,9 @@ return new class extends Migration
             DB::statement("ALTER TABLE workers DROP CONSTRAINT IF EXISTS {$constraintName}");
         }
         
+        // Drop the specific constraint name if it exists (in case it wasn't caught by the query above)
+        DB::statement("ALTER TABLE workers DROP CONSTRAINT IF EXISTS workers_is_reviewed_check");
+        
         // Add new check constraint with updated enum values
         DB::statement("ALTER TABLE workers ADD CONSTRAINT workers_is_reviewed_check CHECK (is_reviewed IN ('TO BE REVIEWED', 'ACCEPTED', 'DECLINED'))");
         
@@ -58,6 +61,9 @@ return new class extends Migration
             $constraintName = '"' . str_replace('"', '""', $constraint->constraint_name) . '"';
             DB::statement("ALTER TABLE workers DROP CONSTRAINT IF EXISTS {$constraintName}");
         }
+        
+        // Drop the specific constraint name if it exists
+        DB::statement("ALTER TABLE workers DROP CONSTRAINT IF EXISTS workers_is_reviewed_check");
         
         // Revert to original enum values
         DB::statement("ALTER TABLE workers ADD CONSTRAINT workers_is_reviewed_check CHECK (is_reviewed IN ('ACCEPTED', 'DECLINED'))");

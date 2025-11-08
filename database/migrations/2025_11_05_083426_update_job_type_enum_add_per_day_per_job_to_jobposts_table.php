@@ -32,6 +32,9 @@ class UpdateJobTypeEnumAddPerDayPerJobToJobpostsTable extends Migration
             DB::statement("ALTER TABLE jobposts DROP CONSTRAINT IF EXISTS {$constraintName}");
         }
         
+        // Drop the specific constraint name if it exists (in case it wasn't caught by the query above)
+        DB::statement("ALTER TABLE jobposts DROP CONSTRAINT IF EXISTS jobposts_job_type_check");
+        
         // Add new check constraint with updated enum values
         DB::statement("ALTER TABLE jobposts ADD CONSTRAINT jobposts_job_type_check CHECK (job_type IN ('per_day', 'per_job', 'full-time', 'part-time', 'contract', 'freelance'))");
         
@@ -62,6 +65,9 @@ class UpdateJobTypeEnumAddPerDayPerJobToJobpostsTable extends Migration
             $constraintName = '"' . str_replace('"', '""', $constraint->constraint_name) . '"';
             DB::statement("ALTER TABLE jobposts DROP CONSTRAINT IF EXISTS {$constraintName}");
         }
+        
+        // Drop the specific constraint name if it exists
+        DB::statement("ALTER TABLE jobposts DROP CONSTRAINT IF EXISTS jobposts_job_type_check");
         
         // Add back the constraint without 'per_day' and 'per_job'
         DB::statement("ALTER TABLE jobposts ADD CONSTRAINT jobposts_job_type_check CHECK (job_type IN ('full-time', 'part-time', 'contract', 'freelance'))");
