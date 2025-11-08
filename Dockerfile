@@ -1,6 +1,6 @@
-FROM php:8.0-cli
+FROM php:8.0-fpm
 
-# Install system dependencies including PHP-FPM
+# Install system dependencies
 RUN apt-get update && apt-get install -y \
     git \
     curl \
@@ -16,7 +16,6 @@ RUN apt-get update && apt-get install -y \
     openssl \
     nginx \
     supervisor \
-    php8.0-fpm \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
@@ -73,9 +72,11 @@ COPY docker/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 # Create necessary directories for supervisor and nginx
 RUN mkdir -p /var/log/supervisor /var/run/supervisor /var/run/php
 
-# Configure PHP-FPM to listen on TCP port 9000
-RUN sed -i 's/listen = .*/listen = 127.0.0.1:9000/' /etc/php/8.0/fpm/pool.d/www.conf || \
-    echo "listen = 127.0.0.1:9000" >> /etc/php/8.0/fpm/pool.d/www.conf
+# Configure PHP-FPM to listen on TCP port 9000 (php-fpm image uses /usr/local/etc/php-fpm.d/www.conf)
+# The default php:8.0-fpm image typically listens on port 9000, but we'll ensure it's explicitly set
+RUN if [ -f /usr/local/etc/php-fpm.d/www.conf ]; then \
+        sed -i 's/listen = .*/listen = 127.0.0.1:9000/' /usr/local/etc/php-fpm.d/www.conf 2>/dev/null || true; \
+    fi
 
 # Copy and set up entrypoint script
 COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
