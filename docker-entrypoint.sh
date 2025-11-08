@@ -82,20 +82,18 @@ php artisan view:cache || true
 echo "Application setup complete!"
 
 # Update nginx config with Render's PORT if set (Render uses PORT env variable)
-# Render requires listening on 0.0.0.0 (all interfaces) on the PORT env variable
 # Render will provide PORT environment variable dynamically
 RENDER_PORT=${PORT:-8000}
-echo "Configuring nginx to listen on 0.0.0.0:${RENDER_PORT}"
+echo "Configuring nginx to listen on port ${RENDER_PORT}"
 
-# Update nginx configuration to listen on the correct port and interface
-sed -i "s/listen .*;/listen 0.0.0.0:${RENDER_PORT};/" /etc/nginx/sites-available/default
+# Update nginx configuration to listen on the correct port
+sed -i "s/listen .*;/listen ${RENDER_PORT};/" /etc/nginx/sites-available/default
 # Also update the symlinked file if it exists
 if [ -L /etc/nginx/sites-enabled/default ]; then
-    sed -i "s/listen .*;/listen 0.0.0.0:${RENDER_PORT};/" /etc/nginx/sites-enabled/default
+    sed -i "s/listen .*;/listen ${RENDER_PORT};/" /etc/nginx/sites-enabled/default
 fi
 
-# Ensure nginx is configured and will start (but don't fail if port scan happens before nginx starts)
-# Render will detect the port once nginx starts serving
+# Test nginx configuration
 nginx -t || echo "Nginx config test failed, but continuing..."
 
 # Start supervisor
