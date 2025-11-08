@@ -39,7 +39,38 @@ class PostgresConnector extends BasePostgresConnector
     }
 
     /**
+     * Create a new database connection.
+     *
+     * @param  array  $config
+     * @return \PDO
+     */
+    public function connect(array $config)
+    {
+        // Get the connection
+        $connection = parent::connect($config);
+        
+        // Force UTF8 encoding - PostgreSQL doesn't support utf8mb4
+        // This must happen AFTER parent::connect() which calls configureEncoding
+        // But we override configureEncoding to do nothing, then set UTF8 here
+        try {
+            $connection->exec("SET client_encoding TO 'UTF8'");
+        } catch (\PDOException $e) {
+            // If that fails, try prepare/execute
+            try {
+                $stmt = $connection->prepare("SET client_encoding TO 'UTF8'");
+                $stmt->execute();
+            } catch (\PDOException $e2) {
+                error_log("Warning: Could not set PostgreSQL encoding: " . $e2->getMessage());
+            }
+        }
+        
+        return $connection;
+    }
+
+    /**
      * Set the connection character set and collation.
+     * OVERRIDE: Don't set encoding here - we do it in connect() method
+     * This prevents the utf8mb4 error from being set
      *
      * @param  \PDO  $connection
      * @param  array  $config
@@ -47,20 +78,9 @@ class PostgresConnector extends BasePostgresConnector
      */
     protected function configureEncoding($connection, $config)
     {
-        // PostgreSQL only supports UTF8, not utf8mb4
-        // Always set UTF8 encoding for PostgreSQL regardless of config
-        try {
-            $connection->exec("SET client_encoding TO 'UTF8'");
-        } catch (\PDOException $e) {
-            // If setting encoding fails, try with prepare/execute
-            try {
-                $stmt = $connection->prepare("SET client_encoding TO 'UTF8'");
-                $stmt->execute();
-            } catch (\PDOException $e2) {
-                // If both fail, log but continue (encoding might already be set)
-                error_log("Warning: Could not set PostgreSQL client encoding: " . $e2->getMessage());
-            }
-        }
+        // Do nothing here - we'll set UTF8 in connect() method instead
+        // This prevents Laravel from trying to set utf8mb4 which PostgreSQL doesn't support
     }
 }
+
 

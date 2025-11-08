@@ -43,9 +43,17 @@ php artisan route:clear || true
 php artisan view:clear || true
 
 # Generate key only if APP_KEY is not set (skip .env file requirement)
-# Use --force to skip .env file check
+# Create a temporary .env file if it doesn't exist to avoid key:generate errors
+if [ ! -f .env ]; then
+    echo "Creating temporary .env file for key generation..."
+    touch .env
+    # Copy any existing environment variables to .env
+    env | grep -E '^(APP_|DB_|CACHE_|SESSION_|QUEUE_|REDIS_|MAIL_|BROADCAST_|LOG_|AWS_)' >> .env 2>/dev/null || true
+fi
+
+# Generate key only if APP_KEY is not set
 if [ -z "$APP_KEY" ] || [ "$APP_KEY" = "" ] || [ "$APP_KEY" = "null" ]; then
-    php artisan key:generate --ansi --force || echo "Key generation skipped (using existing key)"
+    php artisan key:generate --ansi --force 2>&1 | grep -v "file_get_contents" || echo "Key generation completed or skipped"
 else
     echo "APP_KEY already set, skipping key generation"
 fi
@@ -86,7 +94,8 @@ if [ -L /etc/nginx/sites-enabled/default ]; then
     sed -i "s/listen .*;/listen 0.0.0.0:${RENDER_PORT};/" /etc/nginx/sites-enabled/default
 fi
 
-# Test nginx configuration
+# Ensure nginx is configured and will start (but don't fail if port scan happens before nginx starts)
+# Render will detect the port once nginx starts serving
 nginx -t || echo "Nginx config test failed, but continuing..."
 
 # Start supervisor

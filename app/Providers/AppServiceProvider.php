@@ -16,26 +16,35 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         // Override ConnectionFactory to use custom PostgreSQL connector
-        // This MUST be registered before DatabaseServiceProvider loads
-        // to ensure UTF8 encoding is used instead of utf8mb4
-        // Laravel uses 'db.factory' as the service name for ConnectionFactory
-        $this->app->singleton('db.factory', function ($app) {
-            return new class($app) extends ConnectionFactory {
+        // We use extend to wrap the existing factory
+        $this->app->extend('db.factory', function ($factory, $app) {
+            return new class($factory, $app) extends ConnectionFactory {
+                protected $originalFactory;
+                
+                public function __construct($originalFactory, $app)
+                {
+                    $this->originalFactory = $originalFactory;
+                    // Call parent constructor with app instance
+                    parent::__construct($app);
+                }
+                
                 public function createConnector(array $config)
                 {
                     if (isset($config['driver']) && $config['driver'] === 'pgsql') {
                         return new PostgresConnector();
                     }
                     
-                    return parent::createConnector($config);
+                    return $this->originalFactory->createConnector($config);
                 }
             };
         });
         
-        // Also bind the class directly
-        $this->app->bind(ConnectionFactory::class, function ($app) {
-            return $app->make('db.factory');
-        });
+        // Also ensure the class binding uses our custom factory
+        if (!$this->app->bound(ConnectionFactory::class)) {
+            $this->app->singleton(ConnectionFactory::class, function ($app) {
+                return $app->make('db.factory');
+            });
+        }
     }
 
     /**
