@@ -8,9 +8,12 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->timestamp('last_activity')->nullable()->after('updated_at');
-        });
+        // Check if column already exists before adding
+        if (!Schema::hasColumn('users', 'last_activity')) {
+            Schema::table('users', function (Blueprint $table) {
+                $table->timestamp('last_activity')->nullable()->after('updated_at');
+            });
+        }
     }
 
     public function down(): void

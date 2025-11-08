@@ -86,7 +86,19 @@ class User extends Authenticatable
     // Update last activity timestamp
     public function updateLastActivity()
     {
-        $this->last_activity = now();
-        $this->save();
+        try {
+            // Check if last_activity column exists
+            if (\Illuminate\Support\Facades\Schema::hasColumn('users', 'last_activity')) {
+                $this->last_activity = now();
+                $this->save();
+            } else {
+                // Fallback to updated_at if column doesn't exist
+                $this->touch();
+            }
+        } catch (\Exception $e) {
+            // If there's an error, just update updated_at
+            \Illuminate\Support\Facades\Log::warning('Could not update last_activity: ' . $e->getMessage());
+            $this->touch();
+        }
     }
 }

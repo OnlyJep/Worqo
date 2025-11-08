@@ -58,10 +58,26 @@ else
     echo "APP_KEY already set, skipping key generation"
 fi
 
-php artisan storage:link || true
+# Create storage link - remove existing link first if it exists
+if [ -L public/storage ]; then
+    rm public/storage
+fi
+php artisan storage:link || echo "Storage link creation warning - continuing anyway..."
+
+# Ensure storage directories exist
+mkdir -p storage/app/public/profiles
+mkdir -p storage/app/public/credentialsphoto
+chmod -R 755 storage/app/public
 
 echo "Running migrations..."
-php artisan migrate --force || echo "Migration warning - continuing anyway..."
+# Run migrations and check for errors
+php artisan migrate --force
+if [ $? -ne 0 ]; then
+    echo "Migration failed, but continuing..."
+    # Try to run individual migrations that might have failed
+    echo "Attempting to run last_activity migration separately..."
+    php artisan migrate --path=database/migrations/2025_10_17_040000_add_last_activity_to_users_table.php --force || echo "Last activity migration skipped"
+fi
 
 echo "Installing Passport..."
 php artisan passport:install --force || echo "Passport install warning - continuing anyway..."

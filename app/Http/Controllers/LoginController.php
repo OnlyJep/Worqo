@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Schema;
 
 class LoginController extends Controller
 {
@@ -30,15 +31,29 @@ class LoginController extends Controller
                 }
 
                 // Update last_activity timestamp and set user as online when user logs in
-                Log::info('Updating last_activity and is_online on login', [
-                    'user_id' => $user->id,
-                    'previous_activity' => $user->last_activity,
-                    'new_activity' => now(),
-                    'is_online' => 1
-                ]);
-                $user->last_activity = now();
-                $user->is_online = 1;
-                $user->save();
+                // Check if last_activity column exists before updating
+                try {
+                    Log::info('Updating last_activity and is_online on login', [
+                        'user_id' => $user->id,
+                        'previous_activity' => $user->last_activity ?? null,
+                        'new_activity' => now(),
+                        'is_online' => 1
+                    ]);
+                    
+                    $updateData = ['is_online' => 1];
+                    
+                    // Only update last_activity if the column exists
+                    if (Schema::hasColumn('users', 'last_activity')) {
+                        $updateData['last_activity'] = now();
+                    }
+                    
+                    $user->update($updateData);
+                } catch (\Exception $e) {
+                    // If column doesn't exist, just update is_online
+                    Log::warning('Could not update last_activity, column may not exist: ' . $e->getMessage());
+                    $user->is_online = 1;
+                    $user->save();
+                }
 
                 Log::info('Authenticated User:', [
                     'user_id' => $user->id,
@@ -74,15 +89,29 @@ class LoginController extends Controller
             $user = Auth::guard('api')->user();
             if ($user) {
                 // Update last_activity timestamp and set user as offline when user logs out
-                Log::info('Updating last_activity and is_online on logout', [
-                    'user_id' => $user->id,
-                    'previous_activity' => $user->last_activity,
-                    'new_activity' => now(),
-                    'is_online' => 0
-                ]);
-                $user->last_activity = now();
-                $user->is_online = 0;
-                $user->save();
+                // Check if last_activity column exists before updating
+                try {
+                    Log::info('Updating last_activity and is_online on logout', [
+                        'user_id' => $user->id,
+                        'previous_activity' => $user->last_activity ?? null,
+                        'new_activity' => now(),
+                        'is_online' => 0
+                    ]);
+                    
+                    $updateData = ['is_online' => 0];
+                    
+                    // Only update last_activity if the column exists
+                    if (Schema::hasColumn('users', 'last_activity')) {
+                        $updateData['last_activity'] = now();
+                    }
+                    
+                    $user->update($updateData);
+                } catch (\Exception $e) {
+                    // If column doesn't exist, just update is_online
+                    Log::warning('Could not update last_activity, column may not exist: ' . $e->getMessage());
+                    $user->is_online = 0;
+                    $user->save();
+                }
                 
                 // Revoke the current access token
                 $user->tokens()->delete();
@@ -130,7 +159,7 @@ class LoginController extends Controller
             'profile_img' => $profile ? $profile->profile_img : null,
             'created_at' => $user->created_at,
             'updated_at' => $user->updated_at,
-            'last_activity' => $user->last_activity,
+            'last_activity' => Schema::hasColumn('users', 'last_activity') ? $user->last_activity : $user->updated_at,
             'is_online' => $user->is_online,
             'archived' => $user->archived,
         ];

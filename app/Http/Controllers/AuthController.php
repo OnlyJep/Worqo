@@ -22,10 +22,14 @@ class AuthController extends Controller
         $user = Auth::user();
         
         // Set user as online and update last activity
-        $user->update([
-            'is_online' => 1,
-            'last_activity' => now()
-        ]);
+        $updateData = ['is_online' => 1];
+        
+        // Only update last_activity if the column exists
+        if (\Illuminate\Support\Facades\Schema::hasColumn('users', 'last_activity')) {
+            $updateData['last_activity'] = now();
+        }
+        
+        $user->update($updateData);
         
         $token = $user->createToken('auth_token')->plainTextToken;
 

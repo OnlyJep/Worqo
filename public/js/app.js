@@ -209880,7 +209880,7 @@ var Profile = function Profile(_ref) {
   // Handle Hire Now button click
   var handleHireNowClick = function handleHireNowClick() {
     if (!isLoggedIn()) {
-      antd__WEBPACK_IMPORTED_MODULE_11__["default"].warning('Please login to hire workers');
+      antd__WEBPACK_IMPORTED_MODULE_11__["default"].warning('Please login first before hiring');
       setTimeout(function () {
         window.location.href = '/login';
       }, 1000);
@@ -209889,7 +209889,7 @@ var Profile = function Profile(_ref) {
     var userData = JSON.parse(localStorage.getItem('user') || '{}');
     var currentUser = userData.user || userData;
     if (currentUser.role_id === 1) {
-      alert('Workers cannot hire other workers. Please switch to Employer account.');
+      antd__WEBPACK_IMPORTED_MODULE_11__["default"].warning('Workers cannot hire other workers. Please switch to Employer account.');
       return;
     }
 
@@ -209911,7 +209911,7 @@ var Profile = function Profile(_ref) {
   // Handle Message button click
   var handleMessageClick = function handleMessageClick() {
     if (!isLoggedIn()) {
-      antd__WEBPACK_IMPORTED_MODULE_11__["default"].warning('Please login to send messages');
+      antd__WEBPACK_IMPORTED_MODULE_11__["default"].warning('Please login first before messaging');
       setTimeout(function () {
         window.location.href = '/login';
       }, 1000);
@@ -210430,7 +210430,7 @@ var Profile = function Profile(_ref) {
               _context7.n = 1;
               break;
             }
-            antd__WEBPACK_IMPORTED_MODULE_11__["default"].warning("Please log in to book this worker");
+            antd__WEBPACK_IMPORTED_MODULE_11__["default"].warning("Please login first before booking");
             setTimeout(function () {
               window.location.href = '/login';
             }, 1000);
@@ -210764,33 +210764,18 @@ var Profile = function Profile(_ref) {
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("p", {
             className: "profile-location",
             children: worker.location
-          }), function () {
-            var userData = JSON.parse(localStorage.getItem("user") || '{}');
-            var currentUser = userData.user || userData;
-            var isEmployer = (currentUser === null || currentUser === void 0 ? void 0 : currentUser.role_id) === 2;
-            var isOwnProfile = (currentUser === null || currentUser === void 0 ? void 0 : currentUser.id) === parseInt(resolvedWorkerId);
-            if (isEmployer || isOwnProfile) {
-              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
-                className: "profile-action-buttons",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("button", {
-                  className: "profile-hire-button",
-                  onClick: handleHireNowClick,
-                  children: "HIRE NOW"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("button", {
-                  className: "profile-message-button",
-                  onClick: handleMessageClick,
-                  children: "MESSAGE"
-                })]
-              });
-            } else {
-              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
-                className: "profile-hire-disabled",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("p", {
-                  children: "Switch to employer role to hire workers"
-                })
-              });
-            }
-          }()]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+            className: "profile-action-buttons",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("button", {
+              className: "profile-hire-button",
+              onClick: handleHireNowClick,
+              children: "HIRE NOW"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("button", {
+              className: "profile-message-button",
+              onClick: handleMessageClick,
+              children: "MESSAGE"
+            })]
+          })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
           className: "profile-rank-display-section",
           children: workerRank ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
