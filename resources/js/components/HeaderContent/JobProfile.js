@@ -9,6 +9,7 @@ import ApplyJobModal from './ApplyJobModal';
 import { MdDateRange, MdAccessTime } from "react-icons/md";
 import Loader from "../LoaderContent/loader";
 import { getProfileImageUrl } from '../../utils/profileImageUtils';
+import { message } from 'antd';
 
 const defpfp = '/images/defpfp.svg';
 
@@ -65,8 +66,10 @@ const JobProfile = () => {
   const handleApplyJob = () => {
     const authToken = localStorage.getItem("auth_token");
     if (!authToken) {
-      alert('Please login to apply for jobs');
-      window.location.href = '/login';
+      message.warning('Please login to apply for jobs');
+      setTimeout(() => {
+        window.location.href = '/login';
+      }, 1000);
       return;
     }
     
@@ -74,7 +77,7 @@ const JobProfile = () => {
     const currentUser = userData.user || userData;
     
     if (currentUser.role_id === 2) {
-      alert('Employers cannot apply for jobs. Please switch to Worker account.');
+      message.warning('Employers cannot apply for jobs. Please switch to Worker account.');
       return;
     }
     
@@ -104,7 +107,7 @@ const JobProfile = () => {
         payload.company_id = currentUser.company_id;
       }
 
-      await axios.post(`/api/job-applications/apply', payload, {
+      await axios.post(`/api/job-applications/apply`, payload, {
         headers: {
           Accept: 'application/json',
           'Content-Type': 'application/json',

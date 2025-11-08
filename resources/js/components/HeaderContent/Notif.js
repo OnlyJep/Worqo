@@ -166,7 +166,7 @@ const Notif = () => {
     try {
       const userData = JSON.parse(localStorage.getItem('user') || '{}');
       const userId = userData?.id || userData?.user?.id;
-      await axios.put(`/api/notifications/mark-all-read', {}, { headers: { 'X-User-Id': userId } });
+      await axios.put(`/api/notifications/mark-all-read`, {}, { headers: { 'X-User-Id': userId } });
       
       setNotifications(notifications.map(notif => ({ ...notif, isUnread: false })));
       // Dispatch event to update header badge

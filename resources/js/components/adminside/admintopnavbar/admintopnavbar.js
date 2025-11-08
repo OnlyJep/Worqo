@@ -134,7 +134,7 @@ const Admintopnavbar = () => {
     setIsLoading(true);
     try {
       const token = localStorage.getItem("auth_token");
-      const response = await fetch(`${window.location.origin}/api/logout", {
+      const response = await fetch(`${window.location.origin}/api/logout`, {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,

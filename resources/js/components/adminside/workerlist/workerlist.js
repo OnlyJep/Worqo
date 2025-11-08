@@ -242,7 +242,7 @@ const WorkerList = () => {
 
       }
 
-      const response = await axios.get(`/api/genders", {
+      const response = await axios.get(`/api/genders`, {
 
         headers: { Authorization: `Bearer ${authToken}`, Accept: "application/json" },
 
@@ -284,7 +284,7 @@ const WorkerList = () => {
 
       }
 
-      const response = await axios.get(`/api/suffixes", {
+      const response = await axios.get(`/api/suffixes`, {
 
         headers: { Authorization: `Bearer ${authToken}`, Accept: "application/json" },
 
@@ -326,7 +326,7 @@ const WorkerList = () => {
 
       }
 
-      const response = await axios.get(`/api/skills", {
+      const response = await axios.get(`/api/skills`, {
 
         headers: { Authorization: `Bearer ${authToken}`, Accept: "application/json" },
 
@@ -1341,7 +1341,7 @@ const WorkerList = () => {
 
       setLoading(true);
 
-      const response = await axios.post(`/api/workers", formData, {
+      const response = await axios.post(`/api/workers`, formData, {
 
         headers: {
 

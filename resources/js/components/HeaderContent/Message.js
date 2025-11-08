@@ -118,7 +118,7 @@ const MessageEmployer = () => {
       // Check if there's a target user ID in localStorage (set when navigating from booking)
       const targetUserId = localStorage.getItem('message_target_user_id');
       
-      const response = await axios.get(`/api/messages/conversations', {
+      const response = await axios.get(`/api/messages/conversations`, {
         ...config,
         params: { user_id: userId }
       });
@@ -198,7 +198,7 @@ const MessageEmployer = () => {
       } : {};
       
       // Fetch all users with profiles
-      const response = await axios.get(`/api/bookings/users-with-profiles', config);
+      const response = await axios.get(`/api/bookings/users-with-profiles`, config);
       
       console.log('Active workers response:', response.data);
       
@@ -320,7 +320,7 @@ const MessageEmployer = () => {
         } 
       } : {};
       
-      const response = await axios.post(`/api/messages/send', payload, config);
+      const response = await axios.post(`/api/messages/send`, payload, config);
       
       if (response.data.success) {
         const newMsg = response.data.message;

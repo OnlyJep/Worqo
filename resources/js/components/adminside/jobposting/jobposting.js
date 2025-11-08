@@ -110,7 +110,7 @@ const JobPostTable = () => {
       
       // Fetch all pages of job posts
       while (hasMorePages) {
-        const response = await axios.get(`/api/jobposts", {
+        const response = await axios.get(`/api/jobposts`, {
           params: {
             search: searchTerm,
             show_archived: true, // Get all posts (archived and non-archived) for admin
@@ -185,8 +185,8 @@ const JobPostTable = () => {
         total_items: allJobPosts.length
       });
 
-      const companiesResponse = await axios.get(`/api/employers");
-      const profilesResponse = await axios.get(`/api/users");
+      const companiesResponse = await axios.get(`/api/employers`);
+      const profilesResponse = await axios.get(`/api/users`);
 
       const companiesData = Array.isArray(companiesResponse.data)
         ? companiesResponse.data
@@ -325,7 +325,7 @@ const JobPostTable = () => {
       return;
     }
     try {
-      await axios.post(`/api/jobposts/bulk-archive", {
+      await axios.post(`/api/jobposts/bulk-archive`, {
         ids: selectedPosts,
         archived: action === "archive",
       });
@@ -470,7 +470,7 @@ const JobPostTable = () => {
 
   const handlePostAdd = async (newPost) => {
     try {
-      const response = await axios.post(`/api/jobposts", newPost);
+      const response = await axios.post(`/api/jobposts`, newPost);
       setJobPosts((prevPosts) => [response.data, ...prevPosts]);
       message.success("Job post created successfully");
       setIsModalOpen(false);

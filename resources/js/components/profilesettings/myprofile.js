@@ -317,7 +317,7 @@ const MyProfile = () => {
 
   const fetchGenders = async () => {
     try {
-      const response = await fetch(`${window.location.origin}/api/genders');
+      const response = await fetch(`${window.location.origin}/api/genders`);
       if (response.ok) {
         const data = await response.json();
         setGenders(data);
@@ -371,7 +371,7 @@ const MyProfile = () => {
   const fetchWorkerRank = async (points) => {
     try {
       // Fetch only active (non-archived) ranks for badge display
-      const response = await fetch(`${window.location.origin}/api/ranks?archived=false&limit=100');
+      const response = await fetch(`${window.location.origin}/api/ranks?archived=false&limit=100`);
       if (response.ok) {
         const data = await response.json();
         
@@ -497,7 +497,7 @@ const MyProfile = () => {
   const fetchAvailableSkills = async () => {
     try {
       const token = localStorage.getItem("auth_token");
-      const response = await fetch(`${window.location.origin}/api/skills', {
+      const response = await fetch(`${window.location.origin}/api/skills`, {
         headers: {
           'Authorization': `Bearer ${token}`,
         }
@@ -1854,7 +1854,7 @@ const MyProfile = () => {
         return;
       }
 
-      const response = await fetch(`${window.location.origin}/api/change-password', {
+      const response = await fetch(`${window.location.origin}/api/change-password`, {
         method: "POST",
         headers: {
           'Content-Type': 'application/json',

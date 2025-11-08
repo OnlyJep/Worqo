@@ -22,7 +22,7 @@ const WorkerBookings = () => {
         return;
       }
 
-      const response = await axios.get(`/api/bookings/worker', {
+      const response = await axios.get(`/api/bookings/worker`, {
         headers: {
           Authorization: `Bearer ${authToken}`,
           Accept: "application/json"

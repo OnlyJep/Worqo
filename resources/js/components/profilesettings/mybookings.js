@@ -135,7 +135,7 @@ const MyBookings = () => {
       const authToken = localStorage.getItem("auth_token");
       if (!authToken) return;
 
-      await axios.get(`/api/bookings', {
+      await axios.get(`/api/bookings`, {
         headers: {
           Authorization: `Bearer ${authToken}`,
           Accept: "application/json",
@@ -212,7 +212,7 @@ const MyBookings = () => {
         });
       } catch (endpointError) {
         // Fallback to admin endpoint
-        response = await axios.get(`/api/bookings', {
+        response = await axios.get(`/api/bookings`, {
           headers: {
             Authorization: `Bearer ${authToken}`,
             Accept: "application/json",

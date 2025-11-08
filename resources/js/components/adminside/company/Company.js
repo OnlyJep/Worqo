@@ -304,7 +304,7 @@ const CompanyList = () => {
         throw new Error("No auth token found. Please log in.");
       }
       setLoading(true);
-      const response = await axios.post(`/api/skills", formData, {
+      const response = await axios.post(`/api/skills`, formData, {
         headers: {
           Authorization: `Bearer ${authToken}`,
           "Content-Type": "application/json",

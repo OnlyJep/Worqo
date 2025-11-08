@@ -201,12 +201,9 @@ const Headerz = () => {
   // Navigation functions
   const goToHome = () => navigate('/');
   const goToServices = () => {
-    if (!isLoggedIn) {
-      alert('Please login to access services');
-      navigate('/login');
-      return;
-    }
-    if (user?.role_id === 1) {
+    // Allow browsing services without login
+    // Only restrict role-based actions when logged in
+    if (isLoggedIn && user?.role_id === 1) {
       alert('Workers cannot access services. Please switch to Employer account.');
       return;
     }
@@ -216,12 +213,9 @@ const Headerz = () => {
   const goToAbout = () => navigate('/about');
   
   const goToFindJobs = () => {
-    if (!isLoggedIn) {
-      alert('Please login to find jobs');
-      navigate('/login');
-      return;
-    }
-    if (user?.role_id === 2) {
+    // Allow browsing jobs without login
+    // Only restrict role-based actions when logged in
+    if (isLoggedIn && user?.role_id === 2) {
       alert('Employers cannot find jobs. Please switch to Worker account.');
       return;
     }
@@ -365,7 +359,7 @@ const Headerz = () => {
       const authToken = localStorage.getItem('auth_token');
       
       // Call backend API to update role in database
-      const response = await fetch(`${window.location.origin}/api/users/switch-role', {
+      const response = await fetch(`${window.location.origin}/api/users/switch-role`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${authToken}`,
@@ -440,7 +434,7 @@ const Headerz = () => {
         localStorage.setItem('user', JSON.stringify(updatedUser));
       }
       
-      const response = await fetch(`${window.location.origin}/api/logout', {
+      const response = await fetch(`${window.location.origin}/api/logout`, {
         method: 'POST',
         headers: {
           Authorization: `Bearer ${token}`,

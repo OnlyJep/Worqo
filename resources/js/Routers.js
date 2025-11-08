@@ -183,19 +183,11 @@ export default function Routers() {
         <Route path="/notifications" element={<Notif />} />
         <Route 
           path="/browse" 
-          element={
-            <RoleBasedRoute restrictedRoles={[1]}>
-              <Browse />
-            </RoleBasedRoute>
-          } 
+          element={<Browse />} 
         />
         <Route 
           path="/browse-white" 
-          element={
-            <RoleBasedRoute restrictedRoles={[1]}>
-              <BrowseWhite />
-            </RoleBasedRoute>
-          } 
+          element={<BrowseWhite />} 
         />
         <Route path="/complete" element={<Complete />} />
         <Route path="/orders_modal" element={<Orders_modal />} />

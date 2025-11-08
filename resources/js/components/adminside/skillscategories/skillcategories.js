@@ -45,8 +45,8 @@ const SkillsCategories = () => {
         }
         const config = { headers: { Authorization: `Bearer ${token}` } };
         const [activeResponse, archivedResponse] = await Promise.all([
-          axios.get(`/api/skills", config),
-          axios.get(`/api/skills/archived", config),
+          axios.get(`/api/skills`, config),
+          axios.get(`/api/skills/archived`, config),
         ]);
 
         const activeSkills = activeResponse.data.map((skill) => ({
@@ -215,7 +215,7 @@ const SkillsCategories = () => {
     try {
       const token = localStorage.getItem("auth_token");
       const response = await axios.post(
-        `${window.location.origin}/api/skills",
+        `${window.location.origin}/api/skills`,
         { name: newSkill.name, sub_skills: newSkill.sub_skills },
         { headers: { Authorization: `Bearer ${token}` } }
       );

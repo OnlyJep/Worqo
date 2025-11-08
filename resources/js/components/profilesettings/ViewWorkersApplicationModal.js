@@ -138,12 +138,12 @@ const ViewWorkersApplicationModal = ({ jobPostId, jobTitle, onClose }) => {
                               const cleanPath = profileImg.startsWith('/') ? profileImg.substring(1) : profileImg;
                               return `${window.location.origin}/storage/${cleanPath}`;
                             }
-                            return `${window.location.origin}/storage/profiles/defaultpfp.jpg";
+                            return `${window.location.origin}/storage/profiles/defaultpfp.jpg`;
                           })()}
                           alt={`${getWorkerName(application.worker || {})}'s avatar`}
                           className="profile-image"
                           onError={(e) => {
-                            e.target.src = `${window.location.origin}/storage/profiles/defaultpfp.jpg";
+                            e.target.src = `${window.location.origin}/storage/profiles/defaultpfp.jpg`;
                           }}
                           loading="lazy"
                         />
@@ -240,12 +240,12 @@ const ViewWorkersApplicationModal = ({ jobPostId, jobTitle, onClose }) => {
                     <img 
                       src={selectedApplication.worker.profile_img && selectedApplication.worker.profile_img !== 'img/defaultpfp.jpg' 
                         ? `${window.location.origin}/storage/${selectedApplication.worker.profile_img}?v=${Date.now()}` 
-                        : `${window.location.origin}/storage/profiles/defaultpfp.jpg"
+                        : `${window.location.origin}/storage/profiles/defaultpfp.jpg`
                       } 
                       alt={`${getWorkerName(selectedApplication.worker)}'s avatar`}
                       className="profile-image"
                       onError={(e) => {
-                        e.target.src = `${window.location.origin}/storage/profiles/defaultpfp.jpg";
+                        e.target.src = `${window.location.origin}/storage/profiles/defaultpfp.jpg`;
                       }}
                     />
                   </div>

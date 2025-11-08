@@ -222,12 +222,12 @@ const EditMyJob = ({ application, isOpen, onClose, onSubmit }) => {
                     <img 
                       src={userProfile.profile?.profile_img 
                         ? `${window.location.origin}/storage/${userProfile.profile.profile_img}` 
-                        : `${window.location.origin}/storage/profiles/defaultpfp.jpg"
+                        : `${window.location.origin}/storage/profiles/defaultpfp.jpg`
                       } 
                       alt="Profile" 
                       className="profile-image"
                       onError={(e) => {
-                        e.target.src = `${window.location.origin}/storage/profiles/defaultpfp.jpg";
+                        e.target.src = `${window.location.origin}/storage/profiles/defaultpfp.jpg`;
                       }}
                     />
                   </div>

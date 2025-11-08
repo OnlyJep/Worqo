@@ -33,14 +33,14 @@ const AdminModal = ({ onClose, onSubmit, isEdit, initialData }) => {
           throw new Error("No auth token found. Please log in.");
         }
         const [gendersRes, suffixesRes] = await Promise.all([
-          axios.get(`/api/genders", {
+          axios.get(`/api/genders`, {
             headers: { Authorization: `Bearer ${authToken}` },
             signal: abortControllerRef.current.signal,
           }).catch((err) => {
             console.error("Genders fetch error:", err.response?.data || err.message);
             throw err;
           }),
-          axios.get(`/api/suffixes", {
+          axios.get(`/api/suffixes`, {
             headers: { Authorization: `Bearer ${authToken}` },
             signal: abortControllerRef.current.signal,
           }).catch((err) => {

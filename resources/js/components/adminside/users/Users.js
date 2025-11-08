@@ -76,7 +76,7 @@ const UsersList = () => {
       if (!authToken) {
         throw new Error("No auth token found. Please log in.");
       }
-      const response = await axios.get(`/api/users", {
+      const response = await axios.get(`/api/users`, {
         params: { archived: showArchived, search: searchTerm, page: pagination.currentPage, limit: 5 },
         headers: { Authorization: `Bearer ${authToken}`, Accept: "application/json" },
         signal,
@@ -195,7 +195,7 @@ const UsersList = () => {
         throw new Error("No auth token found. Please log in.");
       }
       await axios.post(
-        `${window.location.origin}/api/users/bulk-archive",
+        `${window.location.origin}/api/users/bulk-archive`,
         { user_ids: selectedUsers, action },
         {
           headers: { Authorization: `Bearer ${authToken}`, Accept: "application/json" },
@@ -294,7 +294,7 @@ const UsersList = () => {
         submitData.append("profile_img", formData.profile_img);
       }
 
-      const response = await axios.post(`/api/users", submitData, {
+      const response = await axios.post(`/api/users`, submitData, {
         headers: {
           Authorization: `Bearer ${authToken}`,
           "Content-Type": "multipart/form-data",

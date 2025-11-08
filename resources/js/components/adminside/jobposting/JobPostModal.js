@@ -129,11 +129,11 @@ const JobPostModal = ({ onClose, onSubmit, isEdit, initialData, onRefresh }) => 
 
         const [skillsResponse, ranksResponse, employersResponse] = await Promise.all([
 
-          axios.get(`/api/skills"),
+          axios.get(`/api/skills`),
 
-          axios.get(`/api/ranks"),
+          axios.get(`/api/ranks`),
 
-          axios.get(`/api/employers"),
+          axios.get(`/api/employers`),
 
         ]);
 

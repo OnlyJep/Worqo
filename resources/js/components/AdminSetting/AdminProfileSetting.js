@@ -121,7 +121,7 @@ const AdminProfileSetting = () => {
 
   const fetchGenders = async () => {
     try {
-      const response = await fetch(`${window.location.origin}/api/genders');
+      const response = await fetch(`${window.location.origin}/api/genders`);
       if (response.ok) {
         const data = await response.json();
         setGenders(data);
@@ -133,7 +133,7 @@ const AdminProfileSetting = () => {
 
   const fetchSuffixes = async () => {
     try {
-      const response = await fetch(`${window.location.origin}/api/suffixes');
+      const response = await fetch(`${window.location.origin}/api/suffixes`);
       if (response.ok) {
         const data = await response.json();
         setSuffixes(data);
@@ -465,7 +465,7 @@ const AdminProfileSetting = () => {
         return;
       }
 
-      const response = await fetch(`${window.location.origin}/api/change-password', {
+      const response = await fetch(`${window.location.origin}/api/change-password`, {
         method: "POST",
         headers: {
           'Content-Type': 'application/json',

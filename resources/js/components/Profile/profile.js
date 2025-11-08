@@ -246,8 +246,10 @@ const Profile = ({ initialServiceType }) => {
   // Handle Hire Now button click
   const handleHireNowClick = () => {
     if (!isLoggedIn()) {
-      alert('Please login to hire workers');
-      window.location.href = '/login';
+      message.warning('Please login to hire workers');
+      setTimeout(() => {
+        window.location.href = '/login';
+      }, 1000);
       return;
     }
     
@@ -278,14 +280,16 @@ const Profile = ({ initialServiceType }) => {
   // Handle Message button click
   const handleMessageClick = () => {
     if (!isLoggedIn()) {
-      alert('Please login to send messages');
-      window.location.href = '/login';
+      message.warning('Please login to send messages');
+      setTimeout(() => {
+        window.location.href = '/login';
+      }, 1000);
       return;
     }
     
     if (!worker || !worker.id) {
       console.error('Worker data not available');
-      alert('Unable to start message. Please try again.');
+      message.error('Unable to start message. Please try again.');
       return;
     }
     
@@ -671,8 +675,10 @@ const Profile = ({ initialServiceType }) => {
     try {
       const authToken = localStorage.getItem("auth_token");
       if (!authToken) {
-        message.error("Please log in to book this worker");
-        setIsLoginModalOpen(true);
+        message.warning("Please log in to book this worker");
+        setTimeout(() => {
+          window.location.href = '/login';
+        }, 1000);
         return;
       }
 
@@ -829,7 +835,7 @@ const Profile = ({ initialServiceType }) => {
       console.log('Auth token:', authToken);
       
       
-      const response = await axios.post(`/api/bookings', bookingData, {
+      const response = await axios.post(`/api/bookings`, bookingData, {
         headers: {
           Authorization: `Bearer ${authToken}`,
           Accept: "application/json",

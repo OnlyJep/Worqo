@@ -229,7 +229,7 @@ const JobApplicationsModal = ({ jobPostId, jobTitle, onClose }) => {
                 const getProfileImageSrc = () => {
                   const profileImg = application?.worker?.profile_img;
                   if (!profileImg || profileImg === 'img/defaultpfp.jpg' || profileImg === 'profiles/defaultpfp.jpg') {
-                    return `${window.location.origin}/storage/profiles/defaultpfp.jpg";
+                    return `${window.location.origin}/storage/profiles/defaultpfp.jpg`;
                   }
                   // Remove leading slash if present and construct proper path
                   const cleanPath = profileImg.startsWith('/') ? profileImg.substring(1) : profileImg;
@@ -246,7 +246,7 @@ const JobApplicationsModal = ({ jobPostId, jobTitle, onClose }) => {
                               src={getProfileImageSrc()}
                               alt={`${getWorkerName(application.worker || {})}'s avatar`}
                               onError={(e) => {
-                                e.target.src = `${window.location.origin}/storage/profiles/defaultpfp.jpg";
+                                e.target.src = `${window.location.origin}/storage/profiles/defaultpfp.jpg`;
                               }}
                               loading="lazy"
                             />
@@ -303,7 +303,7 @@ const JobApplicationsModal = ({ jobPostId, jobTitle, onClose }) => {
                           try {
                             if (currentRole && currentRole !== targetRole) {
                               const authToken = localStorage.getItem('auth_token');
-                              await fetch(`${window.location.origin}/api/users/switch-role', {
+                              await fetch(`${window.location.origin}/api/users/switch-role`, {
                                 method: 'POST',
                                 headers: { 'Authorization': `Bearer ${authToken}`, 'Content-Type': 'application/json', 'Accept': 'application/json' },
                                 body: JSON.stringify({ user_id: stored.id || stored?.user?.id, role_id: targetRole })

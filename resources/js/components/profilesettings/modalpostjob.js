@@ -404,7 +404,7 @@ const ModalPostJob = ({ onSubmit, onClose, editingJob }) => {
 
   const fetchSkills = async () => {
     try {
-      const res = await axios.get(`/api/skills");
+      const res = await axios.get(`/api/skills`);
       if (res.data) {
         setAvailableSkills(res.data);
         // Extract unique skill names for job title options
@@ -578,11 +578,12 @@ const ModalPostJob = ({ onSubmit, onClose, editingJob }) => {
       return;
     }
     
-    setSelectedSubSkills((prev) => [...prev, customSubSkill]);
+    const skillToAdd = customSubSkill;
+    setSelectedSubSkills((prev) => [...prev, skillToAdd]);
     setCustomSubSkill('');
     setIsSubSkillOthers(false);
     setIsSubSkillsDropdownOpen(false);
-    message.success(`Custom sub-skill "${customSubSkill}" added`);
+    message.success('Custom sub-skill "' + skillToAdd + '" added');
   };
 
   const handleCustomSubSkillChange = (e) => {

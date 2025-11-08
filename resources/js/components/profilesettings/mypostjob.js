@@ -54,7 +54,7 @@ const MyPostJob = () => {
 
       // First check for expired jobs
       try {
-        await axios.post(`/api/jobposts/check-expired', {}, {
+        await axios.post(`/api/jobposts/check-expired`, {}, {
           headers: {
             Authorization: `Bearer ${authToken}`,
             Accept: "application/json"
@@ -305,7 +305,7 @@ const MyPostJob = () => {
         console.log("Profile not found, creating profile for user:", currentUser.id);
         // Create a profile record for this user
         try {
-          const createProfileResponse = await axios.post(`/api/profiles', {
+          const createProfileResponse = await axios.post(`/api/profiles`, {
             user_id: currentUser.id,
             first_name: currentUser.first_name || 'Unknown',
             last_name: currentUser.last_name || 'User',
@@ -386,7 +386,7 @@ const MyPostJob = () => {
         message.success("Job post updated successfully");
       } else {
         // Create new job
-        response = await axios.post(`/api/jobposts', jobPayload, {
+        response = await axios.post(`/api/jobposts`, jobPayload, {
           headers: {
             Authorization: `Bearer ${authToken}`,
             Accept: "application/json",
