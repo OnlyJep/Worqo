@@ -13,9 +13,22 @@ class RemoveAddressFieldsFromJobpostsTable extends Migration
      */
     public function up()
     {
-        Schema::table('jobposts', function (Blueprint $table) {
-            $table->dropColumn(['street', 'city', 'province', 'postal_code', 'country']);
-        });
+        if (Schema::hasTable('jobposts')) {
+            $columnsToDrop = [];
+            $columns = ['street', 'city', 'province', 'postal_code', 'country'];
+            
+            foreach ($columns as $column) {
+                if (Schema::hasColumn('jobposts', $column)) {
+                    $columnsToDrop[] = $column;
+                }
+            }
+            
+            if (!empty($columnsToDrop)) {
+                Schema::table('jobposts', function (Blueprint $table) use ($columnsToDrop) {
+                    $table->dropColumn($columnsToDrop);
+                });
+            }
+        }
     }
 
     /**
@@ -25,12 +38,24 @@ class RemoveAddressFieldsFromJobpostsTable extends Migration
      */
     public function down()
     {
-        Schema::table('jobposts', function (Blueprint $table) {
-            $table->string('street')->nullable();
-            $table->string('city')->default('Butuan City');
-            $table->string('province')->default('Agusan Del Norte');
-            $table->string('postal_code')->default('8600');
-            $table->string('country')->default('Philippines');
-        });
+        if (Schema::hasTable('jobposts')) {
+            Schema::table('jobposts', function (Blueprint $table) {
+                if (!Schema::hasColumn('jobposts', 'street')) {
+                    $table->string('street')->nullable();
+                }
+                if (!Schema::hasColumn('jobposts', 'city')) {
+                    $table->string('city')->default('Butuan City');
+                }
+                if (!Schema::hasColumn('jobposts', 'province')) {
+                    $table->string('province')->default('Agusan Del Norte');
+                }
+                if (!Schema::hasColumn('jobposts', 'postal_code')) {
+                    $table->string('postal_code')->default('8600');
+                }
+                if (!Schema::hasColumn('jobposts', 'country')) {
+                    $table->string('country')->default('Philippines');
+                }
+            });
+        }
     }
 }

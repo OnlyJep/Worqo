@@ -13,9 +13,21 @@ class RemoveWorkingDaysTotalHoursFromBookingRequestsTable extends Migration
      */
     public function up()
     {
-        Schema::table('booking_requests', function (Blueprint $table) {
-            $table->dropColumn(['working_days', 'total_hours']);
-        });
+        if (Schema::hasTable('booking_requests')) {
+            $columnsToDrop = [];
+            if (Schema::hasColumn('booking_requests', 'working_days')) {
+                $columnsToDrop[] = 'working_days';
+            }
+            if (Schema::hasColumn('booking_requests', 'total_hours')) {
+                $columnsToDrop[] = 'total_hours';
+            }
+            
+            if (!empty($columnsToDrop)) {
+                Schema::table('booking_requests', function (Blueprint $table) use ($columnsToDrop) {
+                    $table->dropColumn($columnsToDrop);
+                });
+            }
+        }
     }
 
     /**
@@ -25,9 +37,15 @@ class RemoveWorkingDaysTotalHoursFromBookingRequestsTable extends Migration
      */
     public function down()
     {
-        Schema::table('booking_requests', function (Blueprint $table) {
-            $table->integer('working_days')->nullable()->after('total_amount');
-            $table->decimal('total_hours', 8, 2)->nullable()->after('working_days');
-        });
+        if (Schema::hasTable('booking_requests')) {
+            Schema::table('booking_requests', function (Blueprint $table) {
+                if (!Schema::hasColumn('booking_requests', 'working_days')) {
+                    $table->integer('working_days')->nullable()->after('total_amount');
+                }
+                if (!Schema::hasColumn('booking_requests', 'total_hours')) {
+                    $table->decimal('total_hours', 8, 2)->nullable()->after('working_days');
+                }
+            });
+        }
     }
 }

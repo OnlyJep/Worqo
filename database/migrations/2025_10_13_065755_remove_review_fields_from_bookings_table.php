@@ -13,10 +13,23 @@ class RemoveReviewFieldsFromBookingsTable extends Migration
      */
     public function up()
     {
-        Schema::table('bookings', function (Blueprint $table) {
-            // Remove review-related fields since they are now in the reviews table
-            $table->dropColumn(['worker_notes', 'employer_notes', 'rating', 'review']);
-        });
+        if (Schema::hasTable('bookings')) {
+            $columnsToDrop = [];
+            $columns = ['worker_notes', 'employer_notes', 'rating', 'review'];
+            
+            foreach ($columns as $column) {
+                if (Schema::hasColumn('bookings', $column)) {
+                    $columnsToDrop[] = $column;
+                }
+            }
+            
+            if (!empty($columnsToDrop)) {
+                Schema::table('bookings', function (Blueprint $table) use ($columnsToDrop) {
+                    // Remove review-related fields since they are now in the reviews table
+                    $table->dropColumn($columnsToDrop);
+                });
+            }
+        }
     }
 
     /**
@@ -26,12 +39,22 @@ class RemoveReviewFieldsFromBookingsTable extends Migration
      */
     public function down()
     {
-        Schema::table('bookings', function (Blueprint $table) {
-            // Re-add the columns if needed to rollback
-            $table->text('worker_notes')->nullable()->after('status');
-            $table->text('employer_notes')->nullable()->after('worker_notes');
-            $table->integer('rating')->nullable()->after('employer_notes');
-            $table->text('review')->nullable()->after('rating');
-        });
+        if (Schema::hasTable('bookings')) {
+            Schema::table('bookings', function (Blueprint $table) {
+                // Re-add the columns if needed to rollback
+                if (!Schema::hasColumn('bookings', 'worker_notes')) {
+                    $table->text('worker_notes')->nullable()->after('status');
+                }
+                if (!Schema::hasColumn('bookings', 'employer_notes')) {
+                    $table->text('employer_notes')->nullable()->after('worker_notes');
+                }
+                if (!Schema::hasColumn('bookings', 'rating')) {
+                    $table->integer('rating')->nullable()->after('employer_notes');
+                }
+                if (!Schema::hasColumn('bookings', 'review')) {
+                    $table->text('review')->nullable()->after('rating');
+                }
+            });
+        }
     }
 }

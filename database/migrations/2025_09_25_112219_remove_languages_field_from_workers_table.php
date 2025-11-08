@@ -13,9 +13,11 @@ class RemoveLanguagesFieldFromWorkersTable extends Migration
      */
     public function up()
     {
-        Schema::table('workers', function (Blueprint $table) {
-            $table->dropColumn('languages');
-        });
+        if (Schema::hasTable('workers') && Schema::hasColumn('workers', 'languages')) {
+            Schema::table('workers', function (Blueprint $table) {
+                $table->dropColumn('languages');
+            });
+        }
     }
 
     /**
@@ -25,8 +27,10 @@ class RemoveLanguagesFieldFromWorkersTable extends Migration
      */
     public function down()
     {
-        Schema::table('workers', function (Blueprint $table) {
-            $table->json('languages')->nullable();
-        });
+        if (Schema::hasTable('workers') && !Schema::hasColumn('workers', 'languages')) {
+            Schema::table('workers', function (Blueprint $table) {
+                $table->json('languages')->nullable();
+            });
+        }
     }
 }

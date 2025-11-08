@@ -11,10 +11,20 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('bookings', function (Blueprint $table) {
-            $table->decimal('daily_rate', 10, 2)->nullable()->after('book_end');
-            $table->dropColumn('hourly_rate');
-        });
+        if (Schema::hasTable('bookings')) {
+            Schema::table('bookings', function (Blueprint $table) {
+                if (!Schema::hasColumn('bookings', 'daily_rate')) {
+                    $table->decimal('daily_rate', 10, 2)->nullable()->after('book_end');
+                }
+            });
+            
+            // Drop hourly_rate only if it exists
+            if (Schema::hasColumn('bookings', 'hourly_rate')) {
+                Schema::table('bookings', function (Blueprint $table) {
+                    $table->dropColumn('hourly_rate');
+                });
+            }
+        }
     }
 
     /**
@@ -22,9 +32,19 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('bookings', function (Blueprint $table) {
-            $table->decimal('hourly_rate', 10, 2)->nullable()->after('book_end');
-            $table->dropColumn('daily_rate');
-        });
+        if (Schema::hasTable('bookings')) {
+            Schema::table('bookings', function (Blueprint $table) {
+                if (!Schema::hasColumn('bookings', 'hourly_rate')) {
+                    $table->decimal('hourly_rate', 10, 2)->nullable()->after('book_end');
+                }
+            });
+            
+            // Drop daily_rate only if it exists
+            if (Schema::hasColumn('bookings', 'daily_rate')) {
+                Schema::table('bookings', function (Blueprint $table) {
+                    $table->dropColumn('daily_rate');
+                });
+            }
+        }
     }
 };

@@ -53,36 +53,74 @@ class AddBookmodalFieldsToBookingRequestsTable extends Migration
      */
     public function down()
     {
-        Schema::table('booking_requests', function (Blueprint $table) {
-            // Drop foreign key constraints first
-            $table->dropForeign(['employer_id']);
-            $table->dropForeign(['worker_id']);
+        if (Schema::hasTable('booking_requests')) {
+            // Drop foreign key constraints first (safely)
+            if (Schema::hasColumn('booking_requests', 'employer_id')) {
+                try {
+                    Schema::table('booking_requests', function (Blueprint $table) {
+                        $table->dropForeign(['employer_id']);
+                    });
+                } catch (\Throwable $e) {
+                    // Foreign key might not exist, ignore
+                }
+            }
             
-            // Drop indexes
-            $table->dropIndex(['service_type', 'work_type']);
-            $table->dropIndex(['book_in', 'book_end']);
-            $table->dropIndex(['employer_id', 'worker_id']);
+            if (Schema::hasColumn('booking_requests', 'worker_id')) {
+                try {
+                    Schema::table('booking_requests', function (Blueprint $table) {
+                        $table->dropForeign(['worker_id']);
+                    });
+                } catch (\Throwable $e) {
+                    // Foreign key might not exist, ignore
+                }
+            }
             
-            // Drop columns
-            $table->dropColumn([
-                'service_type',
-                'sub_skill',
-                'work_type',
-                'book_in',
-                'book_end',
-                'description',
-                'daily_rate',
-                'total_amount',
-                'working_days',
-                'total_hours',
-                'hourly_rate',
-                'salary_explanation',
-                'employer_id',
-                'worker_id',
-                'is_available',
-                'conflict_message',
-                'conflicting_jobs'
-            ]);
-        });
+            // Drop indexes (safely)
+            try {
+                Schema::table('booking_requests', function (Blueprint $table) {
+                    $table->dropIndex(['service_type', 'work_type']);
+                });
+            } catch (\Throwable $e) {
+                // Index might not exist, ignore
+            }
+            
+            try {
+                Schema::table('booking_requests', function (Blueprint $table) {
+                    $table->dropIndex(['book_in', 'book_end']);
+                });
+            } catch (\Throwable $e) {
+                // Index might not exist, ignore
+            }
+            
+            try {
+                Schema::table('booking_requests', function (Blueprint $table) {
+                    $table->dropIndex(['employer_id', 'worker_id']);
+                });
+            } catch (\Throwable $e) {
+                // Index might not exist, ignore
+            }
+            
+            // Drop columns (only if they exist)
+            $columnsToDrop = [];
+            $columns = [
+                'service_type', 'sub_skill', 'work_type', 'book_in', 'book_end',
+                'description', 'daily_rate', 'total_amount', 'working_days',
+                'total_hours', 'hourly_rate', 'salary_explanation',
+                'employer_id', 'worker_id', 'is_available',
+                'conflict_message', 'conflicting_jobs'
+            ];
+            
+            foreach ($columns as $column) {
+                if (Schema::hasColumn('booking_requests', $column)) {
+                    $columnsToDrop[] = $column;
+                }
+            }
+            
+            if (!empty($columnsToDrop)) {
+                Schema::table('booking_requests', function (Blueprint $table) use ($columnsToDrop) {
+                    $table->dropColumn($columnsToDrop);
+                });
+            }
+        }
     }
 }

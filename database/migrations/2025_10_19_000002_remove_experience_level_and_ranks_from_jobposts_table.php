@@ -11,9 +11,21 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('jobposts', function (Blueprint $table) {
-            $table->dropColumn(['experience_level', 'ranks']);
-        });
+        if (Schema::hasTable('jobposts')) {
+            $columnsToDrop = [];
+            if (Schema::hasColumn('jobposts', 'experience_level')) {
+                $columnsToDrop[] = 'experience_level';
+            }
+            if (Schema::hasColumn('jobposts', 'ranks')) {
+                $columnsToDrop[] = 'ranks';
+            }
+            
+            if (!empty($columnsToDrop)) {
+                Schema::table('jobposts', function (Blueprint $table) use ($columnsToDrop) {
+                    $table->dropColumn($columnsToDrop);
+                });
+            }
+        }
     }
 
     /**
@@ -21,9 +33,15 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('jobposts', function (Blueprint $table) {
-            $table->string('experience_level')->nullable();
-            $table->json('ranks')->nullable();
-        });
+        if (Schema::hasTable('jobposts')) {
+            Schema::table('jobposts', function (Blueprint $table) {
+                if (!Schema::hasColumn('jobposts', 'experience_level')) {
+                    $table->string('experience_level')->nullable();
+                }
+                if (!Schema::hasColumn('jobposts', 'ranks')) {
+                    $table->json('ranks')->nullable();
+                }
+            });
+        }
     }
 };
