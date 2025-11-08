@@ -71,7 +71,9 @@ return [
             'database' => env('DB_DATABASE', 'forge'),
             'username' => env('DB_USERNAME', 'forge'),
             'password' => env('DB_PASSWORD', ''),
-            'charset' => env('DB_CHARSET', 'UTF8'),
+            // Don't set charset here - our custom PostgresConnector handles it
+            // Setting charset here causes Laravel to try utf8mb4 which PostgreSQL doesn't support
+            'charset' => null,
             'prefix' => '',
             'prefix_indexes' => true,
             'schema' => 'public',

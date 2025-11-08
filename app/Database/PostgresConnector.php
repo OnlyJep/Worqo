@@ -78,8 +78,33 @@ class PostgresConnector extends BasePostgresConnector
      */
     protected function configureEncoding($connection, $config)
     {
-        // Do nothing here - we'll set UTF8 in connect() method instead
-        // This prevents Laravel from trying to set utf8mb4 which PostgreSQL doesn't support
+        // Always set UTF8 encoding for PostgreSQL
+        // PostgreSQL doesn't support utf8mb4, so we force UTF8 here
+        if (! isset($config['charset']) || $config['charset'] === null) {
+            // If charset is not set, set it to UTF8
+            try {
+                $connection->exec("SET client_encoding TO 'UTF8'");
+            } catch (\PDOException $e) {
+                // Ignore - might already be set
+            }
+        } else {
+            // If charset is set (even if wrong), force UTF8
+            $charset = $config['charset'];
+            // Convert any utf8mb4 or utf8 to UTF8
+            if (in_array(strtolower($charset), ['utf8mb4', 'utf8'])) {
+                $charset = 'UTF8';
+            }
+            try {
+                $connection->exec("SET client_encoding TO '{$charset}'");
+            } catch (\PDOException $e) {
+                // If that fails, try UTF8
+                try {
+                    $connection->exec("SET client_encoding TO 'UTF8'");
+                } catch (\PDOException $e2) {
+                    // Ignore
+                }
+            }
+        }
     }
 }
 

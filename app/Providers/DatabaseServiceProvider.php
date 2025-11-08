@@ -31,8 +31,13 @@ class DatabaseServiceProvider extends ServiceProvider
             Type::addType('enum', 'Doctrine\DBAL\Types\StringType');
         }
         
-        // Force override the connection factory in boot() to ensure it runs after Laravel's DatabaseServiceProvider
-        // This replaces any existing factory with our custom one that uses UTF8 encoding
+        // CRITICAL: Override the connection factory in boot() AFTER Laravel's DatabaseServiceProvider
+        // This ensures our custom PostgreSQL connector with UTF8 encoding is used
+        // We need to forget the existing instance first, then rebind
+        if ($this->app->bound('db.factory')) {
+            $this->app->forgetInstance('db.factory');
+        }
+        
         $this->app->singleton('db.factory', function ($app) {
             return new class($app) extends ConnectionFactory {
                 public function createConnector(array $config)
@@ -44,6 +49,11 @@ class DatabaseServiceProvider extends ServiceProvider
                     return parent::createConnector($config);
                 }
             };
-        }, true); // true = force override even if already bound
+        });
+        
+        // Also ensure ConnectionFactory class binding uses our factory
+        $this->app->bind(ConnectionFactory::class, function ($app) {
+            return $app->make('db.factory');
+        });
     }
 }
