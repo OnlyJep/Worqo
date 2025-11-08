@@ -75,7 +75,7 @@ return [
             'prefix' => '',
             'prefix_indexes' => true,
             'schema' => 'public',
-            'sslmode' => 'prefer',
+            'sslmode' => env('DB_SSLMODE', 'prefer'), // Render PostgreSQL may require 'require'
             'options' => [
                 PDO::ATTR_EMULATE_PREPARES => false,
             ],
