@@ -1,4 +1,4 @@
-FROM php:8.0-fpm
+FROM php:8.0-cli
 
 # Install system dependencies
 RUN apt-get update && apt-get install -y \
@@ -14,8 +14,6 @@ RUN apt-get update && apt-get install -y \
     libzip-dev \
     libpq-dev \
     openssl \
-    nginx \
-    supervisor \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
@@ -59,27 +57,10 @@ ENV NODE_ENV=production
 ENV SASS_SILENCE_DEPRECATIONS=*
 RUN npm run production || echo "Asset build failed, continuing..."
 
-# Set final permissions for runtime (www-data user)
+# Set final permissions for runtime
 RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache /var/www/html/public && \
     chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache && \
     chmod -R 755 /var/www/html/public
-
-# Copy nginx and supervisor configurations
-COPY docker/nginx.conf /etc/nginx/nginx.conf
-COPY docker/default.conf /etc/nginx/sites-available/default
-RUN mkdir -p /etc/nginx/sites-enabled && \
-    ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
-
-COPY docker/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
-
-# Create necessary directories for supervisor and nginx
-RUN mkdir -p /var/log/supervisor /var/run/supervisor /var/run/php
-
-# Configure PHP-FPM to listen on TCP port 9000 (php-fpm image uses /usr/local/etc/php-fpm.d/www.conf)
-# The default php:8.0-fpm image typically listens on port 9000, but we'll ensure it's explicitly set
-RUN if [ -f /usr/local/etc/php-fpm.d/www.conf ]; then \
-        sed -i 's/listen = .*/listen = 127.0.0.1:9000/' /usr/local/etc/php-fpm.d/www.conf 2>/dev/null || true; \
-    fi
 
 # Copy and set up entrypoint script
 COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh

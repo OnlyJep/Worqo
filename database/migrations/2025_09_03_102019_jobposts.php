@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('jobposts', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('company_id')->constrained('companies')->onDelete('cascade');
+            // Make company_id nullable for now since companies table might not exist
+            $table->foreignId('company_id')->nullable()->constrained('companies')->onDelete('cascade');
             $table->foreignId('profile_id')->constrained('users')->onDelete('cascade');
             $table->json('skills')->nullable(); // JSON array for skills, automatically cast to array
             $table->json('ranks')->nullable(); // JSON array for ranks, automatically cast to array

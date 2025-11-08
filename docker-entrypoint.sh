@@ -72,7 +72,6 @@ php artisan db:seed --class=RoleSeeder --force || echo "RoleSeeder warning..."
 php artisan db:seed --class=SuffixSeeder --force || echo "SuffixSeeder warning..."
 php artisan db:seed --class=SkillSeeder --force || echo "SkillSeeder warning..."
 php artisan db:seed --class=RankSeeder --force || echo "RankSeeder warning..."
-php artisan db:seed --class=UserSeeder --force || echo "UserSeeder warning..."
 
 echo "Caching configuration..."
 php artisan config:cache || true
@@ -81,20 +80,10 @@ php artisan view:cache || true
 
 echo "Application setup complete!"
 
-# Update nginx config with Render's PORT if set (Render uses PORT env variable)
+# Start Laravel development server
 # Render will provide PORT environment variable dynamically
 RENDER_PORT=${PORT:-8000}
-echo "Configuring nginx to listen on port ${RENDER_PORT}"
+echo "Starting Laravel server on 0.0.0.0:${RENDER_PORT}"
 
-# Update nginx configuration to listen on the correct port
-sed -i "s/listen .*;/listen ${RENDER_PORT};/" /etc/nginx/sites-available/default
-# Also update the symlinked file if it exists
-if [ -L /etc/nginx/sites-enabled/default ]; then
-    sed -i "s/listen .*;/listen ${RENDER_PORT};/" /etc/nginx/sites-enabled/default
-fi
-
-# Test nginx configuration
-nginx -t || echo "Nginx config test failed, but continuing..."
-
-# Start supervisor
-exec /usr/bin/supervisord -c /etc/supervisor/conf.d/supervisord.conf
+# Use php artisan serve instead of nginx
+exec php artisan serve --host=0.0.0.0 --port=${RENDER_PORT}

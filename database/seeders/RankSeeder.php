@@ -13,8 +13,7 @@ class RankSeeder extends Seeder
             [
                 'name' => 'Bronze',
                 'image' => null,
-                'min_points' => 0,
-                'max_points' => 100,
+                'required_reviews' => 0,
                 'archived' => false,
                 'created_at' => now(),
                 'updated_at' => now()
@@ -22,8 +21,7 @@ class RankSeeder extends Seeder
             [
                 'name' => 'Silver',
                 'image' => null,
-                'min_points' => 101,
-                'max_points' => 300,
+                'required_reviews' => 5,
                 'archived' => false,
                 'created_at' => now(),
                 'updated_at' => now()
@@ -31,8 +29,7 @@ class RankSeeder extends Seeder
             [
                 'name' => 'Gold',
                 'image' => null,
-                'min_points' => 301,
-                'max_points' => 600,
+                'required_reviews' => 15,
                 'archived' => false,
                 'created_at' => now(),
                 'updated_at' => now()
@@ -40,8 +37,7 @@ class RankSeeder extends Seeder
             [
                 'name' => 'Platinum',
                 'image' => null,
-                'min_points' => 601,
-                'max_points' => 1000,
+                'required_reviews' => 30,
                 'archived' => false,
                 'created_at' => now(),
                 'updated_at' => now()
@@ -49,8 +45,7 @@ class RankSeeder extends Seeder
             [
                 'name' => 'Diamond',
                 'image' => null,
-                'min_points' => 1001,
-                'max_points' => null,
+                'required_reviews' => 50,
                 'archived' => false,
                 'created_at' => now(),
                 'updated_at' => now()
