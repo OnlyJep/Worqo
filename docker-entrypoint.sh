@@ -69,260 +69,49 @@ mkdir -p storage/app/public/profiles
 mkdir -p storage/app/public/credentialsphoto
 chmod -R 755 storage/app/public
 
-echo "========================================="
-echo "Running database remigration (fresh migration)..."
-echo "========================================="
+echo "Running migrations..."
+# Run all migrations first (this will run all pending migrations)
+php artisan migrate --force
 
-# Ensure Sanctum migrations are published (for personal_access_tokens table)
-echo "Publishing Sanctum migrations (if not already published)..."
-php artisan vendor:publish --provider="Laravel\Sanctum\SanctumServiceProvider" --tag="migrations" --force 2>&1 | grep -v "file_get_contents" || echo "Sanctum migrations already published or not needed"
+# Always ensure critical migrations are run individually to handle edge cases
+echo "Ensuring critical column migrations are applied..."
 
-# Function to check if migrations were successful
-check_migration_status() {
-    echo "Verifying migration status..."
-    php artisan migrate:status --force 2>&1
-    local exit_code=$?
-    if [ $exit_code -eq 0 ]; then
-        echo "✓ Migration status check passed"
-        return 0
-    else
-        echo "✗ Migration status check failed"
-        return 1
-    fi
-}
+# Run last_activity migration if it hasn't been run yet
+# The migration itself checks if column exists, so it's safe to run multiple times
+echo "Ensuring last_activity column exists..."
+php artisan migrate --path=database/migrations/2025_10_17_040000_add_last_activity_to_users_table.php --force 2>&1 || echo "Last activity migration check completed"
 
-# Function to verify all expected tables exist (should be 25 tables)
-verify_tables() {
-    echo "Verifying all 25 tables were created..."
-    
-    # Create a temporary PHP script to check tables
-    cat > /tmp/check_tables.php << 'EOFPHP'
-<?php
-$basePath = getcwd();
-require $basePath . '/vendor/autoload.php';
-$app = require_once $basePath . '/bootstrap/app.php';
-$kernel = $app->make(Illuminate\Contracts\Console\Kernel::class);
-$kernel->bootstrap();
+# Run is_online migration if it hasn't been run yet (must run after last_activity)
+# The migration itself checks if column exists, so it's safe to run multiple times
+echo "Ensuring is_online column exists..."
+php artisan migrate --path=database/migrations/2025_10_24_034522_add_is_online_to_users_table.php --force 2>&1 || echo "Is online migration check completed"
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Support\Facades\DB;
+# Run ranks min_points/max_points migration if it hasn't been run yet
+# The migration itself checks if columns exist, so it's safe to run multiple times
+echo "Ensuring ranks min_points/max_points columns exist..."
+php artisan migrate --path=database/migrations/2025_10_13_082908_add_min_max_points_to_ranks_table.php --force 2>&1 || echo "Ranks min_points/max_points migration check completed"
 
-// All 25 tables that should exist in the database
-$required_tables = [
-    // Core user and profile tables (5)
-    "users", "profiles", "roles", "genders", "suffixes", 
-    // Business entity tables (5)
-    "employers", "workers", "skills", "collars", "ranks",
-    // Service and job tables (3)
-    "services", "jobposts", "job_applications",
-    // Booking tables (2)
-    "bookings", "booking_requests",
-    // Communication and review tables (3)
-    "reviews", "notifications", "messages",
-    // OAuth tables - Laravel Passport (5)
-    "oauth_access_tokens", "oauth_auth_codes", "oauth_clients",
-    "oauth_personal_access_clients", "oauth_refresh_tokens",
-    // Laravel Sanctum (1)
-    "personal_access_tokens",
-    // System table (1)
-    "migrations"
-];
+# Run skills archived migration if it hasn't been run yet
+# The migration itself checks if column exists, so it's safe to run multiple times
+echo "Ensuring skills archived column exists..."
+php artisan migrate --path=database/migrations/add_archived_to_skills_table.php --force 2>&1 || echo "Skills archived migration check completed"
 
-$missing_tables = [];
-$driver = DB::connection()->getDriverName();
+# Run sub_skills migration if it hasn't been run yet
+# The migration itself checks if column exists, so it's safe to run multiple times
+echo "Ensuring skills sub_skills column exists..."
+php artisan migrate --path=database/migrations/2025_09_11_111205_add_sub_skills_table.php --force 2>&1 || echo "Skills sub_skills migration check completed"
 
-foreach ($required_tables as $table) {
-    try {
-        if ($driver === 'pgsql') {
-            // PostgreSQL check
-            $exists = DB::select("SELECT EXISTS (
-                SELECT FROM information_schema.tables 
-                WHERE table_schema = 'public' 
-                AND table_name = ?
-            )", [$table]);
-            $table_exists = $exists[0]->exists;
-        } else {
-            // MySQL check
-            $table_exists = Schema::hasTable($table);
-        }
-        
-        if ($table_exists) {
-            echo "EXISTS:$table\n";
-        } else {
-            echo "MISSING:$table\n";
-            $missing_tables[] = $table;
-        }
-    } catch (Exception $e) {
-        echo "ERROR:$table:" . $e->getMessage() . "\n";
-        $missing_tables[] = $table;
-    }
-}
+echo "Migration process completed. The application will handle missing columns gracefully."
 
-exit(count($missing_tables) > 0 ? 1 : 0);
-EOFPHP
-
-    local missing_tables=()
-    while IFS= read -r line; do
-        if [[ $line == EXISTS:* ]]; then
-            table="${line#EXISTS:}"
-            echo "  ✓ Table '$table' exists"
-        elif [[ $line == MISSING:* ]]; then
-            table="${line#MISSING:}"
-            echo "  ✗ Table '$table' is MISSING"
-            missing_tables+=("$table")
-        elif [[ $line == ERROR:* ]]; then
-            echo "  ⚠ $line"
-        fi
-    done < <(php /tmp/check_tables.php 2>&1)
-    
-    rm -f /tmp/check_tables.php
-    
-    # Count total tables (25 expected)
-    local total_tables=25
-    local existing_count=$((total_tables - ${#missing_tables[@]}))
-    
-    echo ""
-    echo "Table verification summary:"
-    echo "  Expected: $total_tables tables"
-    echo "  Found: $existing_count tables"
-    if [ ${#missing_tables[@]} -gt 0 ]; then
-        echo "  Missing: ${#missing_tables[@]} tables"
-    fi
-    
-    if [ ${#missing_tables[@]} -eq 0 ]; then
-        echo "✓ All 25 required tables exist"
-        return 0
-    else
-        echo "✗ Missing tables: ${missing_tables[*]}"
-        return 1
-    fi
-}
-
-# Run migrate:fresh with error handling and retry logic
-echo "Step 1: Dropping all tables and running fresh migrations..."
-
-# Try migration up to 3 times if it fails
-MAX_RETRIES=3
-RETRY_COUNT=0
-MIGRATION_SUCCESS=false
-
-while [ $RETRY_COUNT -lt $MAX_RETRIES ]; do
-    if [ $RETRY_COUNT -gt 0 ]; then
-        echo "Retry attempt $RETRY_COUNT of $MAX_RETRIES..."
-        sleep 2
-    fi
-    
-    MIGRATION_OUTPUT=$(php artisan migrate:fresh --force 2>&1)
-    MIGRATION_EXIT_CODE=$?
-    
-    if [ $MIGRATION_EXIT_CODE -eq 0 ]; then
-        echo "$MIGRATION_OUTPUT"
-        echo "✓ Migrations completed successfully"
-        MIGRATION_SUCCESS=true
-        break
-    else
-        echo "✗ Migration attempt $((RETRY_COUNT + 1)) failed with exit code: $MIGRATION_EXIT_CODE"
-        echo "Migration output:"
-        echo "$MIGRATION_OUTPUT"
-        RETRY_COUNT=$((RETRY_COUNT + 1))
-        
-        if [ $RETRY_COUNT -lt $MAX_RETRIES ]; then
-            echo "Waiting before retry..."
-            sleep 3
-        fi
-    fi
-done
-
-if [ "$MIGRATION_SUCCESS" = false ]; then
-    echo ""
-    echo "========================================="
-    echo "ERROR: Database migration failed after $MAX_RETRIES attempts"
-    echo "========================================="
-    echo ""
-    echo "Attempting to diagnose the issue..."
-    
-    # Try to get more details about the error
-    echo "Checking database connection..."
-    php artisan db:show --force 2>&1 || echo "Could not show database info"
-    
-    echo ""
-    echo "Checking migration files..."
-    php artisan migrate:status --force 2>&1 || echo "Could not get migration status"
-    
-    echo ""
-    echo "Last migration output:"
-    echo "$MIGRATION_OUTPUT"
-    
-    echo ""
-    echo "ERROR: Database migration failed. Please check the logs above."
-    echo "Common issues:"
-    echo "  - Foreign key constraint errors (check migration order)"
-    echo "  - Missing database permissions"
-    echo "  - Database connection issues"
-    echo "  - Syntax errors in migration files"
-    exit 1
-fi
-
-# Verify migration status
-echo ""
-echo "Step 2: Verifying migration status..."
-if ! check_migration_status; then
-    echo "WARNING: Migration status check failed, but continuing..."
-fi
-
-# Verify all 25 tables exist
-echo ""
-echo "Step 3: Verifying all 25 tables were created..."
-if ! verify_tables; then
-    echo ""
-    echo "WARNING: Some tables are missing!"
-    echo "Expected 25 tables but some are missing."
-    echo "This might indicate a migration issue."
-    echo "Please check the migration logs above."
-fi
-
-echo ""
-echo "========================================="
-echo "Database remigration completed successfully!"
-echo "========================================="
-
-echo ""
-echo "========================================="
 echo "Installing Passport..."
-echo "========================================="
-if php artisan passport:install --force 2>&1; then
-    echo "✓ Passport installed successfully"
-else
-    echo "⚠ Passport install warning - continuing anyway..."
-fi
+php artisan passport:install --force || echo "Passport install warning - continuing anyway..."
 
-echo ""
-echo "========================================="
 echo "Running database seeders..."
-echo "========================================="
-
-# Function to run seeder with error checking
-run_seeder() {
-    local seeder_name=$1
-    echo "Running $seeder_name..."
-    if php artisan db:seed --class=$seeder_name --force 2>&1; then
-        echo "✓ $seeder_name completed successfully"
-        return 0
-    else
-        echo "⚠ $seeder_name warning - continuing anyway..."
-        return 1
-    fi
-}
-
-# Run all seeders
-run_seeder "GenderSeeder"
-run_seeder "RoleSeeder"
-run_seeder "SuffixSeeder"
-run_seeder "SkillSeeder"
-run_seeder "RankSeeder"
-
-echo ""
-echo "✓ All seeders completed"
+php artisan db:seed --class=GenderSeeder --force || echo "GenderSeeder warning..."
+php artisan db:seed --class=RoleSeeder --force || echo "RoleSeeder warning..."
+php artisan db:seed --class=SuffixSeeder --force || echo "SuffixSeeder warning..."
+php artisan db:seed --class=SkillSeeder --force || echo "SkillSeeder warning..."
+php artisan db:seed --class=RankSeeder --force || echo "RankSeeder warning..."
 
 echo "Caching configuration..."
 php artisan config:cache || true

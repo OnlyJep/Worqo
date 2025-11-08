@@ -99,7 +99,7 @@ class JobPostController extends Controller
             return response()->json([
                 'job_posts' => $jobPosts,
                 'skills' => array_values($skills),
-                'pagination' => [
+                    'pagination' => [
                     'current_page' => $jobPosts->currentPage(),
                     'total_pages' => $jobPosts->lastPage(),
                     'total_items' => $jobPosts->total(),

@@ -122,6 +122,8 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
   const primarySkillsDropdownRef = useRef(null);
   const additionalSkillsDropdownRef = useRef(null);
   const workingDaysDropdownRef = useRef(null);
+  const categoryDropdownRef = useRef(null);
+  const typeDropdownRef = useRef(null);
   const containerRef = useRef(null);
   const navigate = useNavigate();
   const isMounted = useRef(true);
@@ -179,7 +181,6 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
       document.body.classList.remove('skill-rating-mobile', 'skill-rating-desktop');
     };
   }, []);
-
 
   // Map working days to indices for consistent ordering and range formatting
   const workingDayIndexMap = {
@@ -636,10 +637,10 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
   // Close dropdowns when clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (isCategoryDropdownOpen && !event.target.closest('.category-dropdown-container')) {
+      if (categoryDropdownRef.current && !categoryDropdownRef.current.contains(event.target)) {
         setIsCategoryDropdownOpen(false);
       }
-      if (isTypeDropdownOpen && !event.target.closest('.type-dropdown-container')) {
+      if (typeDropdownRef.current && !typeDropdownRef.current.contains(event.target)) {
         setIsTypeDropdownOpen(false);
       }
     };
@@ -1463,28 +1464,32 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
         className={`skill-rating-container ${isMobile ? 'mobile-layout' : 'desktop-layout'}`}
       >
         <div className="progress-side">
-          <div className="logo">Worqo</div>
-          <h2>Let's Get You Started!</h2>
+          {!isMobile && (
+            <>
+              <div className="logo">Worqo</div>
+              <h2>Let's Get You Started!</h2>
+            </>
+          )}
           <div className="progress-steps">
             <div className="step completed">
               <div className="step-number">✓</div>
-              <span>Register for an account</span>
+              {!isMobile && <span>Register for an account</span>}
             </div>
             <div className="step completed">
               <div className="step-number">✓</div>
-              <span>Create profile</span>
+              {!isMobile && <span>Create profile</span>}
             </div>
             <div className={`step ${step === 3 ? 'current' : workPreferencesCompleted ? 'completed' : ''}`}>
               <div className="step-number">{workPreferencesCompleted ? '✓' : '3'}</div>
-              <span>Work Preferences</span>
+              {!isMobile && <span>Work Preferences</span>}
             </div>
             <div className={`step ${step === 4 ? 'current' : skillsStepCompleted ? 'completed' : ''}`}>
               <div className="step-number">{skillsStepCompleted ? '✓' : '4'}</div>
-              <span>Skills & Experience</span>
+              {!isMobile && <span>Skills & Experience</span>}
             </div>
             <div className={`step ${step === 5 ? 'current' : ''}`}>
               <div className="step-number">5</div>
-              <span>Credentials</span>
+              {!isMobile && <span>Credentials</span>}
             </div>
           </div>
         </div>
@@ -1655,40 +1660,53 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
                   <div className="credential-form">
                     <div className="form-group">
                       <label className="form-label">Credential Category</label>
-                      <div className="category-dropdown-container">
+                      <div className={`custom-dropdown ${isCategoryDropdownOpen ? 'dropdown-open' : ''}`} ref={categoryDropdownRef}>
                         <div
-                          className="custom-dropdown-trigger"
+                          className="dropdown-trigger"
                           onClick={() => setIsCategoryDropdownOpen(!isCategoryDropdownOpen)}
+                          tabIndex={0}
+                          role="button"
+                          aria-expanded={isCategoryDropdownOpen}
+                          aria-haspopup="listbox"
                         >
                           <span className="dropdown-value">
                             {selectedCredentialCategory 
                               ? credentialCategories.find(cat => cat.value === selectedCredentialCategory)?.label
-                              : 'Choose a credential category'
+                              : 'Choose a Credential Category'
                             }
                           </span>
-                          <span className={`dropdown-icon ${isCategoryDropdownOpen ? 'open' : ''}`}>
-                            <IconChevronDown size={16} />
+                          <span className={`dropdown-arrow ${isCategoryDropdownOpen ? 'open' : ''}`}>
+                            <IconChevronDown
+                              size={16}
+                              className="chevron-icon"
+                              style={{
+                                transform: isCategoryDropdownOpen ? 'rotate(180deg)' : 'rotate(0deg)',
+                                transition: 'transform 0.3s ease'
+                              }}
+                            />
                           </span>
                         </div>
                         
                         {isCategoryDropdownOpen && (
-                          <div className="custom-dropdown-menu">
-                            {credentialCategories.map((option) => (
-                              <div
-                                key={option.value}
-                                className={`custom-dropdown-item ${selectedCredentialCategory === option.value ? 'selected' : ''}`}
-                                onClick={() => {
-                                  setSelectedCredentialCategory(option.value);
-                                  setNewCredential(prev => ({ ...prev, credentials_name: "", credentials_photo: null }));
-                                  setIsCategoryDropdownOpen(false);
-                                }}
-                              >
-                                <span className="dropdown-item-label">{option.label}</span>
-                                {selectedCredentialCategory === option.value && (
-                                  <span className="dropdown-item-check">✓</span>
-                                )}
-                              </div>
-                            ))}
+                          <div className="dropdown-menu">
+                            <div className="dropdown-items">
+                              {credentialCategories.map((option) => (
+                                <div
+                                  key={option.value}
+                                  className={`dropdown-item ${selectedCredentialCategory === option.value ? 'selected' : ''}`}
+                                  onClick={() => {
+                                    setSelectedCredentialCategory(option.value);
+                                    setNewCredential(prev => ({ ...prev, credentials_name: "", credentials_photo: null }));
+                                    setIsCategoryDropdownOpen(false);
+                                  }}
+                                >
+                                  <span className="item-text">{option.label}</span>
+                                  {selectedCredentialCategory === option.value && (
+                                    <span className="checkmark">✓</span>
+                                  )}
+                                </div>
+                              ))}
+                            </div>
                           </div>
                         )}
                       </div>
@@ -1698,39 +1716,52 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
                     {selectedCredentialCategory && (
                       <div className="form-group">
                         <label className="form-label">Credential Type</label>
-                        <div className="type-dropdown-container">
+                        <div className={`custom-dropdown ${isTypeDropdownOpen ? 'dropdown-open' : ''}`} ref={typeDropdownRef}>
                           <div
-                            className="custom-dropdown-trigger"
+                            className="dropdown-trigger"
                             onClick={() => setIsTypeDropdownOpen(!isTypeDropdownOpen)}
+                            tabIndex={0}
+                            role="button"
+                            aria-expanded={isTypeDropdownOpen}
+                            aria-haspopup="listbox"
                           >
                             <span className="dropdown-value">
                               {newCredential.credentials_name
                                 ? credentialSubTypes[selectedCredentialCategory]?.find(option => option.value === newCredential.credentials_name)?.label
-                                : 'Choose a credential type'
+                                : 'Choose a Credential Type'
                               }
                             </span>
-                            <span className={`dropdown-icon ${isTypeDropdownOpen ? 'open' : ''}`}>
-                              <IconChevronDown size={16} />
+                            <span className={`dropdown-arrow ${isTypeDropdownOpen ? 'open' : ''}`}>
+                              <IconChevronDown
+                                size={16}
+                                className="chevron-icon"
+                                style={{
+                                  transform: isTypeDropdownOpen ? 'rotate(180deg)' : 'rotate(0deg)',
+                                  transition: 'transform 0.3s ease'
+                                }}
+                              />
                             </span>
                           </div>
                           
                           {isTypeDropdownOpen && (
-                            <div className="custom-dropdown-menu">
-                              {credentialSubTypes[selectedCredentialCategory]?.map(option => (
-                                <div
-                                  key={option.value}
-                                  className={`custom-dropdown-item ${newCredential.credentials_name === option.value ? 'selected' : ''}`}
-                                  onClick={() => {
-                                    handleNewCredentialChange({ target: { value: option.value } }, "credentials_name");
-                                    setIsTypeDropdownOpen(false);
-                                  }}
-                                >
-                                  <span className="dropdown-item-label">{option.label}</span>
-                                  {newCredential.credentials_name === option.value && (
-                                    <span className="dropdown-item-check">✓</span>
-                                  )}
-                                </div>
-                              ))}
+                            <div className="dropdown-menu">
+                              <div className="dropdown-items">
+                                {credentialSubTypes[selectedCredentialCategory]?.map(option => (
+                                  <div
+                                    key={option.value}
+                                    className={`dropdown-item ${newCredential.credentials_name === option.value ? 'selected' : ''}`}
+                                    onClick={() => {
+                                      handleNewCredentialChange({ target: { value: option.value } }, "credentials_name");
+                                      setIsTypeDropdownOpen(false);
+                                    }}
+                                  >
+                                    <span className="item-text">{option.label}</span>
+                                    {newCredential.credentials_name === option.value && (
+                                      <span className="checkmark">✓</span>
+                                    )}
+                                  </div>
+                                ))}
+                              </div>
                             </div>
                           )}
                         </div>
@@ -1864,27 +1895,38 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
 
           <div className="step-navigation">
             {step === 3 ? (
-              <div className="navigation-buttons">
+              <button
+                className="work-preferences-next-btn"
+                onClick={() => {
+                  // Validate Work Preferences
+                  if (hoursPerDay && preferredWorkingHours.length > 0) {
+                    setWorkPreferencesCompleted(true);
+                    setStep(4);
+                  } else {
+                    message.error('Please fill in all required fields');
+                  }
+                }}
+              >
+                Next
+              </button>
+            ) : step === 4 ? (
+              <>
+                <button 
+                  className="skills-experience-back-btn" 
+                  onClick={() => setStep(3)}
+                >
+                  ← Back
+                </button>
                 <button
-                  className="work-preferences-next-btn"
-                  onClick={() => {
-                    // Validate Work Preferences
-                    if (hoursPerDay && preferredWorkingHours.length > 0) {
-                      setWorkPreferencesCompleted(true);
-                      setStep(4);
-                    } else {
-                      message.error('Please fill in all required fields');
-                    }
-                  }}
+                  className="skills-experience-next-btn"
+                  onClick={handleNextStep}
+                  disabled={(userSkills.primary_skills?.length || 0) === 0 || (userSkills.additional_skills?.length || 0) === 0}
                 >
                   Next
                 </button>
-              </div>
-            ) : step === 4 ? (
-              // Navigation buttons are now handled inside SkillsExperience component
-              null
+              </>
             ) : (
-              <div className="navigation-buttons">
+              <>
                 <button 
                   className="credentials-back-btn" 
                   onClick={handlePreviousStep}
@@ -1898,7 +1940,7 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
                 >
                   Complete
                 </button>
-              </div>
+              </>
             )}
           </div>
 

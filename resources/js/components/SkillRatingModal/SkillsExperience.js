@@ -496,7 +496,6 @@ const SkillsExperience = ({
         </div>
       </div>
 
-
       {showSkillModal && selectedSkill && (
         <div className="skill-details-modal">
           <div className="modal-overlay" onClick={() => setShowSkillModal(false)}></div>

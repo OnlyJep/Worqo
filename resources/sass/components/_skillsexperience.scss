@@ -135,16 +135,6 @@ $warning-color: #f59e0b;
           // When dropdown is open, increase z-index to appear above other dropdowns
           &.dropdown-open {
             z-index: 1000;
-            
-            .dropdown-menu {
-              z-index: 1001;
-              position: absolute;
-              top: 100%;
-              left: 0;
-              right: 0;
-              transform: translateZ(0);
-              will-change: transform;
-            }
           }
 
           // Primary skill dropdown should have higher z-index when open
@@ -153,12 +143,6 @@ $warning-color: #f59e0b;
             
             .dropdown-menu {
               z-index: 2001;
-              position: absolute;
-              top: 100%;
-              left: 0;
-              right: 0;
-              transform: translateZ(0);
-              will-change: transform;
             }
           }
 
@@ -180,23 +164,16 @@ $warning-color: #f59e0b;
             outline: none;
             user-select: none;
             position: relative;
-            transform: translateZ(0);
-            will-change: transform;
             width: 100%;
-            z-index: 1;
 
             &:hover {
-              border-color: $primary-color;
-              box-shadow: 0 2px 8px rgba($primary-color, 0.1);
+              border-color: $border-medium;
             }
 
             &:focus {
+              outline: none;
               border-color: $primary-color;
-              box-shadow: 0 0 0 3px rgba($primary-color, 0.1);
-            }
-
-            &:active {
-              transform: translateY(1px);
+              box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
             }
 
             .dropdown-value {
@@ -215,19 +192,17 @@ $warning-color: #f59e0b;
               justify-content: center;
               width: 20px;
               height: 20px;
-              pointer-events: none;
 
               &.open {
                 transform: rotate(180deg);
               }
 
               .chevron-icon {
-                transition: transform 0.3s ease, color 0.2s ease;
+                transition: transform 0.3s ease;
                 pointer-events: none;
-                
-                &:hover {
-                  color: $primary-color;
-                }
+                width: 16px;
+                height: 16px;
+                color: inherit;
               }
             }
           }
@@ -241,15 +216,11 @@ $warning-color: #f59e0b;
             border: 2px solid $border-light;
             border-top: none;
             border-radius: 0 0 8px 8px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             z-index: 1002;
             margin-top: -2px;
-            display: block;
-            max-height: 400px;
+            max-height: 350px;
             overflow: hidden;
-            isolation: isolate;
-            transform: translateZ(0);
-            will-change: transform;
 
             .dropdown-items {
               max-height: 300px;
@@ -258,15 +229,17 @@ $warning-color: #f59e0b;
               
               // Hide scrollbar for WebKit browsers (Chrome, Safari, Edge)
               &::-webkit-scrollbar {
-                width: 0;
-                background: transparent;
+                width: 0 !important;
+                height: 0 !important;
+                background: transparent !important;
+                display: none !important;
               }
               
               // Hide scrollbar for Firefox
-              scrollbar-width: none;
+              scrollbar-width: none !important;
               
               // Ensure scrolling still works
-              -ms-overflow-style: none;
+              -ms-overflow-style: none !important;
 
               .dropdown-item {
                 padding: 12px 16px;
@@ -276,34 +249,39 @@ $warning-color: #f59e0b;
                 cursor: pointer;
                 transition: all 0.2s ease;
                 border-bottom: 1px solid $border-light;
-                min-height: 40px;
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
-                outline: none;
 
                 &:last-child {
                   border-bottom: none;
                 }
 
-                &:focus {
-                  background: rgba($primary-color, 0.1);
-                  border-left: 3px solid $primary-color;
+                &:hover:not(.disabled) {
+                  background: $bg-tertiary;
+                  color: $primary-color;
                 }
 
                 &.selected {
-                  background: rgba($success-color, 0.1);
-                  border-left: 3px solid $success-color;
+                  background: rgba(37, 99, 235, 0.1);
+                  color: $primary-color;
+                  font-weight: 600;
+
+                  .checkmark {
+                    color: $primary-color;
+                    font-weight: 700;
+                    font-size: 16px;
+                  }
                 }
 
                 &.disabled {
-                  opacity: 0.5;
+                  opacity: 0.6;
                   cursor: not-allowed;
                   background: rgba($text-secondary, 0.05);
                   
-                  &:focus {
+                  &:hover {
                     background: rgba($text-secondary, 0.05);
-                    border-left: none;
+                    color: $text-secondary;
                   }
                 }
 
@@ -312,7 +290,7 @@ $warning-color: #f59e0b;
                 }
 
                 .checkmark {
-                  color: $success-color;
+                  color: $primary-color;
                   font-weight: bold;
                   margin-left: 8px;
                 }
@@ -341,11 +319,6 @@ $warning-color: #f59e0b;
                   color: $text-secondary;
                   font-style: italic;
                   margin-left: 8px;
-                }
-
-                &:hover {
-                  background: $bg-tertiary;
-                  color: $primary-color;
                 }
               }
             }
@@ -458,65 +431,6 @@ $warning-color: #f59e0b;
     }
   }
 
-  // Step navigation
-  .step-navigation {
-    margin-top: 40px;
-    padding-top: 24px;
-    border-top: 5px solid $border-light;
-
-    .navigation-buttons {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-
-      .btn {
-        padding: 16px 32px;
-        border-radius: 10px;
-        font-size: 18px;
-        font-weight: 600;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        border: none;
-        min-width: 140px;
-
-        &.btn-secondary {
-          background: $bg-secondary;
-          color: $text-primary;
-          border: 2px solid $border-light;
-
-          &:hover {
-            background: $border-light;
-            border-color: $border-medium;
-          }
-        }
-
-        &.btn-primary {
-          background: $primary-color;
-          color: white;
-
-          &:hover:not(:disabled) {
-            background: darken($primary-color, 10%);
-            transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba($primary-color, 0.3);
-          }
-
-          &:disabled {
-            background: $border-medium;
-            color: $text-secondary;
-            cursor: not-allowed;
-            transform: none;
-            box-shadow: none;
-          }
-
-          &.btn-large {
-            padding: 20px 40px;
-            font-size: 20px;
-          }
-        }
-      }
-    }
-  }
 
   // Skill details modal
   .skill-details-modal {
@@ -564,12 +478,15 @@ $warning-color: #f59e0b;
         
         /* Hide scrollbar for Chrome, Safari and Opera */
         &::-webkit-scrollbar {
-          display: none;
+          width: 0 !important;
+          height: 0 !important;
+          display: none !important;
+          background: transparent !important;
         }
         
         /* Hide scrollbar for IE, Edge and Firefox */
-        -ms-overflow-style: none;  /* IE and Edge */
-        scrollbar-width: none;  /* Firefox */
+        -ms-overflow-style: none !important;  /* IE and Edge */
+        scrollbar-width: none !important;  /* Firefox */
 
         .modal-header-inline {
           display: flex;
@@ -739,12 +656,15 @@ $warning-color: #f59e0b;
                   
                   /* Hide scrollbar for Chrome, Safari and Opera */
                   &::-webkit-scrollbar {
-                    display: none;
+                    width: 0 !important;
+                    height: 0 !important;
+                    display: none !important;
+                    background: transparent !important;
                   }
                   
                   /* Hide scrollbar for IE, Edge and Firefox */
-                  -ms-overflow-style: none;  /* IE and Edge */
-                  scrollbar-width: none;  /* Firefox */
+                  -ms-overflow-style: none !important;  /* IE and Edge */
+                  scrollbar-width: none !important;  /* Firefox */
                   
                   .dropdown-items {
                     .dropdown-item {
@@ -798,23 +718,17 @@ $warning-color: #f59e0b;
                 overflow-y: auto;
                 padding-right: 8px;
                 
+                /* Hide scrollbar for Chrome, Safari and Opera */
                 &::-webkit-scrollbar {
-                  width: 6px;
+                  width: 0 !important;
+                  height: 0 !important;
+                  display: none !important;
+                  background: transparent !important;
                 }
                 
-                &::-webkit-scrollbar-track {
-                  background: $bg-secondary;
-                  border-radius: 3px;
-                }
-                
-                &::-webkit-scrollbar-thumb {
-                  background: $border-medium;
-                  border-radius: 3px;
-                  
-                  &:hover {
-                    background: $border-medium;
-                  }
-                }
+                /* Hide scrollbar for IE, Edge and Firefox */
+                -ms-overflow-style: none !important;
+                scrollbar-width: none !important;
               }
 
               .selected-sub-skill-item {
@@ -1131,7 +1045,7 @@ $warning-color: #f59e0b;
               }
 
               .skill-info {
-                gap: 10px;
+        gap: 10px;
 
                 .skill-experience,
                 .skill-sub-skills {
@@ -1176,30 +1090,30 @@ $warning-color: #f59e0b;
         transform: none !important;
       }
 
-      .modal-body {
+        .modal-body {
         padding: 20px 16px !important;
         max-height: calc(90vh - 140px) !important;
         overflow-y: auto !important;
         -webkit-overflow-scrolling: touch;
-        
-        /* Hide scrollbar for Chrome, Safari and Opera */
-        &::-webkit-scrollbar {
-          display: none;
-        }
-        
-        /* Hide scrollbar for IE, Edge and Firefox */
+          
+          /* Hide scrollbar for Chrome, Safari and Opera */
+          &::-webkit-scrollbar {
+            display: none;
+          }
+          
+          /* Hide scrollbar for IE, Edge and Firefox */
         -ms-overflow-style: none;
         scrollbar-width: none;
 
-        .modal-header-inline {
-          margin-bottom: 20px;
+          .modal-header-inline {
+            margin-bottom: 20px;
           padding-bottom: 16px;
 
-          h3 {
+            h3 {
             font-size: 18px !important;
-            font-weight: 600;
+              font-weight: 600;
+            }
           }
-        }
 
         .experience-section {
           margin-bottom: 24px;
@@ -1215,7 +1129,7 @@ $warning-color: #f59e0b;
           }
 
           .experience-select {
-            width: 100%;
+              width: 100%;
             padding: 14px 16px;
             font-size: 15px;
             min-height: 50px;
@@ -1263,7 +1177,7 @@ $warning-color: #f59e0b;
 
               .selected-sub-skills-list {
                 max-height: 200px;
-                gap: 10px;
+            gap: 10px;
 
                 .selected-sub-skill-item {
                   padding: 12px 14px;
@@ -1312,8 +1226,8 @@ $warning-color: #f59e0b;
               border: 2px solid $primary-color;
             }
           }
+          }
         }
-      }
     }
   }
 }

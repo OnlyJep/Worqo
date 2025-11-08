@@ -18,16 +18,6 @@ const ProfileSetupNotification = () => {
       // Only show notification for workers (role_id === 1), not for employers (role_id === 2)
       if (parsedUser.role_id === 1) {
         const checkProfile = async () => {
-          const isComplete = localStorage.getItem(`isProfileComplete_${parsedUser.id}`);
-          const skillsCompleted = localStorage.getItem(`skillsStepCompleted_${parsedUser.id}`);
-
-          // If profile is marked as complete in localStorage, don't show notification
-          if (isComplete === 'true' || skillsCompleted === 'true') {
-            setIsProfileComplete(true);
-            setIsVisible(false);
-            return;
-          }
-
           try {
             const authToken = localStorage.getItem('auth_token');
             if (!authToken) {
@@ -35,6 +25,7 @@ const ProfileSetupNotification = () => {
               return;
             }
             
+            // Always check backend first to get current state, regardless of localStorage
             const response = await fetch(`${window.location.origin}/api/workers/${parsedUser.id}`, {
               method: 'GET',
               headers: {
@@ -58,29 +49,33 @@ const ProfileSetupNotification = () => {
             
             // Check if profile is complete based on backend data
             if (totalSkills >= 2 && hasCredentials) {
-              // Profile is complete - set localStorage and hide notification
+              // Profile is complete - update localStorage and hide notification
               localStorage.setItem(`skillsStepCompleted_${parsedUser.id}`, 'true');
               localStorage.setItem(`isProfileComplete_${parsedUser.id}`, 'true');
               setIsProfileComplete(true);
               setIsVisible(false);
               console.log('Profile is complete - hiding notification');
             } else {
-              // Also check if user has work preferences set (bio, work_type, etc.)
-              const hasWorkPreferences = profileData?.worker?.bio && 
-                                       profileData?.worker?.work_type && 
-                                       profileData?.worker?.hours_per_day;
-              
-              if (hasWorkPreferences) {
-                // If user has work preferences but missing skills/credentials, still show notification
-                setIsVisible(true);
-              } else {
-                // If user has neither skills/credentials nor work preferences, show notification
-                setIsVisible(true);
-              }
+              // Profile is incomplete - clear localStorage flags and show notification
+              localStorage.setItem(`skillsStepCompleted_${parsedUser.id}`, 'false');
+              localStorage.setItem(`isProfileComplete_${parsedUser.id}`, 'false');
+              setIsProfileComplete(false);
+              setIsVisible(true);
+              console.log('Profile is incomplete - showing notification');
             }
           } catch (error) {
             console.error('Error checking profile:', error);
-            setIsVisible(true);
+            // On error, check localStorage as fallback
+            const isComplete = localStorage.getItem(`isProfileComplete_${parsedUser.id}`);
+            const skillsCompleted = localStorage.getItem(`skillsStepCompleted_${parsedUser.id}`);
+            
+            // Only hide notification if we're certain from localStorage (and it's a network error)
+            if (isComplete === 'true' || skillsCompleted === 'true') {
+              setIsProfileComplete(true);
+              setIsVisible(false);
+            } else {
+              setIsVisible(true);
+            }
           }
         };
         checkProfile();
