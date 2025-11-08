@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
 class UpdateJobApplicationsTableAddStatuses extends Migration
 {
@@ -13,10 +14,29 @@ class UpdateJobApplicationsTableAddStatuses extends Migration
      */
     public function up()
     {
-        Schema::table('job_applications', function (Blueprint $table) {
-            // Modify the status enum to include 'fired'
-            $table->enum('status', ['pending', 'accepted', 'declined', 'for_interview', 'fired'])->default('pending')->change();
-        });
+        // For PostgreSQL, we need to drop the existing constraint and add a new one
+        // Find and drop all existing check constraints on the status column
+        $constraints = DB::select("
+            SELECT constraint_name 
+            FROM information_schema.table_constraints tc
+            JOIN information_schema.constraint_column_usage ccu 
+                ON tc.constraint_name = ccu.constraint_name
+            WHERE tc.table_name = 'job_applications' 
+            AND ccu.column_name = 'status' 
+            AND tc.constraint_type = 'CHECK'
+        ");
+        
+        foreach ($constraints as $constraint) {
+            // Escape identifier name properly for PostgreSQL (use double quotes for identifiers)
+            $constraintName = '"' . str_replace('"', '""', $constraint->constraint_name) . '"';
+            DB::statement("ALTER TABLE job_applications DROP CONSTRAINT IF EXISTS {$constraintName}");
+        }
+        
+        // Add new check constraint with 'for_interview' and 'fired' status included
+        DB::statement("ALTER TABLE job_applications ADD CONSTRAINT job_applications_status_check CHECK (status IN ('pending', 'accepted', 'declined', 'for_interview', 'fired'))");
+        
+        // Ensure default value is set
+        DB::statement("ALTER TABLE job_applications ALTER COLUMN status SET DEFAULT 'pending'");
     }
 
     /**
@@ -26,9 +46,27 @@ class UpdateJobApplicationsTableAddStatuses extends Migration
      */
     public function down()
     {
-        Schema::table('job_applications', function (Blueprint $table) {
-            // Revert the status enum to original values
-            $table->enum('status', ['pending', 'accepted', 'declined', 'for_interview'])->default('pending')->change();
-        });
+        // Find and drop all existing check constraints on the status column
+        $constraints = DB::select("
+            SELECT constraint_name 
+            FROM information_schema.table_constraints tc
+            JOIN information_schema.constraint_column_usage ccu 
+                ON tc.constraint_name = ccu.constraint_name
+            WHERE tc.table_name = 'job_applications' 
+            AND ccu.column_name = 'status' 
+            AND tc.constraint_type = 'CHECK'
+        ");
+        
+        foreach ($constraints as $constraint) {
+            // Escape identifier name properly for PostgreSQL (use double quotes for identifiers)
+            $constraintName = '"' . str_replace('"', '""', $constraint->constraint_name) . '"';
+            DB::statement("ALTER TABLE job_applications DROP CONSTRAINT IF EXISTS {$constraintName}");
+        }
+        
+        // Revert the status enum to original values (without 'for_interview' and 'fired')
+        DB::statement("ALTER TABLE job_applications ADD CONSTRAINT job_applications_status_check CHECK (status IN ('pending', 'accepted', 'declined'))");
+        
+        // Ensure default value is set
+        DB::statement("ALTER TABLE job_applications ALTER COLUMN status SET DEFAULT 'pending'");
     }
 }
