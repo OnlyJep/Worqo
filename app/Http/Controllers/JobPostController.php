@@ -96,15 +96,22 @@ class JobPostController extends Controller
              return $post;
          });
 
-        return response()->json([
-            'job_posts' => $jobPosts,
-            'skills' => array_values($skills),
-            'pagination' => [
-                'current_page' => $jobPosts->currentPage(),
-                'total_pages' => $jobPosts->lastPage(),
-                'total_items' => $jobPosts->total(),
-            ],
-        ]);
+            return response()->json([
+                'job_posts' => $jobPosts,
+                'skills' => array_values($skills),
+                'pagination' => [
+                    'current_page' => $jobPosts->currentPage(),
+                    'total_pages' => $jobPosts->lastPage(),
+                    'total_items' => $jobPosts->total(),
+                ],
+            ]);
+        } catch (\Exception $e) {
+            \Log::error('Error fetching job posts: ' . $e->getMessage() . ' | File: ' . $e->getFile() . ' | Line: ' . $e->getLine());
+            return response()->json([
+                'error' => 'Failed to fetch job posts',
+                'message' => $e->getMessage()
+            ], 500);
+        }
     }
 
     public function store(Request $request)

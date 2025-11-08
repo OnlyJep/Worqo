@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 class DashboardController extends Controller
 {
@@ -89,7 +90,7 @@ class DashboardController extends Controller
                 'employer_chart_data' => $employerChartData,
             ]);
         } catch (\Exception $e) {
-            \Log::error('Error fetching dashboard stats: ' . $e->getMessage());
+            Log::error('Error fetching dashboard stats: ' . $e->getMessage());
             return response()->json([
                 'error' => 'Failed to fetch dashboard stats',
                 'message' => $e->getMessage()
