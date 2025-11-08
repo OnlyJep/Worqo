@@ -14,8 +14,29 @@ class AddFiredStatusToJobApplications extends Migration
      */
     public function up()
     {
-        // Use raw SQL to modify the enum
-        DB::statement("ALTER TABLE job_applications MODIFY COLUMN status ENUM('pending', 'accepted', 'declined', 'for_interview', 'fired') DEFAULT 'pending'");
+        // For PostgreSQL, we need to drop the existing constraint and add a new one
+        // Find and drop all existing check constraints on the status column
+        $constraints = DB::select("
+            SELECT constraint_name 
+            FROM information_schema.table_constraints tc
+            JOIN information_schema.constraint_column_usage ccu 
+                ON tc.constraint_name = ccu.constraint_name
+            WHERE tc.table_name = 'job_applications' 
+            AND ccu.column_name = 'status' 
+            AND tc.constraint_type = 'CHECK'
+        ");
+        
+        foreach ($constraints as $constraint) {
+            // Escape identifier name properly for PostgreSQL (use double quotes for identifiers)
+            $constraintName = '"' . str_replace('"', '""', $constraint->constraint_name) . '"';
+            DB::statement("ALTER TABLE job_applications DROP CONSTRAINT IF EXISTS {$constraintName}");
+        }
+        
+        // Add new check constraint with 'fired' status included
+        DB::statement("ALTER TABLE job_applications ADD CONSTRAINT job_applications_status_check CHECK (status IN ('pending', 'accepted', 'declined', 'for_interview', 'fired'))");
+        
+        // Ensure default value is set
+        DB::statement("ALTER TABLE job_applications ALTER COLUMN status SET DEFAULT 'pending'");
     }
 
     /**
@@ -25,7 +46,27 @@ class AddFiredStatusToJobApplications extends Migration
      */
     public function down()
     {
-        // Revert the status enum to original values
-        DB::statement("ALTER TABLE job_applications MODIFY COLUMN status ENUM('pending', 'accepted', 'declined', 'for_interview') DEFAULT 'pending'");
+        // Find and drop all existing check constraints on the status column
+        $constraints = DB::select("
+            SELECT constraint_name 
+            FROM information_schema.table_constraints tc
+            JOIN information_schema.constraint_column_usage ccu 
+                ON tc.constraint_name = ccu.constraint_name
+            WHERE tc.table_name = 'job_applications' 
+            AND ccu.column_name = 'status' 
+            AND tc.constraint_type = 'CHECK'
+        ");
+        
+        foreach ($constraints as $constraint) {
+            // Escape identifier name properly for PostgreSQL (use double quotes for identifiers)
+            $constraintName = '"' . str_replace('"', '""', $constraint->constraint_name) . '"';
+            DB::statement("ALTER TABLE job_applications DROP CONSTRAINT IF EXISTS {$constraintName}");
+        }
+        
+        // Add back the constraint without 'fired'
+        DB::statement("ALTER TABLE job_applications ADD CONSTRAINT job_applications_status_check CHECK (status IN ('pending', 'accepted', 'declined', 'for_interview'))");
+        
+        // Ensure default value is set
+        DB::statement("ALTER TABLE job_applications ALTER COLUMN status SET DEFAULT 'pending'");
     }
 }
