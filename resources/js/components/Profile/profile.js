@@ -246,7 +246,7 @@ const Profile = ({ initialServiceType }) => {
   // Handle Hire Now button click
   const handleHireNowClick = () => {
     if (!isLoggedIn()) {
-      message.warning('Please login to hire workers');
+      message.warning('Please login first before hiring');
       setTimeout(() => {
         window.location.href = '/login';
       }, 1000);
@@ -257,7 +257,7 @@ const Profile = ({ initialServiceType }) => {
     const currentUser = userData.user || userData;
     
     if (currentUser.role_id === 1) {
-      alert('Workers cannot hire other workers. Please switch to Employer account.');
+      message.warning('Workers cannot hire other workers. Please switch to Employer account.');
       return;
     }
     
@@ -280,7 +280,7 @@ const Profile = ({ initialServiceType }) => {
   // Handle Message button click
   const handleMessageClick = () => {
     if (!isLoggedIn()) {
-      message.warning('Please login to send messages');
+      message.warning('Please login first before messaging');
       setTimeout(() => {
         window.location.href = '/login';
       }, 1000);
@@ -675,7 +675,7 @@ const Profile = ({ initialServiceType }) => {
     try {
       const authToken = localStorage.getItem("auth_token");
       if (!authToken) {
-        message.warning("Please log in to book this worker");
+        message.warning("Please login first before booking");
         setTimeout(() => {
           window.location.href = '/login';
         }, 1000);
@@ -984,32 +984,15 @@ const Profile = ({ initialServiceType }) => {
               </p>
             </div>
             <p className="profile-location">{worker.location}</p>
-            {/* Show HIRE NOW and MESSAGE buttons */}
-            {(() => {
-              const userData = JSON.parse(localStorage.getItem("user") || '{}');
-              const currentUser = userData.user || userData;
-              const isEmployer = currentUser?.role_id === 2;
-              const isOwnProfile = currentUser?.id === parseInt(resolvedWorkerId);
-              
-              if (isEmployer || isOwnProfile) {
-                return (
-                  <div className="profile-action-buttons">
-                    <button className="profile-hire-button" onClick={handleHireNowClick}>
-                      HIRE NOW
-                    </button>
-                    <button className="profile-message-button" onClick={handleMessageClick}>
-                      MESSAGE
-                    </button>
-                  </div>
-                );
-              } else {
-                return (
-                  <div className="profile-hire-disabled">
-                    <p>Switch to employer role to hire workers</p>
-                  </div>
-                );
-              }
-            })()}
+            {/* Show HIRE NOW and MESSAGE buttons - visible to all users */}
+            <div className="profile-action-buttons">
+              <button className="profile-hire-button" onClick={handleHireNowClick}>
+                HIRE NOW
+              </button>
+              <button className="profile-message-button" onClick={handleMessageClick}>
+                MESSAGE
+              </button>
+            </div>
           </div>
           <div className="profile-rank-display-section">
             {workerRank ? (
