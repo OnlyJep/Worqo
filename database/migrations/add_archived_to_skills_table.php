@@ -8,15 +8,24 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::table('skills', function (Blueprint $table) {
-            $table->boolean('archived')->default(false)->after('skill_name');
-        });
+        // Check if column already exists before adding
+        if (!Schema::hasColumn('skills', 'archived')) {
+            try {
+                Schema::table('skills', function (Blueprint $table) {
+                    $table->boolean('archived')->default(false);
+                });
+            } catch (\Exception $e) {
+                \Illuminate\Support\Facades\Log::warning('Error adding archived column to skills table: ' . $e->getMessage());
+            }
+        }
     }
 
     public function down(): void
     {
-        Schema::table('skills', function (Blueprint $table) {
-            $table->dropColumn('archived');
-        });
+        if (Schema::hasColumn('skills', 'archived')) {
+            Schema::table('skills', function (Blueprint $table) {
+                $table->dropColumn('archived');
+            });
+        }
     }
 };

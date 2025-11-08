@@ -91,6 +91,11 @@ php artisan migrate --path=database/migrations/2025_10_24_034522_add_is_online_t
 echo "Ensuring ranks min_points/max_points columns exist..."
 php artisan migrate --path=database/migrations/2025_10_13_082908_add_min_max_points_to_ranks_table.php --force 2>&1 || echo "Ranks min_points/max_points migration check completed"
 
+# Run skills archived migration if it hasn't been run yet
+# The migration itself checks if column exists, so it's safe to run multiple times
+echo "Ensuring skills archived column exists..."
+php artisan migrate --path=database/migrations/add_archived_to_skills_table.php --force 2>&1 || echo "Skills archived migration check completed"
+
 echo "Migration process completed. The application will handle missing columns gracefully."
 
 echo "Installing Passport..."

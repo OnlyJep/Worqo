@@ -18,12 +18,18 @@ class Skill extends Model
 
     public function scopeActive($query)
     {
-        return $query->where('archived', false);
+        if (\Illuminate\Support\Facades\Schema::hasColumn('skills', 'archived')) {
+            return $query->where('archived', false);
+        }
+        return $query;
     }
 
     public function scopeArchived($query)
     {
-        return $query->where('archived', true);
+        if (\Illuminate\Support\Facades\Schema::hasColumn('skills', 'archived')) {
+            return $query->where('archived', true);
+        }
+        return $query->whereRaw('1 = 0'); // Return empty result if column doesn't exist
     }
 
     public function getNameAttribute()

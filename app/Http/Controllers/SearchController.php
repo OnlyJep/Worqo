@@ -143,7 +143,11 @@ class SearchController extends Controller
     {
         try {
             // Get skills that are most commonly used in job posts
-            $popularSkills = Skill::where('archived', false)
+            $popularSkillsQuery = Skill::query();
+            if (\Illuminate\Support\Facades\Schema::hasColumn('skills', 'archived')) {
+                $popularSkillsQuery->where('archived', false);
+            }
+            $popularSkills = $popularSkillsQuery
                 ->orderBy('created_at', 'desc')
                 ->limit(20)
                 ->get(['id', 'skill_name', 'sub_skills', 'collar']);
@@ -181,7 +185,11 @@ class SearchController extends Controller
             }
 
             // Get skill suggestions
-            $skillSuggestions = Skill::where('archived', false)
+            $skillSuggestionsQuery = Skill::query();
+            if (\Illuminate\Support\Facades\Schema::hasColumn('skills', 'archived')) {
+                $skillSuggestionsQuery->where('archived', false);
+            }
+            $skillSuggestions = $skillSuggestionsQuery
                 ->where('skill_name', 'like', "%{$query}%")
                 ->limit(5)
                 ->get(['skill_name']);

@@ -103,11 +103,17 @@ class SkillController extends Controller
             return response()->json($validator->errors(), 422);
         }
 
-        $skill = Skill::create([
+        $skillData = [
             'skill_name' => $request->name,
             'sub_skills' => $request->sub_skills ?? [],
-            'archived' => false,
-        ]);
+        ];
+        
+        // Only add archived if column exists
+        if (\Illuminate\Support\Facades\Schema::hasColumn('skills', 'archived')) {
+            $skillData['archived'] = false;
+        }
+        
+        $skill = Skill::create($skillData);
 
         return response()->json([
             'id' => $skill->id,
@@ -158,9 +164,16 @@ class SkillController extends Controller
             return response()->json($validator->errors(), 422);
         }
 
-        $skill->update([
-            'archived' => $request->archived,
-        ]);
+        $updateData = [];
+        
+        // Only update archived if column exists
+        if (\Illuminate\Support\Facades\Schema::hasColumn('skills', 'archived')) {
+            $updateData['archived'] = $request->archived;
+        }
+        
+        if (!empty($updateData)) {
+            $skill->update($updateData);
+        }
 
         return response()->json([
             'message' => 'Skill archive status updated successfully',
