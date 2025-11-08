@@ -32,6 +32,9 @@ class AddFiredStatusToJobApplications extends Migration
             DB::statement("ALTER TABLE job_applications DROP CONSTRAINT IF EXISTS {$constraintName}");
         }
         
+        // Drop the specific constraint name if it exists (in case it wasn't caught by the query above)
+        DB::statement("ALTER TABLE job_applications DROP CONSTRAINT IF EXISTS job_applications_status_check");
+        
         // Add new check constraint with 'fired' status included
         DB::statement("ALTER TABLE job_applications ADD CONSTRAINT job_applications_status_check CHECK (status IN ('pending', 'accepted', 'declined', 'for_interview', 'fired'))");
         
@@ -62,6 +65,9 @@ class AddFiredStatusToJobApplications extends Migration
             $constraintName = '"' . str_replace('"', '""', $constraint->constraint_name) . '"';
             DB::statement("ALTER TABLE job_applications DROP CONSTRAINT IF EXISTS {$constraintName}");
         }
+        
+        // Drop the specific constraint name if it exists
+        DB::statement("ALTER TABLE job_applications DROP CONSTRAINT IF EXISTS job_applications_status_check");
         
         // Add back the constraint without 'fired'
         DB::statement("ALTER TABLE job_applications ADD CONSTRAINT job_applications_status_check CHECK (status IN ('pending', 'accepted', 'declined', 'for_interview'))");
