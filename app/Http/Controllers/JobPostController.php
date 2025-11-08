@@ -13,13 +13,14 @@ class JobPostController extends Controller
 {
     public function index(Request $request)
     {
-        $searchTerm = $request->query('search', '');
-        $showArchived = $request->query('archived', false) === 'true';
-        $showArchivedParam = $request->query('show_archived', false) === 'true';
-        $profileId = $request->query('profile_id');
-        $page = $request->query('page', 1);
-        // For admin view (show_archived=true), use higher per page limit to show all job posts
-        $perPage = $showArchivedParam ? 100 : 5;
+        try {
+            $searchTerm = $request->query('search', '');
+            $showArchived = $request->query('archived', false) === 'true';
+            $showArchivedParam = $request->query('show_archived', false) === 'true';
+            $profileId = $request->query('profile_id');
+            $page = $request->query('page', 1);
+            // For admin view (show_archived=true), use higher per page limit to show all job posts
+            $perPage = $showArchivedParam ? 100 : 5;
 
         $query = JobPost::query()
             ->when($searchTerm, function ($query, $searchTerm) {

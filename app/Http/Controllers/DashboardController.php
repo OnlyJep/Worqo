@@ -9,8 +9,9 @@ class DashboardController extends Controller
 {
     public function getDashboardStats()
     {
-        // Count workers (role_id = 1)
-        $totalWorkers = DB::table('users')
+        try {
+            // Count workers (role_id = 1)
+            $totalWorkers = DB::table('users')
             ->where('role_id', 1)
             ->where('archived', 0)
             ->count();
@@ -75,17 +76,24 @@ class DashboardController extends Controller
             $employerChartData['data'][] = $record ? $record->employers : 0;
         }
 
-        return response()->json([
-            'stats' => [
-                'total_workers' => $totalWorkers,
-                'total_employers' => $totalEmployers,
-                'total_admins' => $totalAdmins,
-                'total_users' => $totalUsers,
-                'total_job_postings' => $totalJobPostings,
-                'total_bookings' => $totalBookings,
-            ],
-            'worker_chart_data' => $workerChartData,
-            'employer_chart_data' => $employerChartData,
-        ]);
+            return response()->json([
+                'stats' => [
+                    'total_workers' => $totalWorkers,
+                    'total_employers' => $totalEmployers,
+                    'total_admins' => $totalAdmins,
+                    'total_users' => $totalUsers,
+                    'total_job_postings' => $totalJobPostings,
+                    'total_bookings' => $totalBookings,
+                ],
+                'worker_chart_data' => $workerChartData,
+                'employer_chart_data' => $employerChartData,
+            ]);
+        } catch (\Exception $e) {
+            \Log::error('Error fetching dashboard stats: ' . $e->getMessage());
+            return response()->json([
+                'error' => 'Failed to fetch dashboard stats',
+                'message' => $e->getMessage()
+            ], 500);
+        }
     }
 }

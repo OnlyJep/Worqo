@@ -10,46 +10,55 @@ class ReviewController extends Controller
 {
     public function index(Request $request)
     {
-        $search = $request->query('search', '');
-        $showArchived = $request->query('archived', false) === '1';
-        $page = $request->query('page', 1);
-        $perPage = 5;
+        try {
+            $search = $request->query('search', '');
+            $showArchived = $request->query('archived', false) === '1';
+            $page = $request->query('page', 1);
+            $perPage = 5;
 
-        $query = Review::with(['user', 'reviewedUser'])
-            ->where('archived', $showArchived);
+            $query = Review::with(['user', 'reviewedUser'])
+                ->where('archived', $showArchived);
 
-        if ($search) {
-            $query->where(function ($q) use ($search) {
-                $q->whereHas('user', function ($q) use ($search) {
-                    $q->where('first_name', 'like', "%{$search}%")
-                      ->orWhere('last_name', 'like', "%{$search}%")
-                      ->orWhere('middlename', 'like', "%{$search}%")
-                      ->orWhere('suffix', 'like', "%{$search}%");
-                })
-                ->orWhereHas('reviewedUser', function ($q) use ($search) {
-                    $q->where('first_name', 'like', "%{$search}%")
-                      ->orWhere('last_name', 'like', "%{$search}%")
-                      ->orWhere('middlename', 'like', "%{$search}%")
-                      ->orWhere('suffix', 'like', "%{$search}%");
-                })
-                ->orWhere('comment', 'like', "%{$search}%");
-            });
+            if ($search) {
+                $query->where(function ($q) use ($search) {
+                    $q->whereHas('user', function ($q) use ($search) {
+                        $q->where('first_name', 'like', "%{$search}%")
+                          ->orWhere('last_name', 'like', "%{$search}%")
+                          ->orWhere('middlename', 'like', "%{$search}%")
+                          ->orWhere('suffix', 'like', "%{$search}%");
+                    })
+                    ->orWhereHas('reviewedUser', function ($q) use ($search) {
+                        $q->where('first_name', 'like', "%{$search}%")
+                          ->orWhere('last_name', 'like', "%{$search}%")
+                          ->orWhere('middlename', 'like', "%{$search}%")
+                          ->orWhere('suffix', 'like', "%{$search}%");
+                    })
+                    ->orWhere('comment', 'like', "%{$search}%");
+                });
+            }
+
+            $reviews = $query->paginate($perPage, ['*'], 'page', $page);
+
+            return response()->json([
+                'data' => $reviews->items(),
+                'meta' => [
+                    'current_page' => $reviews->currentPage(),
+                    'total_pages' => $reviews->lastPage(),
+                ],
+            ]);
+        } catch (\Exception $e) {
+            \Log::error('Error fetching reviews: ' . $e->getMessage());
+            return response()->json([
+                'error' => 'Failed to fetch reviews',
+                'message' => $e->getMessage()
+            ], 500);
         }
-
-        $reviews = $query->paginate($perPage, ['*'], 'page', $page);
-
-        return response()->json([
-            'data' => $reviews->items(),
-            'meta' => [
-                'current_page' => $reviews->currentPage(),
-                'total_pages' => $reviews->lastPage(),
-            ],
-        ]);
     }
 
     public function store(Request $request)
     {
-        $validated = $request->validate([
+        try {
+            $validated = $request->validate([
             'reviewed_user_id' => [
                 'required',
                 'exists:users,id',
@@ -104,12 +113,25 @@ class ReviewController extends Controller
             'archived' => false,
         ]);
 
-        return response()->json($review->load(['user', 'reviewedUser', 'booking']), 201);
+            return response()->json($review->load(['user', 'reviewedUser', 'booking']), 201);
+        } catch (\Illuminate\Validation\ValidationException $e) {
+            return response()->json([
+                'error' => 'Validation failed',
+                'errors' => $e->errors()
+            ], 422);
+        } catch (\Exception $e) {
+            \Log::error('Error creating review: ' . $e->getMessage());
+            return response()->json([
+                'error' => 'Failed to create review',
+                'message' => $e->getMessage()
+            ], 500);
+        }
     }
 
     public function update(Request $request, $id)
     {
-        $review = Review::findOrFail($id);
+        try {
+            $review = Review::findOrFail($id);
 
         $validated = $request->validate([
             'reviewed_user_id' => [
@@ -137,35 +159,76 @@ class ReviewController extends Controller
             'comment' => $validated['comment'],
         ]);
 
-        return response()->json($review->load(['user', 'reviewedUser']));
+            return response()->json($review->load(['user', 'reviewedUser']));
+        } catch (\Illuminate\Validation\ValidationException $e) {
+            return response()->json([
+                'error' => 'Validation failed',
+                'errors' => $e->errors()
+            ], 422);
+        } catch (\Exception $e) {
+            \Log::error('Error updating review: ' . $e->getMessage());
+            return response()->json([
+                'error' => 'Failed to update review',
+                'message' => $e->getMessage()
+            ], 500);
+        }
     }
 
     public function archive($id)
     {
-        $review = Review::findOrFail($id);
-        $review->update(['archived' => true]);
-        return response()->json(['message' => 'Review archived']);
+        try {
+            $review = Review::findOrFail($id);
+            $review->update(['archived' => true]);
+            return response()->json(['message' => 'Review archived']);
+        } catch (\Exception $e) {
+            \Log::error('Error archiving review: ' . $e->getMessage());
+            return response()->json([
+                'error' => 'Failed to archive review',
+                'message' => $e->getMessage()
+            ], 500);
+        }
     }
 
     public function restore($id)
     {
-        $review = Review::findOrFail($id);
-        $review->update(['archived' => false]);
-        return response()->json(['message' => 'Review restored']);
+        try {
+            $review = Review::findOrFail($id);
+            $review->update(['archived' => false]);
+            return response()->json(['message' => 'Review restored']);
+        } catch (\Exception $e) {
+            \Log::error('Error restoring review: ' . $e->getMessage());
+            return response()->json([
+                'error' => 'Failed to restore review',
+                'message' => $e->getMessage()
+            ], 500);
+        }
     }
 
     public function bulkAction(Request $request)
     {
-        $validated = $request->validate([
-            'review_ids' => 'required|array',
-            'review_ids.*' => 'exists:reviews,id',
-            'action' => 'required|in:archive,restore',
-        ]);
+        try {
+            $validated = $request->validate([
+                'review_ids' => 'required|array',
+                'review_ids.*' => 'exists:reviews,id',
+                'action' => 'required|in:archive,restore',
+            ]);
 
-        Review::whereIn('id', $validated['review_ids'])
-            ->update(['archived' => $validated['action'] === 'archive']);
+            Review::whereIn('id', $validated['review_ids'])
+                ->update(['archived' => $validated['action'] === 'archive']);
 
-        return response()->json(['message' => 'Bulk action completed']);
+            return response()->json(['message' => 'Bulk action completed']);
+        } catch (\Illuminate\Validation\ValidationException $e) {
+            return response()->json([
+                'error' => 'Validation failed',
+                'errors' => $e->errors()
+            ], 422);
+        } catch (\Exception $e) {
+            \Log::error('Error in bulk action: ' . $e->getMessage());
+            return response()->json([
+                'error' => 'Failed to perform bulk action',
+                'message' => $e->getMessage()
+            ], 500);
+        }
     }
 
     /**
