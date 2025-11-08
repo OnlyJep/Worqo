@@ -22,14 +22,25 @@ class AuthController extends Controller
         $user = Auth::user();
         
         // Set user as online and update last activity
-        $updateData = ['is_online' => 1];
+        $updateData = [];
+        
+        // Only update is_online if the column exists
+        if (\Illuminate\Support\Facades\Schema::hasColumn('users', 'is_online')) {
+            $updateData['is_online'] = 1;
+        }
         
         // Only update last_activity if the column exists
         if (\Illuminate\Support\Facades\Schema::hasColumn('users', 'last_activity')) {
             $updateData['last_activity'] = now();
         }
         
-        $user->update($updateData);
+        // Only update if we have something to update
+        if (!empty($updateData)) {
+            $user->update($updateData);
+        } else {
+            // If neither column exists, just touch the updated_at
+            $user->touch();
+        }
         
         $token = $user->createToken('auth_token')->plainTextToken;
 
@@ -42,9 +53,13 @@ class AuthController extends Controller
         
         // Set user as offline
         if ($user) {
-            $user->update([
-                'is_online' => 0
-            ]);
+            // Only update is_online if the column exists
+            if (\Illuminate\Support\Facades\Schema::hasColumn('users', 'is_online')) {
+                $user->update(['is_online' => 0]);
+            } else {
+                // If column doesn't exist, just touch updated_at
+                $user->touch();
+            }
         }
         
         Auth::logout();

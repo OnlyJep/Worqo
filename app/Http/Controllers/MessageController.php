@@ -145,7 +145,7 @@ class MessageController extends Controller
         }
         
         // Derive online status: prefer explicit is_online flag; compute humanized last_active_text from last_activity
-        $isOnline = (bool) ($user->is_online ?? false);
+        $isOnline = \Illuminate\Support\Facades\Schema::hasColumn('users', 'is_online') ? (bool) ($user->is_online ?? false) : false;
         $lastActiveText = 'Offline';
         $reference = $user->last_activity ?? $user->updated_at;
         if ($reference) {

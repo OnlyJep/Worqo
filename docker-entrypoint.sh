@@ -77,6 +77,8 @@ if [ $? -ne 0 ]; then
     # Try to run individual migrations that might have failed
     echo "Attempting to run last_activity migration separately..."
     php artisan migrate --path=database/migrations/2025_10_17_040000_add_last_activity_to_users_table.php --force || echo "Last activity migration skipped"
+    echo "Attempting to run is_online migration separately..."
+    php artisan migrate --path=database/migrations/2025_10_24_034522_add_is_online_to_users_table.php --force || echo "Is online migration skipped"
 fi
 
 echo "Installing Passport..."

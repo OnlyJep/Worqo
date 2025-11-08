@@ -31,7 +31,7 @@ class LoginController extends Controller
                 }
 
                 // Update last_activity timestamp and set user as online when user logs in
-                // Check if last_activity column exists before updating
+                // Check if columns exist before updating
                 try {
                     Log::info('Updating last_activity and is_online on login', [
                         'user_id' => $user->id,
@@ -40,19 +40,34 @@ class LoginController extends Controller
                         'is_online' => 1
                     ]);
                     
-                    $updateData = ['is_online' => 1];
+                    $updateData = [];
+                    
+                    // Only update is_online if the column exists
+                    if (Schema::hasColumn('users', 'is_online')) {
+                        $updateData['is_online'] = 1;
+                    }
                     
                     // Only update last_activity if the column exists
                     if (Schema::hasColumn('users', 'last_activity')) {
                         $updateData['last_activity'] = now();
                     }
                     
-                    $user->update($updateData);
+                    // Only update if we have something to update
+                    if (!empty($updateData)) {
+                        $user->update($updateData);
+                    } else {
+                        // If neither column exists, just touch the updated_at
+                        $user->touch();
+                    }
                 } catch (\Exception $e) {
-                    // If column doesn't exist, just update is_online
-                    Log::warning('Could not update last_activity, column may not exist: ' . $e->getMessage());
-                    $user->is_online = 1;
-                    $user->save();
+                    // If there's an error, just log it and continue
+                    Log::warning('Could not update user activity columns: ' . $e->getMessage());
+                    // Try to at least update updated_at
+                    try {
+                        $user->touch();
+                    } catch (\Exception $touchError) {
+                        Log::error('Could not update user timestamp: ' . $touchError->getMessage());
+                    }
                 }
 
                 Log::info('Authenticated User:', [
@@ -89,7 +104,7 @@ class LoginController extends Controller
             $user = Auth::guard('api')->user();
             if ($user) {
                 // Update last_activity timestamp and set user as offline when user logs out
-                // Check if last_activity column exists before updating
+                // Check if columns exist before updating
                 try {
                     Log::info('Updating last_activity and is_online on logout', [
                         'user_id' => $user->id,
@@ -98,19 +113,34 @@ class LoginController extends Controller
                         'is_online' => 0
                     ]);
                     
-                    $updateData = ['is_online' => 0];
+                    $updateData = [];
+                    
+                    // Only update is_online if the column exists
+                    if (Schema::hasColumn('users', 'is_online')) {
+                        $updateData['is_online'] = 0;
+                    }
                     
                     // Only update last_activity if the column exists
                     if (Schema::hasColumn('users', 'last_activity')) {
                         $updateData['last_activity'] = now();
                     }
                     
-                    $user->update($updateData);
+                    // Only update if we have something to update
+                    if (!empty($updateData)) {
+                        $user->update($updateData);
+                    } else {
+                        // If neither column exists, just touch the updated_at
+                        $user->touch();
+                    }
                 } catch (\Exception $e) {
-                    // If column doesn't exist, just update is_online
-                    Log::warning('Could not update last_activity, column may not exist: ' . $e->getMessage());
-                    $user->is_online = 0;
-                    $user->save();
+                    // If there's an error, just log it and continue
+                    Log::warning('Could not update user activity columns: ' . $e->getMessage());
+                    // Try to at least update updated_at
+                    try {
+                        $user->touch();
+                    } catch (\Exception $touchError) {
+                        Log::error('Could not update user timestamp: ' . $touchError->getMessage());
+                    }
                 }
                 
                 // Revoke the current access token
@@ -160,7 +190,7 @@ class LoginController extends Controller
             'created_at' => $user->created_at,
             'updated_at' => $user->updated_at,
             'last_activity' => Schema::hasColumn('users', 'last_activity') ? $user->last_activity : $user->updated_at,
-            'is_online' => $user->is_online,
+            'is_online' => Schema::hasColumn('users', 'is_online') ? ($user->is_online ?? false) : false,
             'archived' => $user->archived,
         ];
     }

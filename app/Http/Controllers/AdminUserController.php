@@ -150,7 +150,7 @@ class AdminUserController extends Controller
             // Add online status information
             $formattedUser['is_online'] = $isOnline;
             $formattedUser['last_active_text'] = $lastActiveText;
-            $formattedUser['last_activity'] = $user->last_activity;
+            $formattedUser['last_activity'] = \Illuminate\Support\Facades\Schema::hasColumn('users', 'last_activity') ? $user->last_activity : $user->updated_at;
             
             return response()->json($formattedUser, 200);
         } catch (\Exception $e) {

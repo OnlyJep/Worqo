@@ -1848,8 +1848,8 @@ class WorkerController extends Controller
                 'archived' => $user->archived,
                 'created_at' => $user->created_at,
                 'updated_at' => $user->updated_at,
-                'last_activity' => $user->last_activity,
-                'is_online' => $user->is_online,
+                'last_activity' => \Illuminate\Support\Facades\Schema::hasColumn('users', 'last_activity') ? $user->last_activity : $user->updated_at,
+                'is_online' => \Illuminate\Support\Facades\Schema::hasColumn('users', 'is_online') ? ($user->is_online ?? false) : false,
                 'profile' => $user->profile ? [
                     'first_name' => $user->profile->first_name,
                     'middlename' => $user->profile->middlename,

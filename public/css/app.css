@@ -17794,7 +17794,7 @@ textarea.form-control-lg {
   display: block;
   width: 180px; /* Reduced for cleaner look */
   height: 40px;
-  background: url("./../img/worqo_logo.svg") no-repeat left center;
+  background: url("/images/worqo_logo.svg") no-repeat left center;
   background-size: contain;
   cursor: pointer;
   flex-shrink: 0; /* Prevent logo from shrinking */
@@ -17982,7 +17982,7 @@ textarea.form-control-lg {
     display: block;
     width: 150px;
     height: 35px;
-    background: url("./../img/worqo_logo.svg") no-repeat left center;
+    background: url("/images/worqo_logo.svg") no-repeat left center;
     background-size: contain;
     cursor: pointer;
     margin-bottom: 2rem;

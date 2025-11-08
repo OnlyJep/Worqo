@@ -13,9 +13,17 @@ class AddIsOnlineToUsersTable extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->boolean('is_online')->default(false)->after('last_activity');
-        });
+        // Check if column already exists before adding
+        if (!Schema::hasColumn('users', 'is_online')) {
+            Schema::table('users', function (Blueprint $table) {
+                // Try to add after last_activity if it exists, otherwise add after updated_at
+                if (Schema::hasColumn('users', 'last_activity')) {
+                    $table->boolean('is_online')->default(false)->after('last_activity');
+                } else {
+                    $table->boolean('is_online')->default(false)->after('updated_at');
+                }
+            });
+        }
     }
 
     /**
@@ -25,8 +33,10 @@ class AddIsOnlineToUsersTable extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('is_online');
-        });
+        if (Schema::hasColumn('users', 'is_online')) {
+            Schema::table('users', function (Blueprint $table) {
+                $table->dropColumn('is_online');
+            });
+        }
     }
 }

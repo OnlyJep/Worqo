@@ -23,7 +23,7 @@
 
 .login-image-section {
   flex: 1;
-  background: #001E40 url("./../img/worqo_side.svg") no-repeat center; // Desktop background
+  background: #001E40 url("/images/worqo_side.svg") no-repeat center; // Desktop background
   background-size: cover;
   position: relative;
   display: flex;
@@ -247,7 +247,7 @@
   .login-image-section {
     height: 200px; // Increased from 150px to make the section bigger
     width: 100%;
-    background: url("./../img/worqo_logo.svg") no-repeat center top; // Mobile background with logo at the top
+    background: url("/images/worqo_logo.svg") no-repeat center top; // Mobile background with logo at the top
     background-size: contain; // Ensure the logo scales properly
     padding: 20px;
     display: flex;
