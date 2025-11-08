@@ -111,13 +111,75 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
   const [isPrimarySkillsDropdownOpen, setIsPrimarySkillsDropdownOpen] = useState(false);
   const [isAdditionalSkillsDropdownOpen, setIsAdditionalSkillsDropdownOpen] = useState(false);
   const [isWorkingDaysDropdownOpen, setIsWorkingDaysDropdownOpen] = useState(false);
+  // Initialize mobile state based on window width if available (SSR-safe)
+  const [isMobile, setIsMobile] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return window.innerWidth <= 767;
+    }
+    return false;
+  });
   const credentialFileRef = useRef(null);
   const primarySkillsDropdownRef = useRef(null);
   const additionalSkillsDropdownRef = useRef(null);
   const workingDaysDropdownRef = useRef(null);
+  const containerRef = useRef(null);
   const navigate = useNavigate();
   const isMounted = useRef(true);
   const abortController = useRef(new AbortController());
+
+  // Detect mobile viewport for responsive rendering - PORTRAIT LAYOUT
+  useEffect(() => {
+    const checkMobile = () => {
+      const width = window.innerWidth;
+      const isMobileView = width <= 767;
+      setIsMobile(isMobileView);
+      
+      // Force mobile layout class on container using ref
+      if (containerRef.current) {
+        if (isMobileView) {
+          containerRef.current.classList.add('mobile-layout');
+          containerRef.current.classList.remove('desktop-layout');
+          document.body.classList.add('skill-rating-mobile');
+          document.body.classList.remove('skill-rating-desktop');
+        } else {
+          containerRef.current.classList.add('desktop-layout');
+          containerRef.current.classList.remove('mobile-layout');
+          document.body.classList.add('skill-rating-desktop');
+          document.body.classList.remove('skill-rating-mobile');
+        }
+      }
+    };
+
+    // Check immediately on mount
+    checkMobile();
+
+    // Also check after DOM is ready
+    const timeoutId = setTimeout(checkMobile, 50);
+
+    // Add resize listener with debounce for performance
+    let resizeTimeout;
+    const handleResize = () => {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(checkMobile, 100);
+    };
+
+    window.addEventListener('resize', handleResize);
+    
+    const handleOrientationChange = () => {
+      setTimeout(checkMobile, 150); // Slight delay for orientation change
+    };
+    window.addEventListener('orientationchange', handleOrientationChange);
+
+    return () => {
+      clearTimeout(timeoutId);
+      window.removeEventListener('resize', handleResize);
+      window.removeEventListener('orientationchange', handleOrientationChange);
+      clearTimeout(resizeTimeout);
+      // Cleanup body classes
+      document.body.classList.remove('skill-rating-mobile', 'skill-rating-desktop');
+    };
+  }, []);
+
 
   // Map working days to indices for consistent ordering and range formatting
   const workingDayIndexMap = {
@@ -1396,13 +1458,22 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
 
   return (
     <div className="skill-rating-overlay">
-      <div className="skill-rating-container">
+      <div 
+        ref={containerRef}
+        className={`skill-rating-container ${isMobile ? 'mobile-layout' : 'desktop-layout'}`}
+      >
         <div className="progress-side">
           <div className="logo">Worqo</div>
           <h2>Let's Get You Started!</h2>
           <div className="progress-steps">
-            <div className="step completed"><div className="step-number">✓</div><span>Register for an account</span></div>
-            <div className="step completed"><div className="step-number">✓</div><span>Create profile</span></div>
+            <div className="step completed">
+              <div className="step-number">✓</div>
+              <span>Register for an account</span>
+            </div>
+            <div className="step completed">
+              <div className="step-number">✓</div>
+              <span>Create profile</span>
+            </div>
             <div className={`step ${step === 3 ? 'current' : workPreferencesCompleted ? 'completed' : ''}`}>
               <div className="step-number">{workPreferencesCompleted ? '✓' : '3'}</div>
               <span>Work Preferences</span>
