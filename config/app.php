@@ -172,7 +172,7 @@ return [
         App\Providers\AppServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
         // App\Providers\BroadcastServiceProvider::class,
-        App\Providers\DatabaseServiceProvider::class,
+        App\Providers\DatabaseServiceProvider::class, // Must be before Laravel's DatabaseServiceProvider
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 

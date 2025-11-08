@@ -35,9 +35,15 @@ fi
 
 # Run Laravel setup commands
 echo "Running Laravel setup commands..."
-php artisan key:generate --ansi || true
-php artisan storage:link || true
+# Clear config cache FIRST so our custom connector is loaded
 php artisan config:clear || true
+# Generate key only if APP_KEY is not set (skip .env file requirement)
+if [ -z "$APP_KEY" ] || [ "$APP_KEY" = "" ]; then
+    php artisan key:generate --ansi --force || echo "Key generation skipped"
+else
+    echo "APP_KEY already set, skipping key generation"
+fi
+php artisan storage:link || true
 php artisan cache:clear || true
 php artisan route:clear || true
 php artisan view:clear || true
@@ -64,14 +70,20 @@ php artisan view:cache || true
 echo "Application setup complete!"
 
 # Update nginx config with Render's PORT if set (Render uses PORT env variable)
-if [ -n "$PORT" ]; then
-    echo "Updating nginx to listen on port $PORT"
-    sed -i "s/listen [0-9]*;/listen ${PORT};/" /etc/nginx/sites-available/default
-    # Also update the symlinked file
-    sed -i "s/listen [0-9]*;/listen ${PORT};/" /etc/nginx/sites-enabled/default
-    # Test nginx configuration
-    nginx -t || echo "Nginx config test failed, but continuing..."
+# Render requires listening on 0.0.0.0 (all interfaces) on the PORT env variable
+# Render will provide PORT environment variable dynamically
+RENDER_PORT=${PORT:-8000}
+echo "Configuring nginx to listen on 0.0.0.0:${RENDER_PORT}"
+
+# Update nginx configuration to listen on the correct port and interface
+sed -i "s/listen .*;/listen 0.0.0.0:${RENDER_PORT};/" /etc/nginx/sites-available/default
+# Also update the symlinked file if it exists
+if [ -L /etc/nginx/sites-enabled/default ]; then
+    sed -i "s/listen .*;/listen 0.0.0.0:${RENDER_PORT};/" /etc/nginx/sites-enabled/default
 fi
+
+# Test nginx configuration
+nginx -t || echo "Nginx config test failed, but continuing..."
 
 # Start supervisor
 exec /usr/bin/supervisord -c /etc/supervisor/conf.d/supervisord.conf
