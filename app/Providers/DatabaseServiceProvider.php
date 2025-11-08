@@ -39,7 +39,7 @@ class DatabaseServiceProvider extends ServiceProvider
         
         $this->app->singleton('db.factory', function ($app) {
             return new class($app) extends ConnectionFactory {
-                protected function createConnector(array $config)
+                public function createConnector(array $config)
                 {
                     if (isset($config['driver']) && $config['driver'] === 'pgsql') {
                         return new PostgresConnector();
