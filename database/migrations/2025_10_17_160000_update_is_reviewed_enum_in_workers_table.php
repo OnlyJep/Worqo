@@ -15,7 +15,7 @@ return new class extends Migration
         // For PostgreSQL, we need to drop the existing constraint and add a new one
         // Find and drop all existing check constraints on the is_reviewed column
         $constraints = DB::select("
-            SELECT constraint_name 
+            SELECT tc.constraint_name 
             FROM information_schema.table_constraints tc
             JOIN information_schema.constraint_column_usage ccu 
                 ON tc.constraint_name = ccu.constraint_name
@@ -47,7 +47,7 @@ return new class extends Migration
     {
         // Find and drop all existing check constraints on the is_reviewed column
         $constraints = DB::select("
-            SELECT constraint_name 
+            SELECT tc.constraint_name 
             FROM information_schema.table_constraints tc
             JOIN information_schema.constraint_column_usage ccu 
                 ON tc.constraint_name = ccu.constraint_name
