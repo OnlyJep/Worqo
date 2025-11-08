@@ -86,7 +86,7 @@ const EditMyJob = ({ application, isOpen, onClose, onSubmit }) => {
       
       if (userData.id) {
         const token = localStorage.getItem("auth_token");
-        const response = await fetch(`http://127.0.0.1:8000/api/users/${userData.id}`, {
+        const response = await fetch(`${window.location.origin}/api/users/${userData.id}`, {
           method: 'GET',
           headers: {
             'Authorization': `Bearer ${token}`,
@@ -160,7 +160,7 @@ const EditMyJob = ({ application, isOpen, onClose, onSubmit }) => {
 
       // Update application via backend
       const authToken = localStorage.getItem("auth_token");
-      const response = await axios.post(`http://127.0.0.1:8000/api/job-applications/${application.id}/update`, applicationData, {
+      const response = await axios.post(`/api/job-applications/${application.id}/update`, applicationData, {
         headers: {
           'Content-Type': 'multipart/form-data',
           'Authorization': `Bearer ${authToken}`,
@@ -221,13 +221,13 @@ const EditMyJob = ({ application, isOpen, onClose, onSubmit }) => {
                   <div className="profile-image-section">
                     <img 
                       src={userProfile.profile?.profile_img 
-                        ? `http://127.0.0.1:8000/storage/${userProfile.profile.profile_img}` 
-                        : "http://127.0.0.1:8000/storage/profiles/defaultpfp.jpg"
+                        ? `${window.location.origin}/storage/${userProfile.profile.profile_img}` 
+                        : `${window.location.origin}/storage/profiles/defaultpfp.jpg"
                       } 
                       alt="Profile" 
                       className="profile-image"
                       onError={(e) => {
-                        e.target.src = "http://127.0.0.1:8000/storage/profiles/defaultpfp.jpg";
+                        e.target.src = `${window.location.origin}/storage/profiles/defaultpfp.jpg";
                       }}
                     />
                   </div>
@@ -267,7 +267,7 @@ const EditMyJob = ({ application, isOpen, onClose, onSubmit }) => {
                 <div className="current-resume">
                   <p><strong>Current Resume:</strong> 
                     <a 
-                      href={`http://127.0.0.1:8000/storage/${application.resume_path}`} 
+                      href={`${window.location.origin}/storage/${application.resume_path}`} 
                       target="_blank" 
                       rel="noopener noreferrer"
                       className="resume-link"

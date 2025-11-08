@@ -14,6 +14,12 @@ window.axios = require('axios');
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
+// Set axios base URL to current origin (works for both localhost and Render)
+// This ensures all API calls use the correct base URL automatically
+if (typeof window !== 'undefined') {
+  window.axios.defaults.baseURL = window.location.origin;
+}
+
 /**
  * Echo exposes an expressive API for subscribing to channels and listening
  * for events that are broadcast by Laravel. Echo and event broadcasting

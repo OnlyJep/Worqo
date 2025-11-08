@@ -41,7 +41,7 @@ const MessageEmployer = () => {
             'X-User-Id': userId
           } 
         } : {};
-        const res = await axios.get(`http://127.0.0.1:8000/api/messages/thread/${selectedConversation.user_id}`, {
+        const res = await axios.get(`/api/messages/thread/${selectedConversation.user_id}`, {
           ...config,
           params: { user_id: userId }
         });
@@ -118,7 +118,7 @@ const MessageEmployer = () => {
       // Check if there's a target user ID in localStorage (set when navigating from booking)
       const targetUserId = localStorage.getItem('message_target_user_id');
       
-      const response = await axios.get('http://127.0.0.1:8000/api/messages/conversations', {
+      const response = await axios.get(`/api/messages/conversations', {
         ...config,
         params: { user_id: userId }
       });
@@ -136,7 +136,7 @@ const MessageEmployer = () => {
           } else {
             // No existing conversation, fetch user info directly to show their profile
             try {
-              const threadResponse = await axios.get(`http://127.0.0.1:8000/api/messages/thread/${targetUserId}`, {
+              const threadResponse = await axios.get(`/api/messages/thread/${targetUserId}`, {
                 ...config,
                 params: { user_id: userId }
               });
@@ -198,7 +198,7 @@ const MessageEmployer = () => {
       } : {};
       
       // Fetch all users with profiles
-      const response = await axios.get('http://127.0.0.1:8000/api/bookings/users-with-profiles', config);
+      const response = await axios.get(`/api/bookings/users-with-profiles', config);
       
       console.log('Active workers response:', response.data);
       
@@ -251,7 +251,7 @@ const MessageEmployer = () => {
         } 
       } : {};
       
-      const response = await axios.get(`http://127.0.0.1:8000/api/messages/thread/${conversation.user_id}`, {
+      const response = await axios.get(`/api/messages/thread/${conversation.user_id}`, {
         ...config,
         params: { user_id: userId }
       });
@@ -320,7 +320,7 @@ const MessageEmployer = () => {
         } 
       } : {};
       
-      const response = await axios.post('http://127.0.0.1:8000/api/messages/send', payload, config);
+      const response = await axios.post(`/api/messages/send', payload, config);
       
       if (response.data.success) {
         const newMsg = response.data.message;
@@ -348,7 +348,7 @@ const MessageEmployer = () => {
             setSelectedConversation(newConversation);
             
             // Get detailed user info for the new conversation
-            const userResponse = await axios.get(`http://127.0.0.1:8000/api/messages/thread/${recipientId}`, {
+            const userResponse = await axios.get(`/api/messages/thread/${recipientId}`, {
               ...config,
               params: { user_id: userId }
             });
@@ -392,7 +392,7 @@ const MessageEmployer = () => {
         <div className="collar-info">
           {collar.image && (
             <img 
-              src={`http://127.0.0.1:8000/storage/${collar.image}`} 
+              src={`${window.location.origin}/storage/${collar.image}`} 
               alt={collar.name} 
               className="collar-image"
               onError={(e) => { e.target.src = '/images/defpfp.svg'; }}
@@ -414,7 +414,7 @@ const MessageEmployer = () => {
         <div className="rank-info">
           {rank.image && (
             <img 
-              src={`http://127.0.0.1:8000/storage/${rank.image}`} 
+              src={`${window.location.origin}/storage/${rank.image}`} 
               alt={rank.name} 
               className="rank-image"
               onError={(e) => { e.target.src = '/images/defpfp.svg'; }}
@@ -497,7 +497,7 @@ const MessageEmployer = () => {
                       <span>{conv.name || 'Unknown User'}</span>
                       {conv?.detailed_info?.worker?.collar?.image && (
                         <img 
-                          src={`http://127.0.0.1:8000/storage/${conv.detailed_info.worker.collar.image}`} 
+                          src={`${window.location.origin}/storage/${conv.detailed_info.worker.collar.image}`} 
                           alt="collar" 
                           style={{width:16,height:16,borderRadius:3}}
                           onError={(e)=>{e.currentTarget.style.display='none';}}
@@ -564,7 +564,7 @@ const MessageEmployer = () => {
                       <span>{selectedConversation.name}</span>
                       {otherUserInfo?.worker?.collar?.image && (
                         <img 
-                          src={`http://127.0.0.1:8000/storage/${otherUserInfo.worker.collar.image}`} 
+                          src={`${window.location.origin}/storage/${otherUserInfo.worker.collar.image}`} 
                           alt="collar" 
                           style={{width:20,height:20,borderRadius:4}}
                           onError={(e)=>{e.currentTarget.style.display='none';}}

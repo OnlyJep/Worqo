@@ -481,7 +481,7 @@ const BrowseLaborCategories = () => {
                     <div className="card-image">
                       {service.service_image ? (
                         <img
-                          src={`http://127.0.0.1:8000/storage/${service.service_image}`}
+                          src={`${window.location.origin}/storage/${service.service_image}`}
                           alt={service.name || "Service"}
                         />
                       ) : (
@@ -493,7 +493,7 @@ const BrowseLaborCategories = () => {
                     <div className="service-badge">
                       {collar && collar.collar_img ? (
                         <img
-                          src={`http://127.0.0.1:8000/storage/${collar.collar_img}`}
+                          src={`${window.location.origin}/storage/${collar.collar_img}`}
                           alt={service.color_collar_name || "Collar"}
                           className="badge-icon"
                         />

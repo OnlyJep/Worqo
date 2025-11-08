@@ -134,7 +134,7 @@ const Admintopnavbar = () => {
     setIsLoading(true);
     try {
       const token = localStorage.getItem("auth_token");
-      const response = await fetch("http://127.0.0.1:8000/api/logout", {
+      const response = await fetch(`${window.location.origin}/api/logout", {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -221,7 +221,7 @@ const Admintopnavbar = () => {
     if (!profileImg) {
       return "/images/defpfp.svg";
     }
-    const imageUrl = `http://127.0.0.1:8000/storage/${profileImg}?v=${imageRefreshKey}`;
+    const imageUrl = `${window.location.origin}/storage/${profileImg}?v=${imageRefreshKey}`;
     return imageUrl;
   };
 

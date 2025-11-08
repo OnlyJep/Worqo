@@ -151,7 +151,7 @@ const CompanyList = () => {
       }
       setLoading(true);
       const response = await axios.patch(
-        `http://127.0.0.1:8000/api/skills/${skillToArchive.id}/archive`,
+        `${window.location.origin}/api/skills/${skillToArchive.id}/archive`,
         { archived: true },
         {
           headers: { Authorization: `Bearer ${authToken}`, Accept: "application/json" },
@@ -186,7 +186,7 @@ const CompanyList = () => {
       }
       setLoading(true);
       const response = await axios.patch(
-        `http://127.0.0.1:8000/api/skills/${skillId}/archive`,
+        `${window.location.origin}/api/skills/${skillId}/archive`,
         { archived: false },
         {
           headers: { Authorization: `Bearer ${authToken}`, Accept: "application/json" },
@@ -228,7 +228,7 @@ const CompanyList = () => {
       // For now, we'll handle each skill individually since there's no bulk endpoint
       for (const skillId of validSkillIds) {
         await axios.patch(
-          `http://127.0.0.1:8000/api/skills/${skillId}/archive`,
+          `${window.location.origin}/api/skills/${skillId}/archive`,
           { archived: action === "archive" },
           {
             headers: { Authorization: `Bearer ${authToken}`, Accept: "application/json" },
@@ -304,7 +304,7 @@ const CompanyList = () => {
         throw new Error("No auth token found. Please log in.");
       }
       setLoading(true);
-      const response = await axios.post("http://127.0.0.1:8000/api/skills", formData, {
+      const response = await axios.post(`/api/skills", formData, {
         headers: {
           Authorization: `Bearer ${authToken}`,
           "Content-Type": "application/json",
@@ -342,7 +342,7 @@ const CompanyList = () => {
       }
       setLoading(true);
       const response = await axios.put(
-        `http://127.0.0.1:8000/api/skills/${skillToEdit.id}`,
+        `${window.location.origin}/api/skills/${skillToEdit.id}`,
         formData,
         {
           headers: {

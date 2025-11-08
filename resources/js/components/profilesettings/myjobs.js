@@ -44,7 +44,7 @@ const MyJobs = () => {
       if (!workerId) {
         try {
           const authToken = localStorage.getItem("auth_token");
-          const userResponse = await axios.get(`http://127.0.0.1:8000/api/users/${currentUser.id}`, {
+          const userResponse = await axios.get(`/api/users/${currentUser.id}`, {
             headers: {
               'Authorization': `Bearer ${authToken}`,
               'Accept': 'application/json'
@@ -73,14 +73,14 @@ const MyJobs = () => {
       // Try fetching with profile_id first
       let response;
       try {
-        response = await axios.get(`http://127.0.0.1:8000/api/job-applications/worker/${workerId}`);
+        response = await axios.get(`/api/job-applications/worker/${workerId}`);
         console.log('My applications API response:', response.data);
         
         // If no applications found and we used user_id, try with profile_id from API
         if ((!response.data || response.data.length === 0) && workerId === currentUser.id) {
           try {
             const authToken = localStorage.getItem("auth_token");
-            const userResponse = await axios.get(`http://127.0.0.1:8000/api/users/${currentUser.id}`, {
+            const userResponse = await axios.get(`/api/users/${currentUser.id}`, {
               headers: {
                 'Authorization': `Bearer ${authToken}`,
                 'Accept': 'application/json'
@@ -89,7 +89,7 @@ const MyJobs = () => {
             
             const fetchedUserData = userResponse.data.user || userResponse.data;
             if (fetchedUserData.profile_id && fetchedUserData.profile_id !== currentUser.id) {
-              response = await axios.get(`http://127.0.0.1:8000/api/job-applications/worker/${fetchedUserData.profile_id}`);
+              response = await axios.get(`/api/job-applications/worker/${fetchedUserData.profile_id}`);
               console.log('My applications API response (with profile_id):', response.data);
             }
           } catch (error) {
@@ -151,7 +151,7 @@ const MyJobs = () => {
 
   const handleCancelApplication = async (applicationId) => {
     try {
-      await axios.patch(`http://127.0.0.1:8000/api/job-applications/${applicationId}/status`, {
+      await axios.patch(`/api/job-applications/${applicationId}/status`, {
         status: 'declined'
       });
       
@@ -324,7 +324,7 @@ const MyJobs = () => {
                       <span className="myjobs-info-label">Resume/CV:</span>
                       <span className="myjobs-info-value">
                         <a 
-                          href={`http://127.0.0.1:8000/storage/${application.resume_path}`} 
+                          href={`${window.location.origin}/storage/${application.resume_path}`} 
                           target="_blank" 
                           rel="noopener noreferrer"
                           className="myjobs-resume-link"

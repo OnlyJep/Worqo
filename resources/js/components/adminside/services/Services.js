@@ -289,7 +289,7 @@ const Services = () => {
       color_collar_id: service.color_collar_id ? String(service.color_collar_id) : "",
       skill_ids: service.skills ? service.skills.map((skill) => String(skill.id)) : [],
       service_image: null,
-      image_url: service.service_image ? `http://127.0.0.1:8000/storage/${service.service_image}` : null,
+      image_url: service.service_image ? `${window.location.origin}/storage/${service.service_image}` : null,
     });
     setIsEditMode(true);
     setIsModalOpen(true);
@@ -459,7 +459,7 @@ const Services = () => {
                       <td>
                         {service.service_image ? (
                           <img
-                            src={`http://127.0.0.1:8000/storage/${service.service_image}`}
+                            src={`${window.location.origin}/storage/${service.service_image}`}
                             alt="Service"
                             className="service-img"
                             style={{ width: "40px", height: "40px", borderRadius: "8px", objectFit: "cover" }}

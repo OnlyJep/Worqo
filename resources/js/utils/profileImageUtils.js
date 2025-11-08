@@ -16,7 +16,9 @@ export const getProfileImageUrl = (profileImgPath, defaultPath = 'images/defpfp.
   if (typeof profileImgPath === 'string' && profileImgPath.startsWith('images/')) {
     return profileImgPath;
   }
-  return `http://127.0.0.1:8000/storage/${profileImgPath}`;
+  // Use current origin instead of hardcoded localhost
+  const baseUrl = typeof window !== 'undefined' ? window.location.origin : 'http://127.0.0.1:8000';
+  return `${baseUrl}/storage/${profileImgPath}`;
 };
 
 /**
@@ -83,7 +85,8 @@ export const validateUserData = async (user) => {
       return false;
     }
     
-    const response = await fetch(`http://127.0.0.1:8000/api/users/${user.id}`, {
+    const apiUrl = typeof window !== 'undefined' ? window.location.origin : 'http://127.0.0.1:8000';
+    const response = await fetch(`${apiUrl}/api/users/${user.id}`, {
       method: "GET",
       headers: {
         'Authorization': `Bearer ${token}`,

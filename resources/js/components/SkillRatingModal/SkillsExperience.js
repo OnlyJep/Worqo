@@ -113,7 +113,7 @@ const SkillsExperience = ({
           
           // Only update if not already "TO BE REVIEWED", "ACCEPTED", or "DECLINED"
           if (!currentReviewStatus || (currentReviewStatus !== 'TO BE REVIEWED' && currentReviewStatus !== 'ACCEPTED' && currentReviewStatus !== 'DECLINED')) {
-            const response = await fetch(`http://127.0.0.1:8000/api/workers/${userId}/review`, {
+            const response = await fetch(`${window.location.origin}/api/workers/${userId}/review`, {
               method: 'PATCH',
               headers: {
                 'Authorization': `Bearer ${token}`,

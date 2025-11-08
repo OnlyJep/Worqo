@@ -178,7 +178,7 @@ const WorkerList = () => {
 
       
       
-      const response = await axios.get(`http://127.0.0.1:8000/api/workers${archived ? '/archived' : '/admin'}`, {
+      const response = await axios.get(`/api/workers${archived ? '/archived' : '/admin'}`, {
 
         headers: { Authorization: `Bearer ${authToken}`, Accept: "application/json" },
 
@@ -242,7 +242,7 @@ const WorkerList = () => {
 
       }
 
-      const response = await axios.get("http://127.0.0.1:8000/api/genders", {
+      const response = await axios.get(`/api/genders", {
 
         headers: { Authorization: `Bearer ${authToken}`, Accept: "application/json" },
 
@@ -284,7 +284,7 @@ const WorkerList = () => {
 
       }
 
-      const response = await axios.get("http://127.0.0.1:8000/api/suffixes", {
+      const response = await axios.get(`/api/suffixes", {
 
         headers: { Authorization: `Bearer ${authToken}`, Accept: "application/json" },
 
@@ -326,7 +326,7 @@ const WorkerList = () => {
 
       }
 
-      const response = await axios.get("http://127.0.0.1:8000/api/skills", {
+      const response = await axios.get(`/api/skills", {
 
         headers: { Authorization: `Bearer ${authToken}`, Accept: "application/json" },
 
@@ -492,7 +492,7 @@ const WorkerList = () => {
 
       const response = await axios.patch(
 
-        `http://127.0.0.1:8000/api/workers/${workerToArchive.id}/archive`,
+        `${window.location.origin}/api/workers/${workerToArchive.id}/archive`,
 
         { archived: true },
 
@@ -560,7 +560,7 @@ const WorkerList = () => {
 
       const response = await axios.patch(
 
-        `http://127.0.0.1:8000/api/workers/${workerToReview.id}/review`,
+        `${window.location.origin}/api/workers/${workerToReview.id}/review`,
 
         { is_reviewed: status },
 
@@ -650,7 +650,7 @@ const WorkerList = () => {
 
       const response = await axios.patch(
 
-        `http://127.0.0.1:8000/api/workers/${workerId}/archive`,
+        `${window.location.origin}/api/workers/${workerId}/archive`,
 
         { archived: false },
 
@@ -734,7 +734,7 @@ const WorkerList = () => {
 
       const response = await axios.post(
 
-        `http://127.0.0.1:8000/api/workers/bulk-archive`,
+        `${window.location.origin}/api/workers/bulk-archive`,
 
         { worker_ids: validWorkerIds, archived: action === "archive" },
 
@@ -824,7 +824,7 @@ const WorkerList = () => {
 
       const response = await axios.post(
 
-        `http://127.0.0.1:8000/api/workers/bulk-review`,
+        `${window.location.origin}/api/workers/bulk-review`,
 
         { worker_ids: pendingIds, is_reviewed: status },
 
@@ -923,7 +923,7 @@ const WorkerList = () => {
 
       const response = await axios.post(
 
-        `http://127.0.0.1:8000/api/workers/bulk-delete-declined`,
+        `${window.location.origin}/api/workers/bulk-delete-declined`,
 
         { worker_ids: declinedIds },
 
@@ -985,7 +985,7 @@ const WorkerList = () => {
 
       setLoading(true);
 
-      const response = await axios.delete(`http://127.0.0.1:8000/api/workers/${workerId}`, {
+      const response = await axios.delete(`/api/workers/${workerId}`, {
 
         headers: { Authorization: `Bearer ${authToken}`, Accept: "application/json" },
 
@@ -1061,7 +1061,7 @@ const WorkerList = () => {
 
       const response = await axios.post(
 
-        `http://127.0.0.1:8000/api/workers/bulk-delete-archived`,
+        `${window.location.origin}/api/workers/bulk-delete-archived`,
 
         { worker_ids: archivedIds },
 
@@ -1181,7 +1181,7 @@ const WorkerList = () => {
 
       setLoading(true);
 
-      const response = await axios.get(`http://127.0.0.1:8000/api/workers/${worker.id}`, {
+      const response = await axios.get(`/api/workers/${worker.id}`, {
 
         headers: { Authorization: `Bearer ${authToken}`, Accept: "application/json" },
 
@@ -1341,7 +1341,7 @@ const WorkerList = () => {
 
       setLoading(true);
 
-      const response = await axios.post("http://127.0.0.1:8000/api/workers", formData, {
+      const response = await axios.post(`/api/workers", formData, {
 
         headers: {
 
@@ -1417,7 +1417,7 @@ const WorkerList = () => {
 
       const response = await axios.post(
 
-        `http://127.0.0.1:8000/api/workers/${workerId}?_method=PUT`,
+        `${window.location.origin}/api/workers/${workerId}?_method=PUT`,
 
         formData,
 
@@ -2285,7 +2285,7 @@ const WorkerList = () => {
                           <img
 
                             src={worker.profile?.profile_img 
-                              ? `http://127.0.0.1:8000/storage/${worker.profile.profile_img}`
+                              ? `${window.location.origin}/storage/${worker.profile.profile_img}`
                               : "/images/defpfp.svg"}
 
                             alt="Profile"
@@ -2539,7 +2539,7 @@ const WorkerList = () => {
 
               <img
 
-                src={`http://127.0.0.1:8000/storage/${previewCredential.credentials_photo || previewCredential.credentials_doc}`}
+                src={`${window.location.origin}/storage/${previewCredential.credentials_photo || previewCredential.credentials_doc}`}
 
                 alt={previewCredential.credentials_name}
 
@@ -2565,7 +2565,7 @@ const WorkerList = () => {
 
                 <a
 
-                  href={`http://127.0.0.1:8000/storage/${previewCredential.credentials_photo || previewCredential.credentials_doc}`}
+                  href={`${window.location.origin}/storage/${previewCredential.credentials_photo || previewCredential.credentials_doc}`}
 
                   download
 

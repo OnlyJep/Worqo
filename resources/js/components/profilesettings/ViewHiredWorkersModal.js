@@ -19,7 +19,7 @@ const ViewHiredWorkersModal = ({ jobPostId, jobTitle, onClose }) => {
 
   const fetchJobPost = async () => {
     try {
-      const response = await axios.get(`http://127.0.0.1:8000/api/jobposts/${jobPostId}`);
+      const response = await axios.get(`/api/jobposts/${jobPostId}`);
       setJobPost(response.data.data || response.data);
     } catch (error) {
       console.error('Error fetching job post:', error);
@@ -29,7 +29,7 @@ const ViewHiredWorkersModal = ({ jobPostId, jobTitle, onClose }) => {
   const fetchApplications = async () => {
     try {
       setLoading(true);
-      const response = await axios.get(`http://127.0.0.1:8000/api/job-applications/job/${jobPostId}`);
+      const response = await axios.get(`/api/job-applications/job/${jobPostId}`);
       console.log('Applications API Response:', response.data);
       
       // Ensure worker data is properly set
@@ -63,7 +63,7 @@ const ViewHiredWorkersModal = ({ jobPostId, jobTitle, onClose }) => {
 
   const downloadResume = (resumePath) => {
     if (resumePath) {
-      window.open(`http://127.0.0.1:8000/storage/${resumePath}`, '_blank');
+      window.open(`${window.location.origin}/storage/${resumePath}`, '_blank');
     }
   };
 
@@ -136,14 +136,14 @@ const ViewHiredWorkersModal = ({ jobPostId, jobTitle, onClose }) => {
                             const profileImg = application?.worker?.profile_img;
                             if (profileImg && profileImg !== 'img/defaultpfp.jpg' && profileImg !== 'profiles/defaultpfp.jpg') {
                               const cleanPath = profileImg.startsWith('/') ? profileImg.substring(1) : profileImg;
-                              return `http://127.0.0.1:8000/storage/${cleanPath}`;
+                              return `${window.location.origin}/storage/${cleanPath}`;
                             }
-                            return "http://127.0.0.1:8000/storage/profiles/defaultpfp.jpg";
+                            return `${window.location.origin}/storage/profiles/defaultpfp.jpg";
                           })()}
                           alt={`${getWorkerName(application.worker || {})}'s avatar`}
                           className="profile-image"
                           onError={(e) => {
-                            e.target.src = "http://127.0.0.1:8000/storage/profiles/defaultpfp.jpg";
+                            e.target.src = `${window.location.origin}/storage/profiles/defaultpfp.jpg";
                           }}
                           loading="lazy"
                         />
@@ -237,13 +237,13 @@ const ViewHiredWorkersModal = ({ jobPostId, jobTitle, onClose }) => {
                   <div className="profile-image-section">
                     <img 
                       src={selectedApplication.worker.profile_img && selectedApplication.worker.profile_img !== 'img/defaultpfp.jpg' 
-                        ? `http://127.0.0.1:8000/storage/${selectedApplication.worker.profile_img}?v=${Date.now()}` 
-                        : "http://127.0.0.1:8000/storage/profiles/defaultpfp.jpg"
+                        ? `${window.location.origin}/storage/${selectedApplication.worker.profile_img}?v=${Date.now()}` 
+                        : `${window.location.origin}/storage/profiles/defaultpfp.jpg"
                       } 
                       alt={`${getWorkerName(selectedApplication.worker)}'s avatar`}
                       className="profile-image"
                       onError={(e) => {
-                        e.target.src = "http://127.0.0.1:8000/storage/profiles/defaultpfp.jpg";
+                        e.target.src = `${window.location.origin}/storage/profiles/defaultpfp.jpg";
                       }}
                     />
                   </div>

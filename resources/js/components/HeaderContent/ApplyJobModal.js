@@ -109,7 +109,7 @@ const ApplyJobModal = ({ job, isOpen, onClose, onSubmit, userRank, onViewApplica
       
       if (userData.id) {
         const token = localStorage.getItem("auth_token");
-        const response = await fetch(`http://127.0.0.1:8000/api/users/${userData.id}`, {
+        const response = await fetch(`${window.location.origin}/api/users/${userData.id}`, {
           method: 'GET',
           headers: {
             'Authorization': `Bearer ${token}`,
@@ -387,7 +387,7 @@ const ApplyJobModal = ({ job, isOpen, onClose, onSubmit, userRank, onViewApplica
           const currentUser = userData.user || userData;
           
           if (currentUser.id) {
-            const profileResponse = await axios.get(`http://127.0.0.1:8000/api/profiles?user_id=${currentUser.id}`, {
+            const profileResponse = await axios.get(`/api/profiles?user_id=${currentUser.id}`, {
               headers: {
                 Authorization: `Bearer ${authToken}`,
                 Accept: "application/json"
@@ -539,13 +539,13 @@ const ApplyJobModal = ({ job, isOpen, onClose, onSubmit, userRank, onViewApplica
                   <div className="profile-image-section">
                     <img 
                       src={userProfile.profile?.profile_img 
-                        ? `http://127.0.0.1:8000/storage/${userProfile.profile.profile_img}` 
-                        : "http://127.0.0.1:8000/storage/profiles/defaultpfp.jpg"
+                        ? `${window.location.origin}/storage/${userProfile.profile.profile_img}` 
+                        : `${window.location.origin}/storage/profiles/defaultpfp.jpg"
                       } 
                       alt="Profile" 
                       className="profile-image"
                       onError={(e) => {
-                        e.target.src = "http://127.0.0.1:8000/storage/profiles/defaultpfp.jpg";
+                        e.target.src = `${window.location.origin}/storage/profiles/defaultpfp.jpg";
                       }}
                     />
                   </div>

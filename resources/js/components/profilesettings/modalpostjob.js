@@ -404,7 +404,7 @@ const ModalPostJob = ({ onSubmit, onClose, editingJob }) => {
 
   const fetchSkills = async () => {
     try {
-      const res = await axios.get("http://127.0.0.1:8000/api/skills");
+      const res = await axios.get(`/api/skills");
       if (res.data) {
         setAvailableSkills(res.data);
         // Extract unique skill names for job title options

@@ -462,7 +462,7 @@ const EmployerList = () => {
                         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                           {employer.profile?.profile_img ? (
                             <img 
-                              src={`http://127.0.0.1:8000/storage/${employer.profile.profile_img}`} 
+                              src={`${window.location.origin}/storage/${employer.profile.profile_img}`} 
                               alt="Profile" 
                               style={{ width: '40px', height: '40px', borderRadius: '50%', objectFit: 'cover' }}
                             />

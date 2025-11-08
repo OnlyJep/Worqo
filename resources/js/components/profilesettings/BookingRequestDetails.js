@@ -26,7 +26,7 @@ const BookingRequestDetails = ({
         <div className="worker-profile">
           <img 
             src={personProfile?.profile_img 
-              ? `http://127.0.0.1:8000/storage/${personProfile.profile_img}` 
+              ? `${window.location.origin}/storage/${personProfile.profile_img}` 
               : '/images/default-avatar.svg'
             } 
             alt={personProfile ? `${personProfile.first_name} ${personProfile.last_name}` : 'User'} 

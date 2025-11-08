@@ -33,7 +33,7 @@ const Register = () => {
     const fetchData = async () => {
       try {
         // Fetch suffixes
-        const suffixResponse = await fetch('http://127.0.0.1:8000/api/suffixes', {
+        const suffixResponse = await fetch(`${window.location.origin}/api/suffixes`, {
           method: 'GET',
           headers: { 'Content-Type': 'application/json' },
         });
@@ -44,7 +44,7 @@ const Register = () => {
         setSuffixes(suffixData.filter(suffix => !suffix.archived));
 
         // Fetch roles
-        const roleResponse = await fetch('http://127.0.0.1:8000/api/roles', {
+        const roleResponse = await fetch(`${window.location.origin}/api/roles`, {
           method: 'GET',
           headers: { 'Content-Type': 'application/json' },
         });
@@ -55,7 +55,7 @@ const Register = () => {
         setRoles(roleData); // Updated to handle flat array
 
         // Fetch genders
-        const genderResponse = await fetch('http://127.0.0.1:8000/api/genders', {
+        const genderResponse = await fetch(`${window.location.origin}/api/genders`, {
           method: 'GET',
           headers: { 'Content-Type': 'application/json' },
         });
@@ -125,7 +125,7 @@ const Register = () => {
 
     setIsLoading(true);
     try {
-      const response = await fetch('http://127.0.0.1:8000/api/register', {
+      const response = await fetch(`${window.location.origin}/api/register`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

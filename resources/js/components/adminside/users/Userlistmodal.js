@@ -42,21 +42,21 @@ const UserModal = ({ onClose, onSubmit, isEdit, initialData }) => {
           throw new Error("No auth token found. Please log in.");
         }
         const [rolesRes, gendersRes, suffixesRes] = await Promise.all([
-          axios.get("http://127.0.0.1:8000/api/roles/all", {
+          axios.get(`/api/roles/all", {
             headers: { Authorization: `Bearer ${authToken}` },
             signal: abortControllerRef.current.signal,
           }).catch((err) => {
             console.error("Roles fetch error:", err.response?.data || err.message);
             throw err;
           }),
-          axios.get("http://127.0.0.1:8000/api/genders", {
+          axios.get(`/api/genders", {
             headers: { Authorization: `Bearer ${authToken}` },
             signal: abortControllerRef.current.signal,
           }).catch((err) => {
             console.error("Genders fetch error:", err.response?.data || err.message);
             throw err;
           }),
-          axios.get("http://127.0.0.1:8000/api/suffixes", {
+          axios.get(`/api/suffixes", {
             headers: { Authorization: `Bearer ${authToken}` },
             signal: abortControllerRef.current.signal,
           }).catch((err) => {

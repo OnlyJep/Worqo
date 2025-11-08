@@ -34,7 +34,7 @@ const JobProfile = () => {
         setLoading(true);
         setError(null);
         
-        const response = await axios.get(`http://127.0.0.1:8000/api/jobposts/${jobId}`, {
+        const response = await axios.get(`/api/jobposts/${jobId}`, {
           headers: { Accept: "application/json" }
         });
 
@@ -104,7 +104,7 @@ const JobProfile = () => {
         payload.company_id = currentUser.company_id;
       }
 
-      await axios.post('http://127.0.0.1:8000/api/job-applications/apply', payload, {
+      await axios.post(`/api/job-applications/apply', payload, {
         headers: {
           Accept: 'application/json',
           'Content-Type': 'application/json',

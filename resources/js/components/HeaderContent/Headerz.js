@@ -27,7 +27,7 @@ const Headerz = () => {
     if (!user) return;
     
     try {
-      const response = await fetch(`http://127.0.0.1:8000/api/users/${user.id}/status`);
+      const response = await fetch(`${window.location.origin}/api/users/${user.id}/status`);
       if (response.ok) {
         const userData = await response.json();
         setUser(userData);
@@ -92,7 +92,7 @@ const Headerz = () => {
       const userId = userData?.id || userData?.user?.id;
       if (!userId) return;
 
-      const response = await axios.get(`http://127.0.0.1:8000/api/notifications/unread-count?user_id=${userId}`);
+      const response = await axios.get(`/api/notifications/unread-count?user_id=${userId}`);
 
       if (response.data.success) {
         setUnreadCount(response.data.unread_count || 0);
@@ -119,7 +119,7 @@ const Headerz = () => {
         } 
       } : {};
 
-      const response = await axios.get(`http://127.0.0.1:8000/api/messages/unread-count`, config);
+      const response = await axios.get(`/api/messages/unread-count`, config);
 
       if (response.data.success) {
         setUnreadMessageCount(response.data.unread_count || 0);
@@ -271,7 +271,7 @@ const Headerz = () => {
         const authToken = localStorage.getItem('auth_token');
         
         // Call backend API to update role in database
-        const response = await fetch('http://127.0.0.1:8000/api/users/switch-role', {
+        const response = await fetch(`${window.location.origin}/api/users/switch-role`, {
           method: 'POST',
           headers: {
             'Authorization': `Bearer ${authToken}`,
@@ -365,7 +365,7 @@ const Headerz = () => {
       const authToken = localStorage.getItem('auth_token');
       
       // Call backend API to update role in database
-      const response = await fetch('http://127.0.0.1:8000/api/users/switch-role', {
+      const response = await fetch(`${window.location.origin}/api/users/switch-role', {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${authToken}`,
@@ -440,7 +440,7 @@ const Headerz = () => {
         localStorage.setItem('user', JSON.stringify(updatedUser));
       }
       
-      const response = await fetch('http://127.0.0.1:8000/api/logout', {
+      const response = await fetch(`${window.location.origin}/api/logout', {
         method: 'POST',
         headers: {
           Authorization: `Bearer ${token}`,

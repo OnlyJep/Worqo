@@ -93,7 +93,7 @@ const BookingRequest = () => {
       const userData = JSON.parse(localStorage.getItem("user") || '{}');
       const endpoint = userData.role_id === 1 ? 'worker' : 'employer';
       
-      const response = await axios.get(`http://127.0.0.1:8000/api/bookings/${endpoint}?user_id=${userData.id}`, {
+      const response = await axios.get(`/api/bookings/${endpoint}?user_id=${userData.id}`, {
         headers: {
           Authorization: `Bearer ${authToken}`,
           Accept: "application/json"
@@ -121,7 +121,7 @@ const BookingRequest = () => {
   const handleCancelBooking = async (bookingId) => {
     try {
       const authToken = localStorage.getItem("auth_token");
-      const response = await axios.patch(`http://127.0.0.1:8000/api/bookings/${bookingId}/cancel`, {}, {
+      const response = await axios.patch(`/api/bookings/${bookingId}/cancel`, {}, {
         headers: {
           Authorization: `Bearer ${authToken}`,
           Accept: "application/json"
@@ -143,7 +143,7 @@ const BookingRequest = () => {
   const handleStatusUpdate = async (bookingId, status) => {
     try {
       const authToken = localStorage.getItem("auth_token");
-      const response = await axios.put(`http://127.0.0.1:8000/api/bookings/${bookingId}/status`, {
+      const response = await axios.put(`/api/bookings/${bookingId}/status`, {
         status
       }, {
         headers: {
@@ -216,7 +216,7 @@ const BookingRequest = () => {
   const handleSubmitFeedback = async (feedbackData) => {
     try {
       const authToken = localStorage.getItem("auth_token");
-      const response = await axios.post(`http://127.0.0.1:8000/api/bookings/${selectedWorker.id}/review`, {
+      const response = await axios.post(`/api/bookings/${selectedWorker.id}/review`, {
         rating: feedbackData.rating,
         comment: feedbackData.feedback
       }, {
@@ -314,19 +314,19 @@ const BookingRequest = () => {
                           src={(() => {
                             // Check if personProfile has profile_img (nested profile data)
                             if (personProfile?.profile_img && personProfile.profile_img !== null && personProfile.profile_img !== '' && personProfile.profile_img !== 'null') {
-                              return `http://127.0.0.1:8000/storage/${personProfile.profile_img}`;
+                              return `${window.location.origin}/storage/${personProfile.profile_img}`;
                             }
                             // Check if personData has profile_img (direct profile data)
                             if (personData?.profile_img && personData.profile_img !== null && personData.profile_img !== '' && personData.profile_img !== 'null') {
-                              return `http://127.0.0.1:8000/storage/${personData.profile_img}`;
+                              return `${window.location.origin}/storage/${personData.profile_img}`;
                             }
                             // Check if booking has direct profile_img (for cases where data structure is different)
                             if (booking.profile_img && booking.profile_img !== null && booking.profile_img !== '' && booking.profile_img !== 'null') {
-                              return `http://127.0.0.1:8000/storage/${booking.profile_img}`;
+                              return `${window.location.origin}/storage/${booking.profile_img}`;
                             }
                             // Additional fallback: check if the person data has a profile_img at the root level
                             if (personData && typeof personData === 'object' && personData.profile_img && personData.profile_img !== null && personData.profile_img !== '' && personData.profile_img !== 'null') {
-                              return `http://127.0.0.1:8000/storage/${personData.profile_img}`;
+                              return `${window.location.origin}/storage/${personData.profile_img}`;
                             }
                             // Default fallback
                             return '/images/defpfp.svg';

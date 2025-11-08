@@ -238,7 +238,7 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
         return;
       }
 
-      const response = await fetch(`http://127.0.0.1:8000/api/workers/${user.id}`, {
+      const response = await fetch(`${window.location.origin}/api/workers/${user.id}`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -418,7 +418,7 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
       if (!authToken) {
         throw new Error('No authentication token found');
       }
-      const response = await fetch(`http://127.0.0.1:8000/api/workers/${user.id}`, {
+      const response = await fetch(`${window.location.origin}/api/workers/${user.id}`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',

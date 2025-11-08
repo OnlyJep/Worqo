@@ -135,7 +135,7 @@ const MyBookings = () => {
       const authToken = localStorage.getItem("auth_token");
       if (!authToken) return;
 
-      await axios.get('http://127.0.0.1:8000/api/bookings', {
+      await axios.get(`/api/bookings', {
         headers: {
           Authorization: `Bearer ${authToken}`,
           Accept: "application/json",
@@ -163,7 +163,7 @@ const MyBookings = () => {
         return;
       }
 
-      const response = await axios.get(`http://127.0.0.1:8000/api/bookings/worker/requests?user_id=${userId}`, {
+      const response = await axios.get(`/api/bookings/worker/requests?user_id=${userId}`, {
         headers: {
           Authorization: `Bearer ${authToken}`,
           Accept: "application/json",
@@ -203,7 +203,7 @@ const MyBookings = () => {
       // Try the specific endpoint first
       let response;
       try {
-        response = await axios.get(`http://127.0.0.1:8000/api/bookings/${endpoint}?user_id=${userId}`, {
+        response = await axios.get(`/api/bookings/${endpoint}?user_id=${userId}`, {
           headers: {
             Authorization: `Bearer ${authToken}`,
             Accept: "application/json",
@@ -212,7 +212,7 @@ const MyBookings = () => {
         });
       } catch (endpointError) {
         // Fallback to admin endpoint
-        response = await axios.get('http://127.0.0.1:8000/api/bookings', {
+        response = await axios.get(`/api/bookings', {
           headers: {
             Authorization: `Bearer ${authToken}`,
             Accept: "application/json",
@@ -272,7 +272,7 @@ const MyBookings = () => {
   const handleCancelBooking = async (bookingId) => {
     try {
       const authToken = localStorage.getItem("auth_token");
-      const response = await axios.put(`http://127.0.0.1:8000/api/bookings/${bookingId}/status`, {
+      const response = await axios.put(`/api/bookings/${bookingId}/status`, {
         status: 'cancelled'
       }, {
         headers: {
@@ -301,7 +301,7 @@ const MyBookings = () => {
   const handleStatusUpdate = async (bookingId, status) => {
     try {
       const authToken = localStorage.getItem("auth_token");
-      const response = await axios.put(`http://127.0.0.1:8000/api/bookings/${bookingId}/status`, {
+      const response = await axios.put(`/api/bookings/${bookingId}/status`, {
         status
       }, {
         headers: {
@@ -339,7 +339,7 @@ const MyBookings = () => {
   const handleAcceptRequest = async (requestId) => {
     try {
       const authToken = localStorage.getItem("auth_token");
-      const response = await axios.put(`http://127.0.0.1:8000/api/bookings/${requestId}/status`, {
+      const response = await axios.put(`/api/bookings/${requestId}/status`, {
         status: 'accepted'
       }, {
         headers: {
@@ -365,7 +365,7 @@ const MyBookings = () => {
   const handleDeclineRequest = async (requestId) => {
     try {
       const authToken = localStorage.getItem("auth_token");
-      const response = await axios.put(`http://127.0.0.1:8000/api/bookings/${requestId}/status`, {
+      const response = await axios.put(`/api/bookings/${requestId}/status`, {
         status: 'declined'
       }, {
         headers: {
@@ -468,12 +468,12 @@ const MyBookings = () => {
         'Content-Type': 'application/json'
       };
 
-      console.log('Request URL:', `http://127.0.0.1:8000/api/bookings/${selectedWorker.id}/review`);
+      console.log('Request URL:', `${window.location.origin}/api/bookings/${selectedWorker.id}/review`);
       console.log('Request Data:', requestData);
       console.log('Request Headers:', { ...requestHeaders, Authorization: 'Bearer [REDACTED]' });
 
       const response = await axios.post(
-        `http://127.0.0.1:8000/api/bookings/${selectedWorker.id}/review`,
+        `${window.location.origin}/api/bookings/${selectedWorker.id}/review`,
         requestData,
         {
           headers: requestHeaders,
@@ -532,7 +532,7 @@ const MyBookings = () => {
       console.log('hours_per_day type:', typeof updatedDetails.hours_per_day);
       
       const authToken = localStorage.getItem("auth_token");
-      const response = await axios.put(`http://127.0.0.1:8000/api/bookings/${selectedBooking.id}`, updatedDetails, {
+      const response = await axios.put(`/api/bookings/${selectedBooking.id}`, updatedDetails, {
         headers: {
           Authorization: `Bearer ${authToken}`,
           Accept: "application/json",
@@ -714,22 +714,22 @@ const MyBookings = () => {
                             // Check if personProfile has profile_img (nested profile data)
                             if (personProfile?.profile_img && personProfile.profile_img !== null && personProfile.profile_img !== '' && personProfile.profile_img !== 'null') {
                               console.log('Using personProfile.profile_img:', personProfile.profile_img);
-                              return `http://127.0.0.1:8000/storage/${personProfile.profile_img}`;
+                              return `${window.location.origin}/storage/${personProfile.profile_img}`;
                             }
                             // Check if personData has profile_img (direct profile data)
                             if (personData?.profile_img && personData.profile_img !== null && personData.profile_img !== '' && personData.profile_img !== 'null') {
                               console.log('Using personData.profile_img:', personData.profile_img);
-                              return `http://127.0.0.1:8000/storage/${personData.profile_img}`;
+                              return `${window.location.origin}/storage/${personData.profile_img}`;
                             }
                             // Check if booking has direct profile_img (for cases where data structure is different)
                             if (booking.profile_img && booking.profile_img !== null && booking.profile_img !== '' && booking.profile_img !== 'null') {
                               console.log('Using booking.profile_img:', booking.profile_img);
-                              return `http://127.0.0.1:8000/storage/${booking.profile_img}`;
+                              return `${window.location.origin}/storage/${booking.profile_img}`;
                             }
                             // Additional fallback: check if the person data has a profile_img at the root level
                             if (personData && typeof personData === 'object' && personData.profile_img && personData.profile_img !== null && personData.profile_img !== '' && personData.profile_img !== 'null') {
                               console.log('Using personData root profile_img:', personData.profile_img);
-                              return `http://127.0.0.1:8000/storage/${personData.profile_img}`;
+                              return `${window.location.origin}/storage/${personData.profile_img}`;
                             }
                             // Default fallback
                             console.log('Using default avatar: defpfp.svg');

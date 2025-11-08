@@ -71,7 +71,7 @@ const Browse = () => {
         // Aggressive preloading for ultra-fast collar image loading
         if (collar.collar_img) {
           const img = new Image();
-          img.src = `http://127.0.0.1:8000/storage/${collar.collar_img}`;
+          img.src = `${window.location.origin}/storage/${collar.collar_img}`;
           img.loading = 'eager';
           img.decoding = 'async';
           console.log('Preloading collar image:', img.src);
@@ -104,7 +104,7 @@ const Browse = () => {
       services.forEach(service => {
         if (service.collar_img) {
           const img = new Image();
-          img.src = `http://127.0.0.1:8000/storage/${service.collar_img}`;
+          img.src = `${window.location.origin}/storage/${service.collar_img}`;
           img.loading = 'eager';
           img.decoding = 'async';
           console.log('Preloading collar image:', img.src);
@@ -676,7 +676,7 @@ const Browse = () => {
                     <img 
                       className="avatar" 
                       src={worker.profile_img 
-                        ? `http://127.0.0.1:8000/storage/${worker.profile_img}` 
+                        ? `${window.location.origin}/storage/${worker.profile_img}` 
                         : "/images/defpfp.svg"
                       } 
                       alt={`${worker.name}'s avatar`}
@@ -695,13 +695,13 @@ const Browse = () => {
                             const workerCollar = getWorkerCollar(worker);
                             console.log('Worker collar result:', workerCollar);
                             console.log('Image path:', workerCollar.image);
-                            console.log('Full image URL:', `http://127.0.0.1:8000/storage/${workerCollar.image}`);
+                            console.log('Full image URL:', `${window.location.origin}/storage/${workerCollar.image}`);
                             
                             return (
                               <div className="browse-service-badge" title={`${workerCollar.name} Worker`}>
                                 {workerCollar.image ? (
                                   <img 
-                                    src={`http://127.0.0.1:8000/storage/${workerCollar.image}`} 
+                                    src={`${window.location.origin}/storage/${workerCollar.image}`} 
                                     alt={`${workerCollar.name} Collar`}
                                     className="badge-icon"
                                     loading="eager"

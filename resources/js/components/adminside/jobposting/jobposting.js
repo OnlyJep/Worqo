@@ -73,11 +73,11 @@ const getProfileImageSrc = (profileImg) => {
   // If it starts with "profiles/", it's the storage path format (e.g., "profiles/filename.jpg")
   // Laravel storage link maps storage/app/public to public/storage
   if (profileImg.startsWith("profiles/")) {
-    return `http://127.0.0.1:8000/storage/${profileImg}`;
+    return `${window.location.origin}/storage/${profileImg}`;
   }
   
   // If it's just a filename or other format, try the profiles directory
-  return `http://127.0.0.1:8000/storage/profiles/${profileImg}`;
+  return `${window.location.origin}/storage/profiles/${profileImg}`;
 };
 
 const JobPostTable = () => {
@@ -110,7 +110,7 @@ const JobPostTable = () => {
       
       // Fetch all pages of job posts
       while (hasMorePages) {
-        const response = await axios.get("http://127.0.0.1:8000/api/jobposts", {
+        const response = await axios.get(`/api/jobposts", {
           params: {
             search: searchTerm,
             show_archived: true, // Get all posts (archived and non-archived) for admin
@@ -185,8 +185,8 @@ const JobPostTable = () => {
         total_items: allJobPosts.length
       });
 
-      const companiesResponse = await axios.get("http://127.0.0.1:8000/api/employers");
-      const profilesResponse = await axios.get("http://127.0.0.1:8000/api/users");
+      const companiesResponse = await axios.get(`/api/employers");
+      const profilesResponse = await axios.get(`/api/users");
 
       const companiesData = Array.isArray(companiesResponse.data)
         ? companiesResponse.data
@@ -291,7 +291,7 @@ const JobPostTable = () => {
   const handleArchiveConfirm = async () => {
     if (!postToArchive) return;
     try {
-      await axios.patch(`http://127.0.0.1:8000/api/jobposts/${postToArchive.id}/archive`, {
+      await axios.patch(`/api/jobposts/${postToArchive.id}/archive`, {
         archived: true,
       });
       message.success(`Job post for "${companies[postToArchive.company_id]?.company_name || "N/A"}" archived successfully`);
@@ -307,7 +307,7 @@ const JobPostTable = () => {
 
   const handleRestorePost = async (postId) => {
     try {
-      await axios.patch(`http://127.0.0.1:8000/api/jobposts/${postId}/archive`, {
+      await axios.patch(`/api/jobposts/${postId}/archive`, {
         archived: false,
       });
       message.success("Job post restored successfully");
@@ -325,7 +325,7 @@ const JobPostTable = () => {
       return;
     }
     try {
-      await axios.post("http://127.0.0.1:8000/api/jobposts/bulk-archive", {
+      await axios.post(`/api/jobposts/bulk-archive", {
         ids: selectedPosts,
         archived: action === "archive",
       });
@@ -348,7 +348,7 @@ const JobPostTable = () => {
   const handleEditClick = async (post) => {
     try {
       // Fetch full job post details with profile/employer relationship
-      const response = await axios.get(`http://127.0.0.1:8000/api/jobposts/${post.id}`);
+      const response = await axios.get(`/api/jobposts/${post.id}`);
       const fullPostData = response.data;
       
       // Debug: Log the fetched job post data
@@ -407,7 +407,7 @@ const JobPostTable = () => {
           // If still not found, try to fetch profile directly
           else {
             try {
-              const profileResponse = await axios.get(`http://127.0.0.1:8000/api/profiles?user_id=${fullPostData.profile_id}`);
+              const profileResponse = await axios.get(`/api/profiles?user_id=${fullPostData.profile_id}`);
               if (profileResponse.data && profileResponse.data.profile_img && profileResponse.data.profile_img.trim() !== '' && profileResponse.data.profile_img !== 'null') {
                 fullPostData.profile.profile_img = profileResponse.data.profile_img;
                 console.log("Fetched profile image from profiles API:", profileResponse.data.profile_img);
@@ -416,7 +416,7 @@ const JobPostTable = () => {
               console.warn("Could not fetch profile image from profiles API:", profileError);
               // Try alternative endpoint
               try {
-                const altProfileResponse = await axios.get(`http://127.0.0.1:8000/api/profiles/${fullPostData.profile_id}`);
+                const altProfileResponse = await axios.get(`/api/profiles/${fullPostData.profile_id}`);
                 if (altProfileResponse.data && altProfileResponse.data.profile_img && altProfileResponse.data.profile_img.trim() !== '' && altProfileResponse.data.profile_img !== 'null') {
                   fullPostData.profile.profile_img = altProfileResponse.data.profile_img;
                   console.log("Fetched profile image from alternative profiles API:", altProfileResponse.data.profile_img);
@@ -470,7 +470,7 @@ const JobPostTable = () => {
 
   const handlePostAdd = async (newPost) => {
     try {
-      const response = await axios.post("http://127.0.0.1:8000/api/jobposts", newPost);
+      const response = await axios.post(`/api/jobposts", newPost);
       setJobPosts((prevPosts) => [response.data, ...prevPosts]);
       message.success("Job post created successfully");
       setIsModalOpen(false);
@@ -485,7 +485,7 @@ const JobPostTable = () => {
   const handlePostUpdate = async (updatedPost) => {
     try {
       const response = await axios.put(
-        `http://127.0.0.1:8000/api/jobposts/${postToEdit.id}`,
+        `${window.location.origin}/api/jobposts/${postToEdit.id}`,
         updatedPost
       );
       setJobPosts((prevPosts) =>

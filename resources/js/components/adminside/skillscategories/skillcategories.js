@@ -45,8 +45,8 @@ const SkillsCategories = () => {
         }
         const config = { headers: { Authorization: `Bearer ${token}` } };
         const [activeResponse, archivedResponse] = await Promise.all([
-          axios.get("http://127.0.0.1:8000/api/skills", config),
-          axios.get("http://127.0.0.1:8000/api/skills/archived", config),
+          axios.get(`/api/skills", config),
+          axios.get(`/api/skills/archived", config),
         ]);
 
         const activeSkills = activeResponse.data.map((skill) => ({
@@ -120,7 +120,7 @@ const SkillsCategories = () => {
     try {
       const token = localStorage.getItem("auth_token");
       const response = await axios.patch(
-        `http://127.0.0.1:8000/api/skills/${skillToArchive.id}/archive`,
+        `${window.location.origin}/api/skills/${skillToArchive.id}/archive`,
         { archived: true },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -144,7 +144,7 @@ const SkillsCategories = () => {
     try {
       const token = localStorage.getItem("auth_token");
       const response = await axios.patch(
-        `http://127.0.0.1:8000/api/skills/${skillId}/archive`,
+        `${window.location.origin}/api/skills/${skillId}/archive`,
         { archived: false },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -168,7 +168,7 @@ const SkillsCategories = () => {
       const token = localStorage.getItem("auth_token");
       const requests = selectedSkills.map((skillId) =>
         axios.patch(
-          `http://127.0.0.1:8000/api/skills/${skillId}/archive`,
+          `${window.location.origin}/api/skills/${skillId}/archive`,
           { archived: action === "archive" },
           { headers: { Authorization: `Bearer ${token}` } }
         )
@@ -215,7 +215,7 @@ const SkillsCategories = () => {
     try {
       const token = localStorage.getItem("auth_token");
       const response = await axios.post(
-        "http://127.0.0.1:8000/api/skills",
+        `${window.location.origin}/api/skills",
         { name: newSkill.name, sub_skills: newSkill.sub_skills },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -244,7 +244,7 @@ const SkillsCategories = () => {
     try {
       const token = localStorage.getItem("auth_token");
       const response = await axios.put(
-        `http://127.0.0.1:8000/api/skills/${skillToEdit.id}`,
+        `${window.location.origin}/api/skills/${skillToEdit.id}`,
         { name: updatedSkill.name, sub_skills: updatedSkill.sub_skills },
         { headers: { Authorization: `Bearer ${token}` } }
       );

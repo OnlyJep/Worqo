@@ -94,7 +94,7 @@ const Profile = ({ initialServiceType }) => {
         // Aggressive preloading for ultra-fast collar image loading
         if (collar.collar_img) {
           const img = new Image();
-          img.src = `http://127.0.0.1:8000/storage/${collar.collar_img}`;
+          img.src = `${window.location.origin}/storage/${collar.collar_img}`;
           img.loading = 'eager';
           img.decoding = 'async';
           console.log('Preloading collar image:', img.src);
@@ -123,7 +123,7 @@ const Profile = ({ initialServiceType }) => {
       services.forEach(service => {
         if (service.collar_img) {
           const img = new Image();
-          img.src = `http://127.0.0.1:8000/storage/${service.collar_img}`;
+          img.src = `${window.location.origin}/storage/${service.collar_img}`;
           img.loading = 'eager';
           img.decoding = 'async';
           console.log('Preloading collar image:', img.src);
@@ -475,7 +475,7 @@ const Profile = ({ initialServiceType }) => {
             'X-User-Id': userId,
           }
         } : {};
-        const res = await axios.get(`http://127.0.0.1:8000/api/messages/thread/${worker.id}`, {
+        const res = await axios.get(`/api/messages/thread/${worker.id}`, {
           ...config,
           params: { user_id: userId }
         });
@@ -733,7 +733,7 @@ const Profile = ({ initialServiceType }) => {
       if (!workerUserId && worker.id) {
         try {
           console.log('Attempting to fetch worker data for ID:', worker.id);
-          const workerResponse = await axios.get(`http://127.0.0.1:8000/api/workers/${worker.id}`);
+          const workerResponse = await axios.get(`/api/workers/${worker.id}`);
           if (workerResponse.data && workerResponse.data.id) {
             workerUserId = workerResponse.data.id;
             console.log('Fetched worker user ID from API:', workerUserId);
@@ -829,7 +829,7 @@ const Profile = ({ initialServiceType }) => {
       console.log('Auth token:', authToken);
       
       
-      const response = await axios.post('http://127.0.0.1:8000/api/bookings', bookingData, {
+      const response = await axios.post(`/api/bookings', bookingData, {
         headers: {
           Authorization: `Bearer ${authToken}`,
           Accept: "application/json",
@@ -911,7 +911,7 @@ const Profile = ({ initialServiceType }) => {
         <div className="profile-photo-wrapper">
           <img 
             src={worker.profile_img 
-              ? `http://127.0.0.1:8000/storage/${worker.profile_img}` 
+              ? `${window.location.origin}/storage/${worker.profile_img}` 
               : "/images/defpfp.svg"
             } 
             alt="Profile" 
@@ -934,13 +934,13 @@ const Profile = ({ initialServiceType }) => {
                   const workerCollar = getWorkerCollar(worker);
                   console.log('Worker collar result:', workerCollar);
                   console.log('Image path:', workerCollar.image);
-                  console.log('Full image URL:', `http://127.0.0.1:8000/storage/${workerCollar.image}`);
+                  console.log('Full image URL:', `${window.location.origin}/storage/${workerCollar.image}`);
                   
                   return (
                     <div className="profile-service-badge" title={`${workerCollar.name} Worker`}>
                       {workerCollar.image ? (
                         <img 
-                          src={`http://127.0.0.1:8000/storage/${workerCollar.image}`} 
+                          src={`${window.location.origin}/storage/${workerCollar.image}`} 
                           alt={`${workerCollar.name} Collar`}
                           className="badge-icon"
                           onError={(e) => {
@@ -1009,7 +1009,7 @@ const Profile = ({ initialServiceType }) => {
             {workerRank ? (
               <div className="profile-rank-display">
                 <img 
-                  src={`http://127.0.0.1:8000/storage/${workerRank.image}`}
+                  src={`${window.location.origin}/storage/${workerRank.image}`}
                   alt={`${workerRank.name} Rank`}
                   className="profile-rank-badge"
                   title={`${workerRank.name} Rank - ${totalPoints.toLocaleString()} points`}
@@ -1108,7 +1108,7 @@ const Profile = ({ initialServiceType }) => {
                           {worker.credentials_photo[index] && (
                             <div className="profile-credential-document">
                               <a 
-                                href={`http://127.0.0.1:8000/storage/${worker.credentials_photo[index]}`} 
+                                href={`${window.location.origin}/storage/${worker.credentials_photo[index]}`} 
                                 target="_blank" 
                                 rel="noopener noreferrer"
                                 className="profile-credential-document-link"
@@ -1242,7 +1242,7 @@ const Profile = ({ initialServiceType }) => {
                           <div className="profile-reviewer-info">
                             <img 
                               src={review.reviewer.profile_img 
-                                ? `http://127.0.0.1:8000/storage/${review.reviewer.profile_img}` 
+                                ? `${window.location.origin}/storage/${review.reviewer.profile_img}` 
                                 : profilePhoto
                               } 
                               alt={review.reviewer.name}

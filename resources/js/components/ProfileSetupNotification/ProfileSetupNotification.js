@@ -35,7 +35,7 @@ const ProfileSetupNotification = () => {
               return;
             }
             
-            const response = await fetch(`http://127.0.0.1:8000/api/workers/${parsedUser.id}`, {
+            const response = await fetch(`${window.location.origin}/api/workers/${parsedUser.id}`, {
               method: 'GET',
               headers: {
                 'Content-Type': 'application/json',

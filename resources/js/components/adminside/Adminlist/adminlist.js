@@ -59,7 +59,7 @@ const AdminList = () => {
       if (!authToken) {
         throw new Error("No auth token found. Please log in.");
       }
-      const response = await axios.get("http://127.0.0.1:8000/api/admins", {
+      const response = await axios.get(`/api/admins`, {
         params: { archived: showArchived, search: searchTerm, page: pagination.currentPage, limit: 5 },
         headers: { Authorization: `Bearer ${authToken}`, Accept: "application/json" },
         signal,
@@ -118,7 +118,7 @@ const AdminList = () => {
         throw new Error("No auth token found. Please log in.");
       }
       await axios.patch(
-        `http://127.0.0.1:8000/api/admins/${adminToArchive.id}/archive`,
+        `/api/admins/${adminToArchive.id}/archive`,
         { archived: true },
         {
           headers: { Authorization: `Bearer ${authToken}`, Accept: "application/json" },
@@ -147,7 +147,7 @@ const AdminList = () => {
         throw new Error("No auth token found. Please log in.");
       }
       await axios.patch(
-        `http://127.0.0.1:8000/api/admins/${adminId}/archive`,
+        `/api/admins/${adminId}/archive`,
         { archived: false },
         {
           headers: { Authorization: `Bearer ${authToken}`, Accept: "application/json" },
@@ -178,7 +178,7 @@ const AdminList = () => {
         throw new Error("No auth token found. Please log in.");
       }
       await axios.post(
-        "http://127.0.0.1:8000/api/admins/bulk-archive",
+        `/api/admins/bulk-archive`,
         { user_ids: selectedAdmins, action },
         {
           headers: { Authorization: `Bearer ${authToken}`, Accept: "application/json" },
@@ -226,7 +226,7 @@ const AdminList = () => {
       password: "",
       gender_id: admin.gender_id ? String(admin.gender_id) : "",
       profile_img: null,
-      image_url: admin.profile_img ? `http://127.0.0.1:8000/storage/${admin.profile_img}` : null,
+      image_url: admin.profile_img ? `${window.location.origin}/storage/${admin.profile_img}` : null,
     });
     setIsEditMode(true);
     setIsModalOpen(true);
@@ -256,7 +256,7 @@ const AdminList = () => {
         submitData.append("profile_img", formData.profile_img);
       }
 
-      const response = await axios.post("http://127.0.0.1:8000/api/admins", submitData, {
+      const response = await axios.post(`/api/admins`, submitData, {
         headers: {
           Authorization: `Bearer ${authToken}`,
           "Content-Type": "multipart/form-data",
@@ -298,7 +298,7 @@ const AdminList = () => {
       }
       submitData.append("_method", "PUT");
 
-      const response = await axios.post(`http://127.0.0.1:8000/api/admins/${adminToEdit.id}`, submitData, {
+      const response = await axios.post(`/api/admins/${adminToEdit.id}`, submitData, {
         headers: {
           Authorization: `Bearer ${authToken}`,
           "Content-Type": "multipart/form-data",
@@ -494,7 +494,7 @@ const AdminList = () => {
                       <td>
                         {admin.profile_img ? (
                           <img
-                            src={`http://127.0.0.1:8000/storage/${admin.profile_img}`}
+                            src={`${window.location.origin}/storage/${admin.profile_img}`}
                             alt="Profile"
                             className="profile-img"
                             style={{ width: "40px", height: "40px", borderRadius: "50%", objectFit: "cover" }}

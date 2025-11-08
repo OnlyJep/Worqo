@@ -79,7 +79,7 @@ const MessageWorker = () => {
       // Check if there's a target user ID in localStorage (set when navigating from booking)
       const targetUserId = localStorage.getItem('message_target_user_id');
       
-      const response = await axios.get('http://127.0.0.1:8000/api/messages/conversations', {
+      const response = await axios.get(`/api/messages/conversations', {
         ...config,
         params: { user_id: userId }
       });
@@ -125,7 +125,7 @@ const MessageWorker = () => {
       } : {};
       
       // Fetch all users with profiles
-      const response = await axios.get('http://127.0.0.1:8000/api/bookings/users-with-profiles', config);
+      const response = await axios.get(`/api/bookings/users-with-profiles', config);
       
       console.log('Active users response:', response.data);
       
@@ -178,7 +178,7 @@ const MessageWorker = () => {
         } 
       } : {};
       
-      const response = await axios.get(`http://127.0.0.1:8000/api/messages/thread/${conversation.user_id}`, {
+      const response = await axios.get(`/api/messages/thread/${conversation.user_id}`, {
         ...config,
         params: { user_id: userId }
       });
@@ -247,7 +247,7 @@ const MessageWorker = () => {
         } 
       } : {};
       
-      const response = await axios.post('http://127.0.0.1:8000/api/messages/send', payload, config);
+      const response = await axios.post(`/api/messages/send', payload, config);
       
       if (response.data.success) {
         const newMsg = response.data.message;
@@ -275,7 +275,7 @@ const MessageWorker = () => {
             setSelectedConversation(newConversation);
             
             // Get detailed user info for the new conversation
-            const userResponse = await axios.get(`http://127.0.0.1:8000/api/messages/thread/${recipientId}`, {
+            const userResponse = await axios.get(`/api/messages/thread/${recipientId}`, {
               ...config,
               params: { user_id: userId }
             });

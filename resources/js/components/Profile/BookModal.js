@@ -249,11 +249,11 @@ const BookModal = ({ worker, isOpen, onClose, onSubmit, serviceType }) => {
       }
 
       // Get worker's accepted job applications (hired jobs)
-      const response = await axios.get(`http://127.0.0.1:8000/api/job-applications/worker/${worker.id}?status=accepted`);
+      const response = await axios.get(`/api/job-applications/worker/${worker.id}?status=accepted`);
       const acceptedJobs = response.data || [];
 
       // Also get all job posts with work schedules to check for conflicts
-      const jobPostsResponse = await axios.get(`http://127.0.0.1:8000/api/jobposts?worker_id=${worker.id}&include_work_schedule=true`);
+      const jobPostsResponse = await axios.get(`/api/jobposts?worker_id=${worker.id}&include_work_schedule=true`);
       const jobPosts = jobPostsResponse.data?.job_posts?.data || [];
 
       // Check for date conflicts

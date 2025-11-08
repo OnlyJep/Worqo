@@ -106,11 +106,11 @@ const BookingModal = ({ isOpen, onClose, onSubmit, isEdit, initialData, skills =
       }
 
       // Get worker's accepted job applications (hired jobs)
-      const response = await fetch(`http://127.0.0.1:8000/api/job-applications/worker/${worker_id}?status=accepted`);
+      const response = await fetch(`${window.location.origin}/api/job-applications/worker/${worker_id}?status=accepted`);
       const acceptedJobs = await response.json() || [];
 
       // Also get all job posts with work schedules to check for conflicts
-      const jobPostsResponse = await fetch(`http://127.0.0.1:8000/api/jobposts?worker_id=${worker_id}&include_work_schedule=true`);
+      const jobPostsResponse = await fetch(`${window.location.origin}/api/jobposts?worker_id=${worker_id}&include_work_schedule=true`);
       const jobPostsData = await jobPostsResponse.json();
       const jobPosts = jobPostsData?.job_posts?.data || [];
 

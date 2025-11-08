@@ -1815,7 +1815,7 @@ const WorkerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffixes
                         <div className="profile-img-preview-inside">
                           <div className="preview-image-container">
                             {typeof formData.profile_img === "string" ? (
-                              <img src={`http://127.0.0.1:8000/storage/${formData.profile_img}`} alt="Profile Preview" />
+                              <img src={`${window.location.origin}/storage/${formData.profile_img}`} alt="Profile Preview" />
                             ) : (
                               <img src={URL.createObjectURL(formData.profile_img)} alt="Profile Preview" />
                             )}
@@ -2134,7 +2134,7 @@ const WorkerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffixes
                                       <h5>Photo:</h5>
                                       {typeof cred.credentials_photo === "string" && cred.credentials_photo ? (
                                         <img
-                                          src={`http://127.0.0.1:8000/storage/${cred.credentials_photo}`}
+                                          src={`${window.location.origin}/storage/${cred.credentials_photo}`}
                                           alt={cred.credentials_name}
                                           className="credential-image"
                                         />
@@ -2164,7 +2164,7 @@ const WorkerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffixes
                                       <h5>Document:</h5>
                                       {typeof cred.credentials_doc === "string" && cred.credentials_doc ? (
                                         <div className="credential-file-link">
-                                          <a href={`http://127.0.0.1:8000/storage/${cred.credentials_doc}`} download>
+                                          <a href={`${window.location.origin}/storage/${cred.credentials_doc}`} download>
                                             {cred.credentials_doc.split("/").pop()}
                                           </a>
                                         </div>

@@ -31,7 +31,7 @@ const getProfileImageSrc = (profileImg) => {
   
   // If it starts with /storage, it's already a complete path
   if (profileImg.startsWith("/storage")) {
-    return `http://127.0.0.1:8000${profileImg}`;
+    return `${window.location.origin}${profileImg}`;
   }
   
   // Laravel stores files using store('profiles', 'public') which returns "profiles/filename.jpg"
@@ -40,12 +40,12 @@ const getProfileImageSrc = (profileImg) => {
   // When profileImg is just "filename.jpg", the URL should be "/storage/profiles/filename.jpg"
   if (profileImg.startsWith("profiles/")) {
     // Already has profiles/ prefix, construct: /storage/profiles/filename.jpg
-    return `http://127.0.0.1:8000/storage/${profileImg}`;
+    return `${window.location.origin}/storage/${profileImg}`;
   }
   
   // If it's just a filename (e.g., "68fa312d3dc9b.jpg"), assume it's in the profiles directory
   // This matches how jobposting.js handles it
-  return `http://127.0.0.1:8000/storage/profiles/${profileImg}`;
+  return `${window.location.origin}/storage/profiles/${profileImg}`;
 };
 
 const JobPostModal = ({ onClose, onSubmit, isEdit, initialData, onRefresh }) => {
@@ -129,11 +129,11 @@ const JobPostModal = ({ onClose, onSubmit, isEdit, initialData, onRefresh }) => 
 
         const [skillsResponse, ranksResponse, employersResponse] = await Promise.all([
 
-          axios.get("http://127.0.0.1:8000/api/skills"),
+          axios.get(`/api/skills"),
 
-          axios.get("http://127.0.0.1:8000/api/ranks"),
+          axios.get(`/api/ranks"),
 
-          axios.get("http://127.0.0.1:8000/api/employers"),
+          axios.get(`/api/employers"),
 
         ]);
 

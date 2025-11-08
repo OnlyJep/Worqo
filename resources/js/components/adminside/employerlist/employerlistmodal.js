@@ -366,7 +366,7 @@ const EmployerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffix
                     formData.profile_img instanceof File
                       ? URL.createObjectURL(formData.profile_img)
                       : existingImagePath
-                      ? `http://127.0.0.1:8000/storage/${existingImagePath}`
+                      ? `${window.location.origin}/storage/${existingImagePath}`
                       : null
                   } 
                   alt="Preview" 

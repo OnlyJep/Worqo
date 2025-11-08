@@ -76,7 +76,7 @@ const UsersList = () => {
       if (!authToken) {
         throw new Error("No auth token found. Please log in.");
       }
-      const response = await axios.get("http://127.0.0.1:8000/api/users", {
+      const response = await axios.get(`/api/users", {
         params: { archived: showArchived, search: searchTerm, page: pagination.currentPage, limit: 5 },
         headers: { Authorization: `Bearer ${authToken}`, Accept: "application/json" },
         signal,
@@ -135,7 +135,7 @@ const UsersList = () => {
         throw new Error("No auth token found. Please log in.");
       }
       await axios.patch(
-        `http://127.0.0.1:8000/api/users/${userToArchive.id}/archive`,
+        `${window.location.origin}/api/users/${userToArchive.id}/archive`,
         { archived: true },
         {
           headers: { Authorization: `Bearer ${authToken}`, Accept: "application/json" },
@@ -164,7 +164,7 @@ const UsersList = () => {
         throw new Error("No auth token found. Please log in.");
       }
       await axios.patch(
-        `http://127.0.0.1:8000/api/users/${userId}/archive`,
+        `${window.location.origin}/api/users/${userId}/archive`,
         { archived: false },
         {
           headers: { Authorization: `Bearer ${authToken}`, Accept: "application/json" },
@@ -195,7 +195,7 @@ const UsersList = () => {
         throw new Error("No auth token found. Please log in.");
       }
       await axios.post(
-        "http://127.0.0.1:8000/api/users/bulk-archive",
+        `${window.location.origin}/api/users/bulk-archive",
         { user_ids: selectedUsers, action },
         {
           headers: { Authorization: `Bearer ${authToken}`, Accept: "application/json" },
@@ -257,7 +257,7 @@ const UsersList = () => {
       postal_code: user.postal_code || "",
       country: user.country || "",
       profile_img: null,
-      image_url: user.profile_img ? `http://127.0.0.1:8000/storage/${user.profile_img}?v=${Date.now()}` : null,
+      image_url: user.profile_img ? `${window.location.origin}/storage/${user.profile_img}?v=${Date.now()}` : null,
     });
     setIsEditMode(true);
     setIsModalOpen(true);
@@ -294,7 +294,7 @@ const UsersList = () => {
         submitData.append("profile_img", formData.profile_img);
       }
 
-      const response = await axios.post("http://127.0.0.1:8000/api/users", submitData, {
+      const response = await axios.post(`/api/users", submitData, {
         headers: {
           Authorization: `Bearer ${authToken}`,
           "Content-Type": "multipart/form-data",
@@ -343,7 +343,7 @@ const UsersList = () => {
       }
       submitData.append("_method", "PUT");
 
-      const response = await axios.post(`http://127.0.0.1:8000/api/users/${userToEdit.id}`, submitData, {
+      const response = await axios.post(`/api/users/${userToEdit.id}`, submitData, {
         headers: {
           Authorization: `Bearer ${authToken}`,
           "Content-Type": "multipart/form-data",
@@ -545,7 +545,7 @@ const UsersList = () => {
                       <td>
                         {user.profile_img ? (
                           <img
-                            src={`http://127.0.0.1:8000/storage/${user.profile_img}?v=${imageRefreshKey}`}
+                            src={`${window.location.origin}/storage/${user.profile_img}?v=${imageRefreshKey}`}
                             alt="Profile"
                             className="profile-img"
                             style={{ width: "40px", height: "40px", borderRadius: "50%", objectFit: "cover" }}

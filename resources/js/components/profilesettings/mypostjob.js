@@ -54,7 +54,7 @@ const MyPostJob = () => {
 
       // First check for expired jobs
       try {
-        await axios.post('http://127.0.0.1:8000/api/jobposts/check-expired', {}, {
+        await axios.post(`/api/jobposts/check-expired', {}, {
           headers: {
             Authorization: `Bearer ${authToken}`,
             Accept: "application/json"
@@ -76,7 +76,7 @@ const MyPostJob = () => {
           console.log("Profile ID from user data:", profileId);
         } else {
           // Fetch profile from API
-          const profileResponse = await axios.get(`http://127.0.0.1:8000/api/profiles?user_id=${currentUser.id}`, {
+          const profileResponse = await axios.get(`/api/profiles?user_id=${currentUser.id}`, {
             headers: {
               Authorization: `Bearer ${authToken}`,
               Accept: "application/json"
@@ -115,7 +115,7 @@ const MyPostJob = () => {
       }
 
       // Fetch job posts with profile_id
-      const response = await axios.get(`http://127.0.0.1:8000/api/jobposts?profile_id=${profileId}&show_archived=true`, {
+      const response = await axios.get(`/api/jobposts?profile_id=${profileId}&show_archived=true`, {
         headers: {
           Authorization: `Bearer ${authToken}`,
           Accept: "application/json"
@@ -170,7 +170,7 @@ const MyPostJob = () => {
       }
 
       // Use employer API endpoint
-      const apiEndpoint = `http://127.0.0.1:8000/api/employers/${currentUser.id}`;
+      const apiEndpoint = `${window.location.origin}/api/employers/${currentUser.id}`;
 
       const response = await axios.get(apiEndpoint, {
         headers: {
@@ -293,7 +293,7 @@ const MyPostJob = () => {
       // First, let's try to get the profile ID from the backend
       let profileId;
       try {
-        const profileResponse = await axios.get(`http://127.0.0.1:8000/api/profiles?user_id=${currentUser.id}`, {
+        const profileResponse = await axios.get(`/api/profiles?user_id=${currentUser.id}`, {
           headers: {
             Authorization: `Bearer ${authToken}`,
             Accept: "application/json"
@@ -305,7 +305,7 @@ const MyPostJob = () => {
         console.log("Profile not found, creating profile for user:", currentUser.id);
         // Create a profile record for this user
         try {
-          const createProfileResponse = await axios.post('http://127.0.0.1:8000/api/profiles', {
+          const createProfileResponse = await axios.post(`/api/profiles', {
             user_id: currentUser.id,
             first_name: currentUser.first_name || 'Unknown',
             last_name: currentUser.last_name || 'User',
@@ -376,7 +376,7 @@ const MyPostJob = () => {
       let response;
       if (editingJob) {
         // Update existing job
-        response = await axios.put(`http://127.0.0.1:8000/api/jobposts/${editingJob.id}`, jobPayload, {
+        response = await axios.put(`/api/jobposts/${editingJob.id}`, jobPayload, {
           headers: {
             Authorization: `Bearer ${authToken}`,
             Accept: "application/json",
@@ -386,7 +386,7 @@ const MyPostJob = () => {
         message.success("Job post updated successfully");
       } else {
         // Create new job
-        response = await axios.post('http://127.0.0.1:8000/api/jobposts', jobPayload, {
+        response = await axios.post(`/api/jobposts', jobPayload, {
           headers: {
             Authorization: `Bearer ${authToken}`,
             Accept: "application/json",

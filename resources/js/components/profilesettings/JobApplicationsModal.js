@@ -26,7 +26,7 @@ const JobApplicationsModal = ({ jobPostId, jobTitle, onClose }) => {
 
   const fetchJobPost = async () => {
     try {
-      const response = await axios.get(`http://127.0.0.1:8000/api/jobposts/${jobPostId}`);
+      const response = await axios.get(`/api/jobposts/${jobPostId}`);
       setJobPost(response.data.data || response.data);
     } catch (error) {
       console.error('Error fetching job post:', error);
@@ -36,7 +36,7 @@ const JobApplicationsModal = ({ jobPostId, jobTitle, onClose }) => {
   const fetchApplications = async () => {
     try {
       setLoading(true);
-      const response = await axios.get(`http://127.0.0.1:8000/api/job-applications/job/${jobPostId}`);
+      const response = await axios.get(`/api/job-applications/job/${jobPostId}`);
       console.log('Applications API Response:', response.data);
       
       // Ensure worker data and profile_img are properly set
@@ -78,7 +78,7 @@ const JobApplicationsModal = ({ jobPostId, jobTitle, onClose }) => {
         }
       }
 
-      await axios.patch(`http://127.0.0.1:8000/api/job-applications/${applicationId}/status`, {
+      await axios.patch(`/api/job-applications/${applicationId}/status`, {
         status: status
       });
       
@@ -128,7 +128,7 @@ const JobApplicationsModal = ({ jobPostId, jobTitle, onClose }) => {
 
   const downloadResume = (resumePath) => {
     if (resumePath) {
-      window.open(`http://127.0.0.1:8000/storage/${resumePath}`, '_blank');
+      window.open(`${window.location.origin}/storage/${resumePath}`, '_blank');
     }
   };
 
@@ -229,11 +229,11 @@ const JobApplicationsModal = ({ jobPostId, jobTitle, onClose }) => {
                 const getProfileImageSrc = () => {
                   const profileImg = application?.worker?.profile_img;
                   if (!profileImg || profileImg === 'img/defaultpfp.jpg' || profileImg === 'profiles/defaultpfp.jpg') {
-                    return "http://127.0.0.1:8000/storage/profiles/defaultpfp.jpg";
+                    return `${window.location.origin}/storage/profiles/defaultpfp.jpg";
                   }
                   // Remove leading slash if present and construct proper path
                   const cleanPath = profileImg.startsWith('/') ? profileImg.substring(1) : profileImg;
-                  return `http://127.0.0.1:8000/storage/${cleanPath}`;
+                  return `${window.location.origin}/storage/${cleanPath}`;
                 };
 
                 return (
@@ -246,7 +246,7 @@ const JobApplicationsModal = ({ jobPostId, jobTitle, onClose }) => {
                               src={getProfileImageSrc()}
                               alt={`${getWorkerName(application.worker || {})}'s avatar`}
                               onError={(e) => {
-                                e.target.src = "http://127.0.0.1:8000/storage/profiles/defaultpfp.jpg";
+                                e.target.src = `${window.location.origin}/storage/profiles/defaultpfp.jpg";
                               }}
                               loading="lazy"
                             />
@@ -303,7 +303,7 @@ const JobApplicationsModal = ({ jobPostId, jobTitle, onClose }) => {
                           try {
                             if (currentRole && currentRole !== targetRole) {
                               const authToken = localStorage.getItem('auth_token');
-                              await fetch('http://127.0.0.1:8000/api/users/switch-role', {
+                              await fetch(`${window.location.origin}/api/users/switch-role', {
                                 method: 'POST',
                                 headers: { 'Authorization': `Bearer ${authToken}`, 'Content-Type': 'application/json', 'Accept': 'application/json' },
                                 body: JSON.stringify({ user_id: stored.id || stored?.user?.id, role_id: targetRole })

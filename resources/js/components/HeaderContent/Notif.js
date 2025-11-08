@@ -25,7 +25,7 @@ const Notif = () => {
       const userId = userData?.id || userData?.user?.id;
       if (!userId) return;
 
-      const response = await axios.get(`http://127.0.0.1:8000/api/users/${userId}`);
+      const response = await axios.get(`/api/users/${userId}`);
       if (response.data.success) {
         setUserProfile(response.data.user || response.data);
       }
@@ -41,7 +41,7 @@ const Notif = () => {
       const userId = userData?.id || userData?.user?.id;
       if (!userId) { setLoading(false); return; }
 
-      const response = await axios.get(`http://127.0.0.1:8000/api/notifications?user_id=${userId}`);
+      const response = await axios.get(`/api/notifications?user_id=${userId}`);
 
       if (response.data.success) {
         setNotifications(response.data.notifications);
@@ -132,7 +132,7 @@ const Notif = () => {
     try {
       const userData = JSON.parse(localStorage.getItem('user') || '{}');
       const userId = userData?.id || userData?.user?.id;
-      await axios.put(`http://127.0.0.1:8000/api/notifications/${notifId}/read`, {}, { headers: { 'X-User-Id': userId } });
+      await axios.put(`/api/notifications/${notifId}/read`, {}, { headers: { 'X-User-Id': userId } });
       
       setNotifications(notifications.map(notif =>
         notif.id === notifId ? { ...notif, isUnread: false } : notif
@@ -149,7 +149,7 @@ const Notif = () => {
     try {
       const userData = JSON.parse(localStorage.getItem('user') || '{}');
       const userId = userData?.id || userData?.user?.id;
-      await axios.put(`http://127.0.0.1:8000/api/notifications/${notifId}/unread`, {}, { headers: { 'X-User-Id': userId } });
+      await axios.put(`/api/notifications/${notifId}/unread`, {}, { headers: { 'X-User-Id': userId } });
       
       setNotifications(notifications.map(notif =>
         notif.id === notifId ? { ...notif, isUnread: true } : notif
@@ -166,7 +166,7 @@ const Notif = () => {
     try {
       const userData = JSON.parse(localStorage.getItem('user') || '{}');
       const userId = userData?.id || userData?.user?.id;
-      await axios.put('http://127.0.0.1:8000/api/notifications/mark-all-read', {}, { headers: { 'X-User-Id': userId } });
+      await axios.put(`/api/notifications/mark-all-read', {}, { headers: { 'X-User-Id': userId } });
       
       setNotifications(notifications.map(notif => ({ ...notif, isUnread: false })));
       // Dispatch event to update header badge
@@ -390,7 +390,7 @@ const Notif = () => {
             <div style={{ padding: '1.5rem' }}>
               <div style={{ display: 'flex', alignItems: 'center', marginBottom: '1rem' }}>
                 <img 
-                  src={selectedNotif.profile_img && selectedNotif.profile_img.startsWith('images/') ? selectedNotif.profile_img : (selectedNotif.profile_img ? `http://127.0.0.1:8000/storage/${selectedNotif.profile_img}` : 'images/defpfp.svg')} 
+                  src={selectedNotif.profile_img && selectedNotif.profile_img.startsWith('images/') ? selectedNotif.profile_img : (selectedNotif.profile_img ? `${window.location.origin}/storage/${selectedNotif.profile_img}` : 'images/defpfp.svg')} 
                   alt={selectedNotif.user} 
                   style={{ 
                     width: '50px', 

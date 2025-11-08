@@ -214,7 +214,7 @@ const FindJob = () => {
 				if (!currentProfileId && currentUserId) {
 					try {
 						const authToken = localStorage.getItem("auth_token");
-						const profileResponse = await axios.get(`http://127.0.0.1:8000/api/profiles?user_id=${currentUserId}`, {
+						const profileResponse = await axios.get(`/api/profiles?user_id=${currentUserId}`, {
 							headers: {
 								Authorization: `Bearer ${authToken}`,
 								Accept: "application/json"

@@ -78,7 +78,7 @@ const AdminProfileSetting = () => {
         try {
           const token = localStorage.getItem("auth_token");
           if (token) {
-            const response = await fetch(`http://127.0.0.1:8000/api/users/${userData.id}`, {
+            const response = await fetch(`${window.location.origin}/api/users/${userData.id}`, {
               method: "GET",
               headers: {
                 'Authorization': `Bearer ${token}`,
@@ -121,7 +121,7 @@ const AdminProfileSetting = () => {
 
   const fetchGenders = async () => {
     try {
-      const response = await fetch('http://127.0.0.1:8000/api/genders');
+      const response = await fetch(`${window.location.origin}/api/genders');
       if (response.ok) {
         const data = await response.json();
         setGenders(data);
@@ -133,7 +133,7 @@ const AdminProfileSetting = () => {
 
   const fetchSuffixes = async () => {
     try {
-      const response = await fetch('http://127.0.0.1:8000/api/suffixes');
+      const response = await fetch(`${window.location.origin}/api/suffixes');
       if (response.ok) {
         const data = await response.json();
         setSuffixes(data);
@@ -365,7 +365,7 @@ const AdminProfileSetting = () => {
 
       // For FormData with files, use POST with method spoofing to avoid Laravel issues with PUT multipart
       let method = "PUT";
-      let url = `http://127.0.0.1:8000/api/users/${user.id}`;
+      let url = `${window.location.origin}/api/users/${user.id}`;
       
       if (profileImageFile || profileData.removeImage || profileData.setDefaultImage) {
         // Use method spoofing for FormData uploads
@@ -465,7 +465,7 @@ const AdminProfileSetting = () => {
         return;
       }
 
-      const response = await fetch('http://127.0.0.1:8000/api/change-password', {
+      const response = await fetch(`${window.location.origin}/api/change-password', {
         method: "POST",
         headers: {
           'Content-Type': 'application/json',
@@ -520,7 +520,7 @@ const AdminProfileSetting = () => {
             <div className="avatar-container">
               <div className={`avatar-placeholder ${!profileImagePreview && !user?.profile_img ? 'no-image' : ''}`}>
                 <img 
-                  src={profileImagePreview || (user?.profile_img ? `http://127.0.0.1:8000/storage/${user.profile_img}?v=${Date.now()}` : defpfp)} 
+                  src={profileImagePreview || (user?.profile_img ? `${window.location.origin}/storage/${user.profile_img}?v=${Date.now()}` : defpfp)} 
                   alt="Profile" 
                   onError={(e) => {
                     e.target.src = defpfp;
@@ -824,7 +824,7 @@ const AdminProfileSetting = () => {
             </div>
             <div className="image-modal-content">
               <img 
-                src={profileImagePreview || (user?.profile_img ? `http://127.0.0.1:8000/storage/${user.profile_img}?v=${Date.now()}` : defpfp)} 
+                src={profileImagePreview || (user?.profile_img ? `${window.location.origin}/storage/${user.profile_img}?v=${Date.now()}` : defpfp)} 
                 alt="Profile" 
                 onError={(e) => {
                   e.target.src = defpfp;

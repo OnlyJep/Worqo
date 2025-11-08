@@ -250,7 +250,7 @@ const MyProfile = () => {
         try {
           const token = localStorage.getItem("auth_token");
           if (token) {
-            const response = await fetch(`http://127.0.0.1:8000/api/users/${currentUser.id}`, {
+            const response = await fetch(`${window.location.origin}/api/users/${currentUser.id}`, {
               method: "GET",
               headers: {
                 'Authorization': `Bearer ${token}`,
@@ -317,7 +317,7 @@ const MyProfile = () => {
 
   const fetchGenders = async () => {
     try {
-      const response = await fetch('http://127.0.0.1:8000/api/genders');
+      const response = await fetch(`${window.location.origin}/api/genders');
       if (response.ok) {
         const data = await response.json();
         setGenders(data);
@@ -329,7 +329,7 @@ const MyProfile = () => {
 
   const fetchSuffixes = async () => {
     try {
-      const response = await fetch('http://127.0.0.1:8000/api/suffixes');
+      const response = await fetch(`${window.location.origin}/api/suffixes`);
       if (response.ok) {
         const data = await response.json();
         setSuffixes(data);
@@ -341,7 +341,7 @@ const MyProfile = () => {
 
   const fetchWorkerReviews = async (workerId) => {
     try {
-      const response = await fetch(`http://127.0.0.1:8000/api/reviews/worker/${workerId}`);
+      const response = await fetch(`${window.location.origin}/api/reviews/worker/${workerId}`);
       if (response.ok) {
         const data = await response.json();
         setAverageRating(data.average_rating || 0);
@@ -371,7 +371,7 @@ const MyProfile = () => {
   const fetchWorkerRank = async (points) => {
     try {
       // Fetch only active (non-archived) ranks for badge display
-      const response = await fetch('http://127.0.0.1:8000/api/ranks?archived=false&limit=100');
+      const response = await fetch(`${window.location.origin}/api/ranks?archived=false&limit=100');
       if (response.ok) {
         const data = await response.json();
         
@@ -497,7 +497,7 @@ const MyProfile = () => {
   const fetchAvailableSkills = async () => {
     try {
       const token = localStorage.getItem("auth_token");
-      const response = await fetch('http://127.0.0.1:8000/api/skills', {
+      const response = await fetch(`${window.location.origin}/api/skills', {
         headers: {
           'Authorization': `Bearer ${token}`,
         }
@@ -516,7 +516,7 @@ const MyProfile = () => {
       const token = localStorage.getItem("auth_token");
       if (!token) return;
 
-      const response = await fetch(`http://127.0.0.1:8000/api/workers/${workerId}`, {
+      const response = await fetch(`${window.location.origin}/api/workers/${workerId}`, {
         method: "GET",
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -614,7 +614,7 @@ const MyProfile = () => {
       if (!token) return;
 
       // Use employer API endpoint
-      const apiEndpoint = `http://127.0.0.1:8000/api/employers/${employerId}`;
+      const apiEndpoint = `${window.location.origin}/api/employers/${employerId}`;
 
       const response = await fetch(apiEndpoint, {
         method: "GET",
@@ -879,7 +879,7 @@ const MyProfile = () => {
       console.log('Additional skills count:', additionalSkillsData.length);
       console.log('Current workerSkills state:', workerSkills);
       
-      const response = await fetch(`http://127.0.0.1:8000/api/workers/${user.id}/skills`, {
+      const response = await fetch(`${window.location.origin}/api/workers/${user.id}/skills`, {
         method: "PUT",
         headers: {
           'Content-Type': 'application/json',
@@ -952,7 +952,7 @@ const MyProfile = () => {
       
       console.log('Sending skills data (handleSkillsSubmit):', requestData);
 
-      const response = await fetch(`http://127.0.0.1:8000/api/workers/${user.id}/skills`, {
+      const response = await fetch(`${window.location.origin}/api/workers/${user.id}/skills`, {
         method: "PUT",
         headers: {
           'Content-Type': 'application/json',
@@ -1122,7 +1122,7 @@ const MyProfile = () => {
         });
       }
 
-      const response = await fetch(`http://127.0.0.1:8000/api/workers/${user.id}/update-credentials`, {
+      const response = await fetch(`${window.location.origin}/api/workers/${user.id}/update-credentials`, {
         method: "POST",
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -1282,7 +1282,7 @@ const MyProfile = () => {
         });
       });
 
-      const response = await fetch(`http://127.0.0.1:8000/api/workers/${user.id}/update-credentials`, {
+      const response = await fetch(`${window.location.origin}/api/workers/${user.id}/update-credentials`, {
         method: "POST",
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -1368,7 +1368,7 @@ const MyProfile = () => {
       }
 
       // Use employer API endpoint
-      const apiEndpoint = `http://127.0.0.1:8000/api/employers/${user.id}/update-credentials`;
+      const apiEndpoint = `${window.location.origin}/api/employers/${user.id}/update-credentials`;
 
       const response = await fetch(apiEndpoint, {
         method: "POST",
@@ -1532,7 +1532,7 @@ const MyProfile = () => {
       });
 
       // Use employer API endpoint
-      const apiEndpoint = `http://127.0.0.1:8000/api/employers/${user.id}/update-credentials`;
+      const apiEndpoint = `${window.location.origin}/api/employers/${user.id}/update-credentials`;
 
       const response = await fetch(apiEndpoint, {
         method: "POST",
@@ -1739,7 +1739,7 @@ const MyProfile = () => {
 
       // For FormData with files, use POST with method spoofing to avoid Laravel issues with PUT multipart
       let method = "PUT";
-      let url = `http://127.0.0.1:8000/api/users/${user.id}`;
+      let url = `${window.location.origin}/api/users/${user.id}`;
       
       if (profileImageFile || profileData.removeImage || profileData.setDefaultImage) {
         // Use method spoofing for FormData uploads
@@ -1854,7 +1854,7 @@ const MyProfile = () => {
         return;
       }
 
-      const response = await fetch('http://127.0.0.1:8000/api/change-password', {
+      const response = await fetch(`${window.location.origin}/api/change-password', {
         method: "POST",
         headers: {
           'Content-Type': 'application/json',
@@ -1910,7 +1910,7 @@ const MyProfile = () => {
         return;
       }
 
-      const response = await fetch(`http://127.0.0.1:8000/api/workers/${user.id}/preferences`, {
+      const response = await fetch(`${window.location.origin}/api/workers/${user.id}/preferences`, {
         method: "PUT",
         headers: {
           'Content-Type': 'application/json',
@@ -1960,7 +1960,7 @@ const MyProfile = () => {
           <div className="avatar-container">
             <div className={`avatar-placeholder ${!profileImagePreview && (!user?.profile_img || user?.profile_img === 'images/defpfp.svg') ? 'no-image' : ''}`}>
               <img 
-                src={profileImagePreview || (user?.profile_img ? (user.profile_img.startsWith('images/') ? user.profile_img : `http://127.0.0.1:8000/storage/${user.profile_img}?v=${Date.now()}`) : 'images/defpfp.svg')} 
+                src={profileImagePreview || (user?.profile_img ? (user.profile_img.startsWith('images/') ? user.profile_img : `${window.location.origin}/storage/${user.profile_img}?v=${Date.now()}`) : 'images/defpfp.svg')} 
                 alt="Profile" 
                 onError={(e) => {
                   e.target.src = "images/defpfp.svg";
@@ -2022,7 +2022,7 @@ const MyProfile = () => {
               {workerRank ? (
                 <div className="rank-display">
                   <img 
-                    src={`http://127.0.0.1:8000/storage/${workerRank.image}`}
+                    src={`${window.location.origin}/storage/${workerRank.image}`}
                     alt={`${workerRank.name} Rank`}
                     className="worker-rank-badge"
                     title={`${workerRank.name} Rank - ${totalPoints.toLocaleString()} points`}
@@ -2829,7 +2829,7 @@ const MyProfile = () => {
                             {typeof credential.credentials_photo === 'string' ? (
                               <>
                                 <a 
-                                  href={`http://127.0.0.1:8000/storage/${credential.credentials_photo}`} 
+                                  href={`${window.location.origin}/storage/${credential.credentials_photo}`} 
                                   target="_blank" 
                                   rel="noopener noreferrer"
                                   className="view-document-link"
@@ -2850,7 +2850,7 @@ const MyProfile = () => {
                             {typeof credential.credentials_doc === 'string' ? (
                               <>
                                 <a 
-                                  href={`http://127.0.0.1:8000/storage/${credential.credentials_doc}`} 
+                                  href={`${window.location.origin}/storage/${credential.credentials_doc}`} 
                                   target="_blank" 
                                   rel="noopener noreferrer"
                                   className="view-document-link"
@@ -3045,7 +3045,7 @@ const MyProfile = () => {
                         typeof credential.credentials_photo === 'string' || typeof credential.credentials_doc === 'string' ? (
                           <div className="document-info">
                             <a 
-                              href={`http://127.0.0.1:8000/storage/${credential.credentials_photo || credential.credentials_doc}`} 
+                              href={`${window.location.origin}/storage/${credential.credentials_photo || credential.credentials_doc}`} 
                               target="_blank" 
                               rel="noopener noreferrer"
                               className="view-document-link"
@@ -3145,7 +3145,7 @@ const MyProfile = () => {
             </div>
             <div className="image-modal-content">
               <img 
-                src={profileImagePreview || (user?.profile_img ? (user.profile_img.startsWith('images/') ? user.profile_img : `http://127.0.0.1:8000/storage/${user.profile_img}?v=${Date.now()}`) : 'images/defpfp.svg')} 
+                src={profileImagePreview || (user?.profile_img ? (user.profile_img.startsWith('images/') ? user.profile_img : `${window.location.origin}/storage/${user.profile_img}?v=${Date.now()}`) : 'images/defpfp.svg')} 
                 alt="Profile" 
                 onError={(e) => {
                   e.target.src = "images/defpfp.svg";

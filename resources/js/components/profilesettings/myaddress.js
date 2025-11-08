@@ -38,7 +38,7 @@ const MyAddress = () => {
       
       if (userData.id) {
         const token = localStorage.getItem("auth_token");
-        const response = await fetch(`http://127.0.0.1:8000/api/users/${userData.id}`, {
+        const response = await fetch(`${window.location.origin}/api/users/${userData.id}`, {
           method: 'GET',
           headers: {
             'Authorization': `Bearer ${token}`,
@@ -99,7 +99,7 @@ const MyAddress = () => {
           country: 'Philippines'
         });
         
-        const response = await fetch(`http://127.0.0.1:8000/api/users/${userData.id}`, {
+        const response = await fetch(`${window.location.origin}/api/users/${userData.id}`, {
           method: 'PUT',
           headers: {
             'Authorization': `Bearer ${token}`,

@@ -22,7 +22,7 @@ const WorkerBookings = () => {
         return;
       }
 
-      const response = await axios.get('http://127.0.0.1:8000/api/bookings/worker', {
+      const response = await axios.get(`/api/bookings/worker', {
         headers: {
           Authorization: `Bearer ${authToken}`,
           Accept: "application/json"
@@ -45,7 +45,7 @@ const WorkerBookings = () => {
   const handleStatusUpdate = async (bookingId, status) => {
     try {
       const authToken = localStorage.getItem("auth_token");
-      const response = await axios.put(`http://127.0.0.1:8000/api/bookings/${bookingId}/status`, {
+      const response = await axios.put(`/api/bookings/${bookingId}/status`, {
         status,
         worker_notes: workerNotes
       }, {
