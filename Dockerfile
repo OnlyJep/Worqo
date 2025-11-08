@@ -46,18 +46,21 @@ RUN npm ci --legacy-peer-deps || npm install --legacy-peer-deps
 # Copy rest of application files
 COPY . .
 
+# Create storage and public directories first and set permissions for build
+RUN mkdir -p storage/framework/{sessions,views,cache} storage/logs bootstrap/cache public && \
+    chmod -R 777 /var/www/html/storage /var/www/html/bootstrap/cache /var/www/html/public
+
 # Run composer post-install scripts now that artisan is available
 RUN composer dump-autoload --optimize --no-interaction || true && \
     php artisan package:discover --ansi || true
 
-# Build assets
+# Build assets (run as root during build, then fix permissions)
 ENV NODE_ENV=production
 ENV SASS_SILENCE_DEPRECATIONS=*
 RUN npm run production || echo "Asset build failed, continuing..."
 
-# Create storage directories and set permissions
-RUN mkdir -p storage/framework/{sessions,views,cache} storage/logs bootstrap/cache public && \
-    chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache /var/www/html/public && \
+# Set final permissions for runtime (www-data user)
+RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache /var/www/html/public && \
     chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache && \
     chmod -R 755 /var/www/html/public
 
