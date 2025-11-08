@@ -35,18 +35,22 @@ fi
 
 # Run Laravel setup commands
 echo "Running Laravel setup commands..."
-# Clear config cache FIRST so our custom connector is loaded
+# CRITICAL: Clear ALL caches FIRST so our custom PostgreSQL connector is loaded
+# This must happen before any database operations
 php artisan config:clear || true
-# Generate key only if APP_KEY is not set (skip .env file requirement)
-if [ -z "$APP_KEY" ] || [ "$APP_KEY" = "" ]; then
-    php artisan key:generate --ansi --force || echo "Key generation skipped"
-else
-    echo "APP_KEY already set, skipping key generation"
-fi
-php artisan storage:link || true
 php artisan cache:clear || true
 php artisan route:clear || true
 php artisan view:clear || true
+
+# Generate key only if APP_KEY is not set (skip .env file requirement)
+# Use --force to skip .env file check
+if [ -z "$APP_KEY" ] || [ "$APP_KEY" = "" ] || [ "$APP_KEY" = "null" ]; then
+    php artisan key:generate --ansi --force || echo "Key generation skipped (using existing key)"
+else
+    echo "APP_KEY already set, skipping key generation"
+fi
+
+php artisan storage:link || true
 
 echo "Running migrations..."
 php artisan migrate --force || echo "Migration warning - continuing anyway..."
