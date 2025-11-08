@@ -11,9 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('skills', function (Blueprint $table) {
-            $table->json('sub_skills')->nullable()->after('skill_name');
-        });
+        // Check if column doesn't exist before adding it
+        if (!Schema::hasColumn('skills', 'sub_skills')) {
+            Schema::table('skills', function (Blueprint $table) {
+                $table->json('sub_skills')->nullable()->after('skill_name');
+            });
+        }
     }
 
     /**
@@ -21,8 +24,11 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('skills', function (Blueprint $table) {
-            $table->dropColumn('sub_skills');
-        });
+        // Check if column exists before dropping it
+        if (Schema::hasColumn('skills', 'sub_skills')) {
+            Schema::table('skills', function (Blueprint $table) {
+                $table->dropColumn('sub_skills');
+            });
+        }
     }
 };

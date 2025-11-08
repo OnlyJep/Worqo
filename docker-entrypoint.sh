@@ -96,6 +96,11 @@ php artisan migrate --path=database/migrations/2025_10_13_082908_add_min_max_poi
 echo "Ensuring skills archived column exists..."
 php artisan migrate --path=database/migrations/add_archived_to_skills_table.php --force 2>&1 || echo "Skills archived migration check completed"
 
+# Run sub_skills migration if it hasn't been run yet
+# The migration itself checks if column exists, so it's safe to run multiple times
+echo "Ensuring skills sub_skills column exists..."
+php artisan migrate --path=database/migrations/2025_09_11_111205_add_sub_skills_table.php --force 2>&1 || echo "Skills sub_skills migration check completed"
+
 echo "Migration process completed. The application will handle missing columns gracefully."
 
 echo "Installing Passport..."
