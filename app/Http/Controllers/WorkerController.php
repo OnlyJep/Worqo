@@ -1766,7 +1766,15 @@ class WorkerController extends Controller
         // For now, we'll use experience-based ranking
 
         // Get active ranks (archived = false)
-        $ranks = Rank::where('archived', false)->orderBy('min_points', 'asc')->get();
+        // Check if min_points column exists before ordering
+        $ranksQuery = Rank::where('archived', false);
+        if (\Illuminate\Support\Facades\Schema::hasColumn('ranks', 'min_points')) {
+            $ranksQuery->orderBy('min_points', 'asc');
+        } else {
+            // Fallback: order by id if min_points doesn't exist
+            $ranksQuery->orderBy('id', 'asc');
+        }
+        $ranks = $ranksQuery->get();
 
         // If no ranks exist, return null to avoid errors
         if ($ranks->isEmpty()) {
@@ -2010,8 +2018,8 @@ class WorkerController extends Controller
                     'id' => $workerRank->id,
                     'name' => $workerRank->name,
                     'image' => $workerRank->image,
-                    'min_points' => $workerRank->min_points,
-                    'max_points' => $workerRank->max_points,
+                    'min_points' => \Illuminate\Support\Facades\Schema::hasColumn('ranks', 'min_points') ? ($workerRank->min_points ?? 0) : 0,
+                    'max_points' => \Illuminate\Support\Facades\Schema::hasColumn('ranks', 'max_points') ? ($workerRank->max_points ?? null) : null,
                 ] : null,
             ],
         ];

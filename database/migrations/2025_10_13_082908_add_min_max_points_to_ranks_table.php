@@ -4,22 +4,34 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddMinMaxPointsToRanksTable extends Migration
+return new class extends Migration
 {
     /**
      * Run the migrations.
      *
      * @return void
      */
-    public function up()
+    public function up(): void
     {
-        Schema::table('ranks', function (Blueprint $table) {
-            // Drop the old required_points column
-            $table->dropColumn('required_points');
-            // Add new min_points and max_points columns
-            $table->integer('min_points')->default(0)->after('image');
-            $table->integer('max_points')->nullable()->after('min_points');
-        });
+        // Check if columns already exist before adding
+        if (!Schema::hasColumn('ranks', 'min_points') || !Schema::hasColumn('ranks', 'max_points')) {
+            Schema::table('ranks', function (Blueprint $table) {
+                // Only drop required_points if it exists and min_points doesn't exist
+                if (Schema::hasColumn('ranks', 'required_points') && !Schema::hasColumn('ranks', 'min_points')) {
+                    $table->dropColumn('required_points');
+                }
+                
+                // Add new min_points column if it doesn't exist
+                if (!Schema::hasColumn('ranks', 'min_points')) {
+                    $table->integer('min_points')->default(0)->after('image');
+                }
+                
+                // Add new max_points column if it doesn't exist
+                if (!Schema::hasColumn('ranks', 'max_points')) {
+                    $table->integer('max_points')->nullable()->after('min_points');
+                }
+            });
+        }
     }
 
     /**
@@ -27,13 +39,22 @@ class AddMinMaxPointsToRanksTable extends Migration
      *
      * @return void
      */
-    public function down()
+    public function down(): void
     {
-        Schema::table('ranks', function (Blueprint $table) {
-            // Remove the new columns
-            $table->dropColumn(['min_points', 'max_points']);
-            // Re-add the old required_points column
-            $table->integer('required_points')->default(0)->after('image');
-        });
+        if (Schema::hasColumn('ranks', 'min_points') || Schema::hasColumn('ranks', 'max_points')) {
+            Schema::table('ranks', function (Blueprint $table) {
+                // Remove the new columns if they exist
+                if (Schema::hasColumn('ranks', 'min_points')) {
+                    $table->dropColumn('min_points');
+                }
+                if (Schema::hasColumn('ranks', 'max_points')) {
+                    $table->dropColumn('max_points');
+                }
+                // Re-add the old required_points column if it doesn't exist
+                if (!Schema::hasColumn('ranks', 'required_points')) {
+                    $table->integer('required_points')->default(0)->after('image');
+                }
+            });
+        }
     }
-}
+};

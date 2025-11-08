@@ -35,7 +35,23 @@ class RankController extends Controller
                 $query->where('archived', $archived === 'true');
             }
 
-            $ranks = $query->paginate($limit, ['id', 'name', 'image', 'min_points', 'max_points', 'created_at', 'updated_at', 'archived'], 'page', $page);
+            // Check if min_points and max_points columns exist before selecting them
+            $columns = ['id', 'name', 'image', 'created_at', 'updated_at', 'archived'];
+            if (\Illuminate\Support\Facades\Schema::hasColumn('ranks', 'min_points')) {
+                $columns[] = 'min_points';
+            }
+            if (\Illuminate\Support\Facades\Schema::hasColumn('ranks', 'max_points')) {
+                $columns[] = 'max_points';
+            }
+            
+            // Only order by min_points if the column exists
+            if (\Illuminate\Support\Facades\Schema::hasColumn('ranks', 'min_points')) {
+                $query->orderBy('min_points', 'asc');
+            } else {
+                $query->orderBy('id', 'asc');
+            }
+            
+            $ranks = $query->paginate($limit, $columns, 'page', $page);
 
             return response()->json([
                 'ranks' => $ranks->items(),
@@ -61,12 +77,19 @@ class RankController extends Controller
     {
         try {
             Log::info("Store request data: " . json_encode($request->all()));
-            $validator = Validator::make($request->all(), [
+            // Build validation rules based on whether columns exist
+            $validationRules = [
                 'name' => 'required|string|max:255',
                 'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-                'min_points' => 'required|integer|min:0',
-                'max_points' => 'nullable|integer|min:0|gt:min_points',
-            ]);
+            ];
+            
+            // Only require min_points/max_points if columns exist
+            if (\Illuminate\Support\Facades\Schema::hasColumn('ranks', 'min_points')) {
+                $validationRules['min_points'] = 'required|integer|min:0';
+                $validationRules['max_points'] = 'nullable|integer|min:0|gt:min_points';
+            }
+            
+            $validator = Validator::make($request->all(), $validationRules);
 
             if ($validator->fails()) {
                 Log::error("Validation failed in store: " . json_encode($validator->errors()));
@@ -78,13 +101,21 @@ class RankController extends Controller
                 $imagePath = $request->file('image')->store('img/rank', 'public');
             }
 
-            $rank = Rank::create([
+            $rankData = [
                 'name' => $request->name,
                 'image' => $imagePath,
-                'min_points' => $request->min_points,
-                'max_points' => $request->max_points,
                 'archived' => false,
-            ]);
+            ];
+            
+            // Only add min_points/max_points if columns exist
+            if (\Illuminate\Support\Facades\Schema::hasColumn('ranks', 'min_points')) {
+                $rankData['min_points'] = $request->min_points ?? 0;
+            }
+            if (\Illuminate\Support\Facades\Schema::hasColumn('ranks', 'max_points')) {
+                $rankData['max_points'] = $request->max_points ?? null;
+            }
+            
+            $rank = Rank::create($rankData);
 
             return response()->json([
                 'message' => 'Rank created successfully',
@@ -114,12 +145,19 @@ class RankController extends Controller
                 return response()->json(['error' => 'Rank not found'], 404);
             }
 
-            $validator = Validator::make($request->all(), [
+            // Build validation rules based on whether columns exist
+            $validationRules = [
                 'name' => 'required|string|max:255',
                 'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-                'min_points' => 'required|integer|min:0',
-                'max_points' => 'nullable|integer|min:0|gt:min_points',
-            ]);
+            ];
+            
+            // Only require min_points/max_points if columns exist
+            if (\Illuminate\Support\Facades\Schema::hasColumn('ranks', 'min_points')) {
+                $validationRules['min_points'] = 'required|integer|min:0';
+                $validationRules['max_points'] = 'nullable|integer|min:0|gt:min_points';
+            }
+            
+            $validator = Validator::make($request->all(), $validationRules);
 
             if ($validator->fails()) {
                 Log::error("Validation failed in update for rank ID {$id}: " . json_encode($validator->errors()));
@@ -134,12 +172,20 @@ class RankController extends Controller
                 $imagePath = $request->file('image')->store('img/rank', 'public');
             }
 
-            $rank->update([
+            $updateData = [
                 'name' => $request->name,
                 'image' => $imagePath,
-                'min_points' => $request->min_points,
-                'max_points' => $request->max_points,
-            ]);
+            ];
+            
+            // Only update min_points/max_points if columns exist
+            if (\Illuminate\Support\Facades\Schema::hasColumn('ranks', 'min_points')) {
+                $updateData['min_points'] = $request->min_points ?? 0;
+            }
+            if (\Illuminate\Support\Facades\Schema::hasColumn('ranks', 'max_points')) {
+                $updateData['max_points'] = $request->max_points ?? null;
+            }
+            
+            $rank->update($updateData);
 
             return response()->json([
                 'message' => 'Rank updated successfully',

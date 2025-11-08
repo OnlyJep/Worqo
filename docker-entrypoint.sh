@@ -86,6 +86,11 @@ php artisan migrate --path=database/migrations/2025_10_17_040000_add_last_activi
 echo "Ensuring is_online column exists..."
 php artisan migrate --path=database/migrations/2025_10_24_034522_add_is_online_to_users_table.php --force 2>&1 || echo "Is online migration check completed"
 
+# Run ranks min_points/max_points migration if it hasn't been run yet
+# The migration itself checks if columns exist, so it's safe to run multiple times
+echo "Ensuring ranks min_points/max_points columns exist..."
+php artisan migrate --path=database/migrations/2025_10_13_082908_add_min_max_points_to_ranks_table.php --force 2>&1 || echo "Ranks min_points/max_points migration check completed"
+
 echo "Migration process completed. The application will handle missing columns gracefully."
 
 echo "Installing Passport..."
