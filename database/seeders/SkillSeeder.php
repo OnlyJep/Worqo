@@ -4,6 +4,7 @@
 
      use Illuminate\Database\Seeder;
      use Illuminate\Support\Facades\DB;
+     use Illuminate\Support\Facades\Schema;
 
      class SkillSeeder extends Seeder
      {
@@ -315,25 +316,38 @@
 
              DB::table('skills')->truncate(); // Clear existing data
 
+            // Check if sub_skills column exists
+            $hasSubSkillsColumn = Schema::hasColumn('skills', 'sub_skills');
+
             foreach ($skills as $skill) {
                 if (is_array($skill) && isset($skill['skill_name'])) {
-                    // New format with sub_skills - store as JSON string if column exists, otherwise just skill_name
+                    // New format with sub_skills - store as JSON string if column exists
                     $insertData = [
                         'skill_name' => $skill['skill_name'],
                         'created_at' => now(),
                         'updated_at' => now(),
                     ];
                     
-                    // Only add sub_skills if column exists in database
-                    // For now, we'll just store the skill_name
+                    // Add sub_skills if column exists in database
+                    if ($hasSubSkillsColumn && isset($skill['sub_skills']) && is_array($skill['sub_skills'])) {
+                        $insertData['sub_skills'] = json_encode($skill['sub_skills']);
+                    }
+                    
                     DB::table('skills')->insert($insertData);
                 } else {
                     // Old format (string only)
-                    DB::table('skills')->insert([
+                    $insertData = [
                         'skill_name' => $skill,
                         'created_at' => now(),
                         'updated_at' => now(),
-                    ]);
+                    ];
+                    
+                    // Add empty sub_skills array if column exists
+                    if ($hasSubSkillsColumn) {
+                        $insertData['sub_skills'] = json_encode([]);
+                    }
+                    
+                    DB::table('skills')->insert($insertData);
                 }
             }
          }
