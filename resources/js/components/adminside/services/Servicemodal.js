@@ -6,11 +6,17 @@ import "./../../../../sass/components/_servicemodal.scss";
 const { Option } = Select;
 
 const ServiceModal = ({ onClose, onSubmit, isEdit, initialData, skills: propSkills }) => {
+  // Normalize skill_ids to strings for Ant Design Select compatibility
+  const normalizeSkillIds = (ids) => {
+    if (!Array.isArray(ids)) return [];
+    return ids.map(id => String(id));
+  };
+
   const [formData, setFormData] = useState({
     name: initialData?.name || "",
     description: initialData?.description || "",
     color_collar_id: initialData?.color_collar_id || "",
-    skill_ids: initialData?.skill_ids || [],
+    skill_ids: normalizeSkillIds(initialData?.skill_ids || []),
     service_image: initialData?.service_image || null,
     image_url: initialData?.image_url || null,
   });
@@ -23,6 +29,7 @@ const ServiceModal = ({ onClose, onSubmit, isEdit, initialData, skills: propSkil
   const [colorCollarsLoading, setColorCollarsLoading] = useState(true);
   const [colorCollarsError, setColorCollarsError] = useState("");
   const isMountedRef = useRef(true);
+  const modalRef = useRef(null);
 
   useEffect(() => {
     isMountedRef.current = true;
@@ -114,11 +121,15 @@ const ServiceModal = ({ onClose, onSubmit, isEdit, initialData, skills: propSkil
   // Update formData when initialData changes
   useEffect(() => {
     if (initialData) {
+      // Normalize skill_ids to strings to match Option values
+      const normalizedSkillIds = Array.isArray(initialData.skill_ids)
+        ? initialData.skill_ids.map(id => String(id))
+        : [];
       setFormData({
         name: initialData.name || "",
         description: initialData.description || "",
         color_collar_id: initialData.color_collar_id || "",
-        skill_ids: initialData.skill_ids || [],
+        skill_ids: normalizedSkillIds,
         service_image: initialData.service_image || null,
         image_url: initialData.image_url || null,
       });
@@ -205,7 +216,7 @@ const ServiceModal = ({ onClose, onSubmit, isEdit, initialData, skills: propSkil
   };
 
   return (
-    <div className="servicemodal-overlay">
+    <div className="servicemodal-overlay" ref={modalRef}>
       <div className="servicemodal">
         <h2>{isEdit ? "Edit Service" : "Add Service"}</h2>
         <form onSubmit={handleSubmit}>
@@ -276,6 +287,9 @@ const ServiceModal = ({ onClose, onSubmit, isEdit, initialData, skills: propSkil
                   allowClear
                   disabled={skillsLoading}
                   style={{ width: "100%" }}
+                  getPopupContainer={(trigger) => modalRef.current || document.body}
+                  dropdownMatchSelectWidth={false}
+                  dropdownStyle={{ zIndex: 3000 }}
                 >
                   {skills.map((skill) => (
                     <Option key={skill.id} value={String(skill.id)}>
