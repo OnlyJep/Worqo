@@ -123,12 +123,16 @@
   .password-toggle {
     position: absolute;
     right: 16px;
-    top: 18px;
+    top: 50%;
+    transform: translateY(-50%);
     cursor: pointer;
     color: #666666;
     font-size: 20px; // Slightly larger for touch
     z-index: 2;
     transition: color 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     &:hover {
       color: #001E40; // Hover feedback
@@ -293,7 +297,8 @@
     }
 
     .password-toggle {
-      top: 16px;
+      top: 50%;
+      transform: translateY(-50%);
     }
   }
 

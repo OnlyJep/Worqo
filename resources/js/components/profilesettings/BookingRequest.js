@@ -408,6 +408,36 @@ const BookingRequest = () => {
                         })}</div>
                       </div>
                     </div>
+                    {(() => {
+                      const contactProfile = isEmployerView ? booking.worker?.profile : booking.employer?.profile;
+                      if (!contactProfile) return null;
+                      
+                      return (
+                        <>
+                          <div className="booking-request-address">
+                            <div className="booking-request-address-label">Address</div>
+                            <div className="booking-request-address-text">
+                              {(() => {
+                                const addressParts = [
+                                  contactProfile.street,
+                                  contactProfile.city,
+                                  contactProfile.province,
+                                  contactProfile.postal_code,
+                                  contactProfile.country
+                                ].filter(part => part && part.trim() !== '');
+                                return addressParts.length > 0 ? addressParts.join(', ') : 'N/A';
+                              })()}
+                            </div>
+                          </div>
+                          <div className="booking-request-contact">
+                            <div className="booking-request-contact-label">Contact Number</div>
+                            <div className="booking-request-contact-text">
+                              {contactProfile.contact_number || 'N/A'}
+                            </div>
+                          </div>
+                        </>
+                      );
+                    })()}
                     <div className="booking-request-description">
                       <div className="booking-request-description-label">Description</div>
                       <div className="booking-request-description-text">

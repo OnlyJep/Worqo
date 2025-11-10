@@ -578,7 +578,7 @@ const SkillsExperience = ({
                         </span>
                       </div>
                       {isAvailableSubSkillsDropdownOpen && (
-                        <div className="dropdown-menu" style={{ display: 'block', position: 'absolute', zIndex: 1000 }}>
+                        <div className="dropdown-menu" style={{ display: 'block', position: 'absolute', zIndex: 99999 }}>
                         <div className="dropdown-items">
                           {availableSubSkills.length > 0 ? (
                             availableSubSkills.map(subSkill => (

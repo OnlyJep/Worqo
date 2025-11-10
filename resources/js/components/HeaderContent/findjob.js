@@ -322,7 +322,7 @@ const FindJob = () => {
 			<Banner />
 			<div className="browse-content">
 				<div className="header-section">
-					<h2 className="category-title">FINDJOBS</h2>
+					<h2 className="category-title">FIND JOBS</h2>
 					<div className="search-and-sort-row">
 						<div className="search-bar">
 							<input

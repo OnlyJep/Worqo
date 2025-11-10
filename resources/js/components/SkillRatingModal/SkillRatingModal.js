@@ -1838,47 +1838,56 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
                  <div className="section-title">Added Credentials ({credentials.length})</div>
                  {credentials.length > 0 ? (
                    credentials.map((cred, index) => (
-                     <div 
-                       key={index} 
-                       className="credential-card"
-                       onClick={() => {
-                         // Edit credential functionality - make entire card clickable
-                         setNewCredential(cred);
-                         setSelectedCredentialCategory(cred.category || "");
-                         setEditingCredentialIndex(index); // Set the index of the credential being edited
-                         // Scroll to form
-                         document.querySelector('.credential-form')?.scrollIntoView({ behavior: 'smooth' });
-                       }}
-                       style={{ cursor: 'pointer' }}
-                     >
-                       <div className="credential-header">
-                         <span className="credential-name">{cred.credentials_name}</span>
-                         <button 
-                           className="remove-credential-btn" 
-                           title="Remove credential"
-                           onClick={(e) => {
-                             e.stopPropagation(); // Prevent card click when removing
-                             removeCredential(index);
-                           }}
-                         >
-                           <IconX size={16} />
-                         </button>
-                       </div>
-                       <div className="credential-info">
-                         <div className="credential-category">
-                           <span className="category-label">Category:</span>
-                           <span className="category-value">
-                             {cred.category ? credentialCategories.find(cat => cat.value === cred.category)?.label : 'Professional Credential'}
-                           </span>
+                    <div key={index} className="credential-card-container">
+                      <div 
+                        className="credential-card"
+                        onClick={() => {
+                          // Edit credential functionality - make entire card clickable
+                          setNewCredential(cred);
+                          setSelectedCredentialCategory(cred.category || "");
+                          setEditingCredentialIndex(index); // Set the index of the credential being edited
+                          // Scroll to form
+                          document.querySelector('.credential-form')?.scrollIntoView({ behavior: 'smooth' });
+                        }}
+                      >
+                         <div className="credential-header">
+                           <span className="credential-name">{cred.credentials_name}</span>
+                           <button 
+                             type="button"
+                             className="remove-credential-btn" 
+                             title="Remove credential"
+                             style={{
+                               background: 'transparent',
+                               backgroundColor: 'transparent',
+                               border: 'none',
+                               padding: 0,
+                               margin: 0,
+                               boxShadow: 'none'
+                             }}
+                             onClick={(e) => {
+                               e.stopPropagation(); // Prevent card click when removing
+                               removeCredential(index);
+                             }}
+                           >
+                             <IconX size={16} />
+                           </button>
                          </div>
-                         <div className="credential-files">
-                           <span className="files-label">Files:</span>
-                           <span className="files-list">
-                             {cred.credentials_photo ? 'Photo' : ''}
-                             {cred.credentials_photo && cred.credentials_doc ? ', ' : ''}
-                             {cred.credentials_doc ? 'Document' : ''}
-                             {!cred.credentials_photo && !cred.credentials_doc ? 'None uploaded' : ''}
-                           </span>
+                         <div className="credential-info">
+                           <div className="credential-category">
+                             <span className="category-label">Category:</span>
+                             <span className="category-value">
+                               {cred.category ? credentialCategories.find(cat => cat.value === cred.category)?.label : 'Professional Credential'}
+                             </span>
+                           </div>
+                           <div className="credential-files">
+                             <span className="files-label">Files:</span>
+                             <span className="files-list">
+                               {cred.credentials_photo ? 'Photo' : ''}
+                               {cred.credentials_photo && cred.credentials_doc ? ', ' : ''}
+                               {cred.credentials_doc ? 'Document' : ''}
+                               {!cred.credentials_photo && !cred.credentials_doc ? 'None uploaded' : ''}
+                             </span>
+                           </div>
                          </div>
                        </div>
                      </div>

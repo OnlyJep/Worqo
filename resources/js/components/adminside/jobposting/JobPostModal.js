@@ -121,6 +121,9 @@ const JobPostModal = ({ onClose, onSubmit, isEdit, initialData, onRefresh }) => 
 
   useEffect(() => {
 
+    // Reset mounted flag when component mounts
+    isMountedRef.current = true;
+
     // Fetch skills, ranks, and companies
 
     const fetchData = async () => {
@@ -136,6 +139,9 @@ const JobPostModal = ({ onClose, onSubmit, isEdit, initialData, onRefresh }) => 
           axios.get(`/api/employers`),
 
         ]);
+
+        // Check if component is still mounted before setting state
+        if (!isMountedRef.current) return;
 
         // Handle different response structures for skills
         let skillsData = [];
@@ -157,8 +163,11 @@ const JobPostModal = ({ onClose, onSubmit, isEdit, initialData, onRefresh }) => 
 
         })).filter(skill => skill.id && skill.name); // Filter out invalid skills
 
+        // Check again before each state update
+        if (!isMountedRef.current) return;
         setAvailableSkills(formattedSkills);
 
+        if (!isMountedRef.current) return;
         setFilteredSkills(formattedSkills);
 
         // Extract unique skill names for job title options (like employer flow)
@@ -169,6 +178,8 @@ const JobPostModal = ({ onClose, onSubmit, isEdit, initialData, onRefresh }) => 
         }));
         // Add "Others" option at the end
         jobTitleOptions.push({ value: 'Others', label: 'Others' });
+        
+        if (!isMountedRef.current) return;
         setJobTitleOptions(jobTitleOptions);
 
         
@@ -177,6 +188,7 @@ const JobPostModal = ({ onClose, onSubmit, isEdit, initialData, onRefresh }) => 
 
         const ranksData = ranksResponse.data.ranks || ranksResponse.data;
 
+        if (!isMountedRef.current) return;
         setAvailableRanks(ranksData);
 
         // Fetch employers data
@@ -184,9 +196,13 @@ const JobPostModal = ({ onClose, onSubmit, isEdit, initialData, onRefresh }) => 
           ? employersResponse.data
           : [];
         
+        if (!isMountedRef.current) return;
         setEmployers(employersData);
 
       } catch (error) {
+
+        // Only show error and set state if component is still mounted
+        if (!isMountedRef.current) return;
 
         console.error("Error fetching data:", error);
 
@@ -199,6 +215,11 @@ const JobPostModal = ({ onClose, onSubmit, isEdit, initialData, onRefresh }) => 
     };
 
     fetchData();
+
+    // Cleanup function to mark component as unmounted
+    return () => {
+      isMountedRef.current = false;
+    };
 
   }, []);
 
@@ -223,18 +244,6 @@ const JobPostModal = ({ onClose, onSubmit, isEdit, initialData, onRefresh }) => 
     }
 
   }, [searchTermSkills, availableSkills]);
-
-
-
-  useEffect(() => {
-
-    return () => {
-
-      isMountedRef.current = false;
-
-    };
-
-  }, []);
 
   // Close dropdowns when clicking outside
   useEffect(() => {
@@ -261,6 +270,9 @@ const JobPostModal = ({ onClose, onSubmit, isEdit, initialData, onRefresh }) => 
 
 
   useEffect(() => {
+    // Check if component is still mounted
+    if (!isMountedRef.current) return;
+
     // Set form data for edit mode - find employer by profile_id
     if (isEdit && initialData && employers.length > 0) {
       // Find employer by profile_id
@@ -269,6 +281,7 @@ const JobPostModal = ({ onClose, onSubmit, isEdit, initialData, onRefresh }) => 
       );
       
       if (employer) {
+        if (!isMountedRef.current) return;
         setSelectedEmployer(employer);
         console.log("Found employer in useEffect:", employer);
         console.log("Employer profile:", employer.profile);
@@ -279,7 +292,9 @@ const JobPostModal = ({ onClose, onSubmit, isEdit, initialData, onRefresh }) => 
       // Set selected job title and sub-skills for editing (like employer flow)
       const jobTitle = initialData.job_title || "";
       if (jobTitle) {
+        if (!isMountedRef.current) return;
         setSelectedJobTitle(jobTitle);
+        if (!isMountedRef.current) return;
         setIsJobTitleOthers(false);
         
         // Find the skill that matches the job title and set its sub-skills
@@ -291,12 +306,16 @@ const JobPostModal = ({ onClose, onSubmit, isEdit, initialData, onRefresh }) => 
           }));
           // Add "Others" option to sub-skills
           subSkillsOptions.push({ value: 'Others', label: 'Others' });
+          if (!isMountedRef.current) return;
           setAvailableSubSkills(subSkillsOptions);
         } else {
+          if (!isMountedRef.current) return;
           setAvailableSubSkills([{ value: 'Others', label: 'Others' }]);
         }
       } else {
+        if (!isMountedRef.current) return;
         setSelectedJobTitle("");
+        if (!isMountedRef.current) return;
         setAvailableSubSkills([]);
       }
       
@@ -312,8 +331,10 @@ const JobPostModal = ({ onClose, onSubmit, isEdit, initialData, onRefresh }) => 
           return null;
         }).filter(s => s !== null);
         
+        if (!isMountedRef.current) return;
         setSelectedSubSkills(subSkillsFromJob);
         // Set the input value to display comma-separated sub-skills
+        if (!isMountedRef.current) return;
         setSubSkillsInputValue(subSkillsFromJob.join(', '));
         
         // Set skill experiences from the job's skillExperiences
@@ -323,6 +344,7 @@ const JobPostModal = ({ onClose, onSubmit, isEdit, initialData, onRefresh }) => 
             experiences[skill.name] = skill.experience;
           }
         });
+        if (!isMountedRef.current) return;
         if (initialData.skill_experiences && typeof initialData.skill_experiences === 'object') {
           setSkillExperiences({ ...experiences, ...initialData.skill_experiences });
         } else {
@@ -330,6 +352,7 @@ const JobPostModal = ({ onClose, onSubmit, isEdit, initialData, onRefresh }) => 
         }
       }
 
+      if (!isMountedRef.current) return;
       setFormData({
 
         employer_id: employer?.id ? String(employer.id) : (initialData.employer_id || ""),

@@ -262,6 +262,48 @@
     }
   }
 
+          .booking-request-contact {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            width: 100%;
+
+            .booking-request-contact-label {
+              font-size: 14px;
+              font-weight: 700;
+              color: black;
+              margin-bottom: 4px;
+            }
+
+            .booking-request-contact-text {
+              font-size: 14px;
+              font-weight: 400;
+              color: #374151;
+              line-height: 1.5;
+            }
+          }
+
+          .booking-request-address {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            width: 100%;
+
+            .booking-request-address-label {
+              font-size: 14px;
+              font-weight: 700;
+              color: black;
+              margin-bottom: 4px;
+            }
+
+            .booking-request-address-text {
+              font-size: 14px;
+              font-weight: 400;
+              color: #374151;
+              line-height: 1.5;
+            }
+          }
+
           .booking-request-salary {
             font-size: 18px;
             font-weight: 700;
@@ -616,6 +658,30 @@
             }
 
             .booking-request-description-text {
+              font-size: 15px;
+            }
+          }
+
+          .booking-request-contact {
+            text-align: center;
+
+            .booking-request-contact-label {
+              font-size: 15px;
+            }
+
+            .booking-request-contact-text {
+              font-size: 15px;
+            }
+          }
+
+          .booking-request-address {
+            text-align: center;
+
+            .booking-request-address-label {
+              font-size: 15px;
+            }
+
+            .booking-request-address-text {
               font-size: 15px;
             }
           }

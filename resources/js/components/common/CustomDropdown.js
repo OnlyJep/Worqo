@@ -15,6 +15,8 @@ const CustomDropdown = ({
   const [isOpen, setIsOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const dropdownRef = useRef(null);
+  const dropdownMenuRef = useRef(null);
+  const dropdownOptionsListRef = useRef(null);
   const searchInputRef = useRef(null);
 
   // Close dropdown when clicking outside
@@ -31,20 +33,43 @@ const CustomDropdown = ({
     };
   }, []);
   
-  // Close dropdown on scroll or resize to prevent positioning issues
+  // Handle scroll inside dropdown - prevent closing when scrolling the list
+  const handleDropdownScroll = (e) => {
+    // Stop propagation to prevent window scroll handlers from closing dropdown
+    e.stopPropagation();
+  };
+  
+  // Handle wheel events inside dropdown
+  const handleDropdownWheel = (e) => {
+    // Always stop propagation when scrolling inside dropdown
+    // This prevents the wheel event from reaching window scroll handlers
+    e.stopPropagation();
+  };
+  
+  // Close dropdown on page scroll (window/document level only) or resize
   useEffect(() => {
     if (!isOpen) return;
     
-    const handleScrollOrResize = () => {
+    const handleResize = () => {
+      // Always close on resize to prevent positioning issues
       setIsOpen(false);
     };
     
-    window.addEventListener('scroll', handleScrollOrResize, true);
-    window.addEventListener('resize', handleScrollOrResize);
+    // Only listen to scroll on window/document level (not capture phase)
+    // Scroll events on individual scrollable elements (like dropdown-options-list)
+    // don't bubble to window, so they won't trigger this handler
+    // This means scrolling inside the dropdown won't close it
+    const handleWindowScroll = () => {
+      // This only fires on actual page/window scroll, not on element scroll
+      setIsOpen(false);
+    };
+    
+    window.addEventListener('scroll', handleWindowScroll, { passive: true });
+    window.addEventListener('resize', handleResize);
     
     return () => {
-      window.removeEventListener('scroll', handleScrollOrResize, true);
-      window.removeEventListener('resize', handleScrollOrResize);
+      window.removeEventListener('scroll', handleWindowScroll);
+      window.removeEventListener('resize', handleResize);
     };
   }, [isOpen]);
 
@@ -121,6 +146,9 @@ const CustomDropdown = ({
       {isOpen && !disabled && (
         <div 
           className="dropdown-menu"
+          ref={dropdownMenuRef}
+          onScroll={handleDropdownScroll}
+          onWheel={handleDropdownWheel}
         >
           {searchable && (
             <div className="dropdown-search-container">
@@ -142,7 +170,12 @@ const CustomDropdown = ({
               />
             </div>
           )}
-          <div className="dropdown-options-list">
+          <div 
+            className="dropdown-options-list"
+            ref={dropdownOptionsListRef}
+            onScroll={handleDropdownScroll}
+            onWheel={handleDropdownWheel}
+          >
             {filteredOptions.map(option => (
               <div
                 key={option.value}

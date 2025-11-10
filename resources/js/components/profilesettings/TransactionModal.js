@@ -215,6 +215,36 @@ const TransactionModal = ({ isOpen, onClose, booking }) => {
                   {booking.hours_per_day ? `${booking.hours_per_day} hours` : salaryInfo.hoursPerDay ? `${salaryInfo.hoursPerDay} hours` : 'Not specified'}
                 </span>
               </div>
+              {(() => {
+                const contactProfile = isEmployer ? booking.worker?.profile : booking.employer?.profile;
+                if (!contactProfile) return null;
+                
+                return (
+                  <>
+                    <div className="detail-row">
+                      <span className="label">Address:</span>
+                      <span className="value">
+                        {(() => {
+                          const addressParts = [
+                            contactProfile.street,
+                            contactProfile.city,
+                            contactProfile.province,
+                            contactProfile.postal_code,
+                            contactProfile.country
+                          ].filter(part => part && part.trim() !== '');
+                          return addressParts.length > 0 ? addressParts.join(', ') : 'Not specified';
+                        })()}
+                      </span>
+                    </div>
+                    <div className="detail-row">
+                      <span className="label">Contact Number:</span>
+                      <span className="value">
+                        {contactProfile.contact_number || 'Not specified'}
+                      </span>
+                    </div>
+                  </>
+                );
+              })()}
               <div className="detail-row">
                 <span className="label">Description:</span>
                 <span className="value">{booking.description}</span>

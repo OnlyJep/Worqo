@@ -51,3 +51,12 @@
   min-width: 560px;
 }
 
+// Add Credential Button styles - placed at the end to ensure highest priority
+// These styles will NOT be removed when SCSS is recompiled
+.add-credential-btn {
+  background-color: #1A2A44 !important;
+  color: white !important;
+  padding: 10px !important;
+  border-radius: 5px !important;
+}
+
