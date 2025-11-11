@@ -19,6 +19,14 @@ const Headerz = () => {
   const [imageError, setImageError] = useState(false);
   const [isSwitching, setIsSwitching] = useState(false);
   const [targetRole, setTargetRole] = useState('');
+  const [modalState, setModalState] = useState({
+    open: false,
+    title: '',
+    message: '',
+    confirmText: '',
+    onConfirm: null,
+    cancelText: 'Cancel'
+  });
   const dropdownRef = useRef(null);
   const navigate = useNavigate();
 
@@ -216,7 +224,17 @@ const Headerz = () => {
     // Allow browsing jobs without login
     // Only restrict role-based actions when logged in
     if (isLoggedIn && user?.role_id === 2) {
-      alert('Employers cannot find jobs. Please switch to Worker account.');
+      setModalState({
+        open: true,
+        title: 'Switch to Worker',
+        message: 'Employers cannot find jobs. Please switch to Worker account.',
+        confirmText: 'Switch to Worker',
+        onConfirm: () => {
+          setModalState(s => ({ ...s, open: false }));
+          handleSwitchAccount();
+        },
+        cancelText: 'Cancel'
+      });
       return;
     }
     navigate('/find-jobs');
@@ -228,17 +246,43 @@ const Headerz = () => {
       e.stopPropagation();
     }
     if (!isLoggedIn) {
-      alert('Please login to post jobs');
-      navigate('/login', { replace: true });
+      setModalState({
+        open: true,
+        title: 'Login Required',
+        message: 'Please login to post jobs.',
+        confirmText: 'Login / Signup',
+        onConfirm: () => {
+          setModalState(s => ({ ...s, open: false }));
+          navigate('/login', { replace: true });
+        },
+        cancelText: 'Cancel'
+      });
       return;
     }
     const userRoleId = Number(user?.role_id);
     if (userRoleId === 1) {
-      alert('Workers cannot post jobs. Please switch to Employer account.');
+      setModalState({
+        open: true,
+        title: 'Switch to Employer',
+        message: 'Workers cannot post jobs. Please switch to Employer account.',
+        confirmText: 'Switch to Employer',
+        onConfirm: () => {
+          setModalState(s => ({ ...s, open: false }));
+          handleSwitchAccount();
+        },
+        cancelText: 'Cancel'
+      });
       return;
     }
     if (userRoleId !== 2) {
-      alert('Only Employers can post jobs.');
+      setModalState({
+        open: true,
+        title: 'Not Allowed',
+        message: 'Only Employers can post jobs.',
+        confirmText: 'OK',
+        onConfirm: () => setModalState(s => ({ ...s, open: false })),
+        cancelText: 'Close'
+      });
       return;
     }
     // Navigate directly to post job page in profile settings - no intermediate stops
@@ -511,6 +555,82 @@ const Headerz = () => {
   return (
     <header className="headerz">
       {isLoading && <Loader />}
+      {modalState.open && (
+        <div
+          className="headerz-modal-overlay"
+          style={{
+            position: 'fixed',
+            inset: 0,
+            background: 'rgba(0,0,0,0.4)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            zIndex: 9999
+          }}
+          onMouseDown={(e) => {
+            // close when clicking on overlay
+            if (e.target.classList.contains('headerz-modal-overlay')) {
+              setModalState(s => ({ ...s, open: false }));
+            }
+          }}
+        >
+          <div
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="headerz-modal-title"
+            style={{
+              background: '#fff',
+              borderRadius: 8,
+              width: '90%',
+              maxWidth: 420,
+              boxShadow: '0 10px 30px rgba(0,0,0,0.2)'
+            }}
+            onMouseDown={(e) => e.stopPropagation()}
+          >
+            <div style={{ padding: '16px 20px', borderBottom: '1px solid #eee' }}>
+              <h3 id="headerz-modal-title" style={{ margin: 0, fontSize: 18 }}>{modalState.title}</h3>
+            </div>
+            <div style={{ padding: 20, color: '#333', fontSize: 14, lineHeight: 1.5 }}>
+              {modalState.message}
+            </div>
+            <div style={{ padding: 16, display: 'flex', justifyContent: 'flex-end', gap: 8, borderTop: '1px solid #eee' }}>
+              <button
+                type="button"
+                onClick={() => setModalState(s => ({ ...s, open: false }))}
+                style={{
+                  padding: '8px 12px',
+                  borderRadius: 6,
+                  border: '1px solid #e5e7eb',
+                  background: '#fff',
+                  cursor: 'pointer'
+                }}
+              >
+                {modalState.cancelText || 'Cancel'}
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  if (typeof modalState.onConfirm === 'function') {
+                    modalState.onConfirm();
+                  } else {
+                    setModalState(s => ({ ...s, open: false }));
+                  }
+                }}
+                style={{
+                  padding: '8px 12px',
+                  borderRadius: 6,
+                  border: 'none',
+                  background: '#001E40',
+                  color: '#fff',
+                  cursor: 'pointer'
+                }}
+              >
+                {modalState.confirmText || 'OK'}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
       {isSwitching && (
         <div className="switching-overlay">
           <div className="switching-content">
@@ -538,27 +658,24 @@ const Headerz = () => {
             <span onClick={goToServices}>Services</span>
           )}
           <span onClick={goToAbout}>About Us</span>
+          <span 
+            onClick={goToPostJobs}
+            onMouseDown={(e) => e.preventDefault()}
+            style={{ cursor: 'pointer', userSelect: 'none' }}
+            role="button"
+            tabIndex={0}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                goToPostJobs(e);
+              }
+            }}
+          >
+            Post Job
+          </span>
           {/* Hide Find Jobs for Employers (role_id = 2) */}
           {(!isLoggedIn || user?.role_id !== 2) && (
             <span onClick={goToFindJobs}>Find Jobs</span>
-          )}
-          {/* Show Post Jobs only for Employers (role_id = 2) */}
-          {isLoggedIn && user?.role_id === 2 && (
-            <span 
-              onClick={goToPostJobs}
-              onMouseDown={(e) => e.preventDefault()}
-              style={{ cursor: 'pointer', userSelect: 'none' }}
-              role="button"
-              tabIndex={0}
-              onKeyDown={(e) => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                  e.preventDefault();
-                  goToPostJobs(e);
-                }
-              }}
-            >
-              Post Jobs
-            </span>
           )}
           {/* Additional navigation items */}
         </nav>

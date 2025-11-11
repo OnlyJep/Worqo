@@ -3,6 +3,7 @@ import { IconX, IconChevronDown, IconPlus, IconMinus } from '@tabler/icons-react
 import { Select, Dropdown, message, Input } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import SkillsExperience from './SkillsExperience';
+import AddedCredentials from './AddedCredentials';
 const { Option } = Select;
 
 // Category options shown in the first dropdown (three only)
@@ -1834,71 +1835,16 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
               </div>
               </form>
 
-               <div className="form-section added-credentials-section">
-                 <div className="section-title">Added Credentials ({credentials.length})</div>
-                 {credentials.length > 0 ? (
-                   credentials.map((cred, index) => (
-                    <div key={index} className="credential-card-container">
-                      <div 
-                        className="credential-card"
-                        onClick={() => {
-                          // Edit credential functionality - make entire card clickable
-                          setNewCredential(cred);
-                          setSelectedCredentialCategory(cred.category || "");
-                          setEditingCredentialIndex(index); // Set the index of the credential being edited
-                          // Scroll to form
-                          document.querySelector('.credential-form')?.scrollIntoView({ behavior: 'smooth' });
-                        }}
-                      >
-                         <div className="credential-header">
-                           <span className="credential-name">{cred.credentials_name}</span>
-                           <button 
-                             type="button"
-                             className="remove-credential-btn" 
-                             title="Remove credential"
-                             style={{
-                               background: 'transparent',
-                               backgroundColor: 'transparent',
-                               border: 'none',
-                               padding: 0,
-                               margin: 0,
-                               boxShadow: 'none'
-                             }}
-                             onClick={(e) => {
-                               e.stopPropagation(); // Prevent card click when removing
-                               removeCredential(index);
-                             }}
-                           >
-                             <IconX size={16} />
-                           </button>
-                         </div>
-                         <div className="credential-info">
-                           <div className="credential-category">
-                             <span className="category-label">Category:</span>
-                             <span className="category-value">
-                               {cred.category ? credentialCategories.find(cat => cat.value === cred.category)?.label : 'Professional Credential'}
-                             </span>
-                           </div>
-                           <div className="credential-files">
-                             <span className="files-label">Files:</span>
-                             <span className="files-list">
-                               {cred.credentials_photo ? 'Photo' : ''}
-                               {cred.credentials_photo && cred.credentials_doc ? ', ' : ''}
-                               {cred.credentials_doc ? 'Document' : ''}
-                               {!cred.credentials_photo && !cred.credentials_doc ? 'None uploaded' : ''}
-                             </span>
-                           </div>
-                         </div>
-                       </div>
-                     </div>
-                   ))
-                 ) : (
-                   <div className="empty-credentials">
-                     <span className="empty-text">No credentials added yet</span>
-                     <span className="empty-hint">Add credentials to build trust with employers</span>
-                   </div>
-                 )}
-               </div>
+              <AddedCredentials
+                credentials={credentials}
+                onEditCredential={(cred, index) => {
+                  setNewCredential(cred);
+                  setSelectedCredentialCategory(cred.category || "");
+                  setEditingCredentialIndex(index);
+                  document.querySelector('.credential-form')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+                onRemoveCredential={removeCredential}
+              />
             </>
           )}
 

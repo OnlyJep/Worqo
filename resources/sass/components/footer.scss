@@ -14,8 +14,9 @@
     max-width: 1200px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 1.2fr 1fr 1fr auto;
+    grid-template-columns: 1fr 1fr 1fr auto;
     gap: 48px;
+    align-items: start;
   }
 
   .footer__logo {
@@ -44,9 +45,14 @@
     }
 
     .footer__bullet {
+      font-size: 16px;
       width: 16px;
-      display: inline-block;
-      text-align: center;
+      height: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: #ffffff;
       opacity: 0.9;
     }
   }
@@ -55,7 +61,7 @@
     h3 {
       font-family: 'Inter', sans-serif;
       font-weight: 500;
-      font-size: 14px;
+      font-size: 13px;
       margin: 0 0 10px 0;
       color: #ffffff;
     }
@@ -69,6 +75,53 @@
         font-size: 12px;
         color: #cfd6dc;
         margin: 6px 0;
+      }
+    }
+  }
+
+  .footer__links {
+    font-family: 'Inter', sans-serif;
+
+    .footer__nav,
+    .footer__policies {
+      list-style: none;
+      margin: 0 0 10px 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      li {
+        font-size: 13px;
+        color: #cfd6dc;
+      }
+    }
+  }
+
+  .footer__nav,
+  .footer__policies {
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      li {
+        font-size: 13px;
+        color: #cfd6dc;
+        
+        a {
+          color: #cfd6dc;
+          text-decoration: none;
+          transition: color 0.2s ease;
+        }
+
+        a:hover {
+          color: #ffffff;
+          text-decoration: none;
+        }
       }
     }
   }

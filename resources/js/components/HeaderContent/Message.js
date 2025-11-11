@@ -233,7 +233,6 @@ const MessageEmployer = () => {
 
   const handleConversationSelect = async (conversation) => {
     setSelectedConversation(conversation);
-    setShowSidebar(false); // Hide sidebar when conversation is selected
     const token = localStorage.getItem('auth_token');
     const stored = JSON.parse(localStorage.getItem('user') || '{}');
     const userId = stored?.id || stored?.user?.id;

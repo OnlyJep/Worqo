@@ -275,7 +275,16 @@
 			justify-content: space-between;
 		}
 
-		.job-title { margin: 0; font-size: 18px; font-weight: 800; color: #0b0d0f; }
+		.job-title { 
+			margin: 0; 
+			font-size: 18px; 
+			font-weight: 800; 
+			color: #0b0d0f;
+			background: none;
+			border: none;
+			padding: 0;
+			box-shadow: none;
+		}
 
 		.job-meta { 
 			margin-top: 10px; 
@@ -284,14 +293,17 @@
 			display: flex;
 			justify-content: space-between;
 			align-items: flex-start;
+			flex-wrap: wrap;
+			gap: 12px;
 		}
 		
 		.meta-left {
 			flex: 1;
+			min-width: 0;
 		}
 		
 		.job-meta .salary { margin-top: 4px; color: #0b0d0f; font-weight: 700; }
-
+		
 		.findjob-section-title { margin-top: 16px; font-size: 11px; color: #000000; font-weight: 700; }
 		.findjob-desc { margin-top: 6px; font-size: 12px; color: #1b2430; line-height: 1.5; }
 
@@ -302,13 +314,39 @@
 			margin-top: 4px;
 			font-size: 11px;
 			font-weight: 600;
-			text-transform: capitalize;
+			text-transform: uppercase;
+			border: 1px solid currentColor;
+			border-radius: 8px;
+			padding: 4px 8px;
+			display: inline-block;
+			flex-shrink: 0;
+			align-self: flex-start;
 		}
 	}
 
 	// Mobile filter toggle button
 	.mobile-filter-toggle {
 		display: none;
+	}
+
+	// Medium devices - job type wraps below
+	@media (max-width: 900px) {
+		.result-card.job-card {
+			.job-meta {
+				flex-wrap: wrap;
+				
+				.meta-left {
+					flex: 1 1 100%;
+					min-width: 100%;
+				}
+				
+				.findjob-job-type {
+					flex: 0 0 auto;
+					width: auto;
+					margin-top: 8px;
+				}
+			}
+		}
 	}
 
 	@media (max-width: 768px) {
@@ -475,7 +513,17 @@
 
 			.job-meta {
 				flex-direction: column;
-				gap: 4px;
+				gap: 8px;
+				align-items: flex-start;
+			}
+			
+			.meta-left {
+				width: 100%;
+			}
+			
+			.findjob-job-type {
+				margin-top: 0;
+				align-self: flex-start;
 			}
 
 			.findjob-section-title {

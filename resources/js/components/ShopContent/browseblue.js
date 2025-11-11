@@ -760,17 +760,6 @@ const Browse = () => {
                         </span>
                       </div>
                     )}
-                    <div className="info-row">
-                      <div className="info-block">
-                        <div className="label">RATE</div>
-                        <div className="value">
-                          ₱{worker.hourlyRate}/hour
-                          {worker.hours_per_day ? ` (${worker.hours_per_day} hours/day)` : ' (4 hours/day)'}
-                          <br/>(₱{Math.round(worker.hourlyRate * (worker.hours_per_day || 4) * 30)}/month)
-                      </div>
-                      </div>
-                    </div>
-                    <div className="desc">{worker.description}</div>
                     <div className="skills-row">
                       {worker.primary_skills && worker.primary_skills.length > 0 && (
                         <>

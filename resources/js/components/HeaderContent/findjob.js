@@ -93,6 +93,38 @@ const FindJob = () => {
 		}
 	};
 
+	// Helper function to normalize skills data
+	const normalizeSkills = (skills) => {
+		if (!skills) return [];
+		if (Array.isArray(skills)) {
+			// If it's already an array, ensure each item has the expected structure
+			return skills.map(skill => {
+				if (typeof skill === 'string') {
+					return { name: skill, experience: 'No experience specified' };
+				}
+				if (typeof skill === 'object' && skill !== null) {
+					return {
+						name: skill.name || skill.skill_name || String(skill),
+						experience: skill.experience || skill.experience_level || 'No experience specified'
+					};
+				}
+				return { name: String(skill), experience: 'No experience specified' };
+			});
+		}
+		if (typeof skills === 'string') {
+			try {
+				const parsed = JSON.parse(skills);
+				if (Array.isArray(parsed)) {
+					return normalizeSkills(parsed);
+				}
+			} catch (e) {
+				// If parsing fails, treat as a single skill name
+				return [{ name: skills, experience: 'No experience specified' }];
+			}
+		}
+		return [];
+	};
+
 	// Apply all filters and sorting
 	const applyFiltersAndSort = useCallback(() => {
 		if (Array.isArray(jobs)) {
@@ -106,10 +138,12 @@ const FindJob = () => {
 					// Search in job title
 					const titleMatch = job.job_title?.toLowerCase().includes(searchLower);
 					
-					// Search in skills
-					const skillsMatch = job.skills && job.skills.some(skill => 
-						skill.name?.toLowerCase().includes(searchLower)
-					);
+					// Search in skills - normalize first to ensure it's an array
+					const normalizedSkills = normalizeSkills(job.skills);
+					const skillsMatch = Array.isArray(normalizedSkills) && normalizedSkills.length > 0 && 
+						normalizedSkills.some(skill => 
+							skill.name?.toLowerCase().includes(searchLower)
+						);
 					
 					// Search in job description
 					const descriptionMatch = job.description && 
@@ -423,7 +457,7 @@ const FindJob = () => {
 													   job.job_type === 'full-time' ? '#10b981' : 
 													   job.job_type === 'contract' ? '#f59e0b' : '#f59e0b'
 											}}>
-												{job.job_type || 'Any'}
+												{(job.job_type || 'Any').replace(/_/g, ' ').toUpperCase()}
 											</div>
 										</div>
 										<div className="findjob-section-title">Job Overview/Description</div>
@@ -434,11 +468,17 @@ const FindJob = () => {
 										</p>
 										<div className="findjob-section-title">Skills Required</div>
 										<div className="findjob-skills">
-											{job.skills && job.skills.map((skill, index) => (
-												<span key={index} className="findjob-chip">
-													{skill.name} ({skill.experience || 'No experience specified'})
-												</span>
-											))}
+											{(() => {
+												const normalizedSkills = normalizeSkills(job.skills);
+												if (Array.isArray(normalizedSkills) && normalizedSkills.length > 0) {
+													return normalizedSkills.map((skill, index) => (
+														<span key={index} className="findjob-chip">
+															{skill.name} ({skill.experience || 'No experience specified'})
+														</span>
+													));
+												}
+												return <span className="findjob-chip">No skills specified</span>;
+											})()}
 										</div>
 									</div>
 								</article>

@@ -30,7 +30,15 @@ class SearchController extends Controller
                 ], 400);
             }
 
-            $query = JobPost::with(['profile.user'])
+            $query = JobPost::with([
+                'profile' => function ($query) {
+                    $query->select('profiles.id', 'first_name', 'middlename', 'last_name', 'gender_id', 'suffix_id', 'suffixes.suffix_name', 'profiles.profile_img')
+                          ->leftJoin('suffixes', 'profiles.suffix_id', '=', 'suffixes.id');
+                },
+                'applications' => function ($query) {
+                    $query->select('id', 'job_post_id', 'status');
+                }
+            ])
                 ->where('archived', false)
                 ->where(function ($q) use ($searchTerm) {
                     $q->where('job_title', 'like', "%{$searchTerm}%")
@@ -42,22 +50,69 @@ class SearchController extends Controller
                          ->paginate($limit, ['*'], 'page', $page);
 
             $formattedJobs = $jobs->map(function ($job) {
+                // Parse skills from JSON format (same as JobPostController)
+                $skillsData = is_string($job->skills) ? json_decode($job->skills, true) : $job->skills;
+                $skillExperiences = is_string($job->skill_experiences) ? json_decode($job->skill_experiences, true) : $job->skill_experiences;
+                
+                // Ensure skills is always an array with proper structure
+                $formattedSkills = [];
+                if (is_array($skillsData)) {
+                    foreach ($skillsData as $index => $skill) {
+                        if (is_array($skill) && isset($skill['name'])) {
+                            $formattedSkills[] = [
+                                'name' => $skill['name'],
+                                'experience' => $skill['experience'] ?? ($skillExperiences[$index] ?? 'No experience specified')
+                            ];
+                        } elseif (is_string($skill)) {
+                            $formattedSkills[] = [
+                                'name' => $skill,
+                                'experience' => $skillExperiences[$index] ?? 'No experience specified'
+                            ];
+                        }
+                    }
+                } elseif (!empty($skillsData)) {
+                    // Fallback: if skillsData is not an array, create a single skill entry
+                    $formattedSkills[] = [
+                        'name' => is_string($skillsData) ? $skillsData : 'Unknown skill',
+                        'experience' => 'No experience specified'
+                    ];
+                }
+                
+                // Calculate application counts (same as JobPostController)
+                $applications = $job->applications ?? collect();
+                $applicationCount = $applications->where('status', 'accepted')->count();
+                $totalApplications = $applications->count();
+                
                 return [
                     'id' => $job->id,
                     'job_title' => $job->job_title,
                     'description' => $job->description,
-                    'skills' => $job->skills,
+                    'skills' => $formattedSkills, // Always return an array
+                    'salary' => $job->salary,
+                    'salary_type' => $job->salary_type,
                     'salary_range' => $job->salary_range,
                     'location' => $job->location,
                     'job_type' => $job->job_type,
                     'application_deadline' => $job->application_deadline,
-                    'employer' => [
-                        'id' => $job->profile->user->id,
-                        'name' => $job->profile->first_name . ' ' . $job->profile->last_name,
-                        'company' => $job->profile->company_name ?? 'N/A'
-                    ],
                     'created_at' => $job->created_at,
-                    'updated_at' => $job->updated_at
+                    'updated_at' => $job->updated_at,
+                    'profile_id' => $job->profile_id,
+                    'profile' => $job->profile ? [
+                        'id' => $job->profile->id,
+                        'first_name' => $job->profile->first_name,
+                        'middlename' => $job->profile->middlename,
+                        'last_name' => $job->profile->last_name,
+                        'suffix' => $job->profile->suffix ?? null,
+                    ] : null,
+                    'applications' => $applications->map(function ($app) {
+                        return [
+                            'id' => $app->id,
+                            'job_post_id' => $app->job_post_id,
+                            'status' => $app->status,
+                        ];
+                    })->toArray(),
+                    'application_count' => $applicationCount,
+                    'total_applications' => $totalApplications,
                 ];
             });
 

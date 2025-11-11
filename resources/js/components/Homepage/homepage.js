@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './../../../sass/components/HomepageStyles/homepage.scss';
 import Headerz from '../HeaderContent/Headerz';
 import Stats from '../StatsContent/stats';
@@ -18,6 +18,8 @@ const HomePage = () => {
   const [employerSearchTerm, setEmployerSearchTerm] = useState('');
   const [workerSearchTerm, setWorkerSearchTerm] = useState('');
   const navigate = useNavigate();
+  const searchInputRef = useRef(null);
+  const suggestionsRef = useRef(null);
 
   useEffect(() => {
     const userData = localStorage.getItem('user');
@@ -48,6 +50,27 @@ const HomePage = () => {
     setSearchSuggestions([]);
     setShowSuggestions(false);
   }, [user?.role_id]);
+
+  // Handle click outside to close suggestions
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        suggestionsRef.current &&
+        !suggestionsRef.current.contains(event.target) &&
+        searchInputRef.current &&
+        !searchInputRef.current.contains(event.target)
+      ) {
+        setShowSuggestions(false);
+      }
+    };
+
+    if (showSuggestions) {
+      document.addEventListener('mousedown', handleClickOutside);
+      return () => {
+        document.removeEventListener('mousedown', handleClickOutside);
+      };
+    }
+  }, [showSuggestions]);
 
   // Define static popular skills for common work searches (from SkillSeeder)
   useEffect(() => {
@@ -86,6 +109,9 @@ const HomePage = () => {
       setEmployerSearchTerm(value);
     } else if (user?.role_id === 1) {
       setWorkerSearchTerm(value);
+    } else {
+      // Guest users or no user - use general search term
+      setWorkerSearchTerm(value);
     }
 
     if (value.length >= 2) {
@@ -96,6 +122,7 @@ const HomePage = () => {
       } catch (error) {
         console.error('Error fetching search suggestions:', error);
         setSearchSuggestions([]);
+        setShowSuggestions(false);
       }
     } else {
       setSearchSuggestions([]);
@@ -104,35 +131,48 @@ const HomePage = () => {
   };
 
   // Handle search submission
-  const handleSearch = () => {
+  const handleSearch = (e) => {
+    if (e) {
+      e.preventDefault();
+    }
+    
     const currentSearchTerm = user?.role_id === 2 ? employerSearchTerm : workerSearchTerm;
+    
+    // Close suggestions
+    setShowSuggestions(false);
     
     if (currentSearchTerm.trim()) {
       // Navigate based on user role
       if (user?.role_id === 2) {
         // Employer - go to services page
-        navigate(`/services?search=${encodeURIComponent(currentSearchTerm)}`);
-      } else if (user?.role_id === 1) {
-        // Worker - go to find-jobs page
-        navigate(`/find-jobs?search=${encodeURIComponent(currentSearchTerm)}`);
+        navigate(`/services?search=${encodeURIComponent(currentSearchTerm.trim())}`);
+      } else {
+        // Worker or guest - go to find-jobs page
+        navigate(`/find-jobs?search=${encodeURIComponent(currentSearchTerm.trim())}`);
       }
-      // If no valid role, stay on homepage
     }
   };
 
   // Handle search on Enter key
-  const handleKeyPress = (e) => {
+  const handleKeyDown = (e) => {
     if (e.key === 'Enter') {
-      handleSearch();
+      e.preventDefault();
+      handleSearch(e);
+    } else if (e.key === 'Escape') {
+      setShowSuggestions(false);
     }
   };
 
   // Handle skill click
   const handleSkillClick = (skillName) => {
+    // Close suggestions if open
+    setShowSuggestions(false);
+    
     // Update role-specific search term
     if (user?.role_id === 2) {
       setEmployerSearchTerm(skillName);
-    } else if (user?.role_id === 1) {
+    } else {
+      // Worker or guest
       setWorkerSearchTerm(skillName);
     }
     
@@ -140,11 +180,10 @@ const HomePage = () => {
     if (user?.role_id === 2) {
       // Employer - go to services page
       navigate(`/services?search=${encodeURIComponent(skillName)}`);
-    } else if (user?.role_id === 1) {
-      // Worker - go to find-jobs page
+    } else {
+      // Worker or guest - go to find-jobs page
       navigate(`/find-jobs?search=${encodeURIComponent(skillName)}`);
     }
-    // If no valid role, stay on homepage
   };
 
   // Handle suggestion click
@@ -152,20 +191,21 @@ const HomePage = () => {
     // Update role-specific search term
     if (user?.role_id === 2) {
       setEmployerSearchTerm(suggestion);
-    } else if (user?.role_id === 1) {
+    } else {
+      // Worker or guest
       setWorkerSearchTerm(suggestion);
     }
     
     setShowSuggestions(false);
+    
     // Navigate based on user role
     if (user?.role_id === 2) {
       // Employer - go to services page
       navigate(`/services?search=${encodeURIComponent(suggestion)}`);
-    } else if (user?.role_id === 1) {
-      // Worker - go to find-jobs page
+    } else {
+      // Worker or guest - go to find-jobs page
       navigate(`/find-jobs?search=${encodeURIComponent(suggestion)}`);
     }
-    // If no valid role, stay on homepage
   };
 
   // Handle see more skills button click
@@ -174,11 +214,10 @@ const HomePage = () => {
     if (user?.role_id === 2) {
       // Employer - go to services page
       navigate('/services');
-    } else if (user?.role_id === 1) {
-      // Worker - go to find-jobs page
+    } else {
+      // Worker or guest - go to find-jobs page
       navigate('/find-jobs');
     }
-    // If no valid role, stay on homepage
   };
 
 
@@ -200,23 +239,48 @@ const HomePage = () => {
             : "Find job opportunities that match your skills and experience."
           }
         </p>
-        <div className={`search-bar ${user?.role_id === 2 ? 'employer-search-bar' : 'worker-search-bar'}`}>
+        <form 
+          className={`search-bar ${user?.role_id === 2 ? 'employer-search-bar' : 'worker-search-bar'}`}
+          onSubmit={handleSearch}
+        >
           <div className={`search-input-container ${user?.role_id === 2 ? 'employer-search-input-container' : 'worker-search-input-container'}`}>
             <input
+              ref={searchInputRef}
               type="text"
               placeholder={user?.role_id === 2 ? "Search for workers and services..." : "Search for jobs and opportunities..."}
               value={user?.role_id === 2 ? employerSearchTerm : workerSearchTerm}
               onChange={handleSearchInputChange}
-              onKeyPress={handleKeyPress}
+              onKeyDown={handleKeyDown}
+              onFocus={() => {
+                if (searchSuggestions.length > 0) {
+                  setShowSuggestions(true);
+                }
+              }}
               disabled={!isProfileComplete && user?.role_id === 1}
+              aria-label="Search input"
+              aria-autocomplete="list"
+              aria-expanded={showSuggestions}
             />
             {showSuggestions && searchSuggestions.length > 0 && (
-              <div className={`search-suggestions ${user?.role_id === 2 ? 'employer-search-suggestions' : 'worker-search-suggestions'}`}>
+              <div 
+                ref={suggestionsRef}
+                className={`search-suggestions ${user?.role_id === 2 ? 'employer-search-suggestions' : 'worker-search-suggestions'}`}
+                role="listbox"
+              >
                 {searchSuggestions.map((suggestion, index) => (
                   <div
                     key={index}
                     className={`suggestion-item ${user?.role_id === 2 ? 'employer-suggestion-item' : 'worker-suggestion-item'}`}
                     onClick={() => handleSuggestionClick(suggestion)}
+                    onMouseDown={(e) => e.preventDefault()}
+                    role="option"
+                    tabIndex={0}
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        handleSuggestionClick(suggestion);
+                      }
+                    }}
                   >
                     {suggestion}
                   </div>
@@ -225,13 +289,15 @@ const HomePage = () => {
             )}
           </div>
           <button 
+            type="submit"
             className={`search-button ${user?.role_id === 2 ? 'employer-search-button' : 'worker-search-button'}`}
             onClick={handleSearch}
             disabled={!isProfileComplete && user?.role_id === 1}
+            aria-label="Search"
           >
             <IconSearch size={24} />
           </button>
-        </div>
+        </form>
       </div>
 
       <div className={`work-searches-section ${user?.role_id === 2 ? 'employer-work-searches-section' : 'worker-work-searches-section'}`}>
@@ -243,9 +309,22 @@ const HomePage = () => {
               {popularSkills.slice(0, Math.ceil(popularSkills.length / 2)).map((skill, index) => (
                 <div 
                   key={skill.id} 
-                  className={`job-category ${user?.role_id === 2 ? 'employer-job-category' : 'worker-job-category'}`}
-                  onClick={() => handleSkillClick(skill.name)}
-                  style={{ cursor: 'pointer' }}
+                  className={`job-category ${user?.role_id === 2 ? 'employer-job-category' : 'worker-job-category'} ${(!isProfileComplete && user?.role_id === 1) ? 'disabled' : ''}`}
+                  onClick={() => {
+                    if (isProfileComplete || user?.role_id !== 1) {
+                      handleSkillClick(skill.name);
+                    }
+                  }}
+                  onKeyDown={(e) => {
+                    if ((e.key === 'Enter' || e.key === ' ') && (isProfileComplete || user?.role_id !== 1)) {
+                      e.preventDefault();
+                      handleSkillClick(skill.name);
+                    }
+                  }}
+                  role="button"
+                  tabIndex={(isProfileComplete || user?.role_id !== 1) ? 0 : -1}
+                  aria-label={`Search for ${skill.name} jobs`}
+                  style={{ cursor: (!isProfileComplete && user?.role_id === 1) ? 'not-allowed' : 'pointer' }}
                 >
                   {skill.name}
                 </div>
@@ -255,9 +334,22 @@ const HomePage = () => {
               {popularSkills.slice(Math.ceil(popularSkills.length / 2)).map((skill, index) => (
                 <div 
                   key={skill.id} 
-                  className={`job-category ${user?.role_id === 2 ? 'employer-job-category' : 'worker-job-category'}`}
-                  onClick={() => handleSkillClick(skill.name)}
-                  style={{ cursor: 'pointer' }}
+                  className={`job-category ${user?.role_id === 2 ? 'employer-job-category' : 'worker-job-category'} ${(!isProfileComplete && user?.role_id === 1) ? 'disabled' : ''}`}
+                  onClick={() => {
+                    if (isProfileComplete || user?.role_id !== 1) {
+                      handleSkillClick(skill.name);
+                    }
+                  }}
+                  onKeyDown={(e) => {
+                    if ((e.key === 'Enter' || e.key === ' ') && (isProfileComplete || user?.role_id !== 1)) {
+                      e.preventDefault();
+                      handleSkillClick(skill.name);
+                    }
+                  }}
+                  role="button"
+                  tabIndex={(isProfileComplete || user?.role_id !== 1) ? 0 : -1}
+                  aria-label={`Search for ${skill.name} jobs`}
+                  style={{ cursor: (!isProfileComplete && user?.role_id === 1) ? 'not-allowed' : 'pointer' }}
                 >
                   {skill.name}
                 </div>

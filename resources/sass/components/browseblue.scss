@@ -260,6 +260,7 @@
     background: linear-gradient(180deg, #f3f7fb 0%, #eef3f7 100%);
     border-radius: 8px;
     padding: 16px;
+    border: 1px solid #cbd5e1;
 
     .card-inner {
       display: grid;
@@ -267,6 +268,12 @@
       align-items: start;
       gap: 20px;
       position: relative;
+    }
+
+    .avatar-col {
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
     .avatar {

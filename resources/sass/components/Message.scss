@@ -1,11 +1,18 @@
 .message-container {
-  min-height: 100vh;
+  height: 100vh;
+  max-height: 100vh;
+  overflow: hidden;
   background-color: #f8f9fa;
+  display: flex;
+  flex-direction: column;
   
   .message-content {
     display: flex;
-    min-height: 50px;
+    flex: 1;
     margin-top: 70px; // Adjust based on header height
+    height: calc(100vh - 70px);
+    max-height: calc(100vh - 70px);
+    overflow: hidden;
   }
 
   // Conversation Sidebar
@@ -196,6 +203,7 @@
     display: flex;
     flex-direction: column;
     transition: width 0.3s ease;
+    min-height: 0;
 
     &.chat-area-full {
       width: 100%;
@@ -204,7 +212,8 @@
     .chat-content {
       display: flex;
       flex-direction: column;
-      height: 1000px;
+      flex: 1;
+      min-height: 0;
 
       .chat-header {
         padding: 20px;
@@ -461,16 +470,18 @@
         flex: 1;
         padding: 20px;
         overflow-y: auto;
+        min-height: 0;
 
         .messages-list {
           display: flex;
           flex-direction: column;
-          gap: 12px;
+          gap: 0;
         }
 
         .message-item {
           display: flex;
-          margin-bottom: 8px;
+          align-items: flex-start;
+          margin: 0 0 4px 0;
 
           &.own-message {
             justify-content: flex-end;
@@ -479,7 +490,7 @@
               background-color: #0a2a44;
               color: white;
               border-radius: 10px;
-              max-width: 100%;
+              max-width: min(55%, 420px);
             }
           }
 
@@ -490,18 +501,25 @@
               background-color: #f1f3f4;
               color: #333;
               border-radius: 10px;
-              max-width: 100%;
+              max-width: min(55%, 420px);
             }
           }
 
           .message-content {
-            padding: 12px 16px;
+            padding: 10px 14px;
             position: relative;
+            max-width: min(55%, 420px);
+            flex: 0 0 auto;
+            height: auto;
+            display: inline-block;
+            white-space: pre-wrap;
+            word-break: break-word;
+            margin-bottom: 0;
 
             .message-text {
               font-size: 14px;
               line-height: 1.4;
-              margin-bottom: 4px;
+              margin-bottom: 0;
               word-wrap: break-word;
             }
 
@@ -509,8 +527,8 @@
               font-size: 11px;
               opacity: 0.7;
               text-align: right;
-              margin-top: 25px;
-              display: inline-block;
+              margin-top: 2px;
+              display: block;
             }
           }
         }
@@ -623,7 +641,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      height: 1000px;
+      height: 100%;
 
       .empty-state {
         text-align: center;
@@ -656,10 +674,16 @@
 // Responsive Design
 @media (max-width: 768px) {
   .message-container {
+    height: 100vh;
+    max-height: 100vh;
+    overflow: hidden;
+    
     .message-content {
       flex-direction: column;
-      height: calc(100vh - 80px);
+      height: calc(100vh - 60px);
+      max-height: calc(100vh - 60px);
       margin-top: 60px;
+      overflow: hidden;
     }
 
     .conversation-sidebar {
@@ -785,6 +809,7 @@
           .message-item {
             .message-content {
               padding: 10px 14px;
+              max-width: 85%;
 
               .message-text {
                 font-size: 13px;
@@ -829,9 +854,15 @@
 // Mobile L (425px)
 @media (max-width: 425px) {
   .message-container {
+    height: 100vh;
+    max-height: 100vh;
+    overflow: hidden;
+    
     .message-content {
       margin-top: 50px;
       height: calc(100vh - 70px);
+      max-height: calc(100vh - 70px);
+      overflow: hidden;
     }
 
     .chat-area {
@@ -856,9 +887,15 @@
 // Mobile M (375px)
 @media (max-width: 375px) {
   .message-container {
+    height: 100vh;
+    max-height: 100vh;
+    overflow: hidden;
+    
     .message-content {
       margin-top: 50px;
       height: calc(100vh - 70px);
+      max-height: calc(100vh - 70px);
+      overflow: hidden;
     }
 
     .chat-area {
@@ -883,9 +920,15 @@
 // Mobile S (320px)
 @media (max-width: 320px) {
   .message-container {
+    height: 100vh;
+    max-height: 100vh;
+    overflow: hidden;
+    
     .message-content {
       margin-top: 50px;
       height: calc(100vh - 70px);
+      max-height: calc(100vh - 70px);
+      overflow: hidden;
     }
 
     .chat-area {
@@ -921,9 +964,15 @@
 
 @media (max-width: 480px) {
   .message-container {
+    height: 100vh;
+    max-height: 100vh;
+    overflow: hidden;
+    
     .message-content {
       margin-top: 50px;
       height: calc(100vh - 70px);
+      max-height: calc(100vh - 70px);
+      overflow: hidden;
     }
 
     .conversation-sidebar {

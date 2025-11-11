@@ -10,7 +10,7 @@ import './../../../sass/components/MessageWorker.scss';
 import { getProfileImageUrl } from '../../utils/profileImageUtils';
 import Loader from '../LoaderContent/loader';
 
-const MessageWorker = () => {
+const Messages = () => {
   const [selectedConversation, setSelectedConversation] = useState(null);
   const [messageInput, setMessageInput] = useState('');
   const [conversations, setConversations] = useState([]);
@@ -19,16 +19,59 @@ const MessageWorker = () => {
   const [loading, setLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState('');
   const [activeUsers, setActiveUsers] = useState([]);
+  const [userRole, setUserRole] = useState(null);
   const [showChatMenu, setShowChatMenu] = useState(false);
   const [showSidebar, setShowSidebar] = useState(true);
   const chatMenuRef = useRef(null);
   const fileInputRef = useRef(null);
   const messageInputRef = useRef(null);
 
+  // Get user role from localStorage
+  useEffect(() => {
+    const stored = JSON.parse(localStorage.getItem('user') || '{}');
+    const roleId = stored?.role_id || stored?.user?.role_id;
+    if (roleId) {
+      setUserRole(roleId === 1 ? 'worker' : 'employer');
+    }
+  }, []);
+
   useEffect(() => {
     fetchConversations(true);
     fetchActiveUsers();
   }, []);
+
+  // Periodically refresh selected conversation's profile status (online/last active)
+  useEffect(() => {
+    if (!selectedConversation) return;
+
+    const token = localStorage.getItem('auth_token');
+    const stored = JSON.parse(localStorage.getItem('user') || '{}');
+    const userId = stored?.id || stored?.user?.id;
+
+    const refresh = async () => {
+      try {
+        const config = token ? { 
+          headers: { 
+            'Authorization': `Bearer ${token}`,
+            'X-User-Id': userId
+          } 
+        } : {};
+        const res = await axios.get(`/api/messages/thread/${selectedConversation.user_id}`, {
+          ...config,
+          params: { user_id: userId }
+        });
+        if (res.data?.other_user_info) {
+          setOtherUserInfo(res.data.other_user_info);
+        }
+      } catch (e) {
+        // ignore
+      }
+    };
+
+    refresh();
+    const interval = setInterval(refresh, 10000);
+    return () => clearInterval(interval);
+  }, [selectedConversation]);
 
   // Poll for new messages every 5 seconds
   useEffect(() => {
@@ -94,6 +137,40 @@ const MessageWorker = () => {
           if (existingConversation) {
             // Select existing conversation
             handleConversationSelect(existingConversation);
+          } else {
+            // No existing conversation, fetch user info directly to show their profile
+            try {
+              const threadResponse = await axios.get(`/api/messages/thread/${targetUserId}`, {
+                ...config,
+                params: { user_id: userId }
+              });
+              
+              if (threadResponse.data.success) {
+                // Create a temporary conversation object
+                const tempConversation = {
+                  user_id: parseInt(targetUserId),
+                  name: threadResponse.data.other_user_info?.name || 'Unknown User',
+                  profile_img: threadResponse.data.other_user_info?.profile_img || null,
+                  last_message_at: null,
+                  detailed_info: threadResponse.data.other_user_info,
+                  unread_count: 0,
+                  last_message: null
+                };
+                
+                // Set messages (empty array if no messages yet)
+                setMessages(prev => ({ ...prev, [targetUserId]: threadResponse.data.messages || [] }));
+                
+                // Set other user info
+                if (threadResponse.data.other_user_info) {
+                  setOtherUserInfo(threadResponse.data.other_user_info);
+                }
+                
+                // Set selected conversation
+                setSelectedConversation(tempConversation);
+              }
+            } catch (error) {
+              console.error('Error fetching user info:', error.response?.data || error.message);
+            }
           }
           // Remove the target user ID from localStorage so it doesn't persist
           localStorage.removeItem('message_target_user_id');
@@ -147,9 +224,17 @@ const MessageWorker = () => {
       return false;
     }
     
-    // Filter only employers (role_id === 2)
-    if (user.role_id !== 2) {
-      return false;
+    // Filter based on user role: workers see employers, employers see workers
+    if (userRole === 'worker') {
+      // Workers see employers (role_id === 2)
+      if (user.role_id !== 2) {
+        return false;
+      }
+    } else if (userRole === 'employer') {
+      // Employers see workers (role_id === 1)
+      if (user.role_id !== 1) {
+        return false;
+      }
     }
     
     // Filter by search query
@@ -160,7 +245,6 @@ const MessageWorker = () => {
 
   const handleConversationSelect = async (conversation) => {
     setSelectedConversation(conversation);
-    setShowSidebar(false); // Hide sidebar when conversation is selected
     const token = localStorage.getItem('auth_token');
     const stored = JSON.parse(localStorage.getItem('user') || '{}');
     const userId = stored?.id || stored?.user?.id;
@@ -363,7 +447,7 @@ const MessageWorker = () => {
               <span className="search-icon"></span>
               <input
                 type="text"
-                placeholder="Search Employers"
+                placeholder={userRole === 'worker' ? 'Search Employers' : 'Search Workers'}
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
               />
@@ -400,7 +484,25 @@ const MessageWorker = () => {
                 
                 <div className="conversation-details">
                   <div className="conversation-header">
-                    <span className="conversation-name">{conv.name || 'Unknown User'}</span>
+                    <span className="conversation-name" style={{display:'inline-flex',alignItems:'center',gap:6}}>
+                      <span>{conv.name || 'Unknown User'}</span>
+                      {conv?.detailed_info?.worker?.collar?.image && (
+                        <img 
+                          src={`${window.location.origin}/storage/${conv.detailed_info.worker.collar.image}`} 
+                          alt="collar" 
+                          style={{width:16,height:16,borderRadius:3}}
+                          onError={(e)=>{e.currentTarget.style.display='none';}}
+                        />
+                      )}
+                      {(conv?.detailed_info?.worker?.verified === true || conv?.detailed_info?.worker?.verified === 1) && (
+                        <img 
+                          src={`${window.location.origin}/images/verified.png`} 
+                          alt="verified" 
+                          style={{width:14,height:14}}
+                          onError={(e)=>{e.currentTarget.style.display='none';}}
+                        />
+                      )}
+                    </span>
                     <span className="conversation-time">
                       {conv.last_message_at ? new Date(conv.last_message_at).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : ''}
                     </span>
@@ -414,61 +516,22 @@ const MessageWorker = () => {
                       const preview = conv.last_message.content.length > maxLength 
                         ? conv.last_message.content.substring(0, maxLength) + '...' 
                         : conv.last_message.content;
-                      // Show "You: " if sent by current user, otherwise show sender's first name or "Employer: "
+                      // Show "You: " if sent by current user, otherwise show sender's name
                       if (isSentByMe) {
                         return `You: ${preview}`;
                       } else {
-                        // Extract first name only from the full name
-                        const fullName = conv.name || 'Employer';
-                        const firstName = fullName.split(' ')[0]; // Get only the first name
-                        return `${firstName}: ${preview}`;
+                        // Show full name for employers, first name for workers
+                        const senderName = conv.name || (userRole === 'worker' ? 'Employer' : 'Worker');
+                        if (userRole === 'worker') {
+                          // Workers see first name only
+                          const firstName = senderName.split(' ')[0];
+                          return `${firstName}: ${preview}`;
+                        } else {
+                          // Employers see full name
+                          return `${senderName}: ${preview}`;
+                        }
                       }
                     })()}
-                  </div>
-                </div>
-              </div>
-            ))}
-            
-            {/* Render active users that don't have conversations yet */}
-            {filteredActiveUsers
-              .filter(user => !conversations.find(c => c.user_id == user.user_id))
-              .map((user) => (
-              <div
-                key={user.user_id}
-                className={`conversation-item ${selectedConversation?.user_id === user.user_id ? 'active' : ''}`}
-                onClick={() => {
-                  const tempConv = {
-                    user_id: user.user_id,
-                    name: user.full_name
-                  };
-                  setSelectedConversation(tempConv);
-                  setShowSidebar(false); // Hide sidebar when conversation is selected
-                  localStorage.setItem('message_target_user_id', String(user.user_id));
-                }}
-              >
-                <div className="conversation-avatar">
-                  {user.profile_img ? (
-                    <img 
-                      src={getProfileImageUrl(user.profile_img, 'images/defpfp.svg')} 
-                      alt={user.full_name || 'User'} 
-                      className="avatar-image"
-                      onError={(e) => {
-                        e.currentTarget.src = `${window.location.origin}/images/defpfp.svg`;
-                      }}
-                    />
-                  ) : (
-                    <div className="avatar-placeholder">
-                      {user.full_name?.charAt(0) || 'U'}
-                    </div>
-                  )}
-                </div>
-                
-                <div className="conversation-details">
-                  <div className="conversation-header">
-                    <span className="conversation-name">{user.full_name || 'Unknown User'}</span>
-                  </div>
-                  <div className="worker-conversation-preview">
-                    Start new conversation
                   </div>
                 </div>
               </div>
@@ -492,11 +555,33 @@ const MessageWorker = () => {
                     </button>
                   )}
                   <h3>
-                    {selectedConversation ? selectedConversation.name : 'New Conversation'}
+                    {selectedConversation ? (
+                      <span style={{display:'inline-flex',alignItems:'center',gap:8}}>
+                        <span>{selectedConversation.name}</span>
+                        {otherUserInfo?.worker?.collar?.image && (
+                          <img 
+                            src={`${window.location.origin}/storage/${otherUserInfo.worker.collar.image}`} 
+                            alt="collar" 
+                            style={{width:20,height:20,borderRadius:4}}
+                            onError={(e)=>{e.currentTarget.style.display='none';}}
+                          />
+                        )}
+                        {(otherUserInfo?.worker?.verified === true || otherUserInfo?.worker?.verified === 1) && (
+                          <img 
+                            src={`${window.location.origin}/images/verified.png`} 
+                            alt="verified" 
+                            style={{width:18,height:18}}
+                            onError={(e)=>{e.currentTarget.style.display='none';}}
+                          />
+                        )}
+                      </span>
+                    ) : 'New Conversation'}
                   </h3>
                 </div>
                 <div className="chat-header-actions">
-                  <span className="online-status">Online</span>
+                  <span className={`online-status ${otherUserInfo?.is_online ? 'online' : 'offline'}`}>
+                    {otherUserInfo?.is_online ? 'Online' : (otherUserInfo?.last_active_text || 'Offline')}
+                  </span>
                   <div className="chat-menu-wrapper" ref={chatMenuRef}>
                     <HiOutlineDotsVertical 
                       className="chat-menu-icon" 
@@ -583,5 +668,5 @@ const MessageWorker = () => {
   );
 };
 
-export default MessageWorker;
+export default Messages;
 

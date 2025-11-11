@@ -31,8 +31,7 @@ import RolesManagement from "./components/adminside/roles/Roles";
 import FindJob from "./components/HeaderContent/findjob";
 import JobProfile from "./components/HeaderContent/JobProfile";
 import AboutUs from "./components/HeaderContent/AboutUs";
-import Message from "./components/HeaderContent/Message";
-import MessageWorker from "./components/HeaderContent/MessageWorker";
+import Messages from "./components/HeaderContent/MessageWorker";
 import Notif from "./components/HeaderContent/Notif";
 import Services from "./components/adminside/services/Services";
 import Company from "./components/adminside/company/Company.js";
@@ -110,16 +109,7 @@ const RootRoute = () => {
   return <Navigate to={targetRoute} replace />;
 };
 
-// Message wrapper component that routes to correct component based on role
-const MessageWrapper = () => {
-  const { userRole } = useAuth();
-  
-  if (userRole === 1) {
-    return <MessageWorker />;
-  } else {
-    return <Message />;
-  }
-};
+// Messages component now handles both roles internally
 
 // Guard for Post Jobs: allow only Employer (role_id === 2)
 const PostJobsGuard = () => {
@@ -179,7 +169,7 @@ export default function Routers() {
         />
         <Route path="/job/:jobId" element={<JobProfile />} />
         <Route path="/about" element={<AboutUs />} />
-        <Route path="/message" element={<MessageWrapper />} />
+        <Route path="/message" element={<Messages />} />
         <Route path="/notifications" element={<Notif />} />
         <Route 
           path="/browse" 

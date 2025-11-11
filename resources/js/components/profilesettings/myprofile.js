@@ -2942,43 +2942,41 @@ const MyProfile = () => {
                     <span className="add-more-hint"> - You can add multiple credentials</span>
                   )}
                 </h4>
-                <div className="form-row">
-                  <div className="form-group">
-                    <label htmlFor="employerCredentialName">Credential Type *</label>
-                    <select
-                      id="employerCredentialName"
-                      value={newEmployerCredential.credentials_name}
-                      onChange={(e) => handleNewEmployerCredentialChange(e, 'credentials_name')}
-                      className="form-input"
-                    >
-                      <option value="">Select Credential Type</option>
-                      {credentialTypes.map((credential) => (
-                        <option key={credential.value} value={credential.value}>
-                          {credential.label}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-                  <div className="form-group">
-                    <label htmlFor="employerCredentialFile">Upload File * (Images: JPG, PNG, GIF, WEBP | Documents: PDF, Word - Max 2MB)</label>
-                    <input
-                      type="file"
-                      id="employerCredentialFile"
-                      ref={employerCredentialFileInputRef}
-                      accept=".pdf,.doc,.docx,.jpg,.jpeg,.png,.gif,.webp"
-                      onChange={(e) => handleNewEmployerCredentialChange(e, 'credentials_file')}
-                      className="form-input"
-                    />
-                    {(newEmployerCredential.credentials_photo || newEmployerCredential.credentials_doc) && (
-                      <div className="file-selected-info">
-                        <span className="file-selected">
-                          ✓ Selected: {(newEmployerCredential.credentials_photo || newEmployerCredential.credentials_doc)?.name}
-                          {newEmployerCredential.credentials_photo && ' (Image)'}
-                          {newEmployerCredential.credentials_doc && ' (Document)'}
-                        </span>
-                      </div>
-                    )}
-                  </div>
+                <div className="form-group">
+                  <label htmlFor="employerCredentialName">Credential Type *</label>
+                  <select
+                    id="employerCredentialName"
+                    value={newEmployerCredential.credentials_name}
+                    onChange={(e) => handleNewEmployerCredentialChange(e, 'credentials_name')}
+                    className="form-input"
+                  >
+                    <option value="">Select Credential Type</option>
+                    {credentialTypes.map((credential) => (
+                      <option key={credential.value} value={credential.value}>
+                        {credential.label}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+                <div className="form-group">
+                  <label htmlFor="employerCredentialFile">Upload File * (Images: JPG, PNG, GIF, WEBP | Documents: PDF, Word - Max 2MB)</label>
+                  <input
+                    type="file"
+                    id="employerCredentialFile"
+                    ref={employerCredentialFileInputRef}
+                    accept=".pdf,.doc,.docx,.jpg,.jpeg,.png,.gif,.webp"
+                    onChange={(e) => handleNewEmployerCredentialChange(e, 'credentials_file')}
+                    className="form-input"
+                  />
+                  {(newEmployerCredential.credentials_photo || newEmployerCredential.credentials_doc) && (
+                    <div className="file-selected-info">
+                      <span className="file-selected">
+                        ✓ Selected: {(newEmployerCredential.credentials_photo || newEmployerCredential.credentials_doc)?.name}
+                        {newEmployerCredential.credentials_photo && ' (Image)'}
+                        {newEmployerCredential.credentials_doc && ' (Document)'}
+                      </span>
+                    </div>
+                  )}
                 </div>
                 <div className="add-credential-actions">
                   <button 

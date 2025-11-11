@@ -1894,6 +1894,37 @@ select {
           border-color: #001E40;
           box-shadow: 0 0 0 3px rgba(0, 30, 64, 0.1);
         }
+
+        // Style for file input button
+        &[type="file"] {
+          height: auto;
+          min-height: 44px;
+          padding: 10px 12px;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+
+          &::file-selector-button {
+            background: #001E40;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            margin-right: 12px;
+            transition: all 0.2s ease;
+            height: 36px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            &:hover {
+              background: #002d5c;
+            }
+          }
+        }
       }
 
       .file-selected-info {

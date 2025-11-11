@@ -125,7 +125,7 @@ const JobProfile = () => {
   const formatDate = (dateString) => {
     return new Date(dateString).toLocaleDateString('en-US', { 
       year: 'numeric', 
-      month: 'long', 
+      month: 'short', 
       day: 'numeric',
       timeZone: 'UTC'
     });
@@ -173,92 +173,174 @@ const JobProfile = () => {
         <div className="job-cover-photo">
           <img src={coverPhoto} alt="Cover" />
         </div>
-        <div className="job-profile-photo-wrapper">
-          <img 
-            src={job?.profile?.profile_img ? getProfileImageUrl(job.profile.profile_img, defpfp) : defpfp} 
-            alt="Job Logo" 
-            className="job-profile-photo" 
-          />
+        <div className="job-info-card">
+            <div className="job-info-section">
+              <div className="job-info-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+              </div>
+              <div className="job-info-label">JOB TITLE</div>
+              <div className="job-info-value">{job.job_title}</div>
+            </div>
+            <div className="job-info-divider"></div>
+            <div className="job-info-section">
+              <div className="job-info-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M8 4v16M8 4h8c2 0 3 1 3 3s-1 3-3 3H8M8 10h8"/>
+                  <line x1="4" y1="8" x2="20" y2="8"/>
+                  <line x1="4" y1="12" x2="20" y2="12"/>
+                </svg>
+              </div>
+              <div className="job-info-label">SALARY</div>
+              <div className="job-info-value">₱{job.salary}/{job.salary_type === 'per_hour' ? 'hour' : 'month'}</div>
+            </div>
+            <div className="job-info-divider"></div>
+            <div className="job-info-section">
+              <div className="job-info-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+              </div>
+              <div className="job-info-label">JOB TYPE</div>
+              <div className="job-info-value">{(job.job_type || 'Any').replace(/_/g, ' ').toUpperCase()}</div>
+            </div>
+            <div className="job-info-divider"></div>
+            <div className="job-info-section">
+              <div className="job-info-icon">
+                <MdDateRange />
+              </div>
+              <div className="job-info-label">START</div>
+              <div className="job-info-value">{formatDate(job.application_start)}</div>
+            </div>
+            <div className="job-info-divider"></div>
+            <div className="job-info-section">
+              <div className="job-info-icon">
+                <MdDateRange />
+              </div>
+              <div className="job-info-label">DEADLINE</div>
+              <div className="job-info-value">{formatDate(job.application_deadline)}</div>
+            </div>
+          </div>
         </div>
-      </div>
 
       <div className="job-profile-container">
-        <div className="job-profile-left">
-          <div className="job-profile-info">
-            <h2>{job.job_title}</h2>
-            <div className="job-status-container">
-              {job.archived && (
-                <>
-                  <span className="job-status-dot"></span>
-                  <p className="job-status">Archived</p>
-                </>
-              )}
-            </div>
-            <p className="job-location">Posted by: {job.profile?.first_name} {job.profile?.middlename} {job.profile?.last_name} {job.profile?.suffix?.suffix_name}</p>
-            <p className="job-member-since">POSTED SINCE: {new Date(job.created_at).toLocaleDateString()}</p>
-            <div className="profile-actions">
-              <button className="job-apply-button" onClick={handleApplyJob}>
-                Apply Job
-              </button>
-            </div>
-          </div>
-          <div className="job-stats">
-            <div className="job-stat-item">
-              <span className="job-stat-label">Salary</span>
-              <span className="job-stat-number">₱{job.salary}/{job.salary_type === 'per_hour' ? 'hour' : 'month'}</span>
-            </div>
-            <div className="job-stat-item">
-              <span className="job-stat-label">Job Type</span>
-              <span className="job-stat-number">{job.job_type}</span>
-            </div>
-          </div>
-          <div className="job-application-period">
-            <h4>Application Period</h4>
-            <div className="job-application-list">
-              <div className="job-date-item">
-                <MdDateRange className="job-date-icon" />
-                <span>Start: {formatDate(job.application_start)}</span>
+        {/* Main Grid: Left Column (Poster Card + Work Period) and Right Column (Overview + Skills) */}
+        <div className="job-main-grid">
+          {/* Left Column: Poster Profile Card and Work Period */}
+          <div className="job-left-column">
+            <div className="poster-profile-card">
+              <div className="poster-profile-image">
+                <img 
+                  src={job?.profile?.profile_img ? getProfileImageUrl(job.profile.profile_img, defpfp) : defpfp} 
+                  alt="Poster Profile" 
+                  onError={(e) => {
+                    e.target.src = defpfp;
+                  }}
+                />
               </div>
-              <div className="job-date-item">
-                <MdDateRange className="job-date-icon" />
-                <span>Deadline: {formatDate(job.application_deadline)}</span>
+              <div className="poster-profile-info">
+                <h4 className="poster-name">{job.profile?.first_name} {job.profile?.middlename} {job.profile?.last_name} {job.profile?.suffix?.suffix_name}</h4>
+                <p className="poster-role">Job Poster</p>
+                <p className="poster-posted-since">POSTED SINCE: {new Date(job.created_at).toLocaleDateString()}</p>
+              </div>
+              <div className="profile-actions">
+                <button className="job-apply-button" onClick={handleApplyJob}>
+                  Apply Job
+                </button>
               </div>
             </div>
-          </div>
-          
-          {job.work_start && job.work_end && (
-            <div className="job-work-period">
-              <h4>Work Period</h4>
-              <div className="job-application-list">
-                <div className="job-date-item">
-                  <MdAccessTime className="job-work-icon" />
-                  <span>Work Start: {formatDate(job.work_start)}</span>
-                </div>
-                <div className="job-date-item">
-                  <MdAccessTime className="job-work-icon" />
-                  <span>Work End: {formatDate(job.work_end)}</span>
-                </div>
-              </div>
-            </div>
-          )}
-        </div>
 
-        <div className="job-profile-right">
-          <h3 className="job-overview-title">OVERVIEW</h3>
-          
-          <div className="job-about-section">
-            <h4>About</h4>
-            <p>{formatDescription(job.description)}</p>
+            {/* Job Info Card - shown on mobile only, positioned after poster card */}
+            <div className="job-info-card mobile-only">
+              <div className="job-info-section">
+                <div className="job-info-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                </div>
+                <div className="job-info-label">JOB TITLE</div>
+                <div className="job-info-value">{job.job_title}</div>
+              </div>
+              <div className="job-info-divider"></div>
+              <div className="job-info-section">
+                <div className="job-info-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                    <path d="M12 6v12M9 9h6M9 15h6"/>
+                    <path d="M8 8h8M8 16h8" strokeLinecap="round"/>
+                  </svg>
+                </div>
+                <div className="job-info-label">SALARY</div>
+                <div className="job-info-value">₱{job.salary}/{job.salary_type === 'per_hour' ? 'hour' : 'month'}</div>
+              </div>
+              <div className="job-info-divider"></div>
+              <div className="job-info-section">
+                <div className="job-info-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                </div>
+                <div className="job-info-label">JOB TYPE</div>
+                <div className="job-info-value">{(job.job_type || 'Any').replace(/_/g, ' ').toUpperCase()}</div>
+              </div>
+              <div className="job-info-divider"></div>
+              <div className="job-info-section">
+                <div className="job-info-icon">
+                  <MdDateRange />
+                </div>
+                <div className="job-info-label">START</div>
+                <div className="job-info-value">{formatDate(job.application_start)}</div>
+              </div>
+              <div className="job-info-divider"></div>
+              <div className="job-info-section">
+                <div className="job-info-icon">
+                  <MdDateRange />
+                </div>
+                <div className="job-info-label">DEADLINE</div>
+                <div className="job-info-value">{formatDate(job.application_deadline)}</div>
+              </div>
+            </div>
+
+            {/* Work Period below Poster Profile Card */}
+            {job.work_start && job.work_end && (
+              <div className="job-work-period">
+                <h4>Work Period</h4>
+                <div className="job-application-list">
+                  <div className="job-date-item">
+                    <MdAccessTime className="job-work-icon" />
+                    <span>Work Start: {formatDate(job.work_start)}</span>
+                  </div>
+                  <div className="job-date-item">
+                    <MdAccessTime className="job-work-icon" />
+                    <span>Work End: {formatDate(job.work_end)}</span>
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
-          
-          <div className="job-skills-section">
-            <h4>Skills Required</h4>
-            <div className="job-skills-row">
-              {job.skills && job.skills.map((skill, index) => (
-                <span key={index} className="job-chip">
-                  {skill.name} ({skill.experience || 'No experience specified'})
-                </span>
-              ))}
+
+          {/* Right Column: Overview Section and Skills Required */}
+          <div className="job-right-column">
+            <div className="job-overview-section">
+              <h3 className="job-overview-title">OVERVIEW</h3>
+              
+              <div className="job-about-section">
+                <h4>Job Description</h4>
+                <p>{formatDescription(job.description)}</p>
+              </div>
+            </div>
+
+            {/* Skills Required below Overview */}
+            <div className="job-skills-section">
+              <h4>Skills Required</h4>
+              <div className="job-skills-row">
+                {job.skills && job.skills.map((skill, index) => (
+                  <span key={index} className="job-chip">
+                    {skill.name} ({skill.experience || 'No experience specified'})
+                  </span>
+                ))}
+              </div>
             </div>
           </div>
         </div>

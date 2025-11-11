@@ -71198,7 +71198,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".homepage {\n  position: relative;\n  width: 100%;\n  min-height: 100vh;\n  background-color: #FFFFFF;\n  margin: 0;\n  padding: 0;\n  overflow-x: hidden;\n  margin-top: 50px;\n}\n.homepage .content-wrapper {\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n  min-height: 50vh;\n  padding: 80px 20px 40px;\n  box-sizing: border-box;\n  background: linear-gradient(to bottom, #7A8CA0, #FFFFFF);\n  width: 100%;\n  text-align: center;\n}\n.homepage .content-wrapper h1 {\n  font-size: 2.5rem;\n  font-weight: 700;\n  color: #ffffff;\n  margin-bottom: 1rem;\n  line-height: 1.3;\n  position: relative;\n  z-index: 5;\n  margin-top: 0;\n  text-align: center;\n}\n@media (max-width: 768px) {\n  .homepage .content-wrapper h1 {\n    font-size: 2rem;\n    line-height: 1.4;\n  }\n}\n@media (max-width: 480px) {\n  .homepage .content-wrapper h1 {\n    font-size: 1.5rem;\n    line-height: 1.5;\n  }\n}\n.homepage .content-wrapper .sub-headline {\n  font-size: 1rem;\n  color: #ffffff;\n  margin-bottom: 2rem;\n  font-weight: 400;\n  line-height: 1.5;\n  text-align: center;\n  max-width: 700px;\n}\n@media (max-width: 768px) {\n  .homepage .content-wrapper .sub-headline {\n    font-size: 1rem;\n  }\n}\n@media (max-width: 480px) {\n  .homepage .content-wrapper .sub-headline {\n    font-size: 0.9rem;\n  }\n}\n.homepage .content-wrapper .search-bar {\n  margin: 8rem 0 6rem;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  max-width: 800px;\n  width: 100%;\n}\n@media (max-width: 768px) {\n  .homepage .content-wrapper .search-bar {\n    margin: 4rem 0 3rem;\n  }\n}\n@media (max-width: 480px) {\n  .homepage .content-wrapper .search-bar {\n    margin: 3rem 0 2rem;\n  }\n}\n.homepage .content-wrapper .search-bar .search-input-container {\n  position: relative;\n  width: 100%;\n}\n.homepage .content-wrapper .search-bar .search-input-container input {\n  width: 100%;\n  padding: 1rem 1.5rem;\n  font-size: 1.1rem;\n  border: 1px solid #E6E6E6;\n  border-right: none;\n  border-radius: 8px 0 0 8px;\n  outline: none;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);\n  font-weight: 400;\n  color: #000000;\n  background-color: #FFFFFF;\n}\n.homepage .content-wrapper .search-bar .search-input-container input::-moz-placeholder {\n  color: #999999;\n}\n.homepage .content-wrapper .search-bar .search-input-container input::placeholder {\n  color: #999999;\n}\n@media (max-width: 768px) {\n  .homepage .content-wrapper .search-bar .search-input-container input {\n    font-size: 1rem;\n    padding: 0.8rem 1.2rem;\n  }\n}\n@media (max-width: 480px) {\n  .homepage .content-wrapper .search-bar .search-input-container input {\n    font-size: 0.9rem;\n    padding: 0.7rem 1rem;\n  }\n}\n.homepage .content-wrapper .search-bar .search-input-container .search-suggestions {\n  position: absolute;\n  top: 100%;\n  left: 0;\n  right: 0;\n  background: #FFFFFF;\n  border: 1px solid #E6E6E6;\n  border-top: none;\n  border-radius: 0 0 8px 8px;\n  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);\n  z-index: 1000;\n  max-height: 200px;\n  overflow-y: auto;\n}\n.homepage .content-wrapper .search-bar .search-input-container .search-suggestions .suggestion-item {\n  padding: 0.8rem 1.5rem;\n  cursor: pointer;\n  border-bottom: 1px solid #F0F0F0;\n  font-size: 1rem;\n  color: #000000;\n  transition: background-color 0.2s ease;\n}\n.homepage .content-wrapper .search-bar .search-input-container .search-suggestions .suggestion-item:hover {\n  background-color: #F8F9FA;\n}\n.homepage .content-wrapper .search-bar .search-input-container .search-suggestions .suggestion-item:last-child {\n  border-bottom: none;\n}\n.homepage .content-wrapper .search-bar .search-button {\n  padding: 1rem 1.5rem;\n  background-color: #001E40;\n  border: none;\n  border-radius: 0 8px 8px 0;\n  cursor: pointer;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);\n  transition: background-color 0.3s ease;\n  height: 56px;\n  padding: 0 1.5rem;\n}\n.homepage .content-wrapper .search-bar .search-button svg {\n  color: #FFFFFF;\n  width: 24px;\n  height: 24px;\n}\n.homepage .content-wrapper .search-bar .search-button:hover {\n  background-color: #000000;\n}\n@media (max-width: 768px) {\n  .homepage .content-wrapper .search-bar .search-button {\n    height: 48px;\n    padding: 0 1.2rem;\n  }\n}\n@media (max-width: 480px) {\n  .homepage .content-wrapper .search-bar .search-button {\n    height: 44px;\n    padding: 0 1rem;\n  }\n}\n@media (max-width: 480px) {\n  .homepage .content-wrapper {\n    padding: 60px 15px 30px;\n    min-height: 40vh;\n  }\n}\n.homepage .work-searches-section {\n  background-color: #FFFFFF;\n  padding: 60px 20px;\n  min-height: 50vh;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  width: 100%;\n}\n@media (max-width: 768px) {\n  .homepage .work-searches-section {\n    padding: 40px 15px;\n    min-height: 40vh;\n  }\n}\n@media (max-width: 480px) {\n  .homepage .work-searches-section {\n    padding: 30px 10px;\n    min-height: 35vh;\n  }\n}\n.homepage .work-searches-section .work-searches-content {\n  text-align: center;\n  width: 100%;\n  padding: 0 20px;\n}\n@media (max-width: 768px) {\n  .homepage .work-searches-section .work-searches-content {\n    padding: 0 15px;\n  }\n}\n@media (max-width: 480px) {\n  .homepage .work-searches-section .work-searches-content {\n    padding: 0 10px;\n  }\n}\n.homepage .work-searches-section .work-searches-content h2 {\n  font-size: 2.2rem;\n  font-weight: 700;\n  color: #000000;\n  margin-bottom: 10rem;\n  line-height: 1.3;\n}\n@media (max-width: 768px) {\n  .homepage .work-searches-section .work-searches-content h2 {\n    font-size: 1.8rem;\n  }\n}\n@media (max-width: 480px) {\n  .homepage .work-searches-section .work-searches-content h2 {\n    font-size: 1.5rem;\n  }\n}\n.homepage .work-searches-section .work-searches-content .underline {\n  width: 60px;\n  height: 3px;\n  background-color: #001E40;\n  margin: 0 auto 3rem;\n  border-radius: 2px;\n}\n.homepage .work-searches-section .work-searches-content .job-categories {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  gap: 4rem;\n  margin-bottom: 3rem;\n  flex-wrap: wrap;\n}\n@media (max-width: 768px) {\n  .homepage .work-searches-section .work-searches-content .job-categories {\n    flex-direction: column;\n    gap: 2rem;\n  }\n}\n.homepage .work-searches-section .work-searches-content .job-categories .category-column {\n  flex: 1;\n  display: flex;\n  flex-direction: column;\n  gap: 1rem;\n  text-align: center;\n  max-width: 300px;\n}\n.homepage .work-searches-section .work-searches-content .job-categories .category-column .job-category {\n  font-size: 1.1rem;\n  color: #000000;\n  font-weight: 500;\n  padding: 0.5rem 0;\n  cursor: pointer;\n  transition: color 0.3s ease;\n  text-align: center;\n}\n.homepage .work-searches-section .work-searches-content .job-categories .category-column .job-category:hover {\n  color: #001E40;\n}\n@media (max-width: 768px) {\n  .homepage .work-searches-section .work-searches-content .job-categories .category-column .job-category {\n    font-size: 1rem;\n    text-align: center;\n  }\n}\n.homepage .work-searches-section .work-searches-content .profile-prompt {\n  position: fixed;\n  bottom: 20px;\n  left: 50%;\n  transform: translateX(-50%);\n  background-color: #20B2AA;\n  color: white;\n  padding: 15px 30px;\n  border-radius: 8px;\n  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);\n  z-index: 1000;\n  text-align: center;\n}\n.homepage .work-searches-section .work-searches-content .profile-prompt p {\n  margin: 0;\n  font-size: 16px;\n}\n.homepage .work-searches-section .work-searches-content .profile-prompt button {\n  background-color: #fff;\n  color: #20B2AA;\n  border: none;\n  padding: 5px 15px;\n  border-radius: 5px;\n  cursor: pointer;\n  margin-left: 10px;\n  font-weight: 600;\n}\n.homepage .work-searches-section .work-searches-content .profile-prompt button:hover {\n  background-color: #e0f0f0;\n}\n.homepage .work-searches-section .work-searches-content .see-more-btn {\n  padding: 0.8rem 2rem;\n  font-size: 1rem;\n  font-weight: 500;\n  color: #001E40;\n  background-color: #FFFFFF;\n  border: 2px solid #7A8CA0;\n  border-radius: 8px;\n  cursor: pointer;\n  transition: all 0.3s ease;\n}\n.homepage .work-searches-section .work-searches-content .see-more-btn:hover {\n  background-color: #001E40;\n  color: #FFFFFF;\n  border-color: #001E40;\n}\n@media (max-width: 768px) {\n  .homepage .work-searches-section .work-searches-content .see-more-btn {\n    font-size: 0.9rem;\n    padding: 0.7rem 1.5rem;\n  }\n}\n@media (max-width: 480px) {\n  .homepage .work-searches-section .work-searches-content .see-more-btn {\n    font-size: 0.8rem;\n    padding: 0.6rem 1.2rem;\n  }\n}\n.homepage .skill-details-modal .modal-content {\n  background: #FFFFFF;\n  border-radius: 8px;\n  padding: 20px;\n  max-width: 600px;\n  width: 100%;\n  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);\n}\n.homepage .skill-details-modal .modal-content .modal-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 20px;\n}\n.homepage .skill-details-modal .modal-content .modal-header h3 {\n  margin: 0;\n  font-size: 1.5rem;\n  color: #000000;\n  font-weight: 600;\n}\n.homepage .skill-details-modal .modal-content .modal-header .close-icon {\n  cursor: pointer;\n  color: #000000;\n}\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section {\n  margin-bottom: 20px;\n}\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .sub-skills-label {\n  font-size: 1.1rem;\n  font-weight: 500;\n  color: #000000;\n  margin-bottom: 8px;\n  display: block;\n}\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .sub-skills-label .required {\n  color: #FF4D4F;\n  font-size: 0.9rem;\n}\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .sub-skills-instruction {\n  font-size: 0.9rem;\n  color: #666666;\n  margin-bottom: 12px;\n}\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .sub-skills-container {\n  display: flex;\n  gap: 20px;\n  background: #F9FAFB;\n  padding: 15px;\n  border-radius: 6px;\n  border: 1px solid #E5E7EB;\n}\n@media (max-width: 480px) {\n  .homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .sub-skills-container {\n    flex-direction: column;\n    gap: 15px;\n  }\n}\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .available-sub-skills,\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .selected-sub-skills {\n  flex: 1;\n  padding: 10px;\n  background: #FFFFFF;\n  border-radius: 4px;\n  border: 1px solid #E5E7EB;\n  min-height: 150px;\n}\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .available-sub-skills h4,\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .selected-sub-skills h4 {\n  font-size: 1rem;\n  font-weight: 600;\n  color: #000000;\n  margin: 0 0 10px 0;\n}\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .available-sub-skills .sub-skills-list,\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .selected-sub-skills .sub-skills-list {\n  list-style: none;\n  padding: 0;\n  margin: 0;\n}\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .available-sub-skills .sub-skills-list .sub-skill-item,\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .selected-sub-skills .sub-skills-list .sub-skill-item {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 8px 12px;\n  border-bottom: 1px solid #F0F0F0;\n  transition: background-color 0.2s ease;\n}\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .available-sub-skills .sub-skills-list .sub-skill-item:last-child,\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .selected-sub-skills .sub-skills-list .sub-skill-item:last-child {\n  border-bottom: none;\n}\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .available-sub-skills .sub-skills-list .sub-skill-item:hover,\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .selected-sub-skills .sub-skills-list .sub-skill-item:hover {\n  background-color: #F1F5F9;\n}\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .available-sub-skills .sub-skills-list .sub-skill-item .sub-skill-text,\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .selected-sub-skills .sub-skills-list .sub-skill-item .sub-skill-text {\n  font-size: 0.95rem;\n  color: #000000;\n  font-weight: 400;\n}\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .available-sub-skills .sub-skills-list .sub-skill-item .add-sub-skill-btn,\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .available-sub-skills .sub-skills-list .sub-skill-item .remove-sub-skill-btn,\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .selected-sub-skills .sub-skills-list .sub-skill-item .add-sub-skill-btn,\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .selected-sub-skills .sub-skills-list .sub-skill-item .remove-sub-skill-btn {\n  background: #F1F5F9;\n  border: none;\n  cursor: pointer;\n  padding: 6px;\n  border-radius: 50%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  transition: background-color 0.2s ease;\n}\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .available-sub-skills .sub-skills-list .sub-skill-item .add-sub-skill-btn svg,\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .available-sub-skills .sub-skills-list .sub-skill-item .remove-sub-skill-btn svg,\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .selected-sub-skills .sub-skills-list .sub-skill-item .add-sub-skill-btn svg,\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .selected-sub-skills .sub-skills-list .sub-skill-item .remove-sub-skill-btn svg {\n  color: #001E40;\n  width: 16px;\n  height: 16px;\n}\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .available-sub-skills .sub-skills-list .sub-skill-item .add-sub-skill-btn:hover,\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .available-sub-skills .sub-skills-list .sub-skill-item .remove-sub-skill-btn:hover,\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .selected-sub-skills .sub-skills-list .sub-skill-item .add-sub-skill-btn:hover,\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .selected-sub-skills .sub-skills-list .sub-skill-item .remove-sub-skill-btn:hover {\n  background-color: #E6F7FF;\n}\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .available-sub-skills .sub-skills-list .sub-skill-item .add-sub-skill-btn:focus,\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .available-sub-skills .sub-skills-list .sub-skill-item .remove-sub-skill-btn:focus,\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .selected-sub-skills .sub-skills-list .sub-skill-item .add-sub-skill-btn:focus,\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .selected-sub-skills .sub-skills-list .sub-skill-item .remove-sub-skill-btn:focus {\n  outline: 2px solid #20B2AA;\n  outline-offset: 2px;\n}\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .available-sub-skills .sub-skills-list .sub-skill-item .remove-sub-skill-btn:hover,\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .selected-sub-skills .sub-skills-list .sub-skill-item .remove-sub-skill-btn:hover {\n  background-color: #FFF1F0;\n}\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .available-sub-skills .no-sub-skills,\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .selected-sub-skills .no-sub-skills {\n  font-size: 0.9rem;\n  color: #666666;\n  text-align: center;\n  margin: 20px 0;\n}\n.homepage .skill-details-modal .modal-content .modal-body .no-sub-skills {\n  font-size: 0.95rem;\n  color: #666666;\n  text-align: center;\n  margin: 20px 0;\n}\n.homepage .skill-details-modal .modal-content .modal-footer {\n  display: flex;\n  justify-content: flex-end;\n}\n.homepage .skill-details-modal .modal-content .modal-footer .save-btn {\n  padding: 10px 20px;\n  font-size: 1rem;\n  font-weight: 500;\n  color: #FFFFFF;\n  background-color: #001E40;\n  border: none;\n  border-radius: 6px;\n  cursor: pointer;\n  transition: background-color 0.3s ease;\n}\n.homepage .skill-details-modal .modal-content .modal-footer .save-btn:hover {\n  background-color: #003087;\n}\n.homepage .skill-details-modal .modal-content .modal-footer .save-btn:disabled {\n  background-color: #B0B0B0;\n  cursor: not-allowed;\n}\n.homepage .credentials-container {\n  margin-top: 20px;\n}\n.homepage .credentials-container h3 {\n  font-size: 18px;\n  margin-bottom: 10px;\n}\n.homepage .credentials-container p {\n  margin-bottom: 10px;\n  color: #666;\n}\n.homepage .credential-section .credential-dropdown {\n  width: 100%;\n  margin-bottom: 10px;\n}\n.homepage .credential-section .credential-upload {\n  display: flex;\n  gap: 10px;\n  margin-bottom: 10px;\n}\n.homepage .credential-section .credential-upload input[type=file] {\n  flex-grow: 1;\n}\n.homepage .credential-section .credential-upload button {\n  padding: 8px 16px;\n  background-color: #1890ff;\n  color: white;\n  border: none;\n  border-radius: 4px;\n  cursor: pointer;\n}\n.homepage .credential-section .credential-upload button:hover {\n  background-color: #40a9ff;\n}\n.homepage .credential-section .credential-list {\n  margin-top: 10px;\n}\n.homepage .credential-section .credential-item {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n  margin-bottom: 8px;\n}\n.homepage .credential-section .credential-item button {\n  background-color: #ff4d4f;\n  color: white;\n  border: none;\n  padding: 4px 8px;\n  border-radius: 4px;\n  cursor: pointer;\n}\n.homepage .credential-section .credential-item button:hover {\n  background-color: #ff7875;\n}\n.homepage .credential-section .error {\n  color: #ff4d4f;\n  font-size: 12px;\n  margin-top: 4px;\n  display: block;\n}\n\nhtml, body {\n  margin: 0;\n  padding: 0;\n  width: 100%;\n  height: 100%;\n  overflow-x: hidden;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".homepage {\n  position: relative;\n  width: 100%;\n  min-height: 100vh;\n  background-color: #FFFFFF;\n  margin: 0;\n  padding: 0;\n  overflow-x: hidden;\n  margin-top: 50px;\n}\n.homepage .content-wrapper {\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n  min-height: 50vh;\n  padding: 80px 20px 40px;\n  box-sizing: border-box;\n  background: linear-gradient(to bottom, #7A8CA0, #FFFFFF);\n  width: 100%;\n  text-align: center;\n}\n.homepage .content-wrapper h1 {\n  font-size: 2.5rem;\n  font-weight: 700;\n  color: #ffffff;\n  margin-bottom: 1rem;\n  line-height: 1.3;\n  position: relative;\n  z-index: 5;\n  margin-top: 0;\n  text-align: center;\n}\n@media (max-width: 768px) {\n  .homepage .content-wrapper h1 {\n    font-size: 2rem;\n    line-height: 1.4;\n  }\n}\n@media (max-width: 480px) {\n  .homepage .content-wrapper h1 {\n    font-size: 1.5rem;\n    line-height: 1.5;\n  }\n}\n.homepage .content-wrapper .sub-headline {\n  font-size: 1rem;\n  color: #ffffff;\n  margin-bottom: 2rem;\n  font-weight: 400;\n  line-height: 1.5;\n  text-align: center;\n  max-width: 700px;\n}\n@media (max-width: 768px) {\n  .homepage .content-wrapper .sub-headline {\n    font-size: 1rem;\n  }\n}\n@media (max-width: 480px) {\n  .homepage .content-wrapper .sub-headline {\n    font-size: 0.9rem;\n  }\n}\n.homepage .content-wrapper .search-bar {\n  margin: 8rem 0 6rem;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  max-width: 800px;\n  width: 100%;\n  position: relative;\n}\n@media (max-width: 768px) {\n  .homepage .content-wrapper .search-bar {\n    margin: 4rem 0 3rem;\n  }\n}\n@media (max-width: 480px) {\n  .homepage .content-wrapper .search-bar {\n    margin: 3rem 0 2rem;\n  }\n}\n.homepage .content-wrapper .search-bar .search-input-container {\n  position: relative;\n  width: 100%;\n}\n.homepage .content-wrapper .search-bar .search-input-container input {\n  width: 100%;\n  padding: 1rem 1.5rem;\n  font-size: 1.1rem;\n  border: 1px solid #E6E6E6;\n  border-right: none;\n  border-radius: 8px 0 0 8px;\n  outline: none;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);\n  font-weight: 400;\n  color: #000000;\n  background-color: #FFFFFF;\n  transition: border-color 0.3s ease, box-shadow 0.3s ease;\n}\n.homepage .content-wrapper .search-bar .search-input-container input:focus {\n  border-color: #001E40;\n  box-shadow: 0 2px 12px rgba(0, 30, 64, 0.1);\n}\n.homepage .content-wrapper .search-bar .search-input-container input:disabled {\n  background-color: #F5F5F5;\n  color: #999999;\n  cursor: not-allowed;\n  opacity: 0.6;\n}\n.homepage .content-wrapper .search-bar .search-input-container input::-moz-placeholder {\n  color: #999999;\n}\n.homepage .content-wrapper .search-bar .search-input-container input::placeholder {\n  color: #999999;\n}\n@media (max-width: 768px) {\n  .homepage .content-wrapper .search-bar .search-input-container input {\n    font-size: 1rem;\n    padding: 0.8rem 1.2rem;\n  }\n}\n@media (max-width: 480px) {\n  .homepage .content-wrapper .search-bar .search-input-container input {\n    font-size: 0.9rem;\n    padding: 0.7rem 1rem;\n  }\n}\n.homepage .content-wrapper .search-bar .search-input-container .search-suggestions {\n  position: absolute;\n  top: 100%;\n  left: 0;\n  right: 0;\n  background: #FFFFFF;\n  border: 1px solid #E6E6E6;\n  border-top: none;\n  border-radius: 0 0 8px 8px;\n  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);\n  z-index: 1000;\n  max-height: 200px;\n  overflow-y: auto;\n  animation: fadeIn 0.2s ease-in-out;\n}\n@keyframes fadeIn {\n  from {\n    opacity: 0;\n    transform: translateY(-10px);\n  }\n  to {\n    opacity: 1;\n    transform: translateY(0);\n  }\n}\n.homepage .content-wrapper .search-bar .search-input-container .search-suggestions .suggestion-item {\n  padding: 0.8rem 1.5rem;\n  cursor: pointer;\n  border-bottom: 1px solid #F0F0F0;\n  font-size: 1rem;\n  color: #000000;\n  transition: background-color 0.2s ease, color 0.2s ease;\n}\n.homepage .content-wrapper .search-bar .search-input-container .search-suggestions .suggestion-item:hover {\n  background-color: #F8F9FA;\n  color: #001E40;\n}\n.homepage .content-wrapper .search-bar .search-input-container .search-suggestions .suggestion-item:focus {\n  outline: 2px solid #001E40;\n  outline-offset: -2px;\n  background-color: #F8F9FA;\n}\n.homepage .content-wrapper .search-bar .search-input-container .search-suggestions .suggestion-item:active {\n  background-color: #E8E8E8;\n}\n.homepage .content-wrapper .search-bar .search-input-container .search-suggestions .suggestion-item:last-child {\n  border-bottom: none;\n}\n.homepage .content-wrapper .search-bar .search-button {\n  padding: 1rem 1.5rem;\n  background-color: #001E40;\n  border: none;\n  border-radius: 0 8px 8px 0;\n  cursor: pointer;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);\n  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;\n  height: 56px;\n  padding: 0 1.5rem;\n}\n.homepage .content-wrapper .search-bar .search-button svg {\n  color: #FFFFFF;\n  width: 24px;\n  height: 24px;\n  transition: transform 0.2s ease;\n}\n.homepage .content-wrapper .search-bar .search-button:hover:not(:disabled) {\n  background-color: #000000;\n  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);\n  transform: translateY(-1px);\n}\n.homepage .content-wrapper .search-bar .search-button:active:not(:disabled) {\n  transform: translateY(0);\n  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);\n}\n.homepage .content-wrapper .search-bar .search-button:focus {\n  outline: 2px solid #001E40;\n  outline-offset: 2px;\n}\n.homepage .content-wrapper .search-bar .search-button:disabled {\n  background-color: #B0B0B0;\n  cursor: not-allowed;\n  opacity: 0.6;\n}\n.homepage .content-wrapper .search-bar .search-button:disabled:hover {\n  background-color: #B0B0B0;\n  transform: none;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);\n}\n@media (max-width: 768px) {\n  .homepage .content-wrapper .search-bar .search-button {\n    height: 48px;\n    padding: 0 1.2rem;\n  }\n}\n@media (max-width: 480px) {\n  .homepage .content-wrapper .search-bar .search-button {\n    height: 44px;\n    padding: 0 1rem;\n  }\n}\n@media (max-width: 480px) {\n  .homepage .content-wrapper {\n    padding: 60px 15px 30px;\n    min-height: 40vh;\n  }\n}\n.homepage .work-searches-section {\n  background-color: #FFFFFF;\n  padding: 60px 20px;\n  min-height: 50vh;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  width: 100%;\n}\n@media (max-width: 768px) {\n  .homepage .work-searches-section {\n    padding: 40px 15px;\n    min-height: 40vh;\n  }\n}\n@media (max-width: 480px) {\n  .homepage .work-searches-section {\n    padding: 30px 10px;\n    min-height: 35vh;\n  }\n}\n.homepage .work-searches-section .work-searches-content {\n  text-align: center;\n  width: 100%;\n  padding: 0 20px;\n}\n@media (max-width: 768px) {\n  .homepage .work-searches-section .work-searches-content {\n    padding: 0 15px;\n  }\n}\n@media (max-width: 480px) {\n  .homepage .work-searches-section .work-searches-content {\n    padding: 0 10px;\n  }\n}\n.homepage .work-searches-section .work-searches-content h2 {\n  font-size: 2.2rem;\n  font-weight: 700;\n  color: #000000;\n  margin-bottom: 10rem;\n  line-height: 1.3;\n}\n@media (max-width: 768px) {\n  .homepage .work-searches-section .work-searches-content h2 {\n    font-size: 1.8rem;\n  }\n}\n@media (max-width: 480px) {\n  .homepage .work-searches-section .work-searches-content h2 {\n    font-size: 1.5rem;\n  }\n}\n.homepage .work-searches-section .work-searches-content .underline {\n  width: 60px;\n  height: 3px;\n  background-color: #001E40;\n  margin: 0 auto 3rem;\n  border-radius: 2px;\n}\n.homepage .work-searches-section .work-searches-content .job-categories {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  gap: 4rem;\n  margin-bottom: 3rem;\n  flex-wrap: wrap;\n}\n@media (max-width: 768px) {\n  .homepage .work-searches-section .work-searches-content .job-categories {\n    flex-direction: column;\n    gap: 2rem;\n  }\n}\n.homepage .work-searches-section .work-searches-content .job-categories .category-column {\n  flex: 1;\n  display: flex;\n  flex-direction: column;\n  gap: 1rem;\n  text-align: center;\n  max-width: 300px;\n}\n.homepage .work-searches-section .work-searches-content .job-categories .category-column .job-category {\n  font-size: 1.1rem;\n  color: #000000;\n  font-weight: 500;\n  padding: 0.5rem 1rem;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  text-align: center;\n  border-radius: 6px;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n          user-select: none;\n}\n.homepage .work-searches-section .work-searches-content .job-categories .category-column .job-category:hover:not(.disabled) {\n  color: #001E40;\n  background-color: #F8F9FA;\n  transform: translateY(-2px);\n}\n.homepage .work-searches-section .work-searches-content .job-categories .category-column .job-category:active:not(.disabled) {\n  transform: translateY(0);\n  background-color: #E8E8E8;\n}\n.homepage .work-searches-section .work-searches-content .job-categories .category-column .job-category:focus {\n  outline: 2px solid #001E40;\n  outline-offset: 2px;\n}\n.homepage .work-searches-section .work-searches-content .job-categories .category-column .job-category.disabled {\n  color: #999999;\n  cursor: not-allowed;\n  opacity: 0.6;\n}\n.homepage .work-searches-section .work-searches-content .job-categories .category-column .job-category.disabled:hover {\n  color: #999999;\n  background-color: transparent;\n  transform: none;\n}\n@media (max-width: 768px) {\n  .homepage .work-searches-section .work-searches-content .job-categories .category-column .job-category {\n    font-size: 1rem;\n    text-align: center;\n    padding: 0.5rem 0.8rem;\n  }\n}\n@media (max-width: 480px) {\n  .homepage .work-searches-section .work-searches-content .job-categories .category-column .job-category {\n    padding: 0.4rem 0.6rem;\n  }\n}\n.homepage .work-searches-section .work-searches-content .profile-prompt {\n  position: fixed;\n  bottom: 20px;\n  left: 50%;\n  transform: translateX(-50%);\n  background-color: #20B2AA;\n  color: white;\n  padding: 15px 30px;\n  border-radius: 8px;\n  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);\n  z-index: 1000;\n  text-align: center;\n}\n.homepage .work-searches-section .work-searches-content .profile-prompt p {\n  margin: 0;\n  font-size: 16px;\n}\n.homepage .work-searches-section .work-searches-content .profile-prompt button {\n  background-color: #fff;\n  color: #20B2AA;\n  border: none;\n  padding: 5px 15px;\n  border-radius: 5px;\n  cursor: pointer;\n  margin-left: 10px;\n  font-weight: 600;\n}\n.homepage .work-searches-section .work-searches-content .profile-prompt button:hover {\n  background-color: #e0f0f0;\n}\n.homepage .work-searches-section .work-searches-content .see-more-btn {\n  padding: 0.8rem 2rem;\n  font-size: 1rem;\n  font-weight: 500;\n  color: #001E40;\n  background-color: #FFFFFF;\n  border: 2px solid #7A8CA0;\n  border-radius: 8px;\n  cursor: pointer;\n  transition: all 0.3s ease;\n}\n.homepage .work-searches-section .work-searches-content .see-more-btn:hover:not(:disabled) {\n  background-color: #001E40;\n  color: #FFFFFF;\n  border-color: #001E40;\n  transform: translateY(-2px);\n  box-shadow: 0 4px 12px rgba(0, 30, 64, 0.2);\n}\n.homepage .work-searches-section .work-searches-content .see-more-btn:active:not(:disabled) {\n  transform: translateY(0);\n  box-shadow: 0 2px 8px rgba(0, 30, 64, 0.15);\n}\n.homepage .work-searches-section .work-searches-content .see-more-btn:focus {\n  outline: 2px solid #001E40;\n  outline-offset: 2px;\n}\n.homepage .work-searches-section .work-searches-content .see-more-btn:disabled {\n  color: #999999;\n  border-color: #CCCCCC;\n  cursor: not-allowed;\n  opacity: 0.6;\n}\n.homepage .work-searches-section .work-searches-content .see-more-btn:disabled:hover {\n  background-color: #FFFFFF;\n  color: #999999;\n  border-color: #CCCCCC;\n  transform: none;\n  box-shadow: none;\n}\n@media (max-width: 768px) {\n  .homepage .work-searches-section .work-searches-content .see-more-btn {\n    font-size: 0.9rem;\n    padding: 0.7rem 1.5rem;\n  }\n}\n@media (max-width: 480px) {\n  .homepage .work-searches-section .work-searches-content .see-more-btn {\n    font-size: 0.8rem;\n    padding: 0.6rem 1.2rem;\n  }\n}\n.homepage .skill-details-modal .modal-content {\n  background: #FFFFFF;\n  border-radius: 8px;\n  padding: 20px;\n  max-width: 600px;\n  width: 100%;\n  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);\n}\n.homepage .skill-details-modal .modal-content .modal-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 20px;\n}\n.homepage .skill-details-modal .modal-content .modal-header h3 {\n  margin: 0;\n  font-size: 1.5rem;\n  color: #000000;\n  font-weight: 600;\n}\n.homepage .skill-details-modal .modal-content .modal-header .close-icon {\n  cursor: pointer;\n  color: #000000;\n}\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section {\n  margin-bottom: 20px;\n}\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .sub-skills-label {\n  font-size: 1.1rem;\n  font-weight: 500;\n  color: #000000;\n  margin-bottom: 8px;\n  display: block;\n}\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .sub-skills-label .required {\n  color: #FF4D4F;\n  font-size: 0.9rem;\n}\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .sub-skills-instruction {\n  font-size: 0.9rem;\n  color: #666666;\n  margin-bottom: 12px;\n}\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .sub-skills-container {\n  display: flex;\n  gap: 20px;\n  background: #F9FAFB;\n  padding: 15px;\n  border-radius: 6px;\n  border: 1px solid #E5E7EB;\n}\n@media (max-width: 480px) {\n  .homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .sub-skills-container {\n    flex-direction: column;\n    gap: 15px;\n  }\n}\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .available-sub-skills,\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .selected-sub-skills {\n  flex: 1;\n  padding: 10px;\n  background: #FFFFFF;\n  border-radius: 4px;\n  border: 1px solid #E5E7EB;\n  min-height: 150px;\n}\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .available-sub-skills h4,\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .selected-sub-skills h4 {\n  font-size: 1rem;\n  font-weight: 600;\n  color: #000000;\n  margin: 0 0 10px 0;\n}\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .available-sub-skills .sub-skills-list,\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .selected-sub-skills .sub-skills-list {\n  list-style: none;\n  padding: 0;\n  margin: 0;\n}\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .available-sub-skills .sub-skills-list .sub-skill-item,\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .selected-sub-skills .sub-skills-list .sub-skill-item {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 8px 12px;\n  border-bottom: 1px solid #F0F0F0;\n  transition: background-color 0.2s ease;\n}\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .available-sub-skills .sub-skills-list .sub-skill-item:last-child,\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .selected-sub-skills .sub-skills-list .sub-skill-item:last-child {\n  border-bottom: none;\n}\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .available-sub-skills .sub-skills-list .sub-skill-item:hover,\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .selected-sub-skills .sub-skills-list .sub-skill-item:hover {\n  background-color: #F1F5F9;\n}\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .available-sub-skills .sub-skills-list .sub-skill-item .sub-skill-text,\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .selected-sub-skills .sub-skills-list .sub-skill-item .sub-skill-text {\n  font-size: 0.95rem;\n  color: #000000;\n  font-weight: 400;\n}\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .available-sub-skills .sub-skills-list .sub-skill-item .add-sub-skill-btn,\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .available-sub-skills .sub-skills-list .sub-skill-item .remove-sub-skill-btn,\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .selected-sub-skills .sub-skills-list .sub-skill-item .add-sub-skill-btn,\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .selected-sub-skills .sub-skills-list .sub-skill-item .remove-sub-skill-btn {\n  background: #F1F5F9;\n  border: none;\n  cursor: pointer;\n  padding: 6px;\n  border-radius: 50%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  transition: background-color 0.2s ease;\n}\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .available-sub-skills .sub-skills-list .sub-skill-item .add-sub-skill-btn svg,\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .available-sub-skills .sub-skills-list .sub-skill-item .remove-sub-skill-btn svg,\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .selected-sub-skills .sub-skills-list .sub-skill-item .add-sub-skill-btn svg,\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .selected-sub-skills .sub-skills-list .sub-skill-item .remove-sub-skill-btn svg {\n  color: #001E40;\n  width: 16px;\n  height: 16px;\n}\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .available-sub-skills .sub-skills-list .sub-skill-item .add-sub-skill-btn:hover,\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .available-sub-skills .sub-skills-list .sub-skill-item .remove-sub-skill-btn:hover,\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .selected-sub-skills .sub-skills-list .sub-skill-item .add-sub-skill-btn:hover,\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .selected-sub-skills .sub-skills-list .sub-skill-item .remove-sub-skill-btn:hover {\n  background-color: #E6F7FF;\n}\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .available-sub-skills .sub-skills-list .sub-skill-item .add-sub-skill-btn:focus,\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .available-sub-skills .sub-skills-list .sub-skill-item .remove-sub-skill-btn:focus,\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .selected-sub-skills .sub-skills-list .sub-skill-item .add-sub-skill-btn:focus,\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .selected-sub-skills .sub-skills-list .sub-skill-item .remove-sub-skill-btn:focus {\n  outline: 2px solid #20B2AA;\n  outline-offset: 2px;\n}\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .available-sub-skills .sub-skills-list .sub-skill-item .remove-sub-skill-btn:hover,\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .selected-sub-skills .sub-skills-list .sub-skill-item .remove-sub-skill-btn:hover {\n  background-color: #FFF1F0;\n}\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .available-sub-skills .no-sub-skills,\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .selected-sub-skills .no-sub-skills {\n  font-size: 0.9rem;\n  color: #666666;\n  text-align: center;\n  margin: 20px 0;\n}\n.homepage .skill-details-modal .modal-content .modal-body .no-sub-skills {\n  font-size: 0.95rem;\n  color: #666666;\n  text-align: center;\n  margin: 20px 0;\n}\n.homepage .skill-details-modal .modal-content .modal-footer {\n  display: flex;\n  justify-content: flex-end;\n}\n.homepage .skill-details-modal .modal-content .modal-footer .save-btn {\n  padding: 10px 20px;\n  font-size: 1rem;\n  font-weight: 500;\n  color: #FFFFFF;\n  background-color: #001E40;\n  border: none;\n  border-radius: 6px;\n  cursor: pointer;\n  transition: background-color 0.3s ease;\n}\n.homepage .skill-details-modal .modal-content .modal-footer .save-btn:hover {\n  background-color: #003087;\n}\n.homepage .skill-details-modal .modal-content .modal-footer .save-btn:disabled {\n  background-color: #B0B0B0;\n  cursor: not-allowed;\n}\n.homepage .credentials-container {\n  margin-top: 20px;\n}\n.homepage .credentials-container h3 {\n  font-size: 18px;\n  margin-bottom: 10px;\n}\n.homepage .credentials-container p {\n  margin-bottom: 10px;\n  color: #666;\n}\n.homepage .credential-section .credential-dropdown {\n  width: 100%;\n  margin-bottom: 10px;\n}\n.homepage .credential-section .credential-upload {\n  display: flex;\n  gap: 10px;\n  margin-bottom: 10px;\n}\n.homepage .credential-section .credential-upload input[type=file] {\n  flex-grow: 1;\n}\n.homepage .credential-section .credential-upload button {\n  padding: 8px 16px;\n  background-color: #1890ff;\n  color: white;\n  border: none;\n  border-radius: 4px;\n  cursor: pointer;\n}\n.homepage .credential-section .credential-upload button:hover {\n  background-color: #40a9ff;\n}\n.homepage .credential-section .credential-list {\n  margin-top: 10px;\n}\n.homepage .credential-section .credential-item {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n  margin-bottom: 8px;\n}\n.homepage .credential-section .credential-item button {\n  background-color: #ff4d4f;\n  color: white;\n  border: none;\n  padding: 4px 8px;\n  border-radius: 4px;\n  cursor: pointer;\n}\n.homepage .credential-section .credential-item button:hover {\n  background-color: #ff7875;\n}\n.homepage .credential-section .error {\n  color: #ff4d4f;\n  font-size: 12px;\n  margin-top: 4px;\n  display: block;\n}\n\nhtml, body {\n  margin: 0;\n  padding: 0;\n  width: 100%;\n  height: 100%;\n  overflow-x: hidden;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -71229,30 +71229,6 @@ ___CSS_LOADER_EXPORT___.push([module.id, ".stats {\n  padding: 2rem 0;\n  max-wi
 
 /***/ }),
 
-/***/ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/sass/components/Message.scss":
-/*!**************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/sass/components/Message.scss ***!
-  \**************************************************************************************************************************************************************************************************************************************************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
-// Imports
-
-var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
-// Module
-___CSS_LOADER_EXPORT___.push([module.id, ".message-container {\n  min-height: 100vh;\n  background-color: #f8f9fa;\n}\n.message-container .message-content {\n  display: flex;\n  min-height: 50px;\n  margin-top: 70px;\n}\n.message-container .conversation-sidebar {\n  width: 350px;\n  background-color: #ffffff;\n  border-right: 2px solid #e9ecef;\n  display: flex;\n  flex-direction: column;\n  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);\n  transition: transform 0.3s ease, opacity 0.3s ease;\n}\n.message-container .conversation-sidebar.sidebar-hidden {\n  display: none;\n}\n.message-container .conversation-sidebar .sidebar-header {\n  padding: 20px;\n  border-bottom: 1px solid #e9ecef;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  background-color: #f8f9fa;\n}\n.message-container .conversation-sidebar .sidebar-header h3 {\n  margin: 0;\n  font-size: 18px;\n  font-weight: 600;\n  color: #333;\n}\n.message-container .conversation-sidebar .sidebar-header .conversation-count {\n  background-color: #0a2a44;\n  color: white;\n  padding: 4px 8px;\n  border-radius: 12px;\n  font-size: 12px;\n  font-weight: 500;\n}\n.message-container .conversation-sidebar .sidebar-search {\n  padding: 12px 16px;\n}\n.message-container .conversation-sidebar .sidebar-search .search-input-wrapper {\n  display: flex;\n  align-items: center;\n  background: #f3f5f7;\n  border: none;\n  border-radius: 20px;\n  padding: 8px 16px;\n  gap: 8px;\n}\n.message-container .conversation-sidebar .sidebar-search .search-input-wrapper .search-icon {\n  font-size: 16px;\n  opacity: 0.6;\n}\n.message-container .conversation-sidebar .sidebar-search .search-input-wrapper input {\n  flex: 1;\n  border: none;\n  outline: none;\n  background: transparent;\n  font-size: 14px;\n  color: #333;\n}\n.message-container .conversation-sidebar .sidebar-search .search-input-wrapper input::-moz-placeholder {\n  color: #999;\n}\n.message-container .conversation-sidebar .sidebar-search .search-input-wrapper input::placeholder {\n  color: #999;\n}\n.message-container .conversation-sidebar .conversation-list {\n  flex: 1;\n  overflow-y: auto;\n}\n.message-container .conversation-sidebar .conversation-list .conversation-item {\n  display: flex;\n  align-items: center;\n  padding: 15px 20px;\n  border-bottom: 1px solid #f1f3f4;\n  cursor: pointer;\n  transition: background-color 0.2s ease;\n}\n.message-container .conversation-sidebar .conversation-list .conversation-item:hover {\n  background-color: #f8f9fa;\n}\n.message-container .conversation-sidebar .conversation-list .conversation-item.active {\n  background-color: #e3f2fd;\n  border-left: 4px solid #0a2a44;\n}\n.message-container .conversation-sidebar .conversation-list .conversation-item.unread {\n  background-color: #fff3cd;\n}\n.message-container .conversation-sidebar .conversation-list .conversation-item.unread .conversation-name {\n  font-weight: 600;\n}\n.message-container .conversation-sidebar .conversation-list .conversation-item .conversation-avatar {\n  position: relative;\n  margin-right: 12px;\n}\n.message-container .conversation-sidebar .conversation-list .conversation-item .conversation-avatar .avatar-image {\n  width: 40px;\n  height: 40px;\n  border-radius: 50%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  border: 1px solid #e9ecef;\n  background: #fff;\n  display: block;\n}\n.message-container .conversation-sidebar .conversation-list .conversation-item .conversation-avatar .avatar-placeholder {\n  width: 40px;\n  height: 40px;\n  border-radius: 50%;\n  background-color: #0a2a44;\n  color: white;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-weight: 600;\n  font-size: 16px;\n}\n.message-container .conversation-sidebar .conversation-list .conversation-item .conversation-avatar .unread-indicator {\n  position: absolute;\n  top: -5px;\n  right: -5px;\n  min-width: 20px;\n  height: 20px;\n  background-color: #dc3545;\n  border-radius: 10px;\n  border: 2px solid white;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 12px;\n  font-weight: 600;\n  color: white;\n  padding: 2px 6px;\n}\n.message-container .conversation-sidebar .conversation-list .conversation-item .conversation-details {\n  flex: 1;\n  min-width: 0;\n}\n.message-container .conversation-sidebar .conversation-list .conversation-item .conversation-details .conversation-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 4px;\n}\n.message-container .conversation-sidebar .conversation-list .conversation-item .conversation-details .conversation-header .conversation-name {\n  font-weight: 500;\n  color: #333;\n  font-size: 14px;\n}\n.message-container .conversation-sidebar .conversation-list .conversation-item .conversation-details .conversation-header .conversation-time {\n  font-size: 12px;\n  color: #6c757d;\n}\n.message-container .conversation-sidebar .conversation-list .conversation-item .conversation-details .conversation-preview,\n.message-container .conversation-sidebar .conversation-list .conversation-item .conversation-details .employer-conversation-preview {\n  font-size: 13px;\n  color: #6c757d;\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n.message-container .chat-area {\n  flex: 1;\n  background-color: #ffffff;\n  display: flex;\n  flex-direction: column;\n  transition: width 0.3s ease;\n}\n.message-container .chat-area.chat-area-full {\n  width: 100%;\n}\n.message-container .chat-area .chat-content {\n  display: flex;\n  flex-direction: column;\n  height: 1000px;\n}\n.message-container .chat-area .chat-content .chat-header {\n  padding: 20px;\n  border-bottom: 1px solid #e9ecef;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  background-color: #f8f9fa;\n}\n.message-container .chat-area .chat-content .chat-header .chat-header-left {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n  flex: 1;\n}\n.message-container .chat-area .chat-content .chat-header .chat-header-left .back-button {\n  background: none;\n  border: none;\n  cursor: pointer;\n  padding: 8px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  border-radius: 50%;\n  transition: background-color 0.2s ease;\n  color: #333;\n  font-size: 20px;\n}\n.message-container .chat-area .chat-content .chat-header .chat-header-left .back-button:hover {\n  background-color: #e9ecef;\n}\n.message-container .chat-area .chat-content .chat-header .chat-header-left .back-button:active {\n  transform: scale(0.95);\n}\n.message-container .chat-area .chat-content .chat-header .chat-header-left h3 {\n  margin: 0;\n  flex: 1;\n  font-size: 18px;\n  font-weight: 600;\n  color: #333;\n}\n.message-container .chat-area .chat-content .chat-header .chat-header-actions {\n  display: flex;\n  align-items: center;\n  gap: 15px;\n}\n.message-container .chat-area .chat-content .chat-header .chat-header-actions .online-status {\n  font-size: 12px;\n  color: #28a745;\n  font-weight: 500;\n}\n.message-container .chat-area .chat-content .chat-header .chat-header-actions .online-status.offline {\n  color: #6c757d;\n}\n.message-container .chat-area .chat-content .chat-header .chat-header-actions .chat-menu-wrapper {\n  position: relative;\n}\n.message-container .chat-area .chat-content .chat-header .chat-header-actions .chat-menu-wrapper .chat-menu-icon {\n  font-size: 24px;\n  color: #6c757d;\n  cursor: pointer;\n  transition: color 0.2s ease;\n}\n.message-container .chat-area .chat-content .chat-header .chat-header-actions .chat-menu-wrapper .chat-menu-icon:hover {\n  color: #0a2a44;\n}\n.message-container .chat-area .chat-content .chat-header .chat-header-actions .chat-menu-wrapper .chat-menu-dropdown {\n  position: absolute;\n  top: 100%;\n  right: 0;\n  margin-top: 8px;\n  background-color: white;\n  border: 1px solid #e9ecef;\n  border-radius: 8px;\n  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);\n  min-width: 180px;\n  z-index: 1000;\n}\n.message-container .chat-area .chat-content .chat-header .chat-header-actions .chat-menu-wrapper .chat-menu-dropdown .chat-menu-item {\n  padding: 12px 16px;\n  cursor: pointer;\n  font-size: 14px;\n  color: #333;\n  transition: background-color 0.2s ease;\n}\n.message-container .chat-area .chat-content .chat-header .chat-header-actions .chat-menu-wrapper .chat-menu-dropdown .chat-menu-item:hover {\n  background-color: #f8f9fa;\n}\n.message-container .chat-area .chat-content .chat-header .chat-header-actions .chat-menu-wrapper .chat-menu-dropdown .chat-menu-item:first-child {\n  border-top-left-radius: 8px;\n  border-top-right-radius: 8px;\n}\n.message-container .chat-area .chat-content .chat-header .chat-header-actions .chat-menu-wrapper .chat-menu-dropdown .chat-menu-item:last-child {\n  border-bottom-left-radius: 8px;\n  border-bottom-right-radius: 8px;\n}\n.message-container .chat-area .chat-content .user-profile-info {\n  padding: 20px;\n  border-bottom: 1px solid #e9ecef;\n  background-color: #f8f9fa;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-profile-header {\n  display: flex;\n  align-items: center;\n  margin-bottom: 15px;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-profile-header .user-profile-img {\n  width: 60px;\n  height: 60px;\n  border-radius: 50%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  margin-right: 15px;\n  border: 2px solid #0a2a44;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-profile-header .user-profile-details {\n  flex: 1;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-profile-header .user-profile-details .user-name {\n  margin: 0 0 5px 0;\n  font-size: 18px;\n  font-weight: 600;\n  color: #333;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-profile-header .user-profile-details .verified-badge {\n  background-color: #28a745;\n  color: white;\n  padding: 3px 8px;\n  border-radius: 12px;\n  font-size: 12px;\n  font-weight: 500;\n  display: inline-block;\n  margin-bottom: 8px;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-profile-header .user-profile-details .user-status {\n  display: flex;\n  align-items: center;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-profile-header .user-profile-details .user-status .status-indicator {\n  width: 10px;\n  height: 10px;\n  border-radius: 50%;\n  margin-right: 8px;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-profile-header .user-profile-details .user-status .status-indicator.online {\n  background-color: #28a745;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-profile-header .user-profile-details .user-status .status-indicator.offline {\n  background-color: #6c757d;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-profile-header .user-profile-details .user-status .status-text {\n  font-size: 14px;\n  color: #6c757d;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-contact-info {\n  margin-bottom: 15px;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-contact-info .contact-number {\n  display: flex;\n  align-items: center;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-contact-info .contact-number .contact-label {\n  font-weight: 600;\n  margin-right: 10px;\n  color: #333;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-contact-info .contact-number .contact-value {\n  font-size: 14px;\n  color: #6c757d;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-worker-details {\n  margin-bottom: 15px;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-collar, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-rank {\n  margin-bottom: 15px;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-collar h4, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-rank h4 {\n  margin: 0 0 8px 0;\n  font-size: 14px;\n  font-weight: 600;\n  color: #333;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-collar .collar-info, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-collar .rank-info, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-rank .collar-info, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-rank .rank-info {\n  display: flex;\n  align-items: center;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-collar .collar-info .collar-image, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-collar .collar-info .rank-image, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-collar .rank-info .collar-image, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-collar .rank-info .rank-image, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-rank .collar-info .collar-image, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-rank .collar-info .rank-image, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-rank .rank-info .collar-image, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-rank .rank-info .rank-image {\n  width: 30px;\n  height: 30px;\n  -o-object-fit: contain;\n     object-fit: contain;\n  margin-right: 10px;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-collar .collar-info .collar-name, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-collar .collar-info .rank-name, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-collar .rank-info .collar-name, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-collar .rank-info .rank-name, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-rank .collar-info .collar-name, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-rank .collar-info .rank-name, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-rank .rank-info .collar-name, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-rank .rank-info .rank-name {\n  font-size: 14px;\n  font-weight: 500;\n  color: #555;\n}\n.message-container .chat-area .chat-content .user-profile-info .profile-actions .view-profile-btn {\n  background-color: #0a2a44;\n  color: white;\n  border: none;\n  border-radius: 6px;\n  padding: 8px 16px;\n  font-size: 14px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: background-color 0.2s ease;\n}\n.message-container .chat-area .chat-content .user-profile-info .profile-actions .view-profile-btn:hover {\n  background-color: #1a3a54;\n}\n.message-container .chat-area .chat-content .chat-messages {\n  flex: 1;\n  padding: 20px;\n  overflow-y: auto;\n}\n.message-container .chat-area .chat-content .chat-messages .messages-list {\n  display: flex;\n  flex-direction: column;\n  gap: 12px;\n}\n.message-container .chat-area .chat-content .chat-messages .message-item {\n  display: flex;\n  margin-bottom: 8px;\n}\n.message-container .chat-area .chat-content .chat-messages .message-item.own-message {\n  justify-content: flex-end;\n}\n.message-container .chat-area .chat-content .chat-messages .message-item.own-message .message-content {\n  background-color: #0a2a44;\n  color: white;\n  border-radius: 10px;\n  max-width: 100%;\n}\n.message-container .chat-area .chat-content .chat-messages .message-item.other-message {\n  justify-content: flex-start;\n}\n.message-container .chat-area .chat-content .chat-messages .message-item.other-message .message-content {\n  background-color: #f1f3f4;\n  color: #333;\n  border-radius: 10px;\n  max-width: 100%;\n}\n.message-container .chat-area .chat-content .chat-messages .message-item .message-content {\n  padding: 12px 16px;\n  position: relative;\n}\n.message-container .chat-area .chat-content .chat-messages .message-item .message-content .message-text {\n  font-size: 14px;\n  line-height: 1.4;\n  margin-bottom: 4px;\n  word-wrap: break-word;\n}\n.message-container .chat-area .chat-content .chat-messages .message-item .message-content .message-time {\n  font-size: 11px;\n  opacity: 0.7;\n  text-align: right;\n  margin-top: 25px;\n  display: inline-block;\n}\n.message-container .chat-area .chat-content .chat-messages .message-placeholder {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  height: 100%;\n  color: #6c757d;\n  font-style: italic;\n}\n.message-container .chat-area .chat-content .chat-input {\n  padding: 10px 15px;\n  border-top: 1px solid #e9ecef;\n  display: flex;\n  align-items: center;\n  gap: 0;\n  background-color: #ffffff;\n  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.05);\n  border-radius: 25px;\n  margin: 10px 15px;\n}\n.message-container .chat-area .chat-content .chat-input .icon-btn {\n  background: none;\n  border: none;\n  font-size: 24px;\n  color: #6c757d;\n  cursor: pointer;\n  padding: 8px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  transition: color 0.2s ease;\n}\n.message-container .chat-area .chat-content .chat-input .icon-btn:hover {\n  color: #0a2a44;\n}\n.message-container .chat-area .chat-content .chat-input .icon-btn.attach-btn {\n  margin-right: 5px;\n}\n.message-container .chat-area .chat-content .chat-input .input-wrapper {\n  flex: 1;\n  display: flex;\n  align-items: center;\n  background-color: #f3f5f7;\n  border-radius: 20px;\n  padding: 8px 15px;\n  margin: 0 10px;\n}\n.message-container .chat-area .chat-content .chat-input .input-wrapper .message-input {\n  flex: 1;\n  border: none;\n  outline: none;\n  background: transparent;\n  font-size: 15px;\n  color: #333;\n  padding: 0;\n}\n.message-container .chat-area .chat-content .chat-input .input-wrapper .message-input::-moz-placeholder {\n  color: #999;\n}\n.message-container .chat-area .chat-content .chat-input .input-wrapper .message-input::placeholder {\n  color: #999;\n}\n.message-container .chat-area .chat-content .chat-input .send-button {\n  background-color: #6f42c1;\n  border: none;\n  border-radius: 50%;\n  width: 40px;\n  height: 40px;\n  min-width: 40px;\n  min-height: 40px;\n  max-width: 40px;\n  max-height: 40px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  cursor: pointer;\n  transition: background-color 0.2s ease;\n  color: #fff;\n  font-size: 20px;\n  padding: 0;\n  flex-shrink: 0;\n}\n.message-container .chat-area .chat-content .chat-input .send-button:hover:not(:disabled) {\n  background-color: rgb(88.6693227092, 51.3784860558, 156.6215139442);\n}\n.message-container .chat-area .chat-content .chat-input .send-button:disabled {\n  background-color: #6c757d;\n  cursor: not-allowed;\n  opacity: 0.6;\n}\n.message-container .chat-area .chat-content .chat-input .send-button:active:not(:disabled) {\n  transform: scale(0.95);\n}\n.message-container .chat-area .no-conversation-selected {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  height: 1000px;\n}\n.message-container .chat-area .no-conversation-selected .empty-state {\n  text-align: center;\n  color: #6c757d;\n}\n.message-container .chat-area .no-conversation-selected .empty-state .empty-icon {\n  font-size: 48px;\n  margin-bottom: 16px;\n}\n.message-container .chat-area .no-conversation-selected .empty-state h3 {\n  margin: 0 0 8px 0;\n  font-size: 20px;\n  font-weight: 600;\n}\n.message-container .chat-area .no-conversation-selected .empty-state p {\n  margin: 0;\n  font-size: 14px;\n}\n@media (max-width: 768px) {\n  .message-container .chat-area .no-conversation-selected {\n    display: none; /* Hide on mobile */\n  }\n}\n\n@media (max-width: 768px) {\n  .message-container .message-content {\n    flex-direction: column;\n    height: calc(100vh - 80px);\n    margin-top: 60px;\n  }\n  .message-container .conversation-sidebar {\n    width: 100%;\n    height: 40%;\n    border-right: none;\n    border-bottom: 2px solid #e9ecef;\n    box-shadow: none;\n  }\n  .message-container .conversation-sidebar .sidebar-header {\n    padding: 16px;\n  }\n  .message-container .conversation-sidebar .sidebar-header h3 {\n    font-size: 16px;\n  }\n  .message-container .conversation-sidebar .sidebar-header .conversation-count {\n    font-size: 11px;\n    padding: 3px 6px;\n  }\n  .message-container .conversation-sidebar .sidebar-search {\n    padding: 10px 12px;\n  }\n  .message-container .conversation-sidebar .sidebar-search .search-input-wrapper {\n    padding: 6px 12px;\n  }\n  .message-container .conversation-sidebar .conversation-list .conversation-item {\n    padding: 12px 16px;\n  }\n  .message-container .conversation-sidebar .conversation-list .conversation-item .conversation-avatar .avatar-image,\n  .message-container .conversation-sidebar .conversation-list .conversation-item .conversation-avatar .avatar-placeholder {\n    width: 36px;\n    height: 36px;\n  }\n  .message-container .conversation-sidebar .conversation-list .conversation-item .conversation-details .conversation-header .conversation-name {\n    font-size: 13px;\n  }\n  .message-container .conversation-sidebar .conversation-list .conversation-item .conversation-details .conversation-header .conversation-time {\n    font-size: 11px;\n  }\n  .message-container .conversation-sidebar .conversation-list .conversation-item .conversation-details .conversation-preview,\n  .message-container .conversation-sidebar .conversation-list .conversation-item .conversation-details .employer-conversation-preview {\n    font-size: 12px;\n  }\n  .message-container .chat-area {\n    height: 60%;\n  }\n  .message-container .chat-area .chat-content .chat-header {\n    padding: 16px;\n  }\n  .message-container .chat-area .chat-content .chat-header h3 {\n    font-size: 16px;\n  }\n  .message-container .chat-area .chat-content .chat-header .chat-header-actions {\n    gap: 10px;\n  }\n  .message-container .chat-area .chat-content .chat-header .chat-header-actions .online-status {\n    font-size: 11px;\n  }\n  .message-container .chat-area .chat-content .user-profile-info {\n    padding: 16px;\n  }\n  .message-container .chat-area .chat-content .user-profile-info .user-profile-header .user-profile-img {\n    width: 50px;\n    height: 50px;\n  }\n  .message-container .chat-area .chat-content .user-profile-info .user-profile-header .user-profile-details .user-name {\n    font-size: 16px;\n  }\n  .message-container .chat-area .chat-content .user-profile-info .user-profile-header .user-profile-details .verified-badge {\n    font-size: 11px;\n    padding: 2px 6px;\n  }\n  .message-container .chat-area .chat-content .user-profile-info .user-profile-header .user-profile-details .user-status .status-text {\n    font-size: 13px;\n  }\n  .message-container .chat-area .chat-content .user-profile-info .user-contact-info .contact-number,\n  .message-container .chat-area .chat-content .user-profile-info .user-contact-info .collar-info,\n  .message-container .chat-area .chat-content .user-profile-info .user-contact-info .rank-info,\n  .message-container .chat-area .chat-content .user-profile-info .user-worker-details .contact-number,\n  .message-container .chat-area .chat-content .user-profile-info .user-worker-details .collar-info,\n  .message-container .chat-area .chat-content .user-profile-info .user-worker-details .rank-info {\n    font-size: 13px;\n  }\n  .message-container .chat-area .chat-content .chat-messages {\n    padding: 16px;\n  }\n  .message-container .chat-area .chat-content .chat-messages .message-item .message-content {\n    padding: 10px 14px;\n  }\n  .message-container .chat-area .chat-content .chat-messages .message-item .message-content .message-text {\n    font-size: 13px;\n  }\n  .message-container .chat-area .chat-content .chat-messages .message-item .message-content .message-time {\n    font-size: 10px;\n  }\n  .message-container .chat-area .chat-content .chat-input {\n    padding: 8px 12px;\n    margin: 8px 12px;\n  }\n  .message-container .chat-area .chat-content .chat-input .input-wrapper {\n    padding: 6px 12px;\n    margin: 0 8px;\n  }\n  .message-container .chat-area .chat-content .chat-input .input-wrapper .message-input {\n    font-size: 14px;\n  }\n  .message-container .chat-area .chat-content .chat-input .send-button {\n    width: 36px;\n    height: 36px;\n    min-width: 36px;\n    min-height: 36px;\n    max-width: 36px;\n    max-height: 36px;\n    font-size: 18px;\n    flex-shrink: 0;\n  }\n}\n@media (max-width: 425px) {\n  .message-container .message-content {\n    margin-top: 50px;\n    height: calc(100vh - 70px);\n  }\n  .message-container .chat-area .chat-content .chat-input .send-button {\n    width: 34px;\n    height: 34px;\n    min-width: 34px;\n    min-height: 34px;\n    max-width: 34px;\n    max-height: 34px;\n    font-size: 17px;\n    flex-shrink: 0;\n  }\n}\n@media (max-width: 375px) {\n  .message-container .message-content {\n    margin-top: 50px;\n    height: calc(100vh - 70px);\n  }\n  .message-container .chat-area .chat-content .chat-input .send-button {\n    width: 32px;\n    height: 32px;\n    min-width: 32px;\n    min-height: 32px;\n    max-width: 32px;\n    max-height: 32px;\n    font-size: 16px;\n    flex-shrink: 0;\n  }\n}\n@media (max-width: 320px) {\n  .message-container .message-content {\n    margin-top: 50px;\n    height: calc(100vh - 70px);\n  }\n  .message-container .chat-area .chat-content .chat-input {\n    padding: 5px 8px;\n    margin: 5px 8px;\n  }\n  .message-container .chat-area .chat-content .chat-input .input-wrapper {\n    padding: 4px 8px;\n    margin: 0 4px;\n  }\n  .message-container .chat-area .chat-content .chat-input .input-wrapper .message-input {\n    font-size: 12px;\n  }\n  .message-container .chat-area .chat-content .chat-input .send-button {\n    width: 30px;\n    height: 30px;\n    min-width: 30px;\n    min-height: 30px;\n    max-width: 30px;\n    max-height: 30px;\n    font-size: 15px;\n    flex-shrink: 0;\n  }\n}\n@media (max-width: 480px) {\n  .message-container .message-content {\n    margin-top: 50px;\n    height: calc(100vh - 70px);\n  }\n  .message-container .conversation-sidebar {\n    height: 35%;\n  }\n  .message-container .conversation-sidebar .sidebar-header {\n    padding: 12px;\n  }\n  .message-container .conversation-sidebar .sidebar-header h3 {\n    font-size: 14px;\n  }\n  .message-container .conversation-sidebar .conversation-list .conversation-item {\n    padding: 10px 12px;\n  }\n  .message-container .conversation-sidebar .conversation-list .conversation-item .conversation-avatar {\n    margin-right: 8px;\n  }\n  .message-container .conversation-sidebar .conversation-list .conversation-item .conversation-avatar .avatar-image,\n  .message-container .conversation-sidebar .conversation-list .conversation-item .conversation-avatar .avatar-placeholder {\n    width: 32px;\n    height: 32px;\n  }\n  .message-container .chat-area {\n    height: 65%;\n  }\n  .message-container .chat-area .chat-content .chat-header {\n    padding: 12px;\n  }\n  .message-container .chat-area .chat-content .chat-header h3 {\n    font-size: 14px;\n  }\n  .message-container .chat-area .chat-content .user-profile-info {\n    padding: 12px;\n  }\n  .message-container .chat-area .chat-content .user-profile-info .user-profile-header .user-profile-img {\n    width: 45px;\n    height: 45px;\n  }\n  .message-container .chat-area .chat-content .user-profile-info .user-profile-header .user-profile-details .user-name {\n    font-size: 15px;\n  }\n  .message-container .chat-area .chat-content .chat-messages {\n    padding: 12px;\n  }\n  .message-container .chat-area .chat-content .chat-messages .message-item .message-content {\n    padding: 8px 12px;\n    max-width: 85%;\n  }\n  .message-container .chat-area .chat-content .chat-messages .message-item .message-content .message-text {\n    font-size: 12px;\n  }\n  .message-container .chat-area .chat-content .chat-input {\n    padding: 6px 10px;\n    margin: 6px 10px;\n  }\n  .message-container .chat-area .chat-content .chat-input .icon-btn {\n    font-size: 20px;\n    padding: 6px;\n  }\n  .message-container .chat-area .chat-content .chat-input .input-wrapper {\n    padding: 5px 10px;\n    margin: 0 6px;\n  }\n  .message-container .chat-area .chat-content .chat-input .input-wrapper .message-input {\n    font-size: 13px;\n  }\n  .message-container .chat-area .chat-content .chat-input .send-button {\n    width: 32px;\n    height: 32px;\n    min-width: 32px;\n    min-height: 32px;\n    max-width: 32px;\n    max-height: 32px;\n    font-size: 16px;\n    flex-shrink: 0;\n  }\n}", ""]);
-// Exports
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
-
-
-/***/ }),
-
 /***/ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/sass/components/MessageWorker.scss":
 /*!********************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/sass/components/MessageWorker.scss ***!
@@ -71270,7 +71246,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".message-worker-container {\n  min-height: 100vh;\n  background-color: #f8f9fa;\n}\n.message-worker-container .message-worker-content {\n  display: flex;\n  min-height: 50px;\n  margin-top: 70px;\n}\n.message-worker-container .conversation-sidebar {\n  width: 350px;\n  background-color: #ffffff;\n  border-right: 2px solid #e9ecef;\n  display: flex;\n  flex-direction: column;\n  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);\n  transition: transform 0.3s ease, opacity 0.3s ease;\n}\n.message-worker-container .conversation-sidebar.sidebar-hidden {\n  display: none;\n}\n.message-worker-container .conversation-sidebar .sidebar-header {\n  padding: 20px;\n  border-bottom: 1px solid #e9ecef;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  background-color: #f8f9fa;\n}\n.message-worker-container .conversation-sidebar .sidebar-header h3 {\n  margin: 0;\n  font-size: 18px;\n  font-weight: 600;\n  color: #333;\n}\n.message-worker-container .conversation-sidebar .sidebar-header .conversation-count {\n  background-color: #0a2a44;\n  color: white;\n  padding: 4px 8px;\n  border-radius: 12px;\n  font-size: 12px;\n  font-weight: 500;\n}\n.message-worker-container .conversation-sidebar .sidebar-search {\n  padding: 12px 16px;\n}\n.message-worker-container .conversation-sidebar .sidebar-search .search-input-wrapper {\n  display: flex;\n  align-items: center;\n  background: #f3f5f7;\n  border: none;\n  border-radius: 20px;\n  padding: 8px 16px;\n  gap: 8px;\n}\n.message-worker-container .conversation-sidebar .sidebar-search .search-input-wrapper .search-icon {\n  font-size: 16px;\n  opacity: 0.6;\n}\n.message-worker-container .conversation-sidebar .sidebar-search .search-input-wrapper input {\n  flex: 1;\n  border: none;\n  outline: none;\n  background: transparent;\n  font-size: 14px;\n  color: #333;\n}\n.message-worker-container .conversation-sidebar .sidebar-search .search-input-wrapper input::-moz-placeholder {\n  color: #999;\n}\n.message-worker-container .conversation-sidebar .sidebar-search .search-input-wrapper input::placeholder {\n  color: #999;\n}\n.message-worker-container .conversation-sidebar .conversation-list {\n  flex: 1;\n  overflow-y: auto;\n}\n.message-worker-container .conversation-sidebar .conversation-list .conversation-item {\n  display: flex;\n  align-items: center;\n  padding: 15px 20px;\n  border-bottom: 1px solid #f1f3f4;\n  cursor: pointer;\n  transition: background-color 0.2s ease;\n}\n.message-worker-container .conversation-sidebar .conversation-list .conversation-item:hover {\n  background-color: #f8f9fa;\n}\n.message-worker-container .conversation-sidebar .conversation-list .conversation-item.active {\n  background-color: #e3f2fd;\n  border-left: 4px solid #0a2a44;\n}\n.message-worker-container .conversation-sidebar .conversation-list .conversation-item.unread {\n  background-color: #fff3cd;\n}\n.message-worker-container .conversation-sidebar .conversation-list .conversation-item.unread .conversation-name {\n  font-weight: 600;\n}\n.message-worker-container .conversation-sidebar .conversation-list .conversation-item .conversation-avatar {\n  position: relative;\n  margin-right: 12px;\n}\n.message-worker-container .conversation-sidebar .conversation-list .conversation-item .conversation-avatar .avatar-image {\n  width: 40px;\n  height: 40px;\n  border-radius: 50%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  border: 1px solid #e9ecef;\n  background: #fff;\n  display: block;\n}\n.message-worker-container .conversation-sidebar .conversation-list .conversation-item .conversation-avatar .avatar-placeholder {\n  width: 40px;\n  height: 40px;\n  border-radius: 50%;\n  background-color: #0a2a44;\n  color: white;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-weight: 600;\n  font-size: 16px;\n}\n.message-worker-container .conversation-sidebar .conversation-list .conversation-item .conversation-avatar .unread-indicator {\n  position: absolute;\n  top: -5px;\n  right: -5px;\n  min-width: 20px;\n  height: 20px;\n  background-color: #dc3545;\n  border-radius: 10px;\n  border: 2px solid white;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 12px;\n  font-weight: 600;\n  color: white;\n  padding: 2px 6px;\n}\n.message-worker-container .conversation-sidebar .conversation-list .conversation-item .conversation-details {\n  flex: 1;\n  min-width: 0;\n}\n.message-worker-container .conversation-sidebar .conversation-list .conversation-item .conversation-details .conversation-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 4px;\n}\n.message-worker-container .conversation-sidebar .conversation-list .conversation-item .conversation-details .conversation-header .conversation-name {\n  font-weight: 500;\n  color: #333;\n  font-size: 14px;\n}\n.message-worker-container .conversation-sidebar .conversation-list .conversation-item .conversation-details .conversation-header .conversation-time {\n  font-size: 12px;\n  color: #6c757d;\n}\n.message-worker-container .conversation-sidebar .conversation-list .conversation-item .conversation-details .conversation-preview,\n.message-worker-container .conversation-sidebar .conversation-list .conversation-item .conversation-details .worker-conversation-preview {\n  font-size: 13px;\n  color: #6c757d;\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n.message-worker-container .chat-area {\n  flex: 1;\n  background-color: #ffffff;\n  display: flex;\n  flex-direction: column;\n  transition: width 0.3s ease;\n}\n.message-worker-container .chat-area.chat-area-full {\n  width: 100%;\n}\n.message-worker-container .chat-area .chat-content {\n  display: flex;\n  flex-direction: column;\n  height: 1000px;\n}\n.message-worker-container .chat-area .chat-content .chat-header {\n  padding: 20px;\n  border-bottom: 1px solid #e9ecef;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  background-color: #f8f9fa;\n}\n.message-worker-container .chat-area .chat-content .chat-header .chat-header-left {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n  flex: 1;\n}\n.message-worker-container .chat-area .chat-content .chat-header .chat-header-left .back-button {\n  background: none;\n  border: none;\n  cursor: pointer;\n  padding: 8px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  border-radius: 50%;\n  transition: background-color 0.2s ease;\n  color: #333;\n  font-size: 20px;\n}\n.message-worker-container .chat-area .chat-content .chat-header .chat-header-left .back-button:hover {\n  background-color: #e9ecef;\n}\n.message-worker-container .chat-area .chat-content .chat-header .chat-header-left .back-button:active {\n  transform: scale(0.95);\n}\n.message-worker-container .chat-area .chat-content .chat-header .chat-header-left h3 {\n  margin: 0;\n  flex: 1;\n}\n.message-worker-container .chat-area .chat-content .chat-header h3 {\n  margin: 0;\n  font-size: 18px;\n  font-weight: 600;\n  color: #333;\n}\n.message-worker-container .chat-area .chat-content .chat-header .chat-header-actions {\n  display: flex;\n  align-items: center;\n  gap: 15px;\n}\n.message-worker-container .chat-area .chat-content .chat-header .chat-header-actions .online-status {\n  font-size: 12px;\n  color: #28a745;\n  font-weight: 500;\n}\n.message-worker-container .chat-area .chat-content .chat-header .chat-header-actions .chat-menu-wrapper {\n  position: relative;\n}\n.message-worker-container .chat-area .chat-content .chat-header .chat-header-actions .chat-menu-wrapper .chat-menu-icon {\n  font-size: 24px;\n  color: #6c757d;\n  cursor: pointer;\n  transition: color 0.2s ease;\n}\n.message-worker-container .chat-area .chat-content .chat-header .chat-header-actions .chat-menu-wrapper .chat-menu-icon:hover {\n  color: #0a2a44;\n}\n.message-worker-container .chat-area .chat-content .chat-header .chat-header-actions .chat-menu-wrapper .chat-menu-dropdown {\n  position: absolute;\n  top: 100%;\n  right: 0;\n  margin-top: 8px;\n  background-color: white;\n  border: 1px solid #e9ecef;\n  border-radius: 8px;\n  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);\n  min-width: 180px;\n  z-index: 1000;\n}\n.message-worker-container .chat-area .chat-content .chat-header .chat-header-actions .chat-menu-wrapper .chat-menu-dropdown .chat-menu-item {\n  padding: 12px 16px;\n  cursor: pointer;\n  font-size: 14px;\n  color: #333;\n  transition: background-color 0.2s ease;\n}\n.message-worker-container .chat-area .chat-content .chat-header .chat-header-actions .chat-menu-wrapper .chat-menu-dropdown .chat-menu-item:hover {\n  background-color: #f8f9fa;\n}\n.message-worker-container .chat-area .chat-content .chat-header .chat-header-actions .chat-menu-wrapper .chat-menu-dropdown .chat-menu-item:first-child {\n  border-top-left-radius: 8px;\n  border-top-right-radius: 8px;\n}\n.message-worker-container .chat-area .chat-content .chat-header .chat-header-actions .chat-menu-wrapper .chat-menu-dropdown .chat-menu-item:last-child {\n  border-bottom-left-radius: 8px;\n  border-bottom-right-radius: 8px;\n}\n.message-worker-container .chat-area .chat-content .chat-messages {\n  flex: 1;\n  padding: 20px;\n  overflow-y: auto;\n}\n.message-worker-container .chat-area .chat-content .chat-messages .messages-list {\n  display: flex;\n  flex-direction: column;\n  gap: 12px;\n}\n.message-worker-container .chat-area .chat-content .chat-messages .message-item {\n  display: flex;\n  margin-bottom: 8px;\n}\n.message-worker-container .chat-area .chat-content .chat-messages .message-item.own-message {\n  justify-content: flex-end;\n}\n.message-worker-container .chat-area .chat-content .chat-messages .message-item.own-message .message-content {\n  background-color: #0a2a44;\n  color: white;\n  border-radius: 10px;\n  max-width: 100%;\n}\n.message-worker-container .chat-area .chat-content .chat-messages .message-item.other-message {\n  justify-content: flex-start;\n}\n.message-worker-container .chat-area .chat-content .chat-messages .message-item.other-message .message-content {\n  background-color: #f1f3f4;\n  color: #333;\n  border-radius: 10px;\n  max-width: 100%;\n}\n.message-worker-container .chat-area .chat-content .chat-messages .message-item .message-content {\n  padding: 12px 16px;\n  position: relative;\n}\n.message-worker-container .chat-area .chat-content .chat-messages .message-item .message-content .message-text {\n  font-size: 14px;\n  line-height: 1.4;\n  margin-bottom: 4px;\n  word-wrap: break-word;\n}\n.message-worker-container .chat-area .chat-content .chat-messages .message-item .message-content .message-time {\n  font-size: 11px;\n  opacity: 0.7;\n  text-align: right;\n  margin-top: 25px;\n  display: inline-block;\n}\n.message-worker-container .chat-area .chat-content .chat-messages .message-placeholder {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  height: 100%;\n  color: #6c757d;\n  font-style: italic;\n}\n.message-worker-container .chat-area .chat-content .chat-input {\n  padding: 10px 15px;\n  border-top: 1px solid #e9ecef;\n  display: flex;\n  align-items: center;\n  gap: 0;\n  background-color: #ffffff;\n  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.05);\n  border-radius: 25px;\n  margin: 10px 15px;\n}\n.message-worker-container .chat-area .chat-content .chat-input .icon-btn {\n  background: none;\n  border: none;\n  font-size: 24px;\n  color: #6c757d;\n  cursor: pointer;\n  padding: 8px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  transition: color 0.2s ease;\n}\n.message-worker-container .chat-area .chat-content .chat-input .icon-btn:hover {\n  color: #0a2a44;\n}\n.message-worker-container .chat-area .chat-content .chat-input .icon-btn.attach-btn {\n  margin-right: 5px;\n}\n.message-worker-container .chat-area .chat-content .chat-input .input-wrapper {\n  flex: 1;\n  display: flex;\n  align-items: center;\n  background-color: #f3f5f7;\n  border-radius: 20px;\n  padding: 8px 15px;\n  margin: 0 10px;\n}\n.message-worker-container .chat-area .chat-content .chat-input .input-wrapper .message-input {\n  flex: 1;\n  border: none;\n  outline: none;\n  background: transparent;\n  font-size: 15px;\n  color: #333;\n  padding: 0;\n}\n.message-worker-container .chat-area .chat-content .chat-input .input-wrapper .message-input::-moz-placeholder {\n  color: #999;\n}\n.message-worker-container .chat-area .chat-content .chat-input .input-wrapper .message-input::placeholder {\n  color: #999;\n}\n.message-worker-container .chat-area .chat-content .chat-input .input-wrapper .voice-btn {\n  margin-left: 5px;\n  padding: 5px;\n}\n.message-worker-container .chat-area .chat-content .chat-input .send-button {\n  background-color: #6f42c1;\n  border: none;\n  border-radius: 50%;\n  width: 40px;\n  height: 40px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  cursor: pointer;\n  transition: background-color 0.2s ease;\n  color: #fff;\n  font-size: 20px;\n  padding: 0;\n}\n.message-worker-container .chat-area .chat-content .chat-input .send-button:hover:not(:disabled) {\n  background-color: rgb(88.6693227092, 51.3784860558, 156.6215139442);\n}\n.message-worker-container .chat-area .chat-content .chat-input .send-button:disabled {\n  background-color: #6c757d;\n  cursor: not-allowed;\n  opacity: 0.6;\n}\n.message-worker-container .chat-area .chat-content .chat-input .send-button:active:not(:disabled) {\n  transform: scale(0.95);\n}\n.message-worker-container .chat-area .no-conversation-selected {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  height: 1000px;\n}\n.message-worker-container .chat-area .no-conversation-selected .empty-state {\n  text-align: center;\n  color: #6c757d;\n}\n.message-worker-container .chat-area .no-conversation-selected .empty-state .empty-icon {\n  font-size: 48px;\n  margin-bottom: 16px;\n}\n.message-worker-container .chat-area .no-conversation-selected .empty-state h3 {\n  margin: 0 0 8px 0;\n  font-size: 20px;\n  font-weight: 600;\n}\n.message-worker-container .chat-area .no-conversation-selected .empty-state p {\n  margin: 0;\n  font-size: 14px;\n}\n\n@media (max-width: 768px) {\n  .message-worker-container .message-worker-content {\n    flex-direction: column;\n    height: calc(100vh - 80px);\n  }\n  .message-worker-container .conversation-sidebar {\n    width: 100%;\n    height: 40%;\n    border-right: none;\n    border-bottom: 2px solid #e9ecef;\n  }\n  .message-worker-container .chat-area {\n    height: 60%;\n  }\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".message-worker-container {\n  height: 100vh;\n  max-height: 100vh;\n  overflow: hidden;\n  background-color: #f8f9fa;\n  display: flex;\n  flex-direction: column;\n}\n.message-worker-container .message-worker-content {\n  display: flex;\n  flex: 1;\n  margin-top: 70px;\n  height: calc(100vh - 70px);\n  max-height: calc(100vh - 70px);\n  overflow: hidden;\n}\n.message-worker-container .conversation-sidebar {\n  width: 350px;\n  background-color: #ffffff;\n  border-right: 2px solid #e9ecef;\n  display: flex;\n  flex-direction: column;\n  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);\n  transition: transform 0.3s ease, opacity 0.3s ease;\n  min-height: 0;\n  max-height: 100%;\n  overflow: hidden;\n}\n.message-worker-container .conversation-sidebar.sidebar-hidden {\n  display: none;\n}\n.message-worker-container .conversation-sidebar .sidebar-header {\n  padding: 20px;\n  border-bottom: 1px solid #e9ecef;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  background-color: #f8f9fa;\n}\n.message-worker-container .conversation-sidebar .sidebar-header h3 {\n  margin: 0;\n  font-size: 18px;\n  font-weight: 600;\n  color: #333;\n}\n.message-worker-container .conversation-sidebar .sidebar-header .conversation-count {\n  background-color: #0a2a44;\n  color: white;\n  padding: 4px 8px;\n  border-radius: 12px;\n  font-size: 12px;\n  font-weight: 500;\n}\n.message-worker-container .conversation-sidebar .sidebar-search {\n  padding: 12px 16px;\n}\n.message-worker-container .conversation-sidebar .sidebar-search .search-input-wrapper {\n  display: flex;\n  align-items: center;\n  background: #f3f5f7;\n  border: none;\n  border-radius: 20px;\n  padding: 8px 16px;\n  gap: 8px;\n}\n.message-worker-container .conversation-sidebar .sidebar-search .search-input-wrapper .search-icon {\n  font-size: 16px;\n  opacity: 0.6;\n}\n.message-worker-container .conversation-sidebar .sidebar-search .search-input-wrapper input {\n  flex: 1;\n  border: none;\n  outline: none;\n  background: transparent;\n  font-size: 14px;\n  color: #333;\n}\n.message-worker-container .conversation-sidebar .sidebar-search .search-input-wrapper input::-moz-placeholder {\n  color: #999;\n}\n.message-worker-container .conversation-sidebar .sidebar-search .search-input-wrapper input::placeholder {\n  color: #999;\n}\n.message-worker-container .conversation-sidebar .conversation-list {\n  flex: 1;\n  overflow-y: auto;\n}\n.message-worker-container .conversation-sidebar .conversation-list .conversation-item {\n  display: flex;\n  align-items: center;\n  padding: 15px 20px;\n  border-bottom: 1px solid #f1f3f4;\n  cursor: pointer;\n  transition: background-color 0.2s ease;\n}\n.message-worker-container .conversation-sidebar .conversation-list .conversation-item:hover {\n  background-color: #f8f9fa;\n}\n.message-worker-container .conversation-sidebar .conversation-list .conversation-item.active {\n  background-color: #e3f2fd;\n  border-left: 4px solid #0a2a44;\n}\n.message-worker-container .conversation-sidebar .conversation-list .conversation-item.unread {\n  background-color: #fff3cd;\n}\n.message-worker-container .conversation-sidebar .conversation-list .conversation-item.unread .conversation-name {\n  font-weight: 600;\n}\n.message-worker-container .conversation-sidebar .conversation-list .conversation-item .conversation-avatar {\n  position: relative;\n  margin-right: 12px;\n}\n.message-worker-container .conversation-sidebar .conversation-list .conversation-item .conversation-avatar .avatar-image {\n  width: 40px;\n  height: 40px;\n  border-radius: 50%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  border: 1px solid #e9ecef;\n  background: #fff;\n  display: block;\n}\n.message-worker-container .conversation-sidebar .conversation-list .conversation-item .conversation-avatar .avatar-placeholder {\n  width: 40px;\n  height: 40px;\n  border-radius: 50%;\n  background-color: #0a2a44;\n  color: white;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-weight: 600;\n  font-size: 16px;\n}\n.message-worker-container .conversation-sidebar .conversation-list .conversation-item .conversation-avatar .unread-indicator {\n  position: absolute;\n  top: -5px;\n  right: -5px;\n  min-width: 20px;\n  height: 20px;\n  background-color: #dc3545;\n  border-radius: 10px;\n  border: 2px solid white;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 12px;\n  font-weight: 600;\n  color: white;\n  padding: 2px 6px;\n}\n.message-worker-container .conversation-sidebar .conversation-list .conversation-item .conversation-details {\n  flex: 1;\n  min-width: 0;\n}\n.message-worker-container .conversation-sidebar .conversation-list .conversation-item .conversation-details .conversation-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 4px;\n}\n.message-worker-container .conversation-sidebar .conversation-list .conversation-item .conversation-details .conversation-header .conversation-name {\n  font-weight: 500;\n  color: #333;\n  font-size: 14px;\n}\n.message-worker-container .conversation-sidebar .conversation-list .conversation-item .conversation-details .conversation-header .conversation-time {\n  font-size: 12px;\n  color: #6c757d;\n}\n.message-worker-container .conversation-sidebar .conversation-list .conversation-item .conversation-details .conversation-preview,\n.message-worker-container .conversation-sidebar .conversation-list .conversation-item .conversation-details .worker-conversation-preview {\n  font-size: 13px;\n  color: #6c757d;\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n.message-worker-container .chat-area {\n  flex: 1;\n  background-color: #ffffff;\n  display: flex;\n  flex-direction: column;\n  transition: width 0.3s ease;\n  min-height: 0;\n  height: 100%;\n  max-height: 100%;\n  overflow: hidden;\n}\n.message-worker-container .chat-area.chat-area-full {\n  width: 100%;\n}\n.message-worker-container .chat-area .chat-content {\n  display: grid;\n  grid-template-rows: auto 1fr auto;\n  flex: 1;\n  min-height: 0;\n  overflow: hidden;\n  box-sizing: border-box;\n  height: 100%;\n}\n.message-worker-container .chat-area .chat-content .chat-header {\n  padding: 10px 15px;\n  border-bottom: 1px solid #e9ecef;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  background-color: #f8f9fa;\n  flex-shrink: 0;\n  min-height: 50px;\n  max-height: 50px;\n}\n.message-worker-container .chat-area .chat-content .chat-header .chat-header-left {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n  flex: 1;\n  min-width: 0;\n}\n.message-worker-container .chat-area .chat-content .chat-header .chat-header-left .back-button {\n  background: none;\n  border: none;\n  cursor: pointer;\n  padding: 8px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  border-radius: 50%;\n  transition: background-color 0.2s ease;\n  color: #333;\n  font-size: 20px;\n  flex-shrink: 0;\n}\n.message-worker-container .chat-area .chat-content .chat-header .chat-header-left .back-button:hover {\n  background-color: #e9ecef;\n}\n.message-worker-container .chat-area .chat-content .chat-header .chat-header-left .back-button:active {\n  transform: scale(0.95);\n}\n.message-worker-container .chat-area .chat-content .chat-header .chat-header-left h3 {\n  margin: 0;\n  flex: 1;\n  font-size: 18px;\n  font-weight: 600;\n  color: #333;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n.message-worker-container .chat-area .chat-content .chat-header h3 {\n  margin: 0;\n  font-size: 18px;\n  font-weight: 600;\n  color: #333;\n}\n.message-worker-container .chat-area .chat-content .chat-header .chat-header-actions {\n  display: flex;\n  align-items: center;\n  gap: 15px;\n  flex-shrink: 0;\n}\n.message-worker-container .chat-area .chat-content .chat-header .chat-header-actions .online-status {\n  font-size: 12px;\n  color: #28a745;\n  font-weight: 500;\n}\n.message-worker-container .chat-area .chat-content .chat-header .chat-header-actions .chat-menu-wrapper {\n  position: relative;\n}\n.message-worker-container .chat-area .chat-content .chat-header .chat-header-actions .chat-menu-wrapper .chat-menu-icon {\n  font-size: 24px;\n  color: #6c757d;\n  cursor: pointer;\n  transition: color 0.2s ease;\n}\n.message-worker-container .chat-area .chat-content .chat-header .chat-header-actions .chat-menu-wrapper .chat-menu-icon:hover {\n  color: #0a2a44;\n}\n.message-worker-container .chat-area .chat-content .chat-header .chat-header-actions .chat-menu-wrapper .chat-menu-dropdown {\n  position: absolute;\n  top: 100%;\n  right: 0;\n  margin-top: 8px;\n  background-color: white;\n  border: 1px solid #e9ecef;\n  border-radius: 8px;\n  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);\n  min-width: 180px;\n  z-index: 1000;\n}\n.message-worker-container .chat-area .chat-content .chat-header .chat-header-actions .chat-menu-wrapper .chat-menu-dropdown .chat-menu-item {\n  padding: 12px 16px;\n  cursor: pointer;\n  font-size: 14px;\n  color: #333;\n  transition: background-color 0.2s ease;\n}\n.message-worker-container .chat-area .chat-content .chat-header .chat-header-actions .chat-menu-wrapper .chat-menu-dropdown .chat-menu-item:hover {\n  background-color: #f8f9fa;\n}\n.message-worker-container .chat-area .chat-content .chat-header .chat-header-actions .chat-menu-wrapper .chat-menu-dropdown .chat-menu-item:first-child {\n  border-top-left-radius: 8px;\n  border-top-right-radius: 8px;\n}\n.message-worker-container .chat-area .chat-content .chat-header .chat-header-actions .chat-menu-wrapper .chat-menu-dropdown .chat-menu-item:last-child {\n  border-bottom-left-radius: 8px;\n  border-bottom-right-radius: 8px;\n}\n.message-worker-container .chat-area .chat-content .chat-messages {\n  padding: 12px 15px;\n  overflow-y: auto;\n  overflow-x: hidden;\n  min-height: 0;\n  box-sizing: border-box;\n}\n.message-worker-container .chat-area .chat-content .chat-messages .messages-list {\n  display: flex;\n  flex-direction: column;\n  gap: 12px;\n  width: 100%;\n  box-sizing: border-box;\n}\n.message-worker-container .chat-area .chat-content .chat-messages .message-item {\n  display: flex;\n  margin: 0 0 4px 0;\n  width: 100%;\n  box-sizing: border-box;\n}\n.message-worker-container .chat-area .chat-content .chat-messages .message-item.own-message {\n  justify-content: flex-end;\n  padding-right: 0;\n}\n.message-worker-container .chat-area .chat-content .chat-messages .message-item.own-message .message-content {\n  background-color: #0a2a44;\n  color: white;\n  border-radius: 10px;\n  max-width: min(70%, 500px);\n  width: -moz-fit-content;\n  width: fit-content;\n  box-sizing: border-box;\n}\n.message-worker-container .chat-area .chat-content .chat-messages .message-item.other-message {\n  justify-content: flex-start;\n  padding-left: 0;\n}\n.message-worker-container .chat-area .chat-content .chat-messages .message-item.other-message .message-content {\n  background-color: #f1f3f4;\n  color: #333;\n  border-radius: 10px;\n  max-width: min(70%, 500px);\n  width: -moz-fit-content;\n  width: fit-content;\n  box-sizing: border-box;\n}\n.message-worker-container .chat-area .chat-content .chat-messages .message-item .message-content {\n  padding: 10px 14px;\n  position: relative;\n  word-wrap: break-word;\n  overflow-wrap: break-word;\n  box-sizing: border-box;\n}\n.message-worker-container .chat-area .chat-content .chat-messages .message-item .message-content .message-text {\n  font-size: 14px;\n  line-height: 1.4;\n  margin-bottom: 0;\n  word-wrap: break-word;\n  overflow-wrap: break-word;\n}\n.message-worker-container .chat-area .chat-content .chat-messages .message-item .message-content .message-time {\n  font-size: 11px;\n  opacity: 0.7;\n  text-align: right;\n  margin-top: 2px;\n  display: block;\n}\n.message-worker-container .chat-area .chat-content .chat-messages .message-placeholder {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  height: 100%;\n  color: #6c757d;\n  font-style: italic;\n}\n.message-worker-container .chat-area .chat-content .chat-input {\n  padding: 8px 12px;\n  border-top: 1px solid #e9ecef;\n  display: flex;\n  align-items: center;\n  gap: 0;\n  background-color: #ffffff;\n  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.05);\n  border-radius: 0;\n  margin: 0;\n  flex-shrink: 0;\n  min-height: 56px;\n  max-height: 56px;\n  box-sizing: border-box;\n  width: 100%;\n  position: relative;\n  z-index: 10;\n}\n.message-worker-container .chat-area .chat-content .chat-input .icon-btn {\n  background: none;\n  border: none;\n  font-size: 22px;\n  color: #6c757d;\n  cursor: pointer;\n  padding: 6px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  transition: color 0.2s ease;\n  flex-shrink: 0;\n  box-sizing: border-box;\n}\n.message-worker-container .chat-area .chat-content .chat-input .icon-btn:hover {\n  color: #0a2a44;\n}\n.message-worker-container .chat-area .chat-content .chat-input .icon-btn.attach-btn {\n  margin-right: 4px;\n}\n.message-worker-container .chat-area .chat-content .chat-input .input-wrapper {\n  flex: 1;\n  display: flex;\n  align-items: center;\n  background-color: #f3f5f7;\n  border-radius: 20px;\n  padding: 6px 12px;\n  margin: 0 6px;\n  min-width: 0;\n  box-sizing: border-box;\n}\n.message-worker-container .chat-area .chat-content .chat-input .input-wrapper .message-input {\n  flex: 1;\n  border: none;\n  outline: none;\n  background: transparent;\n  font-size: 15px;\n  color: #333;\n  padding: 0;\n  min-width: 0;\n  width: 100%;\n}\n.message-worker-container .chat-area .chat-content .chat-input .input-wrapper .message-input::-moz-placeholder {\n  color: #999;\n}\n.message-worker-container .chat-area .chat-content .chat-input .input-wrapper .message-input::placeholder {\n  color: #999;\n}\n.message-worker-container .chat-area .chat-content .chat-input .input-wrapper .voice-btn {\n  margin-left: 4px;\n  padding: 4px;\n  flex-shrink: 0;\n  font-size: 20px;\n}\n.message-worker-container .chat-area .chat-content .chat-input .send-button {\n  background-color: #6f42c1;\n  border: none;\n  border-radius: 50%;\n  width: 38px;\n  height: 38px;\n  min-width: 38px;\n  min-height: 38px;\n  max-width: 38px;\n  max-height: 38px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  cursor: pointer;\n  transition: background-color 0.2s ease;\n  color: #fff;\n  font-size: 18px;\n  padding: 0;\n  flex-shrink: 0;\n  box-sizing: border-box;\n}\n.message-worker-container .chat-area .chat-content .chat-input .send-button:hover:not(:disabled) {\n  background-color: rgb(88.6693227092, 51.3784860558, 156.6215139442);\n}\n.message-worker-container .chat-area .chat-content .chat-input .send-button:disabled {\n  background-color: #6c757d;\n  cursor: not-allowed;\n  opacity: 0.6;\n}\n.message-worker-container .chat-area .chat-content .chat-input .send-button:active:not(:disabled) {\n  transform: scale(0.95);\n}\n.message-worker-container .chat-area .no-conversation-selected {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  flex: 1;\n  min-height: 0;\n}\n.message-worker-container .chat-area .no-conversation-selected .empty-state {\n  text-align: center;\n  color: #6c757d;\n}\n.message-worker-container .chat-area .no-conversation-selected .empty-state .empty-icon {\n  font-size: 48px;\n  margin-bottom: 16px;\n}\n.message-worker-container .chat-area .no-conversation-selected .empty-state h3 {\n  margin: 0 0 8px 0;\n  font-size: 20px;\n  font-weight: 600;\n}\n.message-worker-container .chat-area .no-conversation-selected .empty-state p {\n  margin: 0;\n  font-size: 14px;\n}\n\n@media (max-width: 768px) {\n  .message-worker-container {\n    height: 100vh;\n    max-height: 100vh;\n    overflow: hidden;\n  }\n  .message-worker-container .message-worker-content {\n    flex-direction: column;\n    height: calc(100vh - 80px);\n    max-height: calc(100vh - 80px);\n    margin-top: 80px;\n    overflow: hidden;\n  }\n  .message-worker-container .conversation-sidebar {\n    width: 100%;\n    height: 40%;\n    border-right: none;\n    border-bottom: 2px solid #e9ecef;\n  }\n  .message-worker-container .chat-area {\n    height: 60%;\n    min-height: 0;\n  }\n  .message-worker-container .chat-area .chat-content .chat-header {\n    padding: 12px 15px;\n    min-height: 50px;\n  }\n  .message-worker-container .chat-area .chat-content .chat-header .chat-header-left h3 {\n    font-size: 16px;\n  }\n  .message-worker-container .chat-area .chat-content .chat-header .chat-header-actions {\n    gap: 10px;\n  }\n  .message-worker-container .chat-area .chat-content .chat-header .chat-header-actions .online-status {\n    font-size: 11px;\n  }\n  .message-worker-container .chat-area .chat-content .chat-messages {\n    padding: 15px;\n  }\n  .message-worker-container .chat-area .chat-content .chat-messages .message-item .message-content {\n    padding: 10px 14px;\n    max-width: 85%;\n  }\n  .message-worker-container .chat-area .chat-content .chat-messages .message-item .message-content .message-text {\n    font-size: 13px;\n  }\n  .message-worker-container .chat-area .chat-content .chat-messages .message-item .message-content .message-time {\n    font-size: 10px;\n  }\n  .message-worker-container .chat-area .chat-content .chat-input {\n    padding: 6px 10px;\n    margin: 0;\n    min-height: 50px;\n  }\n  .message-worker-container .chat-area .chat-content .chat-input .icon-btn {\n    font-size: 18px;\n    padding: 5px;\n  }\n  .message-worker-container .chat-area .chat-content .chat-input .input-wrapper {\n    padding: 5px 10px;\n    margin: 0 6px;\n  }\n  .message-worker-container .chat-area .chat-content .chat-input .input-wrapper .message-input {\n    font-size: 14px;\n  }\n  .message-worker-container .chat-area .chat-content .chat-input .send-button {\n    width: 34px;\n    height: 34px;\n    min-width: 34px;\n    min-height: 34px;\n    max-width: 34px;\n    max-height: 34px;\n    font-size: 16px;\n  }\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -71294,7 +71270,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".service-page {\n  display: flex;\n  flex-direction: column;\n  margin-top: 50px;\n}\n\n.service-content {\n  background: linear-gradient(to bottom, #7A8CA0, #FFFFFF);\n  padding-bottom: 40px;\n}\n\n.service-container {\n  max-width: 1400px;\n  margin: 0 auto;\n  padding: 0 1.5rem;\n}\n\n.service-intro {\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n  min-height: 50vh;\n  padding: 80px 10px 20px;\n  text-align: center;\n}\n\n.service-headline {\n  font-size: 2.5rem;\n  font-weight: 700;\n  color: #ffffff;\n  margin-bottom: 1rem;\n  line-height: 1.3;\n}\n\n.service-subtitle {\n  font-size: 1rem;\n  color: #ffffff;\n  margin-bottom: 2rem;\n  font-weight: 400;\n  line-height: 1.5;\n  max-width: 700px;\n}\n\n.hero-search {\n  width: 100%;\n  max-width: 800px;\n  margin: 2rem auto 0;\n}\n\n.search-container {\n  display: flex;\n  background: #FFFFFF;\n  border-radius: 30px;\n  overflow: hidden;\n  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);\n  border: 1px solid #d9e0e6;\n  height: 56px;\n}\n\n.search-input {\n  flex: 1;\n  border: 1px solid #DDDDDD;\n  padding: 0 1.5rem;\n  font-size: 1.1rem;\n  outline: none;\n  color: #2c3e50;\n  height: 100%;\n  border-radius: 30px 0 0 30px;\n}\n.search-input:focus {\n  border-color: #1A2A44;\n  box-shadow: 0 0 0 2px rgba(29, 46, 65, 0.305);\n}\n\n.search-input::-moz-placeholder {\n  color: #8fa1b3;\n}\n\n.search-input::placeholder {\n  color: #8fa1b3;\n}\n\n.search-button {\n  background-color: #001E40;\n  border: none;\n  color: #ffffff;\n  cursor: pointer;\n  transition: background-color 0.3s ease;\n  width: 64px;\n  height: 100%;\n  border-radius: 0 30px 30px 0;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n\n.search-button img {\n  filter: brightness(0) invert(1);\n  width: 24px;\n  height: 24px;\n}\n\n.search-button:hover {\n  background-color: #000f22;\n}\n\n.section-header {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  margin: 3rem 0 2rem;\n  padding: 0 1.5rem;\n}\n\n.section-title {\n  font-size: 2rem;\n  font-weight: 800;\n  color: #0a0a0a;\n}\n\n.filter-control {\n  display: flex;\n  align-items: center;\n}\n\n.collar-select {\n  -webkit-appearance: none;\n     -moz-appearance: none;\n          appearance: none;\n  background: #fff;\n  border: 1px solid #0a2a44;\n  color: #0a2a44;\n  padding: 0.75rem 3rem 0.75rem 1.25rem; /* Adjusted for caret size */\n  border-radius: 12px;\n  box-shadow: 0 2px 8px rgba(10, 42, 68, 0.12);\n  font-weight: 600;\n  font-size: 1rem;\n  background-image: url('data:image/svg+xml;utf8,<svg width=\"12\" height=\"8\" viewBox=\"0 0 12 8\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M1 1L6 6L11 1\" stroke=\"#0a2a44\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>');\n  background-repeat: no-repeat;\n  background-position: right 1rem center;\n  background-size: 12px 8px; /* Matches fa-caret-down size */\n  cursor: pointer;\n  transition: all 0.3s ease; /* Smooth transition for rotation */\n}\n\n.collar-select:focus {\n  outline: none;\n  box-shadow: 0 0 0 3px rgba(10, 42, 68, 0.2);\n  background-image: url('data:image/svg+xml;utf8,<svg width=\"12\" height=\"8\" viewBox=\"0 0 12 8\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M1 7L6 2L11 7\" stroke=\"#0a2a44\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>'); /* Upward caret */\n}\n\n.services-grid {\n  display: grid;\n  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));\n  gap: 1.5rem;\n  margin-bottom: 2rem;\n}\n\n.service-card {\n  background: #fff;\n  border-radius: 16px;\n  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);\n  border: 2px solid #0a2a44;\n  transition: all 0.3s ease;\n  display: flex;\n  flex-direction: column;\n  min-height: 360px;\n}\n\n.service-card:hover {\n  transform: translateY(-5px);\n  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);\n}\n\n.card-image {\n  width: 100%;\n  height: 180px;\n  overflow: hidden;\n}\n\n.card-image img {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n\n.service-card h3 {\n  font-size: 1.4rem;\n  font-weight: 700;\n  color: #12263a;\n  margin: 1rem 1.5rem 0.5rem;\n}\n\n.service-card p {\n  color: #52606d;\n  line-height: 1.5;\n  font-size: 0.95rem;\n  margin: 0 1.5rem 1rem;\n  flex: 1;\n}\n\n.service-badge {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  padding: 0 1.5rem 1rem;\n  color: #0a2a44;\n  font-weight: 700;\n}\n\n.service-badge img.badge-icon {\n  width: 20px;\n  height: 20px;\n}\n\n.service-badge .badge-text {\n  font-size: 0.95rem;\n}\n\n.service-cta-btn {\n  margin: 0 1.5rem 1.5rem;\n  background: #06223b;\n  color: #fff;\n  border: none;\n  padding: 0.85rem;\n  border-radius: 9999px;\n  font-weight: 700;\n  cursor: pointer;\n  width: calc(100% - 3rem);\n  transition: background-color 0.3s ease;\n}\n\n.service-cta-btn:hover {\n  background: #000f22;\n}\n\n.show-more-wrap {\n  display: flex;\n  justify-content: center;\n  margin: 3rem 0 4rem;\n}\n\n.show-more-btn {\n  background: #001E40;\n  color: #fff;\n  font-weight: 700;\n  border: none;\n  border-radius: 24px;\n  padding: 0.85rem 2rem;\n  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);\n  cursor: pointer;\n  font-size: 1rem;\n  transition: all 0.3s ease;\n}\n\n.show-more-btn:hover:not(:disabled) {\n  background: #000f22;\n  transform: translateY(-2px);\n}\n\n.show-more-btn:disabled {\n  background: #95a5a6;\n  cursor: not-allowed;\n}\n\n@media (max-width: 992px) {\n  .services-grid {\n    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));\n  }\n}\n@media (max-width: 768px) {\n  .service-container {\n    padding: 0 1rem;\n  }\n  .service-headline {\n    font-size: 2rem;\n  }\n  .service-subtitle {\n    font-size: 0.9rem;\n  }\n  .hero-search {\n    width: 90%;\n  }\n  .search-container {\n    height: 48px;\n  }\n  .search-input {\n    font-size: 1rem;\n  }\n  .search-button {\n    width: 48px;\n  }\n  .section-header {\n    flex-direction: column;\n    align-items: flex-start;\n    gap: 1rem;\n    margin: 2rem 0 1.5rem;\n  }\n  .section-title {\n    font-size: 1.6rem;\n  }\n  .collar-select {\n    width: 100%;\n    max-width: 200px;\n  }\n}\n@media (max-width: 480px) {\n  .service-page {\n    margin-top: 40px;\n  }\n  .service-container {\n    padding: 0 0.75rem;\n  }\n  .service-intro {\n    padding: 60px 10px 20px;\n    min-height: 40vh;\n  }\n  .service-headline {\n    font-size: 1.75rem;\n    line-height: 1.4;\n  }\n  .service-subtitle {\n    font-size: 0.85rem;\n    padding: 0 10px;\n  }\n  .hero-search {\n    width: 100%;\n    margin: 1.5rem auto 0;\n  }\n  .search-container {\n    height: 44px;\n    border-radius: 22px;\n  }\n  .search-input {\n    font-size: 0.9rem;\n    padding: 0 1rem;\n  }\n  .search-button {\n    width: 44px;\n  }\n  .section-header {\n    padding: 0 0.75rem;\n    margin: 2rem 0 1rem;\n  }\n  .section-title {\n    font-size: 1.4rem;\n  }\n  .filter-control {\n    width: 100%;\n  }\n  .collar-select {\n    width: 100%;\n    max-width: 100%;\n    font-size: 0.9rem;\n    padding: 0.6rem 2.5rem 0.6rem 1rem;\n  }\n  .services-grid {\n    grid-template-columns: 1fr;\n    gap: 1rem;\n  }\n  .service-card {\n    min-height: auto;\n  }\n  .service-card h3 {\n    font-size: 1.2rem;\n    margin: 0.75rem 1rem 0.5rem;\n  }\n  .service-card p {\n    font-size: 0.9rem;\n    margin: 0 1rem 0.75rem;\n  }\n  .service-cta-btn {\n    margin: 0 1rem 1rem;\n    width: calc(100% - 2rem);\n    padding: 0.75rem;\n    font-size: 0.9rem;\n  }\n  .show-more-btn {\n    padding: 0.75rem 1.5rem;\n    font-size: 0.9rem;\n  }\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".service-page {\n  display: flex;\n  flex-direction: column;\n  margin-top: 50px;\n}\n\n.service-content {\n  background: linear-gradient(to bottom, #7A8CA0, #FFFFFF);\n  padding-bottom: 40px;\n}\n\n.service-container {\n  max-width: 1400px;\n  margin: 0 auto;\n  padding: 0 1.5rem;\n}\n\n.service-intro {\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n  min-height: 50vh;\n  padding: 80px 10px 20px;\n  text-align: center;\n}\n\n.service-headline {\n  font-size: 2.5rem;\n  font-weight: 700;\n  color: #ffffff;\n  margin-bottom: 1rem;\n  line-height: 1.3;\n}\n\n.service-subtitle {\n  font-size: 1rem;\n  color: #ffffff;\n  margin-bottom: 2rem;\n  font-weight: 400;\n  line-height: 1.5;\n  max-width: 700px;\n}\n\n.hero-search {\n  width: 100%;\n  max-width: 800px;\n  margin: 2rem auto 0;\n}\n\n.search-container {\n  display: flex;\n  background: #FFFFFF;\n  border-radius: 30px;\n  overflow: hidden;\n  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);\n  border: 1px solid #d9e0e6;\n  height: 56px;\n}\n\n.search-input {\n  flex: 1;\n  border: 1px solid #DDDDDD;\n  padding: 0 1.5rem;\n  font-size: 1.1rem;\n  outline: none;\n  color: #2c3e50;\n  height: 100%;\n  border-radius: 30px 0 0 30px;\n}\n.search-input:focus {\n  border-color: #1A2A44;\n  box-shadow: 0 0 0 2px rgba(29, 46, 65, 0.305);\n}\n\n.search-input::-moz-placeholder {\n  color: #8fa1b3;\n}\n\n.search-input::placeholder {\n  color: #8fa1b3;\n}\n\n.search-button {\n  background-color: #001E40;\n  border: none;\n  color: #ffffff;\n  cursor: pointer;\n  transition: background-color 0.3s ease;\n  width: 64px;\n  height: 100%;\n  border-radius: 0 30px 30px 0;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n\n.search-button img {\n  filter: brightness(0) invert(1);\n  width: 24px;\n  height: 24px;\n}\n\n.search-button:hover {\n  background-color: #000f22;\n}\n\n.section-header {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  margin: 3rem 0 2rem;\n  padding: 0 1.5rem;\n}\n\n.section-title {\n  font-size: 2rem;\n  font-weight: 800;\n  color: #0a0a0a;\n}\n\n.filter-control {\n  display: flex;\n  align-items: center;\n}\n\n.collar-select {\n  -webkit-appearance: none;\n     -moz-appearance: none;\n          appearance: none;\n  background: #fff;\n  border: 1px solid #0a2a44;\n  color: #0a2a44;\n  padding: 0.75rem 3rem 0.75rem 1.25rem; /* Adjusted for caret size */\n  border-radius: 12px;\n  box-shadow: 0 2px 8px rgba(10, 42, 68, 0.12);\n  font-weight: 600;\n  font-size: 1rem;\n  background-image: url('data:image/svg+xml;utf8,<svg width=\"12\" height=\"8\" viewBox=\"0 0 12 8\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M1 1L6 6L11 1\" stroke=\"#0a2a44\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>');\n  background-repeat: no-repeat;\n  background-position: right 1rem center;\n  background-size: 12px 8px; /* Matches fa-caret-down size */\n  cursor: pointer;\n  transition: all 0.3s ease; /* Smooth transition for rotation */\n}\n\n.collar-select:focus {\n  outline: none;\n  box-shadow: 0 0 0 3px rgba(10, 42, 68, 0.2);\n  background-image: url('data:image/svg+xml;utf8,<svg width=\"12\" height=\"8\" viewBox=\"0 0 12 8\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M1 7L6 2L11 7\" stroke=\"#0a2a44\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>'); /* Upward caret */\n}\n\n.services-grid {\n  display: grid;\n  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));\n  gap: 1.5rem;\n  margin-bottom: 2rem;\n}\n\n.service-card {\n  background: #fff;\n  border-radius: 16px;\n  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);\n  border: 2px solid #0a2a44;\n  transition: all 0.3s ease;\n  display: flex;\n  flex-direction: column;\n  min-height: 360px;\n  /* Ensure inner content (like the image) respects rounded corners */\n  overflow: hidden;\n}\n\n.service-card:hover {\n  transform: translateY(-5px);\n  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);\n}\n\n.card-image {\n  width: 100%;\n  height: 180px;\n  overflow: hidden;\n  /* Match the card's rounded top corners so the image doesn't spill out */\n  border-top-left-radius: 16px;\n  border-top-right-radius: 16px;\n}\n\n.card-image img {\n  width: 100%;\n  height: 100%;\n  display: block; /* Remove inline-gap that could push the image */\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n\n.service-card h3 {\n  font-size: 1.4rem;\n  font-weight: 700;\n  color: #12263a;\n  margin: 1rem 1.5rem 0.5rem;\n}\n\n.service-card p {\n  color: #52606d;\n  line-height: 1.5;\n  font-size: 0.95rem;\n  margin: 0 1.5rem 1rem;\n  flex: 1;\n}\n\n.service-badge {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  padding: 0 1.5rem 1rem;\n  color: #0a2a44;\n  font-weight: 700;\n}\n\n.service-badge img.badge-icon {\n  width: 20px;\n  height: 20px;\n}\n\n.service-badge .badge-text {\n  font-size: 0.95rem;\n}\n\n.service-cta-btn {\n  margin: 0 1.5rem 1.5rem;\n  background: #06223b;\n  color: #fff;\n  border: none;\n  padding: 0.85rem;\n  border-radius: 9999px;\n  font-weight: 700;\n  cursor: pointer;\n  width: calc(100% - 3rem);\n  transition: background-color 0.3s ease;\n}\n\n.service-cta-btn:hover {\n  background: #000f22;\n}\n\n.show-more-wrap {\n  display: flex;\n  justify-content: center;\n  margin: 3rem 0 4rem;\n}\n\n.show-more-btn {\n  background: #001E40;\n  color: #fff;\n  font-weight: 700;\n  border: none;\n  border-radius: 24px;\n  padding: 0.85rem 2rem;\n  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);\n  cursor: pointer;\n  font-size: 1rem;\n  transition: all 0.3s ease;\n}\n\n.show-more-btn:hover:not(:disabled) {\n  background: #000f22;\n  transform: translateY(-2px);\n}\n\n.show-more-btn:disabled {\n  background: #95a5a6;\n  cursor: not-allowed;\n}\n\n@media (max-width: 992px) {\n  .services-grid {\n    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));\n  }\n}\n@media (max-width: 768px) {\n  .service-container {\n    padding: 0 1rem;\n  }\n  .service-headline {\n    font-size: 2rem;\n  }\n  .service-subtitle {\n    font-size: 0.9rem;\n  }\n  .hero-search {\n    width: 90%;\n  }\n  .search-container {\n    height: 48px;\n  }\n  .search-input {\n    font-size: 1rem;\n  }\n  .search-button {\n    width: 48px;\n  }\n  .section-header {\n    flex-direction: column;\n    align-items: flex-start;\n    gap: 1rem;\n    margin: 2rem 0 1.5rem;\n  }\n  .section-title {\n    font-size: 1.6rem;\n  }\n  .collar-select {\n    width: 100%;\n    max-width: 200px;\n  }\n}\n@media (max-width: 480px) {\n  .service-page {\n    margin-top: 40px;\n  }\n  .service-container {\n    padding: 0 0.75rem;\n  }\n  .service-intro {\n    padding: 60px 10px 20px;\n    min-height: 40vh;\n  }\n  .service-headline {\n    font-size: 1.75rem;\n    line-height: 1.4;\n  }\n  .service-subtitle {\n    font-size: 0.85rem;\n    padding: 0 10px;\n  }\n  .hero-search {\n    width: 100%;\n    margin: 1.5rem auto 0;\n  }\n  .search-container {\n    height: 44px;\n    border-radius: 22px;\n  }\n  .search-input {\n    font-size: 0.9rem;\n    padding: 0 1rem;\n  }\n  .search-button {\n    width: 44px;\n  }\n  .section-header {\n    padding: 0 0.75rem;\n    margin: 2rem 0 1rem;\n  }\n  .section-title {\n    font-size: 1.4rem;\n  }\n  .filter-control {\n    width: 100%;\n  }\n  .collar-select {\n    width: 100%;\n    max-width: 100%;\n    font-size: 0.9rem;\n    padding: 0.6rem 2.5rem 0.6rem 1rem;\n  }\n  .services-grid {\n    grid-template-columns: 1fr;\n    gap: 1rem;\n  }\n  .service-card {\n    min-height: auto;\n  }\n  .service-card h3 {\n    font-size: 1.2rem;\n    margin: 0.75rem 1rem 0.5rem;\n  }\n  .service-card p {\n    font-size: 0.9rem;\n    margin: 0 1rem 0.75rem;\n  }\n  .service-cta-btn {\n    margin: 0 1rem 1rem;\n    width: calc(100% - 2rem);\n    padding: 0.75rem;\n    font-size: 0.9rem;\n  }\n  .show-more-btn {\n    padding: 0.75rem 1.5rem;\n    font-size: 0.9rem;\n  }\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -72031,7 +72007,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".browse {\n  position: relative;\n  width: 100vw;\n  min-height: 100vh;\n  background-color: #f5f7fa;\n  margin: 0;\n  padding: 0;\n  overflow-x: hidden;\n}\n.browse .browse-content {\n  padding: 0 40px 40px;\n  width: 100%;\n  margin: 0 auto;\n  box-sizing: border-box;\n  margin-top: 40px;\n}\n.browse .browse-content .header-section {\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  justify-content: space-between;\n  gap: 24px;\n  margin-bottom: 2rem;\n}\n.browse .browse-content .header-section .category-title {\n  margin-bottom: 0;\n  text-align: left;\n  flex-shrink: 0;\n}\n.browse .browse-content .header-section .search-and-sort-row {\n  display: flex;\n  flex-direction: row;\n  justify-content: flex-end;\n  align-items: center;\n  gap: 20px;\n  margin-bottom: 0;\n  flex: 1;\n  min-width: 0;\n}\n.browse .browse-content .header-section .mobile-filter-toggle {\n  display: none;\n}\n.browse .browse-content .header-section .search-bar {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  flex: 1;\n  min-width: 0;\n}\n.browse .browse-content .header-section .search-bar .search-input {\n  flex: 1;\n  min-width: 200px;\n  max-width: 100%;\n  height: 40px;\n  border: 1px solid #c9ced6;\n  border-radius: 4px;\n  padding: 0 12px;\n  font-size: 16px;\n  color: #111827;\n  outline: none;\n  transition: border-color 0.3s ease;\n}\n.browse .browse-content .header-section .search-bar .search-input:focus {\n  border-color: #0a2a40;\n}\n.browse .browse-content .header-section .search-bar .search-btn {\n  width: 40px;\n  height: 40px;\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  background-color: #0a2a40;\n  border: 0;\n  border-radius: 4px;\n  cursor: pointer;\n  transition: background-color 0.3s ease;\n}\n.browse .browse-content .header-section .search-bar .search-btn:hover {\n  background-color: #08203a;\n}\n.browse .browse-content .header-section .sort-wrapper {\n  position: relative;\n  display: flex;\n  align-items: center;\n}\n.browse .browse-content .header-section .sort-wrapper .sort-by {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  font-size: 16px;\n  color: #000000;\n  cursor: pointer;\n  padding: 8px 16px;\n  border: 1px solid #c9ced6;\n  border-radius: 4px;\n  transition: border-color 0.3s ease;\n}\n.browse .browse-content .header-section .sort-wrapper .sort-by:hover {\n  border-color: #0a2a40;\n}\n.browse .browse-content .header-section .sort-wrapper .sort-icon {\n  width: 18px;\n  height: 18px;\n  stroke: #000000;\n  stroke-width: 2;\n}\n.browse .browse-content .header-section .sort-wrapper .sort-dropdown {\n  position: absolute;\n  top: 100%;\n  right: 0;\n  background-color: #fff;\n  border-radius: 6px;\n  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);\n  z-index: 10;\n  min-width: 180px;\n  border: 1px solid #e6f2ef;\n  margin-top: 4px;\n}\n.browse .browse-content .header-section .sort-wrapper .sort-dropdown .sort-option {\n  padding: 10px 16px;\n  font-size: 14px;\n  color: #333;\n  cursor: pointer;\n  transition: background-color 0.3s ease;\n}\n.browse .browse-content .header-section .sort-wrapper .sort-dropdown .sort-option:hover {\n  background-color: #e6f2ef;\n  color: #000000;\n}\n.browse .browse-content .category-title {\n  font-size: 2rem;\n  font-weight: 800;\n  color: #0b0d0f;\n  margin: 0;\n  text-transform: uppercase;\n  line-height: 1.2;\n}\n.browse .content-layout {\n  display: grid;\n  grid-template-columns: 400px 1fr;\n  gap: 24px;\n  align-items: stretch;\n  min-height: calc(100vh - 200px);\n}\n.browse .filters-sidebar {\n  background: #0a2a40;\n  color: #fff;\n  padding: 24px;\n  border-radius: 6px;\n  position: sticky;\n  top: 20px;\n  height: 100%;\n  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);\n}\n.browse .filters-sidebar .filters-title {\n  font-size: 16px;\n  letter-spacing: 0.5px;\n  opacity: 0.85;\n  margin: 0 0 20px;\n  font-weight: 600;\n  text-transform: uppercase;\n}\n.browse .filters-sidebar .filter-group {\n  display: flex;\n  flex-direction: column;\n  gap: 8px;\n  margin-bottom: 20px;\n}\n.browse .filters-sidebar .filter-group label {\n  font-size: 14px;\n  opacity: 0.75;\n  font-weight: 500;\n  text-transform: uppercase;\n}\n.browse .filters-sidebar .filter-group select,\n.browse .filters-sidebar .filter-group input[type=number],\n.browse .filters-sidebar .filter-group .search-descriptions {\n  height: 40px;\n  border: 1px solid #1e4a6e;\n  border-radius: 6px;\n  padding: 0 12px;\n  font-size: 14px;\n  color: #fff;\n  background: #0f3a5a;\n  outline: none;\n  transition: border-color 0.3s ease;\n}\n.browse .filters-sidebar .filter-group select:focus,\n.browse .filters-sidebar .filter-group input[type=number]:focus,\n.browse .filters-sidebar .filter-group .search-descriptions:focus {\n  border-color: #1ec64b;\n}\n.browse .filters-sidebar .filter-group .range {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n}\n.browse .filters-sidebar .filter-group .range input[type=number] {\n  width: 80px;\n}\n.browse .filters-sidebar .filter-group .range span {\n  font-size: 14px;\n  color: #b0c4de;\n}\n.browse .filters-sidebar .filter-group .search-descriptions {\n  width: 100%;\n  padding: 8px 12px;\n}\n.browse .filters-sidebar .apply-btn {\n  width: 100%;\n  height: 40px;\n  border: none;\n  border-radius: 20px;\n  background: #1ec64b;\n  color: #fff;\n  cursor: pointer;\n  font-size: 16px;\n  font-weight: 600;\n  transition: background-color 0.3s ease;\n}\n.browse .filters-sidebar .apply-btn:hover {\n  background-color: #1aa33f;\n}\n.browse .results-list {\n  display: flex;\n  flex-direction: column;\n  gap: 20px;\n}\n.browse .result-card {\n  background: linear-gradient(180deg, #f3f7fb 0%, #eef3f7 100%);\n  border-radius: 8px;\n  padding: 16px;\n}\n.browse .result-card .card-inner {\n  display: grid;\n  grid-template-columns: 120px 1fr 140px;\n  align-items: start;\n  gap: 20px;\n  position: relative;\n}\n.browse .result-card .avatar {\n  width: 100px;\n  height: 100px;\n  border-radius: 50%;\n  background: #e6e9ef;\n}\n.browse .result-card .name {\n  margin: 0;\n  font-size: 18px;\n  color: #0a2a40;\n}\n.browse .result-card .role {\n  margin-left: 12px;\n  font-size: 14px;\n  color: #3c556e;\n}\n.browse .result-card .contact-info {\n  margin-top: 4px;\n  margin-left: 12px;\n}\n.browse .result-card .contact-info .contact-number {\n  font-size: 12px;\n  color: #9ca3af;\n  font-family: monospace;\n}\n.browse .result-card .label {\n  font-size: 12px;\n  color: #73839b;\n  margin-bottom: 6px;\n}\n.browse .result-card .value {\n  font-size: 14px;\n  color: #1b2430;\n}\n.browse .result-card .desc {\n  margin-top: 12px;\n  font-size: 14px;\n  color: #1b2430;\n  opacity: 0.9;\n}\n.browse .result-card .skills-row {\n  margin-top: 12px;\n  display: flex;\n  flex-wrap: wrap;\n  gap: 8px;\n}\n.browse .result-card .chip {\n  background: #fff;\n  border: 1px solid #d9e2ec;\n  border-radius: 6px;\n  padding: 4px 10px;\n  font-size: 12px;\n  color: #284b63;\n}\n.browse .result-card .action-col {\n  display: flex;\n  align-items: flex-start;\n  justify-content: flex-end;\n  padding-top: 0;\n}\n.browse .result-card .view-btn {\n  width: 130px;\n  height: 36px;\n  border: none;\n  border-radius: 18px;\n  background: #0a2a40;\n  color: #fff;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 600;\n  transition: background-color 0.3s ease;\n  white-space: nowrap;\n  flex-shrink: 0;\n}\n.browse .result-card .view-btn:hover {\n  background-color: #08203a;\n}\n.browse .result-card .view-btn.blue-btn {\n  background: #1A2A44;\n  color: #fff;\n}\n.browse .result-card .view-btn.blue-btn:hover {\n  background: #0f1a2e;\n}\n.browse .result-card .message-btn {\n  width: 130px;\n  height: 36px;\n  border: 1px solid #1A2A44;\n  border-radius: 18px;\n  background: transparent;\n  color: #1A2A44;\n  cursor: pointer;\n  font-size: 14px;\n  margin-top: 8px;\n  transition: all 0.3s ease;\n  position: absolute;\n  top: 44px;\n  right: 0;\n}\n.browse .result-card .message-btn:hover {\n  background: #1A2A44;\n  color: #fff;\n}\n.browse .mobile-filter-toggle {\n  display: none;\n}\n@media (max-width: 768px) {\n  .browse .browse-content {\n    padding: 0 20px 20px;\n    margin-top: 20px;\n  }\n  .browse .browse-content .header-section {\n    flex-direction: column;\n    align-items: flex-start;\n    gap: 1.25rem;\n  }\n  .browse .browse-content .header-section .category-title {\n    font-size: 1.5rem;\n    margin-bottom: 0;\n    width: 100%;\n  }\n  .browse .browse-content .header-section .search-and-sort-container {\n    display: none;\n  }\n  .browse .browse-content .header-section .search-and-sort-row {\n    width: 100%;\n    display: flex;\n    flex-direction: row;\n    justify-content: space-between;\n    align-items: center;\n    gap: 12px;\n    margin-bottom: 12px;\n  }\n  .browse .browse-content .header-section .search-bar {\n    flex: 1;\n    margin-left: 0;\n    position: relative;\n    display: flex;\n    align-items: center;\n    gap: 12px;\n    min-width: 0;\n  }\n  .browse .browse-content .header-section .search-bar .search-input {\n    flex: 1;\n    min-width: 0;\n  }\n  .browse .browse-content .header-section .sort-wrapper {\n    flex-shrink: 0;\n    min-width: 100px;\n    position: relative;\n  }\n  .browse .browse-content .header-section .mobile-filter-toggle {\n    display: block;\n    width: 100%;\n    padding: 14px 20px;\n    background: #0a2a40;\n    color: #fff;\n    border: none;\n    border-radius: 6px;\n    font-size: 13px;\n    font-weight: 700;\n    letter-spacing: 0.5px;\n    cursor: pointer;\n    text-align: center;\n    transition: all 0.3s ease;\n    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n    margin-top: 0;\n  }\n  .browse .browse-content .header-section .mobile-filter-toggle:hover {\n    background: #08203a;\n    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);\n  }\n  .browse .browse-content .header-section .mobile-filter-toggle:active {\n    transform: translateY(1px);\n  }\n  .browse .browse-content .content-layout {\n    grid-template-columns: 1fr;\n    gap: 16px;\n  }\n  .browse .browse-content .filters-sidebar {\n    display: none;\n    position: relative;\n    top: 0;\n    height: auto;\n    max-height: none;\n    overflow-y: visible;\n    padding: 20px;\n    margin-bottom: 24px;\n    border-radius: 8px;\n    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);\n  }\n  .browse .browse-content .filters-sidebar.mobile-open {\n    display: block;\n    animation: slideDown 0.3s ease-out;\n  }\n  @keyframes slideDown {\n    from {\n      opacity: 0;\n      transform: translateY(-10px);\n    }\n    to {\n      opacity: 1;\n      transform: translateY(0);\n    }\n  }\n  .browse .browse-content .filters-sidebar .filters-title {\n    font-size: 14px;\n    margin-bottom: 16px;\n    letter-spacing: 0.5px;\n  }\n  .browse .browse-content .filters-sidebar .filter-group {\n    margin-bottom: 16px;\n  }\n  .browse .browse-content .filters-sidebar .filter-group label {\n    font-size: 12px;\n    margin-bottom: 8px;\n    display: block;\n    letter-spacing: 0.3px;\n  }\n  .browse .browse-content .filters-sidebar .filter-group select,\n  .browse .browse-content .filters-sidebar .filter-group input[type=number],\n  .browse .browse-content .filters-sidebar .filter-group .search-descriptions {\n    height: 40px;\n    font-size: 14px;\n    border-radius: 4px;\n    padding: 0 12px;\n  }\n  .browse .browse-content .filters-sidebar .apply-btn {\n    height: 44px;\n    font-size: 14px;\n    border-radius: 6px;\n    margin-top: 8px;\n  }\n  .browse .browse-content .result-card {\n    padding: 14px;\n  }\n  .browse .browse-content .result-card .card-inner {\n    grid-template-columns: 80px 1fr 110px;\n    gap: 14px;\n    position: relative;\n    padding-right: 0;\n  }\n  .browse .browse-content .result-card .avatar {\n    width: 80px;\n    height: 80px;\n  }\n  .browse .browse-content .result-card .name {\n    font-size: 16px;\n  }\n  .browse .browse-content .result-card .role {\n    font-size: 13px;\n    margin-left: 0;\n    margin-top: 4px;\n  }\n  .browse .browse-content .result-card .contact-info {\n    margin-left: 0;\n    margin-top: 4px;\n  }\n  .browse .browse-content .result-card .action-col {\n    display: flex;\n    align-items: flex-start;\n    justify-content: flex-end;\n  }\n  .browse .browse-content .result-card .view-btn {\n    width: 100px;\n    font-size: 12px;\n    height: 32px;\n    white-space: nowrap;\n  }\n  .browse .browse-content .result-card .message-btn {\n    width: 100px;\n    font-size: 12px;\n    height: 32px;\n    position: absolute;\n    top: 38px;\n    right: 0;\n    margin-top: 4px;\n  }\n}\n@media (max-width: 425px) {\n  .browse .browse-content .result-card {\n    padding: 12px;\n  }\n  .browse .browse-content .result-card .card-inner {\n    grid-template-columns: 70px 1fr 100px;\n    gap: 12px;\n  }\n  .browse .browse-content .result-card .avatar {\n    width: 70px;\n    height: 70px;\n  }\n  .browse .browse-content .result-card .name {\n    font-size: 15px;\n  }\n  .browse .browse-content .result-card .role {\n    font-size: 12px;\n  }\n  .browse .browse-content .result-card .action-col {\n    display: flex;\n    align-items: flex-start;\n    justify-content: flex-end;\n  }\n  .browse .browse-content .result-card .view-btn {\n    width: 90px;\n    font-size: 11px;\n    height: 30px;\n    white-space: nowrap;\n  }\n  .browse .browse-content .result-card .message-btn {\n    width: 90px;\n    font-size: 11px;\n    height: 30px;\n    top: 36px;\n  }\n}\n@media (max-width: 375px) {\n  .browse .browse-content .result-card {\n    padding: 10px;\n  }\n  .browse .browse-content .result-card .card-inner {\n    grid-template-columns: 60px 1fr 90px;\n    gap: 10px;\n  }\n  .browse .browse-content .result-card .avatar {\n    width: 60px;\n    height: 60px;\n  }\n  .browse .browse-content .result-card .name {\n    font-size: 14px;\n  }\n  .browse .browse-content .result-card .role {\n    font-size: 11px;\n  }\n  .browse .browse-content .result-card .action-col {\n    display: flex;\n    align-items: flex-start;\n    justify-content: flex-end;\n  }\n  .browse .browse-content .result-card .view-btn {\n    width: 80px;\n    font-size: 10px;\n    height: 28px;\n    white-space: nowrap;\n  }\n  .browse .browse-content .result-card .message-btn {\n    width: 80px;\n    font-size: 10px;\n    height: 28px;\n    top: 32px;\n  }\n}\n@media (max-width: 320px) {\n  .browse .browse-content {\n    padding: 0 12px 12px;\n  }\n  .browse .browse-content .result-card {\n    padding: 8px;\n  }\n  .browse .browse-content .result-card .card-inner {\n    grid-template-columns: 50px 1fr 80px;\n    gap: 8px;\n  }\n  .browse .browse-content .result-card .avatar {\n    width: 50px;\n    height: 50px;\n  }\n  .browse .browse-content .result-card .name {\n    font-size: 13px;\n  }\n  .browse .browse-content .result-card .role {\n    font-size: 10px;\n  }\n  .browse .browse-content .result-card .action-col {\n    display: flex;\n    align-items: flex-start;\n    justify-content: flex-end;\n  }\n  .browse .browse-content .result-card .view-btn {\n    width: 70px;\n    font-size: 9px;\n    height: 26px;\n    white-space: nowrap;\n  }\n  .browse .browse-content .result-card .message-btn {\n    width: 70px;\n    font-size: 9px;\n    height: 26px;\n    top: 30px;\n  }\n}\n@media (max-width: 480px) {\n  .browse .browse-content {\n    padding: 0 16px 16px;\n  }\n  .browse .browse-content .header-section {\n    gap: 1rem;\n  }\n  .browse .browse-content .header-section .category-title {\n    font-size: 1.25rem;\n    line-height: 1.3;\n  }\n  .browse .browse-content .header-section .search-and-sort-row {\n    margin-bottom: 10px;\n    gap: 10px;\n  }\n  .browse .browse-content .header-section .search-bar {\n    gap: 8px;\n  }\n  .browse .browse-content .header-section .search-bar .search-input {\n    font-size: 14px;\n    height: 40px;\n    padding: 0 12px;\n  }\n  .browse .browse-content .header-section .search-bar .search-btn {\n    width: 40px;\n    height: 40px;\n    flex-shrink: 0;\n  }\n  .browse .browse-content .header-section .sort-wrapper {\n    min-width: 90px;\n  }\n  .browse .browse-content .header-section .sort-wrapper .sort-by {\n    height: 40px;\n    font-size: 13px;\n    padding: 0 10px;\n  }\n  .browse .browse-content .header-section .mobile-filter-toggle {\n    padding: 12px 16px;\n    font-size: 12px;\n    letter-spacing: 0.3px;\n  }\n  .browse .browse-content .filters-sidebar {\n    padding: 18px;\n    margin-bottom: 20px;\n  }\n  .browse .browse-content .filters-sidebar .filters-title {\n    font-size: 13px;\n    margin-bottom: 16px;\n  }\n  .browse .browse-content .filters-sidebar .filter-group {\n    margin-bottom: 14px;\n  }\n  .browse .browse-content .filters-sidebar .filter-group label {\n    font-size: 11px;\n    margin-bottom: 6px;\n  }\n  .browse .browse-content .filters-sidebar .filter-group select,\n  .browse .browse-content .filters-sidebar .filter-group input[type=number],\n  .browse .browse-content .filters-sidebar .filter-group .search-descriptions {\n    height: 38px;\n    font-size: 13px;\n    padding: 0 10px;\n  }\n  .browse .browse-content .filters-sidebar .apply-btn {\n    height: 42px;\n    font-size: 13px;\n    margin-top: 6px;\n  }\n  .browse .browse-content .result-card {\n    padding: 10px;\n  }\n  .browse .browse-content .result-card .card-inner {\n    grid-template-columns: 60px 1fr 90px;\n    gap: 10px;\n  }\n  .browse .browse-content .result-card .avatar {\n    width: 60px;\n    height: 60px;\n  }\n  .browse .browse-content .result-card .name {\n    font-size: 14px;\n  }\n  .browse .browse-content .result-card .role {\n    font-size: 11px;\n  }\n  .browse .browse-content .result-card .action-col {\n    display: flex;\n    align-items: flex-start;\n    justify-content: flex-end;\n  }\n  .browse .browse-content .result-card .view-btn {\n    width: 80px;\n    font-size: 10px;\n    height: 28px;\n    white-space: nowrap;\n  }\n  .browse .browse-content .result-card .message-btn {\n    width: 80px;\n    font-size: 10px;\n    height: 28px;\n    top: 32px;\n  }\n}\n\n.name-with-badges {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  flex-wrap: wrap;\n}\n.name-with-badges .name {\n  margin: 0;\n}\n\n.name-with-collar-verified {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  flex-wrap: wrap;\n  position: relative;\n  z-index: 5;\n}\n.name-with-collar-verified .name {\n  margin: 0;\n  font-size: 1.2rem;\n  font-weight: 600;\n  color: #333;\n}\n\n.browse-service-badge {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  color: #0a2a44;\n  font-weight: 700;\n}\n.browse-service-badge .badge-icon {\n  width: 20px;\n  height: 20px;\n  -o-object-fit: contain;\n     object-fit: contain;\n  image-rendering: -webkit-optimize-contrast;\n  image-rendering: crisp-edges;\n  min-width: 20px;\n  min-height: 20px;\n}\n\n.profile-verified-badge {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  position: relative;\n  z-index: 10;\n  flex-shrink: 0;\n}\n.profile-verified-badge .verified-icon {\n  width: 20px;\n  height: 20px;\n  flex-shrink: 0;\n  -o-object-fit: contain;\n     object-fit: contain;\n  position: relative;\n  z-index: 11;\n}\n\n.badges-container {\n  display: flex;\n  gap: 6px;\n  align-items: center;\n  flex-wrap: wrap;\n}\n\n.verified-badge {\n  display: flex;\n  align-items: center;\n  gap: 3px;\n  background: #e8f5e8;\n  color: #2e7d32;\n  padding: 3px 6px;\n  border-radius: 10px;\n  font-size: 0.7rem;\n  font-weight: 500;\n  border: 1px solid #4caf50;\n  transition: all 0.2s ease;\n}\n.verified-badge:hover {\n  background: #c8e6c9;\n  transform: translateY(-1px);\n}\n.verified-badge svg {\n  flex-shrink: 0;\n}\n.verified-badge .verified-text {\n  font-size: 0.65rem;\n  font-weight: 600;\n}\n\n.collar-badge {\n  display: flex;\n  align-items: center;\n  gap: 4px;\n  background: linear-gradient(135deg, #f8f9fa, #e9ecef);\n  color: #495057;\n  padding: 4px 8px;\n  border-radius: 12px;\n  font-size: 0.7rem;\n  font-weight: 500;\n  border: 1px solid #dee2e6;\n  transition: all 0.2s ease;\n}\n.collar-badge:hover {\n  background: linear-gradient(135deg, #e9ecef, #dee2e6);\n  transform: translateY(-1px);\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n}\n.collar-badge .collar-icon {\n  width: 14px;\n  height: 14px;\n  border-radius: 50%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  flex-shrink: 0;\n}\n.collar-badge .collar-text {\n  font-size: 0.65rem;\n  font-weight: 600;\n  white-space: nowrap;\n}\n\n.collar-badge-icon {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  width: 24px;\n  height: 24px;\n  border-radius: 50%;\n  background: linear-gradient(135deg, #f8f9fa, #e9ecef);\n  border: 2px solid #dee2e6;\n  transition: all 0.2s ease;\n  cursor: pointer;\n}\n.collar-badge-icon:hover {\n  transform: translateY(-2px);\n  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);\n  border-color: #adb5bd;\n}\n.collar-badge-icon .collar-icon-only {\n  width: 16px;\n  height: 16px;\n  border-radius: 50%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.collar-badge-icon .collar-icon-placeholder {\n  width: 16px;\n  height: 16px;\n  border-radius: 50%;\n  background: linear-gradient(135deg, #6c757d, #495057);\n  color: white;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 0.65rem;\n  font-weight: 700;\n  text-transform: uppercase;\n  letter-spacing: -0.5px;\n}\n.collar-badge-icon.collar-1 .collar-icon-placeholder {\n  background: linear-gradient(135deg, #1976d2, #1565c0);\n}\n.collar-badge-icon.collar-2 .collar-icon-placeholder {\n  background: linear-gradient(135deg, #e91e63, #c2185b);\n  color: white;\n}\n.collar-badge-icon.collar-3 .collar-icon-placeholder {\n  background: linear-gradient(135deg, #f5f5f5, #e0e0e0);\n  color: #424242;\n  border: 1px solid #bdbdbd;\n}\n.collar-badge-icon.collar-4 .collar-icon-placeholder {\n  background: linear-gradient(135deg, #ff9800, #f57c00);\n  color: white;\n}\n.collar-badge-icon.collar-5 .collar-icon-placeholder {\n  background: linear-gradient(135deg, #9c27b0, #7b1fa2);\n  color: white;\n}\n\n.rank-badge {\n  display: flex;\n  align-items: center;\n  gap: 3px;\n  background: linear-gradient(135deg, #ffd700, #ffed4e);\n  color: #8b4513;\n  padding: 3px 6px;\n  border-radius: 10px;\n  font-size: 0.7rem;\n  font-weight: 600;\n  border: 1px solid #ffb300;\n  transition: all 0.2s ease;\n  box-shadow: 0 2px 4px rgba(255, 215, 0, 0.3);\n}\n.rank-badge:hover {\n  background: linear-gradient(135deg, #ffed4e, #ffd700);\n  transform: translateY(-1px);\n  box-shadow: 0 4px 8px rgba(255, 215, 0, 0.4);\n}\n.rank-badge .rank-icon {\n  width: 14px;\n  height: 14px;\n  -o-object-fit: contain;\n     object-fit: contain;\n  flex-shrink: 0;\n}\n\n.rank-badge[title*=Bronze] {\n  background: linear-gradient(135deg, #cd7f32, #daa520);\n  color: #fff;\n  border-color: #b8860b;\n  box-shadow: 0 2px 4px rgba(205, 127, 50, 0.3);\n}\n.rank-badge[title*=Silver] {\n  background: linear-gradient(135deg, #c0c0c0, #e5e5e5);\n  color: #333;\n  border-color: #999;\n  box-shadow: 0 2px 4px rgba(192, 192, 192, 0.3);\n}\n.rank-badge[title*=Gold] {\n  background: linear-gradient(135deg, #ffd700, #ffed4e);\n  color: #8b4513;\n  border-color: #ffb300;\n  box-shadow: 0 2px 4px rgba(255, 215, 0, 0.3);\n}\n.rank-badge[title*=Diamond] {\n  background: linear-gradient(135deg, #b9f2ff, #e6f7ff);\n  color: #0066cc;\n  border-color: #4fc3f7;\n  box-shadow: 0 2px 4px rgba(185, 242, 255, 0.3);\n}\n\n.skill-chip-with-rank {\n  display: inline-flex;\n  align-items: center;\n  gap: 6px;\n  margin-right: 12px;\n  margin-bottom: 6px;\n  padding: 6px 12px;\n  background: linear-gradient(135deg, #f8f9fa, #e9ecef);\n  border: 1px solid #dee2e6;\n  border-radius: 20px;\n  font-size: 0.85rem;\n  font-weight: 500;\n  color: #495057;\n  transition: all 0.2s ease;\n}\n.skill-chip-with-rank:hover {\n  background: linear-gradient(135deg, #e9ecef, #dee2e6);\n  transform: translateY(-1px);\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n}\n.skill-chip-with-rank .skill-rank-icon-small {\n  width: 18px;\n  height: 18px;\n  -o-object-fit: contain;\n     object-fit: contain;\n  flex-shrink: 0;\n  border-radius: 3px;\n  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);\n  border: 1px solid #fff;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".browse {\n  position: relative;\n  width: 100vw;\n  min-height: 100vh;\n  background-color: #f5f7fa;\n  margin: 0;\n  padding: 0;\n  overflow-x: hidden;\n}\n.browse .browse-content {\n  padding: 0 40px 40px;\n  width: 100%;\n  margin: 0 auto;\n  box-sizing: border-box;\n  margin-top: 40px;\n}\n.browse .browse-content .header-section {\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  justify-content: space-between;\n  gap: 24px;\n  margin-bottom: 2rem;\n}\n.browse .browse-content .header-section .category-title {\n  margin-bottom: 0;\n  text-align: left;\n  flex-shrink: 0;\n}\n.browse .browse-content .header-section .search-and-sort-row {\n  display: flex;\n  flex-direction: row;\n  justify-content: flex-end;\n  align-items: center;\n  gap: 20px;\n  margin-bottom: 0;\n  flex: 1;\n  min-width: 0;\n}\n.browse .browse-content .header-section .mobile-filter-toggle {\n  display: none;\n}\n.browse .browse-content .header-section .search-bar {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  flex: 1;\n  min-width: 0;\n}\n.browse .browse-content .header-section .search-bar .search-input {\n  flex: 1;\n  min-width: 200px;\n  max-width: 100%;\n  height: 40px;\n  border: 1px solid #c9ced6;\n  border-radius: 4px;\n  padding: 0 12px;\n  font-size: 16px;\n  color: #111827;\n  outline: none;\n  transition: border-color 0.3s ease;\n}\n.browse .browse-content .header-section .search-bar .search-input:focus {\n  border-color: #0a2a40;\n}\n.browse .browse-content .header-section .search-bar .search-btn {\n  width: 40px;\n  height: 40px;\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  background-color: #0a2a40;\n  border: 0;\n  border-radius: 4px;\n  cursor: pointer;\n  transition: background-color 0.3s ease;\n}\n.browse .browse-content .header-section .search-bar .search-btn:hover {\n  background-color: #08203a;\n}\n.browse .browse-content .header-section .sort-wrapper {\n  position: relative;\n  display: flex;\n  align-items: center;\n}\n.browse .browse-content .header-section .sort-wrapper .sort-by {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  font-size: 16px;\n  color: #000000;\n  cursor: pointer;\n  padding: 8px 16px;\n  border: 1px solid #c9ced6;\n  border-radius: 4px;\n  transition: border-color 0.3s ease;\n}\n.browse .browse-content .header-section .sort-wrapper .sort-by:hover {\n  border-color: #0a2a40;\n}\n.browse .browse-content .header-section .sort-wrapper .sort-icon {\n  width: 18px;\n  height: 18px;\n  stroke: #000000;\n  stroke-width: 2;\n}\n.browse .browse-content .header-section .sort-wrapper .sort-dropdown {\n  position: absolute;\n  top: 100%;\n  right: 0;\n  background-color: #fff;\n  border-radius: 6px;\n  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);\n  z-index: 10;\n  min-width: 180px;\n  border: 1px solid #e6f2ef;\n  margin-top: 4px;\n}\n.browse .browse-content .header-section .sort-wrapper .sort-dropdown .sort-option {\n  padding: 10px 16px;\n  font-size: 14px;\n  color: #333;\n  cursor: pointer;\n  transition: background-color 0.3s ease;\n}\n.browse .browse-content .header-section .sort-wrapper .sort-dropdown .sort-option:hover {\n  background-color: #e6f2ef;\n  color: #000000;\n}\n.browse .browse-content .category-title {\n  font-size: 2rem;\n  font-weight: 800;\n  color: #0b0d0f;\n  margin: 0;\n  text-transform: uppercase;\n  line-height: 1.2;\n}\n.browse .content-layout {\n  display: grid;\n  grid-template-columns: 400px 1fr;\n  gap: 24px;\n  align-items: stretch;\n  min-height: calc(100vh - 200px);\n}\n.browse .filters-sidebar {\n  background: #0a2a40;\n  color: #fff;\n  padding: 24px;\n  border-radius: 6px;\n  position: sticky;\n  top: 20px;\n  height: 100%;\n  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);\n}\n.browse .filters-sidebar .filters-title {\n  font-size: 16px;\n  letter-spacing: 0.5px;\n  opacity: 0.85;\n  margin: 0 0 20px;\n  font-weight: 600;\n  text-transform: uppercase;\n}\n.browse .filters-sidebar .filter-group {\n  display: flex;\n  flex-direction: column;\n  gap: 8px;\n  margin-bottom: 20px;\n}\n.browse .filters-sidebar .filter-group label {\n  font-size: 14px;\n  opacity: 0.75;\n  font-weight: 500;\n  text-transform: uppercase;\n}\n.browse .filters-sidebar .filter-group select,\n.browse .filters-sidebar .filter-group input[type=number],\n.browse .filters-sidebar .filter-group .search-descriptions {\n  height: 40px;\n  border: 1px solid #1e4a6e;\n  border-radius: 6px;\n  padding: 0 12px;\n  font-size: 14px;\n  color: #fff;\n  background: #0f3a5a;\n  outline: none;\n  transition: border-color 0.3s ease;\n}\n.browse .filters-sidebar .filter-group select:focus,\n.browse .filters-sidebar .filter-group input[type=number]:focus,\n.browse .filters-sidebar .filter-group .search-descriptions:focus {\n  border-color: #1ec64b;\n}\n.browse .filters-sidebar .filter-group .range {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n}\n.browse .filters-sidebar .filter-group .range input[type=number] {\n  width: 80px;\n}\n.browse .filters-sidebar .filter-group .range span {\n  font-size: 14px;\n  color: #b0c4de;\n}\n.browse .filters-sidebar .filter-group .search-descriptions {\n  width: 100%;\n  padding: 8px 12px;\n}\n.browse .filters-sidebar .apply-btn {\n  width: 100%;\n  height: 40px;\n  border: none;\n  border-radius: 20px;\n  background: #1ec64b;\n  color: #fff;\n  cursor: pointer;\n  font-size: 16px;\n  font-weight: 600;\n  transition: background-color 0.3s ease;\n}\n.browse .filters-sidebar .apply-btn:hover {\n  background-color: #1aa33f;\n}\n.browse .results-list {\n  display: flex;\n  flex-direction: column;\n  gap: 20px;\n}\n.browse .result-card {\n  background: linear-gradient(180deg, #f3f7fb 0%, #eef3f7 100%);\n  border-radius: 8px;\n  padding: 16px;\n  border: 1px solid #cbd5e1;\n}\n.browse .result-card .card-inner {\n  display: grid;\n  grid-template-columns: 120px 1fr 140px;\n  align-items: start;\n  gap: 20px;\n  position: relative;\n}\n.browse .result-card .avatar-col {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.browse .result-card .avatar {\n  width: 100px;\n  height: 100px;\n  border-radius: 50%;\n  background: #e6e9ef;\n}\n.browse .result-card .name {\n  margin: 0;\n  font-size: 18px;\n  color: #0a2a40;\n}\n.browse .result-card .role {\n  margin-left: 12px;\n  font-size: 14px;\n  color: #3c556e;\n}\n.browse .result-card .contact-info {\n  margin-top: 4px;\n  margin-left: 12px;\n}\n.browse .result-card .contact-info .contact-number {\n  font-size: 12px;\n  color: #9ca3af;\n  font-family: monospace;\n}\n.browse .result-card .label {\n  font-size: 12px;\n  color: #73839b;\n  margin-bottom: 6px;\n}\n.browse .result-card .value {\n  font-size: 14px;\n  color: #1b2430;\n}\n.browse .result-card .desc {\n  margin-top: 12px;\n  font-size: 14px;\n  color: #1b2430;\n  opacity: 0.9;\n}\n.browse .result-card .skills-row {\n  margin-top: 12px;\n  display: flex;\n  flex-wrap: wrap;\n  gap: 8px;\n}\n.browse .result-card .chip {\n  background: #fff;\n  border: 1px solid #d9e2ec;\n  border-radius: 6px;\n  padding: 4px 10px;\n  font-size: 12px;\n  color: #284b63;\n}\n.browse .result-card .action-col {\n  display: flex;\n  align-items: flex-start;\n  justify-content: flex-end;\n  padding-top: 0;\n}\n.browse .result-card .view-btn {\n  width: 130px;\n  height: 36px;\n  border: none;\n  border-radius: 18px;\n  background: #0a2a40;\n  color: #fff;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 600;\n  transition: background-color 0.3s ease;\n  white-space: nowrap;\n  flex-shrink: 0;\n}\n.browse .result-card .view-btn:hover {\n  background-color: #08203a;\n}\n.browse .result-card .view-btn.blue-btn {\n  background: #1A2A44;\n  color: #fff;\n}\n.browse .result-card .view-btn.blue-btn:hover {\n  background: #0f1a2e;\n}\n.browse .result-card .message-btn {\n  width: 130px;\n  height: 36px;\n  border: 1px solid #1A2A44;\n  border-radius: 18px;\n  background: transparent;\n  color: #1A2A44;\n  cursor: pointer;\n  font-size: 14px;\n  margin-top: 8px;\n  transition: all 0.3s ease;\n  position: absolute;\n  top: 44px;\n  right: 0;\n}\n.browse .result-card .message-btn:hover {\n  background: #1A2A44;\n  color: #fff;\n}\n.browse .mobile-filter-toggle {\n  display: none;\n}\n@media (max-width: 768px) {\n  .browse .browse-content {\n    padding: 0 20px 20px;\n    margin-top: 20px;\n  }\n  .browse .browse-content .header-section {\n    flex-direction: column;\n    align-items: flex-start;\n    gap: 1.25rem;\n  }\n  .browse .browse-content .header-section .category-title {\n    font-size: 1.5rem;\n    margin-bottom: 0;\n    width: 100%;\n  }\n  .browse .browse-content .header-section .search-and-sort-container {\n    display: none;\n  }\n  .browse .browse-content .header-section .search-and-sort-row {\n    width: 100%;\n    display: flex;\n    flex-direction: row;\n    justify-content: space-between;\n    align-items: center;\n    gap: 12px;\n    margin-bottom: 12px;\n  }\n  .browse .browse-content .header-section .search-bar {\n    flex: 1;\n    margin-left: 0;\n    position: relative;\n    display: flex;\n    align-items: center;\n    gap: 12px;\n    min-width: 0;\n  }\n  .browse .browse-content .header-section .search-bar .search-input {\n    flex: 1;\n    min-width: 0;\n  }\n  .browse .browse-content .header-section .sort-wrapper {\n    flex-shrink: 0;\n    min-width: 100px;\n    position: relative;\n  }\n  .browse .browse-content .header-section .mobile-filter-toggle {\n    display: block;\n    width: 100%;\n    padding: 14px 20px;\n    background: #0a2a40;\n    color: #fff;\n    border: none;\n    border-radius: 6px;\n    font-size: 13px;\n    font-weight: 700;\n    letter-spacing: 0.5px;\n    cursor: pointer;\n    text-align: center;\n    transition: all 0.3s ease;\n    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n    margin-top: 0;\n  }\n  .browse .browse-content .header-section .mobile-filter-toggle:hover {\n    background: #08203a;\n    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);\n  }\n  .browse .browse-content .header-section .mobile-filter-toggle:active {\n    transform: translateY(1px);\n  }\n  .browse .browse-content .content-layout {\n    grid-template-columns: 1fr;\n    gap: 16px;\n  }\n  .browse .browse-content .filters-sidebar {\n    display: none;\n    position: relative;\n    top: 0;\n    height: auto;\n    max-height: none;\n    overflow-y: visible;\n    padding: 20px;\n    margin-bottom: 24px;\n    border-radius: 8px;\n    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);\n  }\n  .browse .browse-content .filters-sidebar.mobile-open {\n    display: block;\n    animation: slideDown 0.3s ease-out;\n  }\n  @keyframes slideDown {\n    from {\n      opacity: 0;\n      transform: translateY(-10px);\n    }\n    to {\n      opacity: 1;\n      transform: translateY(0);\n    }\n  }\n  .browse .browse-content .filters-sidebar .filters-title {\n    font-size: 14px;\n    margin-bottom: 16px;\n    letter-spacing: 0.5px;\n  }\n  .browse .browse-content .filters-sidebar .filter-group {\n    margin-bottom: 16px;\n  }\n  .browse .browse-content .filters-sidebar .filter-group label {\n    font-size: 12px;\n    margin-bottom: 8px;\n    display: block;\n    letter-spacing: 0.3px;\n  }\n  .browse .browse-content .filters-sidebar .filter-group select,\n  .browse .browse-content .filters-sidebar .filter-group input[type=number],\n  .browse .browse-content .filters-sidebar .filter-group .search-descriptions {\n    height: 40px;\n    font-size: 14px;\n    border-radius: 4px;\n    padding: 0 12px;\n  }\n  .browse .browse-content .filters-sidebar .apply-btn {\n    height: 44px;\n    font-size: 14px;\n    border-radius: 6px;\n    margin-top: 8px;\n  }\n  .browse .browse-content .result-card {\n    padding: 14px;\n  }\n  .browse .browse-content .result-card .card-inner {\n    grid-template-columns: 80px 1fr 110px;\n    gap: 14px;\n    position: relative;\n    padding-right: 0;\n  }\n  .browse .browse-content .result-card .avatar {\n    width: 80px;\n    height: 80px;\n  }\n  .browse .browse-content .result-card .name {\n    font-size: 16px;\n  }\n  .browse .browse-content .result-card .role {\n    font-size: 13px;\n    margin-left: 0;\n    margin-top: 4px;\n  }\n  .browse .browse-content .result-card .contact-info {\n    margin-left: 0;\n    margin-top: 4px;\n  }\n  .browse .browse-content .result-card .action-col {\n    display: flex;\n    align-items: flex-start;\n    justify-content: flex-end;\n  }\n  .browse .browse-content .result-card .view-btn {\n    width: 100px;\n    font-size: 12px;\n    height: 32px;\n    white-space: nowrap;\n  }\n  .browse .browse-content .result-card .message-btn {\n    width: 100px;\n    font-size: 12px;\n    height: 32px;\n    position: absolute;\n    top: 38px;\n    right: 0;\n    margin-top: 4px;\n  }\n}\n@media (max-width: 425px) {\n  .browse .browse-content .result-card {\n    padding: 12px;\n  }\n  .browse .browse-content .result-card .card-inner {\n    grid-template-columns: 70px 1fr 100px;\n    gap: 12px;\n  }\n  .browse .browse-content .result-card .avatar {\n    width: 70px;\n    height: 70px;\n  }\n  .browse .browse-content .result-card .name {\n    font-size: 15px;\n  }\n  .browse .browse-content .result-card .role {\n    font-size: 12px;\n  }\n  .browse .browse-content .result-card .action-col {\n    display: flex;\n    align-items: flex-start;\n    justify-content: flex-end;\n  }\n  .browse .browse-content .result-card .view-btn {\n    width: 90px;\n    font-size: 11px;\n    height: 30px;\n    white-space: nowrap;\n  }\n  .browse .browse-content .result-card .message-btn {\n    width: 90px;\n    font-size: 11px;\n    height: 30px;\n    top: 36px;\n  }\n}\n@media (max-width: 375px) {\n  .browse .browse-content .result-card {\n    padding: 10px;\n  }\n  .browse .browse-content .result-card .card-inner {\n    grid-template-columns: 60px 1fr 90px;\n    gap: 10px;\n  }\n  .browse .browse-content .result-card .avatar {\n    width: 60px;\n    height: 60px;\n  }\n  .browse .browse-content .result-card .name {\n    font-size: 14px;\n  }\n  .browse .browse-content .result-card .role {\n    font-size: 11px;\n  }\n  .browse .browse-content .result-card .action-col {\n    display: flex;\n    align-items: flex-start;\n    justify-content: flex-end;\n  }\n  .browse .browse-content .result-card .view-btn {\n    width: 80px;\n    font-size: 10px;\n    height: 28px;\n    white-space: nowrap;\n  }\n  .browse .browse-content .result-card .message-btn {\n    width: 80px;\n    font-size: 10px;\n    height: 28px;\n    top: 32px;\n  }\n}\n@media (max-width: 320px) {\n  .browse .browse-content {\n    padding: 0 12px 12px;\n  }\n  .browse .browse-content .result-card {\n    padding: 8px;\n  }\n  .browse .browse-content .result-card .card-inner {\n    grid-template-columns: 50px 1fr 80px;\n    gap: 8px;\n  }\n  .browse .browse-content .result-card .avatar {\n    width: 50px;\n    height: 50px;\n  }\n  .browse .browse-content .result-card .name {\n    font-size: 13px;\n  }\n  .browse .browse-content .result-card .role {\n    font-size: 10px;\n  }\n  .browse .browse-content .result-card .action-col {\n    display: flex;\n    align-items: flex-start;\n    justify-content: flex-end;\n  }\n  .browse .browse-content .result-card .view-btn {\n    width: 70px;\n    font-size: 9px;\n    height: 26px;\n    white-space: nowrap;\n  }\n  .browse .browse-content .result-card .message-btn {\n    width: 70px;\n    font-size: 9px;\n    height: 26px;\n    top: 30px;\n  }\n}\n@media (max-width: 480px) {\n  .browse .browse-content {\n    padding: 0 16px 16px;\n  }\n  .browse .browse-content .header-section {\n    gap: 1rem;\n  }\n  .browse .browse-content .header-section .category-title {\n    font-size: 1.25rem;\n    line-height: 1.3;\n  }\n  .browse .browse-content .header-section .search-and-sort-row {\n    margin-bottom: 10px;\n    gap: 10px;\n  }\n  .browse .browse-content .header-section .search-bar {\n    gap: 8px;\n  }\n  .browse .browse-content .header-section .search-bar .search-input {\n    font-size: 14px;\n    height: 40px;\n    padding: 0 12px;\n  }\n  .browse .browse-content .header-section .search-bar .search-btn {\n    width: 40px;\n    height: 40px;\n    flex-shrink: 0;\n  }\n  .browse .browse-content .header-section .sort-wrapper {\n    min-width: 90px;\n  }\n  .browse .browse-content .header-section .sort-wrapper .sort-by {\n    height: 40px;\n    font-size: 13px;\n    padding: 0 10px;\n  }\n  .browse .browse-content .header-section .mobile-filter-toggle {\n    padding: 12px 16px;\n    font-size: 12px;\n    letter-spacing: 0.3px;\n  }\n  .browse .browse-content .filters-sidebar {\n    padding: 18px;\n    margin-bottom: 20px;\n  }\n  .browse .browse-content .filters-sidebar .filters-title {\n    font-size: 13px;\n    margin-bottom: 16px;\n  }\n  .browse .browse-content .filters-sidebar .filter-group {\n    margin-bottom: 14px;\n  }\n  .browse .browse-content .filters-sidebar .filter-group label {\n    font-size: 11px;\n    margin-bottom: 6px;\n  }\n  .browse .browse-content .filters-sidebar .filter-group select,\n  .browse .browse-content .filters-sidebar .filter-group input[type=number],\n  .browse .browse-content .filters-sidebar .filter-group .search-descriptions {\n    height: 38px;\n    font-size: 13px;\n    padding: 0 10px;\n  }\n  .browse .browse-content .filters-sidebar .apply-btn {\n    height: 42px;\n    font-size: 13px;\n    margin-top: 6px;\n  }\n  .browse .browse-content .result-card {\n    padding: 10px;\n  }\n  .browse .browse-content .result-card .card-inner {\n    grid-template-columns: 60px 1fr 90px;\n    gap: 10px;\n  }\n  .browse .browse-content .result-card .avatar {\n    width: 60px;\n    height: 60px;\n  }\n  .browse .browse-content .result-card .name {\n    font-size: 14px;\n  }\n  .browse .browse-content .result-card .role {\n    font-size: 11px;\n  }\n  .browse .browse-content .result-card .action-col {\n    display: flex;\n    align-items: flex-start;\n    justify-content: flex-end;\n  }\n  .browse .browse-content .result-card .view-btn {\n    width: 80px;\n    font-size: 10px;\n    height: 28px;\n    white-space: nowrap;\n  }\n  .browse .browse-content .result-card .message-btn {\n    width: 80px;\n    font-size: 10px;\n    height: 28px;\n    top: 32px;\n  }\n}\n\n.name-with-badges {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  flex-wrap: wrap;\n}\n.name-with-badges .name {\n  margin: 0;\n}\n\n.name-with-collar-verified {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  flex-wrap: wrap;\n  position: relative;\n  z-index: 5;\n}\n.name-with-collar-verified .name {\n  margin: 0;\n  font-size: 1.2rem;\n  font-weight: 600;\n  color: #333;\n}\n\n.browse-service-badge {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  color: #0a2a44;\n  font-weight: 700;\n}\n.browse-service-badge .badge-icon {\n  width: 20px;\n  height: 20px;\n  -o-object-fit: contain;\n     object-fit: contain;\n  image-rendering: -webkit-optimize-contrast;\n  image-rendering: crisp-edges;\n  min-width: 20px;\n  min-height: 20px;\n}\n\n.profile-verified-badge {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  position: relative;\n  z-index: 10;\n  flex-shrink: 0;\n}\n.profile-verified-badge .verified-icon {\n  width: 20px;\n  height: 20px;\n  flex-shrink: 0;\n  -o-object-fit: contain;\n     object-fit: contain;\n  position: relative;\n  z-index: 11;\n}\n\n.badges-container {\n  display: flex;\n  gap: 6px;\n  align-items: center;\n  flex-wrap: wrap;\n}\n\n.verified-badge {\n  display: flex;\n  align-items: center;\n  gap: 3px;\n  background: #e8f5e8;\n  color: #2e7d32;\n  padding: 3px 6px;\n  border-radius: 10px;\n  font-size: 0.7rem;\n  font-weight: 500;\n  border: 1px solid #4caf50;\n  transition: all 0.2s ease;\n}\n.verified-badge:hover {\n  background: #c8e6c9;\n  transform: translateY(-1px);\n}\n.verified-badge svg {\n  flex-shrink: 0;\n}\n.verified-badge .verified-text {\n  font-size: 0.65rem;\n  font-weight: 600;\n}\n\n.collar-badge {\n  display: flex;\n  align-items: center;\n  gap: 4px;\n  background: linear-gradient(135deg, #f8f9fa, #e9ecef);\n  color: #495057;\n  padding: 4px 8px;\n  border-radius: 12px;\n  font-size: 0.7rem;\n  font-weight: 500;\n  border: 1px solid #dee2e6;\n  transition: all 0.2s ease;\n}\n.collar-badge:hover {\n  background: linear-gradient(135deg, #e9ecef, #dee2e6);\n  transform: translateY(-1px);\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n}\n.collar-badge .collar-icon {\n  width: 14px;\n  height: 14px;\n  border-radius: 50%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  flex-shrink: 0;\n}\n.collar-badge .collar-text {\n  font-size: 0.65rem;\n  font-weight: 600;\n  white-space: nowrap;\n}\n\n.collar-badge-icon {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  width: 24px;\n  height: 24px;\n  border-radius: 50%;\n  background: linear-gradient(135deg, #f8f9fa, #e9ecef);\n  border: 2px solid #dee2e6;\n  transition: all 0.2s ease;\n  cursor: pointer;\n}\n.collar-badge-icon:hover {\n  transform: translateY(-2px);\n  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);\n  border-color: #adb5bd;\n}\n.collar-badge-icon .collar-icon-only {\n  width: 16px;\n  height: 16px;\n  border-radius: 50%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.collar-badge-icon .collar-icon-placeholder {\n  width: 16px;\n  height: 16px;\n  border-radius: 50%;\n  background: linear-gradient(135deg, #6c757d, #495057);\n  color: white;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 0.65rem;\n  font-weight: 700;\n  text-transform: uppercase;\n  letter-spacing: -0.5px;\n}\n.collar-badge-icon.collar-1 .collar-icon-placeholder {\n  background: linear-gradient(135deg, #1976d2, #1565c0);\n}\n.collar-badge-icon.collar-2 .collar-icon-placeholder {\n  background: linear-gradient(135deg, #e91e63, #c2185b);\n  color: white;\n}\n.collar-badge-icon.collar-3 .collar-icon-placeholder {\n  background: linear-gradient(135deg, #f5f5f5, #e0e0e0);\n  color: #424242;\n  border: 1px solid #bdbdbd;\n}\n.collar-badge-icon.collar-4 .collar-icon-placeholder {\n  background: linear-gradient(135deg, #ff9800, #f57c00);\n  color: white;\n}\n.collar-badge-icon.collar-5 .collar-icon-placeholder {\n  background: linear-gradient(135deg, #9c27b0, #7b1fa2);\n  color: white;\n}\n\n.rank-badge {\n  display: flex;\n  align-items: center;\n  gap: 3px;\n  background: linear-gradient(135deg, #ffd700, #ffed4e);\n  color: #8b4513;\n  padding: 3px 6px;\n  border-radius: 10px;\n  font-size: 0.7rem;\n  font-weight: 600;\n  border: 1px solid #ffb300;\n  transition: all 0.2s ease;\n  box-shadow: 0 2px 4px rgba(255, 215, 0, 0.3);\n}\n.rank-badge:hover {\n  background: linear-gradient(135deg, #ffed4e, #ffd700);\n  transform: translateY(-1px);\n  box-shadow: 0 4px 8px rgba(255, 215, 0, 0.4);\n}\n.rank-badge .rank-icon {\n  width: 14px;\n  height: 14px;\n  -o-object-fit: contain;\n     object-fit: contain;\n  flex-shrink: 0;\n}\n\n.rank-badge[title*=Bronze] {\n  background: linear-gradient(135deg, #cd7f32, #daa520);\n  color: #fff;\n  border-color: #b8860b;\n  box-shadow: 0 2px 4px rgba(205, 127, 50, 0.3);\n}\n.rank-badge[title*=Silver] {\n  background: linear-gradient(135deg, #c0c0c0, #e5e5e5);\n  color: #333;\n  border-color: #999;\n  box-shadow: 0 2px 4px rgba(192, 192, 192, 0.3);\n}\n.rank-badge[title*=Gold] {\n  background: linear-gradient(135deg, #ffd700, #ffed4e);\n  color: #8b4513;\n  border-color: #ffb300;\n  box-shadow: 0 2px 4px rgba(255, 215, 0, 0.3);\n}\n.rank-badge[title*=Diamond] {\n  background: linear-gradient(135deg, #b9f2ff, #e6f7ff);\n  color: #0066cc;\n  border-color: #4fc3f7;\n  box-shadow: 0 2px 4px rgba(185, 242, 255, 0.3);\n}\n\n.skill-chip-with-rank {\n  display: inline-flex;\n  align-items: center;\n  gap: 6px;\n  margin-right: 12px;\n  margin-bottom: 6px;\n  padding: 6px 12px;\n  background: linear-gradient(135deg, #f8f9fa, #e9ecef);\n  border: 1px solid #dee2e6;\n  border-radius: 20px;\n  font-size: 0.85rem;\n  font-weight: 500;\n  color: #495057;\n  transition: all 0.2s ease;\n}\n.skill-chip-with-rank:hover {\n  background: linear-gradient(135deg, #e9ecef, #dee2e6);\n  transform: translateY(-1px);\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n}\n.skill-chip-with-rank .skill-rank-icon-small {\n  width: 18px;\n  height: 18px;\n  -o-object-fit: contain;\n     object-fit: contain;\n  flex-shrink: 0;\n  border-radius: 3px;\n  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);\n  border: 1px solid #fff;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -72151,7 +72127,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".browse {\n  position: relative;\n  width: 100vw;\n  min-height: 100vh;\n  background-color: #f5f7fa;\n  margin: 0;\n  padding: 0;\n  overflow-x: hidden;\n}\n.browse .browse-content {\n  padding: 0 40px 40px;\n  width: 100%;\n  margin: 0 auto;\n  box-sizing: border-box;\n  margin-top: 40px;\n}\n.browse .browse-content .header-section {\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  justify-content: space-between;\n  margin-bottom: 1.5rem;\n  gap: 24px;\n}\n.browse .browse-content .header-section .category-title {\n  margin-right: 0;\n  margin-bottom: 0;\n  flex-shrink: 0;\n}\n.browse .browse-content .header-section .search-and-sort-row {\n  display: flex;\n  flex-direction: row;\n  justify-content: flex-end;\n  align-items: center;\n  gap: 20px;\n  margin-bottom: 0;\n  flex: 1;\n  min-width: 0;\n}\n.browse .browse-content .header-section .search-bar {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  flex: 1;\n  min-width: 0;\n}\n.browse .browse-content .header-section .search-bar .search-input {\n  flex: 1;\n  min-width: 200px;\n  max-width: 100%;\n  height: 40px;\n  border: 1px solid #c9ced6;\n  border-radius: 4px;\n  padding: 0 12px;\n  font-size: 16px;\n  color: #111827;\n  outline: none;\n  transition: border-color 0.3s ease;\n}\n.browse .browse-content .header-section .search-bar .search-input:focus {\n  border-color: #0a2a40;\n}\n.browse .browse-content .header-section .search-bar .search-btn {\n  width: 40px;\n  height: 40px;\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  background-color: #0a2a40;\n  border: 0;\n  border-radius: 4px;\n  cursor: pointer;\n  transition: background-color 0.3s ease;\n  flex-shrink: 0;\n}\n.browse .browse-content .header-section .search-bar .search-btn:hover {\n  background-color: #08203a;\n}\n.browse .browse-content .header-section .sort-wrapper {\n  position: relative;\n  display: flex;\n  align-items: center;\n}\n.browse .browse-content .header-section .sort-wrapper .sort-by {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  font-size: 16px;\n  color: #000000;\n  cursor: pointer;\n  min-width: 150px;\n  height: 40px;\n  padding: 0 16px;\n  border: 1px solid #c9ced6;\n  border-radius: 4px;\n  justify-content: space-between;\n  transition: border-color 0.3s ease;\n  flex-shrink: 0;\n}\n.browse .browse-content .header-section .sort-wrapper .sort-by:hover {\n  border-color: #0a2a40;\n}\n.browse .browse-content .header-section .sort-wrapper .sort-icon {\n  width: 16px;\n  height: 16px;\n  stroke: #000000;\n  stroke-width: 2;\n}\n.browse .browse-content .header-section .sort-wrapper .sort-dropdown {\n  position: absolute;\n  top: 100%;\n  right: 0;\n  background-color: #fff;\n  border-radius: 5px;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);\n  z-index: 10;\n  min-width: 150px;\n  border: 1px solid #E6F2EF;\n}\n.browse .browse-content .header-section .sort-wrapper .sort-dropdown .sort-option {\n  padding: 0.5rem 1rem;\n  color: #333;\n  cursor: pointer;\n  transition: all 0.3s ease;\n}\n.browse .browse-content .header-section .sort-wrapper .sort-dropdown .sort-option:hover {\n  background-color: #E6F2EF;\n  color: #000000;\n}\n.browse .browse-content .category-title {\n  font-size: 1.75rem;\n  font-weight: 800;\n  color: #0b0d0f;\n  margin: 0;\n  text-transform: uppercase;\n  line-height: 1.1;\n}\n.browse .content-layout {\n  display: grid;\n  grid-template-columns: 400px 1fr;\n  gap: 24px;\n}\n.browse .filters-sidebar {\n  background: #0a2a40;\n  color: #fff;\n  padding: 40px;\n  border-radius: 6px;\n}\n.browse .filters-sidebar.findjob-sidebar {\n  background: #062541;\n}\n.browse .filters-sidebar .filters-title {\n  font-size: 12px;\n  letter-spacing: 0.5px;\n  opacity: 0.85;\n  margin: 0 0 12px;\n}\n.browse .filters-sidebar .filter-group {\n  display: flex;\n  flex-direction: column;\n  gap: 8px;\n  margin-bottom: 12px;\n}\n.browse .filters-sidebar .filter-group label {\n  font-size: 10px;\n  opacity: 0.75;\n}\n.browse .filters-sidebar .filter-group select, .browse .filters-sidebar .filter-group input[type=number], .browse .filters-sidebar .filter-group .search-descriptions {\n  height: 28px;\n  border: none;\n  border-radius: 4px;\n  padding: 0 8px;\n}\n.browse .filters-sidebar .filter-group .range {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.browse .filters-sidebar .filter-group .search-descriptions {\n  width: 100%;\n}\n.browse .filters-sidebar .refine-btn {\n  width: 100%;\n  height: 44px;\n  border: none;\n  border-radius: 999px;\n  background: #ffffff;\n  color: #0a0a0a;\n  cursor: pointer;\n  font-size: 12px;\n  font-weight: 700;\n  letter-spacing: 0.3px;\n  margin-bottom: 12px;\n}\n.browse .filters-sidebar .clear-btn {\n  width: 100%;\n  height: 44px;\n  border: none;\n  border-radius: 999px;\n  background: #6b7280;\n  color: #ffffff;\n  cursor: pointer;\n  font-size: 12px;\n  font-weight: 700;\n  letter-spacing: 0.3px;\n  transition: background-color 0.2s;\n}\n.browse .filters-sidebar .clear-btn:hover {\n  background: #4b5563;\n}\n.browse .results-list {\n  display: flex;\n  flex-direction: column;\n  gap: 40px;\n}\n.browse .result-card.job-card {\n  background: #f7f9fc;\n  border-radius: 8px;\n  border: 1px solid #e5ebf1;\n  padding: 0;\n  overflow: hidden;\n  transition: all 0.3s ease;\n}\n.browse .result-card.job-card:hover {\n  transform: translateY(-2px);\n  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);\n  border-color: #1A2A44;\n}\n.browse .result-card.job-card .top-strip {\n  height: 48px;\n  background: linear-gradient(180deg, rgba(8, 36, 63, 0.15) 0%, rgba(8, 36, 63, 0.35) 100%);\n  transition: all 0.3s ease;\n}\n.browse .result-card.job-card:hover .top-strip {\n  background: linear-gradient(180deg, rgba(59, 130, 246, 0.2) 0%, rgba(59, 130, 246, 0.4) 100%);\n}\n.browse .result-card.job-card .job-content {\n  padding: 16px 20px 24px;\n  transition: all 0.3s ease;\n}\n.browse .result-card.job-card:hover .job-content {\n  background: rgba(59, 130, 246, 0.02);\n}\n.browse .result-card.job-card .job-header {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n}\n.browse .result-card.job-card .job-title {\n  margin: 0;\n  font-size: 18px;\n  font-weight: 800;\n  color: #0b0d0f;\n}\n.browse .result-card.job-card .job-meta {\n  margin-top: 10px;\n  color: #6b7280;\n  font-size: 11px;\n  display: flex;\n  justify-content: space-between;\n  align-items: flex-start;\n}\n.browse .result-card.job-card .meta-left {\n  flex: 1;\n}\n.browse .result-card.job-card .job-meta .salary {\n  margin-top: 4px;\n  color: #0b0d0f;\n  font-weight: 700;\n}\n.browse .result-card.job-card .findjob-section-title {\n  margin-top: 16px;\n  font-size: 11px;\n  color: #000000;\n  font-weight: 700;\n}\n.browse .result-card.job-card .findjob-desc {\n  margin-top: 6px;\n  font-size: 12px;\n  color: #1b2430;\n  line-height: 1.5;\n}\n.browse .result-card.job-card .findjob-skills {\n  margin-top: 10px;\n  display: flex;\n  flex-wrap: wrap;\n  gap: 8px;\n}\n.browse .result-card.job-card .findjob-chip {\n  background: #fff;\n  border: 1px solid #0a2a40;\n  border-radius: 4px;\n  padding: 6px 10px;\n  font-size: 11px;\n  color: #284b63;\n}\n.browse .result-card.job-card .findjob-job-type {\n  margin-top: 4px;\n  font-size: 11px;\n  font-weight: 600;\n  text-transform: capitalize;\n}\n.browse .mobile-filter-toggle {\n  display: none;\n}\n@media (max-width: 768px) {\n  .browse .browse-content {\n    padding: 0 20px 20px;\n    margin-top: 20px;\n  }\n  .browse .browse-content .header-section {\n    flex-direction: column;\n    align-items: flex-start;\n    gap: 1.25rem;\n  }\n  .browse .browse-content .header-section .category-title {\n    font-size: 1.5rem;\n    margin-bottom: 0;\n    width: 100%;\n  }\n  .browse .browse-content .header-section .search-and-sort-row {\n    width: 100%;\n    display: flex;\n    flex-direction: row;\n    justify-content: space-between;\n    align-items: center;\n    gap: 12px;\n    margin-bottom: 12px;\n  }\n  .browse .browse-content .header-section .search-bar {\n    flex: 1;\n    margin-left: 0;\n    position: relative;\n    display: flex;\n    align-items: center;\n    gap: 12px;\n    min-width: 0;\n  }\n  .browse .browse-content .header-section .search-bar .search-input {\n    flex: 1;\n    min-width: 0;\n  }\n  .browse .browse-content .header-section .sort-wrapper {\n    flex-shrink: 0;\n    min-width: 100px;\n    position: relative;\n  }\n  .browse .browse-content .header-section > .search-bar:not(.search-and-sort-row .search-bar),\n  .browse .browse-content .header-section > .sort-wrapper:not(.search-and-sort-row .sort-wrapper) {\n    display: none;\n  }\n  .browse .browse-content .header-section .mobile-filter-toggle {\n    display: block;\n    width: 100%;\n    padding: 14px 20px;\n    background: #062541;\n    color: #fff;\n    border: none;\n    border-radius: 6px;\n    font-size: 13px;\n    font-weight: 700;\n    letter-spacing: 0.5px;\n    cursor: pointer;\n    text-align: center;\n    transition: all 0.3s ease;\n    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n    margin-top: 0;\n  }\n  .browse .browse-content .header-section .mobile-filter-toggle:hover {\n    background: #051a2a;\n    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);\n  }\n  .browse .browse-content .header-section .mobile-filter-toggle:active {\n    transform: translateY(1px);\n  }\n  .browse .content-layout {\n    grid-template-columns: 1fr;\n    gap: 20px;\n  }\n  .browse .filters-sidebar {\n    display: none;\n    position: relative;\n    top: 0;\n    margin-bottom: 24px;\n    height: auto;\n    padding: 24px;\n    border-radius: 8px;\n    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);\n  }\n  .browse .filters-sidebar.findjob-sidebar {\n    background: #062541;\n  }\n  .browse .filters-sidebar.mobile-open {\n    display: block;\n    animation: slideDown 0.3s ease-out;\n  }\n  @keyframes slideDown {\n    from {\n      opacity: 0;\n      transform: translateY(-10px);\n    }\n    to {\n      opacity: 1;\n      transform: translateY(0);\n    }\n  }\n  .browse .filters-sidebar .filters-title {\n    margin-bottom: 20px;\n    letter-spacing: 0.5px;\n  }\n  .browse .filters-sidebar .filter-group {\n    margin-bottom: 16px;\n  }\n  .browse .filters-sidebar .filter-group label {\n    margin-bottom: 8px;\n    display: block;\n    letter-spacing: 0.3px;\n  }\n  .browse .filters-sidebar .filter-group select {\n    height: 40px;\n    border-radius: 4px;\n    padding: 0 12px;\n  }\n  .browse .filters-sidebar .refine-btn,\n  .browse .filters-sidebar .clear-btn {\n    height: 44px;\n    border-radius: 6px;\n    margin-top: 8px;\n  }\n  .browse .result-card.job-card .job-content {\n    padding: 14px 18px 18px;\n  }\n  .browse .result-card.job-card .job-header {\n    flex-direction: column;\n    align-items: flex-start;\n    gap: 8px;\n  }\n  .browse .result-card.job-card .job-title {\n    font-size: 17px;\n    line-height: 1.3;\n  }\n  .browse .result-card.job-card .job-meta {\n    flex-direction: column;\n    gap: 4px;\n  }\n  .browse .result-card.job-card .findjob-section-title {\n    font-size: 11px;\n    margin-top: 14px;\n  }\n  .browse .result-card.job-card .findjob-desc {\n    font-size: 13px;\n    line-height: 1.5;\n  }\n  .browse .result-card.job-card .findjob-chip {\n    font-size: 11px;\n    padding: 5px 10px;\n  }\n}\n@media (max-width: 425px) {\n  .browse .browse-content .result-card.job-card .job-content {\n    padding: 12px 16px 16px;\n  }\n  .browse .browse-content .result-card.job-card .job-title {\n    font-size: 16px;\n  }\n  .browse .browse-content .result-card.job-card .findjob-section-title {\n    font-size: 10px;\n    margin-top: 12px;\n  }\n  .browse .browse-content .result-card.job-card .findjob-desc {\n    font-size: 12px;\n  }\n  .browse .browse-content .result-card.job-card .findjob-chip {\n    font-size: 10px;\n    padding: 4px 8px;\n  }\n}\n@media (max-width: 375px) {\n  .browse .browse-content .result-card.job-card .job-content {\n    padding: 10px 14px 14px;\n  }\n  .browse .browse-content .result-card.job-card .job-title {\n    font-size: 15px;\n  }\n  .browse .browse-content .result-card.job-card .findjob-section-title {\n    font-size: 10px;\n    margin-top: 10px;\n  }\n  .browse .browse-content .result-card.job-card .findjob-desc {\n    font-size: 11px;\n  }\n  .browse .browse-content .result-card.job-card .findjob-chip {\n    font-size: 9px;\n    padding: 3px 6px;\n  }\n}\n@media (max-width: 320px) {\n  .browse .browse-content {\n    padding: 0 12px 12px;\n  }\n  .browse .browse-content .result-card.job-card .job-content {\n    padding: 8px 12px 12px;\n  }\n  .browse .browse-content .result-card.job-card .job-title {\n    font-size: 14px;\n  }\n  .browse .browse-content .result-card.job-card .findjob-section-title {\n    font-size: 9px;\n    margin-top: 8px;\n  }\n  .browse .browse-content .result-card.job-card .findjob-desc {\n    font-size: 10px;\n  }\n  .browse .browse-content .result-card.job-card .findjob-chip {\n    font-size: 8px;\n    padding: 2px 5px;\n  }\n}\n@media (max-width: 480px) {\n  .browse .browse-content {\n    padding: 0 16px 16px;\n  }\n  .browse .browse-content .header-section {\n    gap: 1rem;\n  }\n  .browse .browse-content .header-section .category-title {\n    font-size: 1.25rem;\n    line-height: 1.3;\n  }\n  .browse .browse-content .header-section .search-bar {\n    margin-bottom: 10px;\n    gap: 8px;\n  }\n  .browse .browse-content .header-section .search-bar .search-input {\n    font-size: 14px;\n    height: 40px;\n    padding: 0 12px;\n  }\n  .browse .browse-content .header-section .search-bar .search-btn {\n    width: 40px;\n    height: 40px;\n    flex-shrink: 0;\n  }\n  .browse .browse-content .header-section .search-and-sort-row {\n    margin-bottom: 10px;\n    gap: 10px;\n  }\n  .browse .browse-content .header-section .sort-wrapper {\n    min-width: 90px;\n  }\n  .browse .browse-content .header-section .sort-wrapper .sort-by {\n    height: 40px;\n    font-size: 13px;\n    padding: 0 10px;\n  }\n  .browse .browse-content .header-section .mobile-filter-toggle {\n    padding: 12px 16px;\n    font-size: 12px;\n    letter-spacing: 0.3px;\n  }\n  .browse .filters-sidebar {\n    padding: 18px;\n    margin-bottom: 20px;\n  }\n  .browse .filters-sidebar .filters-title {\n    font-size: 13px;\n    margin-bottom: 16px;\n  }\n  .browse .filters-sidebar .filter-group {\n    margin-bottom: 14px;\n  }\n  .browse .filters-sidebar .filter-group label {\n    font-size: 11px;\n    margin-bottom: 6px;\n  }\n  .browse .filters-sidebar .filter-group select,\n  .browse .filters-sidebar .filter-group input[type=number],\n  .browse .filters-sidebar .filter-group .search-descriptions {\n    height: 38px;\n    font-size: 13px;\n    padding: 0 10px;\n  }\n  .browse .filters-sidebar .refine-btn,\n  .browse .filters-sidebar .clear-btn {\n    height: 42px;\n    font-size: 13px;\n    margin-top: 6px;\n  }\n  .browse .result-card.job-card .job-content {\n    padding: 12px 14px 14px;\n  }\n  .browse .result-card.job-card .job-title {\n    font-size: 15px;\n    line-height: 1.4;\n  }\n  .browse .result-card.job-card .findjob-section-title {\n    font-size: 10px;\n    margin-top: 12px;\n  }\n  .browse .result-card.job-card .findjob-desc {\n    font-size: 12px;\n    line-height: 1.5;\n  }\n  .browse .result-card.job-card .findjob-chip {\n    font-size: 10px;\n    padding: 5px 10px;\n  }\n}\n.browse .loading-state {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  padding: 40px;\n  color: #6b7280;\n}\n.browse .loading-state .spinner {\n  width: 40px;\n  height: 40px;\n  border: 4px solid #e5e7eb;\n  border-top: 4px solid #3b82f6;\n  border-radius: 50%;\n  animation: spin 1s linear infinite;\n  margin-bottom: 16px;\n}\n@keyframes spin {\n  0% {\n    transform: rotate(0deg);\n  }\n  100% {\n    transform: rotate(360deg);\n  }\n}\n.browse .empty-state {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  padding: 40px;\n  color: #6b7280;\n  font-size: 16px;\n}\n.browse .job-timeline {\n  display: flex;\n  flex-direction: column;\n  gap: 8px;\n  margin-top: 8px;\n}\n.browse .job-timeline .timeline-item {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 8px 12px;\n  background-color: #f8fafc;\n  border-radius: 6px;\n  border: 1px solid #e2e8f0;\n}\n.browse .job-timeline .timeline-item .timeline-label {\n  font-weight: 500;\n  color: #374151;\n  font-size: 14px;\n}\n.browse .job-timeline .timeline-item .timeline-value {\n  color: #6b7280;\n  font-size: 14px;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".browse {\n  position: relative;\n  width: 100vw;\n  min-height: 100vh;\n  background-color: #f5f7fa;\n  margin: 0;\n  padding: 0;\n  overflow-x: hidden;\n}\n.browse .browse-content {\n  padding: 0 40px 40px;\n  width: 100%;\n  margin: 0 auto;\n  box-sizing: border-box;\n  margin-top: 40px;\n}\n.browse .browse-content .header-section {\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  justify-content: space-between;\n  margin-bottom: 1.5rem;\n  gap: 24px;\n}\n.browse .browse-content .header-section .category-title {\n  margin-right: 0;\n  margin-bottom: 0;\n  flex-shrink: 0;\n}\n.browse .browse-content .header-section .search-and-sort-row {\n  display: flex;\n  flex-direction: row;\n  justify-content: flex-end;\n  align-items: center;\n  gap: 20px;\n  margin-bottom: 0;\n  flex: 1;\n  min-width: 0;\n}\n.browse .browse-content .header-section .search-bar {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  flex: 1;\n  min-width: 0;\n}\n.browse .browse-content .header-section .search-bar .search-input {\n  flex: 1;\n  min-width: 200px;\n  max-width: 100%;\n  height: 40px;\n  border: 1px solid #c9ced6;\n  border-radius: 4px;\n  padding: 0 12px;\n  font-size: 16px;\n  color: #111827;\n  outline: none;\n  transition: border-color 0.3s ease;\n}\n.browse .browse-content .header-section .search-bar .search-input:focus {\n  border-color: #0a2a40;\n}\n.browse .browse-content .header-section .search-bar .search-btn {\n  width: 40px;\n  height: 40px;\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  background-color: #0a2a40;\n  border: 0;\n  border-radius: 4px;\n  cursor: pointer;\n  transition: background-color 0.3s ease;\n  flex-shrink: 0;\n}\n.browse .browse-content .header-section .search-bar .search-btn:hover {\n  background-color: #08203a;\n}\n.browse .browse-content .header-section .sort-wrapper {\n  position: relative;\n  display: flex;\n  align-items: center;\n}\n.browse .browse-content .header-section .sort-wrapper .sort-by {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  font-size: 16px;\n  color: #000000;\n  cursor: pointer;\n  min-width: 150px;\n  height: 40px;\n  padding: 0 16px;\n  border: 1px solid #c9ced6;\n  border-radius: 4px;\n  justify-content: space-between;\n  transition: border-color 0.3s ease;\n  flex-shrink: 0;\n}\n.browse .browse-content .header-section .sort-wrapper .sort-by:hover {\n  border-color: #0a2a40;\n}\n.browse .browse-content .header-section .sort-wrapper .sort-icon {\n  width: 16px;\n  height: 16px;\n  stroke: #000000;\n  stroke-width: 2;\n}\n.browse .browse-content .header-section .sort-wrapper .sort-dropdown {\n  position: absolute;\n  top: 100%;\n  right: 0;\n  background-color: #fff;\n  border-radius: 5px;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);\n  z-index: 10;\n  min-width: 150px;\n  border: 1px solid #E6F2EF;\n}\n.browse .browse-content .header-section .sort-wrapper .sort-dropdown .sort-option {\n  padding: 0.5rem 1rem;\n  color: #333;\n  cursor: pointer;\n  transition: all 0.3s ease;\n}\n.browse .browse-content .header-section .sort-wrapper .sort-dropdown .sort-option:hover {\n  background-color: #E6F2EF;\n  color: #000000;\n}\n.browse .browse-content .category-title {\n  font-size: 1.75rem;\n  font-weight: 800;\n  color: #0b0d0f;\n  margin: 0;\n  text-transform: uppercase;\n  line-height: 1.1;\n}\n.browse .content-layout {\n  display: grid;\n  grid-template-columns: 400px 1fr;\n  gap: 24px;\n}\n.browse .filters-sidebar {\n  background: #0a2a40;\n  color: #fff;\n  padding: 40px;\n  border-radius: 6px;\n}\n.browse .filters-sidebar.findjob-sidebar {\n  background: #062541;\n}\n.browse .filters-sidebar .filters-title {\n  font-size: 12px;\n  letter-spacing: 0.5px;\n  opacity: 0.85;\n  margin: 0 0 12px;\n}\n.browse .filters-sidebar .filter-group {\n  display: flex;\n  flex-direction: column;\n  gap: 8px;\n  margin-bottom: 12px;\n}\n.browse .filters-sidebar .filter-group label {\n  font-size: 10px;\n  opacity: 0.75;\n}\n.browse .filters-sidebar .filter-group select, .browse .filters-sidebar .filter-group input[type=number], .browse .filters-sidebar .filter-group .search-descriptions {\n  height: 28px;\n  border: none;\n  border-radius: 4px;\n  padding: 0 8px;\n}\n.browse .filters-sidebar .filter-group .range {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.browse .filters-sidebar .filter-group .search-descriptions {\n  width: 100%;\n}\n.browse .filters-sidebar .refine-btn {\n  width: 100%;\n  height: 44px;\n  border: none;\n  border-radius: 999px;\n  background: #ffffff;\n  color: #0a0a0a;\n  cursor: pointer;\n  font-size: 12px;\n  font-weight: 700;\n  letter-spacing: 0.3px;\n  margin-bottom: 12px;\n}\n.browse .filters-sidebar .clear-btn {\n  width: 100%;\n  height: 44px;\n  border: none;\n  border-radius: 999px;\n  background: #6b7280;\n  color: #ffffff;\n  cursor: pointer;\n  font-size: 12px;\n  font-weight: 700;\n  letter-spacing: 0.3px;\n  transition: background-color 0.2s;\n}\n.browse .filters-sidebar .clear-btn:hover {\n  background: #4b5563;\n}\n.browse .results-list {\n  display: flex;\n  flex-direction: column;\n  gap: 40px;\n}\n.browse .result-card.job-card {\n  background: #f7f9fc;\n  border-radius: 8px;\n  border: 1px solid #e5ebf1;\n  padding: 0;\n  overflow: hidden;\n  transition: all 0.3s ease;\n}\n.browse .result-card.job-card:hover {\n  transform: translateY(-2px);\n  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);\n  border-color: #1A2A44;\n}\n.browse .result-card.job-card .top-strip {\n  height: 48px;\n  background: linear-gradient(180deg, rgba(8, 36, 63, 0.15) 0%, rgba(8, 36, 63, 0.35) 100%);\n  transition: all 0.3s ease;\n}\n.browse .result-card.job-card:hover .top-strip {\n  background: linear-gradient(180deg, rgba(59, 130, 246, 0.2) 0%, rgba(59, 130, 246, 0.4) 100%);\n}\n.browse .result-card.job-card .job-content {\n  padding: 16px 20px 24px;\n  transition: all 0.3s ease;\n}\n.browse .result-card.job-card:hover .job-content {\n  background: rgba(59, 130, 246, 0.02);\n}\n.browse .result-card.job-card .job-header {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n}\n.browse .result-card.job-card .job-title {\n  margin: 0;\n  font-size: 18px;\n  font-weight: 800;\n  color: #0b0d0f;\n  background: none;\n  border: none;\n  padding: 0;\n  box-shadow: none;\n}\n.browse .result-card.job-card .job-meta {\n  margin-top: 10px;\n  color: #6b7280;\n  font-size: 11px;\n  display: flex;\n  justify-content: space-between;\n  align-items: flex-start;\n  flex-wrap: wrap;\n  gap: 12px;\n}\n.browse .result-card.job-card .meta-left {\n  flex: 1;\n  min-width: 0;\n}\n.browse .result-card.job-card .job-meta .salary {\n  margin-top: 4px;\n  color: #0b0d0f;\n  font-weight: 700;\n}\n.browse .result-card.job-card .findjob-section-title {\n  margin-top: 16px;\n  font-size: 11px;\n  color: #000000;\n  font-weight: 700;\n}\n.browse .result-card.job-card .findjob-desc {\n  margin-top: 6px;\n  font-size: 12px;\n  color: #1b2430;\n  line-height: 1.5;\n}\n.browse .result-card.job-card .findjob-skills {\n  margin-top: 10px;\n  display: flex;\n  flex-wrap: wrap;\n  gap: 8px;\n}\n.browse .result-card.job-card .findjob-chip {\n  background: #fff;\n  border: 1px solid #0a2a40;\n  border-radius: 4px;\n  padding: 6px 10px;\n  font-size: 11px;\n  color: #284b63;\n}\n.browse .result-card.job-card .findjob-job-type {\n  margin-top: 4px;\n  font-size: 11px;\n  font-weight: 600;\n  text-transform: uppercase;\n  border: 1px solid currentColor;\n  border-radius: 8px;\n  padding: 4px 8px;\n  display: inline-block;\n  flex-shrink: 0;\n  align-self: flex-start;\n}\n.browse .mobile-filter-toggle {\n  display: none;\n}\n@media (max-width: 900px) {\n  .browse .result-card.job-card .job-meta {\n    flex-wrap: wrap;\n  }\n  .browse .result-card.job-card .job-meta .meta-left {\n    flex: 1 1 100%;\n    min-width: 100%;\n  }\n  .browse .result-card.job-card .job-meta .findjob-job-type {\n    flex: 0 0 auto;\n    width: auto;\n    margin-top: 8px;\n  }\n}\n@media (max-width: 768px) {\n  .browse .browse-content {\n    padding: 0 20px 20px;\n    margin-top: 20px;\n  }\n  .browse .browse-content .header-section {\n    flex-direction: column;\n    align-items: flex-start;\n    gap: 1.25rem;\n  }\n  .browse .browse-content .header-section .category-title {\n    font-size: 1.5rem;\n    margin-bottom: 0;\n    width: 100%;\n  }\n  .browse .browse-content .header-section .search-and-sort-row {\n    width: 100%;\n    display: flex;\n    flex-direction: row;\n    justify-content: space-between;\n    align-items: center;\n    gap: 12px;\n    margin-bottom: 12px;\n  }\n  .browse .browse-content .header-section .search-bar {\n    flex: 1;\n    margin-left: 0;\n    position: relative;\n    display: flex;\n    align-items: center;\n    gap: 12px;\n    min-width: 0;\n  }\n  .browse .browse-content .header-section .search-bar .search-input {\n    flex: 1;\n    min-width: 0;\n  }\n  .browse .browse-content .header-section .sort-wrapper {\n    flex-shrink: 0;\n    min-width: 100px;\n    position: relative;\n  }\n  .browse .browse-content .header-section > .search-bar:not(.search-and-sort-row .search-bar),\n  .browse .browse-content .header-section > .sort-wrapper:not(.search-and-sort-row .sort-wrapper) {\n    display: none;\n  }\n  .browse .browse-content .header-section .mobile-filter-toggle {\n    display: block;\n    width: 100%;\n    padding: 14px 20px;\n    background: #062541;\n    color: #fff;\n    border: none;\n    border-radius: 6px;\n    font-size: 13px;\n    font-weight: 700;\n    letter-spacing: 0.5px;\n    cursor: pointer;\n    text-align: center;\n    transition: all 0.3s ease;\n    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n    margin-top: 0;\n  }\n  .browse .browse-content .header-section .mobile-filter-toggle:hover {\n    background: #051a2a;\n    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);\n  }\n  .browse .browse-content .header-section .mobile-filter-toggle:active {\n    transform: translateY(1px);\n  }\n  .browse .content-layout {\n    grid-template-columns: 1fr;\n    gap: 20px;\n  }\n  .browse .filters-sidebar {\n    display: none;\n    position: relative;\n    top: 0;\n    margin-bottom: 24px;\n    height: auto;\n    padding: 24px;\n    border-radius: 8px;\n    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);\n  }\n  .browse .filters-sidebar.findjob-sidebar {\n    background: #062541;\n  }\n  .browse .filters-sidebar.mobile-open {\n    display: block;\n    animation: slideDown 0.3s ease-out;\n  }\n  @keyframes slideDown {\n    from {\n      opacity: 0;\n      transform: translateY(-10px);\n    }\n    to {\n      opacity: 1;\n      transform: translateY(0);\n    }\n  }\n  .browse .filters-sidebar .filters-title {\n    margin-bottom: 20px;\n    letter-spacing: 0.5px;\n  }\n  .browse .filters-sidebar .filter-group {\n    margin-bottom: 16px;\n  }\n  .browse .filters-sidebar .filter-group label {\n    margin-bottom: 8px;\n    display: block;\n    letter-spacing: 0.3px;\n  }\n  .browse .filters-sidebar .filter-group select {\n    height: 40px;\n    border-radius: 4px;\n    padding: 0 12px;\n  }\n  .browse .filters-sidebar .refine-btn,\n  .browse .filters-sidebar .clear-btn {\n    height: 44px;\n    border-radius: 6px;\n    margin-top: 8px;\n  }\n  .browse .result-card.job-card .job-content {\n    padding: 14px 18px 18px;\n  }\n  .browse .result-card.job-card .job-header {\n    flex-direction: column;\n    align-items: flex-start;\n    gap: 8px;\n  }\n  .browse .result-card.job-card .job-title {\n    font-size: 17px;\n    line-height: 1.3;\n  }\n  .browse .result-card.job-card .job-meta {\n    flex-direction: column;\n    gap: 8px;\n    align-items: flex-start;\n  }\n  .browse .result-card.job-card .meta-left {\n    width: 100%;\n  }\n  .browse .result-card.job-card .findjob-job-type {\n    margin-top: 0;\n    align-self: flex-start;\n  }\n  .browse .result-card.job-card .findjob-section-title {\n    font-size: 11px;\n    margin-top: 14px;\n  }\n  .browse .result-card.job-card .findjob-desc {\n    font-size: 13px;\n    line-height: 1.5;\n  }\n  .browse .result-card.job-card .findjob-chip {\n    font-size: 11px;\n    padding: 5px 10px;\n  }\n}\n@media (max-width: 425px) {\n  .browse .browse-content .result-card.job-card .job-content {\n    padding: 12px 16px 16px;\n  }\n  .browse .browse-content .result-card.job-card .job-title {\n    font-size: 16px;\n  }\n  .browse .browse-content .result-card.job-card .findjob-section-title {\n    font-size: 10px;\n    margin-top: 12px;\n  }\n  .browse .browse-content .result-card.job-card .findjob-desc {\n    font-size: 12px;\n  }\n  .browse .browse-content .result-card.job-card .findjob-chip {\n    font-size: 10px;\n    padding: 4px 8px;\n  }\n}\n@media (max-width: 375px) {\n  .browse .browse-content .result-card.job-card .job-content {\n    padding: 10px 14px 14px;\n  }\n  .browse .browse-content .result-card.job-card .job-title {\n    font-size: 15px;\n  }\n  .browse .browse-content .result-card.job-card .findjob-section-title {\n    font-size: 10px;\n    margin-top: 10px;\n  }\n  .browse .browse-content .result-card.job-card .findjob-desc {\n    font-size: 11px;\n  }\n  .browse .browse-content .result-card.job-card .findjob-chip {\n    font-size: 9px;\n    padding: 3px 6px;\n  }\n}\n@media (max-width: 320px) {\n  .browse .browse-content {\n    padding: 0 12px 12px;\n  }\n  .browse .browse-content .result-card.job-card .job-content {\n    padding: 8px 12px 12px;\n  }\n  .browse .browse-content .result-card.job-card .job-title {\n    font-size: 14px;\n  }\n  .browse .browse-content .result-card.job-card .findjob-section-title {\n    font-size: 9px;\n    margin-top: 8px;\n  }\n  .browse .browse-content .result-card.job-card .findjob-desc {\n    font-size: 10px;\n  }\n  .browse .browse-content .result-card.job-card .findjob-chip {\n    font-size: 8px;\n    padding: 2px 5px;\n  }\n}\n@media (max-width: 480px) {\n  .browse .browse-content {\n    padding: 0 16px 16px;\n  }\n  .browse .browse-content .header-section {\n    gap: 1rem;\n  }\n  .browse .browse-content .header-section .category-title {\n    font-size: 1.25rem;\n    line-height: 1.3;\n  }\n  .browse .browse-content .header-section .search-bar {\n    margin-bottom: 10px;\n    gap: 8px;\n  }\n  .browse .browse-content .header-section .search-bar .search-input {\n    font-size: 14px;\n    height: 40px;\n    padding: 0 12px;\n  }\n  .browse .browse-content .header-section .search-bar .search-btn {\n    width: 40px;\n    height: 40px;\n    flex-shrink: 0;\n  }\n  .browse .browse-content .header-section .search-and-sort-row {\n    margin-bottom: 10px;\n    gap: 10px;\n  }\n  .browse .browse-content .header-section .sort-wrapper {\n    min-width: 90px;\n  }\n  .browse .browse-content .header-section .sort-wrapper .sort-by {\n    height: 40px;\n    font-size: 13px;\n    padding: 0 10px;\n  }\n  .browse .browse-content .header-section .mobile-filter-toggle {\n    padding: 12px 16px;\n    font-size: 12px;\n    letter-spacing: 0.3px;\n  }\n  .browse .filters-sidebar {\n    padding: 18px;\n    margin-bottom: 20px;\n  }\n  .browse .filters-sidebar .filters-title {\n    font-size: 13px;\n    margin-bottom: 16px;\n  }\n  .browse .filters-sidebar .filter-group {\n    margin-bottom: 14px;\n  }\n  .browse .filters-sidebar .filter-group label {\n    font-size: 11px;\n    margin-bottom: 6px;\n  }\n  .browse .filters-sidebar .filter-group select,\n  .browse .filters-sidebar .filter-group input[type=number],\n  .browse .filters-sidebar .filter-group .search-descriptions {\n    height: 38px;\n    font-size: 13px;\n    padding: 0 10px;\n  }\n  .browse .filters-sidebar .refine-btn,\n  .browse .filters-sidebar .clear-btn {\n    height: 42px;\n    font-size: 13px;\n    margin-top: 6px;\n  }\n  .browse .result-card.job-card .job-content {\n    padding: 12px 14px 14px;\n  }\n  .browse .result-card.job-card .job-title {\n    font-size: 15px;\n    line-height: 1.4;\n  }\n  .browse .result-card.job-card .findjob-section-title {\n    font-size: 10px;\n    margin-top: 12px;\n  }\n  .browse .result-card.job-card .findjob-desc {\n    font-size: 12px;\n    line-height: 1.5;\n  }\n  .browse .result-card.job-card .findjob-chip {\n    font-size: 10px;\n    padding: 5px 10px;\n  }\n}\n.browse .loading-state {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  padding: 40px;\n  color: #6b7280;\n}\n.browse .loading-state .spinner {\n  width: 40px;\n  height: 40px;\n  border: 4px solid #e5e7eb;\n  border-top: 4px solid #3b82f6;\n  border-radius: 50%;\n  animation: spin 1s linear infinite;\n  margin-bottom: 16px;\n}\n@keyframes spin {\n  0% {\n    transform: rotate(0deg);\n  }\n  100% {\n    transform: rotate(360deg);\n  }\n}\n.browse .empty-state {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  padding: 40px;\n  color: #6b7280;\n  font-size: 16px;\n}\n.browse .job-timeline {\n  display: flex;\n  flex-direction: column;\n  gap: 8px;\n  margin-top: 8px;\n}\n.browse .job-timeline .timeline-item {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 8px 12px;\n  background-color: #f8fafc;\n  border-radius: 6px;\n  border: 1px solid #e2e8f0;\n}\n.browse .job-timeline .timeline-item .timeline-label {\n  font-weight: 500;\n  color: #374151;\n  font-size: 14px;\n}\n.browse .job-timeline .timeline-item .timeline-value {\n  color: #6b7280;\n  font-size: 14px;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -72176,7 +72152,7 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.push([module.id, "@import url(https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap);"]);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".footer {\n  background-color: #0a0a0a;\n  color: #e9eef3;\n  border-top: 2px solid #24b3ff;\n  padding: 40px 24px 24px;\n  width: 100%;\n  box-sizing: border-box;\n  margin-top: 0;\n}\n.footer .footer__content {\n  max-width: 1200px;\n  margin: 0 auto;\n  display: grid;\n  grid-template-columns: 1.2fr 1fr 1fr auto;\n  gap: 48px;\n}\n.footer .footer__logo {\n  height: 26px;\n  margin-bottom: 16px;\n}\n.footer .footer__info {\n  font-family: \"Inter\", sans-serif;\n}\n.footer .footer__contact {\n  list-style: none;\n  margin: 0;\n  padding: 0;\n  display: flex;\n  flex-direction: column;\n  gap: 10px;\n}\n.footer .footer__contact li {\n  font-size: 13px;\n  color: #cfd6dc;\n  display: flex;\n  align-items: center;\n  gap: 10px;\n}\n.footer .footer__contact .footer__bullet {\n  width: 16px;\n  display: inline-block;\n  text-align: center;\n  opacity: 0.9;\n}\n.footer .footer__list h3 {\n  font-family: \"Inter\", sans-serif;\n  font-weight: 500;\n  font-size: 14px;\n  margin: 0 0 10px 0;\n  color: #ffffff;\n}\n.footer .footer__list ul {\n  list-style: disc;\n  padding-left: 18px;\n  margin: 0;\n}\n.footer .footer__list ul li {\n  font-size: 12px;\n  color: #cfd6dc;\n  margin: 6px 0;\n}\n.footer .footer__follow h3 {\n  font-family: \"Inter\", sans-serif;\n  font-weight: 500;\n  font-size: 14px;\n  margin: 0 0 12px 0;\n}\n.footer .footer__social-icons {\n  display: flex;\n  gap: 12px;\n}\n.footer .footer__social-icons img {\n  width: 22px;\n  height: 22px;\n  filter: drop-shadow(0 0 0 rgba(0, 0, 0, 0));\n  transition: transform 0.2s ease;\n}\n.footer .footer__social-icons a:hover img {\n  transform: scale(1.06);\n}\n.footer .footer__bottom {\n  max-width: 1200px;\n  margin: 28px auto 0 auto;\n  padding-top: 16px;\n  border-top: 1px solid rgba(255, 255, 255, 0.08);\n}\n.footer .footer__bottom p {\n  text-align: center;\n  font-size: 12px;\n  color: #cfd6dc;\n  margin: 0;\n  letter-spacing: 0.2px;\n}\n@media (max-width: 900px) {\n  .footer .footer__content {\n    grid-template-columns: 1fr;\n    gap: 24px;\n  }\n  .footer .footer__logo {\n    height: 24px;\n  }\n  .footer .footer__social-icons img {\n    width: 20px;\n    height: 20px;\n  }\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".footer {\n  background-color: #0a0a0a;\n  color: #e9eef3;\n  border-top: 2px solid #24b3ff;\n  padding: 40px 24px 24px;\n  width: 100%;\n  box-sizing: border-box;\n  margin-top: 0;\n}\n.footer .footer__content {\n  max-width: 1200px;\n  margin: 0 auto;\n  display: grid;\n  grid-template-columns: 1fr 1fr 1fr auto;\n  gap: 48px;\n  align-items: start;\n}\n.footer .footer__logo {\n  height: 26px;\n  margin-bottom: 16px;\n}\n.footer .footer__info {\n  font-family: \"Inter\", sans-serif;\n}\n.footer .footer__contact {\n  list-style: none;\n  margin: 0;\n  padding: 0;\n  display: flex;\n  flex-direction: column;\n  gap: 10px;\n}\n.footer .footer__contact li {\n  font-size: 13px;\n  color: #cfd6dc;\n  display: flex;\n  align-items: center;\n  gap: 10px;\n}\n.footer .footer__contact .footer__bullet {\n  font-size: 16px;\n  width: 16px;\n  height: 16px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  flex-shrink: 0;\n  color: #ffffff;\n  opacity: 0.9;\n}\n.footer .footer__list h3 {\n  font-family: \"Inter\", sans-serif;\n  font-weight: 500;\n  font-size: 13px;\n  margin: 0 0 10px 0;\n  color: #ffffff;\n}\n.footer .footer__list ul {\n  list-style: disc;\n  padding-left: 18px;\n  margin: 0;\n}\n.footer .footer__list ul li {\n  font-size: 12px;\n  color: #cfd6dc;\n  margin: 6px 0;\n}\n.footer .footer__links {\n  font-family: \"Inter\", sans-serif;\n}\n.footer .footer__links .footer__nav,\n.footer .footer__links .footer__policies {\n  list-style: none;\n  margin: 0 0 10px 0;\n  padding: 0;\n  display: flex;\n  flex-direction: column;\n  gap: 10px;\n}\n.footer .footer__links .footer__nav li,\n.footer .footer__links .footer__policies li {\n  font-size: 13px;\n  color: #cfd6dc;\n}\n.footer .footer__nav ul,\n.footer .footer__policies ul {\n  list-style: none;\n  margin: 0;\n  padding: 0;\n  display: flex;\n  flex-direction: column;\n  gap: 10px;\n}\n.footer .footer__nav ul li,\n.footer .footer__policies ul li {\n  font-size: 13px;\n  color: #cfd6dc;\n}\n.footer .footer__nav ul li a,\n.footer .footer__policies ul li a {\n  color: #cfd6dc;\n  text-decoration: none;\n  transition: color 0.2s ease;\n}\n.footer .footer__nav ul li a:hover,\n.footer .footer__policies ul li a:hover {\n  color: #ffffff;\n  text-decoration: none;\n}\n.footer .footer__follow h3 {\n  font-family: \"Inter\", sans-serif;\n  font-weight: 500;\n  font-size: 14px;\n  margin: 0 0 12px 0;\n}\n.footer .footer__social-icons {\n  display: flex;\n  gap: 12px;\n}\n.footer .footer__social-icons img {\n  width: 22px;\n  height: 22px;\n  filter: drop-shadow(0 0 0 rgba(0, 0, 0, 0));\n  transition: transform 0.2s ease;\n}\n.footer .footer__social-icons a:hover img {\n  transform: scale(1.06);\n}\n.footer .footer__bottom {\n  max-width: 1200px;\n  margin: 28px auto 0 auto;\n  padding-top: 16px;\n  border-top: 1px solid rgba(255, 255, 255, 0.08);\n}\n.footer .footer__bottom p {\n  text-align: center;\n  font-size: 12px;\n  color: #cfd6dc;\n  margin: 0;\n  letter-spacing: 0.2px;\n}\n@media (max-width: 900px) {\n  .footer .footer__content {\n    grid-template-columns: 1fr;\n    gap: 24px;\n  }\n  .footer .footer__logo {\n    height: 24px;\n  }\n  .footer .footer__social-icons img {\n    width: 20px;\n    height: 20px;\n  }\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -72225,7 +72201,7 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.push([module.id, "@import url(https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap);"]);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".job-profile-page {\n  font-family: \"Inter\", sans-serif;\n  width: 100vw;\n  min-height: 100vh;\n  margin: 0;\n  padding: 0;\n  display: flex;\n  flex-direction: column;\n  overflow-x: hidden;\n}\n.job-profile-page .loading-container,\n.job-profile-page .error-container {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  min-height: 50vh;\n  padding: 40px;\n}\n.job-profile-page .loading-container .error-message,\n.job-profile-page .error-container .error-message {\n  font-size: 18px;\n  color: #666;\n  margin-bottom: 20px;\n  text-align: center;\n}\n.job-profile-page .loading-container .back-button,\n.job-profile-page .error-container .back-button {\n  background: #1E90FF;\n  color: white;\n  border: none;\n  padding: 12px 24px;\n  border-radius: 8px;\n  cursor: pointer;\n  font-size: 16px;\n  transition: background 0.2s ease;\n}\n.job-profile-page .loading-container .back-button:hover,\n.job-profile-page .error-container .back-button:hover {\n  background: #104E8B;\n}\n.job-profile-page .job-profile-header {\n  position: relative;\n  width: 100%;\n}\n.job-profile-page .job-profile-header .job-cover-photo {\n  width: 100%;\n  height: 250px;\n  background: #1E90FF;\n}\n.job-profile-page .job-profile-header .job-cover-photo img {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.job-profile-page .job-profile-header .job-profile-photo-wrapper {\n  position: absolute;\n  bottom: -60px;\n  left: 40px;\n  z-index: 2;\n}\n.job-profile-page .job-profile-header .job-profile-photo-wrapper .job-profile-photo {\n  width: 120px;\n  height: 120px;\n  border-radius: 50%;\n  border: 3px solid white;\n  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.job-profile-page .job-profile-container {\n  display: flex;\n  flex: 1;\n  width: 100%;\n  margin-top: 70px;\n  padding: 0 40px;\n  box-sizing: border-box;\n  min-height: calc(100vh - 320px);\n}\n.job-profile-page .job-profile-container .job-profile-left {\n  flex: 1;\n  padding-right: 20px;\n  background: transparent;\n  align-self: flex-start;\n  height: auto;\n  overflow: visible;\n}\n.job-profile-page .job-profile-container .job-profile-left .job-profile-info {\n  text-align: left;\n  margin-top: 20px;\n}\n.job-profile-page .job-profile-container .job-profile-left .job-profile-info h2 {\n  font-size: 20px;\n  margin: 5px 0;\n  color: #000000;\n}\n.job-profile-page .job-profile-container .job-profile-left .job-profile-info .job-status-container {\n  display: flex;\n  align-items: center;\n  gap: 5px;\n}\n.job-profile-page .job-profile-container .job-profile-left .job-profile-info .job-status-dot {\n  width: 8px;\n  height: 8px;\n  background-color: Green;\n  border-radius: 50%;\n}\n.job-profile-page .job-profile-container .job-profile-left .job-profile-info .job-status {\n  font-size: 14px;\n  margin: 5px 0;\n  color: green;\n}\n.job-profile-page .job-profile-container .job-profile-left .job-profile-info .job-location {\n  font-size: 14px;\n  color: #666;\n  margin: 5px 0;\n}\n.job-profile-page .job-profile-container .job-profile-left .job-profile-info .job-member-since {\n  font-size: 12px;\n  color: #666;\n  text-transform: uppercase;\n  margin: 5px 0 15px 0;\n}\n.job-profile-page .job-profile-container .job-profile-left .job-profile-info .job-apply-button {\n  background: #1A2A44;\n  border: none;\n  color: #fff;\n  border-radius: 20px;\n  cursor: pointer;\n  padding: 8px 16px;\n  font-size: 14px;\n  margin: 10px 0;\n  text-transform: uppercase;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  width: 100%;\n  max-width: 300px;\n  transition: background 0.2s ease;\n}\n.job-profile-page .job-profile-container .job-profile-left .job-profile-info .job-apply-button:hover {\n  background: #0f1f33;\n}\n.job-profile-page .job-profile-container .job-profile-left .job-profile-info .message-button {\n  background: #4CAF50;\n  border: none;\n  color: #fff;\n  border-radius: 20px;\n  cursor: pointer;\n  padding: 8px 16px;\n  font-size: 14px;\n  margin: 10px 0;\n  text-transform: uppercase;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  width: 100%;\n  max-width: 300px;\n}\n.job-profile-page .job-profile-container .job-profile-left .job-profile-info .message-button:hover {\n  background: #388E3C;\n}\n.job-profile-page .job-profile-container .job-profile-left .job-profile-info .profile-actions {\n  display: flex;\n  gap: 10px;\n  flex-wrap: wrap;\n  justify-content: flex-start;\n}\n.job-profile-page .job-profile-container .job-profile-left .job-stats {\n  margin: 20px 0;\n  background: #f9fafb;\n  padding: 15px;\n  border-radius: 8px;\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n  width: 100%;\n  max-width: 300px;\n}\n.job-profile-page .job-profile-container .job-profile-left .job-stats .job-stat-item {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 12px;\n  padding: 8px 0;\n  border-bottom: 1px solid #eee;\n}\n.job-profile-page .job-profile-container .job-profile-left .job-stats .job-stat-item:last-child {\n  border-bottom: none;\n  margin-bottom: 0;\n}\n.job-profile-page .job-profile-container .job-profile-left .job-stats .job-stat-item .job-stat-label {\n  font-size: 16px;\n  color: #2d3748;\n  font-weight: 500;\n}\n.job-profile-page .job-profile-container .job-profile-left .job-stats .job-stat-item .job-stat-number {\n  font-size: 16px;\n  font-weight: 600;\n  color: #000000;\n}\n.job-profile-page .job-profile-container .job-profile-left .job-application-period {\n  margin: 20px 0;\n  padding: 15px;\n  background: #f9fafb;\n  border-radius: 8px;\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n  width: 100%;\n  max-width: 300px;\n}\n.job-profile-page .job-profile-container .job-profile-left .job-application-period h4 {\n  font-size: 16px;\n  margin-bottom: 15px;\n  color: #2d3748;\n  font-weight: 600;\n  padding-bottom: 10px;\n}\n.job-profile-page .job-profile-container .job-profile-left .job-application-period .job-application-list {\n  list-style: none;\n  padding: 0;\n  margin: 0;\n}\n.job-profile-page .job-profile-container .job-profile-left .job-application-period .job-application-list .job-date-item {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  margin-bottom: 12px;\n  color: #4a5568;\n  font-size: 14px;\n  line-height: 1.6;\n}\n.job-profile-page .job-profile-container .job-profile-left .job-application-period .job-application-list .job-date-item:last-child {\n  margin-bottom: 0;\n}\n.job-profile-page .job-profile-container .job-profile-left .job-application-period .job-application-list .job-date-item .job-date-icon {\n  color: #1A2A44;\n  font-size: 16px;\n  flex-shrink: 0;\n}\n.job-profile-page .job-profile-container .job-profile-left .job-work-period {\n  margin: 20px 0;\n  padding: 15px;\n  background: #f9fafb;\n  border-radius: 8px;\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n  width: 100%;\n  max-width: 300px;\n}\n.job-profile-page .job-profile-container .job-profile-left .job-work-period h4 {\n  font-size: 16px;\n  margin-bottom: 15px;\n  color: #2d3748;\n  font-weight: 600;\n  padding-bottom: 10px;\n}\n.job-profile-page .job-profile-container .job-profile-left .job-work-period .job-application-list {\n  list-style: none;\n  padding: 0;\n  margin: 0;\n}\n.job-profile-page .job-profile-container .job-profile-left .job-work-period .job-application-list .job-date-item {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  margin-bottom: 12px;\n  color: #4a5568;\n  font-size: 14px;\n  line-height: 1.6;\n}\n.job-profile-page .job-profile-container .job-profile-left .job-work-period .job-application-list .job-date-item:last-child {\n  margin-bottom: 0;\n}\n.job-profile-page .job-profile-container .job-profile-left .job-work-period .job-application-list .job-date-item .job-work-icon {\n  color: #1A2A44;\n  font-size: 16px;\n  flex-shrink: 0;\n}\n.job-profile-page .job-profile-container .job-profile-right {\n  flex: 3;\n  display: flex;\n  flex-direction: column;\n  padding-left: 20px;\n}\n.job-profile-page .job-profile-container .job-profile-right .job-overview-title {\n  font-size: 18px;\n  margin-bottom: 20px;\n  color: #2d3748;\n  font-weight: 700;\n  text-transform: uppercase;\n  padding-bottom: 10px;\n}\n.job-profile-page .job-profile-container .job-profile-right .job-about-section {\n  background: #fff;\n  padding: 20px;\n  border-radius: 8px;\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n  margin-bottom: 20px;\n}\n.job-profile-page .job-profile-container .job-profile-right .job-about-section h4 {\n  font-size: 16px;\n  margin-bottom: 15px;\n  color: #2d3748;\n  font-weight: 700;\n  padding-bottom: 10px;\n}\n.job-profile-page .job-profile-container .job-profile-right .job-about-section p {\n  color: #4a5568;\n  line-height: 1.6;\n  margin: 0;\n  white-space: pre-line;\n}\n.job-profile-page .job-profile-container .job-profile-right .job-skills-section {\n  background: #fff;\n  padding: 20px;\n  border-radius: 8px;\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n  margin-bottom: 40px;\n}\n.job-profile-page .job-profile-container .job-profile-right .job-skills-section h4 {\n  font-size: 16px;\n  margin-bottom: 15px;\n  color: #2d3748;\n  font-weight: 700;\n  padding-bottom: 10px;\n}\n.job-profile-page .job-profile-container .job-profile-right .job-skills-section .job-skills-row {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 10px;\n}\n.job-profile-page .job-profile-container .job-profile-right .job-skills-section .job-skills-row .job-chip {\n  background: #f9fafb;\n  padding: 6px 12px;\n  border-radius: 16px;\n  font-size: 14px;\n  color: #2d3748;\n  border: 1px solid #1A2A44;\n  transition: all 0.2s ease;\n}\n.job-profile-page .job-profile-container .job-profile-right .job-skills-section .job-skills-row .job-chip:hover {\n  background: #e6f0fa;\n  border-color: #1E90FF;\n}\n@media (max-width: 768px) {\n  .job-profile-page .job-profile-container {\n    flex-direction: column;\n    padding: 0 20px;\n  }\n  .job-profile-page .job-profile-container .job-profile-left {\n    padding-right: 0;\n    margin-bottom: 20px;\n  }\n  .job-profile-page .job-profile-container .job-profile-right {\n    padding-left: 0;\n    height: auto;\n  }\n  .job-profile-page .job-profile-container .job-profile-right .job-overview-title {\n    font-size: 16px;\n  }\n  .job-profile-page .job-profile-container .job-profile-right .job-about-section,\n  .job-profile-page .job-profile-container .job-profile-right .job-skills-section {\n    padding: 15px;\n  }\n  .job-profile-page .job-profile-header .job-profile-photo-wrapper {\n    left: 20px;\n  }\n}\n@media (max-width: 480px) {\n  .job-profile-page .job-profile-container {\n    padding: 0 15px;\n    margin-top: 60px;\n  }\n  .job-profile-page .job-profile-container .job-profile-left .job-profile-info h2 {\n    font-size: 18px;\n  }\n  .job-profile-page .job-profile-container .job-profile-left .job-profile-info .job-apply-button,\n  .job-profile-page .job-profile-container .job-profile-left .job-profile-info .message-button {\n    width: 100%;\n    max-width: 100%;\n    padding: 10px 16px;\n    font-size: 13px;\n  }\n  .job-profile-page .job-profile-container .job-profile-left .job-stats {\n    max-width: 100%;\n  }\n  .job-profile-page .job-profile-container .job-profile-left .job-stats .job-stat-item {\n    font-size: 13px;\n  }\n  .job-profile-page .job-profile-container .job-profile-right .job-tab-content {\n    padding: 12px;\n  }\n  .job-profile-page .job-profile-container .job-profile-right .job-tab-content .job-overview-title {\n    font-size: 14px;\n  }\n  .job-profile-page .job-profile-container .job-profile-right .job-tab-content .job-about-section,\n  .job-profile-page .job-profile-container .job-profile-right .job-tab-content .job-skills-section {\n    padding: 12px;\n  }\n  .job-profile-page .job-profile-container .job-profile-right .job-tab-content .job-about-section h4,\n  .job-profile-page .job-profile-container .job-profile-right .job-tab-content .job-skills-section h4 {\n    font-size: 14px;\n  }\n  .job-profile-page .job-profile-container .job-profile-right .job-tab-content .job-about-section p,\n  .job-profile-page .job-profile-container .job-profile-right .job-tab-content .job-skills-section p {\n    font-size: 13px;\n  }\n  .job-profile-page .job-profile-header .job-profile-photo-wrapper {\n    left: 15px;\n    bottom: -50px;\n  }\n  .job-profile-page .job-profile-header .job-profile-photo-wrapper .job-profile-photo {\n    width: 100px;\n    height: 100px;\n  }\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".job-profile-page {\n  font-family: \"Inter\", sans-serif;\n  width: 100vw;\n  min-height: 100vh;\n  margin: 0;\n  padding: 0;\n  display: flex;\n  flex-direction: column;\n  overflow-x: hidden;\n}\n.job-profile-page .loading-container,\n.job-profile-page .error-container {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  min-height: 50vh;\n  padding: 40px;\n}\n.job-profile-page .loading-container .error-message,\n.job-profile-page .error-container .error-message {\n  font-size: 18px;\n  color: #666;\n  margin-bottom: 20px;\n  text-align: center;\n}\n.job-profile-page .loading-container .back-button,\n.job-profile-page .error-container .back-button {\n  background: #1E90FF;\n  color: white;\n  border: none;\n  padding: 12px 24px;\n  border-radius: 8px;\n  cursor: pointer;\n  font-size: 16px;\n  transition: background 0.2s ease;\n}\n.job-profile-page .loading-container .back-button:hover,\n.job-profile-page .error-container .back-button:hover {\n  background: #104E8B;\n}\n.job-profile-page .job-profile-header {\n  position: relative;\n  width: 100%;\n}\n.job-profile-page .job-profile-header .job-cover-photo {\n  width: 100%;\n  height: 250px;\n  background: #1E90FF;\n}\n.job-profile-page .job-profile-header .job-cover-photo img {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.job-profile-page .job-profile-header .job-info-card {\n  position: absolute;\n  bottom: -80px;\n  left: 50%;\n  transform: translateX(-50%);\n  z-index: 2;\n  background: #ffffff;\n  border-radius: 12px;\n  padding: 24px;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  gap: 16px;\n  flex-wrap: wrap;\n  width: calc(100% - 80px);\n  max-width: 900px;\n}\n.job-profile-page .job-profile-header .job-info-card .job-info-section {\n  flex: 1;\n  min-width: 120px;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  text-align: center;\n  padding: 0 8px;\n}\n.job-profile-page .job-profile-header .job-info-card .job-info-section .job-info-icon {\n  width: 40px;\n  height: 40px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  margin-bottom: 8px;\n  color: #0a2a40;\n  font-size: 24px;\n  flex-shrink: 0;\n}\n.job-profile-page .job-profile-header .job-info-card .job-info-section .job-info-icon svg {\n  width: 24px;\n  height: 24px;\n  flex-shrink: 0;\n}\n.job-profile-page .job-profile-header .job-info-card .job-info-section .job-info-icon > * {\n  width: 24px;\n  height: 24px;\n  flex-shrink: 0;\n}\n.job-profile-page .job-profile-header .job-info-card .job-info-section .job-info-label {\n  font-size: 10px;\n  color: #9ca3af;\n  font-weight: 500;\n  text-transform: uppercase;\n  letter-spacing: 0.5px;\n  margin-bottom: 6px;\n}\n.job-profile-page .job-profile-header .job-info-card .job-info-section .job-info-value {\n  font-size: 14px;\n  color: #1f2937;\n  font-weight: 600;\n  line-height: 1.4;\n  word-break: break-word;\n}\n.job-profile-page .job-profile-header .job-info-card .job-info-divider {\n  width: 1px;\n  height: 60px;\n  background: #e5e7eb;\n  flex-shrink: 0;\n}\n.job-profile-page .job-profile-container {\n  display: flex;\n  flex-direction: column;\n  flex: 1;\n  width: 100%;\n  margin-top: 100px;\n  padding: 0 40px;\n  box-sizing: border-box;\n  min-height: calc(100vh - 320px);\n  max-width: 1200px;\n  margin-left: auto;\n  margin-right: auto;\n  gap: 30px;\n}\n.job-profile-page .job-profile-container .job-main-grid {\n  display: grid;\n  grid-template-columns: 400px 1fr;\n  gap: 20px;\n  width: 100%;\n  align-items: start;\n  margin-bottom: 40px;\n}\n.job-profile-page .job-profile-container .job-main-grid .job-left-column {\n  display: flex;\n  flex-direction: column;\n  gap: 20px;\n}\n.job-profile-page .job-profile-container .job-main-grid .job-left-column .poster-profile-card {\n  background: #fff;\n  padding: 20px;\n  border-radius: 8px;\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  text-align: center;\n  width: 100%;\n}\n.job-profile-page .job-profile-container .job-main-grid .job-left-column .poster-profile-card .poster-profile-image {\n  width: 120px;\n  height: 120px;\n  margin-bottom: 16px;\n}\n.job-profile-page .job-profile-container .job-main-grid .job-left-column .poster-profile-card .poster-profile-image img {\n  width: 100%;\n  height: 100%;\n  border-radius: 50%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  border: 3px solid #e5e7eb;\n}\n.job-profile-page .job-profile-container .job-main-grid .job-left-column .poster-profile-card .poster-profile-info {\n  margin-bottom: 20px;\n}\n.job-profile-page .job-profile-container .job-main-grid .job-left-column .poster-profile-card .poster-profile-info .poster-name {\n  font-size: 18px;\n  font-weight: 600;\n  color: #1f2937;\n  margin: 0 0 8px 0;\n}\n.job-profile-page .job-profile-container .job-main-grid .job-left-column .poster-profile-card .poster-profile-info .poster-role {\n  font-size: 14px;\n  color: #6b7280;\n  margin: 0 0 8px 0;\n}\n.job-profile-page .job-profile-container .job-main-grid .job-left-column .poster-profile-card .poster-profile-info .poster-posted-since {\n  font-size: 12px;\n  color: #6b7280;\n  text-transform: uppercase;\n  margin: 0;\n}\n.job-profile-page .job-profile-container .job-main-grid .job-left-column .poster-profile-card .profile-actions {\n  width: 100%;\n}\n.job-profile-page .job-profile-container .job-main-grid .job-left-column .poster-profile-card .profile-actions .job-apply-button {\n  background: #1A2A44;\n  border: none;\n  color: #fff;\n  border-radius: 8px;\n  cursor: pointer;\n  padding: 12px 24px;\n  font-size: 14px;\n  font-weight: 600;\n  text-transform: uppercase;\n  width: 100%;\n  transition: background 0.2s ease;\n}\n.job-profile-page .job-profile-container .job-main-grid .job-left-column .poster-profile-card .profile-actions .job-apply-button:hover {\n  background: #0f1f33;\n}\n.job-profile-page .job-profile-container .job-main-grid .job-left-column .job-work-period {\n  background: #fff;\n  padding: 20px;\n  border-radius: 8px;\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n  width: 100%;\n}\n.job-profile-page .job-profile-container .job-main-grid .job-left-column .job-work-period h4 {\n  font-size: 16px;\n  margin-bottom: 15px;\n  color: #2d3748;\n  font-weight: 600;\n  padding-bottom: 10px;\n}\n.job-profile-page .job-profile-container .job-main-grid .job-left-column .job-work-period .job-application-list {\n  list-style: none;\n  padding: 0;\n  margin: 0;\n}\n.job-profile-page .job-profile-container .job-main-grid .job-left-column .job-work-period .job-application-list .job-date-item {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  margin-bottom: 12px;\n  color: #4a5568;\n  font-size: 14px;\n  line-height: 1.6;\n}\n.job-profile-page .job-profile-container .job-main-grid .job-left-column .job-work-period .job-application-list .job-date-item:last-child {\n  margin-bottom: 0;\n}\n.job-profile-page .job-profile-container .job-main-grid .job-left-column .job-work-period .job-application-list .job-date-item .job-work-icon {\n  color: #1A2A44;\n  font-size: 16px;\n  flex-shrink: 0;\n}\n.job-profile-page .job-profile-container .job-main-grid .job-right-column {\n  display: flex;\n  flex-direction: column;\n  gap: 20px;\n}\n.job-profile-page .job-profile-container .job-main-grid .job-right-column .job-overview-section {\n  background: #fff;\n  padding: 24px;\n  border-radius: 8px;\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n}\n.job-profile-page .job-profile-container .job-main-grid .job-right-column .job-overview-section .job-overview-title {\n  font-size: 18px;\n  margin-bottom: 20px;\n  color: #2d3748;\n  font-weight: 700;\n  text-transform: uppercase;\n  padding-bottom: 10px;\n  border-bottom: 2px solid #e5e7eb;\n}\n.job-profile-page .job-profile-container .job-main-grid .job-right-column .job-overview-section .job-about-section {\n  background: #f9fafb;\n  padding: 20px;\n  border-radius: 8px;\n  margin-bottom: 0;\n}\n.job-profile-page .job-profile-container .job-main-grid .job-right-column .job-overview-section .job-about-section h4 {\n  font-size: 16px;\n  margin-bottom: 15px;\n  color: #2d3748;\n  font-weight: 700;\n  padding-bottom: 10px;\n}\n.job-profile-page .job-profile-container .job-main-grid .job-right-column .job-overview-section .job-about-section p {\n  color: #4a5568;\n  line-height: 1.6;\n  margin: 0;\n  white-space: pre-line;\n}\n.job-profile-page .job-profile-container .job-main-grid .job-right-column .job-skills-section {\n  background: #fff;\n  padding: 24px;\n  border-radius: 8px;\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n}\n.job-profile-page .job-profile-container .job-main-grid .job-right-column .job-skills-section h4 {\n  font-size: 16px;\n  margin-bottom: 15px;\n  color: #2d3748;\n  font-weight: 700;\n  padding-bottom: 10px;\n}\n.job-profile-page .job-profile-container .job-main-grid .job-right-column .job-skills-section .job-skills-row {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 10px;\n}\n.job-profile-page .job-profile-container .job-main-grid .job-right-column .job-skills-section .job-skills-row .job-chip {\n  background: #f9fafb;\n  padding: 6px 12px;\n  border-radius: 16px;\n  font-size: 14px;\n  color: #2d3748;\n  border: 1px solid #1A2A44;\n  transition: all 0.2s ease;\n}\n.job-profile-page .job-profile-container .job-main-grid .job-right-column .job-skills-section .job-skills-row .job-chip:hover {\n  background: #e6f0fa;\n  border-color: #1E90FF;\n}\n.job-profile-page .job-info-card.mobile-only {\n  display: none;\n}\n@media (max-width: 1024px) {\n  .job-profile-page .job-profile-container .job-profile-header .job-info-card {\n    width: calc(100% - 60px);\n    max-width: 800px;\n  }\n}\n@media (max-width: 768px) {\n  .job-profile-page .job-profile-header .job-info-card:not(.mobile-only) {\n    display: none;\n  }\n  .job-profile-page .job-info-card.mobile-only {\n    display: flex;\n    position: relative;\n    width: 100%;\n    left: auto;\n    transform: none;\n    bottom: auto;\n    max-width: 100%;\n    margin-top: 20px;\n    margin-bottom: 20px;\n  }\n  .job-profile-page .job-profile-container {\n    padding: 0 20px;\n    margin-top: 40px;\n  }\n  .job-profile-page .job-profile-container .job-profile-header .job-cover-photo {\n    margin-bottom: 0;\n  }\n  .job-profile-page .job-profile-container .job-main-grid {\n    grid-template-columns: 1fr;\n    gap: 20px;\n  }\n  .job-profile-page .job-profile-container .job-main-grid .job-left-column .poster-profile-card {\n    width: 100%;\n  }\n  .job-profile-page .job-profile-container .job-main-grid .job-left-column .job-info-card.mobile-only {\n    flex-direction: column;\n    align-items: stretch;\n    gap: 0;\n    margin-top: 20px;\n    margin-bottom: 20px;\n  }\n  .job-profile-page .job-profile-container .job-main-grid .job-left-column .job-info-card.mobile-only .job-info-section {\n    min-width: 100%;\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n    text-align: left;\n    padding: 16px 0;\n    border-bottom: 1px solid #e5e7eb;\n    gap: 16px;\n  }\n  .job-profile-page .job-profile-container .job-main-grid .job-left-column .job-info-card.mobile-only .job-info-section:last-child {\n    border-bottom: none;\n  }\n  .job-profile-page .job-profile-container .job-main-grid .job-left-column .job-info-card.mobile-only .job-info-section .job-info-icon {\n    flex-shrink: 0;\n    width: 40px;\n    height: 40px;\n    margin-bottom: 0;\n  }\n  .job-profile-page .job-profile-container .job-main-grid .job-left-column .job-info-card.mobile-only .job-info-section .job-info-icon svg {\n    width: 24px;\n    height: 24px;\n  }\n  .job-profile-page .job-profile-container .job-main-grid .job-left-column .job-info-card.mobile-only .job-info-section .job-info-icon > * {\n    width: 24px;\n    height: 24px;\n  }\n  .job-profile-page .job-profile-container .job-main-grid .job-left-column .job-info-card.mobile-only .job-info-section .job-info-label {\n    flex: 0 0 auto;\n    min-width: 100px;\n    margin-bottom: 0;\n    font-size: 10px;\n    color: #9ca3af;\n  }\n  .job-profile-page .job-profile-container .job-main-grid .job-left-column .job-info-card.mobile-only .job-info-section .job-info-value {\n    flex: 1;\n    text-align: right;\n    font-weight: 600;\n    font-size: 14px;\n    color: #1f2937;\n  }\n  .job-profile-page .job-profile-container .job-main-grid .job-left-column .job-info-card.mobile-only .job-info-divider {\n    display: none;\n  }\n  .job-profile-page .job-profile-container .job-main-grid .job-left-column .job-work-period {\n    width: 100%;\n  }\n  .job-profile-page .job-profile-container .job-main-grid .job-right-column .job-overview-section {\n    padding: 20px;\n  }\n  .job-profile-page .job-profile-container .job-main-grid .job-right-column .job-overview-section .job-overview-title {\n    font-size: 16px;\n  }\n  .job-profile-page .job-profile-container .job-main-grid .job-right-column .job-overview-section .job-about-section {\n    padding: 15px;\n  }\n  .job-profile-page .job-profile-container .job-main-grid .job-right-column .job-skills-section {\n    padding: 20px;\n  }\n}\n@media (max-width: 480px) {\n  .job-profile-page .job-profile-header .job-info-card:not(.mobile-only) {\n    display: none;\n  }\n  .job-profile-page .job-info-card.mobile-only {\n    display: flex;\n    position: relative;\n    width: 100%;\n    left: auto;\n    padding: 16px;\n    flex-direction: column;\n    align-items: stretch;\n    bottom: auto;\n    max-width: 100%;\n    margin-top: 20px;\n    margin-bottom: 20px;\n  }\n  .job-profile-page .job-profile-container {\n    padding: 0 15px;\n    margin-top: 40px;\n  }\n  .job-profile-page .job-profile-container .job-profile-header .job-cover-photo {\n    margin-bottom: 0;\n  }\n  .job-profile-page .job-profile-container .job-main-grid {\n    grid-template-columns: 1fr;\n    gap: 20px;\n  }\n  .job-profile-page .job-profile-container .job-main-grid .job-left-column .poster-profile-card {\n    padding: 20px;\n    width: 100%;\n  }\n  .job-profile-page .job-profile-container .job-main-grid .job-left-column .poster-profile-card .poster-profile-image {\n    width: 100px;\n    height: 100px;\n  }\n  .job-profile-page .job-profile-container .job-main-grid .job-left-column .job-info-card.mobile-only {\n    padding: 16px;\n    flex-direction: column;\n    align-items: stretch;\n    margin-top: 20px;\n    margin-bottom: 20px;\n  }\n  .job-profile-page .job-profile-container .job-main-grid .job-left-column .job-info-card.mobile-only .job-info-section {\n    min-width: 100%;\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n    text-align: left;\n    padding: 12px 0;\n    border-bottom: 1px solid #e5e7eb;\n    gap: 16px;\n  }\n  .job-profile-page .job-profile-container .job-main-grid .job-left-column .job-info-card.mobile-only .job-info-section:last-child {\n    border-bottom: none;\n  }\n  .job-profile-page .job-profile-container .job-main-grid .job-left-column .job-info-card.mobile-only .job-info-section .job-info-icon {\n    flex-shrink: 0;\n    width: 40px;\n    height: 40px;\n    margin-bottom: 0;\n  }\n  .job-profile-page .job-profile-container .job-main-grid .job-left-column .job-info-card.mobile-only .job-info-section .job-info-icon svg {\n    width: 24px;\n    height: 24px;\n  }\n  .job-profile-page .job-profile-container .job-main-grid .job-left-column .job-info-card.mobile-only .job-info-section .job-info-icon > * {\n    width: 24px;\n    height: 24px;\n  }\n  .job-profile-page .job-profile-container .job-main-grid .job-left-column .job-info-card.mobile-only .job-info-section .job-info-label {\n    flex: 0 0 auto;\n    min-width: 100px;\n    margin-bottom: 0;\n    font-size: 10px;\n    color: #9ca3af;\n  }\n  .job-profile-page .job-profile-container .job-main-grid .job-left-column .job-info-card.mobile-only .job-info-section .job-info-value {\n    flex: 1;\n    text-align: right;\n    font-weight: 600;\n    font-size: 14px;\n    color: #1f2937;\n  }\n  .job-profile-page .job-profile-container .job-main-grid .job-left-column .job-info-card.mobile-only .job-info-divider {\n    display: none;\n  }\n  .job-profile-page .job-profile-container .job-main-grid .job-left-column .job-work-period {\n    width: 100%;\n    padding: 15px;\n  }\n  .job-profile-page .job-profile-container .job-main-grid .job-right-column .job-overview-section {\n    padding: 20px;\n  }\n  .job-profile-page .job-profile-container .job-main-grid .job-right-column .job-overview-section .job-overview-title {\n    font-size: 14px;\n  }\n  .job-profile-page .job-profile-container .job-main-grid .job-right-column .job-overview-section .job-about-section {\n    padding: 12px;\n  }\n  .job-profile-page .job-profile-container .job-main-grid .job-right-column .job-overview-section .job-about-section h4 {\n    font-size: 14px;\n  }\n  .job-profile-page .job-profile-container .job-main-grid .job-right-column .job-overview-section .job-about-section p {\n    font-size: 13px;\n  }\n  .job-profile-page .job-profile-container .job-main-grid .job-right-column .job-skills-section {\n    padding: 15px;\n  }\n  .job-profile-page .job-profile-container .job-main-grid .job-right-column .job-skills-section h4 {\n    font-size: 14px;\n  }\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -72754,7 +72730,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "@charset \"UTF-8\";\n.my-profile-container {\n  display: flex;\n  flex-direction: column;\n  gap: 30px;\n}\n.my-profile-container .profile-card,\n.my-profile-container .password-card,\n.my-profile-container .work-preferences-card,\n.my-profile-container .worker-skills-card,\n.my-profile-container .worker-credentials-card {\n  background: white;\n  border-radius: 12px;\n  padding: 30px;\n  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);\n  border: 1px solid #e5e7eb;\n  transition: box-shadow 0.3s ease;\n}\n.my-profile-container .profile-card:hover,\n.my-profile-container .password-card:hover,\n.my-profile-container .work-preferences-card:hover,\n.my-profile-container .worker-skills-card:hover,\n.my-profile-container .worker-credentials-card:hover {\n  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);\n}\n.my-profile-container .profile-header {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  margin-bottom: 30px;\n}\n.my-profile-container .profile-header .avatar-container {\n  position: relative;\n}\n.my-profile-container .profile-header .avatar-container .avatar-placeholder {\n  width: 120px;\n  height: 120px;\n  border-radius: 50%;\n  background-color: #f3f4f6;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  border: 3px solid #e5e7eb;\n  transition: all 0.3s ease;\n}\n.my-profile-container .profile-header .avatar-container .avatar-placeholder.clickable {\n  cursor: pointer;\n}\n.my-profile-container .profile-header .avatar-container .avatar-placeholder.clickable:hover {\n  border-color: #001E40;\n  background-color: #f8fafc;\n}\n.my-profile-container .profile-header .avatar-container .avatar-placeholder img {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  border-radius: 50%;\n}\n.my-profile-container .profile-header .avatar-container .camera-icon {\n  position: absolute;\n  bottom: 5px;\n  right: 5px;\n  width: 36px;\n  height: 36px;\n  background: #001E40;\n  border-radius: 50%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  border: 3px solid white;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);\n}\n.my-profile-container .profile-header .avatar-container .camera-icon:hover {\n  background: #002a5c;\n  transform: scale(1.1);\n}\n.my-profile-container .profile-header .avatar-container .camera-icon svg {\n  width: 18px;\n  height: 18px;\n  fill: white;\n}\n.my-profile-container .profile-header .avatar-container .profile-dropdown {\n  position: absolute;\n  top: 100%;\n  left: 50%;\n  transform: translateX(-50%);\n  margin-top: 10px;\n  background: white;\n  border-radius: 8px;\n  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);\n  padding: 8px 0;\n  min-width: 180px;\n  z-index: 1000;\n  opacity: 0;\n  visibility: hidden;\n  transition: all 0.3s ease;\n}\n.my-profile-container .profile-header .avatar-container .profile-dropdown.show {\n  opacity: 1;\n  visibility: visible;\n}\n.my-profile-container .profile-header .avatar-container .profile-dropdown .dropdown-item {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n  padding: 12px 16px;\n  background: none;\n  border: none;\n  width: 100%;\n  text-align: left;\n  font-size: 14px;\n  color: #374151;\n  cursor: pointer;\n  transition: all 0.2s ease;\n}\n.my-profile-container .profile-header .avatar-container .profile-dropdown .dropdown-item svg {\n  width: 18px;\n  height: 18px;\n  fill: #6b7280;\n  transition: fill 0.2s ease;\n}\n.my-profile-container .profile-header .avatar-container .profile-dropdown .dropdown-item:hover {\n  background: #f3f4f6;\n}\n.my-profile-container .profile-header .avatar-container .profile-dropdown .dropdown-item:hover svg {\n  fill: #001E40;\n}\n.my-profile-container .profile-header .avatar-container .profile-dropdown .dropdown-item.delete-item {\n  color: #dc2626;\n}\n.my-profile-container .profile-header .avatar-container .profile-dropdown .dropdown-item.delete-item svg {\n  fill: #dc2626;\n}\n.my-profile-container .profile-header .avatar-container .profile-dropdown .dropdown-item.delete-item:hover {\n  background: #fee2e2;\n}\n.my-profile-container .profile-header .rank-display-section {\n  margin-top: 20px;\n  padding: 12px;\n  width: 100%;\n  max-width: 400px;\n}\n.my-profile-container .profile-header .rank-display-section .rank-display {\n  display: flex;\n  align-items: center;\n  gap: 15px;\n}\n.my-profile-container .profile-header .rank-display-section .rank-display .worker-rank-badge {\n  width: 45px;\n  height: 45px;\n  -o-object-fit: contain;\n     object-fit: contain;\n  flex-shrink: 0;\n  background: transparent;\n  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));\n}\n.my-profile-container .profile-header .rank-display-section .rank-display .rank-progress {\n  display: flex;\n  flex-direction: column;\n  gap: 5px;\n  flex: 1;\n}\n.my-profile-container .profile-header .rank-display-section .rank-display .rank-progress .progress-info {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n.my-profile-container .profile-header .rank-display-section .rank-display .rank-progress .progress-info .rank-name {\n  font-size: 15px;\n  font-weight: 600;\n  color: #333;\n}\n.my-profile-container .profile-header .rank-display-section .rank-display .rank-progress .progress-info .points-text {\n  font-size: 13px;\n  font-weight: 600;\n  color: #666;\n}\n.my-profile-container .profile-header .rank-display-section .rank-display .rank-progress .progress-bar-container {\n  width: 100%;\n  height: 10px;\n  background: #e0e0e0;\n  border-radius: 10px;\n  overflow: hidden;\n  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);\n}\n.my-profile-container .profile-header .rank-display-section .rank-display .rank-progress .progress-bar-container .progress-bar-fill {\n  height: 100%;\n  border-radius: 10px;\n  transition: width 0.3s ease;\n}\n.my-profile-container .profile-header .rank-display-section .rank-display .rank-progress .progress-bar-container .progress-bar-fill.rank-bronze {\n  background: linear-gradient(90deg, #8b4513, #a0522d);\n}\n.my-profile-container .profile-header .rank-display-section .rank-display .rank-progress .progress-bar-container .progress-bar-fill.rank-silver {\n  background: linear-gradient(90deg, #c0c0c0, #d3d3d3);\n}\n.my-profile-container .profile-header .rank-display-section .rank-display .rank-progress .progress-bar-container .progress-bar-fill.rank-gold {\n  background: linear-gradient(90deg, #ffd700, #ffed4e);\n}\n.my-profile-container .profile-header .rank-display-section .rank-display .rank-progress .progress-bar-container .progress-bar-fill.rank-platinum {\n  background: linear-gradient(90deg, #e5e4e2, #bcc6cc);\n}\n.my-profile-container .profile-header .rank-display-section .rank-display .rank-progress .progress-bar-container .progress-bar-fill.rank-diamond {\n  background: linear-gradient(90deg, #b9f2ff, #4fc3f7);\n}\n.my-profile-container .profile-header .rank-display-section .rank-display .rank-progress .progress-label {\n  font-size: 11px;\n  color: #888;\n  text-align: right;\n  font-weight: 500;\n}\n.my-profile-container .card-title {\n  font-size: 24px;\n  font-weight: 600;\n  color: #1f2937;\n  margin-bottom: 25px;\n}\n.my-profile-container .profile-form .form-row,\n.my-profile-container .password-form .form-row {\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n  gap: 20px;\n  margin-bottom: 20px;\n}\n@media (max-width: 768px) {\n  .my-profile-container .profile-form .form-row,\n  .my-profile-container .password-form .form-row {\n    grid-template-columns: 1fr;\n    gap: 15px;\n  }\n}\n.my-profile-container .profile-form .form-group,\n.my-profile-container .password-form .form-group {\n  display: flex;\n  flex-direction: column;\n}\n.my-profile-container .profile-form .form-group label,\n.my-profile-container .password-form .form-group label {\n  font-size: 14px;\n  font-weight: 500;\n  color: #374151;\n  margin-bottom: 10px;\n}\n.my-profile-container .profile-form .form-group label.label-up,\n.my-profile-container .password-form .form-group label.label-up {\n  margin-bottom: 1px;\n}\n.my-profile-container .profile-form .form-group input,\n.my-profile-container .profile-form .form-group select,\n.my-profile-container .password-form .form-group input,\n.my-profile-container .password-form .form-group select {\n  height: 45px;\n  padding: 12px 16px;\n  border: 2px solid #e5e7eb;\n  border-radius: 6px;\n  font-size: 14px;\n  color: #1f2937;\n  background-color: #f9fafb;\n  transition: all 0.3s ease;\n}\n.my-profile-container .profile-form .form-group input:focus,\n.my-profile-container .profile-form .form-group select:focus,\n.my-profile-container .password-form .form-group input:focus,\n.my-profile-container .password-form .form-group select:focus {\n  outline: none;\n  border-color: #3b82f6;\n  background-color: white;\n  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);\n}\n.my-profile-container .profile-form .form-group input:disabled,\n.my-profile-container .profile-form .form-group select:disabled,\n.my-profile-container .password-form .form-group input:disabled,\n.my-profile-container .password-form .form-group select:disabled {\n  background-color: #f9fafb;\n  color: #6b7280;\n  cursor: not-allowed;\n}\n.my-profile-container .profile-form .form-group input.editing,\n.my-profile-container .profile-form .form-group select.editing,\n.my-profile-container .password-form .form-group input.editing,\n.my-profile-container .password-form .form-group select.editing {\n  background-color: white;\n  border: 2px solid #e5e7eb;\n}\n.my-profile-container .profile-form .form-group input::-moz-placeholder, .my-profile-container .profile-form .form-group select::-moz-placeholder, .my-profile-container .password-form .form-group input::-moz-placeholder, .my-profile-container .password-form .form-group select::-moz-placeholder {\n  color: #9ca3af;\n}\n.my-profile-container .profile-form .form-group input::placeholder,\n.my-profile-container .profile-form .form-group select::placeholder,\n.my-profile-container .password-form .form-group input::placeholder,\n.my-profile-container .password-form .form-group select::placeholder {\n  color: #9ca3af;\n}\n.my-profile-container .profile-form .form-group .date-input-container,\n.my-profile-container .password-form .form-group .date-input-container {\n  position: relative;\n}\n.my-profile-container .profile-form .form-group .date-input-container input[type=date]::-webkit-calendar-picker-indicator,\n.my-profile-container .password-form .form-group .date-input-container input[type=date]::-webkit-calendar-picker-indicator {\n  display: none;\n  -webkit-appearance: none;\n}\n.my-profile-container .profile-form .form-group .date-input-container input[type=date]::-moz-calendar-picker-indicator,\n.my-profile-container .password-form .form-group .date-input-container input[type=date]::-moz-calendar-picker-indicator {\n  display: none;\n}\n.my-profile-container .profile-form .form-group .date-input-container .calendar-icon,\n.my-profile-container .password-form .form-group .date-input-container .calendar-icon {\n  position: absolute;\n  right: 12px;\n  top: 50%;\n  transform: translateY(-50%);\n  width: 16px;\n  height: 16px;\n  pointer-events: none;\n}\n.my-profile-container .profile-form .form-group.date-field .date-input-container input,\n.my-profile-container .password-form .form-group.date-field .date-input-container input {\n  width: 850px;\n}\n.my-profile-container .profile-form .form-group .password-input-container,\n.my-profile-container .password-form .form-group .password-input-container {\n  position: relative;\n}\n.my-profile-container .profile-form .form-group .password-input-container .eye-btn,\n.my-profile-container .password-form .form-group .password-input-container .eye-btn {\n  position: absolute;\n  right: 12px;\n  top: 50%;\n  transform: translateY(-50%);\n  background: none;\n  border: none;\n  color: #6b7280;\n  cursor: pointer;\n  padding: 4px;\n  border-radius: 4px;\n  transition: color 0.3s ease;\n}\n.my-profile-container .profile-form .form-group .password-input-container .eye-btn:hover,\n.my-profile-container .password-form .form-group .password-input-container .eye-btn:hover {\n  color: #374151;\n}\n.my-profile-container .profile-form .form-group .password-input-container .eye-btn i,\n.my-profile-container .password-form .form-group .password-input-container .eye-btn i {\n  font-size: 16px;\n}\n.my-profile-container .profile-form .form-group .gender-dropdown-toggle,\n.my-profile-container .password-form .form-group .gender-dropdown-toggle {\n  width: 100% !important;\n  height: 45px !important;\n  text-align: left !important;\n  background-color: #f9fafb !important;\n  border: 2px solid #e5e7eb !important;\n  border-radius: 8px !important;\n  font-size: 14px !important;\n  color: #1f2937 !important;\n  padding: 12px 16px !important;\n  display: flex !important;\n  justify-content: space-between !important;\n  align-items: center !important;\n  transition: all 0.3s ease !important;\n  font-weight: 500 !important;\n  position: relative !important;\n}\n.my-profile-container .profile-form .form-group .gender-dropdown-toggle:focus,\n.my-profile-container .password-form .form-group .gender-dropdown-toggle:focus {\n  outline: none !important;\n  border-color: #3b82f6 !important;\n  background-color: white !important;\n  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1) !important;\n}\n.my-profile-container .profile-form .form-group .gender-dropdown-toggle:hover:not(:disabled),\n.my-profile-container .password-form .form-group .gender-dropdown-toggle:hover:not(:disabled) {\n  border-color: #d1d5db !important;\n  background-color: white !important;\n}\n.my-profile-container .profile-form .form-group .gender-dropdown-toggle:disabled,\n.my-profile-container .password-form .form-group .gender-dropdown-toggle:disabled {\n  background-color: #f9fafb !important;\n  color: #6b7280 !important;\n  cursor: not-allowed !important;\n  opacity: 0.6 !important;\n}\n.my-profile-container .profile-form .form-group .gender-dropdown-toggle.editing,\n.my-profile-container .password-form .form-group .gender-dropdown-toggle.editing {\n  background-color: white !important;\n  border: 2px solid #e5e7eb !important;\n}\n.my-profile-container .profile-form .form-group .gender-dropdown-toggle::after,\n.my-profile-container .password-form .form-group .gender-dropdown-toggle::after {\n  content: \"\" !important;\n  display: inline-block !important;\n  margin-left: 0.255em !important;\n  vertical-align: 0.255em !important;\n  border-top: 0.3em solid !important;\n  border-right: 0.3em solid transparent !important;\n  border-bottom: 0 !important;\n  border-left: 0.3em solid transparent !important;\n  color: #6b7280 !important;\n  transition: transform 0.3s ease !important;\n}\n.my-profile-container .profile-form .form-group .gender-dropdown-toggle[aria-expanded=true]::after,\n.my-profile-container .password-form .form-group .gender-dropdown-toggle[aria-expanded=true]::after {\n  transform: rotate(180deg) !important;\n}\n.my-profile-container .profile-form .form-group .gender-dropdown-menu,\n.my-profile-container .password-form .form-group .gender-dropdown-menu {\n  width: 100% !important;\n  border: 1px solid #e5e7eb !important;\n  border-radius: 8px !important;\n  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15) !important;\n  margin-top: 8px !important;\n  padding: 8px 0 !important;\n  background: white !important;\n  overflow: hidden !important;\n}\n.my-profile-container .profile-form .form-group .gender-dropdown-menu .dropdown-item,\n.my-profile-container .password-form .form-group .gender-dropdown-menu .dropdown-item {\n  padding: 14px 20px !important;\n  font-size: 14px !important;\n  color: #374151 !important;\n  transition: all 0.2s ease !important;\n  cursor: pointer !important;\n  border: none !important;\n  background: none !important;\n  width: 100% !important;\n  text-align: left !important;\n  font-weight: 500 !important;\n  position: relative !important;\n}\n.my-profile-container .profile-form .form-group .gender-dropdown-menu .dropdown-item:hover,\n.my-profile-container .password-form .form-group .gender-dropdown-menu .dropdown-item:hover {\n  background-color: #f8fafc !important;\n  color: #1f2937 !important;\n  transform: translateX(4px) !important;\n}\n.my-profile-container .profile-form .form-group .gender-dropdown-menu .dropdown-item.active,\n.my-profile-container .password-form .form-group .gender-dropdown-menu .dropdown-item.active {\n  background-color: #eff6ff !important;\n  color: #1d4ed8 !important;\n  font-weight: 600 !important;\n}\n.my-profile-container .profile-form .form-group .gender-dropdown-menu .dropdown-item.active::before,\n.my-profile-container .password-form .form-group .gender-dropdown-menu .dropdown-item.active::before {\n  content: \"✓\" !important;\n  position: absolute !important;\n  right: 16px !important;\n  top: 50% !important;\n  transform: translateY(-50%) !important;\n  color: #1d4ed8 !important;\n  font-weight: bold !important;\n}\n.my-profile-container .profile-form .form-group .gender-dropdown-menu .dropdown-item:first-child,\n.my-profile-container .password-form .form-group .gender-dropdown-menu .dropdown-item:first-child {\n  border-top-left-radius: 8px !important;\n  border-top-right-radius: 8px !important;\n}\n.my-profile-container .profile-form .form-group .gender-dropdown-menu .dropdown-item:last-child,\n.my-profile-container .password-form .form-group .gender-dropdown-menu .dropdown-item:last-child {\n  border-bottom-left-radius: 8px !important;\n  border-bottom-right-radius: 8px !important;\n}\n.my-profile-container .profile-form .form-actions,\n.my-profile-container .password-form .form-actions {\n  display: flex;\n  justify-content: flex-end;\n  gap: 15px;\n  margin-top: 30px;\n  padding-top: 20px;\n  border-top: 1px solid #e5e7eb;\n}\n@media (max-width: 768px) {\n  .my-profile-container .profile-form .form-actions,\n  .my-profile-container .password-form .form-actions {\n    flex-direction: column;\n    align-items: stretch;\n  }\n}\n.my-profile-container .profile-form .form-actions .edit-btn,\n.my-profile-container .profile-form .form-actions .save-btn,\n.my-profile-container .password-form .form-actions .edit-btn,\n.my-profile-container .password-form .form-actions .save-btn {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  width: 165px;\n  height: 36px;\n  padding: 0 16px;\n  border-radius: 6px;\n  font-size: 12.5px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  border: none;\n  justify-content: center;\n}\n.my-profile-container .profile-form .form-actions .edit-btn .btn-icon,\n.my-profile-container .profile-form .form-actions .save-btn .btn-icon,\n.my-profile-container .password-form .form-actions .edit-btn .btn-icon,\n.my-profile-container .password-form .form-actions .save-btn .btn-icon {\n  width: 16px;\n  height: 16px;\n  font-size: 16px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.my-profile-container .profile-form .form-actions .password-card .edit-btn,\n.my-profile-container .password-form .form-actions .password-card .edit-btn {\n  width: 170px;\n}\n.my-profile-container .profile-form .form-actions .edit-btn,\n.my-profile-container .password-form .form-actions .edit-btn {\n  background-color: #FFFFFF;\n  color: #374151;\n  border: 1px solid #001E40;\n}\n.my-profile-container .profile-form .form-actions .edit-btn:hover,\n.my-profile-container .password-form .form-actions .edit-btn:hover {\n  background-color: #f8fafc;\n  border-color: #001E40;\n}\n.my-profile-container .profile-form .form-actions .save-btn,\n.my-profile-container .password-form .form-actions .save-btn {\n  background-color: #001E40;\n  color: white;\n}\n.my-profile-container .profile-form .form-actions .save-btn:hover,\n.my-profile-container .password-form .form-actions .save-btn:hover {\n  background-color: #002a5c;\n}\n.my-profile-container .profile-form .form-actions .save-btn:active,\n.my-profile-container .password-form .form-actions .save-btn:active {\n  background-color: #001a33;\n}\n.my-profile-container .password-card .password-form .form-group {\n  margin-bottom: 20px;\n}\n.my-profile-container .work-preferences-card .form-actions {\n  display: flex;\n  justify-content: flex-end;\n  gap: 15px;\n  margin-top: 30px;\n  padding-top: 20px;\n  border-top: 1px solid #e5e7eb;\n}\n@media (max-width: 768px) {\n  .my-profile-container .work-preferences-card .form-actions {\n    flex-direction: column;\n    align-items: stretch;\n  }\n}\n.my-profile-container .work-preferences-card .form-actions .worker-prefs-edit-btn,\n.my-profile-container .work-preferences-card .form-actions .worker-prefs-save-btn,\n.my-profile-container .work-preferences-card .form-actions .worker-prefs-cancel-btn {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  width: 165px;\n  height: 36px;\n  padding: 0 16px;\n  border-radius: 6px;\n  font-size: 12.5px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  border: none;\n  justify-content: center;\n}\n.my-profile-container .work-preferences-card .form-actions .worker-prefs-edit-btn .btn-icon,\n.my-profile-container .work-preferences-card .form-actions .worker-prefs-save-btn .btn-icon,\n.my-profile-container .work-preferences-card .form-actions .worker-prefs-cancel-btn .btn-icon {\n  width: 16px;\n  height: 16px;\n  font-size: 16px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.my-profile-container .work-preferences-card .form-actions .worker-prefs-edit-btn {\n  width: 175px;\n}\n.my-profile-container .work-preferences-card .form-actions .worker-prefs-edit-btn,\n.my-profile-container .work-preferences-card .form-actions .worker-prefs-cancel-btn {\n  background-color: #FFFFFF;\n  color: #374151;\n  border: 1px solid #001E40;\n}\n.my-profile-container .work-preferences-card .form-actions .worker-prefs-edit-btn:hover,\n.my-profile-container .work-preferences-card .form-actions .worker-prefs-cancel-btn:hover {\n  background-color: #f8fafc;\n  border-color: #001E40;\n}\n.my-profile-container .work-preferences-card .form-actions .worker-prefs-save-btn {\n  background-color: #001E40;\n  color: white;\n}\n.my-profile-container .work-preferences-card .form-actions .worker-prefs-save-btn:hover {\n  background-color: #002a5c;\n}\n.my-profile-container .work-preferences-card .form-actions .worker-prefs-save-btn:active {\n  background-color: #001a33;\n}\n.my-profile-container .work-preferences-card .work-preferences-form .form-group.full-width {\n  grid-column: 1/-1;\n}\n.my-profile-container .work-preferences-card .work-preferences-form .working-days-container {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 10px;\n  margin-top: 8px;\n}\n.my-profile-container .work-preferences-card .work-preferences-form .working-days-container .day-checkbox {\n  display: flex;\n  align-items: center;\n  gap: 6px;\n  padding: 8px 12px;\n  border: 2px solid #e5e7eb;\n  border-radius: 6px;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  background-color: #f9fafb;\n}\n.my-profile-container .work-preferences-card .work-preferences-form .working-days-container .day-checkbox.disabled {\n  cursor: not-allowed;\n  opacity: 0.6;\n}\n.my-profile-container .work-preferences-card .work-preferences-form .working-days-container .day-checkbox input[type=checkbox] {\n  width: 16px;\n  height: 16px;\n  cursor: pointer;\n  accent-color: #001E40;\n}\n.my-profile-container .work-preferences-card .work-preferences-form .working-days-container .day-checkbox input[type=checkbox]:disabled {\n  cursor: not-allowed;\n}\n.my-profile-container .work-preferences-card .work-preferences-form .working-days-container .day-checkbox .day-label {\n  font-size: 13px;\n  font-weight: 500;\n  color: #374151;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n          user-select: none;\n}\n.my-profile-container .work-preferences-card .work-preferences-form .working-days-container .day-checkbox:hover:not(.disabled) {\n  border-color: #001E40;\n  background-color: #f0f4f8;\n}\n.my-profile-container .work-preferences-card .work-preferences-form .working-days-container .day-checkbox input[type=checkbox]:checked + .day-label {\n  color: #001E40;\n  font-weight: 600;\n}\n.my-profile-container .work-preferences-card .work-preferences-form .working-days-container .day-checkbox input[type=checkbox]:checked ~ * {\n  color: #001E40;\n}\n.my-profile-container .work-preferences-card .work-preferences-form .character-count {\n  display: block;\n  text-align: right;\n  font-size: 12px;\n  color: #6b7280;\n  margin-top: 4px;\n}\n.my-profile-container .work-preferences-card .work-preferences-form .form-help {\n  display: block;\n  font-size: 12px;\n  color: #6b7280;\n  margin-top: 4px;\n  font-style: italic;\n}\n.my-profile-container .work-preferences-card .work-preferences-form textarea {\n  width: 100%;\n  padding: 12px 16px;\n  border: 2px solid #e5e7eb;\n  border-radius: 6px;\n  font-size: 14px;\n  color: #1f2937;\n  background-color: #f9fafb;\n  transition: all 0.3s ease;\n  resize: vertical;\n  font-family: inherit;\n}\n.my-profile-container .work-preferences-card .work-preferences-form textarea:focus {\n  outline: none;\n  border-color: #3b82f6;\n  background-color: white;\n  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);\n}\n.my-profile-container .work-preferences-card .work-preferences-form textarea:disabled {\n  background-color: #f9fafb;\n  color: #6b7280;\n  cursor: not-allowed;\n}\n.my-profile-container .work-preferences-card .work-preferences-form textarea.editing {\n  background-color: white;\n  border: 2px solid #e5e7eb;\n}\n.my-profile-container .work-preferences-card .work-preferences-form textarea::-moz-placeholder {\n  color: #9ca3af;\n}\n.my-profile-container .work-preferences-card .work-preferences-form textarea::placeholder {\n  color: #9ca3af;\n}\n.my-profile-container .worker-skills-card .form-actions {\n  display: flex;\n  justify-content: flex-end;\n  gap: 15px;\n  margin-top: 30px;\n  padding-top: 20px;\n  border-top: 1px solid #e5e7eb;\n}\n@media (max-width: 768px) {\n  .my-profile-container .worker-skills-card .form-actions {\n    flex-direction: column;\n    align-items: stretch;\n  }\n}\n.my-profile-container .worker-skills-card .form-actions .worker-skills-edit-btn,\n.my-profile-container .worker-skills-card .form-actions .worker-skills-save-btn,\n.my-profile-container .worker-skills-card .form-actions .worker-skills-cancel-btn {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  width: 165px;\n  height: 36px;\n  padding: 0 16px;\n  border-radius: 6px;\n  font-size: 13px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  border: none;\n  justify-content: center;\n}\n.my-profile-container .worker-skills-card .form-actions .worker-skills-edit-btn .btn-icon,\n.my-profile-container .worker-skills-card .form-actions .worker-skills-save-btn .btn-icon,\n.my-profile-container .worker-skills-card .form-actions .worker-skills-cancel-btn .btn-icon {\n  width: 16px;\n  height: 16px;\n  font-size: 16px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.my-profile-container .worker-skills-card .form-actions .worker-skills-edit-btn,\n.my-profile-container .worker-skills-card .form-actions .worker-skills-cancel-btn {\n  background-color: #FFFFFF;\n  color: #374151;\n  border: 1px solid #001E40;\n}\n.my-profile-container .worker-skills-card .form-actions .worker-skills-edit-btn:hover,\n.my-profile-container .worker-skills-card .form-actions .worker-skills-cancel-btn:hover {\n  background-color: #f8fafc;\n  border-color: #001E40;\n}\n.my-profile-container .worker-skills-card .form-actions .worker-skills-save-btn {\n  background-color: #001E40;\n  color: white;\n}\n.my-profile-container .worker-skills-card .form-actions .worker-skills-save-btn:hover {\n  background-color: #002a5c;\n}\n.my-profile-container .worker-skills-card .form-actions .worker-skills-save-btn:active {\n  background-color: #001a33;\n}\n.my-profile-container .worker-skills-card .skills-display {\n  margin-bottom: 20px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section {\n  margin-bottom: 30px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section:last-child {\n  margin-bottom: 0;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .section-subtitle {\n  font-size: 16px;\n  font-weight: 600;\n  color: #1f2937;\n  margin-bottom: 15px;\n  padding-bottom: 8px;\n  border-bottom: 2px solid #e5e7eb;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skill-editing-form {\n  background: #f8fafc;\n  border: 2px dashed #001E40;\n  border-radius: 8px;\n  padding: 20px;\n  margin-bottom: 20px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skill-editing-form .form-group {\n  margin-bottom: 15px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skill-editing-form .form-group:last-child {\n  margin-bottom: 0;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skill-editing-form .form-group label {\n  font-size: 13px;\n  font-weight: 500;\n  color: #374151;\n  margin-bottom: 6px;\n  display: block;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skill-editing-form .form-group .form-input {\n  width: 100%;\n  height: 40px;\n  padding: 10px 12px;\n  border: 1px solid #d1d5db;\n  border-radius: 6px;\n  font-size: 14px;\n  color: #1f2937;\n  background-color: white;\n  transition: all 0.2s ease;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skill-editing-form .form-group .form-input:focus {\n  outline: none;\n  border-color: #001E40;\n  box-shadow: 0 0 0 3px rgba(0, 30, 64, 0.1);\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skill-editing-form .skill-save-section {\n  margin-top: 15px;\n  padding-top: 15px;\n  border-top: 1px solid #e5e7eb;\n  display: flex;\n  justify-content: flex-end;\n  gap: 10px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skill-editing-form .skill-save-section .cancel-individual-skill-btn {\n  display: inline-flex;\n  align-items: center;\n  gap: 6px;\n  width: 80px;\n  height: 36px;\n  padding: 0 16px;\n  background: #FFFFFF;\n  color: #374151;\n  border: 1px solid #001E40;\n  border-radius: 6px;\n  font-size: 12.5px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  justify-content: center;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skill-editing-form .skill-save-section .cancel-individual-skill-btn:hover {\n  background: #f8fafc;\n  border-color: #001E40;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skill-editing-form .skill-save-section .save-individual-skill-btn {\n  display: inline-flex;\n  align-items: center;\n  gap: 6px;\n  width: 170px;\n  height: 36px;\n  padding: 0 16px;\n  background: #001E40;\n  color: white;\n  border: none;\n  border-radius: 6px;\n  font-size: 12.5px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  justify-content: center;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skill-editing-form .skill-save-section .save-individual-skill-btn svg {\n  fill: white;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skill-editing-form .skill-save-section .save-individual-skill-btn:hover:not(:disabled) {\n  background: #002a5c;\n  transform: translateY(-1px);\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skill-editing-form .skill-save-section .save-individual-skill-btn:active:not(:disabled) {\n  transform: translateY(0);\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skill-editing-form .skill-save-section .save-individual-skill-btn:disabled {\n  background: #9ca3af;\n  cursor: not-allowed;\n  transform: none;\n  box-shadow: none;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skill-editing-form .skill-details-editing {\n  margin-top: 15px;\n  padding-top: 15px;\n  border-top: 1px solid #e5e7eb;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skill-editing-form .skill-details-editing .form-group {\n  margin-bottom: 15px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing {\n  background: #f8fafc;\n  border: 2px dashed #001E40;\n  border-radius: 8px;\n  padding: 20px;\n  margin-bottom: 20px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .form-group {\n  margin-bottom: 20px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .form-group label {\n  font-size: 13px;\n  font-weight: 500;\n  color: #374151;\n  margin-bottom: 10px;\n  display: block;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .form-group .form-input {\n  width: 100%;\n  height: 40px;\n  padding: 10px 12px;\n  border: 1px solid #d1d5db;\n  border-radius: 6px;\n  font-size: 14px;\n  color: #1f2937;\n  background-color: white;\n  transition: all 0.2s ease;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .form-group .form-input:focus {\n  outline: none;\n  border-color: #001E40;\n  box-shadow: 0 0 0 3px rgba(0, 30, 64, 0.1);\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .form-group .form-input[role=combobox], .my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .form-group .form-input[aria-expanded=true], .my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .form-group .form-input:focus {\n  border-bottom-left-radius: 0;\n  border-bottom-right-radius: 0;\n  position: relative;\n  z-index: 10;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .form-group .form-input option {\n  position: relative;\n  z-index: 1000;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-save-section {\n  margin-top: 15px;\n  padding-top: 15px;\n  border-top: 1px solid #e5e7eb;\n  display: flex;\n  justify-content: flex-end;\n  gap: 10px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-save-section .cancel-individual-skill-btn {\n  display: inline-flex;\n  align-items: center;\n  gap: 6px;\n  width: 80px;\n  height: 36px;\n  padding: 0 16px;\n  background: #FFFFFF;\n  color: #374151;\n  border: 1px solid #001E40;\n  border-radius: 6px;\n  font-size: 12.5px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  justify-content: center;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-save-section .cancel-individual-skill-btn:hover {\n  background: #f8fafc;\n  border-color: #001E40;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-save-section .save-individual-skill-btn {\n  display: inline-flex;\n  align-items: center;\n  gap: 6px;\n  width: 170px;\n  height: 36px;\n  padding: 0 16px;\n  background: #001E40;\n  color: white;\n  border: none;\n  border-radius: 6px;\n  font-size: 12.5px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  justify-content: center;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-save-section .save-individual-skill-btn svg {\n  fill: white;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-save-section .save-individual-skill-btn:hover:not(:disabled) {\n  background: #002a5c;\n  transform: translateY(-1px);\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-save-section .save-individual-skill-btn:active:not(:disabled) {\n  transform: translateY(0);\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-save-section .save-individual-skill-btn:disabled {\n  background: #9ca3af;\n  cursor: not-allowed;\n  transform: none;\n  box-shadow: none;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-details-editing {\n  margin-top: 20px;\n  padding: 15px;\n  background: white;\n  border: 1px solid #e5e7eb;\n  border-radius: 6px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-details-editing .skill-header-editing {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 15px;\n  padding-bottom: 8px;\n  border-bottom: 1px solid #e5e7eb;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-details-editing .skill-header-editing .skill-editing-title {\n  font-size: 14px;\n  font-weight: 600;\n  color: #001E40;\n  margin: 0;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-details-editing .skill-header-editing .remove-skill-btn {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  width: 28px;\n  height: 28px;\n  background: #fee2e2;\n  border: 1px solid #fca5a5;\n  border-radius: 6px;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  padding: 0;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-details-editing .skill-header-editing .remove-skill-btn svg {\n  fill: #dc2626;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-details-editing .skill-header-editing .remove-skill-btn:hover {\n  background: #fecaca;\n  border-color: #f87171;\n  transform: scale(1.05);\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-details-editing .form-group {\n  margin-bottom: 15px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-details-editing .form-group label {\n  font-size: 12px;\n  font-weight: 500;\n  color: #374151;\n  margin-bottom: 6px;\n  display: block;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-details-editing .form-group .form-input {\n  width: 100%;\n  height: 36px;\n  padding: 8px 10px;\n  border: 1px solid #d1d5db;\n  border-radius: 6px;\n  font-size: 13px;\n  color: #1f2937;\n  background-color: white;\n  transition: all 0.2s ease;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-details-editing .form-group .form-input:focus {\n  outline: none;\n  border-color: #001E40;\n  box-shadow: 0 0 0 3px rgba(0, 30, 64, 0.1);\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .sub-skills-checkbox-grid {\n  display: grid;\n  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));\n  gap: 8px;\n  margin-top: 8px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .sub-skills-checkbox-grid .sub-skill-checkbox-item {\n  display: flex;\n  align-items: flex-start;\n  gap: 6px;\n  padding: 8px 10px 8px 16px;\n  border: 1px solid #d1d5db;\n  border-radius: 6px;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  background: white;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .sub-skills-checkbox-grid .sub-skill-checkbox-item:hover {\n  border-color: #001E40;\n  background: #f0f4f8;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .sub-skills-checkbox-grid .sub-skill-checkbox-item input[type=checkbox] {\n  width: 14px;\n  height: 14px;\n  cursor: pointer;\n  accent-color: #001E40;\n  margin: 0;\n  flex-shrink: 0;\n  align-self: flex-start;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .sub-skills-checkbox-grid .sub-skill-checkbox-item .sub-skill-checkbox-label {\n  font-size: 12px;\n  font-weight: 500;\n  color: #374151;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n          user-select: none;\n  text-align: left;\n  flex: 1;\n  margin-left: 8px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .sub-skills-checkbox-grid .sub-skill-checkbox-item:has(input:checked) {\n  border-color: #001E40;\n  background: #f0f4f8;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .sub-skills-checkbox-grid .sub-skill-checkbox-item:has(input:checked) .sub-skill-checkbox-label {\n  color: #001E40;\n  font-weight: 600;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .sub-skills-tags {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 6px;\n  margin-top: 8px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .sub-skills-tags .sub-skill-tag {\n  display: inline-flex;\n  align-items: center;\n  gap: 4px;\n  padding: 4px 8px;\n  background: white;\n  border: 1px solid #d1d5db;\n  border-radius: 6px;\n  font-size: 12px;\n  color: #374151;\n  font-weight: 500;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .sub-skills-tags .sub-skill-tag .remove-sub-skill {\n  background: none;\n  border: none;\n  color: #dc2626;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: bold;\n  padding: 0;\n  margin-left: 4px;\n  transition: color 0.2s ease;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .sub-skills-tags .sub-skill-tag .remove-sub-skill:hover {\n  color: #b91c1c;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skills-list {\n  display: flex;\n  flex-direction: column;\n  gap: 15px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skills-list .skill-item {\n  background: #f9fafb;\n  border: 2px solid #e5e7eb;\n  border-radius: 8px;\n  padding: 16px;\n  transition: all 0.3s ease;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skills-list .skill-item:hover {\n  border-color: #d1d5db;\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skills-list .skill-item.primary-skill {\n  border-left: 4px solid #001E40;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skills-list .skill-item.additional-skill {\n  border-left: 4px solid #3b82f6;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skills-list .skill-item .skill-header {\n  display: flex;\n  align-items: center;\n  margin-bottom: 12px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skills-list .skill-item .skill-header .skill-name {\n  font-size: 16px;\n  font-weight: 600;\n  color: #1f2937;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skills-list .skill-item .skill-details-row {\n  display: flex;\n  justify-content: space-between;\n  align-items: flex-start;\n  gap: 20px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skills-list .skill-item .skill-details-row .sub-skills {\n  flex: 1;\n  margin-bottom: 0;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skills-list .skill-item .skill-details-row .sub-skills .sub-skills-label {\n  display: inline-block;\n  font-size: 13px;\n  font-weight: 500;\n  color: #6b7280;\n  margin-bottom: 6px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skills-list .skill-item .skill-details-row .sub-skills .sub-skills-tags {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 6px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skills-list .skill-item .skill-details-row .sub-skills .sub-skills-tags .sub-skill-tag {\n  padding: 4px 10px;\n  background: white;\n  border: 1px solid #d1d5db;\n  border-radius: 6px;\n  font-size: 12px;\n  color: #374151;\n  font-weight: 500;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skills-list .skill-item .skill-details-row .skill-experience {\n  display: flex;\n  flex-direction: column;\n  gap: 4px;\n  font-size: 13px;\n  flex-shrink: 0;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skills-list .skill-item .skill-details-row .skill-experience .experience-label {\n  font-weight: 500;\n  color: #6b7280;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skills-list .skill-item .skill-details-row .skill-experience .experience-value {\n  padding: 2px 8px;\n  background: white;\n  border: 1px solid #d1d5db;\n  border-radius: 4px;\n  color: #374151;\n  font-weight: 500;\n  align-self: flex-start;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .empty-state {\n  padding: 20px;\n  text-align: center;\n  color: #9ca3af;\n  font-size: 14px;\n  font-style: italic;\n  background: #f9fafb;\n  border: 2px dashed #e5e7eb;\n  border-radius: 8px;\n}\n.my-profile-container .worker-credentials-card .add-credential-form {\n  background: #f8fafc;\n  border: 2px dashed #001E40;\n  border-radius: 8px;\n  padding: 20px;\n  margin-bottom: 20px;\n}\n.my-profile-container .worker-credentials-card .add-credential-form .add-form-title {\n  font-size: 15px;\n  font-weight: 600;\n  color: #001E40;\n  margin-bottom: 15px;\n}\n.my-profile-container .worker-credentials-card .add-credential-form .form-row {\n  display: grid;\n  grid-template-columns: 1fr;\n  gap: 15px;\n  margin-bottom: 15px;\n}\n@media (min-width: 768px) {\n  .my-profile-container .worker-credentials-card .add-credential-form .form-row {\n    grid-template-columns: 1fr 1fr;\n  }\n}\n.my-profile-container .worker-credentials-card .add-credential-form .form-group {\n  display: flex;\n  flex-direction: column;\n}\n.my-profile-container .worker-credentials-card .add-credential-form .form-group label {\n  font-size: 13px;\n  font-weight: 500;\n  color: #374151;\n  margin-bottom: 6px;\n}\n.my-profile-container .worker-credentials-card .add-credential-form .form-group .form-input {\n  height: 40px;\n  padding: 10px 12px;\n  border: 1px solid #d1d5db;\n  border-radius: 6px;\n  font-size: 14px;\n  color: #1f2937;\n  background-color: white;\n  transition: all 0.2s ease;\n}\n.my-profile-container .worker-credentials-card .add-credential-form .form-group .form-input:focus {\n  outline: none;\n  border-color: #001E40;\n  box-shadow: 0 0 0 3px rgba(0, 30, 64, 0.1);\n}\n.my-profile-container .worker-credentials-card .add-credential-form .form-group .form-input[type=file] {\n  padding: 8px 12px;\n  cursor: pointer;\n}\n.my-profile-container .worker-credentials-card .add-credential-form .form-group #credentialName,\n.my-profile-container .worker-credentials-card .add-credential-form .form-group #credentialFile {\n  width: 400px !important;\n  height: 40px !important;\n}\n.my-profile-container .worker-credentials-card .add-credential-form .form-group .file-selected-info {\n  display: flex;\n  flex-direction: column;\n  gap: 4px;\n  margin-top: 8px;\n  padding: 8px 12px;\n  background: #f0f9ff;\n  border: 1px solid #0ea5e9;\n  border-radius: 6px;\n}\n.my-profile-container .worker-credentials-card .add-credential-form .form-group .file-selected-info .file-selected {\n  display: block;\n  font-size: 12px;\n  color: #0369a1;\n  font-weight: 500;\n}\n.my-profile-container .worker-credentials-card .add-credential-form .add-credential-action-btn {\n  display: inline-flex;\n  align-items: center;\n  gap: 6px;\n  width: 165px;\n  height: 36px;\n  padding: 0 16px;\n  background: #001E40;\n  color: white;\n  border: none;\n  border-radius: 6px;\n  font-size: 12.5px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  justify-content: center;\n}\n.my-profile-container .worker-credentials-card .add-credential-form .add-credential-action-btn svg {\n  fill: white;\n}\n.my-profile-container .worker-credentials-card .add-credential-form .add-credential-action-btn:hover {\n  background: #002a5c;\n  transform: translateY(-1px);\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n}\n.my-profile-container .worker-credentials-card .add-credential-form .add-credential-action-btn:active {\n  transform: translateY(0);\n}\n.my-profile-container .worker-credentials-card .form-actions {\n  display: flex;\n  justify-content: flex-end;\n  gap: 15px;\n  margin-top: 30px;\n  padding-top: 20px;\n  border-top: 1px solid #e5e7eb;\n}\n@media (max-width: 768px) {\n  .my-profile-container .worker-credentials-card .form-actions {\n    flex-direction: column;\n    align-items: stretch;\n  }\n}\n.my-profile-container .worker-credentials-card .form-actions .worker-credentials-edit-btn,\n.my-profile-container .worker-credentials-card .form-actions .worker-credentials-save-btn,\n.my-profile-container .worker-credentials-card .form-actions .worker-credentials-cancel-btn {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  width: 165px;\n  height: 36px;\n  padding: 0 16px;\n  border-radius: 6px;\n  font-size: 12.5px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  border: none;\n  justify-content: center;\n}\n.my-profile-container .worker-credentials-card .form-actions .worker-credentials-edit-btn .btn-icon,\n.my-profile-container .worker-credentials-card .form-actions .worker-credentials-save-btn .btn-icon,\n.my-profile-container .worker-credentials-card .form-actions .worker-credentials-cancel-btn .btn-icon {\n  width: 16px;\n  height: 16px;\n  font-size: 16px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.my-profile-container .worker-credentials-card .form-actions .worker-credentials-edit-btn,\n.my-profile-container .worker-credentials-card .form-actions .worker-credentials-cancel-btn {\n  background-color: #FFFFFF;\n  color: #374151;\n  border: 1px solid #001E40;\n}\n.my-profile-container .worker-credentials-card .form-actions .worker-credentials-edit-btn:hover,\n.my-profile-container .worker-credentials-card .form-actions .worker-credentials-cancel-btn:hover {\n  background-color: #f8fafc;\n  border-color: #001E40;\n}\n.my-profile-container .worker-credentials-card .form-actions .worker-credentials-save-btn {\n  background-color: #001E40;\n  color: white;\n}\n.my-profile-container .worker-credentials-card .form-actions .worker-credentials-save-btn:hover {\n  background-color: #002a5c;\n}\n.my-profile-container .worker-credentials-card .form-actions .worker-credentials-save-btn:active {\n  background-color: #001a33;\n}\n.my-profile-container .worker-credentials-card .credentials-display {\n  margin-bottom: 20px;\n}\n.my-profile-container .worker-credentials-card .credentials-display .credentials-list {\n  display: flex;\n  flex-direction: column;\n  gap: 12px;\n}\n.my-profile-container .worker-credentials-card .credentials-display .credentials-list .credential-item {\n  display: flex;\n  align-items: center;\n  gap: 15px;\n  padding: 16px;\n  background: #f9fafb;\n  border: 2px solid #e5e7eb;\n  border-radius: 8px;\n  transition: all 0.3s ease;\n  position: relative;\n}\n.my-profile-container .worker-credentials-card .credentials-display .credentials-list .credential-item:hover {\n  border-color: #001E40;\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);\n}\n.my-profile-container .worker-credentials-card .credentials-display .credentials-list .credential-item .remove-credential-btn {\n  position: absolute;\n  top: 12px;\n  right: 12px;\n  width: 32px;\n  height: 32px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  background: #fee2e2;\n  border: 1px solid #fca5a5;\n  border-radius: 6px;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  padding: 0;\n  opacity: 0.8;\n}\n.my-profile-container .worker-credentials-card .credentials-display .credentials-list .credential-item .remove-credential-btn svg {\n  fill: #dc2626;\n}\n.my-profile-container .worker-credentials-card .credentials-display .credentials-list .credential-item .remove-credential-btn:hover {\n  background: #fecaca;\n  border-color: #f87171;\n  opacity: 1;\n  transform: scale(1.05);\n}\n.my-profile-container .worker-credentials-card .credentials-display .credentials-list .credential-item .credential-icon {\n  flex-shrink: 0;\n  width: 40px;\n  height: 40px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  background: #001E40;\n  border-radius: 8px;\n  color: white;\n}\n.my-profile-container .worker-credentials-card .credentials-display .credentials-list .credential-item .credential-icon svg {\n  width: 24px;\n  height: 24px;\n}\n.my-profile-container .worker-credentials-card .credentials-display .credentials-list .credential-item .credential-info {\n  flex: 1;\n  display: flex;\n  flex-direction: column;\n  gap: 6px;\n}\n.my-profile-container .worker-credentials-card .credentials-display .credentials-list .credential-item .credential-info .credential-name {\n  font-size: 15px;\n  font-weight: 600;\n  color: #1f2937;\n  word-wrap: break-word;\n  overflow-wrap: break-word;\n  word-break: break-word;\n  max-width: 100%;\n}\n.my-profile-container .worker-credentials-card .credentials-display .credentials-list .credential-item .credential-info .document-info {\n  display: flex;\n  flex-direction: column;\n  gap: 8px;\n}\n.my-profile-container .worker-credentials-card .credentials-display .credentials-list .credential-item .credential-info .document-info .credential-file-item {\n  display: flex;\n  flex-direction: column;\n  gap: 4px;\n}\n.my-profile-container .worker-credentials-card .credentials-display .credentials-list .credential-item .credential-info .document-info .view-document-link {\n  font-size: 13px;\n  color: #3b82f6;\n  text-decoration: none;\n  font-weight: 500;\n  transition: color 0.2s ease;\n}\n.my-profile-container .worker-credentials-card .credentials-display .credentials-list .credential-item .credential-info .document-info .view-document-link:hover {\n  color: #2563eb;\n  text-decoration: underline;\n}\n.my-profile-container .worker-credentials-card .credentials-display .credentials-list .credential-item .credential-info .document-info .file-path {\n  font-size: 11px;\n  color: #6b7280;\n  font-weight: 400;\n  font-style: italic;\n  word-break: break-all;\n}\n.my-profile-container .worker-credentials-card .credentials-display .credentials-list .credential-item .credential-info .pending-upload {\n  font-size: 12px;\n  color: #f59e0b;\n  font-weight: 500;\n  font-style: italic;\n}\n.my-profile-container .worker-credentials-card .credentials-display .credentials-list .credential-item .credential-info .no-file-uploaded {\n  font-size: 12px;\n  color: #9ca3af;\n  font-weight: 500;\n  font-style: italic;\n}\n.my-profile-container .worker-credentials-card .credentials-display .empty-state {\n  padding: 20px;\n  text-align: center;\n  color: #9ca3af;\n  font-size: 14px;\n  font-style: italic;\n  background: #f9fafb;\n  border: 2px dashed #e5e7eb;\n  border-radius: 8px;\n}\n\n.image-modal-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background: rgba(0, 0, 0, 0.7);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  z-index: 9999;\n  padding: 20px;\n}\n.image-modal-overlay .image-modal {\n  background: white;\n  border-radius: 12px;\n  max-width: 600px;\n  width: 100%;\n  max-height: 90vh;\n  display: flex;\n  flex-direction: column;\n  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);\n}\n.image-modal-overlay .image-modal .image-modal-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 20px;\n  border-bottom: 1px solid #e5e7eb;\n}\n.image-modal-overlay .image-modal .image-modal-header h3 {\n  margin: 0;\n  font-size: 18px;\n  font-weight: 600;\n  color: #1f2937;\n}\n.image-modal-overlay .image-modal .image-modal-header .close-btn {\n  background: none;\n  border: none;\n  padding: 8px;\n  cursor: pointer;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  border-radius: 6px;\n  transition: background 0.2s ease;\n}\n.image-modal-overlay .image-modal .image-modal-header .close-btn svg {\n  fill: #6b7280;\n}\n.image-modal-overlay .image-modal .image-modal-header .close-btn:hover {\n  background: #f3f4f6;\n}\n.image-modal-overlay .image-modal .image-modal-header .close-btn:hover svg {\n  fill: #1f2937;\n}\n.image-modal-overlay .image-modal .image-modal-content {\n  padding: 20px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  overflow: auto;\n}\n.image-modal-overlay .image-modal .image-modal-content img {\n  max-width: 100%;\n  max-height: 60vh;\n  -o-object-fit: contain;\n     object-fit: contain;\n  border-radius: 8px;\n}\n\nselect:focus, select:active, select[aria-expanded=true] {\n  border-bottom-left-radius: 0 !important;\n  border-bottom-right-radius: 0 !important;\n}\nselect option {\n  position: relative;\n  z-index: 1000;\n}\n\n.employer-credentials-card {\n  background: white;\n  border-radius: 12px;\n  padding: 30px;\n  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);\n  border: 1px solid #e5e7eb;\n}\n.employer-credentials-card .card-header-with-count {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n  margin-bottom: 20px;\n}\n.employer-credentials-card .card-header-with-count .card-title {\n  margin: 0;\n}\n.employer-credentials-card .card-header-with-count .credentials-count {\n  font-size: 14px;\n  color: #6b7280;\n  font-weight: 500;\n}\n.employer-credentials-card .add-credential-form {\n  background: #f8fafc;\n  border: 2px dashed #001E40;\n  border-radius: 8px;\n  padding: 20px;\n  margin-bottom: 20px;\n}\n.employer-credentials-card .add-credential-form .add-form-title {\n  font-size: 15px;\n  font-weight: 600;\n  color: #001E40;\n  margin-bottom: 15px;\n}\n.employer-credentials-card .add-credential-form .add-form-title .add-more-hint {\n  font-size: 13px;\n  font-weight: 400;\n  color: #6b7280;\n  font-style: italic;\n}\n.employer-credentials-card .add-credential-form .form-row {\n  display: grid;\n  grid-template-columns: 1fr;\n  gap: 15px;\n  margin-bottom: 15px;\n}\n@media (min-width: 768px) {\n  .employer-credentials-card .add-credential-form .form-row {\n    grid-template-columns: 1fr 1fr;\n  }\n}\n.employer-credentials-card .add-credential-form .form-group {\n  display: flex;\n  flex-direction: column;\n}\n.employer-credentials-card .add-credential-form .form-group label {\n  font-size: 13px;\n  font-weight: 500;\n  color: #374151;\n  margin-bottom: 6px;\n}\n.employer-credentials-card .add-credential-form .form-group .form-input {\n  height: 40px;\n  padding: 10px 12px;\n  border: 1px solid #d1d5db;\n  border-radius: 6px;\n  font-size: 14px;\n  color: #1f2937;\n  background-color: white;\n  transition: all 0.2s ease;\n}\n.employer-credentials-card .add-credential-form .form-group .form-input:focus {\n  outline: none;\n  border-color: #001E40;\n  box-shadow: 0 0 0 3px rgba(0, 30, 64, 0.1);\n}\n.employer-credentials-card .add-credential-form .form-group .file-selected-info {\n  margin-top: 8px;\n  font-size: 12px;\n  color: #059669;\n}\n.employer-credentials-card .add-credential-form .form-group .file-selected-info .file-selected {\n  font-weight: 500;\n}\n.employer-credentials-card .add-credential-form .add-credential-actions {\n  display: flex;\n  gap: 10px;\n  align-items: center;\n}\n.employer-credentials-card .add-credential-form .add-credential-action-btn {\n  background: #001E40;\n  color: white;\n  border: none;\n  padding: 10px 16px;\n  border-radius: 6px;\n  font-size: 14px;\n  font-weight: 600;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.employer-credentials-card .add-credential-form .add-credential-action-btn:hover {\n  background: #002a5c;\n  transform: translateY(-1px);\n}\n.employer-credentials-card .add-credential-form .add-credential-action-btn:active {\n  transform: translateY(0);\n}\n.employer-credentials-card .add-credential-form .close-form-btn {\n  background: #f3f4f6;\n  color: #374151;\n  border: 1px solid #d1d5db;\n  padding: 10px 16px;\n  border-radius: 6px;\n  font-size: 14px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.3s ease;\n}\n.employer-credentials-card .add-credential-form .close-form-btn:hover {\n  background: #e5e7eb;\n  border-color: #9ca3af;\n}\n.employer-credentials-card .add-credential-prompt {\n  margin-bottom: 20px;\n  text-align: center;\n}\n.employer-credentials-card .add-credential-prompt .show-add-form-btn {\n  background: #f0f9ff;\n  color: #001E40;\n  border: 2px dashed #001E40;\n  padding: 12px 20px;\n  border-radius: 8px;\n  font-size: 14px;\n  font-weight: 600;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  display: inline-flex;\n  align-items: center;\n  gap: 8px;\n}\n.employer-credentials-card .add-credential-prompt .show-add-form-btn:hover {\n  background: #e0f2fe;\n  border-color: #002a5c;\n  transform: translateY(-1px);\n}\n.employer-credentials-card .add-credential-prompt .show-add-form-btn:active {\n  transform: translateY(0);\n}\n.employer-credentials-card .credentials-list .credentials-list-header {\n  margin-bottom: 15px;\n  padding-bottom: 10px;\n  border-bottom: 2px solid #e5e7eb;\n}\n.employer-credentials-card .credentials-list .credentials-list-header .list-title {\n  font-size: 16px;\n  font-weight: 600;\n  color: #001E40;\n}\n.employer-credentials-card .form-actions {\n  display: flex;\n  gap: 12px;\n  justify-content: flex-end;\n  margin-top: 20px;\n}\n.employer-credentials-card .form-actions .employer-credentials-edit-btn,\n.employer-credentials-card .form-actions .employer-credentials-save-btn,\n.employer-credentials-card .form-actions .employer-credentials-cancel-btn {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  width: 165px;\n  height: 36px;\n  padding: 0 16px;\n  border-radius: 6px;\n  font-size: 12.5px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  border: none;\n}\n.employer-credentials-card .form-actions .employer-credentials-edit-btn,\n.employer-credentials-card .form-actions .employer-credentials-cancel-btn {\n  background-color: #f3f4f6;\n  color: #374151;\n  border: 1px solid #d1d5db;\n}\n.employer-credentials-card .form-actions .employer-credentials-edit-btn:hover,\n.employer-credentials-card .form-actions .employer-credentials-cancel-btn:hover {\n  background-color: #e5e7eb;\n}\n.employer-credentials-card .form-actions .employer-credentials-save-btn {\n  background-color: #001E40;\n  color: white;\n}\n.employer-credentials-card .form-actions .employer-credentials-save-btn:hover {\n  background-color: #002a5c;\n}\n.employer-credentials-card .form-actions .employer-credentials-save-btn:active {\n  background-color: #001a33;\n}\n.employer-credentials-card .credentials-display {\n  margin-bottom: 20px;\n}\n.employer-credentials-card .credentials-display .credentials-list {\n  display: flex;\n  flex-direction: column;\n  gap: 12px;\n}\n.employer-credentials-card .credentials-display .credentials-list .credential-item {\n  display: flex;\n  align-items: center;\n  gap: 15px;\n  padding: 16px;\n  background: #f9fafb;\n  border: 2px solid #e5e7eb;\n  border-radius: 8px;\n  transition: all 0.3s ease;\n  position: relative;\n}\n.employer-credentials-card .credentials-display .credentials-list .credential-item:hover {\n  border-color: #001E40;\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);\n}\n.employer-credentials-card .credentials-display .credentials-list .credential-item .credential-number {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  width: 32px;\n  height: 32px;\n  background: #001E40;\n  color: white;\n  border-radius: 50%;\n  font-size: 14px;\n  font-weight: 600;\n  flex-shrink: 0;\n}\n.employer-credentials-card .credentials-display .credentials-list .credential-item .remove-credential-btn {\n  position: absolute;\n  top: 12px;\n  right: 12px;\n  width: 32px;\n  height: 32px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  background: #fee2e2;\n  border: 1px solid #fca5a5;\n  border-radius: 6px;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  padding: 0;\n}\n.employer-credentials-card .credentials-display .credentials-list .credential-item .remove-credential-btn:hover {\n  background: #fecaca;\n  border-color: #f87171;\n}\n.employer-credentials-card .credentials-display .credentials-list .credential-item .remove-credential-btn svg {\n  color: #dc2626;\n}\n.employer-credentials-card .credentials-display .credentials-list .credential-item .credential-icon {\n  color: #001E40;\n  flex-shrink: 0;\n}\n.employer-credentials-card .credentials-display .credentials-list .credential-item .credential-info {\n  flex: 1;\n  min-width: 0;\n}\n.employer-credentials-card .credentials-display .credentials-list .credential-item .credential-info .credential-name {\n  font-size: 14px;\n  font-weight: 600;\n  color: #1f2937;\n  margin-bottom: 4px;\n  display: block;\n  word-wrap: break-word;\n  overflow-wrap: break-word;\n  word-break: break-word;\n  max-width: 100%;\n}\n.employer-credentials-card .credentials-display .credentials-list .credential-item .credential-info .document-info {\n  display: flex;\n  flex-direction: column;\n  gap: 2px;\n}\n.employer-credentials-card .credentials-display .credentials-list .credential-item .credential-info .document-info .view-document-link {\n  font-size: 12px;\n  color: #001E40;\n  text-decoration: none;\n  font-weight: 500;\n}\n.employer-credentials-card .credentials-display .credentials-list .credential-item .credential-info .document-info .view-document-link:hover {\n  text-decoration: underline;\n}\n.employer-credentials-card .credentials-display .credentials-list .credential-item .credential-info .document-info .file-path {\n  font-size: 11px;\n  color: #6b7280;\n  font-family: monospace;\n}\n.employer-credentials-card .credentials-display .credentials-list .credential-item .credential-info .pending-upload {\n  font-size: 12px;\n  color: #f59e0b;\n  font-style: italic;\n}\n.employer-credentials-card .credentials-display .credentials-list .credential-item .credential-info .no-file-uploaded {\n  font-size: 12px;\n  color: #ef4444;\n  font-style: italic;\n}\n.employer-credentials-card .credentials-display .empty-state {\n  text-align: center;\n  color: #6b7280;\n  font-style: italic;\n  padding: 20px;\n  background: #f9fafb;\n  border-radius: 8px;\n  border: 2px dashed #d1d5db;\n}\n\n@media (max-width: 768px) {\n  .my-profile-container {\n    gap: 20px;\n  }\n  .my-profile-container .profile-card,\n  .my-profile-container .password-card {\n    padding: 20px;\n  }\n  .my-profile-container .profile-header {\n    margin-bottom: 20px;\n  }\n  .my-profile-container .profile-header .avatar-container .avatar-placeholder {\n    width: 80px;\n    height: 80px;\n    font-size: 32px;\n  }\n  .my-profile-container .card-title {\n    font-size: 20px;\n    margin-bottom: 20px;\n  }\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "@charset \"UTF-8\";\n.my-profile-container {\n  display: flex;\n  flex-direction: column;\n  gap: 30px;\n}\n.my-profile-container .profile-card,\n.my-profile-container .password-card,\n.my-profile-container .work-preferences-card,\n.my-profile-container .worker-skills-card,\n.my-profile-container .worker-credentials-card {\n  background: white;\n  border-radius: 12px;\n  padding: 30px;\n  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);\n  border: 1px solid #e5e7eb;\n  transition: box-shadow 0.3s ease;\n}\n.my-profile-container .profile-card:hover,\n.my-profile-container .password-card:hover,\n.my-profile-container .work-preferences-card:hover,\n.my-profile-container .worker-skills-card:hover,\n.my-profile-container .worker-credentials-card:hover {\n  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);\n}\n.my-profile-container .profile-header {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  margin-bottom: 30px;\n}\n.my-profile-container .profile-header .avatar-container {\n  position: relative;\n}\n.my-profile-container .profile-header .avatar-container .avatar-placeholder {\n  width: 120px;\n  height: 120px;\n  border-radius: 50%;\n  background-color: #f3f4f6;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  border: 3px solid #e5e7eb;\n  transition: all 0.3s ease;\n}\n.my-profile-container .profile-header .avatar-container .avatar-placeholder.clickable {\n  cursor: pointer;\n}\n.my-profile-container .profile-header .avatar-container .avatar-placeholder.clickable:hover {\n  border-color: #001E40;\n  background-color: #f8fafc;\n}\n.my-profile-container .profile-header .avatar-container .avatar-placeholder img {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  border-radius: 50%;\n}\n.my-profile-container .profile-header .avatar-container .camera-icon {\n  position: absolute;\n  bottom: 5px;\n  right: 5px;\n  width: 36px;\n  height: 36px;\n  background: #001E40;\n  border-radius: 50%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  border: 3px solid white;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);\n}\n.my-profile-container .profile-header .avatar-container .camera-icon:hover {\n  background: #002a5c;\n  transform: scale(1.1);\n}\n.my-profile-container .profile-header .avatar-container .camera-icon svg {\n  width: 18px;\n  height: 18px;\n  fill: white;\n}\n.my-profile-container .profile-header .avatar-container .profile-dropdown {\n  position: absolute;\n  top: 100%;\n  left: 50%;\n  transform: translateX(-50%);\n  margin-top: 10px;\n  background: white;\n  border-radius: 8px;\n  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);\n  padding: 8px 0;\n  min-width: 180px;\n  z-index: 1000;\n  opacity: 0;\n  visibility: hidden;\n  transition: all 0.3s ease;\n}\n.my-profile-container .profile-header .avatar-container .profile-dropdown.show {\n  opacity: 1;\n  visibility: visible;\n}\n.my-profile-container .profile-header .avatar-container .profile-dropdown .dropdown-item {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n  padding: 12px 16px;\n  background: none;\n  border: none;\n  width: 100%;\n  text-align: left;\n  font-size: 14px;\n  color: #374151;\n  cursor: pointer;\n  transition: all 0.2s ease;\n}\n.my-profile-container .profile-header .avatar-container .profile-dropdown .dropdown-item svg {\n  width: 18px;\n  height: 18px;\n  fill: #6b7280;\n  transition: fill 0.2s ease;\n}\n.my-profile-container .profile-header .avatar-container .profile-dropdown .dropdown-item:hover {\n  background: #f3f4f6;\n}\n.my-profile-container .profile-header .avatar-container .profile-dropdown .dropdown-item:hover svg {\n  fill: #001E40;\n}\n.my-profile-container .profile-header .avatar-container .profile-dropdown .dropdown-item.delete-item {\n  color: #dc2626;\n}\n.my-profile-container .profile-header .avatar-container .profile-dropdown .dropdown-item.delete-item svg {\n  fill: #dc2626;\n}\n.my-profile-container .profile-header .avatar-container .profile-dropdown .dropdown-item.delete-item:hover {\n  background: #fee2e2;\n}\n.my-profile-container .profile-header .rank-display-section {\n  margin-top: 20px;\n  padding: 12px;\n  width: 100%;\n  max-width: 400px;\n}\n.my-profile-container .profile-header .rank-display-section .rank-display {\n  display: flex;\n  align-items: center;\n  gap: 15px;\n}\n.my-profile-container .profile-header .rank-display-section .rank-display .worker-rank-badge {\n  width: 45px;\n  height: 45px;\n  -o-object-fit: contain;\n     object-fit: contain;\n  flex-shrink: 0;\n  background: transparent;\n  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));\n}\n.my-profile-container .profile-header .rank-display-section .rank-display .rank-progress {\n  display: flex;\n  flex-direction: column;\n  gap: 5px;\n  flex: 1;\n}\n.my-profile-container .profile-header .rank-display-section .rank-display .rank-progress .progress-info {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n.my-profile-container .profile-header .rank-display-section .rank-display .rank-progress .progress-info .rank-name {\n  font-size: 15px;\n  font-weight: 600;\n  color: #333;\n}\n.my-profile-container .profile-header .rank-display-section .rank-display .rank-progress .progress-info .points-text {\n  font-size: 13px;\n  font-weight: 600;\n  color: #666;\n}\n.my-profile-container .profile-header .rank-display-section .rank-display .rank-progress .progress-bar-container {\n  width: 100%;\n  height: 10px;\n  background: #e0e0e0;\n  border-radius: 10px;\n  overflow: hidden;\n  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);\n}\n.my-profile-container .profile-header .rank-display-section .rank-display .rank-progress .progress-bar-container .progress-bar-fill {\n  height: 100%;\n  border-radius: 10px;\n  transition: width 0.3s ease;\n}\n.my-profile-container .profile-header .rank-display-section .rank-display .rank-progress .progress-bar-container .progress-bar-fill.rank-bronze {\n  background: linear-gradient(90deg, #8b4513, #a0522d);\n}\n.my-profile-container .profile-header .rank-display-section .rank-display .rank-progress .progress-bar-container .progress-bar-fill.rank-silver {\n  background: linear-gradient(90deg, #c0c0c0, #d3d3d3);\n}\n.my-profile-container .profile-header .rank-display-section .rank-display .rank-progress .progress-bar-container .progress-bar-fill.rank-gold {\n  background: linear-gradient(90deg, #ffd700, #ffed4e);\n}\n.my-profile-container .profile-header .rank-display-section .rank-display .rank-progress .progress-bar-container .progress-bar-fill.rank-platinum {\n  background: linear-gradient(90deg, #e5e4e2, #bcc6cc);\n}\n.my-profile-container .profile-header .rank-display-section .rank-display .rank-progress .progress-bar-container .progress-bar-fill.rank-diamond {\n  background: linear-gradient(90deg, #b9f2ff, #4fc3f7);\n}\n.my-profile-container .profile-header .rank-display-section .rank-display .rank-progress .progress-label {\n  font-size: 11px;\n  color: #888;\n  text-align: right;\n  font-weight: 500;\n}\n.my-profile-container .card-title {\n  font-size: 24px;\n  font-weight: 600;\n  color: #1f2937;\n  margin-bottom: 25px;\n}\n.my-profile-container .profile-form .form-row,\n.my-profile-container .password-form .form-row {\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n  gap: 20px;\n  margin-bottom: 20px;\n}\n@media (max-width: 768px) {\n  .my-profile-container .profile-form .form-row,\n  .my-profile-container .password-form .form-row {\n    grid-template-columns: 1fr;\n    gap: 15px;\n  }\n}\n.my-profile-container .profile-form .form-group,\n.my-profile-container .password-form .form-group {\n  display: flex;\n  flex-direction: column;\n}\n.my-profile-container .profile-form .form-group label,\n.my-profile-container .password-form .form-group label {\n  font-size: 14px;\n  font-weight: 500;\n  color: #374151;\n  margin-bottom: 10px;\n}\n.my-profile-container .profile-form .form-group label.label-up,\n.my-profile-container .password-form .form-group label.label-up {\n  margin-bottom: 1px;\n}\n.my-profile-container .profile-form .form-group input,\n.my-profile-container .profile-form .form-group select,\n.my-profile-container .password-form .form-group input,\n.my-profile-container .password-form .form-group select {\n  height: 45px;\n  padding: 12px 16px;\n  border: 2px solid #e5e7eb;\n  border-radius: 6px;\n  font-size: 14px;\n  color: #1f2937;\n  background-color: #f9fafb;\n  transition: all 0.3s ease;\n}\n.my-profile-container .profile-form .form-group input:focus,\n.my-profile-container .profile-form .form-group select:focus,\n.my-profile-container .password-form .form-group input:focus,\n.my-profile-container .password-form .form-group select:focus {\n  outline: none;\n  border-color: #3b82f6;\n  background-color: white;\n  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);\n}\n.my-profile-container .profile-form .form-group input:disabled,\n.my-profile-container .profile-form .form-group select:disabled,\n.my-profile-container .password-form .form-group input:disabled,\n.my-profile-container .password-form .form-group select:disabled {\n  background-color: #f9fafb;\n  color: #6b7280;\n  cursor: not-allowed;\n}\n.my-profile-container .profile-form .form-group input.editing,\n.my-profile-container .profile-form .form-group select.editing,\n.my-profile-container .password-form .form-group input.editing,\n.my-profile-container .password-form .form-group select.editing {\n  background-color: white;\n  border: 2px solid #e5e7eb;\n}\n.my-profile-container .profile-form .form-group input::-moz-placeholder, .my-profile-container .profile-form .form-group select::-moz-placeholder, .my-profile-container .password-form .form-group input::-moz-placeholder, .my-profile-container .password-form .form-group select::-moz-placeholder {\n  color: #9ca3af;\n}\n.my-profile-container .profile-form .form-group input::placeholder,\n.my-profile-container .profile-form .form-group select::placeholder,\n.my-profile-container .password-form .form-group input::placeholder,\n.my-profile-container .password-form .form-group select::placeholder {\n  color: #9ca3af;\n}\n.my-profile-container .profile-form .form-group .date-input-container,\n.my-profile-container .password-form .form-group .date-input-container {\n  position: relative;\n}\n.my-profile-container .profile-form .form-group .date-input-container input[type=date]::-webkit-calendar-picker-indicator,\n.my-profile-container .password-form .form-group .date-input-container input[type=date]::-webkit-calendar-picker-indicator {\n  display: none;\n  -webkit-appearance: none;\n}\n.my-profile-container .profile-form .form-group .date-input-container input[type=date]::-moz-calendar-picker-indicator,\n.my-profile-container .password-form .form-group .date-input-container input[type=date]::-moz-calendar-picker-indicator {\n  display: none;\n}\n.my-profile-container .profile-form .form-group .date-input-container .calendar-icon,\n.my-profile-container .password-form .form-group .date-input-container .calendar-icon {\n  position: absolute;\n  right: 12px;\n  top: 50%;\n  transform: translateY(-50%);\n  width: 16px;\n  height: 16px;\n  pointer-events: none;\n}\n.my-profile-container .profile-form .form-group.date-field .date-input-container input,\n.my-profile-container .password-form .form-group.date-field .date-input-container input {\n  width: 850px;\n}\n.my-profile-container .profile-form .form-group .password-input-container,\n.my-profile-container .password-form .form-group .password-input-container {\n  position: relative;\n}\n.my-profile-container .profile-form .form-group .password-input-container .eye-btn,\n.my-profile-container .password-form .form-group .password-input-container .eye-btn {\n  position: absolute;\n  right: 12px;\n  top: 50%;\n  transform: translateY(-50%);\n  background: none;\n  border: none;\n  color: #6b7280;\n  cursor: pointer;\n  padding: 4px;\n  border-radius: 4px;\n  transition: color 0.3s ease;\n}\n.my-profile-container .profile-form .form-group .password-input-container .eye-btn:hover,\n.my-profile-container .password-form .form-group .password-input-container .eye-btn:hover {\n  color: #374151;\n}\n.my-profile-container .profile-form .form-group .password-input-container .eye-btn i,\n.my-profile-container .password-form .form-group .password-input-container .eye-btn i {\n  font-size: 16px;\n}\n.my-profile-container .profile-form .form-group .gender-dropdown-toggle,\n.my-profile-container .password-form .form-group .gender-dropdown-toggle {\n  width: 100% !important;\n  height: 45px !important;\n  text-align: left !important;\n  background-color: #f9fafb !important;\n  border: 2px solid #e5e7eb !important;\n  border-radius: 8px !important;\n  font-size: 14px !important;\n  color: #1f2937 !important;\n  padding: 12px 16px !important;\n  display: flex !important;\n  justify-content: space-between !important;\n  align-items: center !important;\n  transition: all 0.3s ease !important;\n  font-weight: 500 !important;\n  position: relative !important;\n}\n.my-profile-container .profile-form .form-group .gender-dropdown-toggle:focus,\n.my-profile-container .password-form .form-group .gender-dropdown-toggle:focus {\n  outline: none !important;\n  border-color: #3b82f6 !important;\n  background-color: white !important;\n  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1) !important;\n}\n.my-profile-container .profile-form .form-group .gender-dropdown-toggle:hover:not(:disabled),\n.my-profile-container .password-form .form-group .gender-dropdown-toggle:hover:not(:disabled) {\n  border-color: #d1d5db !important;\n  background-color: white !important;\n}\n.my-profile-container .profile-form .form-group .gender-dropdown-toggle:disabled,\n.my-profile-container .password-form .form-group .gender-dropdown-toggle:disabled {\n  background-color: #f9fafb !important;\n  color: #6b7280 !important;\n  cursor: not-allowed !important;\n  opacity: 0.6 !important;\n}\n.my-profile-container .profile-form .form-group .gender-dropdown-toggle.editing,\n.my-profile-container .password-form .form-group .gender-dropdown-toggle.editing {\n  background-color: white !important;\n  border: 2px solid #e5e7eb !important;\n}\n.my-profile-container .profile-form .form-group .gender-dropdown-toggle::after,\n.my-profile-container .password-form .form-group .gender-dropdown-toggle::after {\n  content: \"\" !important;\n  display: inline-block !important;\n  margin-left: 0.255em !important;\n  vertical-align: 0.255em !important;\n  border-top: 0.3em solid !important;\n  border-right: 0.3em solid transparent !important;\n  border-bottom: 0 !important;\n  border-left: 0.3em solid transparent !important;\n  color: #6b7280 !important;\n  transition: transform 0.3s ease !important;\n}\n.my-profile-container .profile-form .form-group .gender-dropdown-toggle[aria-expanded=true]::after,\n.my-profile-container .password-form .form-group .gender-dropdown-toggle[aria-expanded=true]::after {\n  transform: rotate(180deg) !important;\n}\n.my-profile-container .profile-form .form-group .gender-dropdown-menu,\n.my-profile-container .password-form .form-group .gender-dropdown-menu {\n  width: 100% !important;\n  border: 1px solid #e5e7eb !important;\n  border-radius: 8px !important;\n  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15) !important;\n  margin-top: 8px !important;\n  padding: 8px 0 !important;\n  background: white !important;\n  overflow: hidden !important;\n}\n.my-profile-container .profile-form .form-group .gender-dropdown-menu .dropdown-item,\n.my-profile-container .password-form .form-group .gender-dropdown-menu .dropdown-item {\n  padding: 14px 20px !important;\n  font-size: 14px !important;\n  color: #374151 !important;\n  transition: all 0.2s ease !important;\n  cursor: pointer !important;\n  border: none !important;\n  background: none !important;\n  width: 100% !important;\n  text-align: left !important;\n  font-weight: 500 !important;\n  position: relative !important;\n}\n.my-profile-container .profile-form .form-group .gender-dropdown-menu .dropdown-item:hover,\n.my-profile-container .password-form .form-group .gender-dropdown-menu .dropdown-item:hover {\n  background-color: #f8fafc !important;\n  color: #1f2937 !important;\n  transform: translateX(4px) !important;\n}\n.my-profile-container .profile-form .form-group .gender-dropdown-menu .dropdown-item.active,\n.my-profile-container .password-form .form-group .gender-dropdown-menu .dropdown-item.active {\n  background-color: #eff6ff !important;\n  color: #1d4ed8 !important;\n  font-weight: 600 !important;\n}\n.my-profile-container .profile-form .form-group .gender-dropdown-menu .dropdown-item.active::before,\n.my-profile-container .password-form .form-group .gender-dropdown-menu .dropdown-item.active::before {\n  content: \"✓\" !important;\n  position: absolute !important;\n  right: 16px !important;\n  top: 50% !important;\n  transform: translateY(-50%) !important;\n  color: #1d4ed8 !important;\n  font-weight: bold !important;\n}\n.my-profile-container .profile-form .form-group .gender-dropdown-menu .dropdown-item:first-child,\n.my-profile-container .password-form .form-group .gender-dropdown-menu .dropdown-item:first-child {\n  border-top-left-radius: 8px !important;\n  border-top-right-radius: 8px !important;\n}\n.my-profile-container .profile-form .form-group .gender-dropdown-menu .dropdown-item:last-child,\n.my-profile-container .password-form .form-group .gender-dropdown-menu .dropdown-item:last-child {\n  border-bottom-left-radius: 8px !important;\n  border-bottom-right-radius: 8px !important;\n}\n.my-profile-container .profile-form .form-actions,\n.my-profile-container .password-form .form-actions {\n  display: flex;\n  justify-content: flex-end;\n  gap: 15px;\n  margin-top: 30px;\n  padding-top: 20px;\n  border-top: 1px solid #e5e7eb;\n}\n@media (max-width: 768px) {\n  .my-profile-container .profile-form .form-actions,\n  .my-profile-container .password-form .form-actions {\n    flex-direction: column;\n    align-items: stretch;\n  }\n}\n.my-profile-container .profile-form .form-actions .edit-btn,\n.my-profile-container .profile-form .form-actions .save-btn,\n.my-profile-container .password-form .form-actions .edit-btn,\n.my-profile-container .password-form .form-actions .save-btn {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  width: 165px;\n  height: 36px;\n  padding: 0 16px;\n  border-radius: 6px;\n  font-size: 12.5px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  border: none;\n  justify-content: center;\n}\n.my-profile-container .profile-form .form-actions .edit-btn .btn-icon,\n.my-profile-container .profile-form .form-actions .save-btn .btn-icon,\n.my-profile-container .password-form .form-actions .edit-btn .btn-icon,\n.my-profile-container .password-form .form-actions .save-btn .btn-icon {\n  width: 16px;\n  height: 16px;\n  font-size: 16px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.my-profile-container .profile-form .form-actions .password-card .edit-btn,\n.my-profile-container .password-form .form-actions .password-card .edit-btn {\n  width: 170px;\n}\n.my-profile-container .profile-form .form-actions .edit-btn,\n.my-profile-container .password-form .form-actions .edit-btn {\n  background-color: #FFFFFF;\n  color: #374151;\n  border: 1px solid #001E40;\n}\n.my-profile-container .profile-form .form-actions .edit-btn:hover,\n.my-profile-container .password-form .form-actions .edit-btn:hover {\n  background-color: #f8fafc;\n  border-color: #001E40;\n}\n.my-profile-container .profile-form .form-actions .save-btn,\n.my-profile-container .password-form .form-actions .save-btn {\n  background-color: #001E40;\n  color: white;\n}\n.my-profile-container .profile-form .form-actions .save-btn:hover,\n.my-profile-container .password-form .form-actions .save-btn:hover {\n  background-color: #002a5c;\n}\n.my-profile-container .profile-form .form-actions .save-btn:active,\n.my-profile-container .password-form .form-actions .save-btn:active {\n  background-color: #001a33;\n}\n.my-profile-container .password-card .password-form .form-group {\n  margin-bottom: 20px;\n}\n.my-profile-container .work-preferences-card .form-actions {\n  display: flex;\n  justify-content: flex-end;\n  gap: 15px;\n  margin-top: 30px;\n  padding-top: 20px;\n  border-top: 1px solid #e5e7eb;\n}\n@media (max-width: 768px) {\n  .my-profile-container .work-preferences-card .form-actions {\n    flex-direction: column;\n    align-items: stretch;\n  }\n}\n.my-profile-container .work-preferences-card .form-actions .worker-prefs-edit-btn,\n.my-profile-container .work-preferences-card .form-actions .worker-prefs-save-btn,\n.my-profile-container .work-preferences-card .form-actions .worker-prefs-cancel-btn {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  width: 165px;\n  height: 36px;\n  padding: 0 16px;\n  border-radius: 6px;\n  font-size: 12.5px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  border: none;\n  justify-content: center;\n}\n.my-profile-container .work-preferences-card .form-actions .worker-prefs-edit-btn .btn-icon,\n.my-profile-container .work-preferences-card .form-actions .worker-prefs-save-btn .btn-icon,\n.my-profile-container .work-preferences-card .form-actions .worker-prefs-cancel-btn .btn-icon {\n  width: 16px;\n  height: 16px;\n  font-size: 16px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.my-profile-container .work-preferences-card .form-actions .worker-prefs-edit-btn {\n  width: 175px;\n}\n.my-profile-container .work-preferences-card .form-actions .worker-prefs-edit-btn,\n.my-profile-container .work-preferences-card .form-actions .worker-prefs-cancel-btn {\n  background-color: #FFFFFF;\n  color: #374151;\n  border: 1px solid #001E40;\n}\n.my-profile-container .work-preferences-card .form-actions .worker-prefs-edit-btn:hover,\n.my-profile-container .work-preferences-card .form-actions .worker-prefs-cancel-btn:hover {\n  background-color: #f8fafc;\n  border-color: #001E40;\n}\n.my-profile-container .work-preferences-card .form-actions .worker-prefs-save-btn {\n  background-color: #001E40;\n  color: white;\n}\n.my-profile-container .work-preferences-card .form-actions .worker-prefs-save-btn:hover {\n  background-color: #002a5c;\n}\n.my-profile-container .work-preferences-card .form-actions .worker-prefs-save-btn:active {\n  background-color: #001a33;\n}\n.my-profile-container .work-preferences-card .work-preferences-form .form-group.full-width {\n  grid-column: 1/-1;\n}\n.my-profile-container .work-preferences-card .work-preferences-form .working-days-container {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 10px;\n  margin-top: 8px;\n}\n.my-profile-container .work-preferences-card .work-preferences-form .working-days-container .day-checkbox {\n  display: flex;\n  align-items: center;\n  gap: 6px;\n  padding: 8px 12px;\n  border: 2px solid #e5e7eb;\n  border-radius: 6px;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  background-color: #f9fafb;\n}\n.my-profile-container .work-preferences-card .work-preferences-form .working-days-container .day-checkbox.disabled {\n  cursor: not-allowed;\n  opacity: 0.6;\n}\n.my-profile-container .work-preferences-card .work-preferences-form .working-days-container .day-checkbox input[type=checkbox] {\n  width: 16px;\n  height: 16px;\n  cursor: pointer;\n  accent-color: #001E40;\n}\n.my-profile-container .work-preferences-card .work-preferences-form .working-days-container .day-checkbox input[type=checkbox]:disabled {\n  cursor: not-allowed;\n}\n.my-profile-container .work-preferences-card .work-preferences-form .working-days-container .day-checkbox .day-label {\n  font-size: 13px;\n  font-weight: 500;\n  color: #374151;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n          user-select: none;\n}\n.my-profile-container .work-preferences-card .work-preferences-form .working-days-container .day-checkbox:hover:not(.disabled) {\n  border-color: #001E40;\n  background-color: #f0f4f8;\n}\n.my-profile-container .work-preferences-card .work-preferences-form .working-days-container .day-checkbox input[type=checkbox]:checked + .day-label {\n  color: #001E40;\n  font-weight: 600;\n}\n.my-profile-container .work-preferences-card .work-preferences-form .working-days-container .day-checkbox input[type=checkbox]:checked ~ * {\n  color: #001E40;\n}\n.my-profile-container .work-preferences-card .work-preferences-form .character-count {\n  display: block;\n  text-align: right;\n  font-size: 12px;\n  color: #6b7280;\n  margin-top: 4px;\n}\n.my-profile-container .work-preferences-card .work-preferences-form .form-help {\n  display: block;\n  font-size: 12px;\n  color: #6b7280;\n  margin-top: 4px;\n  font-style: italic;\n}\n.my-profile-container .work-preferences-card .work-preferences-form textarea {\n  width: 100%;\n  padding: 12px 16px;\n  border: 2px solid #e5e7eb;\n  border-radius: 6px;\n  font-size: 14px;\n  color: #1f2937;\n  background-color: #f9fafb;\n  transition: all 0.3s ease;\n  resize: vertical;\n  font-family: inherit;\n}\n.my-profile-container .work-preferences-card .work-preferences-form textarea:focus {\n  outline: none;\n  border-color: #3b82f6;\n  background-color: white;\n  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);\n}\n.my-profile-container .work-preferences-card .work-preferences-form textarea:disabled {\n  background-color: #f9fafb;\n  color: #6b7280;\n  cursor: not-allowed;\n}\n.my-profile-container .work-preferences-card .work-preferences-form textarea.editing {\n  background-color: white;\n  border: 2px solid #e5e7eb;\n}\n.my-profile-container .work-preferences-card .work-preferences-form textarea::-moz-placeholder {\n  color: #9ca3af;\n}\n.my-profile-container .work-preferences-card .work-preferences-form textarea::placeholder {\n  color: #9ca3af;\n}\n.my-profile-container .worker-skills-card .form-actions {\n  display: flex;\n  justify-content: flex-end;\n  gap: 15px;\n  margin-top: 30px;\n  padding-top: 20px;\n  border-top: 1px solid #e5e7eb;\n}\n@media (max-width: 768px) {\n  .my-profile-container .worker-skills-card .form-actions {\n    flex-direction: column;\n    align-items: stretch;\n  }\n}\n.my-profile-container .worker-skills-card .form-actions .worker-skills-edit-btn,\n.my-profile-container .worker-skills-card .form-actions .worker-skills-save-btn,\n.my-profile-container .worker-skills-card .form-actions .worker-skills-cancel-btn {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  width: 165px;\n  height: 36px;\n  padding: 0 16px;\n  border-radius: 6px;\n  font-size: 13px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  border: none;\n  justify-content: center;\n}\n.my-profile-container .worker-skills-card .form-actions .worker-skills-edit-btn .btn-icon,\n.my-profile-container .worker-skills-card .form-actions .worker-skills-save-btn .btn-icon,\n.my-profile-container .worker-skills-card .form-actions .worker-skills-cancel-btn .btn-icon {\n  width: 16px;\n  height: 16px;\n  font-size: 16px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.my-profile-container .worker-skills-card .form-actions .worker-skills-edit-btn,\n.my-profile-container .worker-skills-card .form-actions .worker-skills-cancel-btn {\n  background-color: #FFFFFF;\n  color: #374151;\n  border: 1px solid #001E40;\n}\n.my-profile-container .worker-skills-card .form-actions .worker-skills-edit-btn:hover,\n.my-profile-container .worker-skills-card .form-actions .worker-skills-cancel-btn:hover {\n  background-color: #f8fafc;\n  border-color: #001E40;\n}\n.my-profile-container .worker-skills-card .form-actions .worker-skills-save-btn {\n  background-color: #001E40;\n  color: white;\n}\n.my-profile-container .worker-skills-card .form-actions .worker-skills-save-btn:hover {\n  background-color: #002a5c;\n}\n.my-profile-container .worker-skills-card .form-actions .worker-skills-save-btn:active {\n  background-color: #001a33;\n}\n.my-profile-container .worker-skills-card .skills-display {\n  margin-bottom: 20px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section {\n  margin-bottom: 30px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section:last-child {\n  margin-bottom: 0;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .section-subtitle {\n  font-size: 16px;\n  font-weight: 600;\n  color: #1f2937;\n  margin-bottom: 15px;\n  padding-bottom: 8px;\n  border-bottom: 2px solid #e5e7eb;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skill-editing-form {\n  background: #f8fafc;\n  border: 2px dashed #001E40;\n  border-radius: 8px;\n  padding: 20px;\n  margin-bottom: 20px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skill-editing-form .form-group {\n  margin-bottom: 15px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skill-editing-form .form-group:last-child {\n  margin-bottom: 0;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skill-editing-form .form-group label {\n  font-size: 13px;\n  font-weight: 500;\n  color: #374151;\n  margin-bottom: 6px;\n  display: block;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skill-editing-form .form-group .form-input {\n  width: 100%;\n  height: 40px;\n  padding: 10px 12px;\n  border: 1px solid #d1d5db;\n  border-radius: 6px;\n  font-size: 14px;\n  color: #1f2937;\n  background-color: white;\n  transition: all 0.2s ease;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skill-editing-form .form-group .form-input:focus {\n  outline: none;\n  border-color: #001E40;\n  box-shadow: 0 0 0 3px rgba(0, 30, 64, 0.1);\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skill-editing-form .skill-save-section {\n  margin-top: 15px;\n  padding-top: 15px;\n  border-top: 1px solid #e5e7eb;\n  display: flex;\n  justify-content: flex-end;\n  gap: 10px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skill-editing-form .skill-save-section .cancel-individual-skill-btn {\n  display: inline-flex;\n  align-items: center;\n  gap: 6px;\n  width: 80px;\n  height: 36px;\n  padding: 0 16px;\n  background: #FFFFFF;\n  color: #374151;\n  border: 1px solid #001E40;\n  border-radius: 6px;\n  font-size: 12.5px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  justify-content: center;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skill-editing-form .skill-save-section .cancel-individual-skill-btn:hover {\n  background: #f8fafc;\n  border-color: #001E40;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skill-editing-form .skill-save-section .save-individual-skill-btn {\n  display: inline-flex;\n  align-items: center;\n  gap: 6px;\n  width: 170px;\n  height: 36px;\n  padding: 0 16px;\n  background: #001E40;\n  color: white;\n  border: none;\n  border-radius: 6px;\n  font-size: 12.5px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  justify-content: center;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skill-editing-form .skill-save-section .save-individual-skill-btn svg {\n  fill: white;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skill-editing-form .skill-save-section .save-individual-skill-btn:hover:not(:disabled) {\n  background: #002a5c;\n  transform: translateY(-1px);\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skill-editing-form .skill-save-section .save-individual-skill-btn:active:not(:disabled) {\n  transform: translateY(0);\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skill-editing-form .skill-save-section .save-individual-skill-btn:disabled {\n  background: #9ca3af;\n  cursor: not-allowed;\n  transform: none;\n  box-shadow: none;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skill-editing-form .skill-details-editing {\n  margin-top: 15px;\n  padding-top: 15px;\n  border-top: 1px solid #e5e7eb;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skill-editing-form .skill-details-editing .form-group {\n  margin-bottom: 15px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing {\n  background: #f8fafc;\n  border: 2px dashed #001E40;\n  border-radius: 8px;\n  padding: 20px;\n  margin-bottom: 20px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .form-group {\n  margin-bottom: 20px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .form-group label {\n  font-size: 13px;\n  font-weight: 500;\n  color: #374151;\n  margin-bottom: 10px;\n  display: block;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .form-group .form-input {\n  width: 100%;\n  height: 40px;\n  padding: 10px 12px;\n  border: 1px solid #d1d5db;\n  border-radius: 6px;\n  font-size: 14px;\n  color: #1f2937;\n  background-color: white;\n  transition: all 0.2s ease;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .form-group .form-input:focus {\n  outline: none;\n  border-color: #001E40;\n  box-shadow: 0 0 0 3px rgba(0, 30, 64, 0.1);\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .form-group .form-input[role=combobox], .my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .form-group .form-input[aria-expanded=true], .my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .form-group .form-input:focus {\n  border-bottom-left-radius: 0;\n  border-bottom-right-radius: 0;\n  position: relative;\n  z-index: 10;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .form-group .form-input option {\n  position: relative;\n  z-index: 1000;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-save-section {\n  margin-top: 15px;\n  padding-top: 15px;\n  border-top: 1px solid #e5e7eb;\n  display: flex;\n  justify-content: flex-end;\n  gap: 10px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-save-section .cancel-individual-skill-btn {\n  display: inline-flex;\n  align-items: center;\n  gap: 6px;\n  width: 80px;\n  height: 36px;\n  padding: 0 16px;\n  background: #FFFFFF;\n  color: #374151;\n  border: 1px solid #001E40;\n  border-radius: 6px;\n  font-size: 12.5px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  justify-content: center;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-save-section .cancel-individual-skill-btn:hover {\n  background: #f8fafc;\n  border-color: #001E40;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-save-section .save-individual-skill-btn {\n  display: inline-flex;\n  align-items: center;\n  gap: 6px;\n  width: 170px;\n  height: 36px;\n  padding: 0 16px;\n  background: #001E40;\n  color: white;\n  border: none;\n  border-radius: 6px;\n  font-size: 12.5px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  justify-content: center;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-save-section .save-individual-skill-btn svg {\n  fill: white;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-save-section .save-individual-skill-btn:hover:not(:disabled) {\n  background: #002a5c;\n  transform: translateY(-1px);\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-save-section .save-individual-skill-btn:active:not(:disabled) {\n  transform: translateY(0);\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-save-section .save-individual-skill-btn:disabled {\n  background: #9ca3af;\n  cursor: not-allowed;\n  transform: none;\n  box-shadow: none;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-details-editing {\n  margin-top: 20px;\n  padding: 15px;\n  background: white;\n  border: 1px solid #e5e7eb;\n  border-radius: 6px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-details-editing .skill-header-editing {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 15px;\n  padding-bottom: 8px;\n  border-bottom: 1px solid #e5e7eb;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-details-editing .skill-header-editing .skill-editing-title {\n  font-size: 14px;\n  font-weight: 600;\n  color: #001E40;\n  margin: 0;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-details-editing .skill-header-editing .remove-skill-btn {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  width: 28px;\n  height: 28px;\n  background: #fee2e2;\n  border: 1px solid #fca5a5;\n  border-radius: 6px;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  padding: 0;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-details-editing .skill-header-editing .remove-skill-btn svg {\n  fill: #dc2626;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-details-editing .skill-header-editing .remove-skill-btn:hover {\n  background: #fecaca;\n  border-color: #f87171;\n  transform: scale(1.05);\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-details-editing .form-group {\n  margin-bottom: 15px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-details-editing .form-group label {\n  font-size: 12px;\n  font-weight: 500;\n  color: #374151;\n  margin-bottom: 6px;\n  display: block;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-details-editing .form-group .form-input {\n  width: 100%;\n  height: 36px;\n  padding: 8px 10px;\n  border: 1px solid #d1d5db;\n  border-radius: 6px;\n  font-size: 13px;\n  color: #1f2937;\n  background-color: white;\n  transition: all 0.2s ease;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-details-editing .form-group .form-input:focus {\n  outline: none;\n  border-color: #001E40;\n  box-shadow: 0 0 0 3px rgba(0, 30, 64, 0.1);\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .sub-skills-checkbox-grid {\n  display: grid;\n  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));\n  gap: 8px;\n  margin-top: 8px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .sub-skills-checkbox-grid .sub-skill-checkbox-item {\n  display: flex;\n  align-items: flex-start;\n  gap: 6px;\n  padding: 8px 10px 8px 16px;\n  border: 1px solid #d1d5db;\n  border-radius: 6px;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  background: white;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .sub-skills-checkbox-grid .sub-skill-checkbox-item:hover {\n  border-color: #001E40;\n  background: #f0f4f8;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .sub-skills-checkbox-grid .sub-skill-checkbox-item input[type=checkbox] {\n  width: 14px;\n  height: 14px;\n  cursor: pointer;\n  accent-color: #001E40;\n  margin: 0;\n  flex-shrink: 0;\n  align-self: flex-start;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .sub-skills-checkbox-grid .sub-skill-checkbox-item .sub-skill-checkbox-label {\n  font-size: 12px;\n  font-weight: 500;\n  color: #374151;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n          user-select: none;\n  text-align: left;\n  flex: 1;\n  margin-left: 8px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .sub-skills-checkbox-grid .sub-skill-checkbox-item:has(input:checked) {\n  border-color: #001E40;\n  background: #f0f4f8;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .sub-skills-checkbox-grid .sub-skill-checkbox-item:has(input:checked) .sub-skill-checkbox-label {\n  color: #001E40;\n  font-weight: 600;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .sub-skills-tags {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 6px;\n  margin-top: 8px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .sub-skills-tags .sub-skill-tag {\n  display: inline-flex;\n  align-items: center;\n  gap: 4px;\n  padding: 4px 8px;\n  background: white;\n  border: 1px solid #d1d5db;\n  border-radius: 6px;\n  font-size: 12px;\n  color: #374151;\n  font-weight: 500;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .sub-skills-tags .sub-skill-tag .remove-sub-skill {\n  background: none;\n  border: none;\n  color: #dc2626;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: bold;\n  padding: 0;\n  margin-left: 4px;\n  transition: color 0.2s ease;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .sub-skills-tags .sub-skill-tag .remove-sub-skill:hover {\n  color: #b91c1c;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skills-list {\n  display: flex;\n  flex-direction: column;\n  gap: 15px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skills-list .skill-item {\n  background: #f9fafb;\n  border: 2px solid #e5e7eb;\n  border-radius: 8px;\n  padding: 16px;\n  transition: all 0.3s ease;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skills-list .skill-item:hover {\n  border-color: #d1d5db;\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skills-list .skill-item.primary-skill {\n  border-left: 4px solid #001E40;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skills-list .skill-item.additional-skill {\n  border-left: 4px solid #3b82f6;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skills-list .skill-item .skill-header {\n  display: flex;\n  align-items: center;\n  margin-bottom: 12px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skills-list .skill-item .skill-header .skill-name {\n  font-size: 16px;\n  font-weight: 600;\n  color: #1f2937;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skills-list .skill-item .skill-details-row {\n  display: flex;\n  justify-content: space-between;\n  align-items: flex-start;\n  gap: 20px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skills-list .skill-item .skill-details-row .sub-skills {\n  flex: 1;\n  margin-bottom: 0;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skills-list .skill-item .skill-details-row .sub-skills .sub-skills-label {\n  display: inline-block;\n  font-size: 13px;\n  font-weight: 500;\n  color: #6b7280;\n  margin-bottom: 6px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skills-list .skill-item .skill-details-row .sub-skills .sub-skills-tags {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 6px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skills-list .skill-item .skill-details-row .sub-skills .sub-skills-tags .sub-skill-tag {\n  padding: 4px 10px;\n  background: white;\n  border: 1px solid #d1d5db;\n  border-radius: 6px;\n  font-size: 12px;\n  color: #374151;\n  font-weight: 500;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skills-list .skill-item .skill-details-row .skill-experience {\n  display: flex;\n  flex-direction: column;\n  gap: 4px;\n  font-size: 13px;\n  flex-shrink: 0;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skills-list .skill-item .skill-details-row .skill-experience .experience-label {\n  font-weight: 500;\n  color: #6b7280;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skills-list .skill-item .skill-details-row .skill-experience .experience-value {\n  padding: 2px 8px;\n  background: white;\n  border: 1px solid #d1d5db;\n  border-radius: 4px;\n  color: #374151;\n  font-weight: 500;\n  align-self: flex-start;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .empty-state {\n  padding: 20px;\n  text-align: center;\n  color: #9ca3af;\n  font-size: 14px;\n  font-style: italic;\n  background: #f9fafb;\n  border: 2px dashed #e5e7eb;\n  border-radius: 8px;\n}\n.my-profile-container .worker-credentials-card .add-credential-form {\n  background: #f8fafc;\n  border: 2px dashed #001E40;\n  border-radius: 8px;\n  padding: 20px;\n  margin-bottom: 20px;\n}\n.my-profile-container .worker-credentials-card .add-credential-form .add-form-title {\n  font-size: 15px;\n  font-weight: 600;\n  color: #001E40;\n  margin-bottom: 15px;\n}\n.my-profile-container .worker-credentials-card .add-credential-form .form-row {\n  display: grid;\n  grid-template-columns: 1fr;\n  gap: 15px;\n  margin-bottom: 15px;\n}\n@media (min-width: 768px) {\n  .my-profile-container .worker-credentials-card .add-credential-form .form-row {\n    grid-template-columns: 1fr 1fr;\n  }\n}\n.my-profile-container .worker-credentials-card .add-credential-form .form-group {\n  display: flex;\n  flex-direction: column;\n}\n.my-profile-container .worker-credentials-card .add-credential-form .form-group label {\n  font-size: 13px;\n  font-weight: 500;\n  color: #374151;\n  margin-bottom: 6px;\n}\n.my-profile-container .worker-credentials-card .add-credential-form .form-group .form-input {\n  height: 40px;\n  padding: 10px 12px;\n  border: 1px solid #d1d5db;\n  border-radius: 6px;\n  font-size: 14px;\n  color: #1f2937;\n  background-color: white;\n  transition: all 0.2s ease;\n}\n.my-profile-container .worker-credentials-card .add-credential-form .form-group .form-input:focus {\n  outline: none;\n  border-color: #001E40;\n  box-shadow: 0 0 0 3px rgba(0, 30, 64, 0.1);\n}\n.my-profile-container .worker-credentials-card .add-credential-form .form-group .form-input[type=file] {\n  padding: 8px 12px;\n  cursor: pointer;\n}\n.my-profile-container .worker-credentials-card .add-credential-form .form-group #credentialName,\n.my-profile-container .worker-credentials-card .add-credential-form .form-group #credentialFile {\n  width: 400px !important;\n  height: 40px !important;\n}\n.my-profile-container .worker-credentials-card .add-credential-form .form-group .file-selected-info {\n  display: flex;\n  flex-direction: column;\n  gap: 4px;\n  margin-top: 8px;\n  padding: 8px 12px;\n  background: #f0f9ff;\n  border: 1px solid #0ea5e9;\n  border-radius: 6px;\n}\n.my-profile-container .worker-credentials-card .add-credential-form .form-group .file-selected-info .file-selected {\n  display: block;\n  font-size: 12px;\n  color: #0369a1;\n  font-weight: 500;\n}\n.my-profile-container .worker-credentials-card .add-credential-form .add-credential-action-btn {\n  display: inline-flex;\n  align-items: center;\n  gap: 6px;\n  width: 165px;\n  height: 36px;\n  padding: 0 16px;\n  background: #001E40;\n  color: white;\n  border: none;\n  border-radius: 6px;\n  font-size: 12.5px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  justify-content: center;\n}\n.my-profile-container .worker-credentials-card .add-credential-form .add-credential-action-btn svg {\n  fill: white;\n}\n.my-profile-container .worker-credentials-card .add-credential-form .add-credential-action-btn:hover {\n  background: #002a5c;\n  transform: translateY(-1px);\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n}\n.my-profile-container .worker-credentials-card .add-credential-form .add-credential-action-btn:active {\n  transform: translateY(0);\n}\n.my-profile-container .worker-credentials-card .form-actions {\n  display: flex;\n  justify-content: flex-end;\n  gap: 15px;\n  margin-top: 30px;\n  padding-top: 20px;\n  border-top: 1px solid #e5e7eb;\n}\n@media (max-width: 768px) {\n  .my-profile-container .worker-credentials-card .form-actions {\n    flex-direction: column;\n    align-items: stretch;\n  }\n}\n.my-profile-container .worker-credentials-card .form-actions .worker-credentials-edit-btn,\n.my-profile-container .worker-credentials-card .form-actions .worker-credentials-save-btn,\n.my-profile-container .worker-credentials-card .form-actions .worker-credentials-cancel-btn {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  width: 165px;\n  height: 36px;\n  padding: 0 16px;\n  border-radius: 6px;\n  font-size: 12.5px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  border: none;\n  justify-content: center;\n}\n.my-profile-container .worker-credentials-card .form-actions .worker-credentials-edit-btn .btn-icon,\n.my-profile-container .worker-credentials-card .form-actions .worker-credentials-save-btn .btn-icon,\n.my-profile-container .worker-credentials-card .form-actions .worker-credentials-cancel-btn .btn-icon {\n  width: 16px;\n  height: 16px;\n  font-size: 16px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.my-profile-container .worker-credentials-card .form-actions .worker-credentials-edit-btn,\n.my-profile-container .worker-credentials-card .form-actions .worker-credentials-cancel-btn {\n  background-color: #FFFFFF;\n  color: #374151;\n  border: 1px solid #001E40;\n}\n.my-profile-container .worker-credentials-card .form-actions .worker-credentials-edit-btn:hover,\n.my-profile-container .worker-credentials-card .form-actions .worker-credentials-cancel-btn:hover {\n  background-color: #f8fafc;\n  border-color: #001E40;\n}\n.my-profile-container .worker-credentials-card .form-actions .worker-credentials-save-btn {\n  background-color: #001E40;\n  color: white;\n}\n.my-profile-container .worker-credentials-card .form-actions .worker-credentials-save-btn:hover {\n  background-color: #002a5c;\n}\n.my-profile-container .worker-credentials-card .form-actions .worker-credentials-save-btn:active {\n  background-color: #001a33;\n}\n.my-profile-container .worker-credentials-card .credentials-display {\n  margin-bottom: 20px;\n}\n.my-profile-container .worker-credentials-card .credentials-display .credentials-list {\n  display: flex;\n  flex-direction: column;\n  gap: 12px;\n}\n.my-profile-container .worker-credentials-card .credentials-display .credentials-list .credential-item {\n  display: flex;\n  align-items: center;\n  gap: 15px;\n  padding: 16px;\n  background: #f9fafb;\n  border: 2px solid #e5e7eb;\n  border-radius: 8px;\n  transition: all 0.3s ease;\n  position: relative;\n}\n.my-profile-container .worker-credentials-card .credentials-display .credentials-list .credential-item:hover {\n  border-color: #001E40;\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);\n}\n.my-profile-container .worker-credentials-card .credentials-display .credentials-list .credential-item .remove-credential-btn {\n  position: absolute;\n  top: 12px;\n  right: 12px;\n  width: 32px;\n  height: 32px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  background: #fee2e2;\n  border: 1px solid #fca5a5;\n  border-radius: 6px;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  padding: 0;\n  opacity: 0.8;\n}\n.my-profile-container .worker-credentials-card .credentials-display .credentials-list .credential-item .remove-credential-btn svg {\n  fill: #dc2626;\n}\n.my-profile-container .worker-credentials-card .credentials-display .credentials-list .credential-item .remove-credential-btn:hover {\n  background: #fecaca;\n  border-color: #f87171;\n  opacity: 1;\n  transform: scale(1.05);\n}\n.my-profile-container .worker-credentials-card .credentials-display .credentials-list .credential-item .credential-icon {\n  flex-shrink: 0;\n  width: 40px;\n  height: 40px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  background: #001E40;\n  border-radius: 8px;\n  color: white;\n}\n.my-profile-container .worker-credentials-card .credentials-display .credentials-list .credential-item .credential-icon svg {\n  width: 24px;\n  height: 24px;\n}\n.my-profile-container .worker-credentials-card .credentials-display .credentials-list .credential-item .credential-info {\n  flex: 1;\n  display: flex;\n  flex-direction: column;\n  gap: 6px;\n}\n.my-profile-container .worker-credentials-card .credentials-display .credentials-list .credential-item .credential-info .credential-name {\n  font-size: 15px;\n  font-weight: 600;\n  color: #1f2937;\n  word-wrap: break-word;\n  overflow-wrap: break-word;\n  word-break: break-word;\n  max-width: 100%;\n}\n.my-profile-container .worker-credentials-card .credentials-display .credentials-list .credential-item .credential-info .document-info {\n  display: flex;\n  flex-direction: column;\n  gap: 8px;\n}\n.my-profile-container .worker-credentials-card .credentials-display .credentials-list .credential-item .credential-info .document-info .credential-file-item {\n  display: flex;\n  flex-direction: column;\n  gap: 4px;\n}\n.my-profile-container .worker-credentials-card .credentials-display .credentials-list .credential-item .credential-info .document-info .view-document-link {\n  font-size: 13px;\n  color: #3b82f6;\n  text-decoration: none;\n  font-weight: 500;\n  transition: color 0.2s ease;\n}\n.my-profile-container .worker-credentials-card .credentials-display .credentials-list .credential-item .credential-info .document-info .view-document-link:hover {\n  color: #2563eb;\n  text-decoration: underline;\n}\n.my-profile-container .worker-credentials-card .credentials-display .credentials-list .credential-item .credential-info .document-info .file-path {\n  font-size: 11px;\n  color: #6b7280;\n  font-weight: 400;\n  font-style: italic;\n  word-break: break-all;\n}\n.my-profile-container .worker-credentials-card .credentials-display .credentials-list .credential-item .credential-info .pending-upload {\n  font-size: 12px;\n  color: #f59e0b;\n  font-weight: 500;\n  font-style: italic;\n}\n.my-profile-container .worker-credentials-card .credentials-display .credentials-list .credential-item .credential-info .no-file-uploaded {\n  font-size: 12px;\n  color: #9ca3af;\n  font-weight: 500;\n  font-style: italic;\n}\n.my-profile-container .worker-credentials-card .credentials-display .empty-state {\n  padding: 20px;\n  text-align: center;\n  color: #9ca3af;\n  font-size: 14px;\n  font-style: italic;\n  background: #f9fafb;\n  border: 2px dashed #e5e7eb;\n  border-radius: 8px;\n}\n\n.image-modal-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background: rgba(0, 0, 0, 0.7);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  z-index: 9999;\n  padding: 20px;\n}\n.image-modal-overlay .image-modal {\n  background: white;\n  border-radius: 12px;\n  max-width: 600px;\n  width: 100%;\n  max-height: 90vh;\n  display: flex;\n  flex-direction: column;\n  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);\n}\n.image-modal-overlay .image-modal .image-modal-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 20px;\n  border-bottom: 1px solid #e5e7eb;\n}\n.image-modal-overlay .image-modal .image-modal-header h3 {\n  margin: 0;\n  font-size: 18px;\n  font-weight: 600;\n  color: #1f2937;\n}\n.image-modal-overlay .image-modal .image-modal-header .close-btn {\n  background: none;\n  border: none;\n  padding: 8px;\n  cursor: pointer;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  border-radius: 6px;\n  transition: background 0.2s ease;\n}\n.image-modal-overlay .image-modal .image-modal-header .close-btn svg {\n  fill: #6b7280;\n}\n.image-modal-overlay .image-modal .image-modal-header .close-btn:hover {\n  background: #f3f4f6;\n}\n.image-modal-overlay .image-modal .image-modal-header .close-btn:hover svg {\n  fill: #1f2937;\n}\n.image-modal-overlay .image-modal .image-modal-content {\n  padding: 20px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  overflow: auto;\n}\n.image-modal-overlay .image-modal .image-modal-content img {\n  max-width: 100%;\n  max-height: 60vh;\n  -o-object-fit: contain;\n     object-fit: contain;\n  border-radius: 8px;\n}\n\nselect:focus, select:active, select[aria-expanded=true] {\n  border-bottom-left-radius: 0 !important;\n  border-bottom-right-radius: 0 !important;\n}\nselect option {\n  position: relative;\n  z-index: 1000;\n}\n\n.employer-credentials-card {\n  background: white;\n  border-radius: 12px;\n  padding: 30px;\n  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);\n  border: 1px solid #e5e7eb;\n}\n.employer-credentials-card .card-header-with-count {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n  margin-bottom: 20px;\n}\n.employer-credentials-card .card-header-with-count .card-title {\n  margin: 0;\n}\n.employer-credentials-card .card-header-with-count .credentials-count {\n  font-size: 14px;\n  color: #6b7280;\n  font-weight: 500;\n}\n.employer-credentials-card .add-credential-form {\n  background: #f8fafc;\n  border: 2px dashed #001E40;\n  border-radius: 8px;\n  padding: 20px;\n  margin-bottom: 20px;\n}\n.employer-credentials-card .add-credential-form .add-form-title {\n  font-size: 15px;\n  font-weight: 600;\n  color: #001E40;\n  margin-bottom: 15px;\n}\n.employer-credentials-card .add-credential-form .add-form-title .add-more-hint {\n  font-size: 13px;\n  font-weight: 400;\n  color: #6b7280;\n  font-style: italic;\n}\n.employer-credentials-card .add-credential-form .form-row {\n  display: grid;\n  grid-template-columns: 1fr;\n  gap: 15px;\n  margin-bottom: 15px;\n}\n@media (min-width: 768px) {\n  .employer-credentials-card .add-credential-form .form-row {\n    grid-template-columns: 1fr 1fr;\n  }\n}\n.employer-credentials-card .add-credential-form .form-group {\n  display: flex;\n  flex-direction: column;\n}\n.employer-credentials-card .add-credential-form .form-group label {\n  font-size: 13px;\n  font-weight: 500;\n  color: #374151;\n  margin-bottom: 6px;\n}\n.employer-credentials-card .add-credential-form .form-group .form-input {\n  height: 40px;\n  padding: 10px 12px;\n  border: 1px solid #d1d5db;\n  border-radius: 6px;\n  font-size: 14px;\n  color: #1f2937;\n  background-color: white;\n  transition: all 0.2s ease;\n}\n.employer-credentials-card .add-credential-form .form-group .form-input:focus {\n  outline: none;\n  border-color: #001E40;\n  box-shadow: 0 0 0 3px rgba(0, 30, 64, 0.1);\n}\n.employer-credentials-card .add-credential-form .form-group .form-input[type=file] {\n  height: auto;\n  min-height: 44px;\n  padding: 10px 12px;\n  cursor: pointer;\n  display: flex;\n  align-items: center;\n}\n.employer-credentials-card .add-credential-form .form-group .form-input[type=file]::file-selector-button {\n  background: #001E40;\n  color: white;\n  border: none;\n  padding: 8px 16px;\n  border-radius: 6px;\n  font-size: 14px;\n  font-weight: 500;\n  cursor: pointer;\n  margin-right: 12px;\n  transition: all 0.2s ease;\n  height: 36px;\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n}\n.employer-credentials-card .add-credential-form .form-group .form-input[type=file]::file-selector-button:hover {\n  background: #002d5c;\n}\n.employer-credentials-card .add-credential-form .form-group .file-selected-info {\n  margin-top: 8px;\n  font-size: 12px;\n  color: #059669;\n}\n.employer-credentials-card .add-credential-form .form-group .file-selected-info .file-selected {\n  font-weight: 500;\n}\n.employer-credentials-card .add-credential-form .add-credential-actions {\n  display: flex;\n  gap: 10px;\n  align-items: center;\n}\n.employer-credentials-card .add-credential-form .add-credential-action-btn {\n  background: #001E40;\n  color: white;\n  border: none;\n  padding: 10px 16px;\n  border-radius: 6px;\n  font-size: 14px;\n  font-weight: 600;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.employer-credentials-card .add-credential-form .add-credential-action-btn:hover {\n  background: #002a5c;\n  transform: translateY(-1px);\n}\n.employer-credentials-card .add-credential-form .add-credential-action-btn:active {\n  transform: translateY(0);\n}\n.employer-credentials-card .add-credential-form .close-form-btn {\n  background: #f3f4f6;\n  color: #374151;\n  border: 1px solid #d1d5db;\n  padding: 10px 16px;\n  border-radius: 6px;\n  font-size: 14px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.3s ease;\n}\n.employer-credentials-card .add-credential-form .close-form-btn:hover {\n  background: #e5e7eb;\n  border-color: #9ca3af;\n}\n.employer-credentials-card .add-credential-prompt {\n  margin-bottom: 20px;\n  text-align: center;\n}\n.employer-credentials-card .add-credential-prompt .show-add-form-btn {\n  background: #f0f9ff;\n  color: #001E40;\n  border: 2px dashed #001E40;\n  padding: 12px 20px;\n  border-radius: 8px;\n  font-size: 14px;\n  font-weight: 600;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  display: inline-flex;\n  align-items: center;\n  gap: 8px;\n}\n.employer-credentials-card .add-credential-prompt .show-add-form-btn:hover {\n  background: #e0f2fe;\n  border-color: #002a5c;\n  transform: translateY(-1px);\n}\n.employer-credentials-card .add-credential-prompt .show-add-form-btn:active {\n  transform: translateY(0);\n}\n.employer-credentials-card .credentials-list .credentials-list-header {\n  margin-bottom: 15px;\n  padding-bottom: 10px;\n  border-bottom: 2px solid #e5e7eb;\n}\n.employer-credentials-card .credentials-list .credentials-list-header .list-title {\n  font-size: 16px;\n  font-weight: 600;\n  color: #001E40;\n}\n.employer-credentials-card .form-actions {\n  display: flex;\n  gap: 12px;\n  justify-content: flex-end;\n  margin-top: 20px;\n}\n.employer-credentials-card .form-actions .employer-credentials-edit-btn,\n.employer-credentials-card .form-actions .employer-credentials-save-btn,\n.employer-credentials-card .form-actions .employer-credentials-cancel-btn {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  width: 165px;\n  height: 36px;\n  padding: 0 16px;\n  border-radius: 6px;\n  font-size: 12.5px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  border: none;\n}\n.employer-credentials-card .form-actions .employer-credentials-edit-btn,\n.employer-credentials-card .form-actions .employer-credentials-cancel-btn {\n  background-color: #f3f4f6;\n  color: #374151;\n  border: 1px solid #d1d5db;\n}\n.employer-credentials-card .form-actions .employer-credentials-edit-btn:hover,\n.employer-credentials-card .form-actions .employer-credentials-cancel-btn:hover {\n  background-color: #e5e7eb;\n}\n.employer-credentials-card .form-actions .employer-credentials-save-btn {\n  background-color: #001E40;\n  color: white;\n}\n.employer-credentials-card .form-actions .employer-credentials-save-btn:hover {\n  background-color: #002a5c;\n}\n.employer-credentials-card .form-actions .employer-credentials-save-btn:active {\n  background-color: #001a33;\n}\n.employer-credentials-card .credentials-display {\n  margin-bottom: 20px;\n}\n.employer-credentials-card .credentials-display .credentials-list {\n  display: flex;\n  flex-direction: column;\n  gap: 12px;\n}\n.employer-credentials-card .credentials-display .credentials-list .credential-item {\n  display: flex;\n  align-items: center;\n  gap: 15px;\n  padding: 16px;\n  background: #f9fafb;\n  border: 2px solid #e5e7eb;\n  border-radius: 8px;\n  transition: all 0.3s ease;\n  position: relative;\n}\n.employer-credentials-card .credentials-display .credentials-list .credential-item:hover {\n  border-color: #001E40;\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);\n}\n.employer-credentials-card .credentials-display .credentials-list .credential-item .credential-number {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  width: 32px;\n  height: 32px;\n  background: #001E40;\n  color: white;\n  border-radius: 50%;\n  font-size: 14px;\n  font-weight: 600;\n  flex-shrink: 0;\n}\n.employer-credentials-card .credentials-display .credentials-list .credential-item .remove-credential-btn {\n  position: absolute;\n  top: 12px;\n  right: 12px;\n  width: 32px;\n  height: 32px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  background: #fee2e2;\n  border: 1px solid #fca5a5;\n  border-radius: 6px;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  padding: 0;\n}\n.employer-credentials-card .credentials-display .credentials-list .credential-item .remove-credential-btn:hover {\n  background: #fecaca;\n  border-color: #f87171;\n}\n.employer-credentials-card .credentials-display .credentials-list .credential-item .remove-credential-btn svg {\n  color: #dc2626;\n}\n.employer-credentials-card .credentials-display .credentials-list .credential-item .credential-icon {\n  color: #001E40;\n  flex-shrink: 0;\n}\n.employer-credentials-card .credentials-display .credentials-list .credential-item .credential-info {\n  flex: 1;\n  min-width: 0;\n}\n.employer-credentials-card .credentials-display .credentials-list .credential-item .credential-info .credential-name {\n  font-size: 14px;\n  font-weight: 600;\n  color: #1f2937;\n  margin-bottom: 4px;\n  display: block;\n  word-wrap: break-word;\n  overflow-wrap: break-word;\n  word-break: break-word;\n  max-width: 100%;\n}\n.employer-credentials-card .credentials-display .credentials-list .credential-item .credential-info .document-info {\n  display: flex;\n  flex-direction: column;\n  gap: 2px;\n}\n.employer-credentials-card .credentials-display .credentials-list .credential-item .credential-info .document-info .view-document-link {\n  font-size: 12px;\n  color: #001E40;\n  text-decoration: none;\n  font-weight: 500;\n}\n.employer-credentials-card .credentials-display .credentials-list .credential-item .credential-info .document-info .view-document-link:hover {\n  text-decoration: underline;\n}\n.employer-credentials-card .credentials-display .credentials-list .credential-item .credential-info .document-info .file-path {\n  font-size: 11px;\n  color: #6b7280;\n  font-family: monospace;\n}\n.employer-credentials-card .credentials-display .credentials-list .credential-item .credential-info .pending-upload {\n  font-size: 12px;\n  color: #f59e0b;\n  font-style: italic;\n}\n.employer-credentials-card .credentials-display .credentials-list .credential-item .credential-info .no-file-uploaded {\n  font-size: 12px;\n  color: #ef4444;\n  font-style: italic;\n}\n.employer-credentials-card .credentials-display .empty-state {\n  text-align: center;\n  color: #6b7280;\n  font-style: italic;\n  padding: 20px;\n  background: #f9fafb;\n  border-radius: 8px;\n  border: 2px dashed #d1d5db;\n}\n\n@media (max-width: 768px) {\n  .my-profile-container {\n    gap: 20px;\n  }\n  .my-profile-container .profile-card,\n  .my-profile-container .password-card {\n    padding: 20px;\n  }\n  .my-profile-container .profile-header {\n    margin-bottom: 20px;\n  }\n  .my-profile-container .profile-header .avatar-container .avatar-placeholder {\n    width: 80px;\n    height: 80px;\n    font-size: 32px;\n  }\n  .my-profile-container .card-title {\n    font-size: 20px;\n    margin-bottom: 20px;\n  }\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -199387,17 +199363,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_HeaderContent_findjob__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./components/HeaderContent/findjob */ "./resources/js/components/HeaderContent/findjob.js");
 /* harmony import */ var _components_HeaderContent_JobProfile__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./components/HeaderContent/JobProfile */ "./resources/js/components/HeaderContent/JobProfile.js");
 /* harmony import */ var _components_HeaderContent_AboutUs__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./components/HeaderContent/AboutUs */ "./resources/js/components/HeaderContent/AboutUs.js");
-/* harmony import */ var _components_HeaderContent_Message__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./components/HeaderContent/Message */ "./resources/js/components/HeaderContent/Message.js");
-/* harmony import */ var _components_HeaderContent_MessageWorker__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ./components/HeaderContent/MessageWorker */ "./resources/js/components/HeaderContent/MessageWorker.js");
-/* harmony import */ var _components_HeaderContent_Notif__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ./components/HeaderContent/Notif */ "./resources/js/components/HeaderContent/Notif.js");
-/* harmony import */ var _components_adminside_services_Services__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ./components/adminside/services/Services */ "./resources/js/components/adminside/services/Services.js");
-/* harmony import */ var _components_adminside_company_Company_js__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ./components/adminside/company/Company.js */ "./resources/js/components/adminside/company/Company.js");
-/* harmony import */ var _components_adminside_Booking_book__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! ./components/adminside/Booking/book */ "./resources/js/components/adminside/Booking/book.js");
-/* harmony import */ var _components_profilesettings_profilesettings__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! ./components/profilesettings/profilesettings */ "./resources/js/components/profilesettings/profilesettings.js");
-/* harmony import */ var _components_AdminSetting_AdminProfileSetting_js__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(/*! ./components/AdminSetting/AdminProfileSetting.js */ "./resources/js/components/AdminSetting/AdminProfileSetting.js");
-/* harmony import */ var _components_SkillRatingModal_SkillRatingModal__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__(/*! ./components/SkillRatingModal/SkillRatingModal */ "./resources/js/components/SkillRatingModal/SkillRatingModal.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
+/* harmony import */ var _components_HeaderContent_MessageWorker__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./components/HeaderContent/MessageWorker */ "./resources/js/components/HeaderContent/MessageWorker.js");
+/* harmony import */ var _components_HeaderContent_Notif__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ./components/HeaderContent/Notif */ "./resources/js/components/HeaderContent/Notif.js");
+/* harmony import */ var _components_adminside_services_Services__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ./components/adminside/services/Services */ "./resources/js/components/adminside/services/Services.js");
+/* harmony import */ var _components_adminside_company_Company_js__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ./components/adminside/company/Company.js */ "./resources/js/components/adminside/company/Company.js");
+/* harmony import */ var _components_adminside_Booking_book__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ./components/adminside/Booking/book */ "./resources/js/components/adminside/Booking/book.js");
+/* harmony import */ var _components_profilesettings_profilesettings__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! ./components/profilesettings/profilesettings */ "./resources/js/components/profilesettings/profilesettings.js");
+/* harmony import */ var _components_AdminSetting_AdminProfileSetting_js__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! ./components/AdminSetting/AdminProfileSetting.js */ "./resources/js/components/AdminSetting/AdminProfileSetting.js");
+/* harmony import */ var _components_SkillRatingModal_SkillRatingModal__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(/*! ./components/SkillRatingModal/SkillRatingModal */ "./resources/js/components/SkillRatingModal/SkillRatingModal.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
 
@@ -199465,7 +199439,7 @@ var ProtectedRoute = function ProtectedRoute(_ref) {
     isAuthenticated = _useAuth.isAuthenticated,
     userRole = _useAuth.userRole;
   if (!isAuthenticated) {
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Navigate, {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Navigate, {
       to: "/login",
       replace: true,
       state: {
@@ -199474,7 +199448,7 @@ var ProtectedRoute = function ProtectedRoute(_ref) {
     });
   }
   if (allowedRoles && !allowedRoles.includes(userRole)) {
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Navigate, {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Navigate, {
       to: "/login",
       replace: true
     });
@@ -199492,7 +199466,7 @@ var RoleBasedRoute = function RoleBasedRoute(_ref2) {
     isAuthenticated = _useAuth2.isAuthenticated,
     userRole = _useAuth2.userRole;
   if (!isAuthenticated) {
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Navigate, {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Navigate, {
       to: "/login",
       replace: true,
       state: {
@@ -199503,7 +199477,7 @@ var RoleBasedRoute = function RoleBasedRoute(_ref2) {
 
   // If user's role is in the restricted roles, redirect to homepage
   if (restrictedRoles.includes(userRole)) {
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Navigate, {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Navigate, {
       to: "/homepage",
       replace: true
     });
@@ -199518,7 +199492,7 @@ var PublicRoute = function PublicRoute(_ref3) {
   var location = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_2__.useLocation)();
   if (isAuthenticated) {
     var targetRoute = userRole === 3 ? "/admin" : "/homepage";
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Navigate, {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Navigate, {
       to: targetRoute,
       replace: true,
       state: {
@@ -199533,35 +199507,26 @@ var RootRoute = function RootRoute() {
     isAuthenticated = _useAuth4.isAuthenticated,
     userRole = _useAuth4.userRole;
   if (!isAuthenticated) {
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Navigate, {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Navigate, {
       to: "/homepage",
       replace: true
     });
   }
   var targetRoute = userRole === 3 ? "/admin" : "/homepage";
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Navigate, {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Navigate, {
     to: targetRoute,
     replace: true
   });
 };
 
-// Message wrapper component that routes to correct component based on role
-var MessageWrapper = function MessageWrapper() {
-  var _useAuth5 = useAuth(),
-    userRole = _useAuth5.userRole;
-  if (userRole === 1) {
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(_components_HeaderContent_MessageWorker__WEBPACK_IMPORTED_MODULE_34__["default"], {});
-  } else {
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(_components_HeaderContent_Message__WEBPACK_IMPORTED_MODULE_33__["default"], {});
-  }
-};
+// Messages component now handles both roles internally
 
 // Guard for Post Jobs: allow only Employer (role_id === 2)
 var PostJobsGuard = function PostJobsGuard() {
   var navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_2__.useNavigate)();
-  var _useAuth6 = useAuth(),
-    isAuthenticated = _useAuth6.isAuthenticated,
-    userRole = _useAuth6.userRole;
+  var _useAuth5 = useAuth(),
+    isAuthenticated = _useAuth5.isAuthenticated,
+    userRole = _useAuth5.userRole;
   react__WEBPACK_IMPORTED_MODULE_0__.useEffect(function () {
     var goTo = isAuthenticated ? "/homepage" : "/login";
     if (!isAuthenticated || userRole !== 2) {
@@ -199574,87 +199539,87 @@ var PostJobsGuard = function PostJobsGuard() {
   if (!isAuthenticated || userRole !== 2) {
     return null;
   }
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsxs)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsxs)("div", {
     style: {
       padding: '2rem',
       textAlign: 'center'
     },
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)("h2", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)("h2", {
       children: "Post Jobs"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)("p", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)("p", {
       children: "This feature is coming soon!"
     })]
   });
 };
 function Routers() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.BrowserRouter, {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.BrowserRouter, {
     future: {
       v7_startTransition: true,
       v7_relativeSplatPath: true
     },
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Routes, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Routes, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "/",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(RootRoute, {})
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)(RootRoute, {})
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "/login",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(PublicRoute, {
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(_components_login_Login__WEBPACK_IMPORTED_MODULE_5__["default"], {})
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)(PublicRoute, {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)(_components_login_Login__WEBPACK_IMPORTED_MODULE_5__["default"], {})
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "/register",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(PublicRoute, {
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(_components_register_Register__WEBPACK_IMPORTED_MODULE_6__["default"], {})
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)(PublicRoute, {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)(_components_register_Register__WEBPACK_IMPORTED_MODULE_6__["default"], {})
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "/homepage",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(_components_Homepage_homepage__WEBPACK_IMPORTED_MODULE_7__["default"], {})
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)(_components_Homepage_homepage__WEBPACK_IMPORTED_MODULE_7__["default"], {})
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "/services",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(_components_HeaderContent_Service__WEBPACK_IMPORTED_MODULE_9__["default"], {})
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)(_components_HeaderContent_Service__WEBPACK_IMPORTED_MODULE_9__["default"], {})
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "/headerz",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(_components_HeaderContent_Headerz__WEBPACK_IMPORTED_MODULE_8__["default"], {})
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)(_components_HeaderContent_Headerz__WEBPACK_IMPORTED_MODULE_8__["default"], {})
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "/find-jobs",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(_components_HeaderContent_findjob__WEBPACK_IMPORTED_MODULE_30__["default"], {})
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)(_components_HeaderContent_findjob__WEBPACK_IMPORTED_MODULE_30__["default"], {})
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "/job/:jobId",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(_components_HeaderContent_JobProfile__WEBPACK_IMPORTED_MODULE_31__["default"], {})
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)(_components_HeaderContent_JobProfile__WEBPACK_IMPORTED_MODULE_31__["default"], {})
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "/about",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(_components_HeaderContent_AboutUs__WEBPACK_IMPORTED_MODULE_32__["default"], {})
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)(_components_HeaderContent_AboutUs__WEBPACK_IMPORTED_MODULE_32__["default"], {})
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "/message",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(MessageWrapper, {})
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)(_components_HeaderContent_MessageWorker__WEBPACK_IMPORTED_MODULE_33__["default"], {})
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "/notifications",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(_components_HeaderContent_Notif__WEBPACK_IMPORTED_MODULE_35__["default"], {})
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)(_components_HeaderContent_Notif__WEBPACK_IMPORTED_MODULE_34__["default"], {})
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "/browse",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(_components_ShopContent_browseblue__WEBPACK_IMPORTED_MODULE_10__["default"], {})
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)(_components_ShopContent_browseblue__WEBPACK_IMPORTED_MODULE_10__["default"], {})
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "/browse-white",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(_components_ShopContent_browsewhite__WEBPACK_IMPORTED_MODULE_11__["default"], {})
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)(_components_ShopContent_browsewhite__WEBPACK_IMPORTED_MODULE_11__["default"], {})
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "/complete",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(_components_OrdersContent_order_complete__WEBPACK_IMPORTED_MODULE_12__["default"], {})
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)(_components_OrdersContent_order_complete__WEBPACK_IMPORTED_MODULE_12__["default"], {})
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "/orders_modal",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(_components_CartModals_orders_modal__WEBPACK_IMPORTED_MODULE_13__["default"], {})
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)(_components_CartModals_orders_modal__WEBPACK_IMPORTED_MODULE_13__["default"], {})
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "/pay",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(_components_Payment_Info_pay__WEBPACK_IMPORTED_MODULE_14__["default"], {})
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)(_components_Payment_Info_pay__WEBPACK_IMPORTED_MODULE_14__["default"], {})
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "/profile/:workerId",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(_components_Profile_profile__WEBPACK_IMPORTED_MODULE_15__["default"], {})
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)(_components_Profile_profile__WEBPACK_IMPORTED_MODULE_15__["default"], {})
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "/profile-settings/*",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(_components_profilesettings_profilesettings__WEBPACK_IMPORTED_MODULE_39__["default"], {})
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)(_components_profilesettings_profilesettings__WEBPACK_IMPORTED_MODULE_38__["default"], {})
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "/skill-rating",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(ProtectedRoute, {
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(_components_SkillRatingModal_SkillRatingModal__WEBPACK_IMPORTED_MODULE_41__["default"], {
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)(ProtectedRoute, {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)(_components_SkillRatingModal_SkillRatingModal__WEBPACK_IMPORTED_MODULE_40__["default"], {
             isOpen: true,
             onClose: function onClose() {
               return window.history.back();
@@ -199665,132 +199630,132 @@ function Routers() {
             user: JSON.parse(localStorage.getItem('user') || '{}')
           })
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "/post-jobs",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(PostJobsGuard, {})
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)(PostJobsGuard, {})
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "/admin",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(ProtectedRoute, {
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)(ProtectedRoute, {
           allowedRoles: [3],
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(_components_adminside_admindashboard_admindashboard__WEBPACK_IMPORTED_MODULE_16__["default"], {})
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)(_components_adminside_admindashboard_admindashboard__WEBPACK_IMPORTED_MODULE_16__["default"], {})
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "/admin/products",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(ProtectedRoute, {
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)(ProtectedRoute, {
           allowedRoles: [3],
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(_components_adminside_products_Products__WEBPACK_IMPORTED_MODULE_17__["default"], {})
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)(_components_adminside_products_Products__WEBPACK_IMPORTED_MODULE_17__["default"], {})
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "/admin/orders",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(ProtectedRoute, {
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)(ProtectedRoute, {
           allowedRoles: [3],
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(_components_adminside_orders_Orders__WEBPACK_IMPORTED_MODULE_18__["default"], {})
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)(_components_adminside_orders_Orders__WEBPACK_IMPORTED_MODULE_18__["default"], {})
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "/admin/users",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(ProtectedRoute, {
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)(ProtectedRoute, {
           allowedRoles: [3],
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(_components_adminside_users_Users__WEBPACK_IMPORTED_MODULE_19__["default"], {})
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)(_components_adminside_users_Users__WEBPACK_IMPORTED_MODULE_19__["default"], {})
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "/admin/adminlist",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(ProtectedRoute, {
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)(ProtectedRoute, {
           allowedRoles: [3],
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(_components_adminside_Adminlist_adminlist__WEBPACK_IMPORTED_MODULE_20__["default"], {})
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)(_components_adminside_Adminlist_adminlist__WEBPACK_IMPORTED_MODULE_20__["default"], {})
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "/admin/jobs-post",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(ProtectedRoute, {
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)(ProtectedRoute, {
           allowedRoles: [3],
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(_components_adminside_jobposting_jobposting__WEBPACK_IMPORTED_MODULE_21__["default"], {})
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)(_components_adminside_jobposting_jobposting__WEBPACK_IMPORTED_MODULE_21__["default"], {})
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "/admin/workerlist",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(ProtectedRoute, {
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)(ProtectedRoute, {
           allowedRoles: [3],
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(_components_adminside_workerlist_workerlist__WEBPACK_IMPORTED_MODULE_22__["default"], {})
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)(_components_adminside_workerlist_workerlist__WEBPACK_IMPORTED_MODULE_22__["default"], {})
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "/admin/employerlist",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(ProtectedRoute, {
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)(ProtectedRoute, {
           allowedRoles: [3],
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(_components_adminside_employerlist_employerlist__WEBPACK_IMPORTED_MODULE_23__["default"], {})
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)(_components_adminside_employerlist_employerlist__WEBPACK_IMPORTED_MODULE_23__["default"], {})
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "/admin/reviews",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(ProtectedRoute, {
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)(ProtectedRoute, {
           allowedRoles: [3],
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(_components_adminside_ReviewList_reviewlist__WEBPACK_IMPORTED_MODULE_24__["default"], {})
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)(_components_adminside_ReviewList_reviewlist__WEBPACK_IMPORTED_MODULE_24__["default"], {})
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "/admin/categories",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(ProtectedRoute, {
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)(ProtectedRoute, {
           allowedRoles: [3],
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(_components_adminside_categories_Categories__WEBPACK_IMPORTED_MODULE_25__["default"], {})
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)(_components_adminside_categories_Categories__WEBPACK_IMPORTED_MODULE_25__["default"], {})
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "/admin/roles",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(ProtectedRoute, {
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)(ProtectedRoute, {
           allowedRoles: [3],
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(_components_adminside_roles_Roles__WEBPACK_IMPORTED_MODULE_26__["default"], {})
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)(_components_adminside_roles_Roles__WEBPACK_IMPORTED_MODULE_26__["default"], {})
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "/admin/skill-categories",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(ProtectedRoute, {
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)(ProtectedRoute, {
           allowedRoles: [3],
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(_components_adminside_skillscategories_skillcategories__WEBPACK_IMPORTED_MODULE_27__["default"], {})
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)(_components_adminside_skillscategories_skillcategories__WEBPACK_IMPORTED_MODULE_27__["default"], {})
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "/admin/color-code-manager",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(ProtectedRoute, {
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)(ProtectedRoute, {
           allowedRoles: [3],
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(_components_adminside_colorcodecollars_collars__WEBPACK_IMPORTED_MODULE_28__["default"], {})
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)(_components_adminside_colorcodecollars_collars__WEBPACK_IMPORTED_MODULE_28__["default"], {})
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "/admin/ranks",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(ProtectedRoute, {
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)(ProtectedRoute, {
           allowedRoles: [3],
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(_components_adminside_ranks_Ranks__WEBPACK_IMPORTED_MODULE_29__["default"], {})
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)(_components_adminside_ranks_Ranks__WEBPACK_IMPORTED_MODULE_29__["default"], {})
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "/admin/roles-management",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(ProtectedRoute, {
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)(ProtectedRoute, {
           allowedRoles: [3],
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(_components_adminside_roles_Roles__WEBPACK_IMPORTED_MODULE_26__["default"], {})
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)(_components_adminside_roles_Roles__WEBPACK_IMPORTED_MODULE_26__["default"], {})
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "/admin/company",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(ProtectedRoute, {
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)(ProtectedRoute, {
           allowedRoles: [3],
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(_components_adminside_company_Company_js__WEBPACK_IMPORTED_MODULE_37__["default"], {})
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)(_components_adminside_company_Company_js__WEBPACK_IMPORTED_MODULE_36__["default"], {})
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "/admin/jobs",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(ProtectedRoute, {
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)(ProtectedRoute, {
           allowedRoles: [3],
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(_components_adminside_company_Company_js__WEBPACK_IMPORTED_MODULE_37__["default"], {})
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)(_components_adminside_company_Company_js__WEBPACK_IMPORTED_MODULE_36__["default"], {})
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "/admin/bookings",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(ProtectedRoute, {
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)(ProtectedRoute, {
           allowedRoles: [3],
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(_components_adminside_Booking_book__WEBPACK_IMPORTED_MODULE_38__["default"], {})
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)(_components_adminside_Booking_book__WEBPACK_IMPORTED_MODULE_37__["default"], {})
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "/admin/services",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(ProtectedRoute, {
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)(ProtectedRoute, {
           allowedRoles: [3],
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(_components_adminside_services_Services__WEBPACK_IMPORTED_MODULE_36__["default"], {})
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)(_components_adminside_services_Services__WEBPACK_IMPORTED_MODULE_35__["default"], {})
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "/admin/profile",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(ProtectedRoute, {
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)(ProtectedRoute, {
           allowedRoles: [3],
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(_components_AdminSetting_AdminProfileSetting_js__WEBPACK_IMPORTED_MODULE_40__["default"], {})
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)(_components_AdminSetting_AdminProfileSetting_js__WEBPACK_IMPORTED_MODULE_39__["default"], {})
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "*",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Navigate, {
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Navigate, {
           to: "/login",
           replace: true
         })
@@ -199799,7 +199764,7 @@ function Routers() {
   });
 }
 if (document.getElementById("root")) {
-  react_dom__WEBPACK_IMPORTED_MODULE_1__.render(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_42__.jsx)(Routers, {}), document.getElementById("root"));
+  react_dom__WEBPACK_IMPORTED_MODULE_1__.render(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_41__.jsx)(Routers, {}), document.getElementById("root"));
 }
 
 /***/ }),
@@ -201252,114 +201217,256 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _sass_components_footer_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../../sass/components/footer.scss */ "./resources/sass/components/footer.scss");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
+/* harmony import */ var react_icons_fa6__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-icons/fa6 */ "./node_modules/react-icons/fa6/index.mjs");
+/* harmony import */ var react_icons_io5__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-icons/io5 */ "./node_modules/react-icons/io5/index.mjs");
+/* harmony import */ var react_icons_md__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-icons/md */ "./node_modules/react-icons/md/index.mjs");
+/* harmony import */ var _sass_components_footer_scss__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./../../../sass/components/footer.scss */ "./resources/sass/components/footer.scss");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _slicedToArray(r, e) { return _arrayWithHoles(r) || _iterableToArrayLimit(r, e) || _unsupportedIterableToArray(r, e) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
+function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
+
+
+
+
 
 
 
 var Footer = function Footer() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("footer", {
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+    _useState2 = _slicedToArray(_useState, 2),
+    showLoginModal = _useState2[0],
+    setShowLoginModal = _useState2[1];
+  var navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_1__.useNavigate)();
+  var handlePostJobClick = function handlePostJobClick(e) {
+    e.preventDefault();
+    var token = localStorage.getItem('auth_token');
+    if (!token) {
+      setShowLoginModal(true);
+      return;
+    }
+    navigate('/profile-settings/post-job');
+  };
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("footer", {
     className: "footer",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
       className: "footer__content",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
         className: "footer__info",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("img", {
           className: "footer__logo",
           src: "".concat(window.location.origin, "/images/worqo_logo.svg"),
           alt: "WORQO"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("ul", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("ul", {
           className: "footer__contact",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("li", {
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("li", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_icons_fa6__WEBPACK_IMPORTED_MODULE_2__.FaLocationDot, {
               className: "footer__bullet",
-              "aria-hidden": true,
-              children: "\uD83D\uDCCD"
-            }), " 21 JC Aquino Avenue, Butuan City"]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("li", {
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+              size: 16,
+              style: {
+                color: 'white'
+              },
+              "aria-hidden": "true"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
+              children: "21 JC Aquino Avenue, Butuan City"
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("li", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_icons_io5__WEBPACK_IMPORTED_MODULE_3__.IoCallSharp, {
               className: "footer__bullet",
-              "aria-hidden": true,
-              children: "\uD83D\uDCDE"
-            }), " +639506149789"]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("li", {
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+              size: 16,
+              style: {
+                color: 'white'
+              },
+              "aria-hidden": "true"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
+              children: "+639506149789"
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("li", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_icons_md__WEBPACK_IMPORTED_MODULE_4__.MdEmail, {
               className: "footer__bullet",
-              "aria-hidden": true,
-              children: "\u2709\uFE0F"
-            }), " FixnHost@gmail.Com"]
+              size: 16,
+              style: {
+                color: 'white'
+              },
+              "aria-hidden": "true"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
+              children: "worqo@gmail.Com"
+            })]
           })]
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-        className: "footer__list",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h3", {
-          children: "Privacy Policy"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("ul", {
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
-            children: "Information We Collect"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
-            children: "How We Use Your Information"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
-            children: "Sharing Your Information"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
-            children: "Your Rights"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
-            children: "Data Collections"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
-            children: "Cookies"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
-            children: "Changes To This Policy"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+        className: "footer__nav",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("ul", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("li", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("a", {
+              href: "/",
+              children: "Home"
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("li", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("a", {
+              href: "/services",
+              children: "Services"
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("li", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("a", {
+              href: "/about",
+              children: "About Us"
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("li", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("a", {
+              href: "/profile-settings/post-job",
+              onClick: handlePostJobClick,
+              children: "Post Job"
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("li", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("a", {
+              href: "/find-jobs",
+              children: "Find Jobs"
+            })
           })]
-        })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-        className: "footer__list",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h3", {
-          children: "FAQs"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("ul", {
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
-            children: "What Is WORQO?"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
-            children: "How Do I Contact A Worker?"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
-            children: "Is It Safe To Use WORQO?"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
-            children: "How Are Service Providers Verified?"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
-            children: "Can I Cancel Or Reschedule A Booking?"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
-            children: "What If I'm Not Satisfied With The Service?"
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+        className: "footer__policies",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("ul", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("li", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("a", {
+              href: "/about",
+              children: "Privacy Policy"
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("li", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("a", {
+              href: "/about",
+              children: "FAQs"
+            })
           })]
-        })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
         className: "footer__follow",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h3", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h3", {
           children: "Follow Us"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
           className: "footer__social-icons",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("a", {
             href: "https://facebook.com",
             target: "_blank",
             rel: "noopener noreferrer",
             "aria-label": "Facebook",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("img", {
               src: "".concat(window.location.origin, "/images/facebook.svg"),
               alt: "Facebook"
             })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("a", {
             href: "https://x.com",
             target: "_blank",
             rel: "noopener noreferrer",
             "aria-label": "Twitter / X",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("img", {
               src: "".concat(window.location.origin, "/images/twitter.svg"),
               alt: "Twitter"
             })
           })]
         })]
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+    }), showLoginModal && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+      className: "headerz-modal-overlay",
+      style: {
+        position: 'fixed',
+        inset: 0,
+        background: 'rgba(0,0,0,0.4)',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        zIndex: 9999
+      },
+      onMouseDown: function onMouseDown(e) {
+        if (e.target.classList.contains('headerz-modal-overlay')) {
+          setShowLoginModal(false);
+        }
+      },
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+        role: "dialog",
+        "aria-modal": "true",
+        "aria-labelledby": "footer-login-modal-title",
+        style: {
+          background: '#fff',
+          borderRadius: 8,
+          width: '90%',
+          maxWidth: 420,
+          boxShadow: '0 10px 30px rgba(0,0,0,0.2)'
+        },
+        onMouseDown: function onMouseDown(e) {
+          return e.stopPropagation();
+        },
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+          style: {
+            padding: '16px 20px',
+            borderBottom: '1px solid #eee'
+          },
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h3", {
+            id: "footer-login-modal-title",
+            style: {
+              margin: 0,
+              fontSize: 18,
+              color: '#000'
+            },
+            children: "Login Required"
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+          style: {
+            padding: 20,
+            color: '#333',
+            fontSize: 14,
+            lineHeight: 1.5
+          },
+          children: "Please login to post jobs."
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+          style: {
+            padding: 16,
+            display: 'flex',
+            justifyContent: 'flex-end',
+            gap: 8,
+            borderTop: '1px solid #eee'
+          },
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("button", {
+            type: "button",
+            onClick: function onClick() {
+              return setShowLoginModal(false);
+            },
+            style: {
+              padding: '8px 12px',
+              borderRadius: 6,
+              border: '1px solid #e5e7eb',
+              background: '#fff',
+              cursor: 'pointer'
+            },
+            children: "Cancel"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("button", {
+            type: "button",
+            onClick: function onClick() {
+              setShowLoginModal(false);
+              navigate('/login', {
+                replace: true
+              });
+            },
+            style: {
+              padding: '8px 12px',
+              borderRadius: 6,
+              border: 'none',
+              background: '#001E40',
+              color: '#fff',
+              cursor: 'pointer'
+            },
+            children: "Login / Signup"
+          })]
+        })]
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
       className: "footer__bottom",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("p", {
         children: "@2025 WORQO, All Rights Reserved."
       })
     })]
@@ -202336,6 +202443,17 @@ var Headerz = function Headerz() {
     _useState18 = _slicedToArray(_useState17, 2),
     targetRole = _useState18[0],
     setTargetRole = _useState18[1];
+  var _useState19 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
+      open: false,
+      title: '',
+      message: '',
+      confirmText: '',
+      onConfirm: null,
+      cancelText: 'Cancel'
+    }),
+    _useState20 = _slicedToArray(_useState19, 2),
+    modalState = _useState20[0],
+    setModalState = _useState20[1];
   var dropdownRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
   var navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_1__.useNavigate)();
 
@@ -202618,7 +202736,21 @@ var Headerz = function Headerz() {
     // Allow browsing jobs without login
     // Only restrict role-based actions when logged in
     if (isLoggedIn && (user === null || user === void 0 ? void 0 : user.role_id) === 2) {
-      alert('Employers cannot find jobs. Please switch to Worker account.');
+      setModalState({
+        open: true,
+        title: 'Switch to Worker',
+        message: 'Employers cannot find jobs. Please switch to Worker account.',
+        confirmText: 'Switch to Worker',
+        onConfirm: function onConfirm() {
+          setModalState(function (s) {
+            return _objectSpread(_objectSpread({}, s), {}, {
+              open: false
+            });
+          });
+          handleSwitchAccount();
+        },
+        cancelText: 'Cancel'
+      });
       return;
     }
     navigate('/find-jobs');
@@ -202629,19 +202761,59 @@ var Headerz = function Headerz() {
       e.stopPropagation();
     }
     if (!isLoggedIn) {
-      alert('Please login to post jobs');
-      navigate('/login', {
-        replace: true
+      setModalState({
+        open: true,
+        title: 'Login Required',
+        message: 'Please login to post jobs.',
+        confirmText: 'Login / Signup',
+        onConfirm: function onConfirm() {
+          setModalState(function (s) {
+            return _objectSpread(_objectSpread({}, s), {}, {
+              open: false
+            });
+          });
+          navigate('/login', {
+            replace: true
+          });
+        },
+        cancelText: 'Cancel'
       });
       return;
     }
     var userRoleId = Number(user === null || user === void 0 ? void 0 : user.role_id);
     if (userRoleId === 1) {
-      alert('Workers cannot post jobs. Please switch to Employer account.');
+      setModalState({
+        open: true,
+        title: 'Switch to Employer',
+        message: 'Workers cannot post jobs. Please switch to Employer account.',
+        confirmText: 'Switch to Employer',
+        onConfirm: function onConfirm() {
+          setModalState(function (s) {
+            return _objectSpread(_objectSpread({}, s), {}, {
+              open: false
+            });
+          });
+          handleSwitchAccount();
+        },
+        cancelText: 'Cancel'
+      });
       return;
     }
     if (userRoleId !== 2) {
-      alert('Only Employers can post jobs.');
+      setModalState({
+        open: true,
+        title: 'Not Allowed',
+        message: 'Only Employers can post jobs.',
+        confirmText: 'OK',
+        onConfirm: function onConfirm() {
+          return setModalState(function (s) {
+            return _objectSpread(_objectSpread({}, s), {}, {
+              open: false
+            });
+          });
+        },
+        cancelText: 'Close'
+      });
       return;
     }
     // Navigate directly to post job page in profile settings - no intermediate stops
@@ -202985,7 +203157,113 @@ var Headerz = function Headerz() {
   };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("header", {
     className: "headerz",
-    children: [isLoading && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_LoaderContent_loader__WEBPACK_IMPORTED_MODULE_9__["default"], {}), isSwitching && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
+    children: [isLoading && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_LoaderContent_loader__WEBPACK_IMPORTED_MODULE_9__["default"], {}), modalState.open && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
+      className: "headerz-modal-overlay",
+      style: {
+        position: 'fixed',
+        inset: 0,
+        background: 'rgba(0,0,0,0.4)',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        zIndex: 9999
+      },
+      onMouseDown: function onMouseDown(e) {
+        // close when clicking on overlay
+        if (e.target.classList.contains('headerz-modal-overlay')) {
+          setModalState(function (s) {
+            return _objectSpread(_objectSpread({}, s), {}, {
+              open: false
+            });
+          });
+        }
+      },
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
+        role: "dialog",
+        "aria-modal": "true",
+        "aria-labelledby": "headerz-modal-title",
+        style: {
+          background: '#fff',
+          borderRadius: 8,
+          width: '90%',
+          maxWidth: 420,
+          boxShadow: '0 10px 30px rgba(0,0,0,0.2)'
+        },
+        onMouseDown: function onMouseDown(e) {
+          return e.stopPropagation();
+        },
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
+          style: {
+            padding: '16px 20px',
+            borderBottom: '1px solid #eee'
+          },
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("h3", {
+            id: "headerz-modal-title",
+            style: {
+              margin: 0,
+              fontSize: 18
+            },
+            children: modalState.title
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
+          style: {
+            padding: 20,
+            color: '#333',
+            fontSize: 14,
+            lineHeight: 1.5
+          },
+          children: modalState.message
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
+          style: {
+            padding: 16,
+            display: 'flex',
+            justifyContent: 'flex-end',
+            gap: 8,
+            borderTop: '1px solid #eee'
+          },
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("button", {
+            type: "button",
+            onClick: function onClick() {
+              return setModalState(function (s) {
+                return _objectSpread(_objectSpread({}, s), {}, {
+                  open: false
+                });
+              });
+            },
+            style: {
+              padding: '8px 12px',
+              borderRadius: 6,
+              border: '1px solid #e5e7eb',
+              background: '#fff',
+              cursor: 'pointer'
+            },
+            children: modalState.cancelText || 'Cancel'
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("button", {
+            type: "button",
+            onClick: function onClick() {
+              if (typeof modalState.onConfirm === 'function') {
+                modalState.onConfirm();
+              } else {
+                setModalState(function (s) {
+                  return _objectSpread(_objectSpread({}, s), {}, {
+                    open: false
+                  });
+                });
+              }
+            },
+            style: {
+              padding: '8px 12px',
+              borderRadius: 6,
+              border: 'none',
+              background: '#001E40',
+              color: '#fff',
+              cursor: 'pointer'
+            },
+            children: modalState.confirmText || 'OK'
+          })]
+        })]
+      })
+    }), isSwitching && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
       className: "switching-overlay",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
         className: "switching-content",
@@ -203026,10 +203304,7 @@ var Headerz = function Headerz() {
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
           onClick: goToAbout,
           children: "About Us"
-        }), (!isLoggedIn || (user === null || user === void 0 ? void 0 : user.role_id) !== 2) && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
-          onClick: goToFindJobs,
-          children: "Find Jobs"
-        }), isLoggedIn && (user === null || user === void 0 ? void 0 : user.role_id) === 2 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
           onClick: goToPostJobs,
           onMouseDown: function onMouseDown(e) {
             return e.preventDefault();
@@ -203046,7 +203321,10 @@ var Headerz = function Headerz() {
               goToPostJobs(e);
             }
           },
-          children: "Post Jobs"
+          children: "Post Job"
+        }), (!isLoggedIn || (user === null || user === void 0 ? void 0 : user.role_id) !== 2) && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
+          onClick: goToFindJobs,
+          children: "Find Jobs"
         })]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
         className: "header-actions",
@@ -203342,7 +203620,7 @@ var JobProfile = function JobProfile() {
   var formatDate = function formatDate(dateString) {
     return new Date(dateString).toLocaleDateString('en-US', {
       year: 'numeric',
-      month: 'long',
+      month: 'short',
       day: 'numeric',
       timeZone: 'UTC'
     });
@@ -203392,139 +203670,305 @@ var JobProfile = function JobProfile() {
           src: _resources_sass_img_coverphoto_svg__WEBPACK_IMPORTED_MODULE_6__["default"],
           alt: "Cover"
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
-        className: "job-profile-photo-wrapper",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("img", {
-          src: job !== null && job !== void 0 && (_job$profile = job.profile) !== null && _job$profile !== void 0 && _job$profile.profile_img ? (0,_utils_profileImageUtils__WEBPACK_IMPORTED_MODULE_10__.getProfileImageUrl)(job.profile.profile_img, defpfp) : defpfp,
-          alt: "Job Logo",
-          className: "job-profile-photo"
-        })
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
-      className: "job-profile-container",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
-        className: "job-profile-left",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
-          className: "job-profile-info",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("h2", {
-            children: job.job_title
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
-            className: "job-status-container",
-            children: job.archived && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.Fragment, {
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("span", {
-                className: "job-status-dot"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("p", {
-                className: "job-status",
-                children: "Archived"
-              })]
-            })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("p", {
-            className: "job-location",
-            children: ["Posted by: ", (_job$profile2 = job.profile) === null || _job$profile2 === void 0 ? void 0 : _job$profile2.first_name, " ", (_job$profile3 = job.profile) === null || _job$profile3 === void 0 ? void 0 : _job$profile3.middlename, " ", (_job$profile4 = job.profile) === null || _job$profile4 === void 0 ? void 0 : _job$profile4.last_name, " ", (_job$profile5 = job.profile) === null || _job$profile5 === void 0 || (_job$profile5 = _job$profile5.suffix) === null || _job$profile5 === void 0 ? void 0 : _job$profile5.suffix_name]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("p", {
-            className: "job-member-since",
-            children: ["POSTED SINCE: ", new Date(job.created_at).toLocaleDateString()]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
-            className: "profile-actions",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("button", {
-              className: "job-apply-button",
-              onClick: handleApplyJob,
-              children: "Apply Job"
-            })
-          })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
-          className: "job-stats",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
-            className: "job-stat-item",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("span", {
-              className: "job-stat-label",
-              children: "Salary"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("span", {
-              className: "job-stat-number",
-              children: ["\u20B1", job.salary, "/", job.salary_type === 'per_hour' ? 'hour' : 'month']
-            })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
-            className: "job-stat-item",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("span", {
-              className: "job-stat-label",
-              children: "Job Type"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("span", {
-              className: "job-stat-number",
-              children: job.job_type
-            })]
-          })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
-          className: "job-application-period",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("h4", {
-            children: "Application Period"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
-            className: "job-application-list",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
-              className: "job-date-item",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_icons_md__WEBPACK_IMPORTED_MODULE_8__.MdDateRange, {
-                className: "job-date-icon"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("span", {
-                children: ["Start: ", formatDate(job.application_start)]
-              })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
-              className: "job-date-item",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_icons_md__WEBPACK_IMPORTED_MODULE_8__.MdDateRange, {
-                className: "job-date-icon"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("span", {
-                children: ["Deadline: ", formatDate(job.application_deadline)]
-              })]
-            })]
-          })]
-        }), job.work_start && job.work_end && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
-          className: "job-work-period",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("h4", {
-            children: "Work Period"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
-            className: "job-application-list",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
-              className: "job-date-item",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_icons_md__WEBPACK_IMPORTED_MODULE_8__.MdAccessTime, {
-                className: "job-work-icon"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("span", {
-                children: ["Work Start: ", formatDate(job.work_start)]
-              })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
-              className: "job-date-item",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_icons_md__WEBPACK_IMPORTED_MODULE_8__.MdAccessTime, {
-                className: "job-work-icon"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("span", {
-                children: ["Work End: ", formatDate(job.work_end)]
-              })]
-            })]
-          })]
-        })]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
-        className: "job-profile-right",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("h3", {
-          className: "job-overview-title",
-          children: "OVERVIEW"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
-          className: "job-about-section",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("h4", {
-            children: "About"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("p", {
-            children: formatDescription(job.description)
-          })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
-          className: "job-skills-section",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("h4", {
-            children: "Skills Required"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
-            className: "job-skills-row",
-            children: job.skills && job.skills.map(function (skill, index) {
-              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("span", {
-                className: "job-chip",
-                children: [skill.name, " (", skill.experience || 'No experience specified', ")"]
-              }, index);
+        className: "job-info-card",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+          className: "job-info-section",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+            className: "job-info-icon",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("svg", {
+              viewBox: "0 0 24 24",
+              fill: "none",
+              stroke: "currentColor",
+              strokeWidth: "2",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("path", {
+                d: "M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+              })
             })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+            className: "job-info-label",
+            children: "JOB TITLE"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+            className: "job-info-value",
+            children: job.job_title
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+          className: "job-info-divider"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+          className: "job-info-section",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+            className: "job-info-icon",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("svg", {
+              viewBox: "0 0 24 24",
+              fill: "none",
+              stroke: "currentColor",
+              strokeWidth: "2",
+              strokeLinecap: "round",
+              strokeLinejoin: "round",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("path", {
+                d: "M8 4v16M8 4h8c2 0 3 1 3 3s-1 3-3 3H8M8 10h8"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("line", {
+                x1: "4",
+                y1: "8",
+                x2: "20",
+                y2: "8"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("line", {
+                x1: "4",
+                y1: "12",
+                x2: "20",
+                y2: "12"
+              })]
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+            className: "job-info-label",
+            children: "SALARY"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+            className: "job-info-value",
+            children: ["\u20B1", job.salary, "/", job.salary_type === 'per_hour' ? 'hour' : 'month']
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+          className: "job-info-divider"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+          className: "job-info-section",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+            className: "job-info-icon",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("svg", {
+              viewBox: "0 0 24 24",
+              fill: "none",
+              stroke: "currentColor",
+              strokeWidth: "2",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("path", {
+                d: "M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+              })
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+            className: "job-info-label",
+            children: "JOB TYPE"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+            className: "job-info-value",
+            children: (job.job_type || 'Any').replace(/_/g, ' ').toUpperCase()
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+          className: "job-info-divider"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+          className: "job-info-section",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+            className: "job-info-icon",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_icons_md__WEBPACK_IMPORTED_MODULE_8__.MdDateRange, {})
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+            className: "job-info-label",
+            children: "START"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+            className: "job-info-value",
+            children: formatDate(job.application_start)
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+          className: "job-info-divider"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+          className: "job-info-section",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+            className: "job-info-icon",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_icons_md__WEBPACK_IMPORTED_MODULE_8__.MdDateRange, {})
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+            className: "job-info-label",
+            children: "DEADLINE"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+            className: "job-info-value",
+            children: formatDate(job.application_deadline)
           })]
         })]
       })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+      className: "job-profile-container",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+        className: "job-main-grid",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+          className: "job-left-column",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+            className: "poster-profile-card",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+              className: "poster-profile-image",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("img", {
+                src: job !== null && job !== void 0 && (_job$profile = job.profile) !== null && _job$profile !== void 0 && _job$profile.profile_img ? (0,_utils_profileImageUtils__WEBPACK_IMPORTED_MODULE_10__.getProfileImageUrl)(job.profile.profile_img, defpfp) : defpfp,
+                alt: "Poster Profile",
+                onError: function onError(e) {
+                  e.target.src = defpfp;
+                }
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+              className: "poster-profile-info",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("h4", {
+                className: "poster-name",
+                children: [(_job$profile2 = job.profile) === null || _job$profile2 === void 0 ? void 0 : _job$profile2.first_name, " ", (_job$profile3 = job.profile) === null || _job$profile3 === void 0 ? void 0 : _job$profile3.middlename, " ", (_job$profile4 = job.profile) === null || _job$profile4 === void 0 ? void 0 : _job$profile4.last_name, " ", (_job$profile5 = job.profile) === null || _job$profile5 === void 0 || (_job$profile5 = _job$profile5.suffix) === null || _job$profile5 === void 0 ? void 0 : _job$profile5.suffix_name]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("p", {
+                className: "poster-role",
+                children: "Job Poster"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("p", {
+                className: "poster-posted-since",
+                children: ["POSTED SINCE: ", new Date(job.created_at).toLocaleDateString()]
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+              className: "profile-actions",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("button", {
+                className: "job-apply-button",
+                onClick: handleApplyJob,
+                children: "Apply Job"
+              })
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+            className: "job-info-card mobile-only",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+              className: "job-info-section",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+                className: "job-info-icon",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("svg", {
+                  viewBox: "0 0 24 24",
+                  fill: "none",
+                  stroke: "currentColor",
+                  strokeWidth: "2",
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("path", {
+                    d: "M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                  })
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+                className: "job-info-label",
+                children: "JOB TITLE"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+                className: "job-info-value",
+                children: job.job_title
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+              className: "job-info-divider"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+              className: "job-info-section",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+                className: "job-info-icon",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("svg", {
+                  viewBox: "0 0 24 24",
+                  fill: "none",
+                  stroke: "currentColor",
+                  strokeWidth: "2",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("path", {
+                    d: "M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("path", {
+                    d: "M12 6v12M9 9h6M9 15h6"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("path", {
+                    d: "M8 8h8M8 16h8",
+                    strokeLinecap: "round"
+                  })]
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+                className: "job-info-label",
+                children: "SALARY"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+                className: "job-info-value",
+                children: ["\u20B1", job.salary, "/", job.salary_type === 'per_hour' ? 'hour' : 'month']
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+              className: "job-info-divider"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+              className: "job-info-section",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+                className: "job-info-icon",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("svg", {
+                  viewBox: "0 0 24 24",
+                  fill: "none",
+                  stroke: "currentColor",
+                  strokeWidth: "2",
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("path", {
+                    d: "M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                  })
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+                className: "job-info-label",
+                children: "JOB TYPE"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+                className: "job-info-value",
+                children: (job.job_type || 'Any').replace(/_/g, ' ').toUpperCase()
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+              className: "job-info-divider"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+              className: "job-info-section",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+                className: "job-info-icon",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_icons_md__WEBPACK_IMPORTED_MODULE_8__.MdDateRange, {})
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+                className: "job-info-label",
+                children: "START"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+                className: "job-info-value",
+                children: formatDate(job.application_start)
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+              className: "job-info-divider"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+              className: "job-info-section",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+                className: "job-info-icon",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_icons_md__WEBPACK_IMPORTED_MODULE_8__.MdDateRange, {})
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+                className: "job-info-label",
+                children: "DEADLINE"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+                className: "job-info-value",
+                children: formatDate(job.application_deadline)
+              })]
+            })]
+          }), job.work_start && job.work_end && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+            className: "job-work-period",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("h4", {
+              children: "Work Period"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+              className: "job-application-list",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+                className: "job-date-item",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_icons_md__WEBPACK_IMPORTED_MODULE_8__.MdAccessTime, {
+                  className: "job-work-icon"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("span", {
+                  children: ["Work Start: ", formatDate(job.work_start)]
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+                className: "job-date-item",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_icons_md__WEBPACK_IMPORTED_MODULE_8__.MdAccessTime, {
+                  className: "job-work-icon"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("span", {
+                  children: ["Work End: ", formatDate(job.work_end)]
+                })]
+              })]
+            })]
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+          className: "job-right-column",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+            className: "job-overview-section",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("h3", {
+              className: "job-overview-title",
+              children: "OVERVIEW"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+              className: "job-about-section",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("h4", {
+                children: "Job Description"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("p", {
+                children: formatDescription(job.description)
+              })]
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+            className: "job-skills-section",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("h4", {
+              children: "Skills Required"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+              className: "job-skills-row",
+              children: job.skills && job.skills.map(function (skill, index) {
+                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("span", {
+                  className: "job-chip",
+                  children: [skill.name, " (", skill.experience || 'No experience specified', ")"]
+                }, index);
+              })
+            })]
+          })]
+        })]
+      })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_FooterContent_footer__WEBPACK_IMPORTED_MODULE_5__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_ApplyJobModal__WEBPACK_IMPORTED_MODULE_7__["default"], {
       job: job,
       isOpen: isApplyModalOpen,
@@ -203538,10 +203982,10 @@ var JobProfile = function JobProfile() {
 
 /***/ }),
 
-/***/ "./resources/js/components/HeaderContent/Message.js":
-/*!**********************************************************!*\
-  !*** ./resources/js/components/HeaderContent/Message.js ***!
-  \**********************************************************/
+/***/ "./resources/js/components/HeaderContent/MessageWorker.js":
+/*!****************************************************************!*\
+  !*** ./resources/js/components/HeaderContent/MessageWorker.js ***!
+  \****************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -203553,12 +203997,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/lib/axios.js");
 /* harmony import */ var _Headerz__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Headerz */ "./resources/js/components/HeaderContent/Headerz.js");
 /* harmony import */ var react_icons_hi__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-icons/hi */ "./node_modules/react-icons/hi/index.mjs");
-/* harmony import */ var react_icons_io__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-icons/io */ "./node_modules/react-icons/io/index.mjs");
-/* harmony import */ var react_icons_io5__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-icons/io5 */ "./node_modules/react-icons/io5/index.mjs");
-/* harmony import */ var _sass_components_Message_scss__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./../../../sass/components/Message.scss */ "./resources/sass/components/Message.scss");
-/* harmony import */ var _utils_profileImageUtils__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../utils/profileImageUtils */ "./resources/js/utils/profileImageUtils.js");
-/* harmony import */ var _LoaderContent_loader__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../LoaderContent/loader */ "./resources/js/components/LoaderContent/loader.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var react_icons_md__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-icons/md */ "./node_modules/react-icons/md/index.mjs");
+/* harmony import */ var react_icons_go__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-icons/go */ "./node_modules/react-icons/go/index.mjs");
+/* harmony import */ var react_icons_io__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-icons/io */ "./node_modules/react-icons/io/index.mjs");
+/* harmony import */ var react_icons_io5__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-icons/io5 */ "./node_modules/react-icons/io5/index.mjs");
+/* harmony import */ var _sass_components_MessageWorker_scss__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./../../../sass/components/MessageWorker.scss */ "./resources/sass/components/MessageWorker.scss");
+/* harmony import */ var _utils_profileImageUtils__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../utils/profileImageUtils */ "./resources/js/utils/profileImageUtils.js");
+/* harmony import */ var _LoaderContent_loader__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../LoaderContent/loader */ "./resources/js/components/LoaderContent/loader.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 function _iterableToArray(r) { if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array.from(r); }
@@ -203585,12 +204031,13 @@ function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
 
 
 
-// send icon imported above
 
 
 
 
-var MessageEmployer = function MessageEmployer() {
+
+
+var Messages = function Messages() {
   var _otherUserInfo$worker, _otherUserInfo$worker2, _otherUserInfo$worker3;
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
     _useState2 = _slicedToArray(_useState, 2),
@@ -203622,8 +204069,8 @@ var MessageEmployer = function MessageEmployer() {
     setSearchQuery = _useState12[1];
   var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
     _useState14 = _slicedToArray(_useState13, 2),
-    activeWorkers = _useState14[0],
-    setActiveWorkers = _useState14[1];
+    activeUsers = _useState14[0],
+    setActiveUsers = _useState14[1];
   var _useState15 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
     _useState16 = _slicedToArray(_useState15, 2),
     userRole = _useState16[0],
@@ -203634,22 +204081,33 @@ var MessageEmployer = function MessageEmployer() {
     setShowChatMenu = _useState18[1];
   var _useState19 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(true),
     _useState20 = _slicedToArray(_useState19, 2),
-    showProfileInfo = _useState20[0],
-    setShowProfileInfo = _useState20[1];
-  var _useState21 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(true),
-    _useState22 = _slicedToArray(_useState21, 2),
-    showSidebar = _useState22[0],
-    setShowSidebar = _useState22[1];
+    showSidebar = _useState20[0],
+    setShowSidebar = _useState20[1];
   var chatMenuRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
+  var fileInputRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
   var messageInputRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
+
+  // Get user role from localStorage
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    var _stored$user;
+    var stored = JSON.parse(localStorage.getItem('user') || '{}');
+    var roleId = (stored === null || stored === void 0 ? void 0 : stored.role_id) || (stored === null || stored === void 0 || (_stored$user = stored.user) === null || _stored$user === void 0 ? void 0 : _stored$user.role_id);
+    if (roleId) {
+      setUserRole(roleId === 1 ? 'worker' : 'employer');
+    }
+  }, []);
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    fetchConversations(true);
+    fetchActiveUsers();
+  }, []);
 
   // Periodically refresh selected conversation's profile status (online/last active)
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    var _stored$user;
+    var _stored$user2;
     if (!selectedConversation) return;
     var token = localStorage.getItem('auth_token');
     var stored = JSON.parse(localStorage.getItem('user') || '{}');
-    var userId = (stored === null || stored === void 0 ? void 0 : stored.id) || (stored === null || stored === void 0 || (_stored$user = stored.user) === null || _stored$user === void 0 ? void 0 : _stored$user.id);
+    var userId = (stored === null || stored === void 0 ? void 0 : stored.id) || (stored === null || stored === void 0 || (_stored$user2 = stored.user) === null || _stored$user2 === void 0 ? void 0 : _stored$user2.id);
     var refresh = /*#__PURE__*/function () {
       var _ref = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee() {
         var _res$data, config, res, _t;
@@ -203694,17 +204152,6 @@ var MessageEmployer = function MessageEmployer() {
       return clearInterval(interval);
     };
   }, [selectedConversation]);
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    var _stored$user2;
-    fetchConversations(true);
-
-    // Get user role from localStorage
-    var stored = JSON.parse(localStorage.getItem('user') || '{}');
-    var roleId = (stored === null || stored === void 0 ? void 0 : stored.role_id) || (stored === null || stored === void 0 || (_stored$user2 = stored.user) === null || _stored$user2 === void 0 ? void 0 : _stored$user2.role_id);
-    if (roleId) {
-      setUserRole(roleId === 1 ? 'worker' : 'employer');
-    }
-  }, []);
 
   // Poll for new messages every 5 seconds
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
@@ -203868,7 +204315,7 @@ var MessageEmployer = function MessageEmployer() {
       return _ref2.apply(this, arguments);
     };
   }();
-  var fetchActiveWorkers = /*#__PURE__*/function () {
+  var fetchActiveUsers = /*#__PURE__*/function () {
     var _ref3 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee3() {
       var _stored$user4, token, stored, userId, config, response, _error$response3, _t4;
       return _regenerator().w(function (_context3) {
@@ -203895,44 +204342,52 @@ var MessageEmployer = function MessageEmployer() {
             return axios__WEBPACK_IMPORTED_MODULE_1__["default"].get("/api/bookings/users-with-profiles", config);
           case 2:
             response = _context3.v;
-            console.log('Active workers response:', response.data);
+            console.log('Active users response:', response.data);
             if (response.data && response.data.users) {
-              setActiveWorkers(response.data.users);
-              console.log('Set active workers count:', response.data.users.length);
+              setActiveUsers(response.data.users);
+              console.log('Set active users count:', response.data.users.length);
             }
             _context3.n = 4;
             break;
           case 3:
             _context3.p = 3;
             _t4 = _context3.v;
-            console.error('Error fetching active workers:', ((_error$response3 = _t4.response) === null || _error$response3 === void 0 ? void 0 : _error$response3.data) || _t4.message);
+            console.error('Error fetching active users:', ((_error$response3 = _t4.response) === null || _error$response3 === void 0 ? void 0 : _error$response3.data) || _t4.message);
           case 4:
             return _context3.a(2);
         }
       }, _callee3, null, [[0, 3]]);
     }));
-    return function fetchActiveWorkers() {
+    return function fetchActiveUsers() {
       return _ref3.apply(this, arguments);
     };
   }();
-  var filteredActiveWorkers = activeWorkers.filter(function (worker) {
+  var filteredActiveUsers = activeUsers.filter(function (user) {
     var _stored$user5;
     var stored = JSON.parse(localStorage.getItem('user') || '{}');
     var currentUserId = (stored === null || stored === void 0 ? void 0 : stored.id) || (stored === null || stored === void 0 || (_stored$user5 = stored.user) === null || _stored$user5 === void 0 ? void 0 : _stored$user5.id);
 
     // Exclude current user from the list
-    if (worker.user_id == currentUserId) {
+    if (user.user_id == currentUserId) {
       return false;
     }
 
-    // Filter only workers (role_id === 1)
-    if (worker.role_id !== 1) {
-      return false;
+    // Filter based on user role: workers see employers, employers see workers
+    if (userRole === 'worker') {
+      // Workers see employers (role_id === 2)
+      if (user.role_id !== 2) {
+        return false;
+      }
+    } else if (userRole === 'employer') {
+      // Employers see workers (role_id === 1)
+      if (user.role_id !== 1) {
+        return false;
+      }
     }
 
     // Filter by search query
     if (!searchQuery.trim()) return true;
-    var name = (worker.full_name || '').toLowerCase();
+    var name = (user.full_name || '').toLowerCase();
     return name.includes(searchQuery.toLowerCase());
   });
   var handleConversationSelect = /*#__PURE__*/function () {
@@ -203943,7 +204398,6 @@ var MessageEmployer = function MessageEmployer() {
         while (1) switch (_context4.p = _context4.n) {
           case 0:
             setSelectedConversation(conversation);
-            setShowSidebar(false); // Hide sidebar when conversation is selected
             token = localStorage.getItem('auth_token');
             stored = JSON.parse(localStorage.getItem('user') || '{}');
             userId = (stored === null || stored === void 0 ? void 0 : stored.id) || (stored === null || stored === void 0 || (_stored$user6 = stored.user) === null || _stored$user6 === void 0 ? void 0 : _stored$user6.id);
@@ -204129,820 +204583,6 @@ var MessageEmployer = function MessageEmployer() {
       handleSendMessage();
     }
   };
-
-  // Attachments and voice features disabled per request
-
-  // Function to format user name
-  var formatUserName = function formatUserName(userInfo) {
-    if (!userInfo) return 'Unknown User';
-    return userInfo.name || 'Unknown User';
-  };
-
-  // Function to render user collar
-  var renderUserCollar = function renderUserCollar(collar) {
-    if (!collar) return null;
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
-      className: "user-collar",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("h4", {
-        children: "Collar"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
-        className: "collar-info",
-        children: [collar.image && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("img", {
-          src: "".concat(window.location.origin, "/storage/").concat(collar.image),
-          alt: collar.name,
-          className: "collar-image",
-          onError: function onError(e) {
-            e.target.src = "".concat(window.location.origin, "/images/defpfp.svg");
-          }
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("span", {
-          className: "collar-name",
-          children: collar.name
-        })]
-      })]
-    });
-  };
-
-  // Function to render user rank
-  var renderUserRank = function renderUserRank(rank) {
-    if (!rank) return null;
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
-      className: "user-rank",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("h4", {
-        children: "Rank"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
-        className: "rank-info",
-        children: [rank.image && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("img", {
-          src: "".concat(window.location.origin, "/storage/").concat(rank.image),
-          alt: rank.name,
-          className: "rank-image",
-          onError: function onError(e) {
-            e.target.src = "".concat(window.location.origin, "/images/defpfp.svg");
-          }
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("span", {
-          className: "rank-name",
-          children: rank.name
-        })]
-      })]
-    });
-  };
-
-  // Function to handle View Profile button click
-  var handleViewProfile = function handleViewProfile(userId) {
-    // Navigate to the user's profile page
-    window.location.href = "/profile/".concat(userId);
-  };
-  if (loading) {
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
-      className: "message-container ".concat(userRole ? "message-container-".concat(userRole) : ''),
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_Headerz__WEBPACK_IMPORTED_MODULE_2__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
-        className: "message-content",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
-          className: "loading-container",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_LoaderContent_loader__WEBPACK_IMPORTED_MODULE_8__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("p", {
-            style: {
-              marginTop: '20px',
-              fontSize: '16px',
-              color: '#666'
-            },
-            children: "Loading messages..."
-          })]
-        })
-      })]
-    });
-  }
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
-    className: "message-container ".concat(userRole ? "message-container-".concat(userRole) : ''),
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_Headerz__WEBPACK_IMPORTED_MODULE_2__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
-      className: "message-content",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
-        className: "conversation-sidebar ".concat(!showSidebar ? 'sidebar-hidden' : ''),
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
-          className: "sidebar-header",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("h3", {
-            children: "Messages"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("span", {
-            className: "conversation-count",
-            children: conversations.length
-          })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
-          className: "sidebar-search",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
-            className: "search-input-wrapper",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("span", {
-              className: "search-icon"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("input", {
-              type: "text",
-              placeholder: "Search Workers",
-              value: searchQuery,
-              onChange: function onChange(e) {
-                return setSearchQuery(e.target.value);
-              }
-            })]
-          })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
-          className: "conversation-list ".concat(userRole ? "conversation-list-".concat(userRole) : ''),
-          children: conversations.map(function (conv) {
-            var _conv$detailed_info, _conv$detailed_info2, _conv$detailed_info3, _conv$detailed_info4;
-            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
-              className: "conversation-item ".concat(conv.unread_count > 0 ? 'unread' : '', " ").concat((selectedConversation === null || selectedConversation === void 0 ? void 0 : selectedConversation.user_id) === conv.user_id ? 'active' : ''),
-              onClick: function onClick() {
-                return handleConversationSelect(conv);
-              },
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
-                className: "conversation-avatar",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("img", {
-                  src: (0,_utils_profileImageUtils__WEBPACK_IMPORTED_MODULE_7__.getProfileImageUrl)(conv === null || conv === void 0 || (_conv$detailed_info = conv.detailed_info) === null || _conv$detailed_info === void 0 ? void 0 : _conv$detailed_info.profile_img, 'images/defpfp.svg'),
-                  alt: conv.name || 'User',
-                  className: "avatar-image",
-                  onError: function onError(e) {
-                    e.currentTarget.src = "".concat(window.location.origin, "/images/defpfp.svg");
-                  }
-                }), conv.unread_count > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("span", {
-                  className: "unread-indicator",
-                  children: conv.unread_count
-                })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
-                className: "conversation-details",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
-                  className: "conversation-header",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("span", {
-                    className: "conversation-name",
-                    style: {
-                      display: 'inline-flex',
-                      alignItems: 'center',
-                      gap: 6
-                    },
-                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("span", {
-                      children: conv.name || 'Unknown User'
-                    }), (conv === null || conv === void 0 || (_conv$detailed_info2 = conv.detailed_info) === null || _conv$detailed_info2 === void 0 || (_conv$detailed_info2 = _conv$detailed_info2.worker) === null || _conv$detailed_info2 === void 0 || (_conv$detailed_info2 = _conv$detailed_info2.collar) === null || _conv$detailed_info2 === void 0 ? void 0 : _conv$detailed_info2.image) && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("img", {
-                      src: "".concat(window.location.origin, "/storage/").concat(conv.detailed_info.worker.collar.image),
-                      alt: "collar",
-                      style: {
-                        width: 16,
-                        height: 16,
-                        borderRadius: 3
-                      },
-                      onError: function onError(e) {
-                        e.currentTarget.style.display = 'none';
-                      }
-                    }), ((conv === null || conv === void 0 || (_conv$detailed_info3 = conv.detailed_info) === null || _conv$detailed_info3 === void 0 || (_conv$detailed_info3 = _conv$detailed_info3.worker) === null || _conv$detailed_info3 === void 0 ? void 0 : _conv$detailed_info3.verified) === true || (conv === null || conv === void 0 || (_conv$detailed_info4 = conv.detailed_info) === null || _conv$detailed_info4 === void 0 || (_conv$detailed_info4 = _conv$detailed_info4.worker) === null || _conv$detailed_info4 === void 0 ? void 0 : _conv$detailed_info4.verified) === 1) && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("img", {
-                      src: "".concat(window.location.origin, "/images/verified.png"),
-                      alt: "verified",
-                      style: {
-                        width: 14,
-                        height: 14
-                      },
-                      onError: function onError(e) {
-                        e.currentTarget.style.display = 'none';
-                      }
-                    })]
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("span", {
-                    className: "conversation-time",
-                    children: conv.last_message_at ? new Date(conv.last_message_at).toLocaleTimeString([], {
-                      hour: '2-digit',
-                      minute: '2-digit'
-                    }) : ''
-                  })]
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
-                  className: "employer-conversation-preview",
-                  children: conv.last_message && function (_stored$user8) {
-                    var stored = JSON.parse(localStorage.getItem('user') || '{}');
-                    var currentUserId = (stored === null || stored === void 0 ? void 0 : stored.id) || (stored === null || stored === void 0 || (_stored$user8 = stored.user) === null || _stored$user8 === void 0 ? void 0 : _stored$user8.id);
-                    var isSentByMe = conv.last_message.sender_id == currentUserId;
-                    var maxLength = 50;
-                    var preview = conv.last_message.content.length > maxLength ? conv.last_message.content.substring(0, maxLength) + '...' : conv.last_message.content;
-                    // Show "You: " if sent by current user, otherwise show sender's name or "Worker: "
-                    if (isSentByMe) {
-                      return "You: ".concat(preview);
-                    } else {
-                      // If we have the sender's name, use it, otherwise use "Worker: "
-                      var senderName = conv.name || 'Worker';
-                      return "".concat(senderName, ": ").concat(preview);
-                    }
-                  }()
-                })]
-              })]
-            }, conv.user_id);
-          })
-        })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
-        className: "chat-area ".concat(userRole ? "chat-area-".concat(userRole) : '', " ").concat(!showSidebar ? 'chat-area-full' : ''),
-        children: selectedConversation || localStorage.getItem('message_target_user_id') ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
-          className: "chat-content",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
-            className: "chat-header",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
-              className: "chat-header-left",
-              children: [!showSidebar && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("button", {
-                className: "back-button",
-                onClick: handleBackToSidebar,
-                "aria-label": "Back to conversations",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(react_icons_io5__WEBPACK_IMPORTED_MODULE_5__.IoArrowBack, {})
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("h3", {
-                children: selectedConversation ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("span", {
-                  style: {
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: 8
-                  },
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("span", {
-                    children: selectedConversation.name
-                  }), (otherUserInfo === null || otherUserInfo === void 0 || (_otherUserInfo$worker = otherUserInfo.worker) === null || _otherUserInfo$worker === void 0 || (_otherUserInfo$worker = _otherUserInfo$worker.collar) === null || _otherUserInfo$worker === void 0 ? void 0 : _otherUserInfo$worker.image) && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("img", {
-                    src: "".concat(window.location.origin, "/storage/").concat(otherUserInfo.worker.collar.image),
-                    alt: "collar",
-                    style: {
-                      width: 20,
-                      height: 20,
-                      borderRadius: 4
-                    },
-                    onError: function onError(e) {
-                      e.currentTarget.style.display = 'none';
-                    }
-                  }), ((otherUserInfo === null || otherUserInfo === void 0 || (_otherUserInfo$worker2 = otherUserInfo.worker) === null || _otherUserInfo$worker2 === void 0 ? void 0 : _otherUserInfo$worker2.verified) === true || (otherUserInfo === null || otherUserInfo === void 0 || (_otherUserInfo$worker3 = otherUserInfo.worker) === null || _otherUserInfo$worker3 === void 0 ? void 0 : _otherUserInfo$worker3.verified) === 1) && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("img", {
-                    src: "".concat(window.location.origin, "/images/verified.png"),
-                    alt: "verified",
-                    style: {
-                      width: 18,
-                      height: 18
-                    },
-                    onError: function onError(e) {
-                      e.currentTarget.style.display = 'none';
-                    }
-                  })]
-                }) : 'New Conversation'
-              })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
-              className: "chat-header-actions",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("span", {
-                className: "online-status ".concat(otherUserInfo !== null && otherUserInfo !== void 0 && otherUserInfo.is_online ? 'online' : 'offline'),
-                children: otherUserInfo !== null && otherUserInfo !== void 0 && otherUserInfo.is_online ? 'Online' : (otherUserInfo === null || otherUserInfo === void 0 ? void 0 : otherUserInfo.last_active_text) || 'Offline'
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
-                className: "chat-menu-wrapper",
-                ref: chatMenuRef,
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(react_icons_hi__WEBPACK_IMPORTED_MODULE_3__.HiOutlineDotsVertical, {
-                  className: "chat-menu-icon",
-                  onClick: function onClick() {
-                    return setShowChatMenu(!showChatMenu);
-                  }
-                }), showChatMenu && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
-                  className: "chat-menu-dropdown",
-                  children: otherUserInfo && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
-                    className: "chat-menu-item",
-                    onClick: function onClick() {
-                      handleViewProfile(otherUserInfo.id);
-                      setShowChatMenu(false);
-                    },
-                    children: "View Profile"
-                  })
-                })]
-              })]
-            })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
-            className: "chat-messages ".concat(userRole ? "chat-messages-".concat(userRole) : ''),
-            children: selectedConversation && messages[selectedConversation.user_id] && messages[selectedConversation.user_id].length > 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
-              className: "messages-list",
-              children: messages[selectedConversation.user_id].map(function (message) {
-                var _JSON$parse, _JSON$parse2;
-                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
-                  className: "message-item ".concat(message.sender_id === (((_JSON$parse = JSON.parse(localStorage.getItem('user') || '{}')) === null || _JSON$parse === void 0 ? void 0 : _JSON$parse.id) || ((_JSON$parse2 = JSON.parse(localStorage.getItem('user') || '{}')) === null || _JSON$parse2 === void 0 || (_JSON$parse2 = _JSON$parse2.user) === null || _JSON$parse2 === void 0 ? void 0 : _JSON$parse2.id)) ? 'own-message' : 'other-message'),
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
-                    className: "message-content",
-                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
-                      className: "message-text",
-                      children: message.content
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
-                      className: "message-time",
-                      children: new Date(message.created_at).toLocaleTimeString([], {
-                        hour: '2-digit',
-                        minute: '2-digit'
-                      })
-                    })]
-                  })
-                }, message.id);
-              })
-            }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
-              className: "message-placeholder",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("p", {
-                children: "Start your conversation"
-              })
-            })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("form", {
-            onSubmit: handleSendMessage,
-            className: "chat-input",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
-              className: "input-wrapper",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("input", {
-                ref: messageInputRef,
-                type: "text",
-                placeholder: "Write your message here...",
-                className: "message-input",
-                value: messageInput,
-                onChange: function onChange(e) {
-                  return setMessageInput(e.target.value);
-                },
-                onKeyPress: handleKeyPress
-              })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("button", {
-              type: "submit",
-              className: "send-button",
-              disabled: !messageInput.trim(),
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(react_icons_io__WEBPACK_IMPORTED_MODULE_4__.IoMdSend, {})
-            })]
-          })]
-        }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
-          className: "no-conversation-selected",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
-            className: "empty-state",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
-              className: "empty-icon",
-              children: "\uD83D\uDCAC"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("h3", {
-              children: "Select a conversation"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("p", {
-              children: "Choose a conversation from the sidebar to start messaging"
-            })]
-          })
-        })
-      })]
-    })]
-  });
-};
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (MessageEmployer);
-
-/***/ }),
-
-/***/ "./resources/js/components/HeaderContent/MessageWorker.js":
-/*!****************************************************************!*\
-  !*** ./resources/js/components/HeaderContent/MessageWorker.js ***!
-  \****************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/lib/axios.js");
-/* harmony import */ var _Headerz__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Headerz */ "./resources/js/components/HeaderContent/Headerz.js");
-/* harmony import */ var react_icons_hi__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-icons/hi */ "./node_modules/react-icons/hi/index.mjs");
-/* harmony import */ var react_icons_md__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-icons/md */ "./node_modules/react-icons/md/index.mjs");
-/* harmony import */ var react_icons_go__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-icons/go */ "./node_modules/react-icons/go/index.mjs");
-/* harmony import */ var react_icons_io__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-icons/io */ "./node_modules/react-icons/io/index.mjs");
-/* harmony import */ var react_icons_io5__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-icons/io5 */ "./node_modules/react-icons/io5/index.mjs");
-/* harmony import */ var _sass_components_MessageWorker_scss__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./../../../sass/components/MessageWorker.scss */ "./resources/sass/components/MessageWorker.scss");
-/* harmony import */ var _utils_profileImageUtils__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../utils/profileImageUtils */ "./resources/js/utils/profileImageUtils.js");
-/* harmony import */ var _LoaderContent_loader__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../LoaderContent/loader */ "./resources/js/components/LoaderContent/loader.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-function _iterableToArray(r) { if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array.from(r); }
-function _arrayWithoutHoles(r) { if (Array.isArray(r)) return _arrayLikeToArray(r); }
-function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
-function _regenerator() { /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/babel/babel/blob/main/packages/babel-helpers/LICENSE */ var e, t, r = "function" == typeof Symbol ? Symbol : {}, n = r.iterator || "@@iterator", o = r.toStringTag || "@@toStringTag"; function i(r, n, o, i) { var c = n && n.prototype instanceof Generator ? n : Generator, u = Object.create(c.prototype); return _regeneratorDefine2(u, "_invoke", function (r, n, o) { var i, c, u, f = 0, p = o || [], y = !1, G = { p: 0, n: 0, v: e, a: d, f: d.bind(e, 4), d: function d(t, r) { return i = t, c = 0, u = e, G.n = r, a; } }; function d(r, n) { for (c = r, u = n, t = 0; !y && f && !o && t < p.length; t++) { var o, i = p[t], d = G.p, l = i[2]; r > 3 ? (o = l === n) && (u = i[(c = i[4]) ? 5 : (c = 3, 3)], i[4] = i[5] = e) : i[0] <= d && ((o = r < 2 && d < i[1]) ? (c = 0, G.v = n, G.n = i[1]) : d < l && (o = r < 3 || i[0] > n || n > l) && (i[4] = r, i[5] = n, G.n = l, c = 0)); } if (o || r > 1) return a; throw y = !0, n; } return function (o, p, l) { if (f > 1) throw TypeError("Generator is already running"); for (y && 1 === p && d(p, l), c = p, u = l; (t = c < 2 ? e : u) || !y;) { i || (c ? c < 3 ? (c > 1 && (G.n = -1), d(c, u)) : G.n = u : G.v = u); try { if (f = 2, i) { if (c || (o = "next"), t = i[o]) { if (!(t = t.call(i, u))) throw TypeError("iterator result is not an object"); if (!t.done) return t; u = t.value, c < 2 && (c = 0); } else 1 === c && (t = i["return"]) && t.call(i), c < 2 && (u = TypeError("The iterator does not provide a '" + o + "' method"), c = 1); i = e; } else if ((t = (y = G.n < 0) ? u : r.call(n, G)) !== a) break; } catch (t) { i = e, c = 1, u = t; } finally { f = 1; } } return { value: t, done: y }; }; }(r, o, i), !0), u; } var a = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} t = Object.getPrototypeOf; var c = [][n] ? t(t([][n]())) : (_regeneratorDefine2(t = {}, n, function () { return this; }), t), u = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(c); function f(e) { return Object.setPrototypeOf ? Object.setPrototypeOf(e, GeneratorFunctionPrototype) : (e.__proto__ = GeneratorFunctionPrototype, _regeneratorDefine2(e, o, "GeneratorFunction")), e.prototype = Object.create(u), e; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, _regeneratorDefine2(u, "constructor", GeneratorFunctionPrototype), _regeneratorDefine2(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = "GeneratorFunction", _regeneratorDefine2(GeneratorFunctionPrototype, o, "GeneratorFunction"), _regeneratorDefine2(u), _regeneratorDefine2(u, o, "Generator"), _regeneratorDefine2(u, n, function () { return this; }), _regeneratorDefine2(u, "toString", function () { return "[object Generator]"; }), (_regenerator = function _regenerator() { return { w: i, m: f }; })(); }
-function _regeneratorDefine2(e, r, n, t) { var i = Object.defineProperty; try { i({}, "", {}); } catch (e) { i = 0; } _regeneratorDefine2 = function _regeneratorDefine(e, r, n, t) { function o(r, n) { _regeneratorDefine2(e, r, function (e) { return this._invoke(r, n, e); }); } r ? i ? i(e, r, { value: n, enumerable: !t, configurable: !t, writable: !t }) : e[r] = n : (o("next", 0), o("throw", 1), o("return", 2)); }, _regeneratorDefine2(e, r, n, t); }
-function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
-function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
-function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
-function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
-function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
-function asyncGeneratorStep(n, t, e, r, o, a, c) { try { var i = n[a](c), u = i.value; } catch (n) { return void e(n); } i.done ? t(u) : Promise.resolve(u).then(r, o); }
-function _asyncToGenerator(n) { return function () { var t = this, e = arguments; return new Promise(function (r, o) { var a = n.apply(t, e); function _next(n) { asyncGeneratorStep(a, r, o, _next, _throw, "next", n); } function _throw(n) { asyncGeneratorStep(a, r, o, _next, _throw, "throw", n); } _next(void 0); }); }; }
-function _slicedToArray(r, e) { return _arrayWithHoles(r) || _iterableToArrayLimit(r, e) || _unsupportedIterableToArray(r, e) || _nonIterableRest(); }
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
-function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
-function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
-function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
-
-
-
-
-
-
-
-
-
-
-
-
-var MessageWorker = function MessageWorker() {
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
-    _useState2 = _slicedToArray(_useState, 2),
-    selectedConversation = _useState2[0],
-    setSelectedConversation = _useState2[1];
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
-    _useState4 = _slicedToArray(_useState3, 2),
-    messageInput = _useState4[0],
-    setMessageInput = _useState4[1];
-  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
-    _useState6 = _slicedToArray(_useState5, 2),
-    conversations = _useState6[0],
-    setConversations = _useState6[1];
-  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({}),
-    _useState8 = _slicedToArray(_useState7, 2),
-    messages = _useState8[0],
-    setMessages = _useState8[1];
-  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
-    _useState0 = _slicedToArray(_useState9, 2),
-    otherUserInfo = _useState0[0],
-    setOtherUserInfo = _useState0[1];
-  var _useState1 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(true),
-    _useState10 = _slicedToArray(_useState1, 2),
-    loading = _useState10[0],
-    setLoading = _useState10[1];
-  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
-    _useState12 = _slicedToArray(_useState11, 2),
-    searchQuery = _useState12[0],
-    setSearchQuery = _useState12[1];
-  var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
-    _useState14 = _slicedToArray(_useState13, 2),
-    activeUsers = _useState14[0],
-    setActiveUsers = _useState14[1];
-  var _useState15 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
-    _useState16 = _slicedToArray(_useState15, 2),
-    showChatMenu = _useState16[0],
-    setShowChatMenu = _useState16[1];
-  var _useState17 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(true),
-    _useState18 = _slicedToArray(_useState17, 2),
-    showSidebar = _useState18[0],
-    setShowSidebar = _useState18[1];
-  var chatMenuRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
-  var fileInputRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
-  var messageInputRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    fetchConversations(true);
-    fetchActiveUsers();
-  }, []);
-
-  // Poll for new messages every 5 seconds
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    var interval = setInterval(function () {
-      fetchConversations();
-    }, 5000);
-    return function () {
-      return clearInterval(interval);
-    };
-  }, []);
-
-  // Close chat menu when clicking outside
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    var handleClickOutside = function handleClickOutside(event) {
-      if (chatMenuRef.current && !chatMenuRef.current.contains(event.target)) {
-        setShowChatMenu(false);
-      }
-    };
-    if (showChatMenu) {
-      document.addEventListener('mousedown', handleClickOutside);
-    }
-    return function () {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, [showChatMenu]);
-  var fetchConversations = /*#__PURE__*/function () {
-    var _ref = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee() {
-      var showLoading,
-        _stored$user,
-        token,
-        stored,
-        userId,
-        config,
-        targetUserId,
-        response,
-        fetchedConversations,
-        existingConversation,
-        _error$response,
-        _args = arguments,
-        _t;
-      return _regenerator().w(function (_context) {
-        while (1) switch (_context.p = _context.n) {
-          case 0:
-            showLoading = _args.length > 0 && _args[0] !== undefined ? _args[0] : false;
-            _context.p = 1;
-            if (showLoading) setLoading(true);
-            token = localStorage.getItem('auth_token');
-            stored = JSON.parse(localStorage.getItem('user') || '{}');
-            userId = (stored === null || stored === void 0 ? void 0 : stored.id) || (stored === null || stored === void 0 || (_stored$user = stored.user) === null || _stored$user === void 0 ? void 0 : _stored$user.id);
-            if (userId) {
-              _context.n = 2;
-              break;
-            }
-            console.error('User ID not found');
-            if (showLoading) setLoading(false);
-            return _context.a(2);
-          case 2:
-            config = token ? {
-              headers: {
-                'Authorization': "Bearer ".concat(token),
-                'X-User-Id': userId
-              }
-            } : {}; // Check if there's a target user ID in localStorage (set when navigating from booking)
-            targetUserId = localStorage.getItem('message_target_user_id');
-            _context.n = 3;
-            return axios__WEBPACK_IMPORTED_MODULE_1__["default"].get("/api/messages/conversations", _objectSpread(_objectSpread({}, config), {}, {
-              params: {
-                user_id: userId
-              }
-            }));
-          case 3:
-            response = _context.v;
-            if (response.data.success) {
-              fetchedConversations = response.data.conversations || [];
-              setConversations(fetchedConversations);
-
-              // If there's a target user ID, try to find or create a conversation with them
-              if (targetUserId) {
-                existingConversation = fetchedConversations.find(function (conv) {
-                  return conv.user_id == targetUserId;
-                });
-                if (existingConversation) {
-                  // Select existing conversation
-                  handleConversationSelect(existingConversation);
-                }
-                // Remove the target user ID from localStorage so it doesn't persist
-                localStorage.removeItem('message_target_user_id');
-              }
-            }
-            _context.n = 5;
-            break;
-          case 4:
-            _context.p = 4;
-            _t = _context.v;
-            console.error('Error fetching conversations:', ((_error$response = _t.response) === null || _error$response === void 0 ? void 0 : _error$response.data) || _t.message);
-          case 5:
-            _context.p = 5;
-            if (showLoading) setLoading(false);
-            return _context.f(5);
-          case 6:
-            return _context.a(2);
-        }
-      }, _callee, null, [[1, 4, 5, 6]]);
-    }));
-    return function fetchConversations() {
-      return _ref.apply(this, arguments);
-    };
-  }();
-  var fetchActiveUsers = /*#__PURE__*/function () {
-    var _ref2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee2() {
-      var _stored$user2, token, stored, userId, config, response, _error$response2, _t2;
-      return _regenerator().w(function (_context2) {
-        while (1) switch (_context2.p = _context2.n) {
-          case 0:
-            _context2.p = 0;
-            token = localStorage.getItem('auth_token');
-            stored = JSON.parse(localStorage.getItem('user') || '{}');
-            userId = (stored === null || stored === void 0 ? void 0 : stored.id) || (stored === null || stored === void 0 || (_stored$user2 = stored.user) === null || _stored$user2 === void 0 ? void 0 : _stored$user2.id);
-            if (userId) {
-              _context2.n = 1;
-              break;
-            }
-            console.error('User ID not found');
-            return _context2.a(2);
-          case 1:
-            config = token ? {
-              headers: {
-                'Authorization': "Bearer ".concat(token),
-                'X-User-Id': userId
-              }
-            } : {}; // Fetch all users with profiles
-            _context2.n = 2;
-            return axios__WEBPACK_IMPORTED_MODULE_1__["default"].get("/api/bookings/users-with-profiles", config);
-          case 2:
-            response = _context2.v;
-            console.log('Active users response:', response.data);
-            if (response.data && response.data.users) {
-              setActiveUsers(response.data.users);
-              console.log('Set active users count:', response.data.users.length);
-            }
-            _context2.n = 4;
-            break;
-          case 3:
-            _context2.p = 3;
-            _t2 = _context2.v;
-            console.error('Error fetching active users:', ((_error$response2 = _t2.response) === null || _error$response2 === void 0 ? void 0 : _error$response2.data) || _t2.message);
-          case 4:
-            return _context2.a(2);
-        }
-      }, _callee2, null, [[0, 3]]);
-    }));
-    return function fetchActiveUsers() {
-      return _ref2.apply(this, arguments);
-    };
-  }();
-  var filteredActiveUsers = activeUsers.filter(function (user) {
-    var _stored$user3;
-    var stored = JSON.parse(localStorage.getItem('user') || '{}');
-    var currentUserId = (stored === null || stored === void 0 ? void 0 : stored.id) || (stored === null || stored === void 0 || (_stored$user3 = stored.user) === null || _stored$user3 === void 0 ? void 0 : _stored$user3.id);
-
-    // Exclude current user from the list
-    if (user.user_id == currentUserId) {
-      return false;
-    }
-
-    // Filter only employers (role_id === 2)
-    if (user.role_id !== 2) {
-      return false;
-    }
-
-    // Filter by search query
-    if (!searchQuery.trim()) return true;
-    var name = (user.full_name || '').toLowerCase();
-    return name.includes(searchQuery.toLowerCase());
-  });
-  var handleConversationSelect = /*#__PURE__*/function () {
-    var _ref3 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee3(conversation) {
-      var _stored$user4;
-      var token, stored, userId, config, response, _error$response3, _t3;
-      return _regenerator().w(function (_context3) {
-        while (1) switch (_context3.p = _context3.n) {
-          case 0:
-            setSelectedConversation(conversation);
-            setShowSidebar(false); // Hide sidebar when conversation is selected
-            token = localStorage.getItem('auth_token');
-            stored = JSON.parse(localStorage.getItem('user') || '{}');
-            userId = (stored === null || stored === void 0 ? void 0 : stored.id) || (stored === null || stored === void 0 || (_stored$user4 = stored.user) === null || _stored$user4 === void 0 ? void 0 : _stored$user4.id);
-            if (userId) {
-              _context3.n = 1;
-              break;
-            }
-            console.error('User ID not found');
-            return _context3.a(2);
-          case 1:
-            _context3.p = 1;
-            config = token ? {
-              headers: {
-                'Authorization': "Bearer ".concat(token),
-                'X-User-Id': userId
-              }
-            } : {};
-            _context3.n = 2;
-            return axios__WEBPACK_IMPORTED_MODULE_1__["default"].get("/api/messages/thread/".concat(conversation.user_id), _objectSpread(_objectSpread({}, config), {}, {
-              params: {
-                user_id: userId
-              }
-            }));
-          case 2:
-            response = _context3.v;
-            if (response.data.success) {
-              setMessages(function (prev) {
-                return _objectSpread(_objectSpread({}, prev), {}, _defineProperty({}, conversation.user_id, response.data.messages || []));
-              });
-
-              // Set other user info if available
-              if (response.data.other_user_info) {
-                setOtherUserInfo(response.data.other_user_info);
-              }
-            }
-            _context3.n = 4;
-            break;
-          case 3:
-            _context3.p = 3;
-            _t3 = _context3.v;
-            console.error('Error fetching conversation:', ((_error$response3 = _t3.response) === null || _error$response3 === void 0 ? void 0 : _error$response3.data) || _t3.message);
-          case 4:
-            return _context3.a(2);
-        }
-      }, _callee3, null, [[1, 3]]);
-    }));
-    return function handleConversationSelect(_x) {
-      return _ref3.apply(this, arguments);
-    };
-  }();
-  var handleBackToSidebar = function handleBackToSidebar() {
-    setShowSidebar(true);
-    setSelectedConversation(null);
-    setOtherUserInfo(null);
-  };
-  var handleSendMessage = /*#__PURE__*/function () {
-    var _ref4 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee4(e) {
-      var _stored$user5;
-      var content, token, stored, userId, recipientId, payload, config, response, newMsg, updatedConversations, newConversation, userResponse, _error$response4, _error$response5, _t4;
-      return _regenerator().w(function (_context4) {
-        while (1) switch (_context4.p = _context4.n) {
-          case 0:
-            e === null || e === void 0 || e.preventDefault();
-            content = messageInput.trim();
-            if (content) {
-              _context4.n = 1;
-              break;
-            }
-            return _context4.a(2);
-          case 1:
-            token = localStorage.getItem('auth_token');
-            stored = JSON.parse(localStorage.getItem('user') || '{}');
-            userId = (stored === null || stored === void 0 ? void 0 : stored.id) || (stored === null || stored === void 0 || (_stored$user5 = stored.user) === null || _stored$user5 === void 0 ? void 0 : _stored$user5.id);
-            if (userId) {
-              _context4.n = 2;
-              break;
-            }
-            console.error('User ID not found');
-            return _context4.a(2);
-          case 2:
-            _context4.p = 2;
-            if (!selectedConversation) {
-              _context4.n = 3;
-              break;
-            }
-            recipientId = selectedConversation.user_id;
-            _context4.n = 4;
-            break;
-          case 3:
-            // Check if there's a target user ID from localStorage
-            recipientId = localStorage.getItem('message_target_user_id');
-            if (recipientId) {
-              _context4.n = 4;
-              break;
-            }
-            console.error('No recipient specified');
-            return _context4.a(2);
-          case 4:
-            payload = {
-              recipient_id: parseInt(recipientId),
-              content: content
-            };
-            console.log('Sending message payload:', payload);
-            console.log('Recipient ID type:', _typeof(parseInt(recipientId)), 'Value:', parseInt(recipientId));
-            console.log('Sender ID from localStorage:', userId);
-            config = token ? {
-              headers: {
-                'Authorization': "Bearer ".concat(token),
-                'X-User-Id': userId,
-                'Content-Type': 'application/json'
-              }
-            } : {};
-            _context4.n = 5;
-            return axios__WEBPACK_IMPORTED_MODULE_1__["default"].post("/api/messages/send", payload, config);
-          case 5:
-            response = _context4.v;
-            if (!response.data.success) {
-              _context4.n = 8;
-              break;
-            }
-            newMsg = response.data.message; // Update messages state
-            setMessages(function (prev) {
-              return _objectSpread(_objectSpread({}, prev), {}, _defineProperty({}, recipientId, [].concat(_toConsumableArray(prev[recipientId] || []), [newMsg])));
-            });
-            setMessageInput('');
-
-            // Trigger message update event for header badge
-            window.dispatchEvent(new Event('messageUpdated'));
-
-            // If this is a new conversation (no selectedConversation), update conversations list
-            if (selectedConversation) {
-              _context4.n = 8;
-              break;
-            }
-            _context4.n = 6;
-            return fetchConversations();
-          case 6:
-            // Find and select the new conversation
-            updatedConversations = conversations || [];
-            newConversation = updatedConversations.find(function (conv) {
-              return conv.user_id == recipientId;
-            });
-            if (!newConversation) {
-              _context4.n = 8;
-              break;
-            }
-            setSelectedConversation(newConversation);
-
-            // Get detailed user info for the new conversation
-            _context4.n = 7;
-            return axios__WEBPACK_IMPORTED_MODULE_1__["default"].get("/api/messages/thread/".concat(recipientId), _objectSpread(_objectSpread({}, config), {}, {
-              params: {
-                user_id: userId
-              }
-            }));
-          case 7:
-            userResponse = _context4.v;
-            if (userResponse.data.success && userResponse.data.other_user_info) {
-              setOtherUserInfo(userResponse.data.other_user_info);
-            }
-          case 8:
-            _context4.n = 10;
-            break;
-          case 9:
-            _context4.p = 9;
-            _t4 = _context4.v;
-            console.error('Error sending message:', ((_error$response4 = _t4.response) === null || _error$response4 === void 0 ? void 0 : _error$response4.data) || _t4.message);
-            if ((_error$response5 = _t4.response) !== null && _error$response5 !== void 0 && (_error$response5 = _error$response5.data) !== null && _error$response5 !== void 0 && _error$response5.errors) {
-              console.error('Validation errors:', _t4.response.data.errors);
-            }
-          case 10:
-            return _context4.a(2);
-        }
-      }, _callee4, null, [[2, 9]]);
-    }));
-    return function handleSendMessage(_x2) {
-      return _ref4.apply(this, arguments);
-    };
-  }();
-  var handleKeyPress = function handleKeyPress(e) {
-    if (e.key === 'Enter' && !e.shiftKey) {
-      e.preventDefault();
-      handleSendMessage();
-    }
-  };
   var handleAttachClick = function handleAttachClick() {
     var _fileInputRef$current;
     (_fileInputRef$current = fileInputRef.current) === null || _fileInputRef$current === void 0 || _fileInputRef$current.click();
@@ -205012,17 +204652,17 @@ var MessageWorker = function MessageWorker() {
               className: "search-icon"
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("input", {
               type: "text",
-              placeholder: "Search Employers",
+              placeholder: userRole === 'worker' ? 'Search Employers' : 'Search Workers',
               value: searchQuery,
               onChange: function onChange(e) {
                 return setSearchQuery(e.target.value);
               }
             })]
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
           className: "conversation-list",
-          children: [conversations.map(function (conv) {
-            var _conv$detailed_info, _conv$detailed_info2, _conv$name;
+          children: conversations.map(function (conv) {
+            var _conv$detailed_info, _conv$detailed_info2, _conv$name, _conv$detailed_info3, _conv$detailed_info4, _conv$detailed_info5;
             return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
               className: "conversation-item ".concat(conv.unread_count > 0 ? 'unread' : '', " ").concat((selectedConversation === null || selectedConversation === void 0 ? void 0 : selectedConversation.user_id) === conv.user_id ? 'active' : ''),
               onClick: function onClick() {
@@ -205048,9 +204688,37 @@ var MessageWorker = function MessageWorker() {
                 className: "conversation-details",
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
                   className: "conversation-header",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("span", {
                     className: "conversation-name",
-                    children: conv.name || 'Unknown User'
+                    style: {
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: 6
+                    },
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
+                      children: conv.name || 'Unknown User'
+                    }), (conv === null || conv === void 0 || (_conv$detailed_info3 = conv.detailed_info) === null || _conv$detailed_info3 === void 0 || (_conv$detailed_info3 = _conv$detailed_info3.worker) === null || _conv$detailed_info3 === void 0 || (_conv$detailed_info3 = _conv$detailed_info3.collar) === null || _conv$detailed_info3 === void 0 ? void 0 : _conv$detailed_info3.image) && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("img", {
+                      src: "".concat(window.location.origin, "/storage/").concat(conv.detailed_info.worker.collar.image),
+                      alt: "collar",
+                      style: {
+                        width: 16,
+                        height: 16,
+                        borderRadius: 3
+                      },
+                      onError: function onError(e) {
+                        e.currentTarget.style.display = 'none';
+                      }
+                    }), ((conv === null || conv === void 0 || (_conv$detailed_info4 = conv.detailed_info) === null || _conv$detailed_info4 === void 0 || (_conv$detailed_info4 = _conv$detailed_info4.worker) === null || _conv$detailed_info4 === void 0 ? void 0 : _conv$detailed_info4.verified) === true || (conv === null || conv === void 0 || (_conv$detailed_info5 = conv.detailed_info) === null || _conv$detailed_info5 === void 0 || (_conv$detailed_info5 = _conv$detailed_info5.worker) === null || _conv$detailed_info5 === void 0 ? void 0 : _conv$detailed_info5.verified) === 1) && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("img", {
+                      src: "".concat(window.location.origin, "/images/verified.png"),
+                      alt: "verified",
+                      style: {
+                        width: 14,
+                        height: 14
+                      },
+                      onError: function onError(e) {
+                        e.currentTarget.style.display = 'none';
+                      }
+                    })]
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
                     className: "conversation-time",
                     children: conv.last_message_at ? new Date(conv.last_message_at).toLocaleTimeString([], {
@@ -205060,70 +204728,32 @@ var MessageWorker = function MessageWorker() {
                   })]
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
                   className: "worker-conversation-preview",
-                  children: conv.last_message && function (_stored$user6) {
+                  children: conv.last_message && function (_stored$user8) {
                     var stored = JSON.parse(localStorage.getItem('user') || '{}');
-                    var currentUserId = (stored === null || stored === void 0 ? void 0 : stored.id) || (stored === null || stored === void 0 || (_stored$user6 = stored.user) === null || _stored$user6 === void 0 ? void 0 : _stored$user6.id);
+                    var currentUserId = (stored === null || stored === void 0 ? void 0 : stored.id) || (stored === null || stored === void 0 || (_stored$user8 = stored.user) === null || _stored$user8 === void 0 ? void 0 : _stored$user8.id);
                     var isSentByMe = conv.last_message.sender_id == currentUserId;
                     var maxLength = 50;
                     var preview = conv.last_message.content.length > maxLength ? conv.last_message.content.substring(0, maxLength) + '...' : conv.last_message.content;
-                    // Show "You: " if sent by current user, otherwise show sender's first name or "Employer: "
+                    // Show "You: " if sent by current user, otherwise show sender's name
                     if (isSentByMe) {
                       return "You: ".concat(preview);
                     } else {
-                      // Extract first name only from the full name
-                      var fullName = conv.name || 'Employer';
-                      var firstName = fullName.split(' ')[0]; // Get only the first name
-                      return "".concat(firstName, ": ").concat(preview);
+                      // Show full name for employers, first name for workers
+                      var senderName = conv.name || (userRole === 'worker' ? 'Employer' : 'Worker');
+                      if (userRole === 'worker') {
+                        // Workers see first name only
+                        var firstName = senderName.split(' ')[0];
+                        return "".concat(firstName, ": ").concat(preview);
+                      } else {
+                        // Employers see full name
+                        return "".concat(senderName, ": ").concat(preview);
+                      }
                     }
                   }()
                 })]
               })]
             }, conv.user_id);
-          }), filteredActiveUsers.filter(function (user) {
-            return !conversations.find(function (c) {
-              return c.user_id == user.user_id;
-            });
-          }).map(function (user) {
-            var _user$full_name;
-            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
-              className: "conversation-item ".concat((selectedConversation === null || selectedConversation === void 0 ? void 0 : selectedConversation.user_id) === user.user_id ? 'active' : ''),
-              onClick: function onClick() {
-                var tempConv = {
-                  user_id: user.user_id,
-                  name: user.full_name
-                };
-                setSelectedConversation(tempConv);
-                setShowSidebar(false); // Hide sidebar when conversation is selected
-                localStorage.setItem('message_target_user_id', String(user.user_id));
-              },
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
-                className: "conversation-avatar",
-                children: user.profile_img ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("img", {
-                  src: (0,_utils_profileImageUtils__WEBPACK_IMPORTED_MODULE_9__.getProfileImageUrl)(user.profile_img, 'images/defpfp.svg'),
-                  alt: user.full_name || 'User',
-                  className: "avatar-image",
-                  onError: function onError(e) {
-                    e.currentTarget.src = "".concat(window.location.origin, "/images/defpfp.svg");
-                  }
-                }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
-                  className: "avatar-placeholder",
-                  children: ((_user$full_name = user.full_name) === null || _user$full_name === void 0 ? void 0 : _user$full_name.charAt(0)) || 'U'
-                })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
-                className: "conversation-details",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
-                  className: "conversation-header",
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
-                    className: "conversation-name",
-                    children: user.full_name || 'Unknown User'
-                  })
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
-                  className: "worker-conversation-preview",
-                  children: "Start new conversation"
-                })]
-              })]
-            }, user.user_id);
-          })]
+          })
         })]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
         className: "chat-area ".concat(!showSidebar ? 'chat-area-full' : ''),
@@ -205139,13 +204769,43 @@ var MessageWorker = function MessageWorker() {
                 "aria-label": "Back to conversations",
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_io5__WEBPACK_IMPORTED_MODULE_7__.IoArrowBack, {})
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("h3", {
-                children: selectedConversation ? selectedConversation.name : 'New Conversation'
+                children: selectedConversation ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("span", {
+                  style: {
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: 8
+                  },
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
+                    children: selectedConversation.name
+                  }), (otherUserInfo === null || otherUserInfo === void 0 || (_otherUserInfo$worker = otherUserInfo.worker) === null || _otherUserInfo$worker === void 0 || (_otherUserInfo$worker = _otherUserInfo$worker.collar) === null || _otherUserInfo$worker === void 0 ? void 0 : _otherUserInfo$worker.image) && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("img", {
+                    src: "".concat(window.location.origin, "/storage/").concat(otherUserInfo.worker.collar.image),
+                    alt: "collar",
+                    style: {
+                      width: 20,
+                      height: 20,
+                      borderRadius: 4
+                    },
+                    onError: function onError(e) {
+                      e.currentTarget.style.display = 'none';
+                    }
+                  }), ((otherUserInfo === null || otherUserInfo === void 0 || (_otherUserInfo$worker2 = otherUserInfo.worker) === null || _otherUserInfo$worker2 === void 0 ? void 0 : _otherUserInfo$worker2.verified) === true || (otherUserInfo === null || otherUserInfo === void 0 || (_otherUserInfo$worker3 = otherUserInfo.worker) === null || _otherUserInfo$worker3 === void 0 ? void 0 : _otherUserInfo$worker3.verified) === 1) && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("img", {
+                    src: "".concat(window.location.origin, "/images/verified.png"),
+                    alt: "verified",
+                    style: {
+                      width: 18,
+                      height: 18
+                    },
+                    onError: function onError(e) {
+                      e.currentTarget.style.display = 'none';
+                    }
+                  })]
+                }) : 'New Conversation'
               })]
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
               className: "chat-header-actions",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
-                className: "online-status",
-                children: "Online"
+                className: "online-status ".concat(otherUserInfo !== null && otherUserInfo !== void 0 && otherUserInfo.is_online ? 'online' : 'offline'),
+                children: otherUserInfo !== null && otherUserInfo !== void 0 && otherUserInfo.is_online ? 'Online' : (otherUserInfo === null || otherUserInfo === void 0 ? void 0 : otherUserInfo.last_active_text) || 'Offline'
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
                 className: "chat-menu-wrapper",
                 ref: chatMenuRef,
@@ -205254,7 +204914,7 @@ var MessageWorker = function MessageWorker() {
     })]
   });
 };
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (MessageWorker);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Messages);
 
 /***/ }),
 
@@ -206799,6 +206459,7 @@ function _regenerator() { /*! regenerator-runtime -- Copyright (c) 2014-present,
 function _regeneratorDefine2(e, r, n, t) { var i = Object.defineProperty; try { i({}, "", {}); } catch (e) { i = 0; } _regeneratorDefine2 = function _regeneratorDefine(e, r, n, t) { function o(r, n) { _regeneratorDefine2(e, r, function (e) { return this._invoke(r, n, e); }); } r ? i ? i(e, r, { value: n, enumerable: !t, configurable: !t, writable: !t }) : e[r] = n : (o("next", 0), o("throw", 1), o("return", 2)); }, _regeneratorDefine2(e, r, n, t); }
 function asyncGeneratorStep(n, t, e, r, o, a, c) { try { var i = n[a](c), u = i.value; } catch (n) { return void e(n); } i.done ? t(u) : Promise.resolve(u).then(r, o); }
 function _asyncToGenerator(n) { return function () { var t = this, e = arguments; return new Promise(function (r, o) { var a = n.apply(t, e); function _next(n) { asyncGeneratorStep(a, r, o, _next, _throw, "next", n); } function _throw(n) { asyncGeneratorStep(a, r, o, _next, _throw, "throw", n); } _next(void 0); }); }; }
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 function _iterableToArray(r) { if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array.from(r); }
@@ -206926,6 +206587,47 @@ var FindJob = function FindJob() {
     }
   };
 
+  // Helper function to normalize skills data
+  var _normalizeSkills = function normalizeSkills(skills) {
+    if (!skills) return [];
+    if (Array.isArray(skills)) {
+      // If it's already an array, ensure each item has the expected structure
+      return skills.map(function (skill) {
+        if (typeof skill === 'string') {
+          return {
+            name: skill,
+            experience: 'No experience specified'
+          };
+        }
+        if (_typeof(skill) === 'object' && skill !== null) {
+          return {
+            name: skill.name || skill.skill_name || String(skill),
+            experience: skill.experience || skill.experience_level || 'No experience specified'
+          };
+        }
+        return {
+          name: String(skill),
+          experience: 'No experience specified'
+        };
+      });
+    }
+    if (typeof skills === 'string') {
+      try {
+        var parsed = JSON.parse(skills);
+        if (Array.isArray(parsed)) {
+          return _normalizeSkills(parsed);
+        }
+      } catch (e) {
+        // If parsing fails, treat as a single skill name
+        return [{
+          name: skills,
+          experience: 'No experience specified'
+        }];
+      }
+    }
+    return [];
+  };
+
   // Apply all filters and sorting
   var applyFiltersAndSort = (0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)(function () {
     if (Array.isArray(jobs)) {
@@ -206940,8 +206642,9 @@ var FindJob = function FindJob() {
           // Search in job title
           var titleMatch = (_job$job_title = job.job_title) === null || _job$job_title === void 0 ? void 0 : _job$job_title.toLowerCase().includes(searchLower);
 
-          // Search in skills
-          var skillsMatch = job.skills && job.skills.some(function (skill) {
+          // Search in skills - normalize first to ensure it's an array
+          var normalizedSkills = _normalizeSkills(job.skills);
+          var skillsMatch = Array.isArray(normalizedSkills) && normalizedSkills.length > 0 && normalizedSkills.some(function (skill) {
             var _skill$name;
             return (_skill$name = skill.name) === null || _skill$name === void 0 ? void 0 : _skill$name.toLowerCase().includes(searchLower);
           });
@@ -207319,7 +207022,7 @@ var FindJob = function FindJob() {
                     style: {
                       color: job.job_type === 'part-time' ? '#3b82f6' : job.job_type === 'full-time' ? '#10b981' : job.job_type === 'contract' ? '#f59e0b' : '#f59e0b'
                     },
-                    children: job.job_type || 'Any'
+                    children: (job.job_type || 'Any').replace(/_/g, ' ').toUpperCase()
                   })]
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
                   className: "findjob-section-title",
@@ -207332,12 +207035,21 @@ var FindJob = function FindJob() {
                   children: "Skills Required"
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
                   className: "findjob-skills",
-                  children: job.skills && job.skills.map(function (skill, index) {
-                    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("span", {
+                  children: function () {
+                    var normalizedSkills = _normalizeSkills(job.skills);
+                    if (Array.isArray(normalizedSkills) && normalizedSkills.length > 0) {
+                      return normalizedSkills.map(function (skill, index) {
+                        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("span", {
+                          className: "findjob-chip",
+                          children: [skill.name, " (", skill.experience || 'No experience specified', ")"]
+                        }, index);
+                      });
+                    }
+                    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("span", {
                       className: "findjob-chip",
-                      children: [skill.name, " (", skill.experience || 'No experience specified', ")"]
-                    }, index);
-                  })
+                      children: "No skills specified"
+                    });
+                  }()
                 })]
               })]
             }, job.id);
@@ -207426,6 +207138,8 @@ var HomePage = function HomePage() {
     workerSearchTerm = _useState14[0],
     setWorkerSearchTerm = _useState14[1];
   var navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_8__.useNavigate)();
+  var searchInputRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
+  var suggestionsRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     var userData = localStorage.getItem('user');
     if (userData) {
@@ -207454,6 +207168,21 @@ var HomePage = function HomePage() {
     setSearchSuggestions([]);
     setShowSuggestions(false);
   }, [user === null || user === void 0 ? void 0 : user.role_id]);
+
+  // Handle click outside to close suggestions
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    var handleClickOutside = function handleClickOutside(event) {
+      if (suggestionsRef.current && !suggestionsRef.current.contains(event.target) && searchInputRef.current && !searchInputRef.current.contains(event.target)) {
+        setShowSuggestions(false);
+      }
+    };
+    if (showSuggestions) {
+      document.addEventListener('mousedown', handleClickOutside);
+      return function () {
+        document.removeEventListener('mousedown', handleClickOutside);
+      };
+    }
+  }, [showSuggestions]);
 
   // Define static popular skills for common work searches (from SkillSeeder)
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
@@ -207533,6 +207262,9 @@ var HomePage = function HomePage() {
               setEmployerSearchTerm(value);
             } else if ((user === null || user === void 0 ? void 0 : user.role_id) === 1) {
               setWorkerSearchTerm(value);
+            } else {
+              // Guest users or no user - use general search term
+              setWorkerSearchTerm(value);
             }
             if (!(value.length >= 2)) {
               _context.n = 5;
@@ -207552,6 +207284,7 @@ var HomePage = function HomePage() {
             _t = _context.v;
             console.error('Error fetching search suggestions:', _t);
             setSearchSuggestions([]);
+            setShowSuggestions(false);
           case 4:
             _context.n = 6;
             break;
@@ -207569,34 +207302,46 @@ var HomePage = function HomePage() {
   }();
 
   // Handle search submission
-  var handleSearch = function handleSearch() {
+  var handleSearch = function handleSearch(e) {
+    if (e) {
+      e.preventDefault();
+    }
     var currentSearchTerm = (user === null || user === void 0 ? void 0 : user.role_id) === 2 ? employerSearchTerm : workerSearchTerm;
+
+    // Close suggestions
+    setShowSuggestions(false);
     if (currentSearchTerm.trim()) {
       // Navigate based on user role
       if ((user === null || user === void 0 ? void 0 : user.role_id) === 2) {
         // Employer - go to services page
-        navigate("/services?search=".concat(encodeURIComponent(currentSearchTerm)));
-      } else if ((user === null || user === void 0 ? void 0 : user.role_id) === 1) {
-        // Worker - go to find-jobs page
-        navigate("/find-jobs?search=".concat(encodeURIComponent(currentSearchTerm)));
+        navigate("/services?search=".concat(encodeURIComponent(currentSearchTerm.trim())));
+      } else {
+        // Worker or guest - go to find-jobs page
+        navigate("/find-jobs?search=".concat(encodeURIComponent(currentSearchTerm.trim())));
       }
-      // If no valid role, stay on homepage
     }
   };
 
   // Handle search on Enter key
-  var handleKeyPress = function handleKeyPress(e) {
+  var handleKeyDown = function handleKeyDown(e) {
     if (e.key === 'Enter') {
-      handleSearch();
+      e.preventDefault();
+      handleSearch(e);
+    } else if (e.key === 'Escape') {
+      setShowSuggestions(false);
     }
   };
 
   // Handle skill click
   var handleSkillClick = function handleSkillClick(skillName) {
+    // Close suggestions if open
+    setShowSuggestions(false);
+
     // Update role-specific search term
     if ((user === null || user === void 0 ? void 0 : user.role_id) === 2) {
       setEmployerSearchTerm(skillName);
-    } else if ((user === null || user === void 0 ? void 0 : user.role_id) === 1) {
+    } else {
+      // Worker or guest
       setWorkerSearchTerm(skillName);
     }
 
@@ -207604,11 +207349,10 @@ var HomePage = function HomePage() {
     if ((user === null || user === void 0 ? void 0 : user.role_id) === 2) {
       // Employer - go to services page
       navigate("/services?search=".concat(encodeURIComponent(skillName)));
-    } else if ((user === null || user === void 0 ? void 0 : user.role_id) === 1) {
-      // Worker - go to find-jobs page
+    } else {
+      // Worker or guest - go to find-jobs page
       navigate("/find-jobs?search=".concat(encodeURIComponent(skillName)));
     }
-    // If no valid role, stay on homepage
   };
 
   // Handle suggestion click
@@ -207616,19 +207360,20 @@ var HomePage = function HomePage() {
     // Update role-specific search term
     if ((user === null || user === void 0 ? void 0 : user.role_id) === 2) {
       setEmployerSearchTerm(suggestion);
-    } else if ((user === null || user === void 0 ? void 0 : user.role_id) === 1) {
+    } else {
+      // Worker or guest
       setWorkerSearchTerm(suggestion);
     }
     setShowSuggestions(false);
+
     // Navigate based on user role
     if ((user === null || user === void 0 ? void 0 : user.role_id) === 2) {
       // Employer - go to services page
       navigate("/services?search=".concat(encodeURIComponent(suggestion)));
-    } else if ((user === null || user === void 0 ? void 0 : user.role_id) === 1) {
-      // Worker - go to find-jobs page
+    } else {
+      // Worker or guest - go to find-jobs page
       navigate("/find-jobs?search=".concat(encodeURIComponent(suggestion)));
     }
-    // If no valid role, stay on homepage
   };
 
   // Handle see more skills button click
@@ -207637,11 +207382,10 @@ var HomePage = function HomePage() {
     if ((user === null || user === void 0 ? void 0 : user.role_id) === 2) {
       // Employer - go to services page
       navigate('/services');
-    } else if ((user === null || user === void 0 ? void 0 : user.role_id) === 1) {
-      // Worker - go to find-jobs page
+    } else {
+      // Worker or guest - go to find-jobs page
       navigate('/find-jobs');
     }
-    // If no valid role, stay on homepage
   };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
     className: "homepage",
@@ -207652,33 +207396,58 @@ var HomePage = function HomePage() {
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("p", {
         className: "sub-headline",
         children: (user === null || user === void 0 ? void 0 : user.role_id) === 2 ? "Connect with skilled workers who get the job done—service-based, administrative, or specialized." : "Find job opportunities that match your skills and experience."
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("form", {
         className: "search-bar ".concat((user === null || user === void 0 ? void 0 : user.role_id) === 2 ? 'employer-search-bar' : 'worker-search-bar'),
+        onSubmit: handleSearch,
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
           className: "search-input-container ".concat((user === null || user === void 0 ? void 0 : user.role_id) === 2 ? 'employer-search-input-container' : 'worker-search-input-container'),
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("input", {
+            ref: searchInputRef,
             type: "text",
             placeholder: (user === null || user === void 0 ? void 0 : user.role_id) === 2 ? "Search for workers and services..." : "Search for jobs and opportunities...",
             value: (user === null || user === void 0 ? void 0 : user.role_id) === 2 ? employerSearchTerm : workerSearchTerm,
             onChange: handleSearchInputChange,
-            onKeyPress: handleKeyPress,
-            disabled: !isProfileComplete && (user === null || user === void 0 ? void 0 : user.role_id) === 1
+            onKeyDown: handleKeyDown,
+            onFocus: function onFocus() {
+              if (searchSuggestions.length > 0) {
+                setShowSuggestions(true);
+              }
+            },
+            disabled: !isProfileComplete && (user === null || user === void 0 ? void 0 : user.role_id) === 1,
+            "aria-label": "Search input",
+            "aria-autocomplete": "list",
+            "aria-expanded": showSuggestions
           }), showSuggestions && searchSuggestions.length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+            ref: suggestionsRef,
             className: "search-suggestions ".concat((user === null || user === void 0 ? void 0 : user.role_id) === 2 ? 'employer-search-suggestions' : 'worker-search-suggestions'),
+            role: "listbox",
             children: searchSuggestions.map(function (suggestion, index) {
               return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
                 className: "suggestion-item ".concat((user === null || user === void 0 ? void 0 : user.role_id) === 2 ? 'employer-suggestion-item' : 'worker-suggestion-item'),
                 onClick: function onClick() {
                   return handleSuggestionClick(suggestion);
                 },
+                onMouseDown: function onMouseDown(e) {
+                  return e.preventDefault();
+                },
+                role: "option",
+                tabIndex: 0,
+                onKeyDown: function onKeyDown(e) {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    handleSuggestionClick(suggestion);
+                  }
+                },
                 children: suggestion
               }, index);
             })
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("button", {
+          type: "submit",
           className: "search-button ".concat((user === null || user === void 0 ? void 0 : user.role_id) === 2 ? 'employer-search-button' : 'worker-search-button'),
           onClick: handleSearch,
           disabled: !isProfileComplete && (user === null || user === void 0 ? void 0 : user.role_id) === 1,
+          "aria-label": "Search",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_tabler_icons_react__WEBPACK_IMPORTED_MODULE_6__["default"], {
             size: 24
           })
@@ -207698,12 +207467,23 @@ var HomePage = function HomePage() {
             className: "category-column ".concat((user === null || user === void 0 ? void 0 : user.role_id) === 2 ? 'employer-category-column' : 'worker-category-column'),
             children: popularSkills.slice(0, Math.ceil(popularSkills.length / 2)).map(function (skill, index) {
               return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
-                className: "job-category ".concat((user === null || user === void 0 ? void 0 : user.role_id) === 2 ? 'employer-job-category' : 'worker-job-category'),
+                className: "job-category ".concat((user === null || user === void 0 ? void 0 : user.role_id) === 2 ? 'employer-job-category' : 'worker-job-category', " ").concat(!isProfileComplete && (user === null || user === void 0 ? void 0 : user.role_id) === 1 ? 'disabled' : ''),
                 onClick: function onClick() {
-                  return handleSkillClick(skill.name);
+                  if (isProfileComplete || (user === null || user === void 0 ? void 0 : user.role_id) !== 1) {
+                    handleSkillClick(skill.name);
+                  }
                 },
+                onKeyDown: function onKeyDown(e) {
+                  if ((e.key === 'Enter' || e.key === ' ') && (isProfileComplete || (user === null || user === void 0 ? void 0 : user.role_id) !== 1)) {
+                    e.preventDefault();
+                    handleSkillClick(skill.name);
+                  }
+                },
+                role: "button",
+                tabIndex: isProfileComplete || (user === null || user === void 0 ? void 0 : user.role_id) !== 1 ? 0 : -1,
+                "aria-label": "Search for ".concat(skill.name, " jobs"),
                 style: {
-                  cursor: 'pointer'
+                  cursor: !isProfileComplete && (user === null || user === void 0 ? void 0 : user.role_id) === 1 ? 'not-allowed' : 'pointer'
                 },
                 children: skill.name
               }, skill.id);
@@ -207712,12 +207492,23 @@ var HomePage = function HomePage() {
             className: "category-column ".concat((user === null || user === void 0 ? void 0 : user.role_id) === 2 ? 'employer-category-column' : 'worker-category-column'),
             children: popularSkills.slice(Math.ceil(popularSkills.length / 2)).map(function (skill, index) {
               return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
-                className: "job-category ".concat((user === null || user === void 0 ? void 0 : user.role_id) === 2 ? 'employer-job-category' : 'worker-job-category'),
+                className: "job-category ".concat((user === null || user === void 0 ? void 0 : user.role_id) === 2 ? 'employer-job-category' : 'worker-job-category', " ").concat(!isProfileComplete && (user === null || user === void 0 ? void 0 : user.role_id) === 1 ? 'disabled' : ''),
                 onClick: function onClick() {
-                  return handleSkillClick(skill.name);
+                  if (isProfileComplete || (user === null || user === void 0 ? void 0 : user.role_id) !== 1) {
+                    handleSkillClick(skill.name);
+                  }
                 },
+                onKeyDown: function onKeyDown(e) {
+                  if ((e.key === 'Enter' || e.key === ' ') && (isProfileComplete || (user === null || user === void 0 ? void 0 : user.role_id) !== 1)) {
+                    e.preventDefault();
+                    handleSkillClick(skill.name);
+                  }
+                },
+                role: "button",
+                tabIndex: isProfileComplete || (user === null || user === void 0 ? void 0 : user.role_id) !== 1 ? 0 : -1,
+                "aria-label": "Search for ".concat(skill.name, " jobs"),
                 style: {
-                  cursor: 'pointer'
+                  cursor: !isProfileComplete && (user === null || user === void 0 ? void 0 : user.role_id) === 1 ? 'not-allowed' : 'pointer'
                 },
                 children: skill.name
               }, skill.id);
@@ -212525,21 +212316,6 @@ var Browse = function Browse() {
                       className: "contact-number",
                       children: worker.contact_number.replace(/(\d{4})\d{3}(\d{4})/, '$1***$2')
                     })
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
-                    className: "info-row",
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
-                      className: "info-block",
-                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
-                        className: "label",
-                        children: "RATE"
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
-                        className: "value",
-                        children: ["\u20B1", worker.hourlyRate, "/hour", worker.hours_per_day ? " (".concat(worker.hours_per_day, " hours/day)") : ' (4 hours/day)', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("br", {}), "(\u20B1", Math.round(worker.hourlyRate * (worker.hours_per_day || 4) * 30), "/month)"]
-                      })]
-                    })
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
-                    className: "desc",
-                    children: worker.description
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
                     className: "skills-row",
                     children: [worker.primary_skills && worker.primary_skills.length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.Fragment, {
@@ -212873,6 +212649,129 @@ var BrowseWhite = function BrowseWhite() {
 
 /***/ }),
 
+/***/ "./resources/js/components/SkillRatingModal/AddedCredentials.js":
+/*!**********************************************************************!*\
+  !*** ./resources/js/components/SkillRatingModal/AddedCredentials.js ***!
+  \**********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _tabler_icons_react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @tabler/icons-react */ "./node_modules/@tabler/icons-react/dist/esm/icons/IconX.mjs");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+// Category options for display
+
+var credentialCategories = [{
+  value: 'government',
+  label: 'Government Credential'
+}, {
+  value: 'professional',
+  label: 'Professional Credential'
+}, {
+  value: 'personal',
+  label: 'Personal Credential'
+}];
+var AddedCredentials = function AddedCredentials(_ref) {
+  var credentials = _ref.credentials,
+    onEditCredential = _ref.onEditCredential,
+    onRemoveCredential = _ref.onRemoveCredential;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+    className: "form-section added-credentials-section",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+      className: "section-title",
+      children: ["Added Credentials (", credentials.length, ")"]
+    }), credentials.length > 0 ? credentials.map(function (cred, index) {
+      var _credentialCategories;
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+        className: "credential-card-container",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+          className: "credential-card",
+          onClick: function onClick() {
+            return onEditCredential(cred, index);
+          },
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+            className: "credential-content",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+              className: "credential-main",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                className: "credential-header",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+                  className: "credential-name",
+                  children: cred.credentials_name
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+                className: "credential-info",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+                  className: "credential-category",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+                    className: "category-label",
+                    children: "Category:"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+                    className: "category-value",
+                    children: cred.category ? (_credentialCategories = credentialCategories.find(function (cat) {
+                      return cat.value === cred.category;
+                    })) === null || _credentialCategories === void 0 ? void 0 : _credentialCategories.label : 'Professional Credential'
+                  })]
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+                  className: "credential-files",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+                    className: "files-label",
+                    children: "Files:"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("span", {
+                    className: "files-list",
+                    children: [cred.credentials_photo ? 'Photo' : '', cred.credentials_photo && cred.credentials_doc ? ', ' : '', cred.credentials_doc ? 'Document' : '', !cred.credentials_photo && !cred.credentials_doc ? 'None uploaded' : '']
+                  })]
+                })]
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+              className: "credential-actions",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+                type: "button",
+                className: "remove-credential-btn",
+                title: "Remove credential",
+                style: {
+                  background: 'transparent',
+                  backgroundColor: 'transparent',
+                  border: 'none',
+                  padding: 0,
+                  margin: 0,
+                  boxShadow: 'none'
+                },
+                onClick: function onClick(e) {
+                  e.stopPropagation();
+                  onRemoveCredential(index);
+                },
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_tabler_icons_react__WEBPACK_IMPORTED_MODULE_1__["default"], {
+                  size: 16
+                })
+              })
+            })]
+          })
+        })
+      }, index);
+    }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+      className: "empty-credentials",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+        className: "empty-text",
+        children: "No credentials added yet"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+        className: "empty-hint",
+        children: "Add credentials to build trust with employers"
+      })]
+    })]
+  });
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (AddedCredentials);
+
+/***/ }),
+
 /***/ "./resources/js/components/SkillRatingModal/SkillRatingModal.js":
 /*!**********************************************************************!*\
   !*** ./resources/js/components/SkillRatingModal/SkillRatingModal.js ***!
@@ -212886,12 +212785,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _tabler_icons_react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @tabler/icons-react */ "./node_modules/@tabler/icons-react/dist/esm/icons/IconChevronDown.mjs");
-/* harmony import */ var _tabler_icons_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @tabler/icons-react */ "./node_modules/@tabler/icons-react/dist/esm/icons/IconX.mjs");
-/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/input/index.js");
-/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/message/index.js");
-/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/select/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
-/* harmony import */ var _SkillsExperience__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./SkillsExperience */ "./resources/js/components/SkillRatingModal/SkillsExperience.js");
+/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/input/index.js");
+/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/message/index.js");
+/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/select/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
+/* harmony import */ var _SkillsExperience__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./SkillsExperience */ "./resources/js/components/SkillRatingModal/SkillsExperience.js");
+/* harmony import */ var _AddedCredentials__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./AddedCredentials */ "./resources/js/components/SkillRatingModal/AddedCredentials.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
@@ -212919,7 +212818,8 @@ function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
 
 
 
-var Option = antd__WEBPACK_IMPORTED_MODULE_5__["default"].Option;
+
+var Option = antd__WEBPACK_IMPORTED_MODULE_4__["default"].Option;
 
 // Category options shown in the first dropdown (three only)
 var credentialCategories = [{
@@ -213232,7 +213132,7 @@ var SkillRatingModal = function SkillRatingModal(_ref) {
   var categoryDropdownRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
   var typeDropdownRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
   var containerRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
-  var navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_6__.useNavigate)();
+  var navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_5__.useNavigate)();
   var isMounted = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(true);
   var abortController = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(new AbortController());
 
@@ -213707,7 +213607,7 @@ var SkillRatingModal = function SkillRatingModal(_ref) {
               }
             } else {
               console.error('No profile found for user:', user.id);
-              antd__WEBPACK_IMPORTED_MODULE_4__["default"].error('No profile found. Please create a profile first.');
+              antd__WEBPACK_IMPORTED_MODULE_3__["default"].error('No profile found. Please create a profile first.');
             }
             _context2.n = 10;
             break;
@@ -213722,7 +213622,7 @@ var SkillRatingModal = function SkillRatingModal(_ref) {
             return _context2.a(2);
           case 9:
             console.error('Error fetching profile:', _t2.message);
-            antd__WEBPACK_IMPORTED_MODULE_4__["default"].error("Failed to load profile: ".concat(_t2.message, ". Please try again."));
+            antd__WEBPACK_IMPORTED_MODULE_3__["default"].error("Failed to load profile: ".concat(_t2.message, ". Please try again."));
           case 10:
             return _context2.a(2);
         }
@@ -213792,7 +213692,7 @@ var SkillRatingModal = function SkillRatingModal(_ref) {
             return _context3.a(2);
           case 7:
             console.error('Error fetching skills:', _t3.message);
-            antd__WEBPACK_IMPORTED_MODULE_4__["default"].error('Failed to load skills: ' + _t3.message);
+            antd__WEBPACK_IMPORTED_MODULE_3__["default"].error('Failed to load skills: ' + _t3.message);
           case 8:
             return _context3.a(2);
         }
@@ -213862,12 +213762,12 @@ var SkillRatingModal = function SkillRatingModal(_ref) {
     var _userSkills$primary_s2, _userSkills$primary_s3, _userSkills$additiona2, _userSkills$additiona3;
     console.log('Selecting primary skill:', value);
     if ((userSkills === null || userSkills === void 0 || (_userSkills$primary_s2 = userSkills.primary_skills) === null || _userSkills$primary_s2 === void 0 ? void 0 : _userSkills$primary_s2.length) > 0) {
-      antd__WEBPACK_IMPORTED_MODULE_4__["default"].error('Only one primary skill can be selected.');
+      antd__WEBPACK_IMPORTED_MODULE_3__["default"].error('Only one primary skill can be selected.');
       return;
     }
     var totalSkills = (((_userSkills$primary_s3 = userSkills.primary_skills) === null || _userSkills$primary_s3 === void 0 ? void 0 : _userSkills$primary_s3.length) || 0) + (((_userSkills$additiona2 = userSkills.additional_skills) === null || _userSkills$additiona2 === void 0 ? void 0 : _userSkills$additiona2.length) || 0);
     if (totalSkills >= 15) {
-      antd__WEBPACK_IMPORTED_MODULE_4__["default"].error('You can only add up to 15 skills. Please remove a skill first.');
+      antd__WEBPACK_IMPORTED_MODULE_3__["default"].error('You can only add up to 15 skills. Please remove a skill first.');
       return;
     }
     var skill = availableSkills.find(function (s) {
@@ -213875,13 +213775,13 @@ var SkillRatingModal = function SkillRatingModal(_ref) {
     });
     if (!skill) {
       console.error('Selected skill not found:', value);
-      antd__WEBPACK_IMPORTED_MODULE_4__["default"].error('Invalid skill selected. Please try again.');
+      antd__WEBPACK_IMPORTED_MODULE_3__["default"].error('Invalid skill selected. Please try again.');
       return;
     }
     if (userSkills !== null && userSkills !== void 0 && (_userSkills$additiona3 = userSkills.additional_skills) !== null && _userSkills$additiona3 !== void 0 && _userSkills$additiona3.some(function (userSkill) {
       return parseInt(userSkill.skill_id) === skill.id;
     })) {
-      antd__WEBPACK_IMPORTED_MODULE_4__["default"].error('This skill has already been added as an additional skill.');
+      antd__WEBPACK_IMPORTED_MODULE_3__["default"].error('This skill has already been added as an additional skill.');
       return;
     }
     console.log('Opening sub-skills modal for skill:', skill);
@@ -213908,7 +213808,7 @@ var SkillRatingModal = function SkillRatingModal(_ref) {
       });
     });
     if (totalSkills + newSkills.length > 15) {
-      antd__WEBPACK_IMPORTED_MODULE_4__["default"].error("You can only add up to 15 skills. You can add ".concat(15 - totalSkills, " more skill(s)."));
+      antd__WEBPACK_IMPORTED_MODULE_3__["default"].error("You can only add up to 15 skills. You can add ".concat(15 - totalSkills, " more skill(s)."));
       return;
     }
     if (newSkills.length > 0) {
@@ -213920,7 +213820,7 @@ var SkillRatingModal = function SkillRatingModal(_ref) {
       setSelectedSubSkills([]);
       setShowSkillModal(true);
     } else {
-      antd__WEBPACK_IMPORTED_MODULE_4__["default"].error('All selected skills are already added or invalid.');
+      antd__WEBPACK_IMPORTED_MODULE_3__["default"].error('All selected skills are already added or invalid.');
     }
   };
   var handleAdditionalSkillToggle = function handleAdditionalSkillToggle(skill) {
@@ -213939,7 +213839,7 @@ var SkillRatingModal = function SkillRatingModal(_ref) {
       var _userSkills$primary_s6;
       // Add skill
       if (totalSkills >= 15) {
-        antd__WEBPACK_IMPORTED_MODULE_4__["default"].error('You can only add up to 15 skills. Please remove a skill first.');
+        antd__WEBPACK_IMPORTED_MODULE_3__["default"].error('You can only add up to 15 skills. Please remove a skill first.');
         return;
       }
 
@@ -213947,7 +213847,7 @@ var SkillRatingModal = function SkillRatingModal(_ref) {
       if ((_userSkills$primary_s6 = userSkills.primary_skills) !== null && _userSkills$primary_s6 !== void 0 && _userSkills$primary_s6.some(function (primarySkill) {
         return parseInt(primarySkill.skill_id) === skill.id;
       })) {
-        antd__WEBPACK_IMPORTED_MODULE_4__["default"].error('This skill has already been added as a primary skill.');
+        antd__WEBPACK_IMPORTED_MODULE_3__["default"].error('This skill has already been added as a primary skill.');
         return;
       }
 
@@ -214026,7 +213926,7 @@ var SkillRatingModal = function SkillRatingModal(_ref) {
   var handleAddSubSkill = function handleAddSubSkill(subSkill) {
     console.log('Adding sub-skill:', subSkill);
     if (selectedSubSkills.includes(subSkill)) {
-      antd__WEBPACK_IMPORTED_MODULE_4__["default"].error('This sub-skill is already selected.');
+      antd__WEBPACK_IMPORTED_MODULE_3__["default"].error('This sub-skill is already selected.');
       return;
     }
     setSelectedSubSkills(function (prev) {
@@ -214206,21 +214106,21 @@ var SkillRatingModal = function SkillRatingModal(_ref) {
               _context4.n = 1;
               break;
             }
-            antd__WEBPACK_IMPORTED_MODULE_4__["default"].error('Please select a skill');
+            antd__WEBPACK_IMPORTED_MODULE_3__["default"].error('Please select a skill');
             return _context4.a(2);
           case 1:
             if (!(((_selectedSkill$sub_sk = selectedSkill.sub_skills) === null || _selectedSkill$sub_sk === void 0 ? void 0 : _selectedSkill$sub_sk.length) > 0 && selectedSubSkills.length === 0)) {
               _context4.n = 2;
               break;
             }
-            antd__WEBPACK_IMPORTED_MODULE_4__["default"].error('Please select at least one sub-skill for this skill.');
+            antd__WEBPACK_IMPORTED_MODULE_3__["default"].error('Please select at least one sub-skill for this skill.');
             return _context4.a(2);
           case 2:
             if (profileId) {
               _context4.n = 3;
               break;
             }
-            antd__WEBPACK_IMPORTED_MODULE_4__["default"].error('Profile not loaded. Please wait and try again.');
+            antd__WEBPACK_IMPORTED_MODULE_3__["default"].error('Profile not loaded. Please wait and try again.');
             return _context4.a(2);
           case 3:
             newSkill = {
@@ -214234,7 +214134,7 @@ var SkillRatingModal = function SkillRatingModal(_ref) {
               _context4.n = 4;
               break;
             }
-            antd__WEBPACK_IMPORTED_MODULE_4__["default"].error('Authentication token missing. Please log in again.');
+            antd__WEBPACK_IMPORTED_MODULE_3__["default"].error('Authentication token missing. Please log in again.');
             return _context4.a(2);
           case 4:
             _context4.p = 4;
@@ -214323,7 +214223,7 @@ var SkillRatingModal = function SkillRatingModal(_ref) {
             // Update local state
             if (isMounted.current) {
               setUserSkills(updatedSkills);
-              antd__WEBPACK_IMPORTED_MODULE_4__["default"].success('Skill updated successfully');
+              antd__WEBPACK_IMPORTED_MODULE_3__["default"].success('Skill updated successfully');
             }
             _context4.n = 20;
             break;
@@ -214437,7 +214337,7 @@ var SkillRatingModal = function SkillRatingModal(_ref) {
                   }
                   return updated;
                 });
-                antd__WEBPACK_IMPORTED_MODULE_4__["default"].success('Skill added successfully');
+                antd__WEBPACK_IMPORTED_MODULE_3__["default"].success('Skill added successfully');
               }
             } else {
               // New skill added successfully
@@ -214466,7 +214366,7 @@ var SkillRatingModal = function SkillRatingModal(_ref) {
                   }
                   return updated;
                 });
-                antd__WEBPACK_IMPORTED_MODULE_4__["default"].success('Skill added successfully');
+                antd__WEBPACK_IMPORTED_MODULE_3__["default"].success('Skill added successfully');
               }
             }
           case 20:
@@ -214508,7 +214408,7 @@ var SkillRatingModal = function SkillRatingModal(_ref) {
             return _context4.a(2);
           case 22:
             console.error('Error saving skill:', _t6.message);
-            antd__WEBPACK_IMPORTED_MODULE_4__["default"].error("Failed to save skill: ".concat(_t6.message, ". Please try again."));
+            antd__WEBPACK_IMPORTED_MODULE_3__["default"].error("Failed to save skill: ".concat(_t6.message, ". Please try again."));
           case 23:
             return _context4.a(2);
         }
@@ -214541,7 +214441,7 @@ var SkillRatingModal = function SkillRatingModal(_ref) {
               _context5.n = 1;
               break;
             }
-            antd__WEBPACK_IMPORTED_MODULE_4__["default"].error('Profile not loaded. Please wait and try again.');
+            antd__WEBPACK_IMPORTED_MODULE_3__["default"].error('Profile not loaded. Please wait and try again.');
             return _context5.a(2);
           case 1:
             authToken = localStorage.getItem('auth_token');
@@ -214549,7 +214449,7 @@ var SkillRatingModal = function SkillRatingModal(_ref) {
               _context5.n = 2;
               break;
             }
-            antd__WEBPACK_IMPORTED_MODULE_4__["default"].error('Authentication token missing. Please log in again.');
+            antd__WEBPACK_IMPORTED_MODULE_3__["default"].error('Authentication token missing. Please log in again.');
             return _context5.a(2);
           case 2:
             // First, update the local state
@@ -214640,7 +214540,7 @@ var SkillRatingModal = function SkillRatingModal(_ref) {
                 setSkillsStepCompleted(false);
                 localStorage.setItem("skillsStepCompleted_".concat(user.id), 'false');
               }
-              antd__WEBPACK_IMPORTED_MODULE_4__["default"].success('Skill removed successfully');
+              antd__WEBPACK_IMPORTED_MODULE_3__["default"].success('Skill removed successfully');
             }
             _context5.n = 13;
             break;
@@ -214655,7 +214555,7 @@ var SkillRatingModal = function SkillRatingModal(_ref) {
             return _context5.a(2);
           case 12:
             console.error('Error removing skill:', _t8.message);
-            antd__WEBPACK_IMPORTED_MODULE_4__["default"].error("Failed to remove skill: ".concat(_t8.message, ". Please try again."));
+            antd__WEBPACK_IMPORTED_MODULE_3__["default"].error("Failed to remove skill: ".concat(_t8.message, ". Please try again."));
           case 13:
             return _context5.a(2);
         }
@@ -214694,7 +214594,7 @@ var SkillRatingModal = function SkillRatingModal(_ref) {
     var _userSkills$primary_s7, _userSkills$additiona7;
     console.log('Next step clicked, userSkills:', userSkills);
     if ((((_userSkills$primary_s7 = userSkills.primary_skills) === null || _userSkills$primary_s7 === void 0 ? void 0 : _userSkills$primary_s7.length) || 0) === 0 || (((_userSkills$additiona7 = userSkills.additional_skills) === null || _userSkills$additiona7 === void 0 ? void 0 : _userSkills$additiona7.length) || 0) === 0) {
-      antd__WEBPACK_IMPORTED_MODULE_4__["default"].error('Please select 1 primary skill and at least 1 additional skill before proceeding.');
+      antd__WEBPACK_IMPORTED_MODULE_3__["default"].error('Please select 1 primary skill and at least 1 additional skill before proceeding.');
       return;
     }
     setSkillsStepCompleted(true);
@@ -214722,21 +214622,21 @@ var SkillRatingModal = function SkillRatingModal(_ref) {
               _context6.n = 1;
               break;
             }
-            antd__WEBPACK_IMPORTED_MODULE_4__["default"].error('Profile ID not found. Please create a profile first.');
+            antd__WEBPACK_IMPORTED_MODULE_3__["default"].error('Profile ID not found. Please create a profile first.');
             return _context6.a(2);
           case 1:
             if (!((((_userSkills$primary_s8 = userSkills.primary_skills) === null || _userSkills$primary_s8 === void 0 ? void 0 : _userSkills$primary_s8.length) || 0) === 0 || (((_userSkills$additiona8 = userSkills.additional_skills) === null || _userSkills$additiona8 === void 0 ? void 0 : _userSkills$additiona8.length) || 0) === 0)) {
               _context6.n = 2;
               break;
             }
-            antd__WEBPACK_IMPORTED_MODULE_4__["default"].error('Please select at least 1 primary and 1 additional skill.');
+            antd__WEBPACK_IMPORTED_MODULE_3__["default"].error('Please select at least 1 primary and 1 additional skill.');
             return _context6.a(2);
           case 2:
             if (!(credentials.length === 0)) {
               _context6.n = 3;
               break;
             }
-            antd__WEBPACK_IMPORTED_MODULE_4__["default"].error('Please add at least one credential to complete your profile.');
+            antd__WEBPACK_IMPORTED_MODULE_3__["default"].error('Please add at least one credential to complete your profile.');
             return _context6.a(2);
           case 3:
             skillsId = {
@@ -214790,7 +214690,7 @@ var SkillRatingModal = function SkillRatingModal(_ref) {
               _context6.n = 4;
               break;
             }
-            antd__WEBPACK_IMPORTED_MODULE_4__["default"].error('Authentication token missing. Please log in again.');
+            antd__WEBPACK_IMPORTED_MODULE_3__["default"].error('Authentication token missing. Please log in again.');
             return _context6.a(2);
           case 4:
             _context6.p = 4;
@@ -214858,7 +214758,7 @@ var SkillRatingModal = function SkillRatingModal(_ref) {
             return _context6.a(2);
           case 9:
             console.error('Error completing profile:', _t9.message);
-            antd__WEBPACK_IMPORTED_MODULE_4__["default"].error("Failed to complete profile: ".concat(_t9.message, ". Please try again."));
+            antd__WEBPACK_IMPORTED_MODULE_3__["default"].error("Failed to complete profile: ".concat(_t9.message, ". Please try again."));
           case 10:
             return _context6.a(2);
         }
@@ -214989,7 +214889,7 @@ var SkillRatingModal = function SkillRatingModal(_ref) {
                     className: "required",
                     children: "*"
                   })]
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(antd__WEBPACK_IMPORTED_MODULE_3__["default"], {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(antd__WEBPACK_IMPORTED_MODULE_2__["default"], {
                   type: "number",
                   value: hoursPerDay,
                   onChange: function onChange(e) {
@@ -215082,7 +214982,7 @@ var SkillRatingModal = function SkillRatingModal(_ref) {
               })]
             })]
           })]
-        }), step === 4 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_SkillsExperience__WEBPACK_IMPORTED_MODULE_7__["default"], {
+        }), step === 4 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_SkillsExperience__WEBPACK_IMPORTED_MODULE_6__["default"], {
           userSkills: userSkills,
           setUserSkills: setUserSkills,
           availableSkills: availableSkills,
@@ -215366,89 +215266,18 @@ var SkillRatingModal = function SkillRatingModal(_ref) {
                 })
               })]
             })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
-            className: "form-section added-credentials-section",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
-              className: "section-title",
-              children: ["Added Credentials (", credentials.length, ")"]
-            }), credentials.length > 0 ? credentials.map(function (cred, index) {
-              var _credentialCategories2;
-              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-                className: "credential-card-container",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
-                  className: "credential-card",
-                  onClick: function onClick() {
-                    var _document$querySelect;
-                    // Edit credential functionality - make entire card clickable
-                    setNewCredential(cred);
-                    setSelectedCredentialCategory(cred.category || "");
-                    setEditingCredentialIndex(index); // Set the index of the credential being edited
-                    // Scroll to form
-                    (_document$querySelect = document.querySelector('.credential-form')) === null || _document$querySelect === void 0 || _document$querySelect.scrollIntoView({
-                      behavior: 'smooth'
-                    });
-                  },
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
-                    className: "credential-header",
-                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {
-                      className: "credential-name",
-                      children: cred.credentials_name
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("button", {
-                      type: "button",
-                      className: "remove-credential-btn",
-                      title: "Remove credential",
-                      style: {
-                        background: 'transparent',
-                        backgroundColor: 'transparent',
-                        border: 'none',
-                        padding: 0,
-                        margin: 0,
-                        boxShadow: 'none'
-                      },
-                      onClick: function onClick(e) {
-                        e.stopPropagation(); // Prevent card click when removing
-                        removeCredential(index);
-                      },
-                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_tabler_icons_react__WEBPACK_IMPORTED_MODULE_2__["default"], {
-                        size: 16
-                      })
-                    })]
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
-                    className: "credential-info",
-                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
-                      className: "credential-category",
-                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {
-                        className: "category-label",
-                        children: "Category:"
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {
-                        className: "category-value",
-                        children: cred.category ? (_credentialCategories2 = credentialCategories.find(function (cat) {
-                          return cat.value === cred.category;
-                        })) === null || _credentialCategories2 === void 0 ? void 0 : _credentialCategories2.label : 'Professional Credential'
-                      })]
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
-                      className: "credential-files",
-                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {
-                        className: "files-label",
-                        children: "Files:"
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("span", {
-                        className: "files-list",
-                        children: [cred.credentials_photo ? 'Photo' : '', cred.credentials_photo && cred.credentials_doc ? ', ' : '', cred.credentials_doc ? 'Document' : '', !cred.credentials_photo && !cred.credentials_doc ? 'None uploaded' : '']
-                      })]
-                    })]
-                  })]
-                })
-              }, index);
-            }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
-              className: "empty-credentials",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {
-                className: "empty-text",
-                children: "No credentials added yet"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {
-                className: "empty-hint",
-                children: "Add credentials to build trust with employers"
-              })]
-            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_AddedCredentials__WEBPACK_IMPORTED_MODULE_7__["default"], {
+            credentials: credentials,
+            onEditCredential: function onEditCredential(cred, index) {
+              var _document$querySelect;
+              setNewCredential(cred);
+              setSelectedCredentialCategory(cred.category || "");
+              setEditingCredentialIndex(index);
+              (_document$querySelect = document.querySelector('.credential-form')) === null || _document$querySelect === void 0 || _document$querySelect.scrollIntoView({
+                behavior: 'smooth'
+              });
+            },
+            onRemoveCredential: removeCredential
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
           className: "step-navigation",
@@ -215460,7 +215289,7 @@ var SkillRatingModal = function SkillRatingModal(_ref) {
                 setWorkPreferencesCompleted(true);
                 setStep(4);
               } else {
-                antd__WEBPACK_IMPORTED_MODULE_4__["default"].error('Please fill in all required fields');
+                antd__WEBPACK_IMPORTED_MODULE_3__["default"].error('Please fill in all required fields');
               }
             },
             children: "Next"
@@ -257633,50 +257462,47 @@ var MyProfile = function MyProfile() {
               children: " - You can add multiple credentials"
             })]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-            className: "form-row",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-              className: "form-group",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
-                htmlFor: "employerCredentialName",
-                children: "Credential Type *"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("select", {
-                id: "employerCredentialName",
-                value: newEmployerCredential.credentials_name,
-                onChange: function onChange(e) {
-                  return handleNewEmployerCredentialChange(e, 'credentials_name');
-                },
-                className: "form-input",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
-                  value: "",
-                  children: "Select Credential Type"
-                }), credentialTypes.map(function (credential) {
-                  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
-                    value: credential.value,
-                    children: credential.label
-                  }, credential.value);
-                })]
+            className: "form-group",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
+              htmlFor: "employerCredentialName",
+              children: "Credential Type *"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("select", {
+              id: "employerCredentialName",
+              value: newEmployerCredential.credentials_name,
+              onChange: function onChange(e) {
+                return handleNewEmployerCredentialChange(e, 'credentials_name');
+              },
+              className: "form-input",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
+                value: "",
+                children: "Select Credential Type"
+              }), credentialTypes.map(function (credential) {
+                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
+                  value: credential.value,
+                  children: credential.label
+                }, credential.value);
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-              className: "form-group",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
-                htmlFor: "employerCredentialFile",
-                children: "Upload File * (Images: JPG, PNG, GIF, WEBP | Documents: PDF, Word - Max 2MB)"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
-                type: "file",
-                id: "employerCredentialFile",
-                ref: employerCredentialFileInputRef,
-                accept: ".pdf,.doc,.docx,.jpg,.jpeg,.png,.gif,.webp",
-                onChange: function onChange(e) {
-                  return handleNewEmployerCredentialChange(e, 'credentials_file');
-                },
-                className: "form-input"
-              }), (newEmployerCredential.credentials_photo || newEmployerCredential.credentials_doc) && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-                className: "file-selected-info",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("span", {
-                  className: "file-selected",
-                  children: ["\u2713 Selected: ", (_ref27 = newEmployerCredential.credentials_photo || newEmployerCredential.credentials_doc) === null || _ref27 === void 0 ? void 0 : _ref27.name, newEmployerCredential.credentials_photo && ' (Image)', newEmployerCredential.credentials_doc && ' (Document)']
-                })
-              })]
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+            className: "form-group",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
+              htmlFor: "employerCredentialFile",
+              children: "Upload File * (Images: JPG, PNG, GIF, WEBP | Documents: PDF, Word - Max 2MB)"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+              type: "file",
+              id: "employerCredentialFile",
+              ref: employerCredentialFileInputRef,
+              accept: ".pdf,.doc,.docx,.jpg,.jpeg,.png,.gif,.webp",
+              onChange: function onChange(e) {
+                return handleNewEmployerCredentialChange(e, 'credentials_file');
+              },
+              className: "form-input"
+            }), (newEmployerCredential.credentials_photo || newEmployerCredential.credentials_doc) && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+              className: "file-selected-info",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("span", {
+                className: "file-selected",
+                children: ["\u2713 Selected: ", (_ref27 = newEmployerCredential.credentials_photo || newEmployerCredential.credentials_doc) === null || _ref27 === void 0 ? void 0 : _ref27.name, newEmployerCredential.credentials_photo && ' (Image)', newEmployerCredential.credentials_doc && ' (Document)']
+              })
             })]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
             className: "add-credential-actions",
@@ -259254,36 +259080,6 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_stats_scss__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
-
-/***/ }),
-
-/***/ "./resources/sass/components/Message.scss":
-/*!************************************************!*\
-  !*** ./resources/sass/components/Message.scss ***!
-  \************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
-/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_Message_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!../../../node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!../../../node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./Message.scss */ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/sass/components/Message.scss");
-
-            
-
-var options = {};
-
-options.insert = "head";
-options.singleton = false;
-
-var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_Message_scss__WEBPACK_IMPORTED_MODULE_1__["default"], options);
-
-
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_Message_scss__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
 
 /***/ }),
 
