@@ -1155,7 +1155,6 @@ const Profile = ({ initialServiceType }) => {
                             </div>
                             <div className="profile-skill-details">
                               <span className="profile-experience">Experience: {skill.experience}</span>
-                              <span className="profile-hourly-rate">₱{skill.hourly_rate}/hour</span>
                             </div>
                           </div>
                         );
@@ -1187,7 +1186,6 @@ const Profile = ({ initialServiceType }) => {
                             </div>
                             <div className="profile-skill-details">
                               <span className="profile-experience">Experience: {skill.experience}</span>
-                              <span className="profile-hourly-rate">₱{skill.hourly_rate}/hour</span>
                             </div>
                           </div>
                         );

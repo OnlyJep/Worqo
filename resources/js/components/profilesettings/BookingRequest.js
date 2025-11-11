@@ -216,12 +216,31 @@ const BookingRequest = () => {
   const handleSubmitFeedback = async (feedbackData) => {
     try {
       const authToken = localStorage.getItem("auth_token");
+      
+      if (!authToken) {
+        message.error("Please log in to submit a review");
+        return;
+      }
+
+      if (!selectedWorker || !selectedWorker.id) {
+        message.error("Booking information is missing");
+        return;
+      }
+
+      // Ensure token is properly formatted
+      const token = authToken && authToken.trim() ? authToken.trim() : null;
+      
+      if (!token) {
+        message.error("Authentication token is missing. Please log in again.");
+        return;
+      }
+
       const response = await axios.post(`/api/bookings/${selectedWorker.id}/review`, {
         rating: feedbackData.rating,
         comment: feedbackData.feedback
       }, {
         headers: {
-          Authorization: `Bearer ${authToken}`,
+          Authorization: `Bearer ${token}`,
           Accept: "application/json",
           "Content-Type": "application/json"
         }
@@ -237,10 +256,17 @@ const BookingRequest = () => {
       }
     } catch (error) {
       console.error("Error submitting review:", error.response?.data || error.message);
-      if (error.response?.status === 400) {
-        message.error(error.response.data?.message || "Failed to submit review. Please try again.");
+      
+      if (error.response?.status === 401) {
+        message.error("Session expired. Please log in again.");
+        // Optionally redirect to login
+        // window.location.href = '/login';
+      } else if (error.response?.status === 403) {
+        message.error("You are not authorized to review this booking");
+      } else if (error.response?.status === 400) {
+        message.error(error.response.data?.message || "Invalid request. Please check the booking status.");
       } else {
-        message.error(error.response?.data?.message || "Failed to submit review");
+        message.error(error.response?.data?.message || "Failed to submit review. Please try again.");
       }
     }
   };

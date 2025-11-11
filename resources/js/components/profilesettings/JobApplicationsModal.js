@@ -14,9 +14,11 @@ const JobApplicationsModal = ({ jobPostId, jobTitle, onClose }) => {
   const [filterStatus, setFilterStatus] = useState('all');
   const [jobPost, setJobPost] = useState(null);
   const [showViewWorkersModal, setShowViewWorkersModal] = useState(false);
+  const [selectedApplicationId, setSelectedApplicationId] = useState(null);
   const [showViewHiredWorkersModal, setShowViewHiredWorkersModal] = useState(false);
   const [showViewDeclinedWorkersModal, setShowViewDeclinedWorkersModal] = useState(false);
   const [confirmState, setConfirmState] = useState({ open: false, action: null, application: null });
+  const [warningModal, setWarningModal] = useState({ open: false, message: '' });
 
   useEffect(() => {
     fetchJobPost();
@@ -65,16 +67,39 @@ const JobApplicationsModal = ({ jobPostId, jobTitle, onClose }) => {
         const acceptedCount = applications.filter(app => app.status === 'accepted').length;
         
         // If changing from declined/for_interview to accepted, don't count the current application
+        // If already accepted, we're changing it, so subtract 1
         const adjustedCount = currentApp?.status === 'accepted' ? acceptedCount - 1 : acceptedCount;
         
+        // Validate individual hiring limit
         if (jobPost.hiring_type === 'individual' && adjustedCount >= 1) {
-          alert('This job is for individual hiring. Only one person can be accepted.');
+          setWarningModal({ 
+            open: true, 
+            message: 'This job is for individual hiring. Only one person can be accepted.' 
+          });
           return;
         }
         
-        if (jobPost.hiring_type === 'team' && adjustedCount >= 20) {
-          alert('This job is for team hiring. Maximum 20 people can be accepted.');
-          return;
+        // Validate team hiring limit using team_size from jobPost
+        if (jobPost.hiring_type === 'team') {
+          // Ensure team_size is a number (convert string to number if needed)
+          const teamSize = Number(jobPost.team_size) || 2; // Default to 2 if not set or invalid
+          const currentAccepted = Number(adjustedCount);
+          
+          console.log('Team hiring validation:', {
+            teamSize,
+            currentAccepted,
+            adjustedCount,
+            hiring_type: jobPost.hiring_type,
+            team_size: jobPost.team_size
+          });
+          
+          if (currentAccepted >= teamSize) {
+            setWarningModal({ 
+              open: true, 
+              message: `This job is for team hiring. Maximum ${teamSize} people can be accepted. You have already accepted ${currentAccepted} worker(s).` 
+            });
+            return;
+          }
         }
       }
 
@@ -95,7 +120,10 @@ const JobApplicationsModal = ({ jobPostId, jobTitle, onClose }) => {
       fetchJobPost();
     } catch (error) {
       console.error('Error updating application status:', error);
-      alert('Failed to update application status. Please try again.');
+      setWarningModal({ 
+        open: true, 
+        message: 'Failed to update application status. Please try again.' 
+      });
     }
   };
 
@@ -107,6 +135,56 @@ const JobApplicationsModal = ({ jobPostId, jobTitle, onClose }) => {
 
   const proceedConfirm = () => {
     if (confirmState.open && confirmState.application && confirmState.action) {
+      // Validate before proceeding if accepting
+      if (confirmState.action === 'accepted') {
+        if (!jobPost) {
+          setWarningModal({ 
+            open: true, 
+            message: 'Job post information is not loaded. Please wait and try again.' 
+          });
+          closeConfirm();
+          return;
+        }
+        
+        const currentApp = applications.find(app => app.id === confirmState.application.id);
+        const acceptedCount = applications.filter(app => app.status === 'accepted').length;
+        const adjustedCount = currentApp?.status === 'accepted' ? acceptedCount - 1 : acceptedCount;
+        
+        // Validate individual hiring limit
+        if (jobPost.hiring_type === 'individual' && adjustedCount >= 1) {
+          setWarningModal({ 
+            open: true, 
+            message: 'This job is for individual hiring. Only one person can be accepted.' 
+          });
+          closeConfirm();
+          return;
+        }
+        
+        // Validate team hiring limit
+        if (jobPost.hiring_type === 'team') {
+          const teamSize = Number(jobPost.team_size) || 2;
+          const currentAccepted = Number(adjustedCount);
+          
+          console.log('Team hiring validation in proceedConfirm:', {
+            teamSize,
+            currentAccepted,
+            adjustedCount,
+            hiring_type: jobPost.hiring_type,
+            team_size: jobPost.team_size,
+            jobPost: jobPost
+          });
+          
+          if (currentAccepted >= teamSize) {
+            setWarningModal({ 
+              open: true, 
+              message: `This job is for team hiring. Maximum ${teamSize} people can be accepted. You have already accepted ${currentAccepted} worker(s).` 
+            });
+            closeConfirm();
+            return;
+          }
+        }
+      }
+      
       handleApplicationStatus(confirmState.application.id, confirmState.action);
     }
     closeConfirm();
@@ -138,7 +216,10 @@ const JobApplicationsModal = ({ jobPostId, jobTitle, onClose }) => {
     const currentUser = userData.user || userData;
     
     if (currentUser?.role_id === 1) {
-      alert("Workers cannot view other worker profiles. Please switch to employer role to hire workers.");
+      setWarningModal({ 
+        open: true, 
+        message: "Workers cannot view other worker profiles. Please switch to employer role to hire workers." 
+      });
       return;
     }
     
@@ -146,11 +227,13 @@ const JobApplicationsModal = ({ jobPostId, jobTitle, onClose }) => {
   };
 
   const handleViewApplicationDetails = (application) => {
+    setSelectedApplicationId(application.id);
     setShowViewWorkersModal(true);
   };
 
   const handleCloseViewWorkersModal = () => {
     setShowViewWorkersModal(false);
+    setSelectedApplicationId(null);
   };
 
   const handleViewHiredWorkers = () => {
@@ -400,6 +483,7 @@ const JobApplicationsModal = ({ jobPostId, jobTitle, onClose }) => {
         <ViewWorkersApplicationModal
           jobPostId={jobPostId}
           jobTitle={jobTitle}
+          applicationId={selectedApplicationId}
           onClose={handleCloseViewWorkersModal}
         />
       )}
@@ -444,6 +528,28 @@ const JobApplicationsModal = ({ jobPostId, jobTitle, onClose }) => {
                 {confirmState.action === 'accepted' ? 'Hire' : 'Decline'}
               </button>
               <button className="cancel-btn" onClick={closeConfirm}>Cancel</button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Warning Modal */}
+      {warningModal.open && (
+        <div className="warning-modal-overlay" onClick={() => setWarningModal({ open: false, message: '' })}>
+          <div className="warning-modal" onClick={(e) => e.stopPropagation()}>
+            <div className="warning-modal-header">
+              <h3>⚠️ Warning</h3>
+              <button className="close-btn" onClick={() => setWarningModal({ open: false, message: '' })}>
+                <FaTimes />
+              </button>
+            </div>
+            <div className="warning-modal-content">
+              <p>{warningModal.message}</p>
+            </div>
+            <div className="warning-modal-actions">
+              <button className="warning-ok-btn" onClick={() => setWarningModal({ open: false, message: '' })}>
+                OK
+              </button>
             </div>
           </div>
         </div>

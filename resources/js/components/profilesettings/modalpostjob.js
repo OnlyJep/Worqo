@@ -673,18 +673,6 @@ const ModalPostJob = ({ onSubmit, onClose, editingJob }) => {
                       className="full-width-input"
                       required
                     />
-                    <button
-                      type="button"
-                      className="back-to-select-btn"
-                      onClick={() => {
-                        setIsJobTitleOthers(false);
-                        setCustomJobTitle('');
-                        setSelectedJobTitle('');
-                        setFormData((prev) => ({ ...prev, jobTitle: '' }));
-                      }}
-                    >
-                      ← Back to Select
-                    </button>
                   </div>
                 )}
               </div>

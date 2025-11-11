@@ -5,7 +5,7 @@ import { IoEyeSharp } from 'react-icons/io5';
 import axios from 'axios';
 import '../../../sass/components/profilesettings/viewworkersapplicationmodal.scss';
 
-const ViewWorkersApplicationModal = ({ jobPostId, jobTitle, onClose }) => {
+const ViewWorkersApplicationModal = ({ jobPostId, jobTitle, applicationId, onClose }) => {
   const [applications, setApplications] = useState([]);
   const [loading, setLoading] = useState(true);
   const [jobPost, setJobPost] = useState(null);
@@ -59,7 +59,14 @@ const ViewWorkersApplicationModal = ({ jobPostId, jobTitle, onClose }) => {
     return worker.suffix_name ? `${nameParts} ${worker.suffix_name}` : nameParts;
   };
 
-  const filteredApplications = applications.filter(app => app.status === 'for_interview');
+  const filteredApplications = applications.filter(app => {
+    // If applicationId is provided, show only that specific application
+    if (applicationId) {
+      return app.id === applicationId && app.status === 'for_interview';
+    }
+    // Otherwise, show all applications with 'for_interview' status
+    return app.status === 'for_interview';
+  });
 
   const downloadResume = (resumePath) => {
     if (resumePath) {

@@ -10,12 +10,16 @@ import { IconChevronDown, IconSearch } from '@tabler/icons-react';
 const FindJob = () => {
 	const [isSortDropdownOpen, setIsSortDropdownOpen] = useState(false);
 	const [isFiltersOpen, setIsFiltersOpen] = useState(false);
-	const [selectedSortOption, setSelectedSortOption] = useState("Sort by");
+	const [selectedSortOption, setSelectedSortOption] = useState("Newest");
 	const [searchTerm, setSearchTerm] = useState("");
 	const [selectedEmploymentType, setSelectedEmploymentType] = useState("");
 	const [jobs, setJobs] = useState([]);
 	const [filteredJobs, setFilteredJobs] = useState([]);
 	const [loading, setLoading] = useState(true);
+	const [currentPage, setCurrentPage] = useState(1);
+	const [totalPages, setTotalPages] = useState(1);
+	const [totalItems, setTotalItems] = useState(0);
+	const [perPage, setPerPage] = useState(10); // Show 10 jobs per page
 	const navigate = useNavigate();
 	const location = useLocation();
 
@@ -208,16 +212,26 @@ const FindJob = () => {
 	}, [jobs, searchTerm, selectedEmploymentType, selectedSortOption]);
 
 	const handleRefineSearch = () => {
+		setCurrentPage(1); // Reset to first page when refining search
 		applyFiltersAndSort();
 	};
 
 	const handleClearFilters = () => {
 		setSearchTerm("");
 		setSelectedEmploymentType("");
-		setSelectedSortOption("Sort by");
+		setSelectedSortOption("Newest");
+		setCurrentPage(1); // Reset to first page when clearing filters
 		// Apply sorting to all jobs
 		const sorted = applySorting(jobs);
 		setFilteredJobs(sorted);
+	};
+
+	const handlePageChange = (newPage) => {
+		if (newPage >= 1 && newPage <= totalPages) {
+			setCurrentPage(newPage);
+			// Scroll to top when page changes
+			window.scrollTo({ top: 0, behavior: 'smooth' });
+		}
 	};
 
 	// Handle URL search parameters
@@ -226,8 +240,14 @@ const FindJob = () => {
 		const searchParam = urlParams.get('search');
 		if (searchParam) {
 			setSearchTerm(searchParam);
+			setCurrentPage(1); // Reset to first page when search param changes
 		}
 	}, [location.search]);
+
+	// Reset to page 1 when search term or employment type filter changes
+	useEffect(() => {
+		setCurrentPage(1);
+	}, [searchTerm, selectedEmploymentType]);
 
 	useEffect(() => {
 		let isMounted = true;
@@ -279,24 +299,82 @@ const FindJob = () => {
 						setJobs(jobsData);
 					}
 				} else {
-					response = await axios.get('/api/jobposts?archived=false');
-					console.log('API Response:', response.data); // Debug log
+					// Try with auth token if available, but don't require it for public listings
+					const authToken = localStorage.getItem("auth_token");
+					const headers = authToken ? {
+						Authorization: `Bearer ${authToken}`,
+						Accept: "application/json"
+					} : {
+						Accept: "application/json"
+					};
 					
-					// Handle the nested structure: response.data.job_posts.data
-					const jobsData = response.data.job_posts?.data || response.data.data || response.data;
+					// Fetch non-archived jobs with pagination
+					// Add timestamp to prevent caching
+					const timestamp = new Date().getTime();
+					response = await axios.get(`/api/jobposts`, { 
+						headers,
+						// Prevent caching and include pagination
+						params: {
+							archived: false,
+							page: currentPage,
+							per_page: perPage,
+							_t: timestamp
+						}
+					});
+					console.log('API Response:', response.data); // Debug log
+					console.log('API Response Status:', response.status); // Debug log
+					console.log('Fetch timestamp:', new Date().toISOString()); // Debug log
+					
+					// Handle multiple possible response structures
+					let jobsData = null;
+					let paginationInfo = null;
+					
+					// Extract pagination info if available
+					if (response.data?.pagination) {
+						paginationInfo = response.data.pagination;
+						console.log('Pagination Info:', paginationInfo);
+					}
+					
+					// Try different response structures
+					if (response.data?.job_posts?.data) {
+						// Paginated response: { job_posts: { data: [...] } }
+						jobsData = response.data.job_posts.data;
+					} else if (response.data?.job_posts && Array.isArray(response.data.job_posts)) {
+						// Direct array: { job_posts: [...] }
+						jobsData = response.data.job_posts;
+					} else if (response.data?.data && Array.isArray(response.data.data)) {
+						// Nested data: { data: [...] }
+						jobsData = response.data.data;
+					} else if (Array.isArray(response.data)) {
+						// Direct array response
+						jobsData = response.data;
+					} else if (response.data) {
+						// Single object or other structure
+						jobsData = [response.data];
+					}
+					
 					console.log('Jobs Data:', jobsData); // Debug log
 					
 					const jobsArray = Array.isArray(jobsData) ? jobsData : [];
-					console.log('Jobs Array:', jobsArray); // Debug log
+					console.log('Jobs Array:', jobsArray.length, 'jobs found');
 					console.log('Current User ID:', currentUserId, 'Current Profile ID:', currentProfileId);
 					
+					// Update pagination state
+					if (paginationInfo && isMounted) {
+						setTotalPages(paginationInfo.total_pages || 1);
+						setTotalItems(paginationInfo.total_items || jobsArray.length);
+						setCurrentPage(paginationInfo.current_page || 1);
+					}
+					
 					// Filter out current user's job posts by profile_id (not user_id)
-					const filteredJobsArray = currentProfileId 
+					// Only filter if we have a valid profile_id
+					const filteredJobsArray = (currentProfileId && jobsArray.length > 0)
 						? jobsArray.filter(job => {
 							const jobProfileId = job.profile_id || job.profile?.id;
-							const shouldExclude = jobProfileId === currentProfileId;
+							// Convert both to strings for comparison to handle number/string mismatches
+							const shouldExclude = String(jobProfileId) === String(currentProfileId);
 							if (shouldExclude) {
-								console.log('Excluding own job:', job.id, 'Profile ID:', jobProfileId);
+								console.log('Excluding own job:', job.id, 'Job Profile ID:', jobProfileId, 'Current Profile ID:', currentProfileId);
 							}
 							return !shouldExclude;
 						})
@@ -325,21 +403,32 @@ const FindJob = () => {
 
 		// Add event listener for storage changes (when jobs are updated)
 		const handleStorageChange = (e) => {
-			if (e.key === 'jobUpdated') {
-				console.log('Job updated detected, refreshing jobs list...');
+			if (e.key === 'jobUpdated' || e.key === 'jobPosted') {
+				console.log('Job updated/posted detected, refreshing jobs list...');
 				loadJobs();
 				// Clear the storage event
 				localStorage.removeItem('jobUpdated');
+				localStorage.removeItem('jobPosted');
 			}
 		};
 
+		// Listen for custom events when jobs are posted/updated
+		const handleJobPosted = () => {
+			console.log('Job posted event detected, refreshing jobs list...');
+			loadJobs();
+		};
+
 		window.addEventListener('storage', handleStorageChange);
+		window.addEventListener('jobPosted', handleJobPosted);
+		window.addEventListener('jobUpdated', handleJobPosted);
 
 		return () => {
 			isMounted = false;
 			window.removeEventListener('storage', handleStorageChange);
+			window.removeEventListener('jobPosted', handleJobPosted);
+			window.removeEventListener('jobUpdated', handleJobPosted);
 		};
-	}, [location.search]);
+	}, [location.search, currentPage, perPage]);
 
 	// Apply filters and sorting when jobs, searchTerm, selectedEmploymentType, or selectedSortOption changes
 	useEffect(() => {
@@ -483,6 +572,99 @@ const FindJob = () => {
 									</div>
 								</article>
 							))
+						)}
+						
+						{/* Pagination Controls */}
+						{totalPages > 1 && (
+							<div className="pagination-container">
+								<div className="pagination-info">
+									Showing page {currentPage} of {totalPages} ({totalItems} total jobs)
+								</div>
+								<div className="pagination-controls">
+									<button
+										className="pagination-btn"
+										onClick={() => handlePageChange(currentPage - 1)}
+										disabled={currentPage === 1}
+										aria-label="Previous page"
+									>
+										← Previous
+									</button>
+									
+									<div className="pagination-numbers">
+										{(() => {
+											const pages = [];
+											const maxVisible = 5;
+											let startPage = Math.max(1, currentPage - Math.floor(maxVisible / 2));
+											let endPage = Math.min(totalPages, startPage + maxVisible - 1);
+											
+											if (endPage - startPage < maxVisible - 1) {
+												startPage = Math.max(1, endPage - maxVisible + 1);
+											}
+											
+											if (startPage > 1) {
+												pages.push(
+													<button
+														key={1}
+														className="pagination-number"
+														onClick={() => handlePageChange(1)}
+													>
+														1
+													</button>
+												);
+												if (startPage > 2) {
+													pages.push(
+														<span key="ellipsis-start" className="pagination-ellipsis">
+															...
+														</span>
+													);
+												}
+											}
+											
+											for (let i = startPage; i <= endPage; i++) {
+												pages.push(
+													<button
+														key={i}
+														className={`pagination-number ${i === currentPage ? 'active' : ''}`}
+														onClick={() => handlePageChange(i)}
+													>
+														{i}
+													</button>
+												);
+											}
+											
+											if (endPage < totalPages) {
+												if (endPage < totalPages - 1) {
+													pages.push(
+														<span key="ellipsis-end" className="pagination-ellipsis">
+															...
+														</span>
+													);
+												}
+												pages.push(
+													<button
+														key={totalPages}
+														className="pagination-number"
+														onClick={() => handlePageChange(totalPages)}
+													>
+														{totalPages}
+													</button>
+												);
+											}
+											
+											return pages;
+										})()}
+									</div>
+									
+									<button
+										className="pagination-btn"
+										onClick={() => handlePageChange(currentPage + 1)}
+										disabled={currentPage === totalPages}
+										aria-label="Next page"
+									>
+										Next →
+									</button>
+								</div>
+							</div>
 						)}
 					</section>
 				</div>

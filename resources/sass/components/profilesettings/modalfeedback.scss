@@ -104,7 +104,7 @@
 
         &:focus {
           outline: none;
-          border-color: #3b82f6;
+          border-color: #001E40;
           background-color: white;
           box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
         }
@@ -144,13 +144,13 @@
       }
 
       .submit-btn {
-        background-color: #1d4ed8;
+        background-color: #001E40;
         color: white;
-        border-color: #1d4ed8;
+        border-color: #001E40;
 
         &:hover:not(:disabled) {
-          background-color: #1e40af;
-          border-color: #1e40af;
+          background-color: #001E40;
+          border-color: #001E40;
         }
 
         &:disabled {

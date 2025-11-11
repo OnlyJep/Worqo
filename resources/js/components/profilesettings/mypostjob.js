@@ -400,6 +400,10 @@ const MyPostJob = () => {
         fetchJobs(); // Refresh the jobs list
         setIsModalOpen(false);
         setEditingJob(null);
+        
+        // Dispatch event to notify other components (like FindJob) that a job was posted
+        window.dispatchEvent(new CustomEvent('jobPosted'));
+        localStorage.setItem('jobPosted', Date.now().toString());
       }
     } catch (error) {
       console.error("Error submitting job:", error.response?.data || error.message);
@@ -550,7 +554,11 @@ const MyPostJob = () => {
 
                 <div className="job-description">
                   <h4 className="description-title">Job Overview/Description</h4>
-                  <p className="description-text">{job.description}</p>
+                  <p className="description-text">
+                    {job.description && job.description.length > 200 
+                      ? job.description.substring(0, 200) + '...' 
+                      : job.description}
+                  </p>
                 </div>
 
                 <div className="job-skills">
