@@ -58,21 +58,37 @@ else
     echo "APP_KEY already set, skipping key generation"
 fi
 
-# Create storage link - remove existing link first if it exists
-if [ -L public/storage ]; then
-    rm public/storage
-fi
-php artisan storage:link || echo "Storage link creation warning - continuing anyway..."
-
-# Ensure storage directories exist without overwriting existing files
-# Use mkdir -p to create directories only if they don't exist
+# Ensure storage directories exist BEFORE creating symlink
+# Use mkdir -p to create directories only if they don't exist (preserves existing files)
 mkdir -p storage/app/public/profiles
-mkdir -p storage/app/public/credentialsphoto
-mkdir -p storage/app/public/credentials
+mkdir -p storage/app/public/credentials/photos
+mkdir -p storage/app/public/credentials/documents
 mkdir -p storage/app/public/resumes
+mkdir -p storage/app/public/employer_credentials
+
 # Set permissions but preserve existing files
 find storage/app/public -type d -exec chmod 755 {} \; 2>/dev/null || true
 find storage/app/public -type f -exec chmod 644 {} \; 2>/dev/null || true
+
+# Create storage link - remove existing link first if it exists
+# This is critical: the symlink must point to storage/app/public
+if [ -L public/storage ]; then
+    rm public/storage
+fi
+if [ -d public/storage ]; then
+    rm -rf public/storage
+fi
+php artisan storage:link || echo "Storage link creation warning - continuing anyway..."
+
+# Verify the symlink was created correctly
+if [ ! -L public/storage ]; then
+    echo "WARNING: storage:link may have failed, attempting manual symlink..."
+    ln -sfn ../storage/app/public public/storage || echo "Manual symlink creation failed"
+fi
+
+# Double-check permissions on storage directory
+chmod -R 755 storage/app/public 2>/dev/null || true
+chown -R www-data:www-data storage/app/public 2>/dev/null || true
 
 echo "Running migrations..."
 # Run all migrations first (this will run all pending migrations)

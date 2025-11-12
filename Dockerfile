@@ -46,7 +46,13 @@ COPY . .
 
 # Create storage and public directories first and set permissions for build
 # Use -p to not fail if directories exist, preserving any existing files
-RUN mkdir -p storage/framework/{sessions,views,cache} storage/logs storage/app/public/{profiles,credentialsphoto,credentials,resumes} bootstrap/cache public && \
+# Note: credentials/photos and credentials/documents are subdirectories, so create them separately
+RUN mkdir -p storage/framework/{sessions,views,cache} storage/logs bootstrap/cache public && \
+    mkdir -p storage/app/public/profiles && \
+    mkdir -p storage/app/public/credentials/photos && \
+    mkdir -p storage/app/public/credentials/documents && \
+    mkdir -p storage/app/public/resumes && \
+    mkdir -p storage/app/public/employer_credentials && \
     chmod -R 777 /var/www/html/storage /var/www/html/bootstrap/cache /var/www/html/public
 
 # Run composer post-install scripts now that artisan is available
