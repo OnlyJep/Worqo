@@ -6,6 +6,10 @@ services:
     dockerContext: .
     plan: starter
     region: oregon
+    disk:
+      name: worqo-storage
+      mountPath: /var/www/html/storage
+      sizeGB: 10
     envVars:
       - key: APP_NAME
         value: Worqo

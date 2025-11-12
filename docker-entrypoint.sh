@@ -64,10 +64,15 @@ if [ -L public/storage ]; then
 fi
 php artisan storage:link || echo "Storage link creation warning - continuing anyway..."
 
-# Ensure storage directories exist
+# Ensure storage directories exist without overwriting existing files
+# Use mkdir -p to create directories only if they don't exist
 mkdir -p storage/app/public/profiles
 mkdir -p storage/app/public/credentialsphoto
-chmod -R 755 storage/app/public
+mkdir -p storage/app/public/credentials
+mkdir -p storage/app/public/resumes
+# Set permissions but preserve existing files
+find storage/app/public -type d -exec chmod 755 {} \; 2>/dev/null || true
+find storage/app/public -type f -exec chmod 644 {} \; 2>/dev/null || true
 
 echo "Running migrations..."
 # Run all migrations first (this will run all pending migrations)

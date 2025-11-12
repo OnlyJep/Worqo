@@ -45,7 +45,8 @@ RUN npm ci --legacy-peer-deps || npm install --legacy-peer-deps
 COPY . .
 
 # Create storage and public directories first and set permissions for build
-RUN mkdir -p storage/framework/{sessions,views,cache} storage/logs bootstrap/cache public && \
+# Use -p to not fail if directories exist, preserving any existing files
+RUN mkdir -p storage/framework/{sessions,views,cache} storage/logs storage/app/public/{profiles,credentialsphoto,credentials,resumes} bootstrap/cache public && \
     chmod -R 777 /var/www/html/storage /var/www/html/bootstrap/cache /var/www/html/public
 
 # Run composer post-install scripts now that artisan is available
@@ -58,8 +59,12 @@ ENV SASS_SILENCE_DEPRECATIONS=*
 RUN npm run production || echo "Asset build failed, continuing..."
 
 # Set final permissions for runtime
-RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache /var/www/html/public && \
-    chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache && \
+# Use find to only change permissions on directories and files that exist, preserving structure
+RUN find /var/www/html/storage -type d -exec chmod 775 {} \; 2>/dev/null || true && \
+    find /var/www/html/storage -type f -exec chmod 664 {} \; 2>/dev/null || true && \
+    find /var/www/html/bootstrap/cache -type d -exec chmod 775 {} \; 2>/dev/null || true && \
+    find /var/www/html/bootstrap/cache -type f -exec chmod 664 {} \; 2>/dev/null || true && \
+    chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache /var/www/html/public 2>/dev/null || true && \
     chmod -R 755 /var/www/html/public
 
 # Copy and set up entrypoint script
