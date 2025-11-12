@@ -732,21 +732,10 @@ const MyProfile = () => {
 
   const handleWorkPreferencesChange = (e) => {
     const { name, value } = e.target;
-    
-    // Auto-set hours per day when work type changes
-    if (name === 'workType') {
-      let hoursPerDay = value === 'full-time' ? 8 : value === 'part-time' ? 4 : 1;
-      setWorkPreferences(prev => ({
-        ...prev,
-        workType: value,
-        hoursPerDay: hoursPerDay
-      }));
-    } else {
-      setWorkPreferences(prev => ({
-        ...prev,
-        [name]: value
-      }));
-    }
+    setWorkPreferences(prev => ({
+      ...prev,
+      [name]: value
+    }));
   };
 
   const handleWorkingDayToggle = (day) => {
@@ -1896,7 +1885,7 @@ const MyProfile = () => {
     e.preventDefault();
     
     // Validate required fields
-    if (!workPreferences.workType || !workPreferences.hoursPerDay || workPreferences.preferredWorkingDays.length === 0) {
+    if (!workPreferences.hoursPerDay || workPreferences.preferredWorkingDays.length === 0) {
       message.error("Please fill in all required work preference fields");
       return;
     }
@@ -1917,7 +1906,6 @@ const MyProfile = () => {
           'Authorization': `Bearer ${token}`,
         },
         body: JSON.stringify({
-          work_type: workPreferences.workType,
           hours_per_day: workPreferences.hoursPerDay,
           preferred_working_days: JSON.stringify(workPreferences.preferredWorkingDays),
           bio: workPreferences.bio
@@ -2288,22 +2276,6 @@ const MyProfile = () => {
           <form onSubmit={handleWorkPreferencesSubmit} className="work-preferences-form">
             <div className="form-row">
               <div className="form-group">
-                <label htmlFor="workType" className="label-up">Work Type</label>
-                <select
-                  id="workType"
-                  name="workType"
-                  value={workPreferences.workType}
-                  onChange={handleWorkPreferencesChange}
-                  disabled={!isEditingWorkPreferences}
-                  className={isEditingWorkPreferences ? 'editing' : ''}
-                >
-                  <option value="">Select Work Type</option>
-                  <option value="part-time">Part-time</option>
-                  <option value="full-time">Full-time</option>
-                  <option value="one-time">One-time</option>
-                </select>
-              </div>
-              <div className="form-group">
                 <label htmlFor="hoursPerDay" className="label-up">Hours Per Day</label>
                 <input
                   type="number"
@@ -2311,15 +2283,12 @@ const MyProfile = () => {
                   name="hoursPerDay"
                   value={workPreferences.hoursPerDay}
                   onChange={handleWorkPreferencesChange}
-                  disabled={!isEditingWorkPreferences || workPreferences.workType === 'full-time'}
+                  disabled={!isEditingWorkPreferences}
                   className={isEditingWorkPreferences ? 'editing' : ''}
                   min="1"
                   max="24"
                   placeholder="Hours per day"
                 />
-                {workPreferences.workType === 'full-time' && (
-                  <span className="form-help">Full-time is automatically set to 8 hours</span>
-                )}
               </div>
             </div>
 

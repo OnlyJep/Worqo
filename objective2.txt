@@ -1,0 +1,268 @@
+app/Models/Rank.php
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Rank extends Model
+{
+    protected $fillable = ['name', 'image', 'min_points', 'max_points', 'archived'];
+
+    protected $casts = [
+        'archived' => 'boolean',
+        'created_at' => 'datetime',
+        'updated_at' => 'datetime',
+    ];
+}
+
+app/Http/Controllers/WorkerController.php
+protected function calculateWorkerRank($user)
+{
+    if (!$user->worker) {
+        return null;
+    }
+
+    $skillsId = $this->parseArray($user->worker->skills_id);
+    $totalExperience = 0;
+    $totalReviews = 0;
+    $averageRating = 0;
+
+    if (is_array($skillsId)) {
+        if (isset($skillsId['primary_skills']) && is_array($skillsId['primary_skills'])) {
+            foreach ($skillsId['primary_skills'] as $skill) {
+                if (isset($skill['experience'])) {
+                    $totalExperience += $this->convertExperienceToMonths($skill['experience']);
+                }
+            }
+        }
+        if (isset($skillsId['additional_skills']) && is_array($skillsId['additional_skills'])) {
+            foreach ($skillsId['additional_skills'] as $skill) {
+                if (isset($skill['experience'])) {
+                    $totalExperience += $this->convertExperienceToMonths($skill['experience']);
+                }
+            }
+        }
+    }
+
+    $ranksQuery = Rank::where('archived', false);
+    if (\Illuminate\Support\Facades\Schema::hasColumn('ranks', 'min_points')) {
+        $ranksQuery->orderBy('min_points', 'asc');
+    } else {
+        $ranksQuery->orderBy('id', 'asc');
+    }
+    $ranks = $ranksQuery->get();
+
+    if ($ranks->isEmpty()) {
+        Log::warning('No ranks available in database');
+        return null;
+    }
+
+    $selectedRank = null;
+    foreach ($ranks as $rank) {
+        if ($totalExperience >= $this->getExperienceThresholdForRank($rank->name)) {
+            $selectedRank = $rank;
+        }
+    }
+
+    if (!$selectedRank) {
+        $selectedRank = $ranks->where('name', 'Bronze')->first();
+    }
+
+    if (!$selectedRank && $ranks->isNotEmpty()) {
+        $selectedRank = $ranks->first();
+    }
+
+    return $selectedRank;
+}
+
+protected function convertExperienceToMonths($experience)
+{
+    switch ($experience) {
+        case '0-11-months':
+            return 6;
+        case '1-2-years':
+            return 18;
+        case '2-5-years':
+            return 42;
+        case '5-10-years':
+            return 90;
+        case '10+ years':
+            return 120;
+        default:
+            return 0;
+    }
+}
+
+protected function getExperienceThresholdForRank($rankName)
+{
+    switch ($rankName) {
+        case 'Bronze':
+            return 0;
+        case 'Silver':
+            return 18;
+        case 'Gold':
+            return 42;
+        case 'Diamond':
+            return 90;
+        default:
+            return 0;
+    }
+}
+
+resources/js/components/profilesettings/myprofile.js
+const fetchWorkerReviews = async (workerId) => {
+  try {
+    const response = await fetch(`${window.location.origin}/api/reviews/worker/${workerId}`);
+    if (response.ok) {
+      const data = await response.json();
+      setAverageRating(data.average_rating || 0);
+      setTotalReviews(data.total_reviews || 0);
+      
+      const avgRating = data.average_rating || 0;
+      const numReviews = data.total_reviews || 0;
+      const calculatedPoints = avgRating * 5000 * numReviews;
+      setTotalPoints(calculatedPoints);
+      
+      fetchWorkerRank(calculatedPoints);
+    } else {
+      setTotalPoints(0);
+      fetchWorkerRank(0);
+    }
+  } catch (error) {
+    console.error('Error fetching worker reviews:', error);
+    setTotalPoints(0);
+    fetchWorkerRank(0);
+  }
+};
+
+const fetchWorkerRank = async (points) => {
+  try {
+    const response = await fetch(`${window.location.origin}/api/ranks?archived=false&limit=100`);
+    if (response.ok) {
+      const data = await response.json();
+      let ranks = Array.isArray(data) ? data : (data.ranks || data.data || []);
+      ranks = ranks.filter(rank => !rank.archived);
+      
+      const sortedRanks = ranks.sort((a, b) => (a.min_points || 0) - (b.min_points || 0));
+      
+      let matchedRank = null;
+      for (let i = sortedRanks.length - 1; i >= 0; i--) {
+        const rank = sortedRanks[i];
+        const minPoints = rank.min_points || 0;
+        const maxPoints = rank.max_points;
+        
+        if (maxPoints === null || maxPoints === undefined) {
+          if (points >= minPoints) {
+            matchedRank = rank;
+            break;
+          }
+        } else {
+          if (points >= minPoints && points <= maxPoints) {
+            matchedRank = rank;
+            break;
+          }
+        }
+      }
+      
+      if (!matchedRank && points > 0 && sortedRanks.length > 0) {
+        for (let i = sortedRanks.length - 1; i >= 0; i--) {
+          if (points >= (sortedRanks[i].min_points || 0)) {
+            matchedRank = sortedRanks[i];
+            break;
+          }
+        }
+      }
+      
+      if (matchedRank) {
+        setWorkerRank({
+          image: matchedRank.image,
+          name: matchedRank.name,
+          min_points: matchedRank.min_points,
+          max_points: matchedRank.max_points
+        });
+        
+        if (matchedRank.max_points !== null && matchedRank.max_points !== undefined) {
+          const minPoints = matchedRank.min_points || 0;
+          const maxPoints = matchedRank.max_points;
+          const rangeSize = maxPoints - minPoints + 1;
+          const currentProgress = points - minPoints;
+          const percent = Math.min(100, Math.max(0, (currentProgress / rangeSize) * 100));
+          setProgressPercent(percent);
+        } else {
+          const minPoints = matchedRank.min_points || 350000;
+          const referenceMax = minPoints + 150000;
+          const progress = Math.min(100, ((points - minPoints) / 150000) * 100);
+          setProgressPercent(progress);
+        }
+      } else if (sortedRanks.length > 0) {
+        setWorkerRank({
+          image: sortedRanks[0].image,
+          name: sortedRanks[0].name,
+          min_points: sortedRanks[0].min_points,
+          max_points: sortedRanks[0].max_points
+        });
+        setProgressPercent(0);
+      } else {
+        setWorkerRank(null);
+        setProgressPercent(0);
+      }
+    } else {
+      trySetDefaultRank();
+    }
+  } catch (error) {
+    console.error('Error fetching worker rank:', error);
+    trySetDefaultRank();
+  }
+};
+
+resources/js/components/Profile/profile.js
+const fetchWorkerReviews = async () => {
+  try {
+    setReviewsLoading(true);
+    const response = await axios.get(`/api/reviews/worker/${resolvedWorkerId}`, {
+      headers: { Accept: "application/json" }
+    });
+
+    if (response.data.success) {
+      setReviews(response.data.reviews);
+      const avgRating = response.data.average_rating || 0;
+      const numReviews = response.data.total_reviews || 0;
+      setAverageRating(avgRating);
+      setTotalReviews(numReviews);
+      
+      const calculatedPoints = avgRating * 5000 * numReviews;
+      setTotalPoints(calculatedPoints);
+      
+      await fetchWorkerRank(calculatedPoints);
+    } else {
+      setTotalPoints(0);
+      await fetchWorkerRank(0);
+    }
+  } catch (error) {
+    console.error("Error fetching reviews:", error);
+    setTotalPoints(0);
+    await fetchWorkerRank(0);
+  } finally {
+    setReviewsLoading(false);
+  }
+};
+
+resources/js/components/ShopContent/browseblue.js
+const getRankByExperience = (experience) => {
+  switch (experience) {
+    case '0-11-months':
+      return { name: 'Bronze', image: `${window.location.origin}/images/bronze.png` };
+    case '1-2-years':
+      return { name: 'Silver', image: `${window.location.origin}/images/silver.svg` };
+    case '2-5-years':
+      return { name: 'Gold', image: `${window.location.origin}/images/gold.svg` };
+    case '5-10-years':
+      return { name: 'Platinum', image: `${window.location.origin}/images/platinum.svg` };
+    case '10+ years':
+      return { name: 'Diamond', image: `${window.location.origin}/images/diamond.svg` };
+    default:
+      return { name: 'Bronze', image: `${window.location.origin}/images/bronze.png` };
+  }
+};
+

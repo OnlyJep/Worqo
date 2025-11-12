@@ -1,0 +1,203 @@
+app/Models/Collar.php
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Collar extends Model
+{
+    protected $fillable = [
+        'name',
+        'collar_img',
+        'archived',
+    ];
+
+    protected $casts = [
+        'archived' => 'boolean',
+        'created_at' => 'datetime',
+        'updated_at' => 'datetime',
+    ];
+}
+
+resources/js/components/Profile/profile.js
+const fetchCollarData = async () => {
+  try {
+    const response = await axios.get('/api/collars');
+    const collars = response.data.collars || [];
+    const collarMap = {};
+    
+    collars.forEach(collar => {
+      collarMap[collar.id] = {
+        id: collar.id,
+        name: collar.name,
+        image: collar.collar_img,
+        collar_img: collar.collar_img
+      };
+      
+      if (collar.collar_img) {
+        const img = new Image();
+        img.src = `${window.location.origin}/storage/${collar.collar_img}`;
+        img.loading = 'eager';
+        img.decoding = 'async';
+      }
+    });
+    
+    setCollarData(collarMap);
+  } catch (error) {
+    console.error('Error fetching collar data:', error);
+  }
+};
+
+const getWorkerCollar = (worker) => {
+  if (!worker?.primary_skills && !worker?.additional_skills) {
+    return { id: 1, name: "Blue Collars", image: "img/collar/aAuEXungkh3r08FEXqhWMSf9fYJNKEjQiMSc76iM.png" };
+  }
+  
+  const allSkills = [
+    ...(worker.primary_skills || []),
+    ...(worker.additional_skills || [])
+  ];
+  
+  for (const skill of allSkills) {
+    const matchingService = servicesData.find(service => {
+      const serviceSkillIds = service.skill_ids || [];
+      return serviceSkillIds.includes(skill.skill_id?.toString());
+    });
+    
+    if (matchingService) {
+      return {
+        id: matchingService.color_collar_id,
+        name: matchingService.color_collar_name,
+        image: matchingService.collar_img
+      };
+    }
+  }
+  
+  return { id: 1, name: "Blue Collars", image: "img/collar/aAuEXungkh3r08FEXqhWMSf9fYJNKEjQiMSc76iM.png" };
+};
+
+const isBlueCollarWorker = () => {
+  if (!worker?.primary_skills && !worker?.additional_skills) return false;
+  
+  const allSkills = [
+    ...(worker.primary_skills || []),
+    ...(worker.additional_skills || [])
+  ];
+  
+  const blueCollarSkills = [
+    'plumbing', 'electrical', 'carpentry', 'welding', 'masonry', 'painting',
+    'construction', 'maintenance', 'mechanical', 'automotive', 'gardening',
+    'landscaping', 'housekeeping', 'cleaning', 'security', 'machine operation',
+    'appliance repair', 'hvac', 'roofing', 'flooring', 'tiling', 'concrete work',
+    'excavation', 'heavy machinery', 'forklift', 'crane', 'welding', 'fabrication',
+    'pipe fitting', 'drain cleaning', 'leak repair', 'fixture installation',
+    'system maintenance', 'equipment repair', 'preventive maintenance',
+    'building maintenance', 'hvac maintenance', 'plumbing maintenance',
+    'electrical maintenance', 'carpentry repairs', 'painting touch-ups',
+    'safety inspections', 'janitorial', 'sanitization', 'deep cleaning',
+    'window cleaning', 'carpet cleaning', 'laundry service', 'organization',
+    'eco-friendly cleaning', 'plant care', 'lawn maintenance', 'tree trimming',
+    'garden design', 'irrigation systems', 'pest control', 'fertilizing',
+    'pruning', 'landscape installation', 'seasonal cleanup', 'building security',
+    'event security', 'retail security', 'residential security', 'crowd control',
+    'patrol services', 'access control', 'emergency response', 'surveillance',
+    'safety protocols', 'tailor', 'dressmaker', 'barber', 'hairdresser',
+    'cook', 'chef', 'baker', 'driver', 'delivery', 'transportation'
+  ];
+  
+  return allSkills.some(skill => {
+    const skillName = skill.skill_name?.toLowerCase() || '';
+    return blueCollarSkills.some(blueCollarSkill => 
+      skillName.includes(blueCollarSkill) || blueCollarSkill.includes(skillName)
+    );
+  });
+};
+
+resources/js/components/ShopContent/browseblue.js
+const fetchCollarData = async () => {
+  try {
+    const response = await axios.get('/api/collars');
+    const collars = response.data.collars || [];
+    const collarMap = {};
+    
+    collars.forEach(collar => {
+      collarMap[collar.id] = {
+        id: collar.id,
+        name: collar.name,
+        image: collar.collar_img
+      };
+    });
+    
+    setCollarData(collarMap);
+  } catch (error) {
+    console.error('Error fetching collar data:', error);
+  }
+};
+
+const getWorkerCollar = (worker) => {
+  if (!worker?.primary_skills && !worker?.additional_skills) {
+    return { id: 1, name: "Blue Collars", image: "img/collar/aAuEXungkh3r08FEXqhWMSf9fYJNKEjQiMSc76iM.png" };
+  }
+  
+  const allSkills = [
+    ...(worker.primary_skills || []),
+    ...(worker.additional_skills || [])
+  ];
+  
+  for (const skill of allSkills) {
+    const matchingService = servicesData.find(service => {
+      const serviceSkillIds = service.skill_ids || [];
+      return serviceSkillIds.includes(skill.skill_id?.toString());
+    });
+    
+    if (matchingService) {
+      return {
+        id: matchingService.color_collar_id,
+        name: matchingService.color_collar_name,
+        image: matchingService.collar_img
+      };
+    }
+  }
+  
+  return { id: 1, name: "Blue Collars", image: "img/collar/aAuEXungkh3r08FEXqhWMSf9fYJNKEjQiMSc76iM.png" };
+};
+
+resources/js/components/Profile/BookModal.js
+const isBlueCollarWorker = () => {
+  if (!worker?.primary_skills && !worker?.additional_skills) return false;
+  
+  const allSkills = [
+    ...(worker.primary_skills || []),
+    ...(worker.additional_skills || [])
+  ];
+  
+  const blueCollarSkills = [
+    'plumbing', 'electrical', 'carpentry', 'welding', 'masonry', 'painting',
+    'construction', 'maintenance', 'mechanical', 'automotive', 'gardening',
+    'landscaping', 'housekeeping', 'cleaning', 'security', 'machine operation',
+    'appliance repair', 'hvac', 'roofing', 'flooring', 'tiling', 'concrete work',
+    'excavation', 'heavy machinery', 'forklift', 'crane', 'welding', 'fabrication',
+    'pipe fitting', 'drain cleaning', 'leak repair', 'fixture installation',
+    'system maintenance', 'equipment repair', 'preventive maintenance',
+    'building maintenance', 'hvac maintenance', 'plumbing maintenance',
+    'electrical maintenance', 'carpentry repairs', 'painting touch-ups',
+    'safety inspections', 'janitorial', 'sanitization', 'deep cleaning',
+    'window cleaning', 'carpet cleaning', 'laundry service', 'organization',
+    'eco-friendly cleaning', 'plant care', 'lawn maintenance', 'tree trimming',
+    'garden design', 'irrigation systems', 'pest control', 'fertilizing',
+    'pruning', 'landscape installation', 'seasonal cleanup', 'building security',
+    'event security', 'retail security', 'residential security', 'crowd control',
+    'patrol services', 'access control', 'emergency response', 'surveillance',
+    'safety protocols', 'tailor', 'dressmaker', 'barber', 'hairdresser',
+    'cook', 'chef', 'baker', 'driver', 'delivery', 'transportation'
+  ];
+  
+  return allSkills.some(skill => {
+    const skillName = skill.skill_name?.toLowerCase() || '';
+    return blueCollarSkills.some(blueCollarSkill => 
+      skillName.includes(blueCollarSkill) || blueCollarSkill.includes(skillName)
+    );
+  });
+};
+

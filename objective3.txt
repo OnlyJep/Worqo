@@ -1,0 +1,244 @@
+app/Models/Review.php
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Review extends Model
+{
+    protected $fillable = ['user_id', 'reviewed_user_id', 'booking_id', 'rating', 'comment', 'archived'];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
+    public function reviewedUser()
+    {
+        return $this->belongsTo(User::class, 'reviewed_user_id');
+    }
+
+    public function booking()
+    {
+        return $this->belongsTo(Booking::class, 'booking_id');
+    }
+}
+
+app/Http/Controllers/WorkerController.php
+protected function formatWorker($user)
+{
+    if (!$user->worker) {
+        Log::warning('Worker record missing for user', ['user_id' => $user->id]);
+        return [
+            'id' => $user->id,
+            'email' => $user->email,
+            'archived' => $user->archived,
+            'created_at' => $user->created_at,
+            'updated_at' => $user->updated_at,
+            'last_activity' => \Illuminate\Support\Facades\Schema::hasColumn('users', 'last_activity') ? $user->last_activity : $user->updated_at,
+            'is_online' => \Illuminate\Support\Facades\Schema::hasColumn('users', 'is_online') ? ($user->is_online ?? false) : false,
+            'profile' => $user->profile ? [
+                'first_name' => $user->profile->first_name,
+                'middlename' => $user->profile->middlename,
+                'last_name' => $user->profile->last_name,
+                'suffix_id' => $user->profile->suffix_id ? (string)$user->profile->suffix_id : null,
+                'gender_id' => $user->profile->gender_id ? (string)$user->profile->gender_id : null,
+                'contact_number' => $user->profile->contact_number,
+                'street' => $user->profile->street,
+                'city' => $user->profile->city,
+                'province' => $user->profile->province,
+                'postal_code' => $user->profile->postal_code,
+                'country' => $user->profile->country,
+                'profile_img' => $user->profile->profile_img ? $user->profile->profile_img : null,
+            ] : null,
+            'worker' => null,
+        ];
+    }
+
+    $skillsId = $this->parseArray($user->worker->skills_id);
+    $rank = $this->calculateWorkerRank($user);
+    
+    return [
+        'id' => $user->id,
+        'email' => $user->email,
+        'archived' => $user->archived,
+        'created_at' => $user->created_at,
+        'updated_at' => $user->updated_at,
+        'last_activity' => \Illuminate\Support\Facades\Schema::hasColumn('users', 'last_activity') ? $user->last_activity : $user->updated_at,
+        'is_online' => \Illuminate\Support\Facades\Schema::hasColumn('users', 'is_online') ? ($user->is_online ?? false) : false,
+        'profile' => $user->profile ? [
+            'first_name' => $user->profile->first_name,
+            'middlename' => $user->profile->middlename,
+            'last_name' => $user->profile->last_name,
+            'suffix_id' => $user->profile->suffix_id ? (string)$user->profile->suffix_id : null,
+            'gender_id' => $user->profile->gender_id ? (string)$user->profile->gender_id : null,
+            'contact_number' => $user->profile->contact_number,
+            'street' => $user->profile->street,
+            'city' => $user->profile->city,
+            'province' => $user->profile->province,
+            'postal_code' => $user->profile->postal_code,
+            'country' => $user->profile->country,
+            'profile_img' => $user->profile->profile_img ? $user->profile->profile_img : null,
+        ] : null,
+        'worker' => [
+            'id' => $user->worker->id,
+            'work_type' => $user->worker->work_type,
+            'hours_per_day' => $user->worker->hours_per_day,
+            'preferred_working_days' => $user->worker->preferred_working_days,
+            'skills_id' => $this->parseArray($user->worker->skills_id),
+            'bio' => $user->worker->bio,
+            'verified' => $user->worker->verified ?? false,
+            'rank' => $rank ? [
+                'id' => $rank->id,
+                'name' => $rank->name,
+                'image' => $rank->image,
+            ] : null,
+            'collar' => $user->worker->collar ? [
+                'id' => $user->worker->collar->id,
+                'name' => $user->worker->collar->name,
+                'image' => $user->worker->collar->collar_img,
+            ] : null,
+        ],
+    ];
+}
+
+resources/js/components/Profile/profile.js
+const formattedWorker = {
+  id: workerData.id,
+  name: fullName,
+  email: workerData.email,
+  status: workerData.is_online ? "Online" : (workerData.last_active_text || "Offline"),
+  is_online: workerData.is_online,
+  last_active_text: workerData.last_active_text,
+  last_activity: workerData.last_activity,
+  hourlyRate: workerData.worker?.skills_id?.primary_skills?.[0]?.hourly_rate 
+    ? parseFloat(workerData.worker.skills_id.primary_skills[0].hourly_rate) 
+    : 150.00,
+  description: workerData.worker?.bio || "No bio available",
+  hours_per_day: workerData.worker?.hours_per_day || 4,
+  location: fullAddress || 'Address not specified',
+  profile_img: workerData.profile?.profile_img,
+  contact_number: workerData.profile?.contact_number,
+  street: workerData.profile?.street,
+  postal_code: workerData.profile?.postal_code,
+  country: workerData.profile?.country,
+  primary_skills: workerData.worker?.skills_id?.primary_skills || [],
+  additional_skills: workerData.worker?.skills_id?.additional_skills || [],
+  skills: [
+    ...(workerData.worker?.skills_id?.primary_skills || []),
+    ...(workerData.worker?.skills_id?.additional_skills || [])
+  ].map(skill => {
+    const skillName = skill.skill_name || 'Unknown Skill';
+    const subSkills = skill.sub_skills || [];
+    if (subSkills.length > 0) {
+      return `${skillName} - ${subSkills.join(', ')}`;
+    }
+    return skillName;
+  }),
+  credentials: workerData.worker?.credentials_name || [],
+  credentials_photo: workerData.worker?.credentials_photo || [],
+  created_at: workerData.created_at,
+  verified: workerData.worker?.verified === true || workerData.worker?.verified === 1,
+  rank: workerData.worker?.rank || null,
+  preferred_working_days: Array.isArray(workerData.worker?.preferred_working_days) 
+    ? workerData.worker.preferred_working_days 
+    : [],
+};
+
+{activeTab === 'REVIEWS' && (
+  <div className="profile-reviews">
+    {totalReviews > 0 && (
+      <div className="profile-reviews-header">
+        <div className="profile-reviews-summary">
+          <div className="profile-average-rating">
+            <span className="profile-rating-number">{averageRating.toFixed(1)}</span>
+            <div className="profile-stars">
+              {[1, 2, 3, 4, 5].map((star) => (
+                <span key={star} className={star <= Math.round(averageRating) ? 'profile-star filled' : 'profile-star'}>
+                  ★
+                </span>
+              ))}
+            </div>
+            <span className="profile-total-reviews">({totalReviews} {totalReviews === 1 ? 'review' : 'reviews'})</span>
+          </div>
+        </div>
+      </div>
+    )}
+    
+    {reviewsLoading ? (
+      <p>Loading reviews...</p>
+    ) : reviews.length > 0 ? (
+      <div className="profile-reviews-list">
+        {reviews.map((review) => (
+          <div key={review.id} className="profile-review-item">
+            <div className="profile-review-header">
+              <div className="profile-reviewer-info">
+                <img 
+                  src={review.reviewer.profile_img 
+                    ? `${window.location.origin}/storage/${review.reviewer.profile_img}` 
+                    : profilePhoto
+                  } 
+                  alt={review.reviewer.name}
+                  className="profile-reviewer-avatar"
+                />
+                <div className="profile-reviewer-details">
+                  <span className="profile-reviewer-name">{review.reviewer.name}</span>
+                  <div className="profile-review-rating">
+                    {[1, 2, 3, 4, 5].map((star) => (
+                      <span key={star} className={star <= review.rating ? 'profile-star filled' : 'profile-star'}>
+                        ★
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+              <span className="profile-review-date">
+                {new Date(review.created_at).toLocaleDateString('en-US', { 
+                  year: 'numeric', 
+                  month: 'short', 
+                  day: 'numeric' 
+                })}
+              </span>
+            </div>
+            <p className="profile-review-comment">{review.comment}</p>
+          </div>
+        ))}
+      </div>
+    ) : (
+      <p>No reviews available yet.</p>
+    )}
+  </div>
+)}
+
+const fetchWorkerReviews = async () => {
+  try {
+    setReviewsLoading(true);
+    const response = await axios.get(`/api/reviews/worker/${resolvedWorkerId}`, {
+      headers: { Accept: "application/json" }
+    });
+
+    if (response.data.success) {
+      setReviews(response.data.reviews);
+      const avgRating = response.data.average_rating || 0;
+      const numReviews = response.data.total_reviews || 0;
+      setAverageRating(avgRating);
+      setTotalReviews(numReviews);
+      
+      const calculatedPoints = avgRating * 5000 * numReviews;
+      setTotalPoints(calculatedPoints);
+      
+      await fetchWorkerRank(calculatedPoints);
+    } else {
+      setTotalPoints(0);
+      await fetchWorkerRank(0);
+    }
+  } catch (error) {
+    console.error("Error fetching reviews:", error);
+    setTotalPoints(0);
+    await fetchWorkerRank(0);
+  } finally {
+    setReviewsLoading(false);
+  }
+};
+

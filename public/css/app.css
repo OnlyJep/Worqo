@@ -12009,7 +12009,7 @@ textarea.form-control-lg {
 }
 
 .about-us {
-  padding: 4rem 0;
+  padding: 6rem 0 4rem 0;
   background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
   min-height: 100vh;
 }
@@ -12055,10 +12055,13 @@ textarea.form-control-lg {
   margin-bottom: 0;
 }
 .about-us__features {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: stretch;
   gap: 2rem;
   margin-top: 3rem;
+  flex-wrap: wrap;
 }
 .about-us__features .feature {
   background: white;
@@ -12066,6 +12069,9 @@ textarea.form-control-lg {
   border-radius: 15px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  flex: 1;
+  min-width: 250px;
+  max-width: 350px;
 }
 .about-us__features .feature:hover {
   transform: translateY(-5px);
@@ -12094,10 +12100,143 @@ textarea.form-control-lg {
   color: #7f8c8d;
   margin: 0;
 }
+.about-us__section {
+  margin-top: 5rem;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 2rem;
+}
+.about-us__section .section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 2.5rem;
+  text-align: center;
+  position: relative;
+}
+.about-us__section .section-title::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, #3498db, #2ecc71);
+  border-radius: 2px;
+}
+.about-us .privacy-policy__content {
+  background: white;
+  padding: 3rem;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+.about-us .privacy-policy .privacy-section {
+  margin-bottom: 2.5rem;
+  text-align: left;
+}
+.about-us .privacy-policy .privacy-section:last-child {
+  margin-bottom: 0;
+}
+.about-us .privacy-policy .privacy-section h3, .about-us .privacy-policy .privacy-section .h3 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 1rem;
+  position: relative;
+  padding-left: 1rem;
+}
+.about-us .privacy-policy .privacy-section h3::before, .about-us .privacy-policy .privacy-section .h3::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(180deg, #3498db, #2ecc71);
+  border-radius: 2px;
+}
+.about-us .privacy-policy .privacy-section p {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #34495e;
+  margin: 0;
+}
+.about-us .faqs__content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.about-us .faqs .faq-item {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+.about-us .faqs .faq-item:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+.about-us .faqs .faq-item.active {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+.about-us .faqs .faq-item .faq-question {
+  width: 100%;
+  padding: 1.5rem;
+  background: transparent;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #2c3e50;
+  transition: color 0.3s ease;
+}
+.about-us .faqs .faq-item .faq-question:hover {
+  color: #3498db;
+}
+.about-us .faqs .faq-item .faq-question span {
+  flex: 1;
+  padding-right: 1rem;
+}
+.about-us .faqs .faq-item .faq-question .faq-icon {
+  width: 20px;
+  height: 20px;
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+}
+.about-us .faqs .faq-item.active .faq-question {
+  color: #3498db;
+}
+.about-us .faqs .faq-item.active .faq-question .faq-icon {
+  transform: rotate(180deg);
+}
+.about-us .faqs .faq-item .faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+}
+.about-us .faqs .faq-item .faq-answer p {
+  padding: 0 1.5rem;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #34495e;
+  margin: 0;
+}
+.about-us .faqs .faq-item.active .faq-answer {
+  max-height: 500px;
+  padding: 0 1.5rem 1.5rem;
+}
 
 @media (max-width: 768px) {
   .about-us {
     padding: 2rem 0;
+    padding-top: 6rem;
   }
   .about-us__container {
     padding: 0 1rem;
@@ -12110,19 +12249,84 @@ textarea.form-control-lg {
     text-align: center;
   }
   .about-us__features {
-    grid-template-columns: 1fr;
+    flex-direction: column;
     gap: 1.5rem;
   }
   .about-us__features .feature {
     padding: 1.5rem;
+    max-width: 100%;
+  }
+  .about-us__section {
+    margin-top: 3rem;
+    padding: 0 1rem;
+  }
+  .about-us__section .section-title {
+    font-size: 2rem;
+  }
+  .about-us .privacy-policy__content {
+    padding: 2rem 1.5rem;
+  }
+  .about-us .privacy-policy .privacy-section {
+    margin-bottom: 2rem;
+  }
+  .about-us .privacy-policy .privacy-section h3, .about-us .privacy-policy .privacy-section .h3 {
+    font-size: 1.2rem;
+  }
+  .about-us .privacy-policy .privacy-section p {
+    font-size: 0.95rem;
+  }
+  .about-us .faqs .faq-item .faq-question {
+    padding: 1.25rem;
+    font-size: 1rem;
+  }
+  .about-us .faqs .faq-item .faq-answer p {
+    padding: 0 1.25rem;
+    font-size: 0.95rem;
+  }
+  .about-us .faqs .faq-item.active .faq-answer {
+    padding: 0 1.25rem 1.25rem;
   }
 }
 @media (max-width: 480px) {
+  .about-us {
+    padding-top: 6rem;
+  }
   .about-us__title {
     font-size: 2rem;
   }
   .about-us__container {
     padding: 0 0.5rem;
+  }
+  .about-us__section {
+    margin-top: 2.5rem;
+    padding: 0 0.5rem;
+  }
+  .about-us__section .section-title {
+    font-size: 1.75rem;
+  }
+  .about-us .privacy-policy__content {
+    padding: 1.5rem 1rem;
+  }
+  .about-us .privacy-policy .privacy-section {
+    margin-bottom: 1.5rem;
+  }
+  .about-us .privacy-policy .privacy-section h3, .about-us .privacy-policy .privacy-section .h3 {
+    font-size: 1.1rem;
+    padding-left: 0.75rem;
+  }
+  .about-us .privacy-policy .privacy-section p {
+    font-size: 0.9rem;
+  }
+  .about-us .faqs .faq-item .faq-question {
+    padding: 1rem;
+    font-size: 0.95rem;
+  }
+  .about-us .faqs .faq-item .faq-answer p {
+    padding: 0 1rem;
+    font-size: 0.9rem;
+  }
+  .about-us .faqs .faq-item.active .faq-answer {
+    padding: 0 1rem 1rem;
   }
 }
 .notifications-layout {

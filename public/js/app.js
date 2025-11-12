@@ -201491,17 +201491,55 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Headerz__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Headerz */ "./resources/js/components/HeaderContent/Headerz.js");
 /* harmony import */ var _FooterContent_footer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../FooterContent/footer */ "./resources/js/components/FooterContent/footer.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _slicedToArray(r, e) { return _arrayWithHoles(r) || _iterableToArrayLimit(r, e) || _unsupportedIterableToArray(r, e) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
+function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
 
 
 
 
 var AboutUs = function AboutUs() {
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
+    _useState2 = _slicedToArray(_useState, 2),
+    openFaq = _useState2[0],
+    setOpenFaq = _useState2[1];
+  var toggleFaq = function toggleFaq(index) {
+    setOpenFaq(openFaq === index ? null : index);
+  };
+  var faqs = [{
+    question: "How do I create an account?",
+    answer: "You can create an account by clicking on the 'Sign Up' button in the header. Choose whether you're a worker or an employer, fill in your details, and verify your email address to get started."
+  }, {
+    question: "How do I find workers for my project?",
+    answer: "As an employer, you can browse worker profiles, post job listings, or search for workers based on skills and experience. Once you find a suitable candidate, you can send them a message or make a booking request."
+  }, {
+    question: "How do I apply for jobs?",
+    answer: "As a worker, you can browse available job postings, filter by your skills and preferences, and apply directly to jobs that match your profile. You can also receive booking requests from employers."
+  }, {
+    question: "How does the payment system work?",
+    answer: "Payments are processed securely through our platform. Employers can make payments after work completion, and workers receive payments according to the agreed terms. All transactions are protected and tracked."
+  }, {
+    question: "Can I edit my profile after creating it?",
+    answer: "Yes, you can edit your profile at any time by going to your profile settings. You can update your skills, credentials, work preferences, and personal information."
+  }, {
+    question: "What if I have a dispute with a worker or employer?",
+    answer: "We have a dispute resolution system in place. You can contact our support team, and we'll help mediate any issues. We also have a review and rating system to ensure transparency."
+  }, {
+    question: "Is my personal information secure?",
+    answer: "Yes, we take data security seriously. Your personal information is encrypted and stored securely. We only share necessary information between workers and employers for job matching purposes, and we never sell your data to third parties."
+  }, {
+    question: "How do I delete my account?",
+    answer: "You can delete your account by going to your profile settings and selecting the account deletion option. Please note that this action is permanent and cannot be undone."
+  }];
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Headerz__WEBPACK_IMPORTED_MODULE_1__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
       className: "about-us",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
         className: "about-us__container",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
           className: "about-us__content",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h1", {
             className: "about-us__title",
@@ -201538,7 +201576,95 @@ var AboutUs = function AboutUs() {
               })]
             })]
           })]
-        })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          className: "about-us__section privacy-policy",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h2", {
+            className: "section-title",
+            children: "Privacy Policy"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+            className: "privacy-policy__content",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+              className: "privacy-section",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h3", {
+                children: "Information We Collect"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+                children: "We collect information that you provide directly to us, including your name, email address, contact information, skills, work experience, and credentials. We also collect information about your use of our platform, including job applications, bookings, and interactions with other users."
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+              className: "privacy-section",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h3", {
+                children: "How We Use Your Information"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+                children: "We use your information to provide, maintain, and improve our services, including matching workers with employers, processing payments, and communicating with you about your account and our services. We also use your information to ensure platform security and prevent fraud."
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+              className: "privacy-section",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h3", {
+                children: "Information Sharing"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+                children: "We share your information with other users on the platform as necessary for job matching and communication. We do not sell your personal information to third parties. We may share information with service providers who assist us in operating our platform, subject to strict confidentiality agreements."
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+              className: "privacy-section",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h3", {
+                children: "Data Security"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+                children: "We implement appropriate technical and organizational measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction. However, no method of transmission over the Internet is 100% secure, and we cannot guarantee absolute security."
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+              className: "privacy-section",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h3", {
+                children: "Your Rights"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+                children: "You have the right to access, update, or delete your personal information at any time through your account settings. You can also opt out of certain communications from us. If you have questions about your privacy rights, please contact our support team."
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+              className: "privacy-section",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h3", {
+                children: "Changes to This Policy"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+                children: "We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the \"Last Updated\" date. You are advised to review this Privacy Policy periodically for any changes."
+              })]
+            })]
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          className: "about-us__section faqs",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h2", {
+            className: "section-title",
+            children: "Frequently Asked Questions"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+            className: "faqs__content",
+            children: faqs.map(function (faq, index) {
+              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+                className: "faq-item ".concat(openFaq === index ? 'active' : ''),
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("button", {
+                  className: "faq-question",
+                  onClick: function onClick() {
+                    return toggleFaq(index);
+                  },
+                  "aria-expanded": openFaq === index,
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+                    children: faq.question
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("svg", {
+                    className: "faq-icon",
+                    viewBox: "0 0 24 24",
+                    fill: "none",
+                    stroke: "currentColor",
+                    strokeWidth: "2",
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("path", {
+                      d: "M6 9l6 6 6-6"
+                    })
+                  })]
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+                  className: "faq-answer",
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+                    children: faq.answer
+                  })
+                })]
+              }, index);
+            })
+          })]
+        })]
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_FooterContent_footer__WEBPACK_IMPORTED_MODULE_2__["default"], {})]
   });
@@ -254995,21 +255121,9 @@ var MyProfile = function MyProfile() {
     var _e$target3 = e.target,
       name = _e$target3.name,
       value = _e$target3.value;
-
-    // Auto-set hours per day when work type changes
-    if (name === 'workType') {
-      var hoursPerDay = value === 'full-time' ? 8 : value === 'part-time' ? 4 : 1;
-      setWorkPreferences(function (prev) {
-        return _objectSpread(_objectSpread({}, prev), {}, {
-          workType: value,
-          hoursPerDay: hoursPerDay
-        });
-      });
-    } else {
-      setWorkPreferences(function (prev) {
-        return _objectSpread(_objectSpread({}, prev), {}, _defineProperty({}, name, value));
-      });
-    }
+    setWorkPreferences(function (prev) {
+      return _objectSpread(_objectSpread({}, prev), {}, _defineProperty({}, name, value));
+    });
   };
   var handleWorkingDayToggle = function handleWorkingDayToggle(day) {
     setWorkPreferences(function (prev) {
@@ -256543,7 +256657,7 @@ var MyProfile = function MyProfile() {
             e.preventDefault();
 
             // Validate required fields
-            if (!(!workPreferences.workType || !workPreferences.hoursPerDay || workPreferences.preferredWorkingDays.length === 0)) {
+            if (!(!workPreferences.hoursPerDay || workPreferences.preferredWorkingDays.length === 0)) {
               _context23.n = 1;
               break;
             }
@@ -256568,7 +256682,6 @@ var MyProfile = function MyProfile() {
                 'Authorization': "Bearer ".concat(token)
               },
               body: JSON.stringify({
-                work_type: workPreferences.workType,
                 hours_per_day: workPreferences.hoursPerDay,
                 preferred_working_days: JSON.stringify(workPreferences.preferredWorkingDays),
                 bio: workPreferences.bio
@@ -257005,36 +257118,9 @@ var MyProfile = function MyProfile() {
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("form", {
         onSubmit: handleWorkPreferencesSubmit,
         className: "work-preferences-form",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
           className: "form-row",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-            className: "form-group",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
-              htmlFor: "workType",
-              className: "label-up",
-              children: "Work Type"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("select", {
-              id: "workType",
-              name: "workType",
-              value: workPreferences.workType,
-              onChange: handleWorkPreferencesChange,
-              disabled: !isEditingWorkPreferences,
-              className: isEditingWorkPreferences ? 'editing' : '',
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
-                value: "",
-                children: "Select Work Type"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
-                value: "part-time",
-                children: "Part-time"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
-                value: "full-time",
-                children: "Full-time"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
-                value: "one-time",
-                children: "One-time"
-              })]
-            })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
             className: "form-group",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
               htmlFor: "hoursPerDay",
@@ -257046,16 +257132,13 @@ var MyProfile = function MyProfile() {
               name: "hoursPerDay",
               value: workPreferences.hoursPerDay,
               onChange: handleWorkPreferencesChange,
-              disabled: !isEditingWorkPreferences || workPreferences.workType === 'full-time',
+              disabled: !isEditingWorkPreferences,
               className: isEditingWorkPreferences ? 'editing' : '',
               min: "1",
               max: "24",
               placeholder: "Hours per day"
-            }), workPreferences.workType === 'full-time' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
-              className: "form-help",
-              children: "Full-time is automatically set to 8 hours"
             })]
-          })]
+          })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
           className: "form-group full-width",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
