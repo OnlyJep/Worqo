@@ -434,10 +434,8 @@ body {
       align-items: center;
       gap: clamp(6px, 1.5vw, 8px);
       margin-top: clamp(16px, 3vw, 20px);
-      background: #FFFFFF;
       padding: clamp(8px, 2vw, 10px);
-      border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      background: transparent;
 
       span {
         color: #333333;

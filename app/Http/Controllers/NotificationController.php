@@ -61,27 +61,30 @@ class NotificationController extends Controller
                 $message = $notif->message;
                 $targetRoleId = null;
                 
-                // Check for the special link format in the message
+                // For booking notifications, set target_role_id to show the "Click here" link in frontend
+                if ($notif->type === 'booking') {
+                    // Determine target role based on current user role
+                    // If current user is employer (role_id = 2), target role should be worker (role_id = 1)
+                    // If current user is worker (role_id = 1), target role should be employer (role_id = 2)
+                    $currentUser = User::find($notif->user_id);
+                    if ($currentUser) {
+                        $targetRoleId = $currentUser->role_id == 2 ? 1 : 2;
+                    }
+                }
+                
+                // Check for the special link format in the message (legacy support)
                 if (strpos($message, 'Click Here to go to@') !== false) {
                     // Extract the URL part
                     $parts = explode('Click Here to go to@', $message);
                     if (count($parts) > 1) {
-                        $urlPart = $parts[1];
-                        $urlParts = explode(' ', $urlPart, 2);
-                        $url = $urlParts[0];
-                        
-                        // Determine target role based on current user role
-                        // If current user is employer (role_id = 2), target role should be worker (role_id = 1)
-                        // If current user is worker (role_id = 1), target role should be employer (role_id = 2)
-                        $currentUser = User::find($notif->user_id);
-                        if ($currentUser) {
-                            $targetRoleId = $currentUser->role_id == 2 ? 1 : 2;
-                        }
-                        
-                        // Update message to remove the special link format
-                        $message = $parts[0] . " Click Here to go to " . $url;
+                        // Remove the special link format from message
+                        $message = trim($parts[0]);
                     }
                 }
+                
+                // Also remove any "Click Here to go to http://..." text that might be in the message
+                $message = preg_replace('/\s*Click Here to go to\s+https?:\/\/[^\s]+/i', '', $message);
+                $message = trim($message);
 
                 return [
                     'id' => $notif->id,

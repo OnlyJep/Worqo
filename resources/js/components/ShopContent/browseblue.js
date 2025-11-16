@@ -39,6 +39,7 @@ const Browse = () => {
   const [filteredWorkers, setFilteredWorkers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [pagination, setPagination] = useState({ currentPage: 1, totalPages: 1 });
   const navigate = useNavigate();
 
   // Filter states
@@ -525,6 +526,13 @@ const Browse = () => {
     }
 
     setFilteredWorkers(filteredWorkers);
+    
+    // Update pagination based on filtered results
+    const totalPages = Math.ceil(filteredWorkers.length / 5) || 1;
+    setPagination(prev => ({
+      currentPage: prev.currentPage > totalPages ? 1 : prev.currentPage,
+      totalPages: totalPages
+    }));
   }, [selectedSortOption, searchTerm, allWorkers, filters]);
 
   const sortOptions = ["Sort by", "Featured", "Newest", "Price: High-Low", "Price: Low-High"];
@@ -532,6 +540,8 @@ const Browse = () => {
   const handleSortOptionClick = (option) => {
     setSelectedSortOption(option);
     setIsSortDropdownOpen(false);
+    // Reset to page 1 when sort changes
+    setPagination(prev => ({ ...prev, currentPage: 1 }));
   };
 
   const handleFilterChange = (filterType, value) => {
@@ -539,11 +549,80 @@ const Browse = () => {
       ...prev,
       [filterType]: value
     }));
+    // Reset to page 1 when filter changes
+    setPagination(prev => ({ ...prev, currentPage: 1 }));
   };
 
   const handleViewProfile = (workerId) => {
     navigate(`/profile/${workerId}?service=${encodeURIComponent(serviceName)}`);
   };
+
+  const handlePageChange = (page) => {
+    setPagination((prev) => ({ ...prev, currentPage: page }));
+  };
+
+  const renderPagination = () => {
+    const pageNumbers = [];
+    const maxPagesToShow = 5;
+    const startPage = Math.max(1, pagination.currentPage - Math.floor(maxPagesToShow / 2));
+    const endPage = Math.min(pagination.totalPages, startPage + maxPagesToShow - 1);
+
+    if (pagination.totalPages <= maxPagesToShow) {
+      for (let i = 1; i <= pagination.totalPages; i++) {
+        pageNumbers.push(
+          <button
+            key={i}
+            className={pagination.currentPage === i ? "active" : ""}
+            onClick={() => handlePageChange(i)}
+          >
+            {i}
+          </button>
+        );
+      }
+    } else {
+      if (startPage > 1) {
+        pageNumbers.push(
+          <button key={1} onClick={() => handlePageChange(1)}>
+            1
+          </button>
+        );
+        if (startPage > 2) {
+          pageNumbers.push(<span key="start-ellipsis" className="ellipsis">...</span>);
+        }
+      }
+
+      for (let i = startPage; i <= endPage; i++) {
+        pageNumbers.push(
+          <button
+            key={i}
+            className={pagination.currentPage === i ? "active" : ""}
+            onClick={() => handlePageChange(i)}
+          >
+            {i}
+          </button>
+        );
+      }
+
+      if (endPage < pagination.totalPages) {
+        if (endPage < pagination.totalPages - 1) {
+          pageNumbers.push(<span key="end-ellipsis" className="ellipsis">...</span>);
+        }
+        pageNumbers.push(
+          <button key={pagination.totalPages} onClick={() => handlePageChange(pagination.totalPages)}>
+            {pagination.totalPages}
+          </button>
+        );
+      }
+    }
+
+    return pageNumbers;
+  };
+
+  // Calculate paginated workers (5 per page)
+  const workersPerPage = 5;
+  const startIndex = (pagination.currentPage - 1) * workersPerPage;
+  const endIndex = startIndex + workersPerPage;
+  const currentWorkers = filteredWorkers.slice(startIndex, endIndex);
 
   if (loading) {
     return (
@@ -585,7 +664,11 @@ const Browse = () => {
                 type="text"
                 placeholder="Search a worker"
                 value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
+                onChange={(e) => {
+                  setSearchTerm(e.target.value);
+                  // Reset to page 1 when search changes
+                  setPagination(prev => ({ ...prev, currentPage: 1 }));
+                }}
               />
               <button className="search-btn" type="button" aria-label="Search">
                 <IconSearch size={16} stroke={2} color="#ffffff" />
@@ -669,7 +752,7 @@ const Browse = () => {
           </aside>
 
           <section className="results-list">
-            {filteredWorkers.map((worker) => (
+            {currentWorkers.map((worker) => (
               <article key={worker.id} className="result-card">
                 <div className="card-inner">
                   <div className="avatar-col">
@@ -815,8 +898,32 @@ const Browse = () => {
                 </div>
               </article>
             ))}
+            {filteredWorkers.length === 0 && (
+              <div style={{ textAlign: 'center', padding: '40px', color: '#666' }}>
+                No workers found matching your criteria.
+              </div>
+            )}
           </section>
         </div>
+        
+        {filteredWorkers.length > 0 && pagination.totalPages > 1 && (
+          <div className="browse-pagination">
+            <span>Page {pagination.currentPage} of {pagination.totalPages}</span>
+            <button
+              onClick={() => handlePageChange(pagination.currentPage - 1)}
+              disabled={pagination.currentPage <= 1 || loading}
+            >
+              {"<"}
+            </button>
+            {renderPagination()}
+            <button
+              onClick={() => handlePageChange(pagination.currentPage + 1)}
+              disabled={pagination.currentPage >= pagination.totalPages || loading}
+            >
+              {">"}
+            </button>
+          </div>
+        )}
       </div>
       <Footer />
     </div>

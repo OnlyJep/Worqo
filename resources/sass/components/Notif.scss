@@ -42,10 +42,10 @@
         &.active {
           background-color: #e3f2fd;
           color: #1A2A44;
-          border-right: 3px solid #00C4CC;
+          border-right: 3px solid #1A2A44;
 
           svg {
-            color: #00C4CC;
+            color: #1A2A44;
           }
         }
 
@@ -187,7 +187,8 @@
 
         &.unread {
           background-color: #f0faff;
-          border-left-color: #00C4CC;
+          border-left-color: #1A2A44;
+          ;
         }
 
         .notification-icon {
@@ -321,7 +322,7 @@
             .envelope {
               width: 80px;
               height: 60px;
-              background: linear-gradient(135deg, #87CEEB, #00C4CC);
+              background: linear-gradient(135deg, #1A2A44, #1A2A44);
               border-radius: 8px;
               position: relative;
               transform: rotate(-5deg);
@@ -357,7 +358,7 @@
               right: 40px;
               width: 40px;
               height: 40px;
-              background: #00C4CC;
+              background: #1A2A44;
               border-radius: 50% 50% 0 0;
               transform: rotate(15deg);
 
@@ -398,6 +399,68 @@
           margin: 0;
         }
       }
+    }
+  }
+}
+
+// Modal button styles
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  padding: 1rem;
+  border-top: 1px solid #e0e0e0;
+
+  .notification-action-btn {
+    background-color: #1A2A44;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: #0f1a2e;
+      transform: translateY(-1px);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+  }
+
+  .notification-primary-btn {
+    background-color: #1A2A44;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: #0f1a2e;
+      transform: translateY(-1px);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+  }
+
+  .notification-secondary-btn {
+    background-color: #f0f0f0;
+    color: #333;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: #e0e0e0;
+      transform: translateY(-1px);
     }
   }
 }

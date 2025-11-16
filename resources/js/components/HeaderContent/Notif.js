@@ -410,7 +410,8 @@ const Notif = () => {
               </div>
               <h4 style={{ margin: '0 0 1rem 0', fontSize: '1.1rem', color: '#333' }}>{selectedNotif.action}</h4>
               <p style={{ margin: '1rem 0', lineHeight: '1.6' }}>{selectedNotif.message}</p>
-              
+            </div>
+            <div className="modal-footer">
               {/* Special actions for system notifications */}
               {selectedNotif.type === 'address' && (
                 <button
@@ -418,15 +419,7 @@ const Notif = () => {
                     closeModal();
                     navigate('/profile-settings/addresses');
                   }}
-                  style={{
-                    backgroundColor: '#00C4CC',
-                    color: 'white',
-                    border: 'none',
-                    padding: '0.5rem 1rem',
-                    borderRadius: '5px',
-                    cursor: 'pointer',
-                    marginTop: '1rem'
-                  }}
+                  className="notification-action-btn"
                 >
                   Complete Address Now
                 </button>
@@ -438,15 +431,7 @@ const Notif = () => {
                     closeModal();
                     navigate('/profile-settings');
                   }}
-                  style={{
-                    backgroundColor: '#00C4CC',
-                    color: 'white',
-                    border: 'none',
-                    padding: '0.5rem 1rem',
-                    borderRadius: '5px',
-                    cursor: 'pointer',
-                    marginTop: '1rem'
-                  }}
+                  className="notification-action-btn"
                 >
                   View Profile Status
                 </button>
@@ -458,66 +443,30 @@ const Notif = () => {
                     closeModal();
                     navigate('/profile-settings');
                   }}
-                  style={{
-                    backgroundColor: '#00C4CC',
-                    color: 'white',
-                    border: 'none',
-                    padding: '0.5rem 1rem',
-                    borderRadius: '5px',
-                    cursor: 'pointer',
-                    marginTop: '1rem'
-                  }}
+                  className="notification-action-btn"
                 >
                   View Profile
                 </button>
               )}
-            </div>
-            <div style={{
-              padding: '1rem',
-              borderTop: '1px solid #e0e0e0',
-              display: 'flex',
-              justifyContent: 'flex-end',
-              gap: '1rem'
-            }}>
+              
               {selectedNotif.isUnread && !selectedNotif.isSystem ? (
                 <button
                   onClick={() => handleMarkAsRead(selectedNotif.id)}
-                  style={{
-                    backgroundColor: '#00C4CC',
-                    color: 'white',
-                    border: 'none',
-                    padding: '0.5rem 1rem',
-                    borderRadius: '5px',
-                    cursor: 'pointer'
-                  }}
+                  className="notification-primary-btn"
                 >
                   Mark as Read
                 </button>
               ) : !selectedNotif.isSystem ? (
                 <button
                   onClick={() => handleMarkAsUnread(selectedNotif.id)}
-                  style={{
-                    backgroundColor: '#f0f0f0',
-                    color: '#333',
-                    border: 'none',
-                    padding: '0.5rem 1rem',
-                    borderRadius: '5px',
-                    cursor: 'pointer'
-                  }}
+                  className="notification-secondary-btn"
                 >
                   Mark as Unread
                 </button>
               ) : null}
               <button
                 onClick={closeModal}
-                style={{
-                  backgroundColor: '#f0f0f0',
-                  color: '#333',
-                  border: 'none',
-                  padding: '0.5rem 1rem',
-                  borderRadius: '5px',
-                  cursor: 'pointer'
-                }}
+                className="notification-secondary-btn"
               >
                 Close
               </button>

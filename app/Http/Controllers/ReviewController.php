@@ -17,7 +17,9 @@ class ReviewController extends Controller
             $perPage = 5;
 
             $query = Review::with(['user', 'reviewedUser'])
-                ->where('archived', $showArchived);
+                ->where('archived', $showArchived)
+                ->orderBy('created_at', 'desc')
+                ->orderBy('id', 'desc');
 
             if ($search) {
                 $query->where(function ($q) use ($search) {
@@ -58,60 +60,56 @@ class ReviewController extends Controller
     public function store(Request $request)
     {
         try {
+            // Validate basic fields first
             $validated = $request->validate([
-            'reviewed_user_id' => [
-                'required',
-                'exists:users,id',
-                function ($attribute, $value, $fail) {
-                    $reviewedUser = User::find($value);
-                    if (!$reviewedUser) {
-                        $fail('The reviewed user does not exist.');
-                    }
-                },
-            ],
-            'user_id' => [
-                'required',
-                'exists:users,id',
-                function ($attribute, $value, $fail) use ($request) {
-                    $user = User::find($value);
-                    $reviewedUser = User::find($request->reviewed_user_id);
-                    if ($user && $reviewedUser && $user->id === $reviewedUser->id) {
-                        $fail('Users cannot review themselves.');
-                    }
-                    
-                    // If booking_id is provided, check for review by booking_id
-                    // Otherwise, check by user combination (for backward compatibility)
-                    if ($request->booking_id) {
-                        $existingReview = Review::where('booking_id', $request->booking_id)
-                            ->where('archived', false)
-                            ->first();
-                        if ($existingReview) {
-                            $fail('A review already exists for this booking.');
-                        }
-                    } else {
-                        $existingReview = Review::where('user_id', $value)
-                            ->where('reviewed_user_id', $request->reviewed_user_id)
-                            ->where('archived', false)
-                            ->first();
-                        if ($existingReview) {
-                            $fail('A review already exists for this user combination.');
-                        }
-                    }
-                },
-            ],
-            'booking_id' => 'nullable|exists:bookings,id',
-            'rating' => 'required|integer|min:1|max:5',
-            'comment' => 'nullable|string|max:1000',
-        ]);
+                'user_id' => 'required|integer|exists:users,id',
+                'reviewed_user_id' => 'required|integer|exists:users,id',
+                'rating' => 'required|integer|min:1|max:5',
+                'booking_id' => 'nullable|integer|exists:bookings,id',
+                'comment' => 'nullable|string|max:1000',
+            ]);
+            
+            // Additional validation after basic validation passes
+            $userId = (int) $validated['user_id'];
+            $reviewedUserId = (int) $validated['reviewed_user_id'];
+            
+            // Check if user is trying to review themselves
+            if ($userId === $reviewedUserId) {
+                return response()->json([
+                    'error' => 'Validation failed',
+                    'errors' => [
+                        'reviewed_user_id' => ['Users cannot review themselves.']
+                    ]
+                ], 422);
+            }
+            
+            // Only check for duplicate review if booking_id is provided
+            // Multiple reviews are allowed for the same user combination (same employer can review same worker multiple times)
+            if (isset($validated['booking_id']) && $validated['booking_id']) {
+                // If booking_id is provided, check for review by booking_id (one review per booking)
+                $existingReview = Review::where('booking_id', $validated['booking_id'])
+                    ->where('archived', false)
+                    ->first();
+                if ($existingReview) {
+                    return response()->json([
+                        'error' => 'Validation failed',
+                        'errors' => [
+                            'booking_id' => ['A review already exists for this booking.']
+                        ]
+                    ], 422);
+                }
+            }
+            // Note: Removed duplicate check by user combination to allow multiple reviews
+            // from the same employer to the same worker (e.g., different bookings, different times)
 
-        $review = Review::create([
-            'user_id' => $validated['user_id'],
-            'reviewed_user_id' => $validated['reviewed_user_id'],
-            'booking_id' => $validated['booking_id'] ?? null,
-            'rating' => $validated['rating'],
-            'comment' => $validated['comment'],
-            'archived' => false,
-        ]);
+            $review = Review::create([
+                'user_id' => $userId,
+                'reviewed_user_id' => $reviewedUserId,
+                'booking_id' => $validated['booking_id'] ?? null,
+                'rating' => (int) $validated['rating'],
+                'comment' => $validated['comment'] ?? null,
+                'archived' => false,
+            ]);
 
             return response()->json($review->load(['user', 'reviewedUser', 'booking']), 201);
         } catch (\Illuminate\Validation\ValidationException $e) {

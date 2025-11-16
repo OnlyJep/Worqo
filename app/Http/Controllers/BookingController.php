@@ -202,7 +202,7 @@ class BookingController extends Controller
                 $booking->employer_id,
                 'booking',
                 'New Booking Request',
-                "$employerName has sent you a booking request for {$request->service_type}. Please review and respond. Click Here to go to@http://127.0.0.1:8000/profile-settings/bookings",
+                "$employerName has sent you a booking request for {$request->service_type}. Please review and respond.",
                 $booking->id,
                 'booking'
             );

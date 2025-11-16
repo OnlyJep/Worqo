@@ -134,16 +134,20 @@ const ReviewsTable = () => {
   }, []);
 
   // Fetch reviews from API
-  const fetchReviews = async () => {
+  const fetchReviews = async (resetToPageOne = false) => {
     setLoading(true);
     setError(null);
     const source = axios.CancelToken.source();
+    
+    // If resetting to page 1, update pagination state first
+    const pageToFetch = resetToPageOne ? 1 : pagination.currentPage;
+    
     try {
       const response = await axios.get(`${API_BASE_URL}/reviews`, {
         params: {
           archived: showArchived ? 1 : 0,
           search: searchTerm,
-          page: pagination.currentPage,
+          page: pageToFetch,
         },
         cancelToken: source.token,
       });
@@ -152,9 +156,15 @@ const ReviewsTable = () => {
         ...review,
         reviewedUser: review.reviewed_user || review.reviewedUser || null,
       }));
+      
+      // Log to help debug missing reviews
+      console.log("Fetched reviews count:", normalizedReviews.length);
+      console.log("Current page:", pageToFetch, "Total pages:", response.data.meta?.total_pages);
+      console.log("All fetched review IDs:", normalizedReviews.map(r => ({ id: r.id, user_id: r.user_id, reviewed_user_id: r.reviewed_user_id })));
+      
       setReviews(normalizedReviews);
       setPagination({
-        currentPage: response.data.meta?.current_page || 1,
+        currentPage: response.data.meta?.current_page || pageToFetch,
         totalPages: response.data.meta?.total_pages || 1,
       });
     } catch (err) {
@@ -172,7 +182,7 @@ const ReviewsTable = () => {
   };
 
   useEffect(() => {
-    fetchReviews();
+    fetchReviews(false);
   }, [showArchived, searchTerm, pagination.currentPage]);
 
   const filteredReviews = reviews.filter((review) => {
@@ -331,11 +341,9 @@ const ReviewsTable = () => {
     return stars;
   };
 
-  const reviewsPerPage = 5;
-  const currentReviews = filteredReviews.slice(
-    (pagination.currentPage - 1) * reviewsPerPage,
-    pagination.currentPage * reviewsPerPage
-  );
+  // Use reviews directly from API (already paginated on backend)
+  // Only apply client-side filtering for search if needed
+  const currentReviews = filteredReviews;
 
   const handlePageChange = (page) => {
     setPagination((prev) => ({ ...prev, currentPage: page }));
@@ -584,7 +592,10 @@ const ReviewsTable = () => {
       {isModalOpen && (
         <ReviewModal
           onClose={handleModalClose}
-          onRefresh={fetchReviews}
+          onRefresh={async () => {
+            // Always fetch page 1 to show the newly added review
+            await fetchReviews(true);
+          }}
           isEdit={isEditMode}
           initialData={reviewToEdit}
           employers={employers}

@@ -651,6 +651,12 @@
         }
       }
 
+      // Ensure hoursPerDay input matches width of other editing inputs
+      #hoursPerDay {
+        width: 100%;
+        max-width: 100%;
+      }
+
       .working-days-container {
         display: flex;
         flex-wrap: wrap;

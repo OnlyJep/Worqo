@@ -72,6 +72,8 @@
         border-radius: 6px;
         background: #ffffff;
         font-size: 14px;
+        width: 100%;
+        box-sizing: border-box;
 
         &:focus {
           outline: none;
@@ -85,9 +87,14 @@
         }
       }
 
+      select {
+        width: 100%;
+      }
+
       textarea {
         height: 100px;
         resize: vertical;
+        width: 100%;
       }
 
       .star-rating {

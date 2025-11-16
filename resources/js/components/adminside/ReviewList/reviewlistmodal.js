@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useMemo } from "react";
 import { FaStar } from "react-icons/fa";
 import axios from "axios";
 import "./../../../../sass/components/reviewmodal.scss";
@@ -124,12 +124,31 @@ const ReviewModal = ({ onClose, onRefresh, isEdit, initialData, employers, worke
     setSubmitError(null);
 
     try {
+      // Ensure all values are properly formatted
+      const userId = parseInt(formData.user.id);
+      const reviewedUserId = parseInt(formData.reviewedUser.id);
+      const rating = parseInt(formData.rating);
+      
+      // Validate values before sending
+      if (isNaN(userId) || isNaN(reviewedUserId) || isNaN(rating)) {
+        setSubmitError("Invalid user or rating data. Please select both users and a rating.");
+        return;
+      }
+      
+      if (rating < 1 || rating > 5) {
+        setSubmitError("Rating must be between 1 and 5.");
+        return;
+      }
+      
       const payload = {
-        user_id: parseInt(formData.user.id),
-        reviewed_user_id: parseInt(formData.reviewedUser.id),
-        rating: formData.rating,
+        user_id: userId,
+        reviewed_user_id: reviewedUserId,
+        rating: rating,
         comment: formData.comment.trim() || null,
       };
+      
+      console.log("Submitting review payload:", payload);
+      
       const url = isEdit
         ? `/api/reviews/${initialData.id}`
         : `/api/reviews`;
@@ -149,31 +168,62 @@ const ReviewModal = ({ onClose, onRefresh, isEdit, initialData, employers, worke
     } catch (error) {
       if (error.name === "AbortError") {
         console.log("Submit canceled:", error.message);
+        return;
+      }
+      
+      if (error.response?.status === 422) {
+        const validationErrors = error.response.data.errors || {};
+        console.error("Validation errors:", validationErrors);
+        console.error("Full error response:", error.response.data);
+        
+        // Map backend field names to frontend field names
+        const newErrors = {};
+        let errorMessages = [];
+        
+        Object.keys(validationErrors).forEach((key) => {
+          const errorArray = Array.isArray(validationErrors[key]) 
+            ? validationErrors[key] 
+            : [validationErrors[key]];
+          const message = errorArray[0];
+          
+          if (key === 'user_id') {
+            newErrors.user = message;
+          } else if (key === 'reviewed_user_id') {
+            newErrors.reviewedUser = message;
+          } else if (key === 'rating') {
+            newErrors.rating = message;
+          } else if (key === 'comment') {
+            newErrors.comment = message;
+          } else {
+            newErrors[key] = message;
+          }
+          
+          errorMessages.push(`${key}: ${message}`);
+        });
+        
+        setErrors(newErrors);
+        setSubmitError(errorMessages.length > 0 
+          ? `Validation failed: ${errorMessages.join('; ')}` 
+          : "Please correct the errors in the form.");
+      } else if (error.response?.status === 409) {
+        setSubmitError("A review already exists for this user combination.");
+      } else if (error.response?.status === 403) {
+        setSubmitError("You are not authorized to perform this action.");
       } else {
-        if (error.response?.status === 422) {
-          const validationErrors = error.response.data.errors || {};
-          setErrors((prev) => ({
-            ...prev,
-            ...Object.keys(validationErrors).reduce((acc, key) => ({
-              ...acc,
-              [key]: validationErrors[key][0],
-            }), {}),
-          }));
-          setSubmitError("Please correct the errors in the form.");
-        } else if (error.response?.status === 409) {
-          setSubmitError("A review already exists for this user combination.");
-        } else if (error.response?.status === 403) {
-          setSubmitError("You are not authorized to perform this action.");
-        } else {
-          setSubmitError(error.response?.data?.error || "Failed to submit review. Please try again.");
-          console.error("Submit error:", error.response?.data || error);
-        }
+        setSubmitError(error.response?.data?.error || "Failed to submit review. Please try again.");
+        console.error("Submit error:", error.response?.data || error);
       }
     }
   };
 
-  // Use all workers and employers without role filtering
-  const allUsers = [...(employers || []), ...(workers || [])];
+  // Use all workers and employers without role filtering, deduplicated by ID
+  const allUsers = useMemo(() => {
+    const allUsersRaw = [...(employers || []), ...(workers || [])];
+    // Remove duplicates by ID - keep the first occurrence
+    return allUsersRaw.filter((user, index, self) => 
+      index === self.findIndex((u) => u.id === user.id)
+    );
+  }, [employers, workers]);
 
   // Check if workers and employers are arrays
   const isWorkersLoaded = Array.isArray(workers);
