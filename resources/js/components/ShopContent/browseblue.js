@@ -619,7 +619,7 @@ const Browse = () => {
   };
 
   // Calculate paginated workers (5 per page)
-  const workersPerPage = 5;
+  const workersPerPage = 10;
   const startIndex = (pagination.currentPage - 1) * workersPerPage;
   const endIndex = startIndex + workersPerPage;
   const currentWorkers = filteredWorkers.slice(startIndex, endIndex);
@@ -903,27 +903,20 @@ const Browse = () => {
                 No workers found matching your criteria.
               </div>
             )}
+            {filteredWorkers.length > 10 && pagination.currentPage < pagination.totalPages && (
+              <div className="show-more-row">
+                <button
+                  type="button"
+                  className="show-more-btn"
+                  onClick={() => handlePageChange(Math.min(pagination.currentPage + 1, pagination.totalPages))}
+                  disabled={loading}
+                >
+                  Show More
+                </button>
+              </div>
+            )}
           </section>
         </div>
-        
-        {filteredWorkers.length > 0 && pagination.totalPages > 1 && (
-          <div className="browse-pagination">
-            <span>Page {pagination.currentPage} of {pagination.totalPages}</span>
-            <button
-              onClick={() => handlePageChange(pagination.currentPage - 1)}
-              disabled={pagination.currentPage <= 1 || loading}
-            >
-              {"<"}
-            </button>
-            {renderPagination()}
-            <button
-              onClick={() => handlePageChange(pagination.currentPage + 1)}
-              disabled={pagination.currentPage >= pagination.totalPages || loading}
-            >
-              {">"}
-            </button>
-          </div>
-        )}
       </div>
       <Footer />
     </div>

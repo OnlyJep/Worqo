@@ -11,6 +11,7 @@ const BrowseWhite = () => {
   const [searchTerm, setSearchTerm] = useState("");
 
   const sortOptions = ["Featured", "Newest", "Price: High-Low", "Price: Low-High"];
+  const demoResults = Array.from({ length: 10 }, (_, index) => index + 1);
 
   const handleSortOptionClick = (option) => {
     setSelectedSortOption(option);
@@ -109,7 +110,7 @@ const BrowseWhite = () => {
           </aside>
 
           <section className="results-list">
-            {[1,2,3].map((i) => (
+            {demoResults.map((i) => (
               <article key={i} className="result-card">
                 <div className="card-inner">
                   <div className="avatar-col">
@@ -147,6 +148,16 @@ const BrowseWhite = () => {
                 </div>
               </article>
             ))}
+            {demoResults.length === 0 && (
+              <div style={{ textAlign: 'center', padding: '40px', color: '#666' }}>
+                No workers found matching your criteria.
+              </div>
+            )}
+            {demoResults.length > 10 && (
+              <div className="show-more-row">
+                <button type="button" className="show-more-btn">Show More</button>
+              </div>
+            )}
           </section>
         </div>
       </div>

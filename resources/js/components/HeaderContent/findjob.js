@@ -16,10 +16,8 @@ const FindJob = () => {
 	const [jobs, setJobs] = useState([]);
 	const [filteredJobs, setFilteredJobs] = useState([]); // All filtered and sorted jobs
 	const [loading, setLoading] = useState(true);
-	const [currentPage, setCurrentPage] = useState(1);
-	const [totalPages, setTotalPages] = useState(1);
-	const [totalItems, setTotalItems] = useState(0);
-	const perPage = 5; // Show 5 jobs per page
+	const perPage = 5; // Show 5 jobs per batch
+	const [visibleCount, setVisibleCount] = useState(perPage);
 	const navigate = useNavigate();
 	const location = useLocation();
 
@@ -239,46 +237,25 @@ const FindJob = () => {
 			
 			// Store all filtered and sorted jobs
 			setFilteredJobs(sorted);
-			
-			// Calculate client-side pagination for filtered results
-			const totalFiltered = sorted.length;
-			const totalPagesCount = Math.max(1, Math.ceil(totalFiltered / perPage));
-			console.log('Pagination Calculation:', {
-				totalFiltered,
-				perPage,
-				totalPagesCount,
-				currentPage
-			});
-			setTotalPages(totalPagesCount);
-			setTotalItems(totalFiltered);
 		} else if (Array.isArray(jobs) && jobs.length === 0) {
 			// Handle empty jobs array
 			setFilteredJobs([]);
-			setTotalPages(1);
-			setTotalItems(0);
 		}
-	}, [jobs, searchTerm, selectedEmploymentType, selectedSortOption, currentPage, perPage]);
+	}, [jobs, searchTerm, selectedEmploymentType, selectedSortOption]);
 
 	const handleRefineSearch = () => {
-		setCurrentPage(1); // Reset to first page when refining search
-		// The useEffect will trigger a new API call with page 1
+		setVisibleCount(perPage);
 	};
 
 	const handleClearFilters = () => {
 		setSearchTerm("");
 		setSelectedEmploymentType("");
 		setSelectedSortOption("Newest");
-		setCurrentPage(1); // Reset to first page when clearing filters
-		// The useEffect will trigger a new API call with page 1
+		setVisibleCount(perPage);
 	};
 
-	const handlePageChange = (newPage) => {
-		if (newPage >= 1 && newPage <= totalPages) {
-			setCurrentPage(newPage);
-			// Scroll to top when page changes
-			window.scrollTo({ top: 0, behavior: 'smooth' });
-			// The useEffect will trigger a new API call with the new page
-		}
+	const handleShowMore = () => {
+		setVisibleCount(prev => Math.min(prev + perPage, filteredJobs.length));
 	};
 
 	// Handle URL search parameters
@@ -291,10 +268,10 @@ const FindJob = () => {
 		}
 	}, [location.search]);
 
-	// Reset to page 1 when search term or employment type filter changes
+	// Reset visible count when filters or sort change
 	useEffect(() => {
-		setCurrentPage(1);
-	}, [searchTerm, selectedEmploymentType, selectedSortOption]);
+		setVisibleCount(perPage);
+	}, [searchTerm, selectedEmploymentType, selectedSortOption, jobs]);
 
 	useEffect(() => {
 		let isMounted = true;
@@ -491,8 +468,6 @@ const FindJob = () => {
 			applyFiltersAndSort();
 		} else if (Array.isArray(jobs) && jobs.length === 0) {
 			setFilteredJobs([]);
-			setTotalPages(1);
-			setTotalItems(0);
 		}
 	}, [jobs, searchTerm, selectedEmploymentType, selectedSortOption, applyFiltersAndSort]);
 
@@ -585,11 +560,8 @@ const FindJob = () => {
 							</div>
 						) : (
 							(() => {
-								// Get jobs for current page (client-side pagination)
-								const startIndex = (currentPage - 1) * perPage;
-								const endIndex = startIndex + perPage;
-								const paginatedJobs = filteredJobs.slice(startIndex, endIndex);
-								return paginatedJobs.map((job) => (
+								const visibleJobs = filteredJobs.slice(0, visibleCount);
+								return visibleJobs.map((job) => (
 									<article key={job.id} className="result-card job-card">
 									<div className="top-strip" />
 									<div className="job-content" onClick={() => handleViewJob(job.id)} style={{ cursor: 'pointer' }}>
@@ -637,85 +609,10 @@ const FindJob = () => {
 							})()
 						)}
 						
-						{/* Pagination Controls - Show when there are multiple pages */}
-						{(() => {
-							console.log('Pagination render check:', {
-								totalPages,
-								totalItems,
-								filteredJobsLength: filteredJobs.length,
-								shouldShow: totalPages > 1
-							});
-							return totalPages > 1;
-						})() && (
-							<div className="findjob-pagination">
-								<span>Page {currentPage} of {totalPages}</span>
-								<button
-									onClick={() => handlePageChange(currentPage - 1)}
-									disabled={currentPage === 1 || loading}
-								>
-									{"<"}
-								</button>
-								{(() => {
-									const pages = [];
-									const maxPagesToShow = 5;
-									const startPage = Math.max(1, currentPage - Math.floor(maxPagesToShow / 2));
-									const endPage = Math.min(totalPages, startPage + maxPagesToShow - 1);
-
-									if (totalPages <= maxPagesToShow) {
-										for (let i = 1; i <= totalPages; i++) {
-											pages.push(
-												<button
-													key={i}
-													className={currentPage === i ? "active" : ""}
-													onClick={() => handlePageChange(i)}
-												>
-													{i}
-												</button>
-											);
-										}
-									} else {
-										if (startPage > 1) {
-											pages.push(
-												<button key={1} onClick={() => handlePageChange(1)}>
-													1
-												</button>
-											);
-											if (startPage > 2) {
-												pages.push(<span key="start-ellipsis" className="ellipsis">...</span>);
-											}
-										}
-
-										for (let i = startPage; i <= endPage; i++) {
-											pages.push(
-												<button
-													key={i}
-													className={currentPage === i ? "active" : ""}
-													onClick={() => handlePageChange(i)}
-												>
-													{i}
-												</button>
-											);
-										}
-
-										if (endPage < totalPages) {
-											if (endPage < totalPages - 1) {
-												pages.push(<span key="end-ellipsis" className="ellipsis">...</span>);
-											}
-											pages.push(
-												<button key={totalPages} onClick={() => handlePageChange(totalPages)}>
-													{totalPages}
-												</button>
-											);
-										}
-									}
-
-									return pages;
-								})()}
-								<button
-									onClick={() => handlePageChange(currentPage + 1)}
-									disabled={currentPage >= totalPages || loading}
-								>
-									{">"}
+						{filteredJobs.length > 5 && filteredJobs.length > visibleCount && (
+							<div className="findjob-show-more">
+								<button type="button" className="show-more-btn" onClick={handleShowMore} disabled={loading}>
+									Show More
 								</button>
 							</div>
 						)}
