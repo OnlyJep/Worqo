@@ -161,7 +161,7 @@
     min-height: calc(100vh - 200px);
   }
 
-  .filters-sidebar {
+  .filters-panel {
     background: #0a2a40;
     color: #fff;
     padding: 24px;
@@ -489,7 +489,7 @@
         gap: 16px;
       }
 
-      .filters-sidebar {
+      .filters-panel {
         display: none;
         position: relative;
         top: 0;
@@ -800,7 +800,7 @@
         }
       }
 
-      .filters-sidebar {
+      .filters-panel {
         padding: 18px;
         margin-bottom: 20px;
 

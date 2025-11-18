@@ -107,12 +107,8 @@ const BookingModal = ({ isOpen, onClose, onSubmit, isEdit, initialData, skills =
 
       // Get worker's accepted job applications (hired jobs)
       const response = await fetch(`${window.location.origin}/api/job-applications/worker/${worker_id}?status=accepted`);
-      const acceptedJobs = await response.json() || [];
-
-      // Also get all job posts with work schedules to check for conflicts
-      const jobPostsResponse = await fetch(`${window.location.origin}/api/jobposts?worker_id=${worker_id}&include_work_schedule=true`);
-      const jobPostsData = await jobPostsResponse.json();
-      const jobPosts = jobPostsData?.job_posts?.data || [];
+      const allJobs = await response.json() || [];
+      const acceptedJobs = allJobs.filter(job => String(job.status || '').toLowerCase() === 'accepted');
 
       // Check for date conflicts
       const requestedStart = new Date(book_in);
@@ -142,40 +138,11 @@ const BookingModal = ({ isOpen, onClose, onSubmit, isEdit, initialData, skills =
         }
       }
 
-      // Check conflicts with job posts that have fixed work schedules
-      for (const jobPost of jobPosts) {
-        if (jobPost.work_start && jobPost.work_end) {
-          const jobStart = new Date(jobPost.work_start);
-          const jobEnd = new Date(jobPost.work_end);
-
-          // Check if there's any overlap between the requested dates and job post work schedule
-          if (
-            (requestedStart >= jobStart && requestedStart <= jobEnd) ||
-            (requestedEnd >= jobStart && requestedEnd <= jobEnd) ||
-            (requestedStart <= jobStart && requestedEnd >= jobEnd)
-          ) {
-            conflictingJobs.push({
-              jobTitle: jobPost.job_title,
-              workStart: jobPost.work_start,
-              workEnd: jobPost.work_end,
-              employer: jobPost.profile?.first_name + ' ' + jobPost.profile?.last_name,
-              type: 'scheduled'
-            });
-          }
-        }
-      }
-
       if (conflictingJobs.length > 0) {
-        const hiredCount = conflictingJobs.filter(job => job.type === 'hired').length;
-        const scheduledCount = conflictingJobs.filter(job => job.type === 'scheduled').length;
-        
-        let conflictMessage = 'Worker is not available during the selected period. ';
-        if (hiredCount > 0 && scheduledCount > 0) {
-          conflictMessage += `They are already hired for ${hiredCount} job(s) and have ${scheduledCount} scheduled job(s) during this time.`;
-        } else if (hiredCount > 0) {
-          conflictMessage += `They are already hired for ${hiredCount} job(s) during this time.`;
-        } else {
-          conflictMessage += `They have ${scheduledCount} scheduled job(s) during this time.`;
+        const hiredCount = conflictingJobs.length;
+        let conflictMessage = 'Worker already has confirmed bookings during the selected period.';
+        if (hiredCount > 1) {
+          conflictMessage = `Worker already has ${hiredCount} confirmed booking(s) during the selected period.`;
         }
 
         setAvailabilityStatus({

@@ -252,6 +252,45 @@ const JobApplicationsModal = ({ jobPostId, jobTitle, onClose }) => {
     setShowViewDeclinedWorkersModal(false);
   };
 
+  const handleMessageApplicantClick = async (event, application) => {
+    event.preventDefault();
+    if (!application) return;
+
+    const worker = application.worker || {};
+    const workerUserId = worker.user_id || worker.id || worker.user?.id || application.worker_id;
+    if (workerUserId) {
+      localStorage.setItem('message_target_user_id', String(workerUserId));
+    } else {
+      localStorage.removeItem('message_target_user_id');
+    }
+
+    const stored = JSON.parse(localStorage.getItem('user') || '{}');
+    const currentRole = stored?.role_id || stored?.user?.role_id;
+    const targetRole = 2; // employer role to chat as employer
+
+    try {
+      if (currentRole && currentRole !== targetRole) {
+        const authToken = localStorage.getItem('auth_token');
+        await fetch(`${window.location.origin}/api/users/switch-role`, {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${authToken}`,
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify({ user_id: stored.id || stored?.user?.id, role_id: targetRole })
+        }).catch(() => {});
+
+        const updatedUser = { ...(stored.user || stored), role_id: targetRole };
+        localStorage.setItem('user', JSON.stringify(stored.user ? { user: updatedUser } : updatedUser));
+      }
+    } catch (error) {
+      console.error('Error switching role before messaging:', error);
+    }
+
+    window.location.href = '/message';
+  };
+
   return (
     <div className="job-applications-modal-overlay">
       <div className="job-applications-modal">
@@ -378,25 +417,7 @@ const JobApplicationsModal = ({ jobPostId, jobTitle, onClose }) => {
                       <span style={{ color: '#333' }}>Want to message this applicant? </span>
                       <a
                         href="#"
-                        onClick={async (e) => {
-                          e.preventDefault();
-                          const stored = JSON.parse(localStorage.getItem('user') || '{}');
-                          const currentRole = stored?.role_id;
-                          const targetRole = 2; // employer role to chat as employer
-                          try {
-                            if (currentRole && currentRole !== targetRole) {
-                              const authToken = localStorage.getItem('auth_token');
-                              await fetch(`${window.location.origin}/api/users/switch-role`, {
-                                method: 'POST',
-                                headers: { 'Authorization': `Bearer ${authToken}`, 'Content-Type': 'application/json', 'Accept': 'application/json' },
-                                body: JSON.stringify({ user_id: stored.id || stored?.user?.id, role_id: targetRole })
-                              }).catch(() => {});
-                              const updated = { ...(stored.user || stored), role_id: targetRole };
-                              localStorage.setItem('user', JSON.stringify(stored.user ? { user: updated } : updated));
-                            }
-                          } catch (_) {}
-                          window.location.href = '/message';
-                        }}
+                        onClick={(e) => handleMessageApplicantClick(e, application)}
                         style={{ color: '#1a73e8', textDecoration: 'underline' }}
                       >
                         Click here

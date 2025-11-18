@@ -41,6 +41,7 @@ const Browse = () => {
   const [error, setError] = useState(null);
   const [pagination, setPagination] = useState({ currentPage: 1, totalPages: 1 });
   const navigate = useNavigate();
+  const WORKERS_PER_PAGE = 5;
 
   // Filter states
   const [filters, setFilters] = useState({
@@ -517,25 +518,23 @@ const Browse = () => {
     });
 
     // Apply sorting
-    if (selectedSortOption === "Price: High-Low") {
-      filteredWorkers.sort((a, b) => b.hourlyRate - a.hourlyRate);
-    } else if (selectedSortOption === "Price: Low-High") {
-      filteredWorkers.sort((a, b) => a.hourlyRate - b.hourlyRate);
-    } else if (selectedSortOption === "Newest") {
+    if (selectedSortOption === "Newest") {
+      filteredWorkers.sort((a, b) => b.id - a.id);
+    } else if (selectedSortOption === "Oldest") {
       filteredWorkers.sort((a, b) => a.id - b.id);
     }
 
     setFilteredWorkers(filteredWorkers);
     
     // Update pagination based on filtered results
-    const totalPages = Math.ceil(filteredWorkers.length / 5) || 1;
+    const totalPages = Math.ceil(filteredWorkers.length / WORKERS_PER_PAGE) || 1;
     setPagination(prev => ({
       currentPage: prev.currentPage > totalPages ? 1 : prev.currentPage,
       totalPages: totalPages
     }));
   }, [selectedSortOption, searchTerm, allWorkers, filters]);
 
-  const sortOptions = ["Sort by", "Featured", "Newest", "Price: High-Low", "Price: Low-High"];
+  const sortOptions = ["Sort by", "Newest", "Oldest"];
 
   const handleSortOptionClick = (option) => {
     setSelectedSortOption(option);
@@ -619,7 +618,7 @@ const Browse = () => {
   };
 
   // Calculate paginated workers (5 per page)
-  const workersPerPage = 10;
+  const workersPerPage = WORKERS_PER_PAGE;
   const startIndex = (pagination.currentPage - 1) * workersPerPage;
   const endIndex = startIndex + workersPerPage;
   const currentWorkers = filteredWorkers.slice(startIndex, endIndex);
@@ -706,51 +705,7 @@ const Browse = () => {
           </button>
         </div>
 
-        <div className="content-layout">
-          <aside className={`filters-sidebar ${isFiltersOpen ? 'mobile-open' : ''}`}>
-            <h4 className="filters-title">ACTIVE SKILL FILTERS</h4>
-            <div className="filter-group">
-              <label>AVAILABILITY (HOURS PER DAY)</label>
-              <div className="range">
-                <input 
-                  type="number" 
-                  value={filters.minHours} 
-                  min="0" 
-                  max="24" 
-                  onChange={(e) => handleFilterChange('minHours', parseInt(e.target.value) || 0)}
-                />
-                <span>to</span>
-                <input 
-                  type="number" 
-                  value={filters.maxHours} 
-                  min="0" 
-                  max="24" 
-                  onChange={(e) => handleFilterChange('maxHours', parseInt(e.target.value) || 0)}
-                />
-              </div>
-            </div>
-            <div className="filter-group">
-              <label>HOURLY SALARY BETWEEN (PHP)</label>
-              <div className="range">
-                <input 
-                  type="number" 
-                  value={filters.minSalary} 
-                  min="0" 
-                  placeholder="0"
-                  onChange={(e) => handleFilterChange('minSalary', parseInt(e.target.value) || 0)}
-                />
-                <span>to</span>
-                <input 
-                  type="number" 
-                  value={filters.maxSalary} 
-                  min="0" 
-                  placeholder="10000"
-                  onChange={(e) => handleFilterChange('maxSalary', parseInt(e.target.value) || 10000)}
-                />
-              </div>
-            </div>
-          </aside>
-
+        <div className="content-layout results-list">
           <section className="results-list">
             {currentWorkers.map((worker) => (
               <article key={worker.id} className="result-card">
@@ -903,7 +858,7 @@ const Browse = () => {
                 No workers found matching your criteria.
               </div>
             )}
-            {filteredWorkers.length > 10 && pagination.currentPage < pagination.totalPages && (
+            {pagination.currentPage < pagination.totalPages && (
               <div className="show-more-row">
                 <button
                   type="button"

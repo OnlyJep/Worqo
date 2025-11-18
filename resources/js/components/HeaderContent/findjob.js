@@ -243,17 +243,6 @@ const FindJob = () => {
 		}
 	}, [jobs, searchTerm, selectedEmploymentType, selectedSortOption]);
 
-	const handleRefineSearch = () => {
-		setVisibleCount(perPage);
-	};
-
-	const handleClearFilters = () => {
-		setSearchTerm("");
-		setSelectedEmploymentType("");
-		setSelectedSortOption("Newest");
-		setVisibleCount(perPage);
-	};
-
 	const handleShowMore = () => {
 		setVisibleCount(prev => Math.min(prev + perPage, filteredJobs.length));
 	};
@@ -540,12 +529,6 @@ const FindJob = () => {
 							</select>
 						</div>
 
-						<button className="refine-btn" type="button" onClick={handleRefineSearch}>
-							REFINE SEARCH RESULTS
-						</button>
-						<button className="clear-btn" type="button" onClick={handleClearFilters}>
-							CLEAR FILTERS
-						</button>
 					</aside>
 
 					<section className="results-list">
