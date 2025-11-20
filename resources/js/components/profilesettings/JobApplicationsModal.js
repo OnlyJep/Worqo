@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { FaTimes, FaUser, FaCheck, FaTimes as FaX, FaCalendar, FaFilePdf } from 'react-icons/fa';
 import { FaUsersViewfinder } from 'react-icons/fa6';
+import { message } from 'antd';
 import axios from 'axios';
 import '../../../sass/components/profilesettings/jobapplicationsmodal.scss';
 import '../../../sass/components/profilesettings/confirmmodal.scss';
 import ViewWorkersApplicationModal from './ViewWorkersApplicationModal';
 import ViewHiredWorkersModal from './ViewHiredWorkersModal';
 import ViewDeclinedWorkersModal from './ViewDeclinedWorkersModal';
+import ModalFeedback from './modalfeedback';
 
 const JobApplicationsModal = ({ jobPostId, jobTitle, onClose }) => {
   const [applications, setApplications] = useState([]);
@@ -19,6 +21,8 @@ const JobApplicationsModal = ({ jobPostId, jobTitle, onClose }) => {
   const [showViewDeclinedWorkersModal, setShowViewDeclinedWorkersModal] = useState(false);
   const [confirmState, setConfirmState] = useState({ open: false, action: null, application: null });
   const [warningModal, setWarningModal] = useState({ open: false, message: '' });
+  const [isFeedbackModalOpen, setIsFeedbackModalOpen] = useState(false);
+  const [selectedApplicationForFeedback, setSelectedApplicationForFeedback] = useState(null);
 
   useEffect(() => {
     fetchJobPost();
@@ -291,6 +295,112 @@ const JobApplicationsModal = ({ jobPostId, jobTitle, onClose }) => {
     window.location.href = '/message';
   };
 
+  const handleGiveFeedback = (application) => {
+    console.log('handleGiveFeedback called with:', application);
+    if (!application) {
+      console.error('No application provided to handleGiveFeedback');
+      return;
+    }
+    setSelectedApplicationForFeedback(application);
+    setIsFeedbackModalOpen(true);
+    console.log('Feedback modal should now be open');
+  };
+
+  const handleCloseFeedbackModal = () => {
+    setIsFeedbackModalOpen(false);
+    setSelectedApplicationForFeedback(null);
+  };
+
+  const handleSubmitFeedback = async (feedbackData) => {
+    try {
+      const authToken = localStorage.getItem("auth_token");
+      
+      if (!authToken) {
+        message.error("Please log in to submit a review");
+        return;
+      }
+
+      if (!selectedApplicationForFeedback || !selectedApplicationForFeedback.id) {
+        message.error("Application information is missing");
+        return;
+      }
+
+      // Get worker user_id from the application
+      // worker.user_id is the user_id from the profile
+      const worker = selectedApplicationForFeedback.worker || {};
+      const workerUserId = worker.user_id || worker.user?.id;
+      
+      if (!workerUserId) {
+        message.error("Worker information is missing. Cannot submit feedback.");
+        return;
+      }
+
+      // Ensure token is properly formatted
+      const token = authToken && authToken.trim() ? authToken.trim() : null;
+      
+      if (!token) {
+        message.error("Authentication token is missing. Please log in again.");
+        return;
+      }
+
+      // Get current user ID
+      const userData = JSON.parse(localStorage.getItem("user") || '{}');
+      const currentUserId = userData.id || userData.user?.id;
+
+      // Use the general review endpoint with worker user_id
+      const response = await axios.post(
+        `/api/reviews`,
+        {
+          user_id: currentUserId,
+          reviewed_user_id: workerUserId,
+          rating: feedbackData.rating,
+          comment: feedbackData.feedback
+        },
+        {
+          headers: {
+            'Authorization': `Bearer ${token}`,
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          }
+        }
+      );
+
+      if (response.data) {
+        message.success("Feedback submitted successfully");
+        setIsFeedbackModalOpen(false);
+        
+        // Immediately update the local state to hide the button
+        if (selectedApplicationForFeedback && selectedApplicationForFeedback.id) {
+          setApplications(prev => 
+            prev.map(app => 
+              app.id === selectedApplicationForFeedback.id 
+                ? { ...app, has_review: true }
+                : app
+            )
+          );
+        }
+        
+        setSelectedApplicationForFeedback(null);
+        // Refresh applications to update has_review status from backend
+        await fetchApplications();
+      } else {
+        message.error("Failed to submit feedback");
+      }
+    } catch (error) {
+      console.error("Error submitting review:", error.response?.data || error.message);
+      
+      if (error.response?.status === 401) {
+        message.error("Session expired. Please log in again.");
+      } else if (error.response?.status === 403) {
+        message.error("You are not authorized to review this worker");
+      } else if (error.response?.status === 400) {
+        message.error(error.response.data?.message || "Invalid request. Please check the application status.");
+      } else {
+        message.error(error.response?.data?.message || "Failed to submit review. Please try again.");
+      }
+    }
+  };
+
   return (
     <div className="job-applications-modal-overlay">
       <div className="job-applications-modal">
@@ -335,6 +445,12 @@ const JobApplicationsModal = ({ jobPostId, jobTitle, onClose }) => {
                   onClick={() => setFilterStatus('accepted')}
                 >
                   Hired ({applications.filter(app => app.status === 'accepted').length})
+                </button>
+                <button 
+                  className={filterStatus === 'completed' ? 'active' : ''}
+                  onClick={() => setFilterStatus('completed')}
+                >
+                  Completed ({applications.filter(app => app.status === 'completed').length})
                 </button>
                 <button 
                   className={filterStatus === 'declined' ? 'active' : ''}
@@ -423,7 +539,7 @@ const JobApplicationsModal = ({ jobPostId, jobTitle, onClose }) => {
                         Click here
                       </a>
                     </div>
-                    {application.status !== 'accepted' && application.status !== 'declined' && (
+                    {application.status !== 'accepted' && application.status !== 'declined' && application.status !== 'completed' && (
                       <div className="application-actions">
                         <button 
                           className="accept-btn"
@@ -447,13 +563,31 @@ const JobApplicationsModal = ({ jobPostId, jobTitle, onClose }) => {
                         </button>
                       </div>
                     )}
+                    {application.status === 'completed' && !application.has_review && (
+                      <div className="application-actions">
+                        <button 
+                          type="button"
+                          className="give-feedback-btn"
+                          onClick={(e) => {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            console.log('Give Feedback button clicked for application:', application.id);
+                            handleGiveFeedback(application);
+                          }}
+                          title="Give feedback to this worker"
+                        >
+                          Give Feedback
+                        </button>
+                      </div>
+                    )}
                   </div>
                       </div>
                     </div>
                     <div className="application-status">
-                      <span className={`status-badge ${application.status === 'for_interview' ? 'status-interview' : application.status === 'accepted' ? 'status-accepted' : 'status-declined'}`}>
+                      <span className={`status-badge ${application.status === 'for_interview' ? 'status-interview' : application.status === 'accepted' ? 'status-accepted' : application.status === 'completed' ? 'status-completed' : 'status-declined'}`}>
                         {application.status === 'for_interview' ? 'For Interview' :
                          application.status === 'accepted' ? 'Hired' :
+                         application.status === 'completed' ? 'Completed' :
                          'Declined'}
                       </span>
                     </div>
@@ -574,6 +708,15 @@ const JobApplicationsModal = ({ jobPostId, jobTitle, onClose }) => {
             </div>
           </div>
         </div>
+      )}
+
+      {/* Feedback Modal */}
+      {isFeedbackModalOpen && selectedApplicationForFeedback && (
+        <ModalFeedback
+          onClose={handleCloseFeedbackModal}
+          onSubmit={handleSubmitFeedback}
+          workerName={getWorkerName(selectedApplicationForFeedback.worker || {})}
+        />
       )}
     </div>
   );

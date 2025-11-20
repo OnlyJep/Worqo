@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { FaUserFriends, FaRegEdit, FaPlus } from 'react-icons/fa';
+import { FaUserFriends, FaRegEdit, FaPlus, FaTimes } from 'react-icons/fa';
 import { message } from 'antd';
 import axios from 'axios';
 import ModalPostJob from './modalpostjob';
@@ -7,6 +7,7 @@ import JobApplicationsModal from './JobApplicationsModal';
 import JobDetailModal from './JobDetailModal';
 import { convertFromPhilippinesTime } from '../../utils/dateUtils';
 import '../../../sass/components/profilesettings/mypostjob.scss';
+import '../../../sass/components/profilesettings/confirmmodal.scss';
 
 const MyPostJob = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -21,6 +22,8 @@ const MyPostJob = () => {
   const [employerCredentials, setEmployerCredentials] = useState([]);
   const [hasCredentials, setHasCredentials] = useState(false);
   const [userRole, setUserRole] = useState(null);
+  const [jobApplicationCounts, setJobApplicationCounts] = useState({}); // Track accepted applications per job
+  const [confirmCompleteModal, setConfirmCompleteModal] = useState({ open: false, jobId: null, workerCount: 0 });
 
   useEffect(() => {
     // Get user profile from localStorage
@@ -142,6 +145,11 @@ const MyPostJob = () => {
       setJobs(jobsData);
       console.log("Jobs found:", jobsData.length);
       
+      // Fetch accepted applications count for each job
+      if (jobsData.length > 0) {
+        fetchAcceptedApplicationsCount(jobsData);
+      }
+      
       if (jobsData.length === 0) {
         console.log("No jobs found for profile_id:", profileId);
       }
@@ -151,6 +159,40 @@ const MyPostJob = () => {
       setJobs([]);
     } finally {
       setLoading(false);
+    }
+  };
+
+  const fetchAcceptedApplicationsCount = async (jobsList) => {
+    try {
+      const authToken = localStorage.getItem("auth_token");
+      if (!authToken) return;
+
+      const counts = {};
+      
+      // Fetch applications for each job to count accepted ones
+      await Promise.all(
+        jobsList.map(async (job) => {
+          try {
+            const response = await axios.get(`/api/job-applications/job/${job.id}`, {
+              headers: {
+                Authorization: `Bearer ${authToken}`,
+                Accept: "application/json"
+              }
+            });
+            
+            const applications = Array.isArray(response.data) ? response.data : [];
+            const acceptedCount = applications.filter(app => app.status === 'accepted').length;
+            counts[job.id] = acceptedCount;
+          } catch (error) {
+            console.error(`Error fetching applications for job ${job.id}:`, error);
+            counts[job.id] = 0;
+          }
+        })
+      );
+      
+      setJobApplicationCounts(counts);
+    } catch (error) {
+      console.error('Error fetching accepted applications counts:', error);
     }
   };
 
@@ -438,6 +480,126 @@ const MyPostJob = () => {
     handleEditJob(jobId);
   };
 
+  const handleMarkJobAsCompleted = async (jobId, e) => {
+    e.stopPropagation(); // Prevent card click
+    
+    try {
+      const authToken = localStorage.getItem("auth_token");
+      if (!authToken) {
+        message.error("Please log in to mark job as completed");
+        return;
+      }
+
+      // Fetch all applications for this job to get the count
+      const response = await axios.get(`/api/job-applications/job/${jobId}`, {
+        headers: {
+          Authorization: `Bearer ${authToken}`,
+          Accept: "application/json"
+        }
+      });
+
+      const applications = Array.isArray(response.data) ? response.data : [];
+      const acceptedApplications = applications.filter(app => app.status === 'accepted');
+
+      if (acceptedApplications.length === 0) {
+        message.warning('No hired workers found for this job.');
+        return;
+      }
+
+      // Open confirm modal
+      setConfirmCompleteModal({
+        open: true,
+        jobId: jobId,
+        workerCount: acceptedApplications.length
+      });
+    } catch (error) {
+      console.error('Error fetching applications:', error);
+      message.error('Failed to fetch applications. Please try again.');
+    }
+  };
+
+  const closeConfirmCompleteModal = () => {
+    setConfirmCompleteModal({ open: false, jobId: null, workerCount: 0 });
+  };
+
+  const proceedMarkAsCompleted = async () => {
+    const { jobId, workerCount } = confirmCompleteModal;
+    
+    if (!jobId) {
+      closeConfirmCompleteModal();
+      return;
+    }
+
+    try {
+      const authToken = localStorage.getItem("auth_token");
+      if (!authToken) {
+        message.error("Please log in to mark job as completed");
+        closeConfirmCompleteModal();
+        return;
+      }
+
+      // Fetch all applications for this job
+      const response = await axios.get(`/api/job-applications/job/${jobId}`, {
+        headers: {
+          Authorization: `Bearer ${authToken}`,
+          Accept: "application/json"
+        }
+      });
+
+      const applications = Array.isArray(response.data) ? response.data : [];
+      const acceptedApplications = applications.filter(app => app.status === 'accepted');
+
+      if (acceptedApplications.length === 0) {
+        message.warning('No hired workers found for this job.');
+        closeConfirmCompleteModal();
+        return;
+      }
+
+      // Mark all accepted applications as completed
+      const updatePromises = acceptedApplications.map(app =>
+        axios.patch(`/api/job-applications/${app.id}/status`, {
+          status: 'completed'
+        }, {
+          headers: {
+            Authorization: `Bearer ${authToken}`,
+            Accept: "application/json",
+            "Content-Type": "application/json"
+          }
+        })
+      );
+
+      await Promise.all(updatePromises);
+      
+      message.success(`Successfully marked ${acceptedApplications.length} worker(s) as completed. You can now give feedback in the applications modal.`);
+      
+      // Update the counts
+      setJobApplicationCounts(prev => ({
+        ...prev,
+        [jobId]: 0 // No more accepted applications
+      }));
+      
+      // Refresh jobs to update any related data
+      fetchJobs();
+      
+      closeConfirmCompleteModal();
+    } catch (error) {
+      console.error('Error marking job as completed:', error);
+      
+      // Show more detailed error message
+      if (error.response?.data?.errors) {
+        const errors = error.response.data.errors;
+        const errorMessages = Object.values(errors).flat();
+        message.error(`Validation failed: ${errorMessages.join(', ')}`);
+      } else if (error.response?.data?.message) {
+        message.error(error.response.data.message);
+      } else {
+        message.error('Failed to mark job as completed. Please try again.');
+      }
+      
+      closeConfirmCompleteModal();
+    }
+  };
+
 
   // Determine labels based on user role
 
@@ -576,6 +738,19 @@ const MyPostJob = () => {
                     <span className="skill-tag">No specific skills required</span>
                   )}
                 </div>
+
+                {/* Mark as Completed button - show if there are hired workers */}
+                {jobApplicationCounts[job.id] > 0 && (
+                  <div className="mark-completed-section">
+                    <button 
+                      className="mark-completed-btn"
+                      onClick={(e) => handleMarkJobAsCompleted(job.id, e)}
+                      title="Mark all hired workers as completed"
+                    >
+                      Mark as Completed ({jobApplicationCounts[job.id]} worker{jobApplicationCounts[job.id] > 1 ? 's' : ''})
+                    </button>
+                  </div>
+                )}
               </div>
             </div>
           ))
@@ -617,6 +792,32 @@ const MyPostJob = () => {
             setSelectedJobForDetail(null);
           }}
         />
+      )}
+
+      {/* Confirm Mark as Completed Modal */}
+      {confirmCompleteModal.open && (
+        <div className="confirm-modal-overlay" onClick={closeConfirmCompleteModal}>
+          <div className="confirm-modal" onClick={(e) => e.stopPropagation()}>
+            <div className="confirm-modal-header">
+              <h3>Mark as Completed</h3>
+              <button className="close-btn" onClick={closeConfirmCompleteModal}>
+                <FaTimes />
+              </button>
+            </div>
+            <div className="confirm-modal-content">
+              <p>
+                Are you sure you want to mark all {confirmCompleteModal.workerCount} hired worker{confirmCompleteModal.workerCount > 1 ? 's' : ''} for this job as completed?
+              </p>
+             
+            </div>
+            <div className="confirm-modal-actions">
+              <button className="confirm-btn" onClick={proceedMarkAsCompleted}>
+                Mark as Completed
+              </button>
+              <button className="cancel-btn" onClick={closeConfirmCompleteModal}>Cancel</button>
+            </div>
+          </div>
+        </div>
       )}
     </div>
   );

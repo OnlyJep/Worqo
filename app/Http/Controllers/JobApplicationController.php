@@ -4,8 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\JobApplication;
 use App\Models\JobPost;
+use App\Models\Profile;
+use App\Models\Review;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Schema;
 use App\Http\Controllers\NotificationController;
 use Carbon\Carbon;
 
@@ -16,6 +20,14 @@ class JobApplicationController extends Controller
      */
     public function getJobApplications($jobPostId)
     {
+        // Get the job post to find the employer's user_id
+        $jobPost = JobPost::with('profile')->find($jobPostId);
+        $employerUserId = null;
+        
+        if ($jobPost && $jobPost->profile) {
+            $employerUserId = $jobPost->profile->user_id;
+        }
+
         $applications = JobApplication::where('job_post_id', $jobPostId)
             ->with([
                 'worker' => function ($query) {
@@ -42,8 +54,8 @@ class JobApplicationController extends Controller
             ->orderBy('created_at', 'desc')
             ->get();
 
-        // Transform to ensure profile_img is always accessible and add suffix_name
-        $applications->transform(function ($application) {
+        // Transform to ensure profile_img is always accessible, add suffix_name, and check for reviews
+        $applications->transform(function ($application) use ($employerUserId) {
             if ($application->worker) {
                 // Ensure profile_img is set (can be null, that's fine)
                 $application->worker->profile_img = $application->worker->profile_img ?? null;
@@ -55,6 +67,23 @@ class JobApplicationController extends Controller
                     $application->worker->suffix_name = null;
                 }
             }
+
+            // Check if review exists for completed applications
+            // Only check if application is completed and we have both user IDs
+            if ($application->status === 'completed' && $employerUserId && $application->worker && $application->worker->user_id) {
+                // Check if a review exists from the employer to this worker
+                // Check for reviews created after the application was marked as completed
+                $review = Review::where('user_id', $employerUserId)
+                    ->where('reviewed_user_id', $application->worker->user_id)
+                    ->where('archived', false)
+                    ->where('created_at', '>=', $application->updated_at)
+                    ->first();
+                
+                $application->has_review = $review ? true : false;
+            } else {
+                $application->has_review = false;
+            }
+
             return $application;
         });
 
@@ -268,38 +297,70 @@ class JobApplicationController extends Controller
      */
     public function updateApplicationStatus(Request $request, $applicationId)
     {
-        $validator = Validator::make($request->all(), [
-            'status' => 'required|in:accepted,declined,for_interview,fired',
-        ]);
-        // Notify applicant about status change
-        $application = JobApplication::findOrFail($applicationId);
-        $targetUserId = $application->worker_id; // if team/company, you may notify company owner
-        if ($targetUserId) {
-            $type = 'job_application_status';
-            $title = 'Application Status Updated';
-            $message = 'Your job application status is now: ' . $request->status;
-            NotificationController::createNotification($targetUserId, null, $type, $title, $message, $application->id, 'job_application');
+        try {
+            // Validate first before doing anything
+            $validator = Validator::make($request->all(), [
+                'status' => 'required|in:accepted,declined,for_interview,fired,completed',
+            ]);
+
+            if ($validator->fails()) {
+                return response()->json(['errors' => $validator->errors()], 422);
+            }
+
+            // Fetch application once
+            $application = JobApplication::findOrFail($applicationId);
+            
+            // Update status - ensure it's a valid string value
+            $status = (string) $request->status;
+            $application->status = $status;
+            $application->save();
+
+            // Notify applicant about status change (with error handling)
+            // worker_id is a profile_id, so we need to get the user_id from the profile
+            try {
+                $workerProfile = Profile::find($application->worker_id);
+                if ($workerProfile && $workerProfile->user_id) {
+                    $type = 'job_application_status';
+                    $title = 'Application Status Updated';
+                    $message = 'Your job application status is now: ' . $request->status;
+                    NotificationController::createNotification($workerProfile->user_id, null, $type, $title, $message, $application->id, 'job_application');
+                }
+            } catch (\Exception $e) {
+                // Log notification error but don't fail the request
+                Log::warning('Failed to send notification for job application status update: ' . $e->getMessage());
+            }
+
+            // Load worker relationship
+            $application->load(['worker' => function ($query) {
+                $query->select('profiles.id', 'profiles.user_id', 'profiles.first_name', 'profiles.middlename', 'profiles.last_name', 'profiles.gender_id', 'profiles.suffix_id', 'profiles.profile_img', 'profiles.city', 'profiles.province')
+                      ->with(['suffix' => function ($q) {
+                          $q->select('id', 'suffix_name');
+                      }]);
+            }]);
+
+            // Add suffix_name if suffix relationship exists
+            if ($application->worker && $application->worker->suffix) {
+                $application->worker->suffix_name = $application->worker->suffix->suffix_name;
+            }
+
+            return response()->json($application);
+        } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
+            return response()->json([
+                'message' => 'Job application not found',
+                'error' => $e->getMessage()
+            ], 404);
+        } catch (\Exception $e) {
+            Log::error('Error updating job application status: ' . $e->getMessage(), [
+                'application_id' => $applicationId,
+                'status' => $request->status ?? null,
+                'trace' => $e->getTraceAsString()
+            ]);
+            
+            return response()->json([
+                'message' => 'Failed to update application status',
+                'error' => $e->getMessage()
+            ], 500);
         }
-        if ($validator->fails()) {
-            return response()->json(['errors' => $validator->errors()], 422);
-        }
-
-        $application = JobApplication::findOrFail($applicationId);
-        $application->update(['status' => $request->status]);
-
-        $application->load(['worker' => function ($query) {
-            $query->select('profiles.id', 'profiles.user_id', 'profiles.first_name', 'profiles.middlename', 'profiles.last_name', 'profiles.gender_id', 'profiles.suffix_id', 'profiles.profile_img', 'profiles.city', 'profiles.province')
-                  ->with(['suffix' => function ($q) {
-                      $q->select('id', 'suffix_name');
-                  }]);
-        }]);
-
-        // Add suffix_name if suffix relationship exists
-        if ($application->worker && $application->worker->suffix) {
-            $application->worker->suffix_name = $application->worker->suffix->suffix_name;
-        }
-
-        return response()->json($application);
     }
 
     /**

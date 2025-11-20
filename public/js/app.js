@@ -72490,7 +72490,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".confirm-modal-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background-color: rgba(0, 0, 0, 0.5);\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: 1000;\n}\n\n.confirm-modal {\n  background: #ffffff;\n  border-radius: 12px;\n  width: 90%;\n  max-width: 600px;\n  max-height: 80vh;\n  overflow-y: auto;\n  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);\n}\n\n.confirm-modal-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 20px 24px;\n  border-bottom: 1px solid #e0e0e0;\n  background: #0a2a44; /* dark blue header to match theme */\n  color: #ffffff;\n}\n\n.confirm-modal-header h3 {\n  margin: 0;\n  color: #ffffff;\n  font-size: 1.2rem;\n  font-weight: 600;\n}\n\n.confirm-modal-header .close-btn {\n  background: none;\n  border: none;\n  font-size: 24px;\n  cursor: pointer;\n  color: #ffffff;\n  padding: 0;\n  width: 30px;\n  height: 30px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  border-radius: 50%;\n}\n\n.confirm-modal-content {\n  padding: 24px;\n  color: #333;\n}\n\n.confirm-modal-actions {\n  padding: 20px 24px;\n  border-top: 1px solid #e0e0e0;\n  display: flex;\n  justify-content: flex-end;\n  gap: 10px;\n}\n\n.confirm-modal-actions .confirm-btn {\n  background: #1A2A44; /* dark blue primary */\n  color: white;\n  border: none;\n  padding: 10px 20px;\n  border-radius: 6px;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 500;\n}\n\n.confirm-modal-actions .cancel-btn {\n  background: #e9ecef;\n  color: #0a2a44;\n  border: none;\n  padding: 10px 20px;\n  border-radius: 6px;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 500;\n}\n\n@media (max-width: 768px) {\n  .confirm-modal {\n    width: 95%;\n    margin: 20px;\n  }\n  .confirm-modal-header,\n  .confirm-modal-content,\n  .confirm-modal-actions {\n    padding: 16px;\n  }\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".confirm-modal-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background-color: rgba(0, 0, 0, 0.5);\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: 1000;\n}\n\n.confirm-modal {\n  background: #ffffff;\n  padding: 5px;\n  border-radius: 5px;\n  width: 100%;\n  max-width: 500px;\n  max-height: 100vh;\n  overflow-y: auto;\n  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);\n}\n\n.confirm-modal-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 10px;\n  border-bottom: 1px solid #e0e0e0;\n  background: #0a2a44; /* dark blue header to match theme */\n  color: #ffffff;\n}\n\n.confirm-modal-header h3 {\n  margin: 0;\n  color: #ffffff;\n  font-size: 1.2rem;\n  font-weight: 600;\n}\n\n.confirm-modal-header .close-btn {\n  background: none;\n  border: none;\n  font-size: 24px;\n  cursor: pointer;\n  color: #ffffff;\n  padding: 0;\n  width: 30px;\n  height: 30px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  border-radius: 50%;\n}\n\n.confirm-modal-content {\n  padding: 10px;\n  color: #333;\n}\n\n.confirm-modal-actions {\n  padding: 10px;\n  border-top: 1px solid #e0e0e0;\n  display: flex;\n  justify-content: flex-end;\n  gap: 10px;\n}\n\n.confirm-modal-actions .confirm-btn {\n  background: #1A2A44; /* dark blue primary */\n  color: white;\n  border: none;\n  padding: 10px 20px;\n  border-radius: 6px;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 500;\n}\n\n.confirm-modal-actions .cancel-btn {\n  background: #e9ecef;\n  color: #0a2a44;\n  border: none;\n  padding: 10px 20px;\n  border-radius: 6px;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 500;\n}\n\n@media (max-width: 768px) {\n  .confirm-modal {\n    width: 95%;\n    margin: 20px;\n  }\n  .confirm-modal-header,\n  .confirm-modal-content,\n  .confirm-modal-actions {\n    padding: 16px;\n  }\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -72514,7 +72514,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".job-applications-modal-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background-color: rgba(0, 0, 0, 0.5);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  z-index: 1000;\n  padding: 20px;\n}\n.job-applications-modal-overlay .job-applications-modal {\n  background: white;\n  border-radius: 12px;\n  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);\n  width: 900px;\n  max-width: 95vw;\n  max-height: 80vh;\n  display: flex;\n  flex-direction: column;\n  overflow: hidden;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 24px 24px 0 24px;\n  margin-bottom: 24px;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-header h2 {\n  margin: 0;\n  font-size: 24px;\n  font-weight: 700;\n  color: #1f2937;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-header .hiring-type-info {\n  display: flex;\n  align-items: center;\n  margin-left: 16px;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-header .hiring-type-info .hiring-type-badge {\n  padding: 4px 12px;\n  border-radius: 20px;\n  font-size: 12px;\n  font-weight: 600;\n  text-transform: uppercase;\n  letter-spacing: 0.5px;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-header .hiring-type-info .hiring-type-badge.individual {\n  background-color: #fef3c7;\n  color: #92400e;\n  border: 1px solid #f59e0b;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-header .hiring-type-info .hiring-type-badge.team {\n  background-color: #dbeafe;\n  color: #1e40af;\n  border: 1px solid #3b82f6;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-header .header-actions {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-header .header-actions .close-btn {\n  background: none;\n  border: none;\n  font-size: 20px;\n  color: #6b7280;\n  cursor: pointer;\n  padding: 8px;\n  border-radius: 4px;\n  transition: all 0.3s ease;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  width: 32px;\n  height: 32px;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-header .header-actions .close-btn:hover {\n  background-color: #f3f4f6;\n  color: #374151;\n}\n.job-applications-modal-overlay .job-applications-modal .filter-section {\n  margin-bottom: 20px;\n  padding: 0 24px 20px 24px;\n}\n.job-applications-modal-overlay .job-applications-modal .filter-section .filter-buttons {\n  display: flex;\n  gap: 8px;\n  flex-wrap: wrap;\n}\n.job-applications-modal-overlay .job-applications-modal .filter-section .filter-buttons button {\n  padding: 8px 16px;\n  border: 1px solid #d1d5db;\n  background: white;\n  color: #6b7280;\n  border-radius: 6px;\n  font-size: 14px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.2s ease;\n}\n.job-applications-modal-overlay .job-applications-modal .filter-section .filter-buttons button:hover {\n  background: #f3f4f6;\n  border-color: #9ca3af;\n}\n.job-applications-modal-overlay .job-applications-modal .filter-section .filter-buttons button.active {\n  background: #001E40;\n  color: white;\n  border-color: #001E40;\n}\n.job-applications-modal-overlay .job-applications-modal .loading-state {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  padding: 100px;\n  color: #6b7280;\n}\n.job-applications-modal-overlay .job-applications-modal .loading-state .spinner {\n  width: 40px;\n  height: 40px;\n  border: 4px solid #e5e7eb;\n  border-top: 4px solid #3b82f6;\n  border-radius: 50%;\n  animation: spin 1s linear infinite;\n  margin-bottom: 16px;\n}\n@keyframes spin {\n  0% {\n    transform: rotate(0deg);\n  }\n  100% {\n    transform: rotate(360deg);\n  }\n}\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background-color: rgba(0, 0, 0, 0.6);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  z-index: 2000;\n  padding: 20px;\n}\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal {\n  background: white;\n  border-radius: 12px;\n  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);\n  width: 600px;\n  max-width: 95vw;\n  max-height: 80vh;\n  display: flex;\n  flex-direction: column;\n  overflow: hidden;\n}\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .modal-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 24px 24px 0 24px;\n  margin-bottom: 24px;\n}\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .modal-header h3 {\n  margin: 0;\n  font-size: 20px;\n  font-weight: 700;\n  color: #1f2937;\n}\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .modal-header .close-btn {\n  background: none;\n  border: none;\n  font-size: 20px;\n  color: #6b7280;\n  cursor: pointer;\n  padding: 8px;\n  border-radius: 6px;\n  transition: all 0.2s ease;\n}\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .modal-header .close-btn:hover {\n  background-color: #f3f4f6;\n  color: #374151;\n}\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content {\n  flex: 1;\n  overflow-y: auto;\n  padding: 0 24px 24px 24px;\n}\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .profile-info {\n  margin-bottom: 24px;\n}\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .profile-info h4 {\n  margin: 0 0 16px 0;\n  font-size: 16px;\n  font-weight: 600;\n  color: #374151;\n}\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .profile-info .profile-details {\n  display: flex;\n  gap: 16px;\n  align-items: flex-start;\n}\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .profile-info .profile-details .profile-image-section {\n  flex-shrink: 0;\n}\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .profile-info .profile-details .profile-image-section .profile-image {\n  width: 80px;\n  height: 80px;\n  border-radius: 50%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  -o-object-position: center;\n     object-position: center;\n  border: 2px solid #e5e7eb;\n}\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .profile-info .profile-details .profile-text-details {\n  flex: 1;\n}\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .profile-info .profile-details .profile-text-details p {\n  margin: 0 0 8px 0;\n  font-size: 14px;\n  color: #4b5563;\n}\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .profile-info .profile-details .profile-text-details p strong {\n  color: #374151;\n  font-weight: 600;\n}\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .cover-letter-section,\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .skills-section,\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .resume-section {\n  margin-bottom: 24px;\n}\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .cover-letter-section h4,\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .skills-section h4,\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .resume-section h4 {\n  margin: 0 0 12px 0;\n  font-size: 16px;\n  font-weight: 600;\n  color: #374151;\n}\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .cover-letter-section .cover-letter-content,\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .skills-section .cover-letter-content,\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .resume-section .cover-letter-content {\n  background: #f9fafb;\n  padding: 16px;\n  border-radius: 8px;\n  border: 1px solid #e5e7eb;\n}\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .cover-letter-section .cover-letter-content p,\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .skills-section .cover-letter-content p,\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .resume-section .cover-letter-content p {\n  margin: 0;\n  font-size: 14px;\n  color: #4b5563;\n  line-height: 1.5;\n}\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .cover-letter-section .skills-list,\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .skills-section .skills-list,\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .resume-section .skills-list {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 8px;\n}\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .cover-letter-section .skills-list .skill-tag,\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .skills-section .skills-list .skill-tag,\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .resume-section .skills-list .skill-tag {\n  background: #e0e7ff;\n  color: #3730a3;\n  padding: 4px 12px;\n  border-radius: 16px;\n  font-size: 12px;\n  font-weight: 500;\n}\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .cover-letter-section .download-resume-btn,\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .skills-section .download-resume-btn,\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .resume-section .download-resume-btn {\n  background: #3b82f6;\n  color: white;\n  border: none;\n  padding: 8px 16px;\n  border-radius: 6px;\n  font-size: 14px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .cover-letter-section .download-resume-btn:hover,\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .skills-section .download-resume-btn:hover,\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .resume-section .download-resume-btn:hover {\n  background-color: #2563eb;\n}\n.job-applications-modal-overlay .job-applications-modal .empty-state {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  padding: 40px 30px;\n  text-align: center;\n  color: #6b7280;\n}\n.job-applications-modal-overlay .job-applications-modal .empty-state .empty-icon {\n  font-size: 48px;\n  margin-bottom: 16px;\n  color: #d1d5db;\n}\n.job-applications-modal-overlay .job-applications-modal .empty-state h3 {\n  margin: 0 0 8px 0;\n  font-size: 18px;\n  font-weight: 600;\n  color: #374151;\n}\n.job-applications-modal-overlay .job-applications-modal .empty-state p {\n  margin: 0;\n  font-size: 15px;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list {\n  display: flex;\n  flex-direction: column;\n  gap: 12px;\n  margin-bottom: 20px;\n  padding: 0 24px;\n  flex: 1;\n  overflow-y: auto;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card {\n  position: relative;\n  display: flex;\n  flex-direction: column;\n  background: #f9fafb;\n  border: 1px solid #e5e7eb;\n  border-radius: 8px;\n  padding: 16px;\n  transition: all 0.3s ease;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card:hover {\n  background-color: white;\n  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);\n  transform: translateY(-1px);\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card:last-child {\n  margin-bottom: 0;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header {\n  display: flex;\n  align-items: flex-start;\n  gap: 16px;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .worker-info {\n  display: flex;\n  align-items: center;\n  flex: 1;\n  gap: 16px;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .worker-info .avatar-container {\n  position: relative;\n  flex-shrink: 0;\n  width: 60px;\n  height: 60px;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .worker-info .avatar-container .avatar-placeholder {\n  width: 60px;\n  height: 60px;\n  border-radius: 50%;\n  background-color: #f3f4f6;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  border: 3px solid #e5e7eb;\n  transition: all 0.3s ease;\n  overflow: hidden;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .worker-info .avatar-container .avatar-placeholder.clickable {\n  cursor: pointer;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .worker-info .avatar-container .avatar-placeholder.clickable:hover {\n  border-color: #001E40;\n  background-color: #f8fafc;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .worker-info .avatar-container .avatar-placeholder img {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  border-radius: 50%;\n  display: block;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .worker-info .worker-details {\n  flex: 1;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .worker-info .worker-details .worker-name-with-collar {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  margin-bottom: 8px;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .worker-info .worker-details .worker-name-with-collar .worker-name {\n  margin: 0;\n  font-size: 18px;\n  font-weight: 700;\n  color: #1f2937;\n  margin-bottom: 0;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .worker-info .worker-details .worker-name-with-collar .collar-badges {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .worker-info .worker-details .worker-name-with-collar .collar-badges .collar-badge .collar-icon,\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .worker-info .worker-details .worker-name-with-collar .collar-badges .collar-badge .collar-icon-placeholder {\n  width: 20px;\n  height: 20px;\n  -o-object-fit: contain;\n     object-fit: contain;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .worker-info .worker-details .worker-name-with-collar .collar-badges .collar-badge .collar-icon-placeholder {\n  background: #e5e7eb;\n  border-radius: 50%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 10px;\n  color: #6b7280;\n  font-weight: 600;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .worker-info .worker-details .application-date {\n  margin: 4px 0 0 0;\n  font-size: 14px;\n  color: #6b7280;\n  display: flex;\n  align-items: center;\n  gap: 4px;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .worker-info .worker-details .message-and-actions {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  gap: 12px;\n  flex-wrap: wrap;\n  margin-top: 8px;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .worker-info .worker-details .message-and-actions .application-actions {\n  display: flex;\n  flex-direction: row;\n  gap: 8px;\n  align-items: center;\n  justify-content: flex-end;\n  flex-shrink: 0;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .worker-info .worker-details .message-and-actions .application-actions .accept-btn,\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .worker-info .worker-details .message-and-actions .application-actions .decline-btn {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  gap: 4px;\n  padding: 6px 12px;\n  background-color: transparent;\n  border: 1px solid;\n  border-radius: 6px;\n  font-size: 12px;\n  font-weight: 600;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  min-width: 70px;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .worker-info .worker-details .message-and-actions .application-actions .accept-btn svg,\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .worker-info .worker-details .message-and-actions .application-actions .decline-btn svg {\n  width: 1em;\n  height: 1em;\n  flex-shrink: 0;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .worker-info .worker-details .message-and-actions .application-actions .accept-btn:hover,\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .worker-info .worker-details .message-and-actions .application-actions .decline-btn:hover {\n  transform: scale(1.05);\n  opacity: 0.8;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .worker-info .worker-details .message-and-actions .application-actions .accept-btn:active,\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .worker-info .worker-details .message-and-actions .application-actions .decline-btn:active {\n  transform: scale(0.95);\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .worker-info .worker-details .message-and-actions .application-actions .accept-btn {\n  color: #10b981;\n  border-color: #10b981;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .worker-info .worker-details .message-and-actions .application-actions .accept-btn:hover {\n  background-color: rgba(16, 185, 129, 0.1);\n  border-color: #059669;\n  color: #059669;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .worker-info .worker-details .message-and-actions .application-actions .decline-btn {\n  color: #ef4444;\n  border-color: #ef4444;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .worker-info .worker-details .message-and-actions .application-actions .decline-btn:hover {\n  background-color: rgba(239, 68, 68, 0.1);\n  border-color: #dc2626;\n  color: #dc2626;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .worker-info .worker-details .message-and-actions .application-actions .status-message {\n  font-size: 11px;\n  color: #6b7280;\n  font-style: italic;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .worker-info .worker-details .interview-icon-name,\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .worker-info .worker-details .hired-icon-name,\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .worker-info .worker-details .declined-icon-name {\n  color: #2563eb;\n  font-size: 16px;\n  width: 15px;\n  height: 25px;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  flex-shrink: 0;\n  align-self: flex-start;\n  margin-top: -2px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .worker-info .worker-details .interview-icon-name:hover,\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .worker-info .worker-details .hired-icon-name:hover,\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .worker-info .worker-details .declined-icon-name:hover {\n  color: #1d4ed8;\n  background-color: rgba(37, 99, 235, 0.1);\n  transform: scale(1.1);\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .application-status {\n  position: absolute;\n  top: 16px;\n  right: 16px;\n  display: flex;\n  align-items: center;\n  justify-content: flex-end;\n  flex-shrink: 0;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .application-status .status-badge {\n  padding: 4px 12px;\n  border-radius: 20px;\n  font-size: 11px;\n  font-weight: 600;\n  text-transform: uppercase;\n  letter-spacing: 0.5px;\n  white-space: nowrap;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .application-status .status-badge.status-interview {\n  color: #2563eb;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .application-status .status-badge.status-accepted {\n  color: #065f46;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .application-status .status-badge.status-declined {\n  color: #991b1b;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .cover-letter,\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .resume-section,\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .worker-skills {\n  display: none;\n}\n\n@media (max-width: 768px) {\n  .job-applications-modal-overlay {\n    padding: 15px;\n  }\n  .job-applications-modal-overlay .job-applications-modal {\n    max-width: 98%;\n    width: 98%;\n    max-height: 85vh;\n  }\n  .job-applications-modal-overlay .job-applications-modal .modal-header {\n    padding: 12px 16px;\n  }\n  .job-applications-modal-overlay .job-applications-modal .modal-header h2 {\n    font-size: 16px;\n  }\n  .job-applications-modal-overlay .job-applications-modal .empty-state {\n    padding: 30px 20px;\n  }\n  .job-applications-modal-overlay .job-applications-modal .empty-state .empty-icon {\n    font-size: 40px;\n  }\n  .job-applications-modal-overlay .job-applications-modal .empty-state h3 {\n    font-size: 16px;\n  }\n  .job-applications-modal-overlay .job-applications-modal .empty-state p {\n    font-size: 14px;\n  }\n  .job-applications-modal-overlay .job-applications-modal .applications-list {\n    padding: 0 12px;\n  }\n  .job-applications-modal-overlay .job-applications-modal .applications-list .application-card {\n    padding: 12px;\n  }\n  .job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header {\n    flex-direction: column;\n    gap: 8px;\n    align-items: flex-start;\n  }\n  .job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .application-status {\n    align-self: flex-end;\n  }\n  .job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-actions {\n    flex-direction: column;\n  }\n  .job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-actions .accept-btn,\n  .job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-actions .decline-btn {\n    width: 100%;\n    justify-content: center;\n  }\n  .job-applications-modal-overlay .job-applications-modal .filter-section {\n    padding: 0 12px 20px 12px;\n  }\n}\n.warning-modal-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background-color: rgba(0, 0, 0, 0.6);\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: 2000;\n  padding: 20px;\n}\n\n.warning-modal {\n  background: #ffffff;\n  border-radius: 12px;\n  width: 90%;\n  max-width: 500px;\n  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);\n  overflow: hidden;\n}\n.warning-modal .warning-modal-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 20px 24px;\n  border-bottom: 1px solid #e5e7eb;\n  background: #fef3c7;\n  color: #92400e;\n}\n.warning-modal .warning-modal-header h3 {\n  margin: 0;\n  font-size: 20px;\n  font-weight: 700;\n  color: #92400e;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.warning-modal .warning-modal-header .close-btn {\n  background: none;\n  border: none;\n  font-size: 24px;\n  cursor: pointer;\n  color: #92400e;\n  padding: 0;\n  width: 30px;\n  height: 30px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  border-radius: 50%;\n  transition: all 0.2s ease;\n}\n.warning-modal .warning-modal-header .close-btn:hover {\n  background-color: rgba(146, 64, 14, 0.1);\n}\n.warning-modal .warning-modal-content {\n  padding: 24px;\n  color: #374151;\n  font-size: 16px;\n  line-height: 1.5;\n}\n.warning-modal .warning-modal-content p {\n  margin: 0;\n}\n.warning-modal .warning-modal-actions {\n  padding: 20px 24px;\n  border-top: 1px solid #e5e7eb;\n  display: flex;\n  justify-content: flex-end;\n  gap: 10px;\n}\n.warning-modal .warning-modal-actions .warning-ok-btn {\n  background: #f59e0b;\n  color: white;\n  border: none;\n  padding: 10px 24px;\n  border-radius: 6px;\n  font-size: 14px;\n  font-weight: 600;\n  cursor: pointer;\n  transition: all 0.2s ease;\n}\n.warning-modal .warning-modal-actions .warning-ok-btn:hover {\n  background: #d97706;\n  transform: translateY(-1px);\n}\n.warning-modal .warning-modal-actions .warning-ok-btn:active {\n  transform: translateY(0);\n}\n\n@media (max-width: 768px) {\n  .warning-modal {\n    width: 95%;\n    margin: 20px;\n  }\n  .warning-modal .warning-modal-header,\n  .warning-modal .warning-modal-content,\n  .warning-modal .warning-modal-actions {\n    padding: 16px;\n  }\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".job-applications-modal-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background-color: rgba(0, 0, 0, 0.5);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  z-index: 1000;\n  padding: 20px;\n}\n.job-applications-modal-overlay .job-applications-modal {\n  background: white;\n  border-radius: 12px;\n  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);\n  width: 900px;\n  max-width: 95vw;\n  max-height: 80vh;\n  display: flex;\n  flex-direction: column;\n  overflow: hidden;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 24px 24px 0 24px;\n  margin-bottom: 24px;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-header h2 {\n  margin: 0;\n  font-size: 24px;\n  font-weight: 700;\n  color: #1f2937;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-header .hiring-type-info {\n  display: flex;\n  align-items: center;\n  margin-left: 16px;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-header .hiring-type-info .hiring-type-badge {\n  padding: 4px 12px;\n  border-radius: 20px;\n  font-size: 12px;\n  font-weight: 600;\n  text-transform: uppercase;\n  letter-spacing: 0.5px;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-header .hiring-type-info .hiring-type-badge.individual {\n  background-color: #fef3c7;\n  color: #92400e;\n  border: 1px solid #f59e0b;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-header .hiring-type-info .hiring-type-badge.team {\n  background-color: #dbeafe;\n  color: #1e40af;\n  border: 1px solid #3b82f6;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-header .header-actions {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-header .header-actions .close-btn {\n  background: none;\n  border: none;\n  font-size: 20px;\n  color: #6b7280;\n  cursor: pointer;\n  padding: 8px;\n  border-radius: 4px;\n  transition: all 0.3s ease;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  width: 32px;\n  height: 32px;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-header .header-actions .close-btn:hover {\n  background-color: #f3f4f6;\n  color: #374151;\n}\n.job-applications-modal-overlay .job-applications-modal .filter-section {\n  margin-bottom: 20px;\n  padding: 0 24px 20px 24px;\n}\n.job-applications-modal-overlay .job-applications-modal .filter-section .filter-buttons {\n  display: flex;\n  gap: 8px;\n  flex-wrap: wrap;\n}\n.job-applications-modal-overlay .job-applications-modal .filter-section .filter-buttons button {\n  padding: 8px 16px;\n  border: 1px solid #d1d5db;\n  background: white;\n  color: #6b7280;\n  border-radius: 6px;\n  font-size: 14px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.2s ease;\n}\n.job-applications-modal-overlay .job-applications-modal .filter-section .filter-buttons button:hover {\n  background: #f3f4f6;\n  border-color: #9ca3af;\n}\n.job-applications-modal-overlay .job-applications-modal .filter-section .filter-buttons button.active {\n  background: #001E40;\n  color: white;\n  border-color: #001E40;\n}\n.job-applications-modal-overlay .job-applications-modal .loading-state {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  padding: 100px;\n  color: #6b7280;\n}\n.job-applications-modal-overlay .job-applications-modal .loading-state .spinner {\n  width: 40px;\n  height: 40px;\n  border: 4px solid #e5e7eb;\n  border-top: 4px solid #3b82f6;\n  border-radius: 50%;\n  animation: spin 1s linear infinite;\n  margin-bottom: 16px;\n}\n@keyframes spin {\n  0% {\n    transform: rotate(0deg);\n  }\n  100% {\n    transform: rotate(360deg);\n  }\n}\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background-color: rgba(0, 0, 0, 0.6);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  z-index: 2000;\n  padding: 20px;\n}\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal {\n  background: white;\n  border-radius: 12px;\n  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);\n  width: 600px;\n  max-width: 95vw;\n  max-height: 80vh;\n  display: flex;\n  flex-direction: column;\n  overflow: hidden;\n}\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .modal-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 24px 24px 0 24px;\n  margin-bottom: 24px;\n}\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .modal-header h3 {\n  margin: 0;\n  font-size: 20px;\n  font-weight: 700;\n  color: #1f2937;\n}\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .modal-header .close-btn {\n  background: none;\n  border: none;\n  font-size: 20px;\n  color: #6b7280;\n  cursor: pointer;\n  padding: 8px;\n  border-radius: 6px;\n  transition: all 0.2s ease;\n}\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .modal-header .close-btn:hover {\n  background-color: #f3f4f6;\n  color: #374151;\n}\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content {\n  flex: 1;\n  overflow-y: auto;\n  padding: 0 24px 24px 24px;\n}\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .profile-info {\n  margin-bottom: 24px;\n}\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .profile-info h4 {\n  margin: 0 0 16px 0;\n  font-size: 16px;\n  font-weight: 600;\n  color: #374151;\n}\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .profile-info .profile-details {\n  display: flex;\n  gap: 16px;\n  align-items: flex-start;\n}\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .profile-info .profile-details .profile-image-section {\n  flex-shrink: 0;\n}\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .profile-info .profile-details .profile-image-section .profile-image {\n  width: 80px;\n  height: 80px;\n  border-radius: 50%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  -o-object-position: center;\n     object-position: center;\n  border: 2px solid #e5e7eb;\n}\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .profile-info .profile-details .profile-text-details {\n  flex: 1;\n}\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .profile-info .profile-details .profile-text-details p {\n  margin: 0 0 8px 0;\n  font-size: 14px;\n  color: #4b5563;\n}\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .profile-info .profile-details .profile-text-details p strong {\n  color: #374151;\n  font-weight: 600;\n}\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .cover-letter-section,\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .skills-section,\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .resume-section {\n  margin-bottom: 24px;\n}\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .cover-letter-section h4,\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .skills-section h4,\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .resume-section h4 {\n  margin: 0 0 12px 0;\n  font-size: 16px;\n  font-weight: 600;\n  color: #374151;\n}\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .cover-letter-section .cover-letter-content,\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .skills-section .cover-letter-content,\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .resume-section .cover-letter-content {\n  background: #f9fafb;\n  padding: 16px;\n  border-radius: 8px;\n  border: 1px solid #e5e7eb;\n}\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .cover-letter-section .cover-letter-content p,\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .skills-section .cover-letter-content p,\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .resume-section .cover-letter-content p {\n  margin: 0;\n  font-size: 14px;\n  color: #4b5563;\n  line-height: 1.5;\n}\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .cover-letter-section .skills-list,\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .skills-section .skills-list,\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .resume-section .skills-list {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 8px;\n}\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .cover-letter-section .skills-list .skill-tag,\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .skills-section .skills-list .skill-tag,\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .resume-section .skills-list .skill-tag {\n  background: #e0e7ff;\n  color: #3730a3;\n  padding: 4px 12px;\n  border-radius: 16px;\n  font-size: 12px;\n  font-weight: 500;\n}\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .cover-letter-section .download-resume-btn,\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .skills-section .download-resume-btn,\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .resume-section .download-resume-btn {\n  background: #3b82f6;\n  color: white;\n  border: none;\n  padding: 8px 16px;\n  border-radius: 6px;\n  font-size: 14px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .cover-letter-section .download-resume-btn:hover,\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .skills-section .download-resume-btn:hover,\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .resume-section .download-resume-btn:hover {\n  background-color: #2563eb;\n}\n.job-applications-modal-overlay .job-applications-modal .empty-state {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  padding: 40px 30px;\n  text-align: center;\n  color: #6b7280;\n}\n.job-applications-modal-overlay .job-applications-modal .empty-state .empty-icon {\n  font-size: 48px;\n  margin-bottom: 16px;\n  color: #d1d5db;\n}\n.job-applications-modal-overlay .job-applications-modal .empty-state h3 {\n  margin: 0 0 8px 0;\n  font-size: 18px;\n  font-weight: 600;\n  color: #374151;\n}\n.job-applications-modal-overlay .job-applications-modal .empty-state p {\n  margin: 0;\n  font-size: 15px;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list {\n  display: flex;\n  flex-direction: column;\n  gap: 12px;\n  margin-bottom: 20px;\n  padding: 0 24px;\n  flex: 1;\n  overflow-y: auto;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card {\n  position: relative;\n  display: flex;\n  flex-direction: column;\n  background: #f9fafb;\n  border: 1px solid #e5e7eb;\n  border-radius: 8px;\n  padding: 16px;\n  transition: all 0.3s ease;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card:hover {\n  background-color: white;\n  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);\n  transform: translateY(-1px);\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card:last-child {\n  margin-bottom: 0;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header {\n  display: flex;\n  align-items: flex-start;\n  gap: 16px;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .worker-info {\n  display: flex;\n  align-items: center;\n  flex: 1;\n  gap: 16px;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .worker-info .avatar-container {\n  position: relative;\n  flex-shrink: 0;\n  width: 60px;\n  height: 60px;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .worker-info .avatar-container .avatar-placeholder {\n  width: 60px;\n  height: 60px;\n  border-radius: 50%;\n  background-color: #f3f4f6;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  border: 3px solid #e5e7eb;\n  transition: all 0.3s ease;\n  overflow: hidden;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .worker-info .avatar-container .avatar-placeholder.clickable {\n  cursor: pointer;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .worker-info .avatar-container .avatar-placeholder.clickable:hover {\n  border-color: #001E40;\n  background-color: #f8fafc;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .worker-info .avatar-container .avatar-placeholder img {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  border-radius: 50%;\n  display: block;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .worker-info .worker-details {\n  flex: 1;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .worker-info .worker-details .worker-name-with-collar {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  margin-bottom: 8px;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .worker-info .worker-details .worker-name-with-collar .worker-name {\n  margin: 0;\n  font-size: 18px;\n  font-weight: 700;\n  color: #1f2937;\n  margin-bottom: 0;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .worker-info .worker-details .worker-name-with-collar .collar-badges {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .worker-info .worker-details .worker-name-with-collar .collar-badges .collar-badge .collar-icon,\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .worker-info .worker-details .worker-name-with-collar .collar-badges .collar-badge .collar-icon-placeholder {\n  width: 20px;\n  height: 20px;\n  -o-object-fit: contain;\n     object-fit: contain;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .worker-info .worker-details .worker-name-with-collar .collar-badges .collar-badge .collar-icon-placeholder {\n  background: #e5e7eb;\n  border-radius: 50%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 10px;\n  color: #6b7280;\n  font-weight: 600;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .worker-info .worker-details .application-date {\n  margin: 4px 0 0 0;\n  font-size: 14px;\n  color: #6b7280;\n  display: flex;\n  align-items: center;\n  gap: 4px;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .worker-info .worker-details .message-and-actions {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  gap: 12px;\n  flex-wrap: wrap;\n  margin-top: 8px;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .worker-info .worker-details .message-and-actions .application-actions {\n  display: flex;\n  flex-direction: row;\n  gap: 8px;\n  align-items: center;\n  justify-content: flex-end;\n  flex-shrink: 0;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .worker-info .worker-details .message-and-actions .application-actions .accept-btn,\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .worker-info .worker-details .message-and-actions .application-actions .decline-btn {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  gap: 4px;\n  padding: 6px 12px;\n  background-color: transparent;\n  border: 1px solid;\n  border-radius: 6px;\n  font-size: 12px;\n  font-weight: 600;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  min-width: 70px;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .worker-info .worker-details .message-and-actions .application-actions .accept-btn svg,\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .worker-info .worker-details .message-and-actions .application-actions .decline-btn svg {\n  width: 1em;\n  height: 1em;\n  flex-shrink: 0;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .worker-info .worker-details .message-and-actions .application-actions .accept-btn:hover,\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .worker-info .worker-details .message-and-actions .application-actions .decline-btn:hover {\n  transform: scale(1.05);\n  opacity: 0.8;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .worker-info .worker-details .message-and-actions .application-actions .accept-btn:active,\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .worker-info .worker-details .message-and-actions .application-actions .decline-btn:active {\n  transform: scale(0.95);\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .worker-info .worker-details .message-and-actions .application-actions .accept-btn {\n  color: #10b981;\n  border-color: #10b981;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .worker-info .worker-details .message-and-actions .application-actions .accept-btn:hover {\n  background-color: rgba(16, 185, 129, 0.1);\n  border-color: #059669;\n  color: #059669;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .worker-info .worker-details .message-and-actions .application-actions .decline-btn {\n  color: #ef4444;\n  border-color: #ef4444;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .worker-info .worker-details .message-and-actions .application-actions .decline-btn:hover {\n  background-color: rgba(239, 68, 68, 0.1);\n  border-color: #dc2626;\n  color: #dc2626;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .worker-info .worker-details .message-and-actions .application-actions .give-feedback-btn {\n  background: transparent !important;\n  color: #000000 !important;\n  border: 2px solid #001E40 !important;\n  min-width: 100px;\n  height: 30px;\n  border-radius: 6px;\n  font-size: 11px;\n  font-weight: 600;\n  cursor: pointer !important;\n  transition: all 0.3s ease;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  flex: 1;\n  padding: 0;\n  margin: 0;\n  box-sizing: border-box;\n  opacity: 1 !important;\n  pointer-events: auto !important;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .worker-info .worker-details .message-and-actions .application-actions .give-feedback-btn:hover {\n  background: #001E40 !important;\n  color: white !important;\n  opacity: 1 !important;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .worker-info .worker-details .message-and-actions .application-actions .give-feedback-btn:active {\n  background: #001E40 !important;\n  color: white !important;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .worker-info .worker-details .message-and-actions .application-actions .give-feedback-btn:disabled, .job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .worker-info .worker-details .message-and-actions .application-actions .give-feedback-btn.disabled {\n  background: transparent !important;\n  color: #000000 !important;\n  border: 2px solid #001E40 !important;\n  cursor: pointer !important;\n  opacity: 1 !important;\n  pointer-events: auto !important;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .worker-info .worker-details .message-and-actions .status-message {\n  font-size: 11px;\n  color: #6b7280;\n  font-style: italic;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .worker-info .worker-details .interview-icon-name,\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .worker-info .worker-details .hired-icon-name,\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .worker-info .worker-details .declined-icon-name {\n  color: #2563eb;\n  font-size: 16px;\n  width: 15px;\n  height: 25px;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  flex-shrink: 0;\n  align-self: flex-start;\n  margin-top: -2px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .worker-info .worker-details .interview-icon-name:hover,\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .worker-info .worker-details .hired-icon-name:hover,\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .worker-info .worker-details .declined-icon-name:hover {\n  color: #1d4ed8;\n  background-color: rgba(37, 99, 235, 0.1);\n  transform: scale(1.1);\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .application-status {\n  position: absolute;\n  top: 16px;\n  right: 16px;\n  display: flex;\n  align-items: center;\n  justify-content: flex-end;\n  flex-shrink: 0;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .application-status .status-badge {\n  padding: 4px 12px;\n  border-radius: 20px;\n  font-size: 11px;\n  font-weight: 600;\n  text-transform: uppercase;\n  letter-spacing: 0.5px;\n  white-space: nowrap;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .application-status .status-badge.status-interview {\n  color: #2563eb;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .application-status .status-badge.status-completed {\n  background: #dbeafe;\n  color: #1e40af;\n  border: 1px solid #93c5fd;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .application-status .status-badge.status-accepted {\n  color: #065f46;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .application-status .status-badge.status-declined {\n  color: #991b1b;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .cover-letter,\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .resume-section,\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .worker-skills {\n  display: none;\n}\n\n@media (max-width: 768px) {\n  .job-applications-modal-overlay {\n    padding: 15px;\n  }\n  .job-applications-modal-overlay .job-applications-modal {\n    max-width: 98%;\n    width: 98%;\n    max-height: 85vh;\n  }\n  .job-applications-modal-overlay .job-applications-modal .modal-header {\n    padding: 12px 16px;\n  }\n  .job-applications-modal-overlay .job-applications-modal .modal-header h2 {\n    font-size: 16px;\n  }\n  .job-applications-modal-overlay .job-applications-modal .empty-state {\n    padding: 30px 20px;\n  }\n  .job-applications-modal-overlay .job-applications-modal .empty-state .empty-icon {\n    font-size: 40px;\n  }\n  .job-applications-modal-overlay .job-applications-modal .empty-state h3 {\n    font-size: 16px;\n  }\n  .job-applications-modal-overlay .job-applications-modal .empty-state p {\n    font-size: 14px;\n  }\n  .job-applications-modal-overlay .job-applications-modal .applications-list {\n    padding: 0 12px;\n  }\n  .job-applications-modal-overlay .job-applications-modal .applications-list .application-card {\n    padding: 12px;\n  }\n  .job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header {\n    flex-direction: column;\n    gap: 8px;\n    align-items: flex-start;\n  }\n  .job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .application-status {\n    align-self: flex-end;\n  }\n  .job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-actions {\n    flex-direction: column;\n  }\n  .job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-actions .accept-btn,\n  .job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-actions .decline-btn {\n    width: 100%;\n    justify-content: center;\n  }\n  .job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-actions .give-feedback-btn {\n    width: 100%;\n    justify-content: center;\n    background: transparent !important;\n    color: #000000 !important;\n    border: 2px solid #001E40 !important;\n    cursor: pointer !important;\n    opacity: 1 !important;\n    pointer-events: auto !important;\n  }\n  .job-applications-modal-overlay .job-applications-modal .filter-section {\n    padding: 0 12px 20px 12px;\n  }\n}\n.warning-modal-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background-color: rgba(0, 0, 0, 0.6);\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: 2000;\n  padding: 20px;\n}\n\n.warning-modal {\n  background: #ffffff;\n  border-radius: 12px;\n  width: 90%;\n  max-width: 500px;\n  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);\n  overflow: hidden;\n}\n.warning-modal .warning-modal-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 20px 24px;\n  border-bottom: 1px solid #e5e7eb;\n  background: #fef3c7;\n  color: #92400e;\n}\n.warning-modal .warning-modal-header h3 {\n  margin: 0;\n  font-size: 20px;\n  font-weight: 700;\n  color: #92400e;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.warning-modal .warning-modal-header .close-btn {\n  background: none;\n  border: none;\n  font-size: 24px;\n  cursor: pointer;\n  color: #92400e;\n  padding: 0;\n  width: 30px;\n  height: 30px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  border-radius: 50%;\n  transition: all 0.2s ease;\n}\n.warning-modal .warning-modal-header .close-btn:hover {\n  background-color: rgba(146, 64, 14, 0.1);\n}\n.warning-modal .warning-modal-content {\n  padding: 24px;\n  color: #374151;\n  font-size: 16px;\n  line-height: 1.5;\n}\n.warning-modal .warning-modal-content p {\n  margin: 0;\n}\n.warning-modal .warning-modal-actions {\n  padding: 20px 24px;\n  border-top: 1px solid #e5e7eb;\n  display: flex;\n  justify-content: flex-end;\n  gap: 10px;\n}\n.warning-modal .warning-modal-actions .warning-ok-btn {\n  background: #f59e0b;\n  color: white;\n  border: none;\n  padding: 10px 24px;\n  border-radius: 6px;\n  font-size: 14px;\n  font-weight: 600;\n  cursor: pointer;\n  transition: all 0.2s ease;\n}\n.warning-modal .warning-modal-actions .warning-ok-btn:hover {\n  background: #d97706;\n  transform: translateY(-1px);\n}\n.warning-modal .warning-modal-actions .warning-ok-btn:active {\n  transform: translateY(0);\n}\n\n@media (max-width: 768px) {\n  .warning-modal {\n    width: 95%;\n    margin: 20px;\n  }\n  .warning-modal .warning-modal-header,\n  .warning-modal .warning-modal-content,\n  .warning-modal .warning-modal-actions {\n    padding: 16px;\n  }\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -72706,7 +72706,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".my-post-job-container {\n  background: white;\n  border-radius: 8px;\n  padding: 30px;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);\n  display: flex;\n  flex-direction: column;\n  gap: 20px;\n}\n.my-post-job-container .post-job-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 20px;\n}\n.my-post-job-container .post-job-header .post-job-title {\n  font-size: 28px;\n  font-weight: 700;\n  color: #1f2937;\n  margin: 0;\n}\n.my-post-job-container .post-job-header .add-post-job-btn {\n  background: #001E40;\n  color: white;\n  border: none;\n  padding: 12px 20px;\n  border-radius: 8px;\n  font-size: 14px;\n  font-weight: 600;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  width: 170px;\n}\n.my-post-job-container .post-job-header .add-post-job-btn .btn-icon {\n  font-size: 16px;\n}\n.my-post-job-container .post-job-header .add-post-job-btn:hover {\n  background: #002a5c;\n  transform: translateY(-1px);\n}\n.my-post-job-container .post-job-header .add-post-job-btn:active {\n  transform: translateY(0);\n}\n.my-post-job-container .post-job-header .add-post-job-btn.disabled, .my-post-job-container .post-job-header .add-post-job-btn:disabled {\n  background: #9ca3af;\n  color: #d1d5db;\n  cursor: not-allowed;\n  opacity: 0.6;\n  transform: none;\n}\n.my-post-job-container .post-job-header .add-post-job-btn.disabled:hover, .my-post-job-container .post-job-header .add-post-job-btn:disabled:hover {\n  background: #9ca3af;\n  transform: none;\n}\n.my-post-job-container .credentials-requirement-message {\n  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);\n  border: 1px solid #f59e0b;\n  border-radius: 12px;\n  padding: 24px;\n  margin-bottom: 20px;\n  display: flex;\n  align-items: center;\n  gap: 20px;\n  box-shadow: 0 4px 6px rgba(245, 158, 11, 0.1);\n}\n.my-post-job-container .credentials-requirement-message .requirement-icon {\n  color: #f59e0b;\n  flex-shrink: 0;\n}\n.my-post-job-container .credentials-requirement-message .requirement-content {\n  flex: 1;\n}\n.my-post-job-container .credentials-requirement-message .requirement-content .requirement-title {\n  font-size: 20px;\n  font-weight: 700;\n  color: #92400e;\n  margin: 0 0 8px 0;\n}\n.my-post-job-container .credentials-requirement-message .requirement-content .requirement-description {\n  font-size: 14px;\n  color: #92400e;\n  margin: 0 0 16px 0;\n  line-height: 1.5;\n}\n.my-post-job-container .credentials-requirement-message .requirement-content .go-to-profile-btn {\n  background: #f59e0b;\n  color: white;\n  border: none;\n  padding: 10px 16px;\n  border-radius: 6px;\n  font-size: 14px;\n  font-weight: 600;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.my-post-job-container .credentials-requirement-message .requirement-content .go-to-profile-btn:hover {\n  background: #d97706;\n  transform: translateY(-1px);\n}\n.my-post-job-container .credentials-requirement-message .requirement-content .go-to-profile-btn:active {\n  transform: translateY(0);\n}\n.my-post-job-container .jobs-list {\n  display: flex;\n  flex-direction: column;\n  gap: 20px;\n}\n.my-post-job-container .job-card {\n  background: white;\n  border: 1px solid #e5e7eb;\n  border-radius: 8px;\n  padding: 20px;\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);\n  position: relative;\n  transition: all 0.3s ease;\n  cursor: pointer;\n}\n.my-post-job-container .job-card:hover {\n  transform: translateY(-2px);\n  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);\n}\n.my-post-job-container .job-card.expired {\n  background: #f8f9fa;\n  border-color: #dc3545;\n  opacity: 0.8;\n}\n.my-post-job-container .job-card.expired .expired-badge {\n  background: #dc3545;\n  color: white;\n  padding: 4px 8px;\n  border-radius: 4px;\n  font-size: 10px;\n  font-weight: 600;\n  text-transform: uppercase;\n  letter-spacing: 0.5px;\n  margin-left: 8px;\n}\n.my-post-job-container .job-card.expired .job-actions button:disabled {\n  opacity: 0.5;\n  cursor: not-allowed;\n}\n.my-post-job-container .job-card .job-card-header {\n  position: absolute;\n  top: 20px;\n  right: 20px;\n  z-index: 1;\n}\n.my-post-job-container .job-card .job-card-header .job-actions {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.my-post-job-container .job-card .job-card-header .job-actions .view-applicants-btn,\n.my-post-job-container .job-card .job-card-header .job-actions .edit-job-btn {\n  background: none;\n  border: none;\n  padding: 8px;\n  border-radius: 6px;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.my-post-job-container .job-card .job-card-header .job-actions .view-applicants-btn .action-icon,\n.my-post-job-container .job-card .job-card-header .job-actions .edit-job-btn .action-icon {\n  font-size: 18px;\n  color: #6b7280;\n}\n.my-post-job-container .job-card .job-card-header .job-actions .view-applicants-btn:hover,\n.my-post-job-container .job-card .job-card-header .job-actions .edit-job-btn:hover {\n  background: #f3f4f6;\n}\n.my-post-job-container .job-card .job-card-header .job-actions .view-applicants-btn:hover .action-icon,\n.my-post-job-container .job-card .job-card-header .job-actions .edit-job-btn:hover .action-icon {\n  color: #374151;\n}\n.my-post-job-container .job-card .job-content .job-title {\n  font-size: 24px;\n  font-weight: 700;\n  color: #1f2937;\n  margin: 0 0 8px 0;\n  line-height: 1.2;\n  background: none;\n  border: none;\n  padding: 0 0 8px 0;\n  border-bottom: 1px solid #e5e7eb;\n}\n.my-post-job-container .job-card .job-content .job-metadata {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 20px;\n}\n.my-post-job-container .job-card .job-content .job-metadata .posted-date {\n  font-size: 14px;\n  color: #6b7280;\n  font-weight: 400;\n}\n.my-post-job-container .job-card .job-content .job-metadata .job-salary {\n  font-size: 16px;\n  color: #374151;\n  font-weight: 500;\n}\n.my-post-job-container .job-card .job-content .job-description {\n  margin-bottom: 20px;\n}\n.my-post-job-container .job-card .job-content .job-description .description-title {\n  font-size: 16px;\n  font-weight: 700;\n  color: #000000;\n  margin: 0 0 8px 0;\n}\n.my-post-job-container .job-card .job-content .job-description .description-text {\n  font-size: 14px;\n  color: #6b7280;\n  line-height: 1.5;\n  margin: 0;\n  white-space: pre-wrap;\n  word-wrap: break-word;\n}\n.my-post-job-container .job-card .job-content .job-skills {\n  margin-bottom: 20px;\n}\n.my-post-job-container .job-card .job-content .job-skills .skills-title {\n  font-size: 16px;\n  font-weight: 700;\n  color: #000000;\n  margin: 0 0 12px 0;\n}\n.my-post-job-container .job-card .job-content .job-skills .skill-tag {\n  background: #f9fafb;\n  color: #60646b;\n  padding: 6px 12px;\n  border-radius: 16px;\n  font-size: 14px;\n  font-weight: 400;\n  border: 1px solid #e5e7eb;\n  display: inline-block;\n  margin-right: 8px;\n  margin-bottom: 8px;\n}\n.my-post-job-container .job-card .job-content .job-timeline {\n  margin-bottom: 20px;\n  padding: 12px;\n  background: #f8f9fa;\n  border-radius: 6px;\n  border-left: 3px solid #3b82f6;\n}\n.my-post-job-container .job-card .job-content .job-timeline .timeline-item {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 8px;\n  font-size: 14px;\n}\n.my-post-job-container .job-card .job-content .job-timeline .timeline-item:last-child {\n  margin-bottom: 0;\n}\n.my-post-job-container .job-card .job-content .job-timeline .timeline-item .timeline-label {\n  font-weight: 500;\n  color: #374151;\n}\n.my-post-job-container .job-card .job-content .job-timeline .timeline-item .timeline-value {\n  color: #6b7280;\n  font-weight: 400;\n}\n.my-post-job-container .empty-state {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  padding: 60px 20px;\n  text-align: center;\n}\n.my-post-job-container .empty-state .empty-icon {\n  margin-bottom: 20px;\n}\n.my-post-job-container .empty-state .empty-icon img {\n  width: 150px;\n  height: 150px;\n  opacity: 0.6;\n}\n.my-post-job-container .empty-state .empty-title {\n  font-size: 20px;\n  font-weight: 600;\n  color: #1f2937;\n  margin: 0 0 8px 0;\n}\n.my-post-job-container .empty-state .empty-description {\n  font-size: 14px;\n  color: #6b7280;\n  margin: 0;\n}\n.my-post-job-container .loading-container {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  padding: 60px 20px;\n}\n.my-post-job-container .loading-container p {\n  font-size: 16px;\n  color: #6b7280;\n}\n\n@media (max-width: 768px) {\n  .my-post-job-container {\n    padding: 20px;\n    border-radius: 6px;\n  }\n  .my-post-job-container .post-job-header {\n    flex-direction: column;\n    align-items: stretch;\n    gap: 16px;\n    margin-bottom: 16px;\n  }\n  .my-post-job-container .post-job-header .post-job-title {\n    font-size: 22px;\n    text-align: center;\n  }\n  .my-post-job-container .post-job-header .add-post-job-btn {\n    width: 100%;\n    justify-content: center;\n    padding: 10px 16px;\n    font-size: 13px;\n  }\n  .my-post-job-container .credentials-requirement-message {\n    padding: 16px;\n    gap: 12px;\n    flex-direction: column;\n    text-align: center;\n  }\n  .my-post-job-container .credentials-requirement-message .requirement-icon {\n    font-size: 32px;\n  }\n  .my-post-job-container .credentials-requirement-message .requirement-content .requirement-title {\n    font-size: 18px;\n  }\n  .my-post-job-container .credentials-requirement-message .requirement-content .requirement-description {\n    font-size: 13px;\n  }\n  .my-post-job-container .job-card {\n    padding: 16px;\n  }\n  .my-post-job-container .job-card .job-card-header {\n    position: static;\n    margin-bottom: 12px;\n    display: flex;\n    justify-content: flex-end;\n  }\n  .my-post-job-container .job-card .job-content .job-title {\n    font-size: 18px;\n  }\n  .my-post-job-container .job-card .job-content .job-metadata {\n    flex-direction: column;\n    gap: 8px;\n    align-items: flex-start;\n  }\n  .my-post-job-container .job-card .job-content .job-skills {\n    gap: 6px;\n  }\n  .my-post-job-container .job-card .job-content .job-skills .skill-tag {\n    font-size: 11px;\n    padding: 4px 8px;\n  }\n}\n@media (max-width: 480px) {\n  .my-post-job-container {\n    padding: 16px;\n  }\n  .my-post-job-container .post-job-header .post-job-title {\n    font-size: 20px;\n  }\n  .my-post-job-container .post-job-header .add-post-job-btn {\n    padding: 8px 12px;\n    font-size: 12px;\n  }\n  .my-post-job-container .credentials-requirement-message {\n    padding: 12px;\n    gap: 10px;\n  }\n  .my-post-job-container .credentials-requirement-message .requirement-icon {\n    font-size: 28px;\n  }\n  .my-post-job-container .credentials-requirement-message .requirement-content .requirement-title {\n    font-size: 16px;\n  }\n  .my-post-job-container .credentials-requirement-message .requirement-content .requirement-description {\n    font-size: 12px;\n  }\n  .my-post-job-container .job-card {\n    padding: 14px;\n  }\n  .my-post-job-container .job-card .job-content .job-title {\n    font-size: 16px;\n  }\n  .my-post-job-container .job-card .job-content .job-metadata {\n    font-size: 13px;\n  }\n  .my-post-job-container .job-card .job-content .job-skills .skill-tag {\n    font-size: 10px;\n    padding: 3px 6px;\n  }\n  .job-details {\n    margin-top: 12px;\n    font-size: 13px;\n    color: #666;\n    line-height: 1.5;\n  }\n  .job-details .job-overview {\n    margin-bottom: 16px;\n    padding: 12px;\n    background-color: #f8f9fa;\n    border-radius: 6px;\n    border-left: 3px solid #007bff;\n  }\n  .job-details .job-overview .overview-title {\n    font-size: 13px;\n    font-weight: 600;\n    color: #495057;\n    margin-bottom: 8px;\n    text-transform: uppercase;\n    letter-spacing: 0.5px;\n  }\n  .job-details .job-overview .overview-content {\n    font-size: 14px;\n    color: #6c757d;\n    line-height: 1.4;\n  }\n  .job-details .skills-required {\n    margin-bottom: 12px;\n  }\n  .job-details .skills-required .skills-title {\n    font-size: 13px;\n    font-weight: 600;\n    color: #495057;\n    margin-bottom: 8px;\n    text-transform: uppercase;\n    letter-spacing: 0.5px;\n  }\n  .job-details .skills-required .skills-list {\n    margin-top: 8px;\n    display: flex;\n    flex-wrap: wrap;\n    gap: 6px;\n  }\n  .job-details .skills-required .skills-list .skill-with-experience {\n    display: flex;\n    align-items: center;\n    gap: 4px;\n    background-color: #e3f2fd;\n    border: 1px solid #bbdefb;\n    border-radius: 4px;\n    padding: 4px 8px;\n    font-size: 12px;\n  }\n  .job-details .skills-required .skills-list .skill-with-experience .skill-name {\n    font-weight: 500;\n    color: #1976d2;\n  }\n  .job-details .skills-required .skills-list .skill-with-experience .experience-level {\n    font-size: 11px;\n    color: #666;\n    font-style: italic;\n  }\n  .job-details .job-meta {\n    display: flex;\n    flex-direction: column;\n    gap: 6px;\n    font-size: 13px;\n    color: #6c757d;\n  }\n  .job-details .job-meta .meta-item {\n    display: flex;\n    align-items: center;\n    gap: 6px;\n  }\n  .job-details .job-meta .meta-item .meta-label {\n    font-weight: 500;\n    color: #495057;\n    min-width: 100px;\n  }\n  .job-details .job-meta .meta-item .meta-value {\n    color: #6c757d;\n  }\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".my-post-job-container {\n  background: white;\n  border-radius: 8px;\n  padding: 30px;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);\n  display: flex;\n  flex-direction: column;\n  gap: 20px;\n}\n.my-post-job-container .post-job-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 20px;\n}\n.my-post-job-container .post-job-header .post-job-title {\n  font-size: 28px;\n  font-weight: 700;\n  color: #1f2937;\n  margin: 0;\n}\n.my-post-job-container .post-job-header .add-post-job-btn {\n  background: #001E40;\n  color: white;\n  border: none;\n  padding: 12px 20px;\n  border-radius: 8px;\n  font-size: 14px;\n  font-weight: 600;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  width: 170px;\n}\n.my-post-job-container .post-job-header .add-post-job-btn .btn-icon {\n  font-size: 16px;\n}\n.my-post-job-container .post-job-header .add-post-job-btn:hover {\n  background: #002a5c;\n  transform: translateY(-1px);\n}\n.my-post-job-container .post-job-header .add-post-job-btn:active {\n  transform: translateY(0);\n}\n.my-post-job-container .post-job-header .add-post-job-btn.disabled, .my-post-job-container .post-job-header .add-post-job-btn:disabled {\n  background: #9ca3af;\n  color: #d1d5db;\n  cursor: not-allowed;\n  opacity: 0.6;\n  transform: none;\n}\n.my-post-job-container .post-job-header .add-post-job-btn.disabled:hover, .my-post-job-container .post-job-header .add-post-job-btn:disabled:hover {\n  background: #9ca3af;\n  transform: none;\n}\n.my-post-job-container .credentials-requirement-message {\n  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);\n  border: 1px solid #f59e0b;\n  border-radius: 12px;\n  padding: 24px;\n  margin-bottom: 20px;\n  display: flex;\n  align-items: center;\n  gap: 20px;\n  box-shadow: 0 4px 6px rgba(245, 158, 11, 0.1);\n}\n.my-post-job-container .credentials-requirement-message .requirement-icon {\n  color: #f59e0b;\n  flex-shrink: 0;\n}\n.my-post-job-container .credentials-requirement-message .requirement-content {\n  flex: 1;\n}\n.my-post-job-container .credentials-requirement-message .requirement-content .requirement-title {\n  font-size: 20px;\n  font-weight: 700;\n  color: #92400e;\n  margin: 0 0 8px 0;\n}\n.my-post-job-container .credentials-requirement-message .requirement-content .requirement-description {\n  font-size: 14px;\n  color: #92400e;\n  margin: 0 0 16px 0;\n  line-height: 1.5;\n}\n.my-post-job-container .credentials-requirement-message .requirement-content .go-to-profile-btn {\n  background: #f59e0b;\n  color: white;\n  border: none;\n  padding: 10px 16px;\n  border-radius: 6px;\n  font-size: 14px;\n  font-weight: 600;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.my-post-job-container .credentials-requirement-message .requirement-content .go-to-profile-btn:hover {\n  background: #d97706;\n  transform: translateY(-1px);\n}\n.my-post-job-container .credentials-requirement-message .requirement-content .go-to-profile-btn:active {\n  transform: translateY(0);\n}\n.my-post-job-container .jobs-list {\n  display: flex;\n  flex-direction: column;\n  gap: 20px;\n}\n.my-post-job-container .job-card {\n  background: white;\n  border: 1px solid #e5e7eb;\n  border-radius: 8px;\n  padding: 20px;\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);\n  position: relative;\n  transition: all 0.3s ease;\n  cursor: pointer;\n}\n.my-post-job-container .job-card:hover {\n  transform: translateY(-2px);\n  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);\n}\n.my-post-job-container .job-card.expired {\n  background: #f8f9fa;\n  border-color: #dc3545;\n  opacity: 0.8;\n}\n.my-post-job-container .job-card.expired .expired-badge {\n  background: #dc3545;\n  color: white;\n  padding: 4px 8px;\n  border-radius: 4px;\n  font-size: 10px;\n  font-weight: 600;\n  text-transform: uppercase;\n  letter-spacing: 0.5px;\n  margin-left: 8px;\n}\n.my-post-job-container .job-card.expired .job-actions button:disabled {\n  opacity: 0.5;\n  cursor: not-allowed;\n}\n.my-post-job-container .job-card .job-card-header {\n  position: absolute;\n  top: 20px;\n  right: 20px;\n  z-index: 1;\n}\n.my-post-job-container .job-card .job-card-header .job-actions {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.my-post-job-container .job-card .job-card-header .job-actions .view-applicants-btn,\n.my-post-job-container .job-card .job-card-header .job-actions .edit-job-btn {\n  background: none;\n  border: none;\n  padding: 8px;\n  border-radius: 6px;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.my-post-job-container .job-card .job-card-header .job-actions .view-applicants-btn .action-icon,\n.my-post-job-container .job-card .job-card-header .job-actions .edit-job-btn .action-icon {\n  font-size: 18px;\n  color: #6b7280;\n}\n.my-post-job-container .job-card .job-card-header .job-actions .view-applicants-btn:hover,\n.my-post-job-container .job-card .job-card-header .job-actions .edit-job-btn:hover {\n  background: #f3f4f6;\n}\n.my-post-job-container .job-card .job-card-header .job-actions .view-applicants-btn:hover .action-icon,\n.my-post-job-container .job-card .job-card-header .job-actions .edit-job-btn:hover .action-icon {\n  color: #374151;\n}\n.my-post-job-container .job-card .job-content .job-title {\n  font-size: 24px;\n  font-weight: 700;\n  color: #1f2937;\n  margin: 0 0 8px 0;\n  line-height: 1.2;\n  background: none;\n  border: none;\n  padding: 0 0 8px 0;\n  border-bottom: 1px solid #e5e7eb;\n}\n.my-post-job-container .job-card .job-content .job-metadata {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 20px;\n}\n.my-post-job-container .job-card .job-content .job-metadata .posted-date {\n  font-size: 14px;\n  color: #6b7280;\n  font-weight: 400;\n}\n.my-post-job-container .job-card .job-content .job-metadata .job-salary {\n  font-size: 16px;\n  color: #374151;\n  font-weight: 500;\n}\n.my-post-job-container .job-card .job-content .job-description {\n  margin-bottom: 20px;\n}\n.my-post-job-container .job-card .job-content .job-description .description-title {\n  font-size: 16px;\n  font-weight: 700;\n  color: #000000;\n  margin: 0 0 8px 0;\n}\n.my-post-job-container .job-card .job-content .job-description .description-text {\n  font-size: 14px;\n  color: #6b7280;\n  line-height: 1.5;\n  margin: 0;\n  white-space: pre-wrap;\n  word-wrap: break-word;\n}\n.my-post-job-container .job-card .job-content .job-skills {\n  margin-bottom: 20px;\n}\n.my-post-job-container .job-card .job-content .job-skills .skills-title {\n  font-size: 16px;\n  font-weight: 700;\n  color: #000000;\n  margin: 0 0 12px 0;\n}\n.my-post-job-container .job-card .job-content .job-skills .skill-tag {\n  background: #f9fafb;\n  color: #60646b;\n  padding: 6px 12px;\n  border-radius: 16px;\n  font-size: 14px;\n  font-weight: 400;\n  border: 1px solid #e5e7eb;\n  display: inline-block;\n  margin-right: 8px;\n  margin-bottom: 8px;\n}\n.my-post-job-container .job-card .job-content .mark-completed-section {\n  margin-top: 20px;\n  padding-top: 20px;\n  border-top: 1px solid #e5e7eb;\n  display: flex;\n  justify-content: flex-end;\n}\n.my-post-job-container .job-card .job-content .mark-completed-section .mark-completed-btn {\n  background: transparent;\n  color: #000000;\n  border: 2px solid #2196F3;\n  padding: 10px 20px;\n  border-radius: 6px;\n  font-size: 14px;\n  font-weight: 600;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  min-width: 200px;\n}\n.my-post-job-container .job-card .job-content .mark-completed-section .mark-completed-btn:hover {\n  background: #2196F3;\n  color: white;\n  transform: translateY(-1px);\n  box-shadow: 0 2px 4px rgba(33, 150, 243, 0.3);\n}\n.my-post-job-container .job-card .job-content .mark-completed-section .mark-completed-btn:active {\n  transform: translateY(0);\n}\n.my-post-job-container .job-card .job-content .job-timeline {\n  margin-bottom: 20px;\n  padding: 12px;\n  background: #f8f9fa;\n  border-radius: 6px;\n  border-left: 3px solid #3b82f6;\n}\n.my-post-job-container .job-card .job-content .job-timeline .timeline-item {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 8px;\n  font-size: 14px;\n}\n.my-post-job-container .job-card .job-content .job-timeline .timeline-item:last-child {\n  margin-bottom: 0;\n}\n.my-post-job-container .job-card .job-content .job-timeline .timeline-item .timeline-label {\n  font-weight: 500;\n  color: #374151;\n}\n.my-post-job-container .job-card .job-content .job-timeline .timeline-item .timeline-value {\n  color: #6b7280;\n  font-weight: 400;\n}\n.my-post-job-container .empty-state {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  padding: 60px 20px;\n  text-align: center;\n}\n.my-post-job-container .empty-state .empty-icon {\n  margin-bottom: 20px;\n}\n.my-post-job-container .empty-state .empty-icon img {\n  width: 150px;\n  height: 150px;\n  opacity: 0.6;\n}\n.my-post-job-container .empty-state .empty-title {\n  font-size: 20px;\n  font-weight: 600;\n  color: #1f2937;\n  margin: 0 0 8px 0;\n}\n.my-post-job-container .empty-state .empty-description {\n  font-size: 14px;\n  color: #6b7280;\n  margin: 0;\n}\n.my-post-job-container .loading-container {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  padding: 60px 20px;\n}\n.my-post-job-container .loading-container p {\n  font-size: 16px;\n  color: #6b7280;\n}\n\n@media (max-width: 768px) {\n  .my-post-job-container {\n    padding: 20px;\n    border-radius: 6px;\n  }\n  .my-post-job-container .post-job-header {\n    flex-direction: column;\n    align-items: stretch;\n    gap: 16px;\n    margin-bottom: 16px;\n  }\n  .my-post-job-container .post-job-header .post-job-title {\n    font-size: 22px;\n    text-align: center;\n  }\n  .my-post-job-container .post-job-header .add-post-job-btn {\n    width: 100%;\n    justify-content: center;\n    padding: 10px 16px;\n    font-size: 13px;\n  }\n  .my-post-job-container .credentials-requirement-message {\n    padding: 16px;\n    gap: 12px;\n    flex-direction: column;\n    text-align: center;\n  }\n  .my-post-job-container .credentials-requirement-message .requirement-icon {\n    font-size: 32px;\n  }\n  .my-post-job-container .credentials-requirement-message .requirement-content .requirement-title {\n    font-size: 18px;\n  }\n  .my-post-job-container .credentials-requirement-message .requirement-content .requirement-description {\n    font-size: 13px;\n  }\n  .my-post-job-container .job-card {\n    padding: 16px;\n  }\n  .my-post-job-container .job-card .job-card-header {\n    position: static;\n    margin-bottom: 12px;\n    display: flex;\n    justify-content: flex-end;\n  }\n  .my-post-job-container .job-card .job-content .job-title {\n    font-size: 18px;\n  }\n  .my-post-job-container .job-card .job-content .job-metadata {\n    flex-direction: column;\n    gap: 8px;\n    align-items: flex-start;\n  }\n  .my-post-job-container .job-card .job-content .job-skills {\n    gap: 6px;\n  }\n  .my-post-job-container .job-card .job-content .job-skills .skill-tag {\n    font-size: 11px;\n    padding: 4px 8px;\n  }\n}\n@media (max-width: 480px) {\n  .my-post-job-container {\n    padding: 16px;\n  }\n  .my-post-job-container .post-job-header .post-job-title {\n    font-size: 20px;\n  }\n  .my-post-job-container .post-job-header .add-post-job-btn {\n    padding: 8px 12px;\n    font-size: 12px;\n  }\n  .my-post-job-container .credentials-requirement-message {\n    padding: 12px;\n    gap: 10px;\n  }\n  .my-post-job-container .credentials-requirement-message .requirement-icon {\n    font-size: 28px;\n  }\n  .my-post-job-container .credentials-requirement-message .requirement-content .requirement-title {\n    font-size: 16px;\n  }\n  .my-post-job-container .credentials-requirement-message .requirement-content .requirement-description {\n    font-size: 12px;\n  }\n  .my-post-job-container .job-card {\n    padding: 14px;\n  }\n  .my-post-job-container .job-card .job-content .job-title {\n    font-size: 16px;\n  }\n  .my-post-job-container .job-card .job-content .job-metadata {\n    font-size: 13px;\n  }\n  .my-post-job-container .job-card .job-content .job-skills .skill-tag {\n    font-size: 10px;\n    padding: 3px 6px;\n  }\n  .job-details {\n    margin-top: 12px;\n    font-size: 13px;\n    color: #666;\n    line-height: 1.5;\n  }\n  .job-details .job-overview {\n    margin-bottom: 16px;\n    padding: 12px;\n    background-color: #f8f9fa;\n    border-radius: 6px;\n    border-left: 3px solid #007bff;\n  }\n  .job-details .job-overview .overview-title {\n    font-size: 13px;\n    font-weight: 600;\n    color: #495057;\n    margin-bottom: 8px;\n    text-transform: uppercase;\n    letter-spacing: 0.5px;\n  }\n  .job-details .job-overview .overview-content {\n    font-size: 14px;\n    color: #6c757d;\n    line-height: 1.4;\n  }\n  .job-details .skills-required {\n    margin-bottom: 12px;\n  }\n  .job-details .skills-required .skills-title {\n    font-size: 13px;\n    font-weight: 600;\n    color: #495057;\n    margin-bottom: 8px;\n    text-transform: uppercase;\n    letter-spacing: 0.5px;\n  }\n  .job-details .skills-required .skills-list {\n    margin-top: 8px;\n    display: flex;\n    flex-wrap: wrap;\n    gap: 6px;\n  }\n  .job-details .skills-required .skills-list .skill-with-experience {\n    display: flex;\n    align-items: center;\n    gap: 4px;\n    background-color: #e3f2fd;\n    border: 1px solid #bbdefb;\n    border-radius: 4px;\n    padding: 4px 8px;\n    font-size: 12px;\n  }\n  .job-details .skills-required .skills-list .skill-with-experience .skill-name {\n    font-weight: 500;\n    color: #1976d2;\n  }\n  .job-details .skills-required .skills-list .skill-with-experience .experience-level {\n    font-size: 11px;\n    color: #666;\n    font-style: italic;\n  }\n  .job-details .job-meta {\n    display: flex;\n    flex-direction: column;\n    gap: 6px;\n    font-size: 13px;\n    color: #6c757d;\n  }\n  .job-details .job-meta .meta-item {\n    display: flex;\n    align-items: center;\n    gap: 6px;\n  }\n  .job-details .job-meta .meta-item .meta-label {\n    font-weight: 500;\n    color: #495057;\n    min-width: 100px;\n  }\n  .job-details .job-meta .meta-item .meta-value {\n    color: #6c757d;\n  }\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -209382,38 +209382,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _sass_components_SuccessModal_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../../sass/components/SuccessModal.scss */ "./resources/sass/components/SuccessModal.scss");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
 
 
 var SuccessModal = function SuccessModal(_ref) {
   var isOpen = _ref.isOpen,
     onClose = _ref.onClose;
   if (!isOpen) return null;
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-    className: "profile-success-modal-overlay",
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-      className: "profile-success-modal",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h2", {
-        children: "Booking Successful!"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-        className: "profile-success-modal-content",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-          className: "profile-success-form-group",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
-            children: "Your booking request has been sent successfully!"
-          })
-        })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-        className: "profile-success-modal-buttons",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
-          className: "profile-success-submit-button",
-          onClick: onClose,
-          children: "Close"
-        })
-      })]
-    })
-  });
+  return null;
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (SuccessModal);
 
@@ -209886,6 +209861,9 @@ var Profile = function Profile(_ref) {
   // Fetch worker data from API
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     var isMounted = true;
+    var reviewsActiveRef = {
+      current: true
+    };
     var fetchWorkerData = /*#__PURE__*/function () {
       var _ref4 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee3() {
         var _workerData$worker, _workerData$worker2, _workerData$worker3, _workerData$worker4, _workerData$worker5, _workerData$worker6, _workerData$profile, _workerData$profile2, _workerData$profile3, _workerData$profile4, _workerData$profile5, _workerData$profile6, _workerData$profile7, _workerData$profile8, _workerData$profile9, _workerData$worker7, _workerData$worker8, _workerData$worker9, _workerData$profile0, _workerData$profile1, _workerData$profile10, _workerData$profile11, _workerData$profile12, _workerData$worker0, _workerData$worker1, _workerData$worker10, _workerData$worker11, _workerData$worker12, _workerData$worker13, _workerData$worker14, _workerData$worker15, _workerData$worker16, _workerData$worker17, authToken, userData, currentUser, headers, workerData, response, _apiError$response, _apiError$response2, firstName, middleName, lastName, suffix, nameParts, fullName, addressParts, fullAddress, formattedWorker, _error$response, _t3, _t4;
@@ -210059,10 +210037,13 @@ var Profile = function Profile(_ref) {
     }();
     if (workerId) {
       fetchWorkerData();
-      fetchWorkerReviews();
+      fetchWorkerReviews({
+        activeRef: reviewsActiveRef
+      });
     }
     return function () {
       isMounted = false;
+      reviewsActiveRef.current = false;
     };
   }, [workerId]);
 
@@ -210150,24 +210131,44 @@ var Profile = function Profile(_ref) {
   // Fetch worker reviews
   var fetchWorkerReviews = /*#__PURE__*/function () {
     var _ref6 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee5() {
-      var response, avgRating, numReviews, calculatedPoints, _t6;
+      var _ref7,
+        activeRef,
+        response,
+        avgRating,
+        numReviews,
+        calculatedPoints,
+        _args5 = arguments,
+        _t6;
       return _regenerator().w(function (_context5) {
         while (1) switch (_context5.p = _context5.n) {
           case 0:
-            _context5.p = 0;
+            _ref7 = _args5.length > 0 && _args5[0] !== undefined ? _args5[0] : {}, activeRef = _ref7.activeRef;
+            _context5.p = 1;
+            if (!((activeRef === null || activeRef === void 0 ? void 0 : activeRef.current) === false)) {
+              _context5.n = 2;
+              break;
+            }
+            return _context5.a(2);
+          case 2:
             setReviewsLoading(true);
-            _context5.n = 1;
+            _context5.n = 3;
             return axios__WEBPACK_IMPORTED_MODULE_2__["default"].get("/api/reviews/worker/".concat(resolvedWorkerId), {
               headers: {
                 Accept: "application/json"
               }
             });
-          case 1:
+          case 3:
             response = _context5.v;
             if (!response.data.success) {
-              _context5.n = 3;
+              _context5.n = 6;
               break;
             }
+            if (!((activeRef === null || activeRef === void 0 ? void 0 : activeRef.current) === false)) {
+              _context5.n = 4;
+              break;
+            }
+            return _context5.a(2);
+          case 4:
             setReviews(response.data.reviews);
             avgRating = response.data.average_rating || 0;
             numReviews = response.data.total_reviews || 0;
@@ -210179,35 +210180,53 @@ var Profile = function Profile(_ref) {
             setTotalPoints(calculatedPoints);
 
             // Determine rank based on total points
-            _context5.n = 2;
+            _context5.n = 5;
             return fetchWorkerRank(calculatedPoints);
-          case 2:
-            _context5.n = 4;
+          case 5:
+            _context5.n = 8;
             break;
-          case 3:
+          case 6:
+            if (!((activeRef === null || activeRef === void 0 ? void 0 : activeRef.current) === false)) {
+              _context5.n = 7;
+              break;
+            }
+            return _context5.a(2);
+          case 7:
             // If fetch fails, still show rank with 0 points
             setTotalPoints(0);
-            _context5.n = 4;
+            _context5.n = 8;
             return fetchWorkerRank(0);
-          case 4:
-            _context5.n = 6;
+          case 8:
+            _context5.n = 11;
             break;
-          case 5:
-            _context5.p = 5;
+          case 9:
+            _context5.p = 9;
             _t6 = _context5.v;
+            if (!((activeRef === null || activeRef === void 0 ? void 0 : activeRef.current) === false)) {
+              _context5.n = 10;
+              break;
+            }
+            return _context5.a(2);
+          case 10:
             console.error("Error fetching reviews:", _t6);
             // Even on error, show rank with 0 points
             setTotalPoints(0);
-            _context5.n = 6;
+            _context5.n = 11;
             return fetchWorkerRank(0);
-          case 6:
-            _context5.p = 6;
+          case 11:
+            _context5.p = 11;
+            if (!((activeRef === null || activeRef === void 0 ? void 0 : activeRef.current) === false)) {
+              _context5.n = 12;
+              break;
+            }
+            return _context5.a(2);
+          case 12:
             setReviewsLoading(false);
-            return _context5.f(6);
-          case 7:
+            return _context5.f(11);
+          case 13:
             return _context5.a(2);
         }
-      }, _callee5, null, [[0, 5, 6, 7]]);
+      }, _callee5, null, [[1, 9, 11, 13]]);
     }));
     return function fetchWorkerReviews() {
       return _ref6.apply(this, arguments);
@@ -210216,7 +210235,7 @@ var Profile = function Profile(_ref) {
 
   // Fetch worker rank based on total points
   var fetchWorkerRank = /*#__PURE__*/function () {
-    var _ref7 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee6(points) {
+    var _ref8 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee6(points) {
       var response, ranks, matchedRank, i, rank, minPoints, maxPoints, _i, currentMinPoints, currentMaxPoints, rangeSize, pointsInRange, progress, _minPoints, referenceMax, _progress, _t7;
       return _regenerator().w(function (_context6) {
         while (1) switch (_context6.p = _context6.n) {
@@ -210360,7 +210379,7 @@ var Profile = function Profile(_ref) {
       }, _callee6, null, [[0, 11]]);
     }));
     return function fetchWorkerRank(_x) {
-      return _ref7.apply(this, arguments);
+      return _ref8.apply(this, arguments);
     };
   }();
   var handleTabClick = function handleTabClick(tab) {
@@ -210373,7 +210392,7 @@ var Profile = function Profile(_ref) {
     setIsConfirmationModalOpen(true);
   };
   var handleConfirmBooking = /*#__PURE__*/function () {
-    var _ref8 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee7() {
+    var _ref9 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee7() {
       var _JSON$parse, _worker$user, authToken, currentUserId, formatDateTime, userData, employerUserId, workerUserId, workerResponse, bookingData, response, _error$response2, _error$response3, _error$response$data, errors, errorMessages, _error$response$data2, _error$response4, errorMessage, _t8, _t9;
       return _regenerator().w(function (_context7) {
         while (1) switch (_context7.p = _context7.n) {
@@ -210606,7 +210625,7 @@ var Profile = function Profile(_ref) {
       }, _callee7, null, [[5, 7], [0, 15]]);
     }));
     return function handleConfirmBooking() {
-      return _ref8.apply(this, arguments);
+      return _ref9.apply(this, arguments);
     };
   }();
   if (loading) {
@@ -246493,13 +246512,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_icons_fa__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-icons/fa */ "./node_modules/react-icons/fa/index.mjs");
 /* harmony import */ var react_icons_fa6__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-icons/fa6 */ "./node_modules/react-icons/fa6/index.mjs");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "./node_modules/axios/lib/axios.js");
-/* harmony import */ var _sass_components_profilesettings_jobapplicationsmodal_scss__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../sass/components/profilesettings/jobapplicationsmodal.scss */ "./resources/sass/components/profilesettings/jobapplicationsmodal.scss");
-/* harmony import */ var _sass_components_profilesettings_confirmmodal_scss__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../sass/components/profilesettings/confirmmodal.scss */ "./resources/sass/components/profilesettings/confirmmodal.scss");
-/* harmony import */ var _ViewWorkersApplicationModal__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./ViewWorkersApplicationModal */ "./resources/js/components/profilesettings/ViewWorkersApplicationModal.js");
-/* harmony import */ var _ViewHiredWorkersModal__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./ViewHiredWorkersModal */ "./resources/js/components/profilesettings/ViewHiredWorkersModal.js");
-/* harmony import */ var _ViewDeclinedWorkersModal__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./ViewDeclinedWorkersModal */ "./resources/js/components/profilesettings/ViewDeclinedWorkersModal.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/message/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! axios */ "./node_modules/axios/lib/axios.js");
+/* harmony import */ var _sass_components_profilesettings_jobapplicationsmodal_scss__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../sass/components/profilesettings/jobapplicationsmodal.scss */ "./resources/sass/components/profilesettings/jobapplicationsmodal.scss");
+/* harmony import */ var _sass_components_profilesettings_confirmmodal_scss__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../sass/components/profilesettings/confirmmodal.scss */ "./resources/sass/components/profilesettings/confirmmodal.scss");
+/* harmony import */ var _ViewWorkersApplicationModal__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./ViewWorkersApplicationModal */ "./resources/js/components/profilesettings/ViewWorkersApplicationModal.js");
+/* harmony import */ var _ViewHiredWorkersModal__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./ViewHiredWorkersModal */ "./resources/js/components/profilesettings/ViewHiredWorkersModal.js");
+/* harmony import */ var _ViewDeclinedWorkersModal__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./ViewDeclinedWorkersModal */ "./resources/js/components/profilesettings/ViewDeclinedWorkersModal.js");
+/* harmony import */ var _modalfeedback__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./modalfeedback */ "./resources/js/components/profilesettings/modalfeedback.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
 function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
@@ -246516,6 +246537,8 @@ function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) 
 function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
 function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
 function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
+
+
 
 
 
@@ -246577,6 +246600,14 @@ var JobApplicationsModal = function JobApplicationsModal(_ref) {
     _useState18 = _slicedToArray(_useState17, 2),
     warningModal = _useState18[0],
     setWarningModal = _useState18[1];
+  var _useState19 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+    _useState20 = _slicedToArray(_useState19, 2),
+    isFeedbackModalOpen = _useState20[0],
+    setIsFeedbackModalOpen = _useState20[1];
+  var _useState21 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
+    _useState22 = _slicedToArray(_useState21, 2),
+    selectedApplicationForFeedback = _useState22[0],
+    setSelectedApplicationForFeedback = _useState22[1];
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     fetchJobPost();
     fetchApplications();
@@ -246589,7 +246620,7 @@ var JobApplicationsModal = function JobApplicationsModal(_ref) {
           case 0:
             _context.p = 0;
             _context.n = 1;
-            return axios__WEBPACK_IMPORTED_MODULE_3__["default"].get("/api/jobposts/".concat(jobPostId));
+            return axios__WEBPACK_IMPORTED_MODULE_4__["default"].get("/api/jobposts/".concat(jobPostId));
           case 1:
             response = _context.v;
             setJobPost(response.data.data || response.data);
@@ -246617,7 +246648,7 @@ var JobApplicationsModal = function JobApplicationsModal(_ref) {
             _context2.p = 0;
             setLoading(true);
             _context2.n = 1;
-            return axios__WEBPACK_IMPORTED_MODULE_3__["default"].get("/api/job-applications/job/".concat(jobPostId));
+            return axios__WEBPACK_IMPORTED_MODULE_4__["default"].get("/api/job-applications/job/".concat(jobPostId));
           case 1:
             response = _context2.v;
             console.log('Applications API Response:', response.data);
@@ -246705,7 +246736,7 @@ var JobApplicationsModal = function JobApplicationsModal(_ref) {
             return _context3.a(2);
           case 2:
             _context3.n = 3;
-            return axios__WEBPACK_IMPORTED_MODULE_3__["default"].patch("/api/job-applications/".concat(applicationId, "/status"), {
+            return axios__WEBPACK_IMPORTED_MODULE_4__["default"].patch("/api/job-applications/".concat(applicationId, "/status"), {
               status: status
             });
           case 3:
@@ -246926,50 +246957,175 @@ var JobApplicationsModal = function JobApplicationsModal(_ref) {
       return _ref5.apply(this, arguments);
     };
   }();
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+  var handleGiveFeedback = function handleGiveFeedback(application) {
+    console.log('handleGiveFeedback called with:', application);
+    if (!application) {
+      console.error('No application provided to handleGiveFeedback');
+      return;
+    }
+    setSelectedApplicationForFeedback(application);
+    setIsFeedbackModalOpen(true);
+    console.log('Feedback modal should now be open');
+  };
+  var handleCloseFeedbackModal = function handleCloseFeedbackModal() {
+    setIsFeedbackModalOpen(false);
+    setSelectedApplicationForFeedback(null);
+  };
+  var handleSubmitFeedback = /*#__PURE__*/function () {
+    var _ref6 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee5(feedbackData) {
+      var _worker$user2, _userData$user, authToken, worker, workerUserId, token, userData, currentUserId, response, _error$response, _error$response2, _error$response3, _error$response4, _error$response$data, _error$response5, _t5;
+      return _regenerator().w(function (_context5) {
+        while (1) switch (_context5.p = _context5.n) {
+          case 0:
+            _context5.p = 0;
+            authToken = localStorage.getItem("auth_token");
+            if (authToken) {
+              _context5.n = 1;
+              break;
+            }
+            antd__WEBPACK_IMPORTED_MODULE_3__["default"].error("Please log in to submit a review");
+            return _context5.a(2);
+          case 1:
+            if (!(!selectedApplicationForFeedback || !selectedApplicationForFeedback.id)) {
+              _context5.n = 2;
+              break;
+            }
+            antd__WEBPACK_IMPORTED_MODULE_3__["default"].error("Application information is missing");
+            return _context5.a(2);
+          case 2:
+            // Get worker user_id from the application
+            // worker.user_id is the user_id from the profile
+            worker = selectedApplicationForFeedback.worker || {};
+            workerUserId = worker.user_id || ((_worker$user2 = worker.user) === null || _worker$user2 === void 0 ? void 0 : _worker$user2.id);
+            if (workerUserId) {
+              _context5.n = 3;
+              break;
+            }
+            antd__WEBPACK_IMPORTED_MODULE_3__["default"].error("Worker information is missing. Cannot submit feedback.");
+            return _context5.a(2);
+          case 3:
+            // Ensure token is properly formatted
+            token = authToken && authToken.trim() ? authToken.trim() : null;
+            if (token) {
+              _context5.n = 4;
+              break;
+            }
+            antd__WEBPACK_IMPORTED_MODULE_3__["default"].error("Authentication token is missing. Please log in again.");
+            return _context5.a(2);
+          case 4:
+            // Get current user ID
+            userData = JSON.parse(localStorage.getItem("user") || '{}');
+            currentUserId = userData.id || ((_userData$user = userData.user) === null || _userData$user === void 0 ? void 0 : _userData$user.id); // Use the general review endpoint with worker user_id
+            _context5.n = 5;
+            return axios__WEBPACK_IMPORTED_MODULE_4__["default"].post("/api/reviews", {
+              user_id: currentUserId,
+              reviewed_user_id: workerUserId,
+              rating: feedbackData.rating,
+              comment: feedbackData.feedback
+            }, {
+              headers: {
+                'Authorization': "Bearer ".concat(token),
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+              }
+            });
+          case 5:
+            response = _context5.v;
+            if (!response.data) {
+              _context5.n = 7;
+              break;
+            }
+            antd__WEBPACK_IMPORTED_MODULE_3__["default"].success("Feedback submitted successfully");
+            setIsFeedbackModalOpen(false);
+
+            // Immediately update the local state to hide the button
+            if (selectedApplicationForFeedback && selectedApplicationForFeedback.id) {
+              setApplications(function (prev) {
+                return prev.map(function (app) {
+                  return app.id === selectedApplicationForFeedback.id ? _objectSpread(_objectSpread({}, app), {}, {
+                    has_review: true
+                  }) : app;
+                });
+              });
+            }
+            setSelectedApplicationForFeedback(null);
+            // Refresh applications to update has_review status from backend
+            _context5.n = 6;
+            return fetchApplications();
+          case 6:
+            _context5.n = 8;
+            break;
+          case 7:
+            antd__WEBPACK_IMPORTED_MODULE_3__["default"].error("Failed to submit feedback");
+          case 8:
+            _context5.n = 10;
+            break;
+          case 9:
+            _context5.p = 9;
+            _t5 = _context5.v;
+            console.error("Error submitting review:", ((_error$response = _t5.response) === null || _error$response === void 0 ? void 0 : _error$response.data) || _t5.message);
+            if (((_error$response2 = _t5.response) === null || _error$response2 === void 0 ? void 0 : _error$response2.status) === 401) {
+              antd__WEBPACK_IMPORTED_MODULE_3__["default"].error("Session expired. Please log in again.");
+            } else if (((_error$response3 = _t5.response) === null || _error$response3 === void 0 ? void 0 : _error$response3.status) === 403) {
+              antd__WEBPACK_IMPORTED_MODULE_3__["default"].error("You are not authorized to review this worker");
+            } else if (((_error$response4 = _t5.response) === null || _error$response4 === void 0 ? void 0 : _error$response4.status) === 400) {
+              antd__WEBPACK_IMPORTED_MODULE_3__["default"].error(((_error$response$data = _t5.response.data) === null || _error$response$data === void 0 ? void 0 : _error$response$data.message) || "Invalid request. Please check the application status.");
+            } else {
+              antd__WEBPACK_IMPORTED_MODULE_3__["default"].error(((_error$response5 = _t5.response) === null || _error$response5 === void 0 || (_error$response5 = _error$response5.data) === null || _error$response5 === void 0 ? void 0 : _error$response5.message) || "Failed to submit review. Please try again.");
+            }
+          case 10:
+            return _context5.a(2);
+        }
+      }, _callee5, null, [[0, 9]]);
+    }));
+    return function handleSubmitFeedback(_x5) {
+      return _ref6.apply(this, arguments);
+    };
+  }();
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
     className: "job-applications-modal-overlay",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
       className: "job-applications-modal",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
         className: "modal-header",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("h2", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("h2", {
           children: ["Employee Applications - ", jobTitle]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
           className: "header-actions",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("button", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("button", {
             className: "close-btn",
             onClick: onClose,
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaTimes, {})
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaTimes, {})
           })
         })]
-      }), loading ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+      }), loading ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
         className: "loading-state",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
           className: "spinner"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("p", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("p", {
           children: "Loading applications..."
         })]
-      }) : applications.length === 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+      }) : applications.length === 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
         className: "empty-state",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaUser, {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaUser, {
           className: "empty-icon"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("h3", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("h3", {
           children: "No Applications Yet"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("p", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("p", {
           children: "No one has applied for this job yet."
         })]
-      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.Fragment, {
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.Fragment, {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
           className: "filter-section",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
             className: "filter-buttons",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("button", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("button", {
               className: filterStatus === 'all' ? 'active' : '',
               onClick: function onClick() {
                 return setFilterStatus('all');
               },
               children: ["All (", applications.length, ")"]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("button", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("button", {
               className: filterStatus === 'for_interview' ? 'active' : '',
               onClick: function onClick() {
                 return setFilterStatus('for_interview');
@@ -246977,7 +247133,7 @@ var JobApplicationsModal = function JobApplicationsModal(_ref) {
               children: ["For Interview (", applications.filter(function (app) {
                 return app.status === 'for_interview';
               }).length, ")"]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("button", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("button", {
               className: filterStatus === 'accepted' ? 'active' : '',
               onClick: function onClick() {
                 return setFilterStatus('accepted');
@@ -246985,7 +247141,15 @@ var JobApplicationsModal = function JobApplicationsModal(_ref) {
               children: ["Hired (", applications.filter(function (app) {
                 return app.status === 'accepted';
               }).length, ")"]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("button", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("button", {
+              className: filterStatus === 'completed' ? 'active' : '',
+              onClick: function onClick() {
+                return setFilterStatus('completed');
+              },
+              children: ["Completed (", applications.filter(function (app) {
+                return app.status === 'completed';
+              }).length, ")"]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("button", {
               className: filterStatus === 'declined' ? 'active' : '',
               onClick: function onClick() {
                 return setFilterStatus('declined');
@@ -246995,7 +247159,7 @@ var JobApplicationsModal = function JobApplicationsModal(_ref) {
               }).length, ")"]
             })]
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
           className: "applications-list",
           children: filteredApplications.map(function (application) {
             // Get worker profile image with proper fallback
@@ -247009,17 +247173,17 @@ var JobApplicationsModal = function JobApplicationsModal(_ref) {
               var cleanPath = profileImg.startsWith('/') ? profileImg.substring(1) : profileImg;
               return "".concat(window.location.origin, "/storage/").concat(cleanPath);
             };
-            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
               className: "application-card",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
                 className: "application-header",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
                   className: "worker-info",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
                     className: "avatar-container",
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
                       className: "avatar-placeholder",
-                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("img", {
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("img", {
                         src: getProfileImageSrc(),
                         alt: "".concat(getWorkerName(application.worker || {}), "'s avatar"),
                         onError: function onError(e) {
@@ -247028,24 +247192,24 @@ var JobApplicationsModal = function JobApplicationsModal(_ref) {
                         loading: "lazy"
                       })
                     })
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
                     className: "worker-details",
-                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
                       style: {
                         display: 'flex',
                         alignItems: 'center',
                         gap: '8px'
                       },
-                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("h4", {
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("h4", {
                         className: "worker-name",
                         children: getWorkerName(application.worker)
-                      }), application.status === 'for_interview' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(react_icons_fa6__WEBPACK_IMPORTED_MODULE_2__.FaUsersViewfinder, {
+                      }), application.status === 'for_interview' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_fa6__WEBPACK_IMPORTED_MODULE_2__.FaUsersViewfinder, {
                         className: "interview-icon-name",
                         onClick: function onClick() {
                           return handleViewApplicationDetails(application);
                         },
                         title: "View Application Details"
-                      }), application.status === 'accepted' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("svg", {
+                      }), application.status === 'accepted' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("svg", {
                         className: "hired-icon-name",
                         title: "View Hired Workers",
                         onClick: function onClick() {
@@ -247056,11 +247220,11 @@ var JobApplicationsModal = function JobApplicationsModal(_ref) {
                         },
                         viewBox: "0 0 640 512",
                         xmlns: "http://www.w3.org/2000/svg",
-                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("path", {
+                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("path", {
                           d: "M48 48l88 0c13.3 0 24-10.7 24-24s-10.7-24-24-24L32 0C14.3 0 0 14.3 0 32L0 136c0 13.3 10.7 24 24 24s24-10.7 24-24l0-88zM175.8 224a48 48 0 1 0 0-96 48 48 0 1 0 0 96zm-26.5 32C119.9 256 96 279.9 96 309.3c0 14.7 11.9 26.7 26.7 26.7l56.1 0c8-34.1 32.8-61.7 65.2-73.6c-7.5-4.1-16.2-6.4-25.3-6.4l-69.3 0zm368 80c14.7 0 26.7-11.9 26.7-26.7c0-29.5-23.9-53.3-53.3-53.3l-69.3 0c-9.2 0-17.8 2.3-25.3 6.4c32.4 11.9 57.2 39.5 65.2 73.6l56.1 0zm-89.4 0c-8.6-24.3-29.9-42.6-55.9-47c-3.9-.7-7.9-1-12-1l-80 0c-4.1 0-8.1 .3-12 1c-26 4.4-47.3 22.7-55.9 47c-2.7 7.5-4.1 15.6-4.1 24c0 13.3 10.7 24 24 24l176 0c13.3 0 24-10.7 24-24c0-8.4-1.4-16.5-4.1-24zM464 224a48 48 0 1 0 0-96 48 48 0 1 0 0 96zm-80-32a64 64 0 1 0 -128 0 64 64 0 1 0 128 0zM504 48l88 0 0 88c0 13.3 10.7 24 24 24s24-10.7 24-24l0-104c0-17.7-14.3-32-32-32L504 0c-13.3 0-24 10.7-24 24s10.7 24 24 24zM48 464l0-88c0-13.3-10.7-24-24-24s-24 10.7-24 24L0 480c0 17.7 14.3 32 32 32l104 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-88 0zm456 0c-13.3 0-24 10.7-24 24s10.7 24 24 24l104 0c17.7 0 32-14.3 32-32l0-104c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 88-88 0z",
                           fill: "currentColor"
                         })
-                      }), application.status === 'declined' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("svg", {
+                      }), application.status === 'declined' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("svg", {
                         className: "declined-icon-name",
                         title: "View Declined Workers",
                         onClick: function onClick() {
@@ -247071,15 +247235,15 @@ var JobApplicationsModal = function JobApplicationsModal(_ref) {
                         },
                         viewBox: "0 0 640 512",
                         xmlns: "http://www.w3.org/2000/svg",
-                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("path", {
+                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("path", {
                           d: "M48 48l88 0c13.3 0 24-10.7 24-24s-10.7-24-24-24L32 0C14.3 0 0 14.3 0 32L0 136c0 13.3 10.7 24 24 24s24-10.7 24-24l0-88zM175.8 224a48 48 0 1 0 0-96 48 48 0 1 0 0 96zm-26.5 32C119.9 256 96 279.9 96 309.3c0 14.7 11.9 26.7 26.7 26.7l56.1 0c8-34.1 32.8-61.7 65.2-73.6c-7.5-4.1-16.2-6.4-25.3-6.4l-69.3 0zm368 80c14.7 0 26.7-11.9 26.7-26.7c0-29.5-23.9-53.3-53.3-53.3l-69.3 0c-9.2 0-17.8 2.3-25.3 6.4c32.4 11.9 57.2 39.5 65.2 73.6l56.1 0zm-89.4 0c-8.6-24.3-29.9-42.6-55.9-47c-3.9-.7-7.9-1-12-1l-80 0c-4.1 0-8.1 .3-12 1c-26 4.4-47.3 22.7-55.9 47c-2.7 7.5-4.1 15.6-4.1 24c0 13.3 10.7 24 24 24l176 0c13.3 0 24-10.7 24-24c0-8.4-1.4-16.5-4.1-24zM464 224a48 48 0 1 0 0-96 48 48 0 1 0 0 96zm-80-32a64 64 0 1 0 -128 0 64 64 0 1 0 128 0zM504 48l88 0 0 88c0 13.3 10.7 24 24 24s24-10.7 24-24l0-104c0-17.7-14.3-32-32-32L504 0c-13.3 0-24 10.7-24 24s10.7 24 24 24zM48 464l0-88c0-13.3-10.7-24-24-24s-24 10.7-24 24L0 480c0 17.7 14.3 32 32 32l104 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-88 0zm456 0c-13.3 0-24 10.7-24 24s10.7 24 24 24l104 0c17.7 0 32-14.3 32-32l0-104c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 88-88 0z",
                           fill: "currentColor"
                         })
                       })]
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("p", {
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("p", {
                       className: "application-date",
                       children: ["Applied on ", new Date(application.created_at).toLocaleDateString()]
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
                       className: "message-and-actions",
                       style: {
                         marginTop: '8px',
@@ -247089,13 +247253,13 @@ var JobApplicationsModal = function JobApplicationsModal(_ref) {
                         gap: '12px',
                         flexWrap: 'wrap'
                       },
-                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
-                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("span", {
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
+                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
                           style: {
                             color: '#333'
                           },
                           children: "Want to message this applicant? "
-                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("a", {
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("a", {
                           href: "#",
                           onClick: function onClick(e) {
                             return handleMessageApplicantClick(e, application);
@@ -247106,15 +247270,15 @@ var JobApplicationsModal = function JobApplicationsModal(_ref) {
                           },
                           children: "Click here"
                         })]
-                      }), application.status !== 'accepted' && application.status !== 'declined' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+                      }), application.status !== 'accepted' && application.status !== 'declined' && application.status !== 'completed' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
                         className: "application-actions",
-                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("button", {
+                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("button", {
                           className: "accept-btn",
                           onClick: function onClick() {
                             return openConfirm(application, 'accepted');
                           },
                           title: "Accept/Hire this worker",
-                          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("svg", {
+                          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("svg", {
                             stroke: "currentColor",
                             fill: "currentColor",
                             strokeWidth: "0",
@@ -247122,17 +247286,17 @@ var JobApplicationsModal = function JobApplicationsModal(_ref) {
                             height: "1em",
                             width: "1em",
                             xmlns: "http://www.w3.org/2000/svg",
-                            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("path", {
+                            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("path", {
                               d: "M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
                             })
                           }), "Hire"]
-                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("button", {
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("button", {
                           className: "decline-btn",
                           onClick: function onClick() {
                             return openConfirm(application, 'declined');
                           },
                           title: "Decline this application",
-                          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("svg", {
+                          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("svg", {
                             stroke: "currentColor",
                             fill: "currentColor",
                             strokeWidth: "0",
@@ -247140,47 +247304,61 @@ var JobApplicationsModal = function JobApplicationsModal(_ref) {
                             height: "1em",
                             width: "1em",
                             xmlns: "http://www.w3.org/2000/svg",
-                            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("path", {
+                            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("path", {
                               d: "M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
                             })
                           }), "Decline"]
                         })]
+                      }), application.status === 'completed' && !application.has_review && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
+                        className: "application-actions",
+                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("button", {
+                          type: "button",
+                          className: "give-feedback-btn",
+                          onClick: function onClick(e) {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            console.log('Give Feedback button clicked for application:', application.id);
+                            handleGiveFeedback(application);
+                          },
+                          title: "Give feedback to this worker",
+                          children: "Give Feedback"
+                        })
                       })]
                     })]
                   })]
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
                   className: "application-status",
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("span", {
-                    className: "status-badge ".concat(application.status === 'for_interview' ? 'status-interview' : application.status === 'accepted' ? 'status-accepted' : 'status-declined'),
-                    children: application.status === 'for_interview' ? 'For Interview' : application.status === 'accepted' ? 'Hired' : 'Declined'
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
+                    className: "status-badge ".concat(application.status === 'for_interview' ? 'status-interview' : application.status === 'accepted' ? 'status-accepted' : application.status === 'completed' ? 'status-completed' : 'status-declined'),
+                    children: application.status === 'for_interview' ? 'For Interview' : application.status === 'accepted' ? 'Hired' : application.status === 'completed' ? 'Completed' : 'Declined'
                   })
                 })]
-              }), application.cover_letter && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+              }), application.cover_letter && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
                 className: "cover-letter",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("h5", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("h5", {
                   children: "Cover Letter:"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("p", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("p", {
                   children: application.cover_letter
                 })]
-              }), application.resume_path && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+              }), application.resume_path && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
                 className: "resume-section",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("h5", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("h5", {
                   children: "Resume/CV:"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("button", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("button", {
                   className: "download-resume-btn",
                   onClick: function onClick() {
                     return downloadResume(application.resume_path);
                   },
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaFilePdf, {}), " Download Resume"]
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaFilePdf, {}), " Download Resume"]
                 })]
-              }), application.skills && application.skills.length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+              }), application.skills && application.skills.length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
                 className: "worker-skills",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("h5", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("h5", {
                   children: "Skills:"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
                   className: "skills-list",
                   children: application.skills.map(function (skill, index) {
-                    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("span", {
+                    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
                       className: "skill-tag",
                       children: skill
                     }, index);
@@ -247191,55 +247369,55 @@ var JobApplicationsModal = function JobApplicationsModal(_ref) {
           })
         })]
       })]
-    }), showViewWorkersModal && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_ViewWorkersApplicationModal__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    }), showViewWorkersModal && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_ViewWorkersApplicationModal__WEBPACK_IMPORTED_MODULE_7__["default"], {
       jobPostId: jobPostId,
       jobTitle: jobTitle,
       applicationId: selectedApplicationId,
       onClose: handleCloseViewWorkersModal
-    }), showViewHiredWorkersModal && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_ViewHiredWorkersModal__WEBPACK_IMPORTED_MODULE_7__["default"], {
+    }), showViewHiredWorkersModal && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_ViewHiredWorkersModal__WEBPACK_IMPORTED_MODULE_8__["default"], {
       jobPostId: jobPostId,
       jobTitle: jobTitle,
       onClose: handleCloseViewHiredWorkersModal
-    }), showViewDeclinedWorkersModal && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_ViewDeclinedWorkersModal__WEBPACK_IMPORTED_MODULE_8__["default"], {
+    }), showViewDeclinedWorkersModal && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_ViewDeclinedWorkersModal__WEBPACK_IMPORTED_MODULE_9__["default"], {
       jobPostId: jobPostId,
       jobTitle: jobTitle,
       onClose: handleCloseViewDeclinedWorkersModal
-    }), confirmState.open && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+    }), confirmState.open && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
       className: "confirm-modal-overlay",
       onClick: closeConfirm,
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
         className: "confirm-modal",
         onClick: function onClick(e) {
           return e.stopPropagation();
         },
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
           className: "confirm-modal-header",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("h3", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("h3", {
             children: "Confirm Action"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("button", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("button", {
             className: "close-btn",
             onClick: closeConfirm,
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaTimes, {})
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaTimes, {})
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
           className: "confirm-modal-content",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("p", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("p", {
             children: confirmState.action === 'accepted' ? "Are you sure you want to hire ".concat(confirmState.application ? getWorkerName(confirmState.application.worker) : 'this worker', "?") : 'Are you sure you want to decline?'
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
           className: "confirm-modal-actions",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("button", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("button", {
             className: "confirm-btn",
             onClick: proceedConfirm,
             children: confirmState.action === 'accepted' ? 'Hire' : 'Decline'
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("button", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("button", {
             className: "cancel-btn",
             onClick: closeConfirm,
             children: "Cancel"
           })]
         })]
       })
-    }), warningModal.open && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+    }), warningModal.open && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
       className: "warning-modal-overlay",
       onClick: function onClick() {
         return setWarningModal({
@@ -247247,16 +247425,16 @@ var JobApplicationsModal = function JobApplicationsModal(_ref) {
           message: ''
         });
       },
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
         className: "warning-modal",
         onClick: function onClick(e) {
           return e.stopPropagation();
         },
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
           className: "warning-modal-header",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("h3", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("h3", {
             children: "\u26A0\uFE0F Warning"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("button", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("button", {
             className: "close-btn",
             onClick: function onClick() {
               return setWarningModal({
@@ -247264,16 +247442,16 @@ var JobApplicationsModal = function JobApplicationsModal(_ref) {
                 message: ''
               });
             },
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaTimes, {})
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaTimes, {})
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
           className: "warning-modal-content",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("p", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("p", {
             children: warningModal.message
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
           className: "warning-modal-actions",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("button", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("button", {
             className: "warning-ok-btn",
             onClick: function onClick() {
               return setWarningModal({
@@ -247285,6 +247463,10 @@ var JobApplicationsModal = function JobApplicationsModal(_ref) {
           })
         })]
       })
+    }), isFeedbackModalOpen && selectedApplicationForFeedback && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_modalfeedback__WEBPACK_IMPORTED_MODULE_10__["default"], {
+      onClose: handleCloseFeedbackModal,
+      onSubmit: handleSubmitFeedback,
+      workerName: getWorkerName(selectedApplicationForFeedback.worker || {})
     })]
   });
 };
@@ -253185,7 +253367,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _JobDetailModal__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./JobDetailModal */ "./resources/js/components/profilesettings/JobDetailModal.js");
 /* harmony import */ var _utils_dateUtils__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../utils/dateUtils */ "./resources/js/utils/dateUtils.js");
 /* harmony import */ var _sass_components_profilesettings_mypostjob_scss__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../sass/components/profilesettings/mypostjob.scss */ "./resources/sass/components/profilesettings/mypostjob.scss");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _sass_components_profilesettings_confirmmodal_scss__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../sass/components/profilesettings/confirmmodal.scss */ "./resources/sass/components/profilesettings/confirmmodal.scss");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
+function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
+function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 function _regenerator() { /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/babel/babel/blob/main/packages/babel-helpers/LICENSE */ var e, t, r = "function" == typeof Symbol ? Symbol : {}, n = r.iterator || "@@iterator", o = r.toStringTag || "@@toStringTag"; function i(r, n, o, i) { var c = n && n.prototype instanceof Generator ? n : Generator, u = Object.create(c.prototype); return _regeneratorDefine2(u, "_invoke", function (r, n, o) { var i, c, u, f = 0, p = o || [], y = !1, G = { p: 0, n: 0, v: e, a: d, f: d.bind(e, 4), d: function d(t, r) { return i = t, c = 0, u = e, G.n = r, a; } }; function d(r, n) { for (c = r, u = n, t = 0; !y && f && !o && t < p.length; t++) { var o, i = p[t], d = G.p, l = i[2]; r > 3 ? (o = l === n) && (u = i[(c = i[4]) ? 5 : (c = 3, 3)], i[4] = i[5] = e) : i[0] <= d && ((o = r < 2 && d < i[1]) ? (c = 0, G.v = n, G.n = i[1]) : d < l && (o = r < 3 || i[0] > n || n > l) && (i[4] = r, i[5] = n, G.n = l, c = 0)); } if (o || r > 1) return a; throw y = !0, n; } return function (o, p, l) { if (f > 1) throw TypeError("Generator is already running"); for (y && 1 === p && d(p, l), c = p, u = l; (t = c < 2 ? e : u) || !y;) { i || (c ? c < 3 ? (c > 1 && (G.n = -1), d(c, u)) : G.n = u : G.v = u); try { if (f = 2, i) { if (c || (o = "next"), t = i[o]) { if (!(t = t.call(i, u))) throw TypeError("iterator result is not an object"); if (!t.done) return t; u = t.value, c < 2 && (c = 0); } else 1 === c && (t = i["return"]) && t.call(i), c < 2 && (u = TypeError("The iterator does not provide a '" + o + "' method"), c = 1); i = e; } else if ((t = (y = G.n < 0) ? u : r.call(n, G)) !== a) break; } catch (t) { i = e, c = 1, u = t; } finally { f = 1; } } return { value: t, done: y }; }; }(r, o, i), !0), u; } var a = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} t = Object.getPrototypeOf; var c = [][n] ? t(t([][n]())) : (_regeneratorDefine2(t = {}, n, function () { return this; }), t), u = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(c); function f(e) { return Object.setPrototypeOf ? Object.setPrototypeOf(e, GeneratorFunctionPrototype) : (e.__proto__ = GeneratorFunctionPrototype, _regeneratorDefine2(e, o, "GeneratorFunction")), e.prototype = Object.create(u), e; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, _regeneratorDefine2(u, "constructor", GeneratorFunctionPrototype), _regeneratorDefine2(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = "GeneratorFunction", _regeneratorDefine2(GeneratorFunctionPrototype, o, "GeneratorFunction"), _regeneratorDefine2(u), _regeneratorDefine2(u, o, "Generator"), _regeneratorDefine2(u, n, function () { return this; }), _regeneratorDefine2(u, "toString", function () { return "[object Generator]"; }), (_regenerator = function _regenerator() { return { w: i, m: f }; })(); }
 function _regeneratorDefine2(e, r, n, t) { var i = Object.defineProperty; try { i({}, "", {}); } catch (e) { i = 0; } _regeneratorDefine2 = function _regeneratorDefine(e, r, n, t) { function o(r, n) { _regeneratorDefine2(e, r, function (e) { return this._invoke(r, n, e); }); } r ? i ? i(e, r, { value: n, enumerable: !t, configurable: !t, writable: !t }) : e[r] = n : (o("next", 0), o("throw", 1), o("return", 2)); }, _regeneratorDefine2(e, r, n, t); }
@@ -253197,6 +253385,7 @@ function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) 
 function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
 function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
 function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
+
 
 
 
@@ -253256,6 +253445,18 @@ var MyPostJob = function MyPostJob() {
     _useState22 = _slicedToArray(_useState21, 2),
     userRole = _useState22[0],
     setUserRole = _useState22[1];
+  var _useState23 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({}),
+    _useState24 = _slicedToArray(_useState23, 2),
+    jobApplicationCounts = _useState24[0],
+    setJobApplicationCounts = _useState24[1]; // Track accepted applications per job
+  var _useState25 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
+      open: false,
+      jobId: null,
+      workerCount: 0
+    }),
+    _useState26 = _slicedToArray(_useState25, 2),
+    confirmCompleteModal = _useState26[0],
+    setConfirmCompleteModal = _useState26[1];
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     // Get user profile from localStorage
     var userData = JSON.parse(localStorage.getItem("user") || '{}');
@@ -253389,6 +253590,11 @@ var MyPostJob = function MyPostJob() {
             }
             setJobs(jobsData);
             console.log("Jobs found:", jobsData.length);
+
+            // Fetch accepted applications count for each job
+            if (jobsData.length > 0) {
+              fetchAcceptedApplicationsCount(jobsData);
+            }
             if (jobsData.length === 0) {
               console.log("No jobs found for profile_id:", profileId);
             }
@@ -253413,33 +253619,103 @@ var MyPostJob = function MyPostJob() {
       return _ref.apply(this, arguments);
     };
   }();
-  var checkEmployerCredentials = /*#__PURE__*/function () {
-    var _ref2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee2() {
-      var _employerRecord, _employerRecord2, _employerRecord3, authToken, userData, currentUser, roleId, apiEndpoint, response, apiUserData, employerRecord, credentialsNames, credentialsPhotos, credentialsDocs, isValidCredentialFile, hasPhotoFiles, hasDocFiles, hasValidCredentials, _error$response2, _t4;
-      return _regenerator().w(function (_context2) {
-        while (1) switch (_context2.p = _context2.n) {
+  var fetchAcceptedApplicationsCount = /*#__PURE__*/function () {
+    var _ref2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee3(jobsList) {
+      var authToken, counts, _t5;
+      return _regenerator().w(function (_context3) {
+        while (1) switch (_context3.p = _context3.n) {
           case 0:
-            _context2.p = 0;
+            _context3.p = 0;
             authToken = localStorage.getItem("auth_token");
             if (authToken) {
-              _context2.n = 1;
+              _context3.n = 1;
               break;
             }
-            return _context2.a(2);
+            return _context3.a(2);
+          case 1:
+            counts = {}; // Fetch applications for each job to count accepted ones
+            _context3.n = 2;
+            return Promise.all(jobsList.map(/*#__PURE__*/function () {
+              var _ref3 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee2(job) {
+                var response, applications, acceptedCount, _t4;
+                return _regenerator().w(function (_context2) {
+                  while (1) switch (_context2.p = _context2.n) {
+                    case 0:
+                      _context2.p = 0;
+                      _context2.n = 1;
+                      return axios__WEBPACK_IMPORTED_MODULE_3__["default"].get("/api/job-applications/job/".concat(job.id), {
+                        headers: {
+                          Authorization: "Bearer ".concat(authToken),
+                          Accept: "application/json"
+                        }
+                      });
+                    case 1:
+                      response = _context2.v;
+                      applications = Array.isArray(response.data) ? response.data : [];
+                      acceptedCount = applications.filter(function (app) {
+                        return app.status === 'accepted';
+                      }).length;
+                      counts[job.id] = acceptedCount;
+                      _context2.n = 3;
+                      break;
+                    case 2:
+                      _context2.p = 2;
+                      _t4 = _context2.v;
+                      console.error("Error fetching applications for job ".concat(job.id, ":"), _t4);
+                      counts[job.id] = 0;
+                    case 3:
+                      return _context2.a(2);
+                  }
+                }, _callee2, null, [[0, 2]]);
+              }));
+              return function (_x2) {
+                return _ref3.apply(this, arguments);
+              };
+            }()));
+          case 2:
+            setJobApplicationCounts(counts);
+            _context3.n = 4;
+            break;
+          case 3:
+            _context3.p = 3;
+            _t5 = _context3.v;
+            console.error('Error fetching accepted applications counts:', _t5);
+          case 4:
+            return _context3.a(2);
+        }
+      }, _callee3, null, [[0, 3]]);
+    }));
+    return function fetchAcceptedApplicationsCount(_x) {
+      return _ref2.apply(this, arguments);
+    };
+  }();
+  var checkEmployerCredentials = /*#__PURE__*/function () {
+    var _ref4 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee4() {
+      var _employerRecord, _employerRecord2, _employerRecord3, authToken, userData, currentUser, roleId, apiEndpoint, response, apiUserData, employerRecord, credentialsNames, credentialsPhotos, credentialsDocs, isValidCredentialFile, hasPhotoFiles, hasDocFiles, hasValidCredentials, _error$response2, _t6;
+      return _regenerator().w(function (_context4) {
+        while (1) switch (_context4.p = _context4.n) {
+          case 0:
+            _context4.p = 0;
+            authToken = localStorage.getItem("auth_token");
+            if (authToken) {
+              _context4.n = 1;
+              break;
+            }
+            return _context4.a(2);
           case 1:
             userData = JSON.parse(localStorage.getItem("user") || '{}');
             currentUser = userData.user || userData; // Only check for employers (role_id === 2)
             roleId = Number(currentUser.role_id);
             if (!(roleId !== 2)) {
-              _context2.n = 2;
+              _context4.n = 2;
               break;
             }
             setHasCredentials(true); // Non-employers don't need credentials
-            return _context2.a(2);
+            return _context4.a(2);
           case 2:
             // Use employer API endpoint
             apiEndpoint = "".concat(window.location.origin, "/api/employers/").concat(currentUser.id);
-            _context2.n = 3;
+            _context4.n = 3;
             return axios__WEBPACK_IMPORTED_MODULE_3__["default"].get(apiEndpoint, {
               headers: {
                 Authorization: "Bearer ".concat(authToken),
@@ -253447,7 +253723,7 @@ var MyPostJob = function MyPostJob() {
               }
             });
           case 3:
-            response = _context2.v;
+            response = _context4.v;
             // The API returns { employer: { ...user data, employer: { ...employer data } } }
             apiUserData = response.data.employer || response.data; // The User model has an employer relationship, so we need to access it
             // Structure: { employer: { id: ..., employer: { credentials_name: [...] } } }
@@ -253504,21 +253780,21 @@ var MyPostJob = function MyPostJob() {
                 return f && f.trim() !== '';
               }).length
             });
-            _context2.n = 5;
+            _context4.n = 5;
             break;
           case 4:
-            _context2.p = 4;
-            _t4 = _context2.v;
-            console.error('Error checking employer credentials:', ((_error$response2 = _t4.response) === null || _error$response2 === void 0 ? void 0 : _error$response2.data) || _t4.message);
+            _context4.p = 4;
+            _t6 = _context4.v;
+            console.error('Error checking employer credentials:', ((_error$response2 = _t6.response) === null || _error$response2 === void 0 ? void 0 : _error$response2.data) || _t6.message);
             setHasCredentials(false);
             setEmployerCredentials([]);
           case 5:
-            return _context2.a(2);
+            return _context4.a(2);
         }
-      }, _callee2, null, [[0, 4]]);
+      }, _callee4, null, [[0, 4]]);
     }));
     return function checkEmployerCredentials() {
-      return _ref2.apply(this, arguments);
+      return _ref4.apply(this, arguments);
     };
   }();
   var handleAddJob = function handleAddJob() {
@@ -253556,17 +253832,17 @@ var MyPostJob = function MyPostJob() {
     setEditingJob(null);
   };
   var handleSubmitJob = /*#__PURE__*/function () {
-    var _ref3 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee3(jobData) {
-      var authToken, userData, currentUser, profileId, profileResponse, createProfileResponse, _createError$response, salaryTypeMap, jobPayload, response, _error$response3, _error$response4, errors, errorMessages, _t5, _t6, _t7;
-      return _regenerator().w(function (_context3) {
-        while (1) switch (_context3.p = _context3.n) {
+    var _ref5 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee5(jobData) {
+      var authToken, userData, currentUser, profileId, profileResponse, createProfileResponse, _createError$response, salaryTypeMap, jobPayload, response, _error$response3, _error$response4, errors, errorMessages, _t7, _t8, _t9;
+      return _regenerator().w(function (_context5) {
+        while (1) switch (_context5.p = _context5.n) {
           case 0:
-            _context3.p = 0;
+            _context5.p = 0;
             authToken = localStorage.getItem("auth_token");
             userData = JSON.parse(localStorage.getItem("user") || '{}'); // Get the correct user ID from the nested structure
             currentUser = userData.user || userData; // First, let's try to get the profile ID from the backend
-            _context3.p = 1;
-            _context3.n = 2;
+            _context5.p = 1;
+            _context5.n = 2;
             return axios__WEBPACK_IMPORTED_MODULE_3__["default"].get("/api/profiles?user_id=".concat(currentUser.id), {
               headers: {
                 Authorization: "Bearer ".concat(authToken),
@@ -253574,18 +253850,18 @@ var MyPostJob = function MyPostJob() {
               }
             });
           case 2:
-            profileResponse = _context3.v;
+            profileResponse = _context5.v;
             profileId = profileResponse.data.id;
             console.log("Profile found:", profileResponse.data);
-            _context3.n = 7;
+            _context5.n = 7;
             break;
           case 3:
-            _context3.p = 3;
-            _t5 = _context3.v;
+            _context5.p = 3;
+            _t7 = _context5.v;
             console.log("Profile not found, creating profile for user:", currentUser.id);
             // Create a profile record for this user
-            _context3.p = 4;
-            _context3.n = 5;
+            _context5.p = 4;
+            _context5.n = 5;
             return axios__WEBPACK_IMPORTED_MODULE_3__["default"].post("/api/profiles", {
               user_id: currentUser.id,
               first_name: currentUser.first_name || 'Unknown',
@@ -253606,15 +253882,15 @@ var MyPostJob = function MyPostJob() {
               }
             });
           case 5:
-            createProfileResponse = _context3.v;
+            createProfileResponse = _context5.v;
             profileId = createProfileResponse.data.profile.id;
             console.log("Profile created:", createProfileResponse.data.profile);
-            _context3.n = 7;
+            _context5.n = 7;
             break;
           case 6:
-            _context3.p = 6;
-            _t6 = _context3.v;
-            console.error("Failed to create profile:", ((_createError$response = _t6.response) === null || _createError$response === void 0 ? void 0 : _createError$response.data) || _t6.message);
+            _context5.p = 6;
+            _t8 = _context5.v;
+            console.error("Failed to create profile:", ((_createError$response = _t8.response) === null || _createError$response === void 0 ? void 0 : _createError$response.data) || _t8.message);
             // Fallback to user ID
             profileId = currentUser.id;
           case 7:
@@ -253660,10 +253936,10 @@ var MyPostJob = function MyPostJob() {
             console.log("Job payload being sent:", jobPayload);
             console.log("Job type value:", jobPayload.job_type, "| Type:", _typeof(jobPayload.job_type));
             if (!editingJob) {
-              _context3.n = 9;
+              _context5.n = 9;
               break;
             }
-            _context3.n = 8;
+            _context5.n = 8;
             return axios__WEBPACK_IMPORTED_MODULE_3__["default"].put("/api/jobposts/".concat(editingJob.id), jobPayload, {
               headers: {
                 Authorization: "Bearer ".concat(authToken),
@@ -253672,12 +253948,12 @@ var MyPostJob = function MyPostJob() {
               }
             });
           case 8:
-            response = _context3.v;
+            response = _context5.v;
             antd__WEBPACK_IMPORTED_MODULE_2__["default"].success("Job post updated successfully");
-            _context3.n = 11;
+            _context5.n = 11;
             break;
           case 9:
-            _context3.n = 10;
+            _context5.n = 10;
             return axios__WEBPACK_IMPORTED_MODULE_3__["default"].post("/api/jobposts", jobPayload, {
               headers: {
                 Authorization: "Bearer ".concat(authToken),
@@ -253686,7 +253962,7 @@ var MyPostJob = function MyPostJob() {
               }
             });
           case 10:
-            response = _context3.v;
+            response = _context5.v;
             antd__WEBPACK_IMPORTED_MODULE_2__["default"].success("Job post created successfully");
           case 11:
             if (response.data) {
@@ -253698,17 +253974,17 @@ var MyPostJob = function MyPostJob() {
               window.dispatchEvent(new CustomEvent('jobPosted'));
               localStorage.setItem('jobPosted', Date.now().toString());
             }
-            _context3.n = 13;
+            _context5.n = 13;
             break;
           case 12:
-            _context3.p = 12;
-            _t7 = _context3.v;
-            console.error("Error submitting job:", ((_error$response3 = _t7.response) === null || _error$response3 === void 0 ? void 0 : _error$response3.data) || _t7.message);
-            console.error("Full error response:", _t7.response);
+            _context5.p = 12;
+            _t9 = _context5.v;
+            console.error("Error submitting job:", ((_error$response3 = _t9.response) === null || _error$response3 === void 0 ? void 0 : _error$response3.data) || _t9.message);
+            console.error("Full error response:", _t9.response);
 
             // Show specific validation errors if available
-            if ((_error$response4 = _t7.response) !== null && _error$response4 !== void 0 && (_error$response4 = _error$response4.data) !== null && _error$response4 !== void 0 && _error$response4.errors) {
-              errors = _t7.response.data.errors;
+            if ((_error$response4 = _t9.response) !== null && _error$response4 !== void 0 && (_error$response4 = _error$response4.data) !== null && _error$response4 !== void 0 && _error$response4.errors) {
+              errors = _t9.response.data.errors;
               console.error("Validation errors:", errors);
               errorMessages = Object.values(errors).flat();
               antd__WEBPACK_IMPORTED_MODULE_2__["default"].error("Validation failed: ".concat(errorMessages.join(', ')));
@@ -253717,12 +253993,12 @@ var MyPostJob = function MyPostJob() {
               antd__WEBPACK_IMPORTED_MODULE_2__["default"].error("Failed to submit job post");
             }
           case 13:
-            return _context3.a(2);
+            return _context5.a(2);
         }
-      }, _callee3, null, [[4, 6], [1, 3], [0, 12]]);
+      }, _callee5, null, [[4, 6], [1, 3], [0, 12]]);
     }));
-    return function handleSubmitJob(_x) {
-      return _ref3.apply(this, arguments);
+    return function handleSubmitJob(_x3) {
+      return _ref5.apply(this, arguments);
     };
   }();
   var handleViewApplicants = function handleViewApplicants(job, e) {
@@ -253738,14 +254014,176 @@ var MyPostJob = function MyPostJob() {
     e.stopPropagation(); // Prevent card click
     handleEditJob(jobId);
   };
+  var handleMarkJobAsCompleted = /*#__PURE__*/function () {
+    var _ref6 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee6(jobId, e) {
+      var authToken, response, applications, acceptedApplications, _t0;
+      return _regenerator().w(function (_context6) {
+        while (1) switch (_context6.p = _context6.n) {
+          case 0:
+            e.stopPropagation(); // Prevent card click
+            _context6.p = 1;
+            authToken = localStorage.getItem("auth_token");
+            if (authToken) {
+              _context6.n = 2;
+              break;
+            }
+            antd__WEBPACK_IMPORTED_MODULE_2__["default"].error("Please log in to mark job as completed");
+            return _context6.a(2);
+          case 2:
+            _context6.n = 3;
+            return axios__WEBPACK_IMPORTED_MODULE_3__["default"].get("/api/job-applications/job/".concat(jobId), {
+              headers: {
+                Authorization: "Bearer ".concat(authToken),
+                Accept: "application/json"
+              }
+            });
+          case 3:
+            response = _context6.v;
+            applications = Array.isArray(response.data) ? response.data : [];
+            acceptedApplications = applications.filter(function (app) {
+              return app.status === 'accepted';
+            });
+            if (!(acceptedApplications.length === 0)) {
+              _context6.n = 4;
+              break;
+            }
+            antd__WEBPACK_IMPORTED_MODULE_2__["default"].warning('No hired workers found for this job.');
+            return _context6.a(2);
+          case 4:
+            // Open confirm modal
+            setConfirmCompleteModal({
+              open: true,
+              jobId: jobId,
+              workerCount: acceptedApplications.length
+            });
+            _context6.n = 6;
+            break;
+          case 5:
+            _context6.p = 5;
+            _t0 = _context6.v;
+            console.error('Error fetching applications:', _t0);
+            antd__WEBPACK_IMPORTED_MODULE_2__["default"].error('Failed to fetch applications. Please try again.');
+          case 6:
+            return _context6.a(2);
+        }
+      }, _callee6, null, [[1, 5]]);
+    }));
+    return function handleMarkJobAsCompleted(_x4, _x5) {
+      return _ref6.apply(this, arguments);
+    };
+  }();
+  var closeConfirmCompleteModal = function closeConfirmCompleteModal() {
+    setConfirmCompleteModal({
+      open: false,
+      jobId: null,
+      workerCount: 0
+    });
+  };
+  var proceedMarkAsCompleted = /*#__PURE__*/function () {
+    var _ref7 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee7() {
+      var jobId, workerCount, authToken, response, applications, acceptedApplications, updatePromises, _error$response5, _error$response6, errors, errorMessages, _t1;
+      return _regenerator().w(function (_context7) {
+        while (1) switch (_context7.p = _context7.n) {
+          case 0:
+            jobId = confirmCompleteModal.jobId, workerCount = confirmCompleteModal.workerCount;
+            if (jobId) {
+              _context7.n = 1;
+              break;
+            }
+            closeConfirmCompleteModal();
+            return _context7.a(2);
+          case 1:
+            _context7.p = 1;
+            authToken = localStorage.getItem("auth_token");
+            if (authToken) {
+              _context7.n = 2;
+              break;
+            }
+            antd__WEBPACK_IMPORTED_MODULE_2__["default"].error("Please log in to mark job as completed");
+            closeConfirmCompleteModal();
+            return _context7.a(2);
+          case 2:
+            _context7.n = 3;
+            return axios__WEBPACK_IMPORTED_MODULE_3__["default"].get("/api/job-applications/job/".concat(jobId), {
+              headers: {
+                Authorization: "Bearer ".concat(authToken),
+                Accept: "application/json"
+              }
+            });
+          case 3:
+            response = _context7.v;
+            applications = Array.isArray(response.data) ? response.data : [];
+            acceptedApplications = applications.filter(function (app) {
+              return app.status === 'accepted';
+            });
+            if (!(acceptedApplications.length === 0)) {
+              _context7.n = 4;
+              break;
+            }
+            antd__WEBPACK_IMPORTED_MODULE_2__["default"].warning('No hired workers found for this job.');
+            closeConfirmCompleteModal();
+            return _context7.a(2);
+          case 4:
+            // Mark all accepted applications as completed
+            updatePromises = acceptedApplications.map(function (app) {
+              return axios__WEBPACK_IMPORTED_MODULE_3__["default"].patch("/api/job-applications/".concat(app.id, "/status"), {
+                status: 'completed'
+              }, {
+                headers: {
+                  Authorization: "Bearer ".concat(authToken),
+                  Accept: "application/json",
+                  "Content-Type": "application/json"
+                }
+              });
+            });
+            _context7.n = 5;
+            return Promise.all(updatePromises);
+          case 5:
+            antd__WEBPACK_IMPORTED_MODULE_2__["default"].success("Successfully marked ".concat(acceptedApplications.length, " worker(s) as completed. You can now give feedback in the applications modal."));
+
+            // Update the counts
+            setJobApplicationCounts(function (prev) {
+              return _objectSpread(_objectSpread({}, prev), {}, _defineProperty({}, jobId, 0));
+            });
+
+            // Refresh jobs to update any related data
+            fetchJobs();
+            closeConfirmCompleteModal();
+            _context7.n = 7;
+            break;
+          case 6:
+            _context7.p = 6;
+            _t1 = _context7.v;
+            console.error('Error marking job as completed:', _t1);
+
+            // Show more detailed error message
+            if ((_error$response5 = _t1.response) !== null && _error$response5 !== void 0 && (_error$response5 = _error$response5.data) !== null && _error$response5 !== void 0 && _error$response5.errors) {
+              errors = _t1.response.data.errors;
+              errorMessages = Object.values(errors).flat();
+              antd__WEBPACK_IMPORTED_MODULE_2__["default"].error("Validation failed: ".concat(errorMessages.join(', ')));
+            } else if ((_error$response6 = _t1.response) !== null && _error$response6 !== void 0 && (_error$response6 = _error$response6.data) !== null && _error$response6 !== void 0 && _error$response6.message) {
+              antd__WEBPACK_IMPORTED_MODULE_2__["default"].error(_t1.response.data.message);
+            } else {
+              antd__WEBPACK_IMPORTED_MODULE_2__["default"].error('Failed to mark job as completed. Please try again.');
+            }
+            closeConfirmCompleteModal();
+          case 7:
+            return _context7.a(2);
+        }
+      }, _callee7, null, [[1, 6]]);
+    }));
+    return function proceedMarkAsCompleted() {
+      return _ref7.apply(this, arguments);
+    };
+  }();
 
   // Determine labels based on user role
 
   // Animated loading dots state
-  var _useState23 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('.'),
-    _useState24 = _slicedToArray(_useState23, 2),
-    loadingDots = _useState24[0],
-    setLoadingDots = _useState24[1];
+  var _useState27 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('.'),
+    _useState28 = _slicedToArray(_useState27, 2),
+    loadingDots = _useState28[0],
+    setLoadingDots = _useState28[1];
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     if (loading) {
       var dotSequence = ['.', '..', '...', '.', '..', '...'];
@@ -253762,11 +254200,11 @@ var MyPostJob = function MyPostJob() {
   }, [loading]);
   if (loading) {
     var loadingText = 'Loading job posts';
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
       className: "my-post-job-container",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
         className: "loading-container",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("p", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("p", {
           children: [loadingText, loadingDots]
         })
       })
@@ -253775,169 +254213,214 @@ var MyPostJob = function MyPostJob() {
   var pageTitle = 'My Post Job';
   var addButtonText = 'Add Post Job';
   var requiresCredentials = userRole === 2;
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
     className: "my-post-job-container",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
       className: "post-job-header",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("h2", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("h2", {
         className: "post-job-title",
         children: pageTitle
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("button", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("button", {
         className: "add-post-job-btn ".concat(!hasCredentials && requiresCredentials ? 'disabled' : ''),
         onClick: handleAddJob,
         disabled: !hasCredentials && requiresCredentials,
         title: !hasCredentials && requiresCredentials ? 'Please add credentials first' : 'Add a new job post',
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaPlus, {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaPlus, {
           className: "btn-icon"
         }), addButtonText]
       })]
-    }), !hasCredentials && requiresCredentials && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+    }), !hasCredentials && requiresCredentials && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
       className: "credentials-requirement-message",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
         className: "requirement-icon",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("svg", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("svg", {
           viewBox: "0 0 24 24",
           width: "48",
           height: "48",
           fill: "currentColor",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("path", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("path", {
             d: "M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zM11 7h2v2h-2V7zm0 4h2v6h-2v-6z"
           })
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
         className: "requirement-content",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("h3", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("h3", {
           className: "requirement-title",
           children: "Credentials Required"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("p", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("p", {
           className: "requirement-description",
           children: "You need to submit your credentials before you can post jobs. This helps build trust with potential workers and ensures a professional working environment."
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("button", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("button", {
           className: "go-to-profile-btn",
           onClick: function onClick() {
             // Navigate to profile settings
             window.location.href = '/profile-settings';
           },
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("svg", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("svg", {
             viewBox: "0 0 24 24",
             width: "20",
             height: "20",
             fill: "currentColor",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("path", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("path", {
               d: "M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
             })
           }), "Go to Profile Settings"]
         })]
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
       className: "jobs-list",
       children: jobs.length > 0 ? jobs.map(function (job) {
-        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
           className: "job-card ".concat(job.archived ? 'expired' : ''),
           onClick: function onClick() {
             return handleCardClick(job);
           },
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
             className: "job-card-header",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
               className: "job-actions",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("button", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("button", {
                 className: "view-applicants-btn",
                 onClick: function onClick(e) {
                   return handleViewApplicants(job, e);
                 },
                 title: "View Applicants",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaUserFriends, {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaUserFriends, {
                   className: "action-icon"
                 })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("button", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("button", {
                 className: "edit-job-btn",
                 onClick: function onClick(e) {
                   return handleEditClick(job.id, e);
                 },
                 title: "Edit Job",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaRegEdit, {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaRegEdit, {
                   className: "action-icon"
                 })
-              }), job.archived && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+              }), job.archived && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
                 className: "expired-badge",
                 children: "EXPIRED"
               })]
             })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
             className: "job-content",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("h3", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("h3", {
               className: "job-title",
               children: job.job_title || "Job Post #".concat(job.id)
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
               className: "job-metadata",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("span", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("span", {
                 className: "job-salary",
                 children: ["\u20B1", job.salary.toLocaleString(), "/", job.salary_type === 'per_hour' ? 'hour' : 'month']
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("span", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("span", {
                 className: "posted-date",
                 children: ["Posted on ", new Date(job.created_at).toLocaleDateString()]
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
               className: "job-description",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("h4", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("h4", {
                 className: "description-title",
                 children: "Job Overview/Description"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("p", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("p", {
                 className: "description-text",
                 children: job.description && job.description.length > 200 ? job.description.substring(0, 200) + '...' : job.description
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
               className: "job-skills",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("h4", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("h4", {
                 className: "skills-title",
                 children: "Skills Required"
               }), job.skills && job.skills.length > 0 ? job.skills.map(function (skill, index) {
                 console.log("Rendering skill:", skill);
-                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("span", {
+                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("span", {
                   className: "skill-tag",
                   children: [skill.name, " (", skill.experience, ")"]
                 }, index);
-              }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("span", {
+              }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("span", {
                 className: "skill-tag",
                 children: "No specific skills required"
               })]
+            }), jobApplicationCounts[job.id] > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
+              className: "mark-completed-section",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("button", {
+                className: "mark-completed-btn",
+                onClick: function onClick(e) {
+                  return handleMarkJobAsCompleted(job.id, e);
+                },
+                title: "Mark all hired workers as completed",
+                children: ["Mark as Completed (", jobApplicationCounts[job.id], " worker", jobApplicationCounts[job.id] > 1 ? 's' : '', ")"]
+              })
             })]
           })]
         }, job.id);
-      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
         className: "empty-state",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
           className: "empty-icon",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("img", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("img", {
             src: "".concat(window.location.origin, "/images/mybooking.svg"),
             alt: "No Job Posts"
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("h3", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("h3", {
           className: "empty-title",
           children: "No Job Posts Yet"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("p", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("p", {
           className: "empty-description",
           children: "Create your first job post to start hiring workers."
         })]
       })
-    }), isModalOpen && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_modalpostjob__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    }), isModalOpen && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_modalpostjob__WEBPACK_IMPORTED_MODULE_4__["default"], {
       onClose: handleCloseModal,
       onSubmit: handleSubmitJob,
       editingJob: editingJob
-    }), isApplicationsModalOpen && selectedJobForApplications && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_JobApplicationsModal__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    }), isApplicationsModalOpen && selectedJobForApplications && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_JobApplicationsModal__WEBPACK_IMPORTED_MODULE_5__["default"], {
       jobPostId: selectedJobForApplications.id,
       jobTitle: selectedJobForApplications.job_title,
       onClose: function onClose() {
         setIsApplicationsModalOpen(false);
         setSelectedJobForApplications(null);
       }
-    }), isDetailModalOpen && selectedJobForDetail && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_JobDetailModal__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    }), isDetailModalOpen && selectedJobForDetail && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_JobDetailModal__WEBPACK_IMPORTED_MODULE_6__["default"], {
       job: selectedJobForDetail,
       onClose: function onClose() {
         setIsDetailModalOpen(false);
         setSelectedJobForDetail(null);
       }
+    }), confirmCompleteModal.open && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
+      className: "confirm-modal-overlay",
+      onClick: closeConfirmCompleteModal,
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
+        className: "confirm-modal",
+        onClick: function onClick(e) {
+          return e.stopPropagation();
+        },
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
+          className: "confirm-modal-header",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("h3", {
+            children: "Mark as Completed"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("button", {
+            className: "close-btn",
+            onClick: closeConfirmCompleteModal,
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaTimes, {})
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
+          className: "confirm-modal-content",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("p", {
+            children: ["Are you sure you want to mark all ", confirmCompleteModal.workerCount, " hired worker", confirmCompleteModal.workerCount > 1 ? 's' : '', " for this job as completed?"]
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
+          className: "confirm-modal-actions",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("button", {
+            className: "confirm-btn",
+            onClick: proceedMarkAsCompleted,
+            children: "Mark as Completed"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("button", {
+            className: "cancel-btn",
+            onClick: closeConfirmCompleteModal,
+            children: "Cancel"
+          })]
+        })]
+      })
     })]
   });
 };

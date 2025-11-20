@@ -546,12 +546,57 @@
                       color: #dc2626;
                     }
                   }
+                }
 
-                  .status-message {
-                    font-size: 11px;
-                    color: #6b7280;
-                    font-style: italic;
+                // Give Feedback button - separate from accept/decline to avoid style conflicts
+                .application-actions .give-feedback-btn {
+                  background: transparent !important;
+                  color: #000000 !important;
+                  border: 2px solid #001E40 !important;
+                  min-width: 100px;
+                  height: 30px;
+                  border-radius: 6px;
+                  font-size: 11px;
+                  font-weight: 600;
+                  cursor: pointer !important;
+                  transition: all 0.3s ease;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  flex: 1;
+                  padding: 0;
+                  margin: 0;
+                  box-sizing: border-box;
+                  opacity: 1 !important;
+                  pointer-events: auto !important;
+
+                  &:hover {
+                    background: #001E40 !important;
+                    color: white !important;
+                    opacity: 1 !important;
                   }
+
+                  &:active {
+                    background: #001E40 !important;
+                    color: white !important;
+                  }
+
+                  // Override any disabled styles
+                  &:disabled,
+                  &.disabled {
+                    background: transparent !important;
+                    color: #000000 !important;
+                    border: 2px solid #001E40 !important;
+                    cursor: pointer !important;
+                    opacity: 1 !important;
+                    pointer-events: auto !important;
+                  }
+                }
+
+                .status-message {
+                  font-size: 11px;
+                  color: #6b7280;
+                  font-style: italic;
                 }
               }
 
@@ -602,6 +647,12 @@
                 color: #2563eb;
               }
 
+              &.status-completed {
+                background: #dbeafe;
+                color: #1e40af;
+                border: 1px solid #93c5fd;
+              }
+
               &.status-accepted {
                 color: #065f46;
               }
@@ -619,11 +670,9 @@
         .worker-skills {
           display: none;
         }
-
       }
     }
   }
-
 }
 
 // Responsive design
@@ -683,6 +732,17 @@
             .decline-btn {
               width: 100%;
               justify-content: center;
+            }
+
+            .give-feedback-btn {
+              width: 100%;
+              justify-content: center;
+              background: transparent !important;
+              color: #000000 !important;
+              border: 2px solid #001E40 !important;
+              cursor: pointer !important;
+              opacity: 1 !important;
+              pointer-events: auto !important;
             }
           }
         }

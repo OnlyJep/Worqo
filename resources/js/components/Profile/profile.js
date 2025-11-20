@@ -302,6 +302,7 @@ const Profile = ({ initialServiceType }) => {
   // Fetch worker data from API
   useEffect(() => {
     let isMounted = true;
+    const reviewsActiveRef = { current: true };
     
     const fetchWorkerData = async () => {
       try {
@@ -456,11 +457,12 @@ const Profile = ({ initialServiceType }) => {
 
     if (workerId) {
       fetchWorkerData();
-      fetchWorkerReviews();
+      fetchWorkerReviews({ activeRef: reviewsActiveRef });
     }
-
+    
     return () => {
       isMounted = false;
+      reviewsActiveRef.current = false;
     };
   }, [workerId]);
 
@@ -522,14 +524,16 @@ const Profile = ({ initialServiceType }) => {
   }, []);
 
   // Fetch worker reviews
-  const fetchWorkerReviews = async () => {
+  const fetchWorkerReviews = async ({ activeRef } = {}) => {
     try {
+      if (activeRef?.current === false) return;
       setReviewsLoading(true);
       const response = await axios.get(`/api/reviews/worker/${resolvedWorkerId}`, {
         headers: { Accept: "application/json" }
       });
 
       if (response.data.success) {
+        if (activeRef?.current === false) return;
         setReviews(response.data.reviews);
         const avgRating = response.data.average_rating || 0;
         const numReviews = response.data.total_reviews || 0;
@@ -543,16 +547,19 @@ const Profile = ({ initialServiceType }) => {
         // Determine rank based on total points
         await fetchWorkerRank(calculatedPoints);
       } else {
+        if (activeRef?.current === false) return;
         // If fetch fails, still show rank with 0 points
         setTotalPoints(0);
         await fetchWorkerRank(0);
       }
     } catch (error) {
+      if (activeRef?.current === false) return;
       console.error("Error fetching reviews:", error);
       // Even on error, show rank with 0 points
       setTotalPoints(0);
       await fetchWorkerRank(0);
     } finally {
+      if (activeRef?.current === false) return;
       setReviewsLoading(false);
     }
   };

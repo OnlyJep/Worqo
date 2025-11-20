@@ -283,6 +283,38 @@
         }
       }
 
+      .mark-completed-section {
+        margin-top: 20px;
+        padding-top: 20px;
+        border-top: 1px solid #e5e7eb;
+        display: flex;
+        justify-content: flex-end;
+
+        .mark-completed-btn {
+          background: transparent;
+          color: #000000;
+          border: 2px solid #2196F3;
+          padding: 10px 20px;
+          border-radius: 6px;
+          font-size: 14px;
+          font-weight: 600;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          min-width: 200px;
+
+          &:hover {
+            background: #2196F3;
+            color: white;
+            transform: translateY(-1px);
+            box-shadow: 0 2px 4px rgba(33, 150, 243, 0.3);
+          }
+
+          &:active {
+            transform: translateY(0);
+          }
+        }
+      }
+
       .job-timeline {
         margin-bottom: 20px;
         padding: 12px;
