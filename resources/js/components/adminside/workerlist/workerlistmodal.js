@@ -1016,12 +1016,18 @@ const WorkerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffixes
 
     if (formData.credentials.length > 0) {
       formData.credentials.forEach((cred, index) => {
-        submitData.append(`credentials[${index}][credentials_name]`, cred.credentials_name);
+        submitData.append(`credentials[${index}][credentials_name]`, cred.credentials_name || "");
+
         if (cred.credentials_photo instanceof File) {
           submitData.append(`credentials[${index}][credentials_photo]`, cred.credentials_photo);
+        } else if (typeof cred.credentials_photo === "string" && cred.credentials_photo) {
+          submitData.append(`credentials[${index}][existing_photo]`, cred.credentials_photo);
         }
+
         if (cred.credentials_doc instanceof File) {
           submitData.append(`credentials[${index}][credentials_doc]`, cred.credentials_doc);
+        } else if (typeof cred.credentials_doc === "string" && cred.credentials_doc) {
+          submitData.append(`credentials[${index}][existing_doc]`, cred.credentials_doc);
         }
       });
     }

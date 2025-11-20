@@ -267,6 +267,7 @@ const Browse = () => {
   const navigationState = location.state;
   const serviceName = navigationState?.serviceName || searchParams.get('service') || 'Plumbing Services';
   const skillNames = navigationState?.skillNames || [];
+  const skillIdsFromNav = navigationState?.skillIds || [];
 
   // Function to fetch workers data from API
   const fetchWorkersData = async () => {
@@ -309,9 +310,10 @@ const Browse = () => {
       let response;
       
       // First, try to get skill names from the service if we have a service name
-      let currentSkillNames = skillNames;
+      let currentSkillNames = [...skillNames];
+      let currentSkillIds = [...skillIdsFromNav];
       
-      if (currentSkillNames.length === 0 && serviceName) {
+      if ((currentSkillNames.length === 0 || currentSkillIds.length === 0) && serviceName) {
         try {
           // Fetch services to get skill names for the current service
           const servicesResponse = await axios.get("/api/services", {
@@ -323,8 +325,18 @@ const Browse = () => {
           const currentService = services.find(service => service.name === serviceName);
           
           if (currentService && currentService.skills) {
-            currentSkillNames = currentService.skills.map(skill => skill.name);
+            currentSkillNames = currentService.skills
+              .map(skill => skill?.name || skill?.skill_name || '')
+              .map(name => name.trim())
+              .filter(name => name.length > 0);
             console.log("Found skill names for service:", currentSkillNames);
+          }
+
+          if (currentService && Array.isArray(currentService.skill_ids)) {
+            currentSkillIds = currentService.skill_ids
+              .map(id => `${id}`.trim())
+              .filter(id => id.length > 0);
+            console.log("Found skill IDs for service:", currentSkillIds);
           }
         } catch (serviceError) {
           console.warn("Could not fetch service data:", serviceError);
@@ -336,15 +348,28 @@ const Browse = () => {
       const currentUserId = userData.user?.id || userData.id;
 
       // If we have skill names, fetch by skills, otherwise fetch all workers
-      if (currentSkillNames.length > 0) {
-        console.log("Fetching workers by skills:", currentSkillNames);
+      if (currentSkillNames.length > 0 || currentSkillIds.length > 0) {
+        console.log("Fetching workers by skills:", {
+          skillNames: currentSkillNames,
+          skillIds: currentSkillIds,
+        });
+
+        const params = {
+          page: 1,
+          limit: 50,
+          exclude_user_id: currentUserId // Exclude current user
+        };
+
+        if (currentSkillNames.length > 0) {
+          params.skill_names = currentSkillNames.join(',');
+        }
+
+        if (currentSkillIds.length > 0) {
+          params.skill_ids = currentSkillIds.join(',');
+        }
+
         response = await axios.get("/api/workers/by-skills", {
-          params: {
-            skill_names: currentSkillNames.join(','),
-            page: 1,
-            limit: 50,
-            exclude_user_id: currentUserId // Exclude current user
-          },
+          params,
           headers,
           timeout: 30000,
         });

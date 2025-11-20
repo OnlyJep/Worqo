@@ -874,6 +874,8 @@ class WorkerController extends Controller
 
             $credentials_name = [];
             $existing_credentials_name = $this->parseArray($user->worker->credentials_name);
+            $existing_credentials_photo = $this->parseArray($user->worker->credentials_photo);
+            $existing_credentials_doc = $this->parseArray($user->worker->credentials_doc);
 
             if ($request->has('credentials') && is_array($request->credentials)) {
                 foreach ($request->credentials as $index => $credential) {
@@ -891,20 +893,28 @@ class WorkerController extends Controller
             if ($request->has('credentials') && is_array($request->credentials)) {
                 foreach ($request->credentials as $index => $credential) {
                     if (isset($credential['credentials_name']) && !empty($credential['credentials_name'])) {
-                        // Handle credentials_photo file upload
+                        // Handle credentials_photo file upload or existing reference
                         if ($request->hasFile("credentials.{$index}.credentials_photo")) {
                             $photoFile = $request->file("credentials.{$index}.credentials_photo");
                             $photoPath = $photoFile->store('credentials/photos', 'public');
                             $credentials_photo[] = $photoPath;
+                        } elseif (!empty($credential['existing_photo'])) {
+                            $credentials_photo[] = $credential['existing_photo'];
+                        } elseif (isset($existing_credentials_photo[$index])) {
+                            $credentials_photo[] = $existing_credentials_photo[$index];
                         } else {
                             $credentials_photo[] = null;
                         }
                         
-                        // Handle credentials_doc file upload
+                        // Handle credentials_doc file upload or existing reference
                         if ($request->hasFile("credentials.{$index}.credentials_doc")) {
                             $docFile = $request->file("credentials.{$index}.credentials_doc");
                             $docPath = $docFile->store('credentials/documents', 'public');
                             $credentials_doc[] = $docPath;
+                        } elseif (!empty($credential['existing_doc'])) {
+                            $credentials_doc[] = $credential['existing_doc'];
+                        } elseif (isset($existing_credentials_doc[$index])) {
+                            $credentials_doc[] = $existing_credentials_doc[$index];
                         } else {
                             $credentials_doc[] = null;
                         }
@@ -2199,14 +2209,30 @@ class WorkerController extends Controller
     {
         try {
             $skillNames = $request->query('skill_names', []);
+            $skillIds = $request->query('skill_ids', []);
             $page = $request->query('page', 1);
             $limit = $request->query('limit', 10);
             $excludeUserId = $request->query('exclude_user_id');
 
             // If skill_names is a string, convert to array
-            if (is_string($skillNames)) {
-                $skillNames = explode(',', $skillNames);
-            }
+            $skillNames = is_string($skillNames)
+                ? explode(',', $skillNames)
+                : (is_array($skillNames) ? $skillNames : []);
+            $skillNames = array_filter(array_map(function ($value) {
+                return trim((string)$value);
+            }, $skillNames), function ($value) {
+                return $value !== '';
+            });
+
+            // Handle skill_ids provided as comma-separated string
+            $skillIds = is_string($skillIds)
+                ? explode(',', $skillIds)
+                : (is_array($skillIds) ? $skillIds : []);
+            $skillIds = array_filter(array_map(function ($value) {
+                return trim((string)$value);
+            }, $skillIds), function ($value) {
+                return $value !== '';
+            });
 
             $query = User::with(['profile', 'worker'])
                 ->whereIn('users.role_id', [1, 2]) // Allow both workers (1) and employers (2)
@@ -2222,8 +2248,11 @@ class WorkerController extends Controller
             }
 
             // Filter by skills if provided
-            if (!empty($skillNames)) {
-                Log::info('Filtering workers by skills', ['skill_names' => $skillNames]);
+            if (!empty($skillNames) || !empty($skillIds)) {
+                Log::info('Filtering workers by skills', [
+                    'skill_names' => $skillNames,
+                    'skill_ids' => $skillIds,
+                ]);
                 
                 // First, let's try without skill filtering to see if we get any workers
                 $testQuery = clone $query;
@@ -2231,8 +2260,8 @@ class WorkerController extends Controller
                 Log::info('Workers without skill filter', ['count' => $testWorkers->count()]);
                 
                 // Apply skill filtering using a comprehensive approach
-                $query->whereHas('worker', function ($q) use ($skillNames) {
-                    $q->where(function ($subQ) use ($skillNames) {
+                $query->whereHas('worker', function ($q) use ($skillNames, $skillIds) {
+                    $q->where(function ($subQ) use ($skillNames, $skillIds) {
                         foreach ($skillNames as $skillName) {
                             // Search for skill name in the JSON structure with multiple patterns
                             $subQ->orWhere('skills_id', 'like', '%"skill_name":"' . $skillName . '"%')
@@ -2240,6 +2269,14 @@ class WorkerController extends Controller
                                  ->orWhere('skills_id', 'like', '%skill_name":"' . $skillName . '"%')
                                  ->orWhere('skills_id', 'like', '%skill_name": "' . $skillName . '"%')
                                  ->orWhere('skills_id', 'like', '%' . $skillName . '%');
+                        }
+
+                        foreach ($skillIds as $skillId) {
+                            // Search for skill id in the JSON structure with multiple patterns
+                            $subQ->orWhere('skills_id', 'like', '%"skill_id":' . $skillId . '%')
+                                 ->orWhere('skills_id', 'like', '%"skill_id":"' . $skillId . '"%')
+                                 ->orWhere('skills_id', 'like', '%skill_id":' . $skillId . '%')
+                                 ->orWhere('skills_id', 'like', '%skill_id":"' . $skillId . '"%');
                         }
                     });
                 });
@@ -2275,6 +2312,7 @@ class WorkerController extends Controller
 
             Log::info('Fetched workers by skills', [
                 'skill_names' => $skillNames,
+                'skill_ids' => $skillIds,
                 'count' => $workers->count(),
                 'page' => $page,
                 'limit' => $limit,

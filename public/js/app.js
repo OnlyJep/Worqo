@@ -206257,24 +206257,42 @@ var BrowseLaborCategories = function BrowseLaborCategories() {
     };
   }, []);
   var handleViewWorkersClick = /*#__PURE__*/function () {
-    var _ref4 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee4(serviceName, colorCollarName, serviceSkills) {
-      var _JSON$parse, skillNames, currentUserId, authToken, headers, response, workers, _error$response9, _t8;
+    var _ref4 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee4(service) {
+      var _JSON$parse, serviceSkills, serviceSkillIds, serviceName, skillNames, skillIdsFromSkills, skillIds, uniqueSkillIds, currentUserId, authToken, headers, params, response, workers, messageSkills, _error$response9, _t8;
       return _regenerator().w(function (_context4) {
         while (1) switch (_context4.p = _context4.n) {
           case 0:
             _context4.p = 0;
-            // Get skill names from the service
+            serviceSkills = (service === null || service === void 0 ? void 0 : service.skills) || [];
+            serviceSkillIds = Array.isArray(service === null || service === void 0 ? void 0 : service.skill_ids) ? service.skill_ids : [];
+            serviceName = (service === null || service === void 0 ? void 0 : service.name) || "Service"; // Get skill names from the service
             skillNames = serviceSkills ? serviceSkills.map(function (skill) {
-              return skill.name;
+              return (skill === null || skill === void 0 ? void 0 : skill.name) || (skill === null || skill === void 0 ? void 0 : skill.skill_name) || "";
+            }).map(function (name) {
+              return name.trim();
+            }).filter(function (name) {
+              return name.length > 0;
+            }) : []; // Prefer explicit skill IDs from the service definition or fallback to the skills array
+            skillIdsFromSkills = serviceSkills ? serviceSkills.map(function (skill) {
+              return (skill === null || skill === void 0 ? void 0 : skill.id) || (skill === null || skill === void 0 ? void 0 : skill.skill_id) || null;
+            }).filter(function (id) {
+              return id !== null && id !== undefined && "".concat(id).trim() !== "";
+            }).map(function (id) {
+              return "".concat(id).trim();
             }) : [];
-            if (!(skillNames.length === 0)) {
+            skillIds = [].concat(_toConsumableArray(skillIdsFromSkills), _toConsumableArray(serviceSkillIds.filter(function (id) {
+              return id !== null && id !== undefined && "".concat(id).trim() !== "";
+            }).map(function (id) {
+              return "".concat(id).trim();
+            })));
+            if (!(skillNames.length === 0 && skillIds.length === 0)) {
               _context4.n = 1;
               break;
             }
             antd__WEBPACK_IMPORTED_MODULE_7__["default"].warning("No skills found for this service.");
             return _context4.a(2);
           case 1:
-            // Get current user ID to exclude from results
+            uniqueSkillIds = Array.from(new Set(skillIds)); // Get current user ID to exclude from results
             currentUserId = (_JSON$parse = JSON.parse(localStorage.getItem("user") || '{}')) === null || _JSON$parse === void 0 ? void 0 : _JSON$parse.id; // Fetch workers with the specific skills and ACCEPTED status
             authToken = localStorage.getItem("auth_token");
             headers = authToken ? {
@@ -206283,15 +206301,24 @@ var BrowseLaborCategories = function BrowseLaborCategories() {
             } : {
               Accept: "application/json"
             };
-            console.log('Searching for workers with skills:', skillNames);
+            console.log('Searching for workers with skills:', {
+              skillNames: skillNames,
+              skillIds: uniqueSkillIds
+            });
+            params = {
+              page: 1,
+              limit: 20,
+              exclude_user_id: currentUserId // Exclude current user
+            };
+            if (skillNames.length > 0) {
+              params.skill_names = skillNames.join(',');
+            }
+            if (uniqueSkillIds.length > 0) {
+              params.skill_ids = uniqueSkillIds.join(',');
+            }
             _context4.n = 2;
             return axios__WEBPACK_IMPORTED_MODULE_2__["default"].get("/api/workers/by-skills", {
-              params: {
-                skill_names: skillNames.join(','),
-                page: 1,
-                limit: 20,
-                exclude_user_id: currentUserId // Exclude current user
-              },
+              params: params,
               headers: headers,
               timeout: 10000
             });
@@ -206303,8 +206330,12 @@ var BrowseLaborCategories = function BrowseLaborCategories() {
               _context4.n = 3;
               break;
             }
-            console.log('No workers found with skills:', skillNames);
-            antd__WEBPACK_IMPORTED_MODULE_7__["default"].info("No workers found with skills: ".concat(skillNames.join(', ')));
+            console.log('No workers found with skills:', {
+              skillNames: skillNames,
+              skillIds: uniqueSkillIds
+            });
+            messageSkills = skillNames.length > 0 ? skillNames.join(', ') : uniqueSkillIds.join(', ');
+            antd__WEBPACK_IMPORTED_MODULE_7__["default"].info("No workers found with skills: ".concat(messageSkills));
             return _context4.a(2);
           case 3:
             console.log('Navigating to browse with workers:', workers.length);
@@ -206312,6 +206343,7 @@ var BrowseLaborCategories = function BrowseLaborCategories() {
               filteredWorkers: workers,
               serviceName: serviceName,
               skillNames: skillNames,
+              skillIds: uniqueSkillIds,
               totalWorkers: response.data.pagination.totalItems
             });
 
@@ -206321,6 +206353,7 @@ var BrowseLaborCategories = function BrowseLaborCategories() {
                 filteredWorkers: workers,
                 serviceName: serviceName,
                 skillNames: skillNames,
+                skillIds: uniqueSkillIds,
                 totalWorkers: response.data.pagination.totalItems
               }
             });
@@ -206336,7 +206369,7 @@ var BrowseLaborCategories = function BrowseLaborCategories() {
         }
       }, _callee4, null, [[0, 4]]);
     }));
-    return function handleViewWorkersClick(_x3, _x4, _x5) {
+    return function handleViewWorkersClick(_x3) {
       return _ref4.apply(this, arguments);
     };
   }();
@@ -206483,7 +206516,7 @@ var BrowseLaborCategories = function BrowseLaborCategories() {
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("button", {
                 className: "service-cta-btn",
                 onClick: function onClick() {
-                  return handleViewWorkersClick(service.name, service.color_collar_name, service.skills);
+                  return handleViewWorkersClick(service);
                 },
                 children: "View Available Workers >>"
               })]
@@ -211943,11 +211976,12 @@ var Browse = function Browse() {
   var navigationState = location.state;
   var serviceName = (navigationState === null || navigationState === void 0 ? void 0 : navigationState.serviceName) || searchParams.get('service') || 'Plumbing Services';
   var skillNames = (navigationState === null || navigationState === void 0 ? void 0 : navigationState.skillNames) || [];
+  var skillIdsFromNav = (navigationState === null || navigationState === void 0 ? void 0 : navigationState.skillIds) || [];
 
   // Function to fetch workers data from API
   var fetchWorkersData = /*#__PURE__*/function () {
     var _ref3 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee3() {
-      var _userData$user, _formattedWorkers, _filteredWorkers, authToken, headers, response, currentSkillNames, servicesResponse, services, currentService, userData, currentUserId, workers, formattedWorkers, _filteredWorkers2, _error$response, _error$response2, _t3, _t4;
+      var _userData$user, _formattedWorkers, _filteredWorkers, authToken, headers, response, currentSkillNames, currentSkillIds, servicesResponse, services, currentService, userData, currentUserId, params, workers, formattedWorkers, _filteredWorkers2, _error$response, _error$response2, _t3, _t4;
       return _regenerator().w(function (_context3) {
         while (1) switch (_context3.p = _context3.n) {
           case 0:
@@ -211991,8 +212025,9 @@ var Browse = function Browse() {
               Accept: "application/json"
             };
             // First, try to get skill names from the service if we have a service name
-            currentSkillNames = skillNames;
-            if (!(currentSkillNames.length === 0 && serviceName)) {
+            currentSkillNames = _toConsumableArray(skillNames);
+            currentSkillIds = _toConsumableArray(skillIdsFromNav);
+            if (!((currentSkillNames.length === 0 || currentSkillIds.length === 0) && serviceName)) {
               _context3.n = 5;
               break;
             }
@@ -212010,9 +212045,21 @@ var Browse = function Browse() {
             });
             if (currentService && currentService.skills) {
               currentSkillNames = currentService.skills.map(function (skill) {
-                return skill.name;
+                return (skill === null || skill === void 0 ? void 0 : skill.name) || (skill === null || skill === void 0 ? void 0 : skill.skill_name) || '';
+              }).map(function (name) {
+                return name.trim();
+              }).filter(function (name) {
+                return name.length > 0;
               });
               console.log("Found skill names for service:", currentSkillNames);
+            }
+            if (currentService && Array.isArray(currentService.skill_ids)) {
+              currentSkillIds = currentService.skill_ids.map(function (id) {
+                return "".concat(id).trim();
+              }).filter(function (id) {
+                return id.length > 0;
+              });
+              console.log("Found skill IDs for service:", currentSkillIds);
             }
             _context3.n = 5;
             break;
@@ -212024,19 +212071,28 @@ var Browse = function Browse() {
             // Get current user ID to exclude from results
             userData = JSON.parse(localStorage.getItem("user") || '{}');
             currentUserId = ((_userData$user = userData.user) === null || _userData$user === void 0 ? void 0 : _userData$user.id) || userData.id; // If we have skill names, fetch by skills, otherwise fetch all workers
-            if (!(currentSkillNames.length > 0)) {
+            if (!(currentSkillNames.length > 0 || currentSkillIds.length > 0)) {
               _context3.n = 7;
               break;
             }
-            console.log("Fetching workers by skills:", currentSkillNames);
+            console.log("Fetching workers by skills:", {
+              skillNames: currentSkillNames,
+              skillIds: currentSkillIds
+            });
+            params = {
+              page: 1,
+              limit: 50,
+              exclude_user_id: currentUserId // Exclude current user
+            };
+            if (currentSkillNames.length > 0) {
+              params.skill_names = currentSkillNames.join(',');
+            }
+            if (currentSkillIds.length > 0) {
+              params.skill_ids = currentSkillIds.join(',');
+            }
             _context3.n = 6;
             return axios__WEBPACK_IMPORTED_MODULE_2__["default"].get("/api/workers/by-skills", {
-              params: {
-                skill_names: currentSkillNames.join(','),
-                page: 1,
-                limit: 50,
-                exclude_user_id: currentUserId // Exclude current user
-              },
+              params: params,
               headers: headers,
               timeout: 30000
             });
@@ -239592,7 +239648,7 @@ var WorkerList = function WorkerList() {
   };
   var handleEditClick = /*#__PURE__*/function () {
     var _ref13 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee12(worker) {
-      var _response$data$profil, _response$data$profil2, _response$data$profil3, _response$data$profil4, _response$data$profil5, _response$data$profil6, _response$data$profil7, _response$data$profil8, _response$data$profil9, _response$data$profil0, _response$data$profil1, _response$data$profil10, _response$data$profil11, _response$data$worker, _response$data$worker2, _response$data$worker3, _response$data$worker4, _response$data$worker5, _response$data$worker6, _response$data$worker7, _response$data$worker8, _response$data$worker9, _response$data$worker0, _response$data$worker1, authToken, response, _err$response22, _err$response23, errorMessage, _t12;
+      var _response$data$profil, _response$data$profil2, _response$data$profil3, _response$data$profil4, _response$data$profil5, _response$data$profil6, _response$data$profil7, _response$data$profil8, _response$data$profil9, _response$data$profil0, _response$data$profil1, _response$data$profil10, _response$data$profil11, _response$data$profil12, _response$data$worker, _response$data$worker2, _response$data$worker3, _response$data$worker4, _response$data$worker5, _response$data$worker6, _response$data$worker7, _response$data$worker8, _response$data$worker9, _response$data$worker0, _response$data$worker1, authToken, response, _err$response22, _err$response23, errorMessage, _t12;
       return _regenerator().w(function (_context12) {
         while (1) switch (_context12.p = _context12.n) {
           case 0:
@@ -239636,8 +239692,8 @@ var WorkerList = function WorkerList() {
                 province: ((_response$data$profil0 = response.data.profile) === null || _response$data$profil0 === void 0 ? void 0 : _response$data$profil0.province) || "Agusan Del Norte",
                 postal_code: ((_response$data$profil1 = response.data.profile) === null || _response$data$profil1 === void 0 ? void 0 : _response$data$profil1.postal_code) || "8600",
                 country: ((_response$data$profil10 = response.data.profile) === null || _response$data$profil10 === void 0 ? void 0 : _response$data$profil10.country) || "Philippines",
-                profile_img: null,
-                image_url: ((_response$data$profil11 = response.data.profile) === null || _response$data$profil11 === void 0 ? void 0 : _response$data$profil11.profile_img) || null
+                profile_img: ((_response$data$profil11 = response.data.profile) === null || _response$data$profil11 === void 0 ? void 0 : _response$data$profil11.profile_img) || null,
+                image_url: (_response$data$profil12 = response.data.profile) !== null && _response$data$profil12 !== void 0 && _response$data$profil12.profile_img ? "".concat(window.location.origin, "/storage/").concat(response.data.profile.profile_img) : null
               },
               worker: {
                 hours_per_day: ((_response$data$worker = response.data.worker) === null || _response$data$worker === void 0 ? void 0 : _response$data$worker.hours_per_day) || 4,
@@ -241862,12 +241918,16 @@ var WorkerModal = function WorkerModal(_ref2) {
             }
             if (formData.credentials.length > 0) {
               formData.credentials.forEach(function (cred, index) {
-                submitData.append("credentials[".concat(index, "][credentials_name]"), cred.credentials_name);
+                submitData.append("credentials[".concat(index, "][credentials_name]"), cred.credentials_name || "");
                 if (cred.credentials_photo instanceof File) {
                   submitData.append("credentials[".concat(index, "][credentials_photo]"), cred.credentials_photo);
+                } else if (typeof cred.credentials_photo === "string" && cred.credentials_photo) {
+                  submitData.append("credentials[".concat(index, "][existing_photo]"), cred.credentials_photo);
                 }
                 if (cred.credentials_doc instanceof File) {
                   submitData.append("credentials[".concat(index, "][credentials_doc]"), cred.credentials_doc);
+                } else if (typeof cred.credentials_doc === "string" && cred.credentials_doc) {
+                  submitData.append("credentials[".concat(index, "][existing_doc]"), cred.credentials_doc);
                 }
               });
             }

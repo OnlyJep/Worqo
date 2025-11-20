@@ -314,15 +314,40 @@ const BrowseLaborCategories = () => {
     };
   }, []);
 
-  const handleViewWorkersClick = async (serviceName, colorCollarName, serviceSkills) => {
+  const handleViewWorkersClick = async (service) => {
     try {
+      const serviceSkills = service?.skills || [];
+      const serviceSkillIds = Array.isArray(service?.skill_ids) ? service.skill_ids : [];
+      const serviceName = service?.name || "Service";
+
       // Get skill names from the service
-      const skillNames = serviceSkills ? serviceSkills.map(skill => skill.name) : [];
-      
-      if (skillNames.length === 0) {
+      const skillNames = serviceSkills
+        ? serviceSkills
+            .map((skill) => skill?.name || skill?.skill_name || "")
+            .map((name) => name.trim())
+            .filter((name) => name.length > 0)
+        : [];
+
+      // Prefer explicit skill IDs from the service definition or fallback to the skills array
+      const skillIdsFromSkills = serviceSkills
+        ? serviceSkills
+            .map((skill) => skill?.id || skill?.skill_id || null)
+            .filter((id) => id !== null && id !== undefined && `${id}`.trim() !== "")
+            .map((id) => `${id}`.trim())
+        : [];
+      const skillIds = [
+        ...skillIdsFromSkills,
+        ...serviceSkillIds
+          .filter((id) => id !== null && id !== undefined && `${id}`.trim() !== "")
+          .map((id) => `${id}`.trim()),
+      ];
+
+      if (skillNames.length === 0 && skillIds.length === 0) {
         message.warning("No skills found for this service.");
         return;
       }
+      
+      const uniqueSkillIds = Array.from(new Set(skillIds));
 
       // Get current user ID to exclude from results
       const currentUserId = JSON.parse(localStorage.getItem("user") || '{}')?.id;
@@ -333,15 +358,27 @@ const BrowseLaborCategories = () => {
         ? { Authorization: `Bearer ${authToken}`, Accept: "application/json" }
         : { Accept: "application/json" };
 
-      console.log('Searching for workers with skills:', skillNames);
+      console.log('Searching for workers with skills:', {
+        skillNames,
+        skillIds: uniqueSkillIds,
+      });
+
+      const params = {
+        page: 1,
+        limit: 20,
+        exclude_user_id: currentUserId, // Exclude current user
+      };
+
+      if (skillNames.length > 0) {
+        params.skill_names = skillNames.join(',');
+      }
+
+      if (uniqueSkillIds.length > 0) {
+        params.skill_ids = uniqueSkillIds.join(',');
+      }
       
       const response = await axios.get("/api/workers/by-skills", {
-        params: {
-          skill_names: skillNames.join(','),
-          page: 1,
-          limit: 20,
-          exclude_user_id: currentUserId // Exclude current user
-        },
+        params,
         headers,
         timeout: 10000,
       });
@@ -350,16 +387,21 @@ const BrowseLaborCategories = () => {
       const workers = response.data.workers || [];
       
       if (workers.length === 0) {
-        console.log('No workers found with skills:', skillNames);
-        message.info(`No workers found with skills: ${skillNames.join(', ')}`);
+        console.log('No workers found with skills:', { skillNames, skillIds: uniqueSkillIds });
+        const messageSkills =
+          skillNames.length > 0
+            ? skillNames.join(', ')
+            : uniqueSkillIds.join(', ');
+        message.info(`No workers found with skills: ${messageSkills}`);
         return;
       }
 
       console.log('Navigating to browse with workers:', workers.length);
       console.log('Navigation state:', {
         filteredWorkers: workers,
-        serviceName: serviceName,
-        skillNames: skillNames,
+        serviceName,
+        skillNames,
+        skillIds: uniqueSkillIds,
         totalWorkers: response.data.pagination.totalItems
       });
 
@@ -367,8 +409,9 @@ const BrowseLaborCategories = () => {
       navigate('/browse', {
         state: {
           filteredWorkers: workers,
-          serviceName: serviceName,
-          skillNames: skillNames,
+          serviceName,
+          skillNames,
+          skillIds: uniqueSkillIds,
           totalWorkers: response.data.pagination.totalItems
         }
       });
@@ -502,7 +545,7 @@ const BrowseLaborCategories = () => {
                     </div>
                     <button
                       className="service-cta-btn"
-                      onClick={() => handleViewWorkersClick(service.name, service.color_collar_name, service.skills)}
+                      onClick={() => handleViewWorkersClick(service)}
                     >
                       View Available Workers &gt;&gt;
                     </button>

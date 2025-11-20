@@ -1231,9 +1231,11 @@ const WorkerList = () => {
 
           country: response.data.profile?.country || "Philippines",
 
-          profile_img: null,
+          profile_img: response.data.profile?.profile_img || null,
 
-          image_url: response.data.profile?.profile_img || null,
+          image_url: response.data.profile?.profile_img 
+            ? `${window.location.origin}/storage/${response.data.profile.profile_img}` 
+            : null,
 
         },
 
